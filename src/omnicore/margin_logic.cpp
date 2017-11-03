@@ -56,6 +56,4 @@ int margin_Logic(int contractsExecuted,CMPcontractDex* contractdex, CMPcontract 
   assert(update_tally_map(address,contract, newBalance, BALANCE));
   assert(update_tally_map(address, marginId, newMarginBalance, BALANCE));
 
-
-
 }
