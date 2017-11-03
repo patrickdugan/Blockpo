@@ -7,15 +7,18 @@
 //! Balance record types
 enum TallyType {
     BALANCE = 0,
-    SELLOFFER_RESERVE = 1,
-    ACCEPT_RESERVE = 2,
-    PENDING = 3,
+    SELLOFFER_RESERVE = 1, // Ofering Omni for Bicoin
+    ACCEPT_RESERVE = 2, // Accept the offer
+    PENDING = 3, 
     METADEX_RESERVE = 4,
+    /*New Things for Contract*/
+    CONTRACT_DEX_RESERVE = 5, //Included margin for oustanding contract and reserve margin for pending orders
+    REALIZED_PROFIT = 6, //Includes profit every time margin logic is call
+    REALIZED_LOSSES = 7, //Includes losses every time margin logic is call
     TALLY_TYPE_COUNT
 };
 
-/** Balance records of a single entity.
- */
+/** Balance records of a single entity.*/
 class CMPTally
 {
 private:

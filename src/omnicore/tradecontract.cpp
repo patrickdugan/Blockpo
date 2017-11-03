@@ -41,7 +41,7 @@ using namespace mastercore;
 
 //! Global map for price and order data
 md_PropertiesMap mastercore::metadex;
-
+    
 md_PricesMap* mastercore::get_Prices(uint32_t prop)
 {
     md_PropertiesMap::iterator it = metadex.find(prop);
@@ -106,17 +106,17 @@ static int64_t xToRoundUpInt64(const rational_t& value)
     return result.convert_to<int64_t>();
 }
 
-std::string xToString(const dec_float& value)
+std::string xToString(const dec_float &value)
 {
     return value.str(DISPLAY_PRECISION_LEN, std::ios_base::fixed);
 }
 
-std::string xToString(const int128_t& value)
+std::string xToString(const int128_t &value)
 {
     return strprintf("%s", boost::lexical_cast<std::string>(value));
 }
 
-std::string xToString(const rational_t& value)
+std::string xToString(const rational_t &value)
 {
     if (rangeInt64(value)) {
         int64_t num = value.numerator().convert_to<int64_t>();

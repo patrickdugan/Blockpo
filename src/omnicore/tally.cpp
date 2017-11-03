@@ -128,18 +128,17 @@ int64_t CMPTally::getMoney(uint32_t propertyId, TallyType ttype) const
  */
 int64_t CMPTally::getMoneyAvailable(uint32_t propertyId) const
 {
-    TokenMap::const_iterator it = mp_token.find(propertyId);
-
-    if (it != mp_token.end()) {
-        const BalanceRecord& record = it->second;
-        if (record.balance[PENDING] < 0) {
-            return record.balance[BALANCE] + record.balance[PENDING];
-        } else {
-            return record.balance[BALANCE];
-        }
+  TokenMap::const_iterator it = mp_token.find(propertyId);
+  
+  if (it != mp_token.end()) {
+    const BalanceRecord& record = it->second;
+    if (record.balance[PENDING] < 0) {
+      return record.balance[BALANCE] + record.balance[PENDING];
+    } else {
+      return record.balance[BALANCE];
     }
-
-    return 0;
+  }
+  return 0;
 }
 
 /**
