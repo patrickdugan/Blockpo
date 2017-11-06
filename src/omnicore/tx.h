@@ -3,6 +3,7 @@
 
 class CMPMetaDEx;
 class CMPOffer;
+class CMPContractDEx;
 class CTransaction;
 
 #include "omnicore/omnicore.h"
@@ -26,6 +27,7 @@ class CMPTransaction
 {
     friend class CMPMetaDEx;
     friend class CMPOffer;
+    friend class CMPContractDEx;
 
 private:
     uint256 txid;

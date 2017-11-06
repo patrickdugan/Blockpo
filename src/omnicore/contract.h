@@ -1,5 +1,5 @@
-#ifndef OMNICORE_TALLY_H
-#define OMNICORE_TALLY_H
+#ifndef OMNICORE_CONTRACT_H
+#define OMNICORE_CONTRACT_H
 
 #include <stdint.h>
 #include <map>
@@ -19,8 +19,8 @@ enum TallyType {
     TALLY_TYPE_COUNT
 };
 
-/** Balance records of a single entity.*/
-class CMPTally
+/*Balance records of a single entity.*/
+class CMPContract
 {
 private:
     typedef struct {
@@ -36,7 +36,7 @@ private:
 
 public:
     /** Creates an empty tally. */
-    CMPTally();
+    CMPContract();
 
     /** Resets the internal iterator. */
     uint32_t init();
@@ -57,10 +57,10 @@ public:
     int64_t getMoneyReserved(uint32_t propertyId) const;
 
     /** Compares the tally with another tally and returns true, if they are equal. */
-    bool operator==(const CMPTally& rhs) const;
+    bool operator==(const CMPContract& rhs) const;
 
     /** Compares the tally with another tally and returns true, if they are not equal. */
-    bool operator!=(const CMPTally& rhs) const;
+    bool operator!=(const CMPContract& rhs) const;
 
     /** Prints a balance record to the console. */
     int64_t print(uint32_t propertyId = 1, bool bDivisible = true) const;

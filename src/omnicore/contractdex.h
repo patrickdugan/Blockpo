@@ -1,5 +1,5 @@
-#ifndef OMNICORE_TRADECONTRACT_H
-#define OMNICORE_TRADECONTRACT_H
+#ifndef OMNICORE_CONTRACTDEX_H
+#define OMNICORE_CONTRACTDEX_H
 
 #include "omnicore/tx.h"
 
@@ -35,14 +35,12 @@ std::string xToString(const rational_t &value);
 /** A trade on the distributed exchange.*/
 class CMPContractDEx 
 {
-	private:
+    private:
+
         int block;
         uint256 txid;
         unsigned int idx; //Index within block
         uint32_t property;
-        /*New things Contract*/
-        bool order_type; //Yes: Buy, No: Sell 
-        
         uint32_t desired_property;
         int64_t amount_desired;
         int64_t amount_remaining;
@@ -53,15 +51,13 @@ class CMPContractDEx
 
 	    uint256 getHash() const { return txid; }
         uint32_t getProperty() const { return property; }
-        uint32_t getDesProperty() const { return desired_property; }
-	    uint32_t getOrderType() const { return order_type; }
-        int64_t getAmountForSale() const { return amount_forsale; }
+        uint32_t getDesProperty() const { return desired_property; }   
         int64_t getAmountDesired() const { return amount_desired; }
         int64_t getAmountRemaining() const { return amount_remaining; }
         int64_t getAmountToFill() const;
         uint8_t getAction() const { return subaction; }
         void setAmountRemaining(int64_t nValue, const std::string &label = "");
-        const std::string& getAddr() const { return addr; }
+        const std::string &getAddr() const { return addr; }
         int getBlock() const { return block; }
         unsigned int getIdx() const { return idx; }
         int64_t getBlockTime() const;
@@ -70,17 +66,20 @@ class CMPContractDEx
 			: block(0), idx(0), property(0), desired_property(0), amount_desired(0), amount_remaining(0), 
 			subaction(0) {}
 
-	    CMPContractDEx(const std::string &addr, int n_block, uint32_t n_property, int64_t nValue, 
-	    	uint32_t n_desired_property, int64_t n_amount_desired, const uint256 &n_txid, uint32_t n_idx, 
-	    	uint8_t n_subaction, const bool &order_type)
-        	: block(n_block), txid(n_txid), idx(n_idx), property(n_property), desired_property(n_desired_property), 
-        	amount_desired(n_amount_desired), amount_remaining(nValue), subaction(n_subaction), 
-        	addr(addr), order_type(order_type) {}
+        CMPMetaDEx(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad,
+                   const uint256& tx, uint32_t i, uint8_t suba)
+            : block(b), txid(tx), idx(i), property(c), desired_property(cd), amount_desired(ad),
+            amount_remaining(nValue), subaction(suba), addr(addr) {}
 
-	    CMPContractDEx(const CMPContract &tx) /*CMPContractDEx is friend class from CMPContract*/
-        	: block(tx.block), txid(tx.txid), idx(tx.idx), property(tx.property), desired_property(tx.desired_property), 
-        	amount_desired(tx.amount_desired), amount_remaining(tx.nValue), subaction(tx.subaction), 
-        	addr(tx.sender) {}
+        CMPMetaDEx(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad,
+                   const uint256& tx, uint32_t i, uint8_t suba, int64_t ar)
+            : block(b), txid(tx), idx(i), property(c), desired_property(cd), amount_desired(ad),
+            amount_remaining(ar), subaction(suba), addr(addr) {}
+
+        CMPMetaDEx(const CMPTransaction &tx)
+                : block(tx.block), txid(tx.txid), idx(tx.tx_idx), property(tx.property), 
+                desired_property(tx.desired_property), amount_desired(tx.desired_value), amount_remaining(tx.nValue),
+                subaction(tx.subaction), addr(tx.sender) {}
 
     std::string ToString() const;
     rational_t unitPrice() const;
@@ -123,15 +122,21 @@ int ContractDEx_CANCEL_ALL_FOR_PAIR(const uint256&, uint32_t, const std::string&
 int ContractDEx_CANCEL_EVERYTHING(const uint256& txid, uint32_t block, const std::string& sender_addr, unsigned char ecosystem);
 int ContractDEx_SHUTDOWN();
 int ContractDEx_SHUTDOWN_ALLPAIR();
-bool ContractDEx_INSERT(const CMPContractDEx& objContractDEx);
+bool ContractDEx_INSERT(const CMPContractDEx &objContractDEx);
 void ContractDEx_debug_print(bool bShowPriceLevel = false, bool bDisplay = false);
 bool ContractDEx_isOpen(const uint256& txid, uint32_t propertyIdForSale = 0);
 int ContractDEx_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold = -1);
 std::string ContractDEx_getStatusText(int tradeStatus);
+
 /*New things for Contract*/
 int ContractDEx_CANCEL_BY_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
 int ContractDEx_CANCEL_BY_CONTRACT(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
 int ContractDEx_ALL_CONTRACT_ORDERS(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
+bool ContractDEx_GET_ORDER_TYPE(const uint256& txid, const std::string&, uint32_t propertyIdForSale,  int64_t amountForSale, int64_t amount_desired);
+int ContractDEx_BALANCE_LOGIC(uint32_t propertyId, TallyType ttype);
+int ContractDEx_MARGIN_LOGIC(int ContractDExExecuted, CMPContractDEx* objCMPContractDEx, CMPContract &objCMPContract);
+
+/*Added RPC-info-related functions for getTradeInfo*/
 
 // Locates a trade in the ContractDEx maps via txid and returns the trade object
 const CMPContractDEx* ContractDEx_RetrieveTrade(const uint256& txid);

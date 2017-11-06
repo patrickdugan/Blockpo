@@ -1,4 +1,7 @@
-#include "omnicore/tradecontract.h"
+#include "omnicore/contractdex.h"
+
+/*New things for Contract: Used for ContractDEx_BALANCE_LOGIC*/
+#include "omnicore/tally.h"
 
 #include "omnicore/errors.h"
 #include "omnicore/fees.h"
@@ -847,4 +850,86 @@ const CMPMetaDEx* mastercore::MetaDEx_RetrieveTrade(const uint256& txid)
         }
     }
     return (CMPMetaDEx*) NULL;
+}
+
+/*New thing functions Contract*/
+
+ContractDEx_MARGIN_LOGIC(int ContractDExExecuted, CMPContractDEx* objCMPContractDEx, CMPContract &objCMPContract)
+{
+  std::string address =  objCMPContractDEx->getAddr();
+  const uint32_t propertyId = objCMPContractDEx->getProperty();
+  
+  int contractInfo = objCMPContract.getContractInfo(propertyId);
+  uint64_t marginId = objCMPContract.marginProperty;
+  int64_t oldBalance = getMPbalance(address, propertyId, BALANCE);
+  //set-up logic about closing gains/losses or not
+  int contractsClosed = 0;
+  int cont = 0;
+  int total = 0;
+
+  //apply clean math from the signed int provided as parameter
+  int newBalance = oldBalance + ContractDExExecuted;
+
+  if((abs(oldBalance) > abs(newBalance)) && (abs(ContractDExExecuted) < oldBalance)){
+
+         contractsClosed = oldBalance-newBalance;
+
+  }else if((abs(ContractDExExecuted) > abs(oldBalance)) && (ContractDExExecuted+oldBalance != 0)){
+
+         contractsClosed = oldBalance;
+    }
+
+    //calculate reserve to free pre-loss
+  int64_t freedReserveExPNL = (contractInfo.marginRequirement) *contractsClosed;
+
+    //look-up contract prices, take difference of execution price to average
+  const trades_lenght = thisTrade.matches.lenght; // this is only the idea
+
+  for(k = 0; k < trades_lenght ; k++) { total = total + thisTrade.matches[k]; }
+
+  double avgerageExecution = total / (trades_lenght);
+
+  //calls function to return map //of contracts not netted on this address
+  uint64_t myContracts [lenght] = objCMPContract.getMyContracts(thisAddress); // we need some wisdom from Pat
+  const contracts_lenght = myContracts.lenght; // this is only the idea
+
+  for(j = 0; j < contracts_lenght ; j++) { cont = cont + myContracts[j]; }
+
+  double averageCostBasis = cont / (contracts_lenght);
+  double PNL = averageExecution + (averageCostBasis * contractsClosed);
+  int64_t oldReserve = getMPbalance(marginId, propertyId,SELLOFFER_RESERVE); // selloffer_reserve is fine? or we must use ACCEPT_RESERVE?
+  int64_t newReserve = oldReserve - freedReserveExPNL-abs(PNL);
+  assert(update_tally_map(address,marginId, newReserve, SELLOFFER_RESERVE));
+  oldMarginBalance = TallyMap.retrieveBalance(marginid,thisaddress);
+  newMarginBalance = oldMarginBalance+freedReserveExPNL-abs(PNL);
+
+  //modify TallyMap for new contract balances and margin balances
+  assert(update_tally_map(address, objCMPContract, newBalance, BALANCE));
+  assert(update_tally_map(address, marginId, newMarginBalance, BALANCE));
+
+}
+
+int ContractDEx_CANCEL_BY_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t)
+{
+
+}
+
+int ContractDEx_CANCEL_BY_CONTRACT(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t)
+{
+
+}
+
+int ContractDEx_ALL_CONTRACT_ORDERS(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t)
+{
+
+}
+
+bool ContractDEx_GET_ORDER_TYPE(const uint256& txid, const std::string&, uint32_t propertyIdForSale,  int64_t amountForSale, int64_t amount_desired)
+{
+
+}
+
+int ContractDEx_BALANCE_LOGIC(uint32_t propertyId, TallyType ttype)
+{
+
 }
