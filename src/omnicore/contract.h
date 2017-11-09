@@ -1,69 +1,251 @@
 #ifndef OMNICORE_CONTRACT_H
 #define OMNICORE_CONTRACT_H
 
+#include "omnicore/log.h"
+#include "omnicore/omnicore.h"
+#include "omnicore/persistence.h" /*For the class CDBASE*/
+#include "omnicore/sp.h" /*For the class CMPSPInfo*/
+
+class CBlockIndex;
+class uint256;
+
+#include "serialize.h"
+
+#include <boost/filesystem.hpp>
+
+#include <openssl/sha.h>
+
 #include <stdint.h>
+#include <stdio.h>
+
+#include <fstream>
 #include <map>
+#include <string>
+#include <utility>
+#include <vector>
 
-//! Balance record types
-enum TallyType {
-    BALANCE = 0,
-    SELLOFFER_RESERVE = 1, // Ofering Omni for Bicoin
-    ACCEPT_RESERVE = 2, // Accept the offer
-    PENDING = 3, 
-    METADEX_RESERVE = 4,
-
-    /*New Things for Contract*/
-    CONTRACT_DEX_RESERVE = 5, //Included margin for oustanding contract and reserve margin for pending orders
-    REALIZED_PROFIT = 6, //Includes profit every time margin logic is call
-    REALIZED_LOSSES = 7, //Includes losses every time margin logic is call
-    TALLY_TYPE_COUNT
-};
-
-/*Balance records of a single entity.*/
-class CMPContract
+/** LevelDB based storage for currencies, smart properties and tokens.
+ *
+ * DB Schema:
+ *
+ *  Key:
+ *      char 'B'
+ *  Value:
+ *      uint256 hashBlock
+ *
+ *  Key:
+ *      char 's'
+ *      uint32_t propertyId
+ *  Value:
+ *      CMPContractInfo::Entry info
+ *
+ *  Key:
+ *      char 't'
+ *      uint256 hashTxid
+ *  Value:
+ *      uint32_t propertyId
+ *
+ *  Key:
+ *      char 'b'
+ *      uint256 hashBlock
+ *      uint32_t propertyId
+ *  Value:
+ *      CMPContractInfo::Entry info
+ */
+class CMPContractInfo : public CDBBase 
 {
-private:
-    typedef struct {
-        int64_t balance[TALLY_TYPE_COUNT];
-    } BalanceRecord;
+public:
+    struct Entry {
+        // common SP data
+        std::string issuer;
+        uint16_t prop_type;
+        uint32_t prev_prop_id;
+        std::string category;
+        std::string subcategory;
+        std::string name;
+        std::string url;
+        std::string data;
+        int64_t num_tokens;
 
-    //! Map of balance records
-    typedef std::map<uint32_t, BalanceRecord> TokenMap;
-    //! Balance records for different tokens
-    TokenMap mp_token;
-    //! Internal iterator pointing to a balance record
-    TokenMap::iterator my_it;
+        // crowdsale generated SP
+        uint32_t property_desired;
+        int64_t deadline;
+        uint8_t early_bird;
+        uint8_t percentage;
+
+        // closedearly states, if the SP was a crowdsale and closed due to MAXTOKENS or CLOSE command
+        bool close_early;
+        bool max_tokens;
+        int64_t missedTokens;
+        int64_t timeclosed;
+        uint256 txid_close;
+
+        // other information
+        uint256 txid;
+        uint256 creation_block;
+        uint256 update_block;
+        bool fixed;
+        bool manual;
+
+        /////////////////////////////////////////////////////////////
+        /*New information for Contracts*/
+        int64_t amount_marginreq;
+        /////////////////////////////////////////////////////////////
+        
+        // For crowdsale properties:
+        //   txid -> amount invested, crowdsale deadline, user issued tokens, issuer issued tokens
+        // For managed properties:
+        //   txid -> granted amount, revoked amount
+        std::map<uint256, std::vector<int64_t> > historicalData;
+
+        Entry();
+
+        ADD_SERIALIZE_METHODS;
+
+        template <typename Stream, typename Operation>
+        inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+            READWRITE(issuer);
+            READWRITE(prop_type);
+            READWRITE(prev_prop_id);
+            READWRITE(category);
+            READWRITE(subcategory);
+            READWRITE(name);
+            READWRITE(url);
+            READWRITE(data);
+            READWRITE(num_tokens);
+            READWRITE(property_desired);
+            READWRITE(deadline);
+            READWRITE(early_bird);
+            READWRITE(percentage);
+            READWRITE(close_early);
+            READWRITE(max_tokens);
+            READWRITE(missedTokens);
+            READWRITE(timeclosed);
+            READWRITE(txid_close);
+            READWRITE(txid);
+            READWRITE(creation_block);
+            READWRITE(update_block);
+            READWRITE(fixed);
+            READWRITE(manual);
+            READWRITE(historicalData);
+        }
+
+        /**/
+        bool isDivisible() const;
+        void print() const;
+    };
+
+private:
+    // implied version of OMNI and TOMNI so they don't hit the leveldb
+    Entry implied_omni;
+    Entry implied_tomni;
+
+    uint32_t next_spid;
+    uint32_t next_test_spid;
 
 public:
-    /** Creates an empty tally. */
-    CMPContract();
+    CMPContractInfo(const boost::filesystem::path& path, bool fWipe);
+    virtual ~CMPContractInfo();
 
-    /** Resets the internal iterator. */
-    uint32_t init();
+    /*Extends clearing of CDBBase.*/
+    void Clear();
 
-    /** Advances the internal iterator. */
-    uint32_t next();
+    void init(uint32_t nextSPID = 0x3UL, uint32_t nextTestSPID = TEST_ECO_PROPERTY_1);
 
-    /** Updates the number of tokens for the given tally type. */
-    bool updateMoney(uint32_t propertyId, int64_t amount, TallyType ttype);
+    uint32_t peekNextSPID(uint8_t ecosystem) const;
+    bool updateSP(uint32_t propertyId, const Entry& info);
+    uint32_t putSP(uint8_t ecosystem, const Entry& info);
+    bool getSP(uint32_t propertyId, Entry& info) const;
+    bool hasSP(uint32_t propertyId) const;
+    uint32_t findSPByTX(const uint256& txid) const;
 
-    /** Returns the number of tokens for the given tally type. */
-    int64_t getMoney(uint32_t propertyId, TallyType ttype) const;
+    int64_t popBlock(const uint256& block_hash);
 
-    /** Returns the number of available tokens. */
-    int64_t getMoneyAvailable(uint32_t propertyId) const;
+    void setWatermark(const uint256& watermark);
+    bool getWatermark(uint256& watermark) const;
 
-    /** Returns the number of reserved tokens. */
-    int64_t getMoneyReserved(uint32_t propertyId) const;
-
-    /** Compares the tally with another tally and returns true, if they are equal. */
-    bool operator==(const CMPContract& rhs) const;
-
-    /** Compares the tally with another tally and returns true, if they are not equal. */
-    bool operator!=(const CMPContract& rhs) const;
-
-    /** Prints a balance record to the console. */
-    int64_t print(uint32_t propertyId = 1, bool bDivisible = true) const;
+    void printAll() const;
 };
 
-#endif // OMNICORE_TALLY_H
+/** A live crowdsale.
+ */
+class CMPCrowd
+{
+private:
+
+    /*Remember: propertyId can be MSC or TMSC*/
+    uint32_t propertyId;
+    int64_t nValue;
+
+    uint32_t property_desired;
+    int64_t deadline;
+    uint8_t early_bird;
+    uint8_t percentage;
+
+    int64_t u_created;
+    int64_t i_created;
+
+    uint256 txid; // NOTE: not persisted as it doesnt seem used
+
+    // Schema:
+    //   txid -> amount invested, crowdsale deadline, user issued tokens, issuer issued tokens
+    std::map<uint256, std::vector<int64_t> > txFundraiserData;
+
+public:
+    CMPCrowd();
+    CMPCrowd(uint32_t pid, int64_t nv, uint32_t cd, int64_t dl, uint8_t eb, uint8_t per, int64_t uct, int64_t ict);
+
+    uint32_t getPropertyId() const { return propertyId; }
+
+    int64_t getDeadline() const { return deadline; }
+    uint32_t getCurrDes() const { return property_desired; }
+
+    void incTokensUserCreated(int64_t amount) { u_created += amount; }
+    void incTokensIssuerCreated(int64_t amount) { i_created += amount; }
+
+    int64_t getUserCreated() const { return u_created; }
+    int64_t getIssuerCreated() const { return i_created; }
+
+    void insertDatabase(const uint256& txHash, const std::vector<int64_t>& txData);
+    std::map<uint256, std::vector<int64_t> > getDatabase() const { return txFundraiserData; }
+
+    std::string toString(const std::string& address) const;
+    void print(const std::string& address, FILE* fp = stdout) const;
+    void saveCrowdSale(std::ofstream& file, SHA256_CTX* shaCtx, const std::string& addr) const;
+};
+
+namespace mastercore
+{
+typedef std::map<std::string, CMPCrowd> CrowdMap;
+
+extern CMPContractInfo* _my_sps;
+extern CrowdMap my_crowds;
+
+/*Remember: propertyType can be "MSC_PROPERTY_TYPE_DIVISIBLE, MSC_PROPERTY_TYPE_DIVISIBLE, MSC_PROPERTY_TYPE_CONTRACT"*/
+std::string strPropertyType(uint16_t propertyType);
+std::string strEcosystem(uint8_t ecosystem);
+
+std::string getPropertyName(uint32_t propertyId);
+bool isPropertyDivisible(uint32_t propertyId);
+bool IsPropertyIdValid(uint32_t propertyId);
+
+CMPCrowd* getCrowd(const std::string& address);
+
+bool isCrowdsaleActive(uint32_t propertyId);
+bool isCrowdsalePurchase(const uint256& txid, const std::string& address, int64_t* propertyId, int64_t* userTokens, int64_t* issuerTokens);
+
+/** Calculates missing bonus tokens, which are credited to the crowdsale issuer. */
+int64_t GetMissedIssuerBonus(const CMPContractInfo::Entry& sp, const CMPCrowd& crowdsale);
+
+/** Calculates amounts credited for a crowdsale purchase. */
+void calculateFundraiser(bool inflateAmount, int64_t amtTransfer, uint8_t bonusPerc,
+        int64_t fundraiserSecs, int64_t currentSecs, int64_t numProps, uint8_t issuerPerc, int64_t totalTokens,
+        std::pair<int64_t, int64_t>& tokens, bool& close_crowdsale);
+
+void eraseMaxedCrowdsale(const std::string& address, int64_t blockTime, int block);
+
+unsigned int eraseExpiredCrowdsale(const CBlockIndex* pBlockIndex);
+}
+
+
+#endif // OMNICORE_SP_H

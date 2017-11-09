@@ -1,252 +1,918 @@
+// Smart Properties & Crowd Sales
+
 #include "omnicore/contract.h"
 
 #include "omnicore/log.h"
 #include "omnicore/omnicore.h"
+#include "omnicore/uint256_extensions.h"
+
+#include "arith_uint256.h"
+#include "base58.h"
+#include "clientversion.h"
+#include "main.h"
+#include "serialize.h"
+#include "streams.h"
+#include "tinyformat.h"
+#include "uint256.h"
+#include "utiltime.h"
+
+#include <boost/algorithm/string.hpp>
+#include <boost/filesystem.hpp>
+#include <boost/lexical_cast.hpp>
+
+#include "leveldb/db.h"
+#include "leveldb/write_batch.h"
 
 #include <stdint.h>
-#include <map>
 
-/**
- * Creates an empty tally.
- */
-CMPTally::CMPTally()
+#include <map>
+#include <string>
+#include <vector>
+#include <utility>
+
+using namespace mastercore;
+
+CMPContractInfo::Entry::Entry()
+  : prop_type(0), prev_prop_id(0), num_tokens(0), property_desired(0),
+    deadline(0), early_bird(0), percentage(0),
+    close_early(false), max_tokens(false), missedTokens(0), timeclosed(0),
+    fixed(false), manual(false) amount_marginreq(0) {}
+
+bool CMPContractInfo::Entry::isDivisible() const
 {
-    my_it = mp_token.begin();
+    switch (prop_type) {
+        /*New information for Contracts: Remember #define MSC_PROPERTY_TYPE_CONTRACT 3*/
+        case MSC_PROPERTY_TYPE_CONTRACT:
+        return true;
+    }
+    return false;
 }
 
-/**
- * Resets the internal iterator.
- *
- * @return Identifier of the first tally element.
- */
-uint32_t CMPTally::init()
+void CMPContractInfo::Entry::print() const
+{
+    PrintToConsole("%s:%s(Fixed=%s,Divisible=%s):%d:%s/%s, %s %s\n",
+            issuer,
+            name,
+            fixed ? "Yes" : "No",
+            isDivisible() ? "Yes" : "No",
+            num_tokens,
+            category, 
+            subcategory, 
+            url, 
+            data);
+}
+
+CMPContractInfo::CMPContractInfo(const boost::filesystem::path &path, bool fWipe)
+{
+    /*Remember: Open is defined inside "persistence.h,cpp" 
+        The path boost::filesystem::path is /home/lihki/.bitcoin
+        The logic related with the path can be found in "/src/util.cpp"*/
+    leveldb::Status status = Open(path, fWipe);
+    PrintToConsole("Loading smart property database: %s\n", status.ToString());
+
+    // special cases for constant SPs OMNI and TOMNI
+    implied_omni.issuer = ExodusAddress().ToString();
+    implied_omni.num_tokens = 700000;
+    implied_omni.category = "N/A";
+    implied_omni.subcategory = "N/A";
+    implied_omni.name = "Omni";
+    implied_omni.url = "http://www.omnilayer.org";
+    implied_omni.data = "Omni serve as the binding between Bitcoin, smart properties and contracts created on the Omni Layer.";
+    /////////////////////////////////////////////////////////////
+    /*New information for Contracts*/
+    implied_omni.amount_marginreq = 1000000;
+    implied_omni.prop_type = MSC_PROPERTY_TYPE_CONTRACT;
+    /////////////////////////////////////////////////////////////
+    implied_tomni.issuer = ExodusAddress().ToString();
+    implied_tomni.num_tokens = 700000;
+    implied_tomni.category = "N/A";
+    implied_tomni.subcategory = "N/A";
+    implied_tomni.name = "Test Omni";
+    implied_tomni.url = "http://www.omnilayer.org";
+    implied_tomni.data = "Test Omni serve as the binding between Bitcoin, smart properties and contracts created on the Omni Layer.";
+    /////////////////////////////////////////////////////////////
+    /*New information for Contracts*/
+    implied_tomni.amount_marginreq = 1000000;
+    implied_omni.prop_type = MSC_PROPERTY_TYPE_CONTRACT;
+    /////////////////////////////////////////////////////////////
+
+    init(); 
+}
+
+CMPContractInfo::~CMPContractInfo()
+{
+    if (msc_debug_persistence) PrintToLog("CMPContractInfo closed\n");
+}
+
+void CMPContractInfo::Clear()
+{
+    // wipe database via parent class
+    CDBBase::Clear();
+    // reset "next property identifiers"
+    init();
+}
+
+void CMPContractInfo::init(uint32_t nextSPID, uint32_t nextTestSPID)
+{
+    next_spid = nextSPID;
+    next_test_spid = nextTestSPID;
+}
+
+uint32_t CMPContractInfo::peekNextSPID(uint8_t ecosystem) const
+{
+    uint32_t nextId = 0;
+
+    switch (ecosystem) {
+        case OMNI_PROPERTY_MSC: // Main ecosystem, MSC: 1, TMSC: 2, First available SP = 3
+            nextId = next_spid;
+            break;
+        case OMNI_PROPERTY_TMSC: // Test ecosystem, same as above with high bit set
+            nextId = next_test_spid;
+            break;
+        default: // Non-standard ecosystem, ID's start at 0
+            nextId = 0;
+    }
+
+    return nextId;
+}
+
+bool CMPContractInfo::updateSP(uint32_t propertyId, const Entry& info)
+{
+    // cannot update implied SP
+    if (OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId) {
+        return false;
+    }
+
+    // DB key for property entry
+
+    /*Remember that*/
+    /*SER_DISK definitions is inside /src/serialize.h */
+    /*CLIENT_VERSION definitions is inside /src/clientversion.h */
+
+    CDataStream ssSpKey(SER_DISK, CLIENT_VERSION);
+    ssSpKey << std::make_pair('s', propertyId);
+    leveldb::Slice slSpKey(&ssSpKey[0], ssSpKey.size());
+
+    // DB value for property entry
+    CDataStream ssSpValue(SER_DISK, CLIENT_VERSION);
+    ssSpValue.reserve(ssSpValue.GetSerializeSize(info));
+    ssSpValue << info;
+    leveldb::Slice slSpValue(&ssSpValue[0], ssSpValue.size());
+
+    // DB key for historical property entry
+    CDataStream ssSpPrevKey(SER_DISK, CLIENT_VERSION);
+    ssSpPrevKey << 'b';
+    ssSpPrevKey << info.update_block;
+    ssSpPrevKey << propertyId;
+    leveldb::Slice slSpPrevKey(&ssSpPrevKey[0], ssSpPrevKey.size());
+
+    leveldb::WriteBatch batch;
+    std::string strSpPrevValue;
+
+    // if a value exists move it to the old key
+    if (!pdb->Get(readoptions, slSpKey, &strSpPrevValue).IsNotFound()) {
+        batch.Put(slSpPrevKey, strSpPrevValue);
+    }
+    batch.Put(slSpKey, slSpValue);
+    leveldb::Status status = pdb->Write(syncoptions, &batch);
+
+    if (!status.ok()) {
+        PrintToLog("%s(): ERROR for SP %d: %s\n", __func__, propertyId, status.ToString());
+        return false;
+    }
+
+    PrintToLog("%s(): updated entry for SP %d successfully\n", __func__, propertyId);
+    return true;
+}
+
+uint32_t CMPContractInfo::putSP(uint8_t ecosystem, const Entry& info)
 {
     uint32_t propertyId = 0;
-    my_it = mp_token.begin();
-    if (my_it != mp_token.end()) {
-        propertyId = my_it->first;
+    switch (ecosystem) {
+        case OMNI_PROPERTY_MSC: // Main ecosystem, MSC: 1, TMSC: 2, First available SP = 3
+            propertyId = next_spid++;
+            break;
+        case OMNI_PROPERTY_TMSC: // Test ecosystem, same as above with high bit set
+            propertyId = next_test_spid++;
+            break;
+        default: // Non-standard ecosystem, ID's start at 0
+            propertyId = 0;
     }
+
+    // DB key for property entry
+    CDataStream ssSpKey(SER_DISK, CLIENT_VERSION);
+    ssSpKey << std::make_pair('s', propertyId);
+    leveldb::Slice slSpKey(&ssSpKey[0], ssSpKey.size());
+
+    // DB value for property entry
+    CDataStream ssSpValue(SER_DISK, CLIENT_VERSION);
+    ssSpValue.reserve(ssSpValue.GetSerializeSize(info));
+    ssSpValue << info;
+    leveldb::Slice slSpValue(&ssSpValue[0], ssSpValue.size());
+
+    // DB key for identifier lookup entry
+    CDataStream ssTxIndexKey(SER_DISK, CLIENT_VERSION);
+    ssTxIndexKey << std::make_pair('t', info.txid);
+    leveldb::Slice slTxIndexKey(&ssTxIndexKey[0], ssTxIndexKey.size());
+
+    // DB value for identifier
+    CDataStream ssTxValue(SER_DISK, CLIENT_VERSION);
+    ssTxValue.reserve(ssSpValue.GetSerializeSize(propertyId));
+    ssTxValue << propertyId;
+    leveldb::Slice slTxValue(&ssTxValue[0], ssTxValue.size());
+
+    // sanity checking
+    std::string existingEntry;
+    if (!pdb->Get(readoptions, slSpKey, &existingEntry).IsNotFound() && slSpValue.compare(existingEntry) != 0) {
+        std::string strError = strprintf("writing SP %d to DB, when a different SP already exists for that identifier", propertyId);
+        PrintToLog("%s() ERROR: %s\n", __func__, strError);
+    } else if (!pdb->Get(readoptions, slTxIndexKey, &existingEntry).IsNotFound() && slTxValue.compare(existingEntry) != 0) {
+        std::string strError = strprintf("writing index txid %s : SP %d is overwriting a different value", info.txid.ToString(), propertyId);
+        PrintToLog("%s() ERROR: %s\n", __func__, strError);
+    }
+
+    // atomically write both the the SP and the index to the database
+    leveldb::WriteBatch batch;
+    batch.Put(slSpKey, slSpValue);
+    batch.Put(slTxIndexKey, slTxValue);
+
+    leveldb::Status status = pdb->Write(syncoptions, &batch);
+
+    if (!status.ok()) {
+        PrintToLog("%s(): ERROR for SP %d: %s\n", __func__, propertyId, status.ToString());
+    }
+
     return propertyId;
 }
 
-/**
- * Advances the internal iterator.
- *
- * @return Identifier of the tally element before the update.
- */
-uint32_t CMPTally::next()
+bool CMPContractInfo::getSP(uint32_t propertyId, Entry &info) const
 {
-    uint32_t ret = 0;
-    if (my_it != mp_token.end()) {
-        ret = my_it->first;
-        ++my_it;
-    }
-    return ret;
-}
-
-/**
- * Checks whether the addition of a + b overflows.
- *
- * @param a  The number
- * @param b  The other number
- * @return True, if a + b overflows
- */
-static bool isOverflow(int64_t a, int64_t b)
-{
-    return (((b > 0) && (a > (std::numeric_limits<int64_t>::max() - b))) ||
-            ((b < 0) && (a < (std::numeric_limits<int64_t>::min() - b))));
-}
-
-/**
- * Updates the number of tokens for the given tally type.
- *
- * Negative balances are only permitted for pending balances.
- *
- * @param propertyId  The identifier of the tally to update
- * @param amount      The amount to add
- * @param ttype       The tally type
- * @return True, if the update was successful
- */
-bool CMPTally::updateMoney(uint32_t propertyId, int64_t amount, TallyType ttype)
-{
-    if (TALLY_TYPE_COUNT <= ttype || amount == 0) {
-        return false;
-    }
-    bool fUpdated = false;
-    int64_t now64 = mp_token[propertyId].balance[ttype];
-
-    if (isOverflow(now64, amount)) {
-        PrintToLog("%s(): ERROR: arithmetic overflow [%d + %d]\n", __func__, now64, amount);
-        return false;
+    // special cases for constant SPs MSC and TMSC
+    if (OMNI_PROPERTY_MSC == propertyId) {
+        info = implied_omni;
+        return true;
+    } else if (OMNI_PROPERTY_TMSC == propertyId) {
+        info = implied_tomni;
+        return true;
     }
 
-    if (PENDING != ttype && (now64 + amount) < 0) {
-        // NOTE:
-        // Negative balances are only permitted for pending balances
-    } else {
+    // DB key for property entry
+    CDataStream ssSpKey(SER_DISK, CLIENT_VERSION);
+    ssSpKey << std::make_pair('s', propertyId);
+    leveldb::Slice slSpKey(&ssSpKey[0], ssSpKey.size());
 
-        now64 += amount;
-        mp_token[propertyId].balance[ttype] = now64;
-
-        fUpdated = true;
-    }
-
-    return fUpdated;
-}
-
-/**
- * Returns the number of tokens for the given tally type.
- *
- * @param propertyId  The identifier of the tally to lookup
- * @param ttype       The tally type
- * @return The balance
- */
-int64_t CMPTally::getMoney(uint32_t propertyId, TallyType ttype) const
-{
-    if (TALLY_TYPE_COUNT <= ttype) {
-        return 0;
-    }
-    int64_t money = 0;
-    TokenMap::const_iterator it = mp_token.find(propertyId);
-
-    if (it != mp_token.end()) {
-        const BalanceRecord& record = it->second;
-        money = record.balance[ttype];
-    }
-
-    return money;
-}
-
-/**
- * Returns the number of available tokens.
- *
- * The number of available tokens can be negative, if there is a pending
- * balance.
- *
- * @param propertyId  The identifier of the tally to lookup
- * @return The available balance
- */
-int64_t CMPTally::getMoneyAvailable(uint32_t propertyId) const
-{
-  TokenMap::const_iterator it = mp_token.find(propertyId);
-  
-  if (it != mp_token.end()) {
-    const BalanceRecord& record = it->second;
-    if (record.balance[PENDING] < 0) {
-      return record.balance[BALANCE] + record.balance[PENDING];
-    } else {
-      return record.balance[BALANCE];
-    }
-  }
-  return 0;
-}
-
-/**
- * Returns the number of reserved tokens.
- *
- * Balances can be reserved by sell offers, pending accepts, or offers
- * on the distributed exchange.
- *
- * @param propertyId  The identifier of the tally to lookup
- * @return The reserved balance
- */
-int64_t CMPTally::getMoneyReserved(uint32_t propertyId) const
-{
-    int64_t money = 0;
-    TokenMap::const_iterator it = mp_token.find(propertyId);
-
-    if (it != mp_token.end()) {
-        const BalanceRecord& record = it->second;
-        money += record.balance[SELLOFFER_RESERVE];
-        money += record.balance[ACCEPT_RESERVE];
-        money += record.balance[METADEX_RESERVE];
-    }
-
-    return money;
-}
-
-/**
- * Compares the tally with another tally and returns true, if they are equal.
- *
- * @param rhs  The other tally
- * @return True, if both tallies are equal
- */
-bool CMPTally::operator==(const CMPTally& rhs) const
-{
-    if (mp_token.size() != rhs.mp_token.size()) {
-        return false;
-    }
-    TokenMap::const_iterator pc1 = mp_token.begin();
-    TokenMap::const_iterator pc2 = rhs.mp_token.begin();
-
-    for (unsigned int i = 0; i < mp_token.size(); ++i) {
-        if (pc1->first != pc2->first) {
-            return false;
+    // DB value for property entry
+    std::string strSpValue;
+    leveldb::Status status = pdb->Get(readoptions, slSpKey, &strSpValue);
+    if (!status.ok()) {
+        if (!status.IsNotFound()) {
+            PrintToLog("%s(): ERROR for SP %d: %s\n", __func__, propertyId, status.ToString());
         }
-        const BalanceRecord& record1 = pc1->second;
-        const BalanceRecord& record2 = pc2->second;
-
-        for (int ttype = 0; ttype < TALLY_TYPE_COUNT; ++ttype) {
-            if (record1.balance[ttype] != record2.balance[ttype]) {
-                return false;
-            }
-        }
-        ++pc1;
-        ++pc2;
+        return false;
     }
 
-    assert(pc1 == mp_token.end());
-    assert(pc2 == rhs.mp_token.end());
+    try {
+        CDataStream ssSpValue(strSpValue.data(), strSpValue.data() + strSpValue.size(), SER_DISK, CLIENT_VERSION);
+        ssSpValue >> info;
+    } catch (const std::exception& e) {
+        PrintToLog("%s(): ERROR for SP %d: %s\n", __func__, propertyId, e.what());
+        return false;
+    }
 
     return true;
 }
 
-/**
- * Compares the tally with another tally and returns true, if they are not equal.
- *
- * @param rhs  The other tally
- * @return True, if both tallies are not equal
- */
-bool CMPTally::operator!=(const CMPTally& rhs) const
+bool CMPContractInfo::hasSP(uint32_t propertyId) const
 {
-    return !operator==(rhs);
+    // Special cases for constant SPs MSC and TMSC
+    if (OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId) {
+        return true;
+    }
+
+    // DB key for property entry
+    CDataStream ssSpKey(SER_DISK, CLIENT_VERSION);
+    ssSpKey << std::make_pair('s', propertyId);
+    leveldb::Slice slSpKey(&ssSpKey[0], ssSpKey.size());
+
+    // DB value for property entry
+    std::string strSpValue;
+    leveldb::Status status = pdb->Get(readoptions, slSpKey, &strSpValue);
+
+    return status.ok();
+}
+
+uint32_t CMPContractInfo::findSPByTX(const uint256& txid) const
+{
+    uint32_t propertyId = 0;
+
+    // DB key for identifier lookup entry
+    CDataStream ssTxIndexKey(SER_DISK, CLIENT_VERSION);
+    ssTxIndexKey << std::make_pair('t', txid);
+    leveldb::Slice slTxIndexKey(&ssTxIndexKey[0], ssTxIndexKey.size());
+
+    // DB value for identifier
+    std::string strTxIndexValue;
+    if (!pdb->Get(readoptions, slTxIndexKey, &strTxIndexValue).ok()) {
+        std::string strError = strprintf("failed to find property created with %s", txid.GetHex());
+        PrintToLog("%s(): ERROR: %s", __func__, strError);
+        return 0;
+    }
+
+    try {
+        CDataStream ssValue(strTxIndexValue.data(), strTxIndexValue.data() + strTxIndexValue.size(), SER_DISK, CLIENT_VERSION);
+        ssValue >> propertyId;
+    } catch (const std::exception& e) {
+        PrintToLog("%s(): ERROR: %s\n", __func__, e.what());
+        return 0;
+    }
+
+    return propertyId;
+}
+
+int64_t CMPContractInfo::popBlock(const uint256& block_hash)
+{
+    int64_t remainingSPs = 0;
+    leveldb::WriteBatch commitBatch;
+    leveldb::Iterator* iter = NewIterator();
+
+    CDataStream ssSpKeyPrefix(SER_DISK, CLIENT_VERSION);
+    ssSpKeyPrefix << 's';
+    leveldb::Slice slSpKeyPrefix(&ssSpKeyPrefix[0], ssSpKeyPrefix.size());
+
+    for (iter->Seek(slSpKeyPrefix); iter->Valid() && iter->key().starts_with(slSpKeyPrefix); iter->Next()) {
+        // deserialize the persisted value
+        leveldb::Slice slSpValue = iter->value();
+        Entry info;
+        try {
+            CDataStream ssValue(slSpValue.data(), slSpValue.data() + slSpValue.size(), SER_DISK, CLIENT_VERSION);
+            ssValue >> info;
+        } catch (const std::exception& e) {
+            PrintToLog("%s(): ERROR: %s\n", __func__, e.what());
+            return -1;
+        }
+        // pop the block
+        if (info.update_block == block_hash) {
+            leveldb::Slice slSpKey = iter->key();
+
+            // need to roll this SP back
+            if (info.update_block == info.creation_block) {
+                // this is the block that created this SP, so delete the SP and the tx index entry
+                CDataStream ssTxIndexKey(SER_DISK, CLIENT_VERSION);
+                ssTxIndexKey << std::make_pair('t', info.txid);
+                leveldb::Slice slTxIndexKey(&ssTxIndexKey[0], ssTxIndexKey.size());
+                commitBatch.Delete(slSpKey);
+                commitBatch.Delete(slTxIndexKey);
+            } else {
+                uint32_t propertyId = 0;
+                try {
+                    CDataStream ssValue(1+slSpKey.data(), 1+slSpKey.data()+slSpKey.size(), SER_DISK, CLIENT_VERSION);
+                    ssValue >> propertyId;
+                } catch (const std::exception& e) {
+                    PrintToLog("%s(): ERROR: %s\n", __func__, e.what());
+                    return -2;
+                }
+
+                CDataStream ssSpPrevKey(SER_DISK, CLIENT_VERSION);
+                ssSpPrevKey << 'b';
+                ssSpPrevKey << info.update_block;
+                ssSpPrevKey << propertyId;
+                leveldb::Slice slSpPrevKey(&ssSpPrevKey[0], ssSpPrevKey.size());
+
+                std::string strSpPrevValue;
+                if (!pdb->Get(readoptions, slSpPrevKey, &strSpPrevValue).IsNotFound()) {
+                    // copy the prev state to the current state and delete the old state
+                    commitBatch.Put(slSpKey, strSpPrevValue);
+                    commitBatch.Delete(slSpPrevKey);
+                    ++remainingSPs;
+                } else {
+                    // failed to find a previous SP entry, trigger reparse
+                    PrintToLog("%s(): ERROR: failed to retrieve previous SP entry\n", __func__);
+                    return -3;
+                }
+            }
+        } else {
+            ++remainingSPs;
+        }
+    }
+
+    // clean up the iterator
+    delete iter;
+
+    leveldb::Status status = pdb->Write(syncoptions, &commitBatch);
+
+    if (!status.ok()) {
+        PrintToLog("%s(): ERROR: %s\n", __func__, status.ToString());
+        return -4;
+    }
+
+    return remainingSPs;
+}
+
+void CMPContractInfo::setWatermark(const uint256& watermark)
+{
+    leveldb::WriteBatch batch;
+
+    CDataStream ssKey(SER_DISK, CLIENT_VERSION);
+    ssKey << 'B';
+    leveldb::Slice slKey(&ssKey[0], ssKey.size());
+
+    CDataStream ssValue(SER_DISK, CLIENT_VERSION);
+    ssValue.reserve(ssValue.GetSerializeSize(watermark));
+    ssValue << watermark;
+    leveldb::Slice slValue(&ssValue[0], ssValue.size());
+
+    batch.Delete(slKey);
+    batch.Put(slKey, slValue);
+
+    leveldb::Status status = pdb->Write(syncoptions, &batch);
+    if (!status.ok()) {
+        PrintToLog("%s(): ERROR: failed to write watermark: %s\n", __func__, status.ToString());
+    }
+}
+
+bool CMPContractInfo::getWatermark(uint256& watermark) const
+{
+    CDataStream ssKey(SER_DISK, CLIENT_VERSION);
+    ssKey << 'B';
+    leveldb::Slice slKey(&ssKey[0], ssKey.size());
+
+    std::string strValue;
+    leveldb::Status status = pdb->Get(readoptions, slKey, &strValue);
+    if (!status.ok()) {
+        if (!status.IsNotFound()) {
+            PrintToLog("%s(): ERROR: failed to retrieve watermark: %s\n", __func__, status.ToString());
+        }
+        return false;
+    }
+
+    try {
+        CDataStream ssValue(strValue.data(), strValue.data() + strValue.size(), SER_DISK, CLIENT_VERSION);
+        ssValue >> watermark;
+    } catch (const std::exception& e) {
+        PrintToLog("%s(): ERROR: failed to deserialize watermark: %s\n", __func__, e.what());
+        return false;
+    }
+
+    return true;
+}
+
+void CMPContractInfo::printAll() const
+{
+    // print off the hard coded MSC and TMSC entries
+    for (uint32_t idx = OMNI_PROPERTY_MSC; idx <= OMNI_PROPERTY_TMSC; idx++) {
+        Entry info;
+        PrintToConsole("%10d => ", idx);
+        if (getSP(idx, info)) {
+            info.print();
+        } else {
+            PrintToConsole("<Internal Error on implicit SP>\n");
+        }
+    }
+
+    leveldb::Iterator* iter = NewIterator();
+
+    CDataStream ssSpKeyPrefix(SER_DISK, CLIENT_VERSION);
+    ssSpKeyPrefix << 's';
+    leveldb::Slice slSpKeyPrefix(&ssSpKeyPrefix[0], ssSpKeyPrefix.size());
+
+    for (iter->Seek(slSpKeyPrefix); iter->Valid() && iter->key().starts_with(slSpKeyPrefix); iter->Next()) {
+        leveldb::Slice slSpKey = iter->key();
+        uint32_t propertyId = 0;
+        try {
+            CDataStream ssValue(1+slSpKey.data(), 1+slSpKey.data()+slSpKey.size(), SER_DISK, CLIENT_VERSION);
+            ssValue >> propertyId;
+        } catch (const std::exception& e) {
+            PrintToLog("%s(): ERROR: %s\n", __func__, e.what());
+            PrintToConsole("<Malformed key in DB>\n");
+            continue;
+        }
+        PrintToConsole("%10s => ", propertyId);
+
+        // deserialize the persisted data
+        leveldb::Slice slSpValue = iter->value();
+        Entry info;
+        try {
+            CDataStream ssSpValue(slSpValue.data(), slSpValue.data() + slSpValue.size(), SER_DISK, CLIENT_VERSION);
+            ssSpValue >> info;
+        } catch (const std::exception& e) {
+            PrintToConsole("<Malformed value in DB>\n");
+            PrintToLog("%s(): ERROR: %s\n", __func__, e.what());
+            continue;
+        }
+        info.print();
+    }
+
+    // clean up the iterator
+    delete iter;
+}
+
+CMPCrowd::CMPCrowd()
+  : propertyId(0), nValue(0), property_desired(0), deadline(0),
+    early_bird(0), percentage(0), u_created(0), i_created(0)
+{
+}
+
+CMPCrowd::CMPCrowd(uint32_t pid, int64_t nv, uint32_t cd, int64_t dl, uint8_t eb, uint8_t per, int64_t uct, int64_t ict)
+  : propertyId(pid), nValue(nv), property_desired(cd), deadline(dl),
+    early_bird(eb), percentage(per), u_created(uct), i_created(ict)
+{
+}
+
+void CMPCrowd::insertDatabase(const uint256& txHash, const std::vector<int64_t>& txData)
+{
+    txFundraiserData.insert(std::make_pair(txHash, txData));
+}
+
+std::string CMPCrowd::toString(const std::string& address) const
+{
+    /*Remember: CMPCrowd inside contract.h contain the private variables "address, propertyId, propertyId, property_desired, nValue, 
+    deadline". strprintf return a string in console wih every variable.*/
+    return strprintf("%34s : id=%u=%X; prop=%u, value= %li, deadline: %s (%lX)", address, propertyId, propertyId,
+        property_desired, nValue, DateTimeStrFormat("%Y-%m-%d %H:%M:%S", deadline), deadline);
+}
+
+void CMPCrowd::print(const std::string& address, FILE* fp) const
+{
+    fprintf(fp, "%s\n", toString(address).c_str());
+}
+
+void CMPCrowd::saveCrowdSale(std::ofstream& file, SHA256_CTX* shaCtx, const std::string& addr) const
+{
+    // compose the outputline
+    // addr,propertyId,nValue,property_desired,deadline,early_bird,percentage,created,mined
+    std::string lineOut = strprintf("%s,%d,%d,%d,%d,%d,%d,%d,%d",
+            addr,
+            propertyId,
+            nValue,
+            property_desired,
+            deadline,
+            early_bird,
+            percentage,
+            u_created,
+            i_created);
+
+    // append N pairs of address=nValue;blockTime for the database
+    std::map<uint256, std::vector<int64_t> >::const_iterator iter;
+    for (iter = txFundraiserData.begin(); iter != txFundraiserData.end(); ++iter) {
+        lineOut.append(strprintf(",%s=", (*iter).first.GetHex()));
+        std::vector<int64_t> const &vals = (*iter).second;
+
+        std::vector<int64_t>::const_iterator valIter;
+        for (valIter = vals.begin(); valIter != vals.end(); ++valIter) {
+            if (valIter != vals.begin()) {
+                lineOut.append(";");
+            }
+
+            lineOut.append(strprintf("%d", *valIter));
+        }
+    }
+
+    // add the line to the hash
+    SHA256_Update(shaCtx, lineOut.c_str(), lineOut.length());
+
+    // write the line
+    file << lineOut << std::endl;
+}
+
+CMPCrowd* mastercore::getCrowd(const std::string& address)
+{
+    CrowdMap::iterator my_it = my_crowds.find(address);
+
+    if (my_it != my_crowds.end()) return &(my_it->second);
+
+    return (CMPCrowd *)NULL;
+}
+
+bool mastercore::IsPropertyIdValid(uint32_t propertyId)
+{
+    if (propertyId == 0) return false;
+
+    uint32_t nextId = 0;
+
+    if (propertyId < TEST_ECO_PROPERTY_1) {
+        nextId = _my_sps->peekNextSPID(1);
+    } else {
+        nextId = _my_sps->peekNextSPID(2);
+    }
+
+    if (propertyId < nextId) {
+        return true;
+    }
+
+    return false;
+}
+
+bool mastercore::isPropertyDivisible(uint32_t propertyId)
+{
+    // TODO: is a lock here needed
+    CMPContractInfo::Entry sp;
+
+    if (_my_sps->getSP(propertyId, sp)) return sp.isDivisible();
+
+    return true;
+}
+
+std::string mastercore::getPropertyName(uint32_t propertyId)
+{
+    CMPContractInfo::Entry sp;
+    if (_my_sps->getSP(propertyId, sp)) return sp.name;
+    return "Property Name Not Found";
+}
+
+bool mastercore::isCrowdsaleActive(uint32_t propertyId)
+{
+    for (CrowdMap::const_iterator it = my_crowds.begin(); it != my_crowds.end(); ++it) {
+        const CMPCrowd& crowd = it->second;
+        uint32_t foundPropertyId = crowd.getPropertyId();
+        if (foundPropertyId == propertyId) return true;
+    }
+    return false;
 }
 
 /**
- * Prints a balance record to the console.
+ * Calculates missing bonus tokens, which are credited to the crowdsale issuer.
  *
- * @param propertyId  The identifier of the tally to print
- * @param bDivisible  Whether the token is divisible or indivisible
- * @return The total number of tokens of the tally
+ * Due to rounding effects, a crowdsale issuer may not receive the full
+ * bonus immediatly. The missing amount is calculated based on the total
+ * tokens created and already credited.
+ *
+ * @param sp        The crowdsale property
+ * @param crowdsale The crowdsale
+ * @return The number of missed tokens
  */
-int64_t CMPTally::print(uint32_t propertyId, bool bDivisible) const
+int64_t mastercore::GetMissedIssuerBonus(const CMPContractInfo::Entry& sp, const CMPCrowd& crowdsale)
 {
-    int64_t balance = 0;
-    int64_t selloffer_reserve = 0;
-    int64_t accept_reserve = 0;
-    int64_t pending = 0;
-    int64_t metadex_reserve = 0;
+    // consistency check
+    assert(getTotalTokens(crowdsale.getPropertyId())
+            == (crowdsale.getIssuerCreated() + crowdsale.getUserCreated()));
 
-    TokenMap::const_iterator it = mp_token.find(propertyId);
+    arith_uint256 amountMissing = 0;
+    arith_uint256 bonusPercentForIssuer = ConvertTo256(sp.percentage);
+    arith_uint256 amountAlreadyCreditedToIssuer = ConvertTo256(crowdsale.getIssuerCreated());
+    arith_uint256 amountCreditedToUsers = ConvertTo256(crowdsale.getUserCreated());
+    arith_uint256 amountTotal = amountCreditedToUsers + amountAlreadyCreditedToIssuer;
 
-    if (it != mp_token.end()) {
-        const BalanceRecord& record = it->second;
-        balance = record.balance[BALANCE];
-        selloffer_reserve = record.balance[SELLOFFER_RESERVE];
-        accept_reserve = record.balance[ACCEPT_RESERVE];
-        pending = record.balance[PENDING];
-        metadex_reserve = record.balance[METADEX_RESERVE];
+    // calculate theoretical bonus for issuer based on the amount of
+    // tokens credited to users
+    arith_uint256 exactBonus = amountCreditedToUsers * bonusPercentForIssuer;
+    exactBonus /= ConvertTo256(100); // 100 %
+
+    // there shall be no negative missing amount
+    if (exactBonus < amountAlreadyCreditedToIssuer) {
+        return 0;
     }
 
-    if (bDivisible) {
-        PrintToConsole("%22s [ SO_RESERVE= %22s, ACCEPT_RESERVE= %22s, METADEX_RESERVE= %22s ] %22s\n",
-                FormatDivisibleMP(balance, true), FormatDivisibleMP(selloffer_reserve, true),
-                FormatDivisibleMP(accept_reserve, true), FormatDivisibleMP(metadex_reserve, true),
-                FormatDivisibleMP(pending, true));
-    } else {
-        PrintToConsole("%14d [ SO_RESERVE= %14d, ACCEPT_RESERVE= %14d, METADEX_RESERVE= %14d ] %14d\n",
-                balance, selloffer_reserve, accept_reserve, metadex_reserve, pending);
+    // subtract the amount already credited to the issuer
+    if (exactBonus > amountAlreadyCreditedToIssuer) {
+        amountMissing = exactBonus - amountAlreadyCreditedToIssuer;
     }
 
-    return (balance + selloffer_reserve + accept_reserve + metadex_reserve);
+    // calculate theoretical total amount of all tokens
+    arith_uint256 newTotal = amountTotal + amountMissing;
+
+    // reduce to max. possible amount
+    if (newTotal > uint256_const::max_int64) {
+        amountMissing = uint256_const::max_int64 - amountTotal;
+    }
+
+    return ConvertTo64(amountMissing);
+}
+
+// calculateFundraiser does token calculations per transaction
+// calcluateFractional does calculations for missed tokens
+void mastercore::calculateFundraiser(bool inflateAmount, int64_t amtTransfer, uint8_t bonusPerc,
+        int64_t fundraiserSecs, int64_t currentSecs, int64_t numProps, uint8_t issuerPerc, int64_t totalTokens,
+        std::pair<int64_t, int64_t>& tokens, bool& close_crowdsale)
+{
+    // Weeks in seconds
+    arith_uint256 weeks_sec_ = ConvertTo256(604800);
+
+    // Precision for all non-bitcoin values (bonus percentages, for example)
+    arith_uint256 precision_ = ConvertTo256(1000000000000LL);
+
+    // Precision for all percentages (10/100 = 10%)
+    arith_uint256 percentage_precision = ConvertTo256(100);
+
+    // Calculate the bonus seconds
+    arith_uint256 bonusSeconds_ = 0;
+    if (currentSecs < fundraiserSecs) {
+        bonusSeconds_ = ConvertTo256(fundraiserSecs) - ConvertTo256(currentSecs);
+    }
+
+    // Calculate the whole number of weeks to apply bonus
+    arith_uint256 weeks_ = (bonusSeconds_ / weeks_sec_) * precision_;
+    weeks_ += (Modulo256(bonusSeconds_, weeks_sec_) * precision_) / weeks_sec_;
+
+    // Calculate the earlybird percentage to be applied
+    arith_uint256 ebPercentage_ = weeks_ * ConvertTo256(bonusPerc);
+
+    // Calcluate the bonus percentage to apply up to percentage_precision number of digits
+    arith_uint256 bonusPercentage_ = (precision_ * percentage_precision);
+    bonusPercentage_ += ebPercentage_;
+    bonusPercentage_ /= percentage_precision;
+
+    // Calculate the bonus percentage for the issuer
+    arith_uint256 issuerPercentage_ = ConvertTo256(issuerPerc);
+    issuerPercentage_ *= precision_;
+    issuerPercentage_ /= percentage_precision;
+
+    // Precision for bitcoin amounts (satoshi)
+    arith_uint256 satoshi_precision_ = ConvertTo256(100000000L);
+
+    // Total tokens including remainders
+    arith_uint256 createdTokens = ConvertTo256(amtTransfer);
+    if (inflateAmount) {
+        createdTokens *= ConvertTo256(100000000L);
+    }
+    createdTokens *= ConvertTo256(numProps);
+    createdTokens *= bonusPercentage_;
+
+    arith_uint256 issuerTokens = createdTokens / satoshi_precision_;
+    issuerTokens /= precision_;
+    issuerTokens *= (issuerPercentage_ / 100);
+    issuerTokens *= precision_;
+
+    arith_uint256 createdTokens_int = createdTokens / precision_;
+    createdTokens_int /= satoshi_precision_;
+
+    arith_uint256 issuerTokens_int = issuerTokens / precision_;
+    issuerTokens_int /= satoshi_precision_;
+    issuerTokens_int /= 100;
+
+    arith_uint256 newTotalCreated = ConvertTo256(totalTokens) + createdTokens_int + issuerTokens_int;
+
+    if (newTotalCreated > uint256_const::max_int64) {
+        arith_uint256 maxCreatable = uint256_const::max_int64 - ConvertTo256(totalTokens);
+        arith_uint256 created = createdTokens_int + issuerTokens_int;
+
+        // Calcluate the ratio of tokens for what we can create and apply it
+        arith_uint256 ratio = created * precision_;
+        ratio *= satoshi_precision_;
+        ratio /= maxCreatable;
+
+        // The tokens for the issuer
+        issuerTokens_int = issuerTokens_int * precision_;
+        issuerTokens_int *= satoshi_precision_;
+        issuerTokens_int /= ratio;
+
+        assert(issuerTokens_int <= maxCreatable);
+
+        // The tokens for the user
+        createdTokens_int = maxCreatable - issuerTokens_int;
+
+        // Close the crowdsale after assigning all tokens
+        close_crowdsale = true;
+    }
+
+    // The tokens to credit
+    tokens = std::make_pair(ConvertTo64(createdTokens_int), ConvertTo64(issuerTokens_int));
+}
+
+// go hunting for whether a simple send is a crowdsale purchase
+// TODO !!!! horribly inefficient !!!! find a more efficient way to do this
+bool mastercore::isCrowdsalePurchase(const uint256& txid, const std::string& address, int64_t* propertyId, int64_t* userTokens, int64_t* issuerTokens)
+{
+    // 1. loop crowdsales (active/non-active) looking for issuer address
+    // 2. loop those crowdsales for that address and check their participant txs in database
+
+    // check for an active crowdsale to this address
+    CMPCrowd* pcrowdsale = getCrowd(address);
+    if (pcrowdsale) {
+        std::map<uint256, std::vector<int64_t> >::const_iterator it;
+        const std::map<uint256, std::vector<int64_t> >& database = pcrowdsale->getDatabase();
+        for (it = database.begin(); it != database.end(); it++) {
+            const uint256& tmpTxid = it->first;
+            if (tmpTxid == txid) {
+                *propertyId = pcrowdsale->getPropertyId();
+                *userTokens = it->second.at(2);
+                *issuerTokens = it->second.at(3);
+                return true;
+            }
+        }
+    }
+
+    // if we still haven't found txid, check non active crowdsales to this address
+    for (uint8_t ecosystem = 1; ecosystem <= 2; ecosystem++) {
+        uint32_t startPropertyId = (ecosystem == 1) ? 1 : TEST_ECO_PROPERTY_1;
+        for (uint32_t loopPropertyId = startPropertyId; loopPropertyId < _my_sps->peekNextSPID(ecosystem); loopPropertyId++) {
+            CMPContractInfo::Entry sp;
+            if (!_my_sps->getSP(loopPropertyId, sp)) continue;
+            if (sp.issuer != address) continue;
+            for (std::map<uint256, std::vector<int64_t> >::const_iterator it = sp.historicalData.begin(); it != sp.historicalData.end(); it++) {
+                if (it->first == txid) {
+                    *propertyId = loopPropertyId;
+                    *userTokens = it->second.at(2);
+                    *issuerTokens = it->second.at(3);
+                    return true;
+                }
+            }
+        }
+    }
+
+    // didn't find anything, not a crowdsale purchase
+    return false;
+}
+
+void mastercore::eraseMaxedCrowdsale(const std::string& address, int64_t blockTime, int block)
+{
+    CrowdMap::iterator it = my_crowds.find(address);
+
+    if (it != my_crowds.end()) {
+        const CMPCrowd& crowdsale = it->second;
+
+        PrintToLog("%s(): ERASING MAXED OUT CROWDSALE from address=%s, at block %d (timestamp: %d), SP: %d (%s)\n",
+            __func__, address, block, blockTime, crowdsale.getPropertyId(), strMPProperty(crowdsale.getPropertyId()));
+
+        if (msc_debug_sp) {
+            PrintToLog("%s(): %s\n", __func__, DateTimeStrFormat("%Y-%m-%d %H:%M:%S", blockTime));
+            PrintToLog("%s(): %s\n", __func__, crowdsale.toString(address));
+        }
+
+        // get sp from data struct
+        CMPContractInfo::Entry sp;
+        assert(_my_sps->getSP(crowdsale.getPropertyId(), sp));
+
+        // get txdata
+        sp.historicalData = crowdsale.getDatabase();
+        sp.close_early = true;
+        sp.max_tokens = true;
+        sp.timeclosed = blockTime;
+
+        // update SP with this data
+        sp.update_block = chainActive[block]->GetBlockHash();
+        assert(_my_sps->updateSP(crowdsale.getPropertyId(), sp));
+
+        // no calculate fractional calls here, no more tokens (at MAX)
+        my_crowds.erase(it);
+    }
+}
+
+unsigned int mastercore::eraseExpiredCrowdsale(const CBlockIndex* pBlockIndex)
+{
+    if (pBlockIndex == NULL) return 0;
+
+    const int64_t blockTime = pBlockIndex->GetBlockTime();
+    const int blockHeight = pBlockIndex->nHeight;
+    unsigned int how_many_erased = 0;
+    CrowdMap::iterator my_it = my_crowds.begin();
+
+    while (my_crowds.end() != my_it) {
+        const std::string& address = my_it->first;
+        const CMPCrowd& crowdsale = my_it->second;
+
+        if (blockTime > crowdsale.getDeadline()) {
+            PrintToLog("%s(): ERASING EXPIRED CROWDSALE from address=%s, at block %d (timestamp: %d), SP: %d (%s)\n",
+                __func__, address, blockHeight, blockTime, crowdsale.getPropertyId(), strMPProperty(crowdsale.getPropertyId()));
+
+            if (msc_debug_sp) {
+                PrintToLog("%s(): %s\n", __func__, DateTimeStrFormat("%Y-%m-%d %H:%M:%S", blockTime));
+                PrintToLog("%s(): %s\n", __func__, crowdsale.toString(address));
+            }
+
+            // get sp from data struct
+            CMPContractInfo::Entry sp;
+            assert(_my_sps->getSP(crowdsale.getPropertyId(), sp));
+
+            // find missing tokens
+            int64_t missedTokens = GetMissedIssuerBonus(sp, crowdsale);
+
+            // get txdata
+            sp.historicalData = crowdsale.getDatabase();
+            sp.missedTokens = missedTokens;
+
+            // update SP with this data
+            sp.update_block = pBlockIndex->GetBlockHash();
+            assert(_my_sps->updateSP(crowdsale.getPropertyId(), sp));
+
+            // update values
+            if (missedTokens > 0) {
+                assert(update_tally_map(sp.issuer, crowdsale.getPropertyId(), missedTokens, BALANCE));
+            }
+
+            my_crowds.erase(my_it++);
+
+            ++how_many_erased;
+
+        } else my_it++;
+    }
+
+    return how_many_erased;
+}
+
+std::string mastercore::strPropertyType(uint16_t propertyType)
+{
+    switch (propertyType) {
+        /*New information for Contracts: Here we added the new property type*/
+        case MSC_PROPERTY_TYPE_CONTRACT: return "contract";
+    }
+    return "unknown";
+}
+
+std::string mastercore::strEcosystem(uint8_t ecosystem)
+{
+    switch (ecosystem) {
+        case OMNI_PROPERTY_MSC: return "main";
+        case OMNI_PROPERTY_TMSC: return "test";
+    }
+    return "unknown";
 }

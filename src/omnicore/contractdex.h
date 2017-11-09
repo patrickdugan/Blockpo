@@ -39,7 +39,7 @@ class CMPContractDEx
 
         int block;
         uint256 txid;
-        unsigned int idx; //Index within block
+        unsigned int idx; //Index within block "Base address of a block within the blockchain"
         uint32_t property;
         uint32_t desired_property;
         int64_t amount_desired;
@@ -77,9 +77,9 @@ class CMPContractDEx
             amount_remaining(ar), subaction(suba), addr(addr) {}
 
         CMPMetaDEx(const CMPTransaction &tx)
-                : block(tx.block), txid(tx.txid), idx(tx.tx_idx), property(tx.property), 
-                desired_property(tx.desired_property), amount_desired(tx.desired_value), amount_remaining(tx.nValue),
-                subaction(tx.subaction), addr(tx.sender) {}
+            : block(tx.block), txid(tx.txid), idx(tx.tx_idx), property(tx.property), 
+            desired_property(tx.desired_property), amount_desired(tx.desired_value), amount_remaining(tx.nValue),
+            subaction(tx.subaction), addr(tx.sender) {}
 
     std::string ToString() const;
     rational_t unitPrice() const;
@@ -95,52 +95,51 @@ class CMPContractDEx
 
 namespace mastercore
 {
-struct ContractDEx_compare
-{
-	bool operator()(const CMPContractDEx &lhs, const CMPContractDEx &rhs) const;
-};
+    struct ContractDEx_compare
+    {
+	   bool operator()(const CMPContractDEx &lhs, const CMPContractDEx &rhs) const;
+    };
 
-// ---------------
-//! Set of objects sorted by block+idx
-typedef std::set<CMPContractDEx, ContractDEx_compare> md_Set; 
-//! Map of prices; there is a set of sorted objects for each price
-typedef std::map<rational_t, md_Set> md_PricesMap;
-//! Map of properties; there is a map of prices for each property
-typedef std::map<uint32_t, md_PricesMap> md_PropertiesMap;
+    //! Set of objects sorted by block+idx
+    typedef std::set<CMPContractDEx, ContractDEx_compare> md_Set; 
+    //! Map of prices; there is a set of sorted objects for each price
+    typedef std::map<rational_t, md_Set> md_PricesMap;
+    //! Map of properties; there is a map of prices for each property
+    typedef std::map<uint32_t, md_PricesMap> md_PropertiesMap;
 
-//! Global map for price and order data
-extern md_PropertiesMap ContractDEx;
+    //! Global map for price and order data
+    extern md_PropertiesMap ContractDEx;
 
-// TODO: explore a property-pair, instead of a single property as map's key........
-md_PricesMap* get_Prices(uint32_t prop);
-md_Set* get_Indexes(md_PricesMap* p, rational_t price);
-// ---------------
+    // TODO: explore a property-pair, instead of a single property as map's key........
+    md_PricesMap* get_Prices(uint32_t prop);
+    md_Set* get_Indexes(md_PricesMap* p, rational_t price);
+    // ---------------
 
-int ContractDEx_ADD(const std::string& sender_addr, uint32_t, int64_t, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx);
-int ContractDEx_CANCEL_AT_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
-int ContractDEx_CANCEL_ALL_FOR_PAIR(const uint256&, uint32_t, const std::string&, uint32_t, uint32_t);
-int ContractDEx_CANCEL_EVERYTHING(const uint256& txid, uint32_t block, const std::string& sender_addr, unsigned char ecosystem);
-int ContractDEx_SHUTDOWN();
-int ContractDEx_SHUTDOWN_ALLPAIR();
-bool ContractDEx_INSERT(const CMPContractDEx &objContractDEx);
-void ContractDEx_debug_print(bool bShowPriceLevel = false, bool bDisplay = false);
-bool ContractDEx_isOpen(const uint256& txid, uint32_t propertyIdForSale = 0);
-int ContractDEx_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold = -1);
-std::string ContractDEx_getStatusText(int tradeStatus);
+    int ContractDEx_ADD(const std::string& sender_addr, uint32_t, int64_t, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx);
+    int ContractDEx_CANCEL_AT_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
+    int ContractDEx_CANCEL_ALL_FOR_PAIR(const uint256&, uint32_t, const std::string&, uint32_t, uint32_t);
+    int ContractDEx_CANCEL_EVERYTHING(const uint256& txid, uint32_t block, const std::string& sender_addr, unsigned char ecosystem);
+    int ContractDEx_SHUTDOWN();
+    int ContractDEx_SHUTDOWN_ALLPAIR();
+    bool ContractDEx_INSERT(const CMPContractDEx &objContractDEx);
+    void ContractDEx_debug_print(bool bShowPriceLevel = false, bool bDisplay = false);
+    bool ContractDEx_isOpen(const uint256& txid, uint32_t propertyIdForSale = 0);
+    int ContractDEx_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold = -1);
+    std::string ContractDEx_getStatusText(int tradeStatus);
 
-/*New things for Contract*/
-int ContractDEx_CANCEL_BY_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
-int ContractDEx_CANCEL_BY_CONTRACT(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
-int ContractDEx_ALL_CONTRACT_ORDERS(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
-bool ContractDEx_GET_ORDER_TYPE(const uint256& txid, const std::string&, uint32_t propertyIdForSale,  int64_t amountForSale, int64_t amount_desired);
-int ContractDEx_BALANCE_LOGIC(uint32_t propertyId, TallyType ttype);
-int ContractDEx_MARGIN_LOGIC(int ContractDExExecuted, CMPContractDEx* objCMPContractDEx, CMPContract &objCMPContract);
+    /*New things for Contract*/
+    int ContractDEx_CANCEL_BY_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
+    int ContractDEx_CANCEL_BY_CONTRACT(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
+    int ContractDEx_ALL_CONTRACT_ORDERS(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
+    bool ContractDEx_GET_ORDER_TYPE(const uint256& txid, const std::string&, uint32_t propertyIdForSale,  int64_t amountForSale, int64_t amount_desired);
+    int ContractDEx_BALANCE_LOGIC(uint32_t propertyId, TallyType ttype);
+    int ContractDEx_MARGIN_LOGIC(int ContractDExExecuted, CMPContractDEx* objCMPContractDEx, CMPContract &objCMPContract);
 
-/*Added RPC-info-related functions for getTradeInfo*/
+    /*Added RPC-info-related functions for getTradeInfo*/
 
-// Locates a trade in the ContractDEx maps via txid and returns the trade object
-const CMPContractDEx* ContractDEx_RetrieveTrade(const uint256& txid);
-
+    // Locates a trade in the ContractDEx maps via txid and returns the trade object
+    const CMPContractDEx* ContractDEx_RetrieveTrade(const uint256& txid); 
+    /*Observe that: ContractDEx_RetrieveTrade return pointer to an object of type CMPContractDEx*/
 }
 
 #endif 

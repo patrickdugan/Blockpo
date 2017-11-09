@@ -83,7 +83,7 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
     implied_tomni.url = "http://www.omnilayer.org";
     implied_tomni.data = "Test Omni serve as the binding between Bitcoin, smart properties and contracts created on the Omni Layer.";
 
-    init();
+    init(); 
 }
 
 CMPSPInfo::~CMPSPInfo()
@@ -227,7 +227,7 @@ uint32_t CMPSPInfo::putSP(uint8_t ecosystem, const Entry& info)
     return propertyId;
 }
 
-bool CMPSPInfo::getSP(uint32_t propertyId, Entry& info) const
+bool CMPSPInfo::getSP(uint32_t propertyId, Entry &info) const
 {
     // special cases for constant SPs MSC and TMSC
     if (OMNI_PROPERTY_MSC == propertyId) {
@@ -895,6 +895,5 @@ std::string mastercore::strEcosystem(uint8_t ecosystem)
         case OMNI_PROPERTY_MSC: return "main";
         case OMNI_PROPERTY_TMSC: return "test";
     }
-
     return "unknown";
 }

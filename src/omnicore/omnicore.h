@@ -98,6 +98,9 @@ enum TransactionType {
 #define MSC_PROPERTY_TYPE_INDIVISIBLE_APPENDING   129
 #define MSC_PROPERTY_TYPE_DIVISIBLE_APPENDING     130
 
+/*New property type #3 Contract*/
+#define MSC_PROPERTY_TYPE_CONTRACT                3
+
 enum FILETYPES {
   FILETYPE_BALANCES = 0,
   FILETYPE_OFFERS,
