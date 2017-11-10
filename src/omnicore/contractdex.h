@@ -19,18 +19,16 @@
 #include <set>
 #include <string>
 
-typedef boost::rational<boost::multiprecision::checked_int128_t> rational_t;
-
 // ContractDEx trade statuses
 #define TRADE_INVALID                 -1
-#define TRADE_OPEN                    1
+#define TRADE_OPEN                    1 
 #define TRADE_OPEN_PART_FILLED        2
 #define TRADE_FILLED                  3
 #define TRADE_CANCELLED               4
 #define TRADE_CANCELLED_PART_FILLED   5
 
 /** Converts price to string. */
-std::string xToString(const rational_t &value);
+std::string xToString(const int32_t &value);
 
 /** A trade on the distributed exchange.*/
 class CMPContractDEx 
@@ -41,49 +39,34 @@ class CMPContractDEx
         uint256 txid;
         unsigned int idx; //Index within block "Base address of a block within the blockchain"
         uint32_t property;
-        uint32_t desired_property;
-        int64_t amount_desired;
-        int64_t amount_remaining;
+        int32_t contract_price;
         std::string addr;
-        uint8_t subaction; 
 
 	public:
 
+        int getBlock() const { return block; }
 	    uint256 getHash() const { return txid; }
+        unsigned int getIdx() const { return idx; }
         uint32_t getProperty() const { return property; }
-        uint32_t getDesProperty() const { return desired_property; }   
-        int64_t getAmountDesired() const { return amount_desired; }
-        int64_t getAmountRemaining() const { return amount_remaining; }
-        int64_t getAmountToFill() const;
-        uint8_t getAction() const { return subaction; }
         void setAmountRemaining(int64_t nValue, const std::string &label = "");
         const std::string &getAddr() const { return addr; }
-        int getBlock() const { return block; }
-        unsigned int getIdx() const { return idx; }
         int64_t getBlockTime() const;
 
 		CMPContractDEx()
-			: block(0), idx(0), property(0), desired_property(0), amount_desired(0), amount_remaining(0), 
-			subaction(0) {}
+			: block(0), idx(0), property(0), desired_property(0), contract_price(0), subaction(0) {}
 
-        CMPMetaDEx(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad,
+        CMPContractDEx(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad,
                    const uint256& tx, uint32_t i, uint8_t suba)
-            : block(b), txid(tx), idx(i), property(c), desired_property(cd), amount_desired(ad),
-            amount_remaining(nValue), subaction(suba), addr(addr) {}
+            : block(b), txid(tx), idx(i), property(c), desired_property(cd), contract_price(cp), 
+            subaction(suba), addr(addr) {}
 
-        CMPMetaDEx(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad,
-                   const uint256& tx, uint32_t i, uint8_t suba, int64_t ar)
-            : block(b), txid(tx), idx(i), property(c), desired_property(cd), amount_desired(ad),
-            amount_remaining(ar), subaction(suba), addr(addr) {}
-
-        CMPMetaDEx(const CMPTransaction &tx)
-            : block(tx.block), txid(tx.txid), idx(tx.tx_idx), property(tx.property), 
-            desired_property(tx.desired_property), amount_desired(tx.desired_value), amount_remaining(tx.nValue),
-            subaction(tx.subaction), addr(tx.sender) {}
-
+        CMPContractDEx(const CMPTransaction &tx)
+            : block(tx.block), txid(tx.txid), idx(tx.tx_idx), property(tx.property), desired_property(tx.desired_property)
+            , contract_price(cp), subaction(tx.subaction), addr(tx.sender) {}
+            /*Remember: "sender" is coming from the class CMPTransaction defined in tx.h and is copy to addr*/
+    
     std::string ToString() const;
-    rational_t unitPrice() const;
-    rational_t inversePrice() const;
+    int32_t priceContract() const;
 
     /** Used for display of unit prices to 8 decimal places at UI layer. */
     std::string displayUnitPrice() const;
@@ -102,9 +85,12 @@ namespace mastercore
 
     //! Set of objects sorted by block+idx
     typedef std::set<CMPContractDEx, ContractDEx_compare> md_Set; 
+
     //! Map of prices; there is a set of sorted objects for each price
-    typedef std::map<rational_t, md_Set> md_PricesMap;
+    typedef std::map<int32_t, md_Set> md_PricesMap;
+
     //! Map of properties; there is a map of prices for each property
+    /*Remember: uint32_t =  property; md_PricesMap = Price Map*/
     typedef std::map<uint32_t, md_PricesMap> md_PropertiesMap;
 
     //! Global map for price and order data
@@ -112,7 +98,7 @@ namespace mastercore
 
     // TODO: explore a property-pair, instead of a single property as map's key........
     md_PricesMap* get_Prices(uint32_t prop);
-    md_Set* get_Indexes(md_PricesMap* p, rational_t price);
+    md_Set* get_Indexes(md_PricesMap* p, int32_t price);
     // ---------------
 
     int ContractDEx_ADD(const std::string& sender_addr, uint32_t, int64_t, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx);

@@ -30,6 +30,7 @@ class CMPTransaction
     friend class CMPContractDEx;
 
 private:
+    
     uint256 txid;
     int block;
     int64_t blockTime;  // internally nTime is still an "unsigned int"
@@ -50,6 +51,9 @@ private:
     // CreatePropertyFixed, CreatePropertyVariable, GrantTokens, RevokeTokens
     uint64_t nValue;
     uint64_t nNewValue;
+
+    /*New things for Contracts: We added the new private variable "cp" for the contract price int32_t*/
+    uint32_t cp;
 
     // SimpleSend, SendToOwners, TradeOffer, MetaDEx, AcceptOfferBTC,
     // CreatePropertyFixed, CreatePropertyVariable, CloseCrowdsale,
@@ -267,6 +271,7 @@ public:
     }
 
     /** Sets the given values. */
+    /*Remember: pkt container of private variables in the "class ContractDEx": property, desired_property,...*/
     void Set(const std::string& s, const std::string& r, uint64_t n, const uint256& t,
         int b, unsigned int idx, unsigned char *p, unsigned int size, int encodingClassIn, uint64_t txf)
     {

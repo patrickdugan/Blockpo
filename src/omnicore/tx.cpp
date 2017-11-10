@@ -252,6 +252,7 @@ bool CMPTransaction::interpret_SendAll()
 }
 
 /** Tx 20 */
+/*Remember: pkt container of private variables in the "class ContractDEx": property, desired_property,...*/
 bool CMPTransaction::interpret_TradeOffer()
 {
     int expectedSize = (version == MP_TX_PKT_V0) ? 33 : 34;

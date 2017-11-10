@@ -54,7 +54,7 @@ md_PricesMap* mastercore::get_Prices(uint32_t prop)
     return (md_PricesMap*) NULL;
 }
 
-md_Set* mastercore::get_Indexes(md_PricesMap* p, rational_t price)
+md_Set* mastercore::get_Indexes(md_PricesMap* p, int32_t price)
 {
     md_PricesMap::iterator it = p->find(price);
 
@@ -93,13 +93,13 @@ static bool rangeInt64(const int128_t& value)
 }
 
 // Used by xToString
-static bool rangeInt64(const rational_t& value)
+static bool rangeInt64(const int32_t &value)
 {
     return (rangeInt64(value.numerator()) && rangeInt64(value.denominator()));
 }
 
 // Used by CMPContractDEx::displayUnitPrice
-static int64_t xToRoundUpInt64(const rational_t& value)
+static int64_t xToRoundUpInt64(const int32_t& value)
 {
     // for integer rounding up: ceil(num / denom) => 1 + (num - 1) / denom
     int128_t result = int128_t(1) + (value.numerator() - int128_t(1)) / value.denominator();
@@ -119,7 +119,7 @@ std::string xToString(const int128_t &value)
     return strprintf("%s", boost::lexical_cast<std::string>(value));
 }
 
-std::string xToString(const rational_t &value)
+std::string xToString(const int32_t &value)
 {
     if (rangeInt64(value)) {
         int64_t num = value.numerator().convert_to<int64_t>();
@@ -139,6 +139,7 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
 {
     const uint32_t propertyForSale = pnew->getProperty();
     const uint32_t propertyDesired = pnew->getDesProperty();
+    
     MatchReturnType NewReturn = NOTHING;
     bool bBuyerSatisfied = false;
 
@@ -155,7 +156,9 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
 
     // within the desired property map (given one property) iterate over the items looking at prices
     for (md_PricesMap::iterator priceIt = ppriceMap->begin(); priceIt != ppriceMap->end(); ++priceIt) { // check all prices
-        const rational_t sellersPrice = priceIt->first;
+        
+        /*Remember: Here we make a loop on the prices inside md_PricesMap*/        
+        const int32_t sellersPrice = priceIt->first;
 
         if (msc_debug_metadex2) PrintToLog("comparing prices: desprice %s needs to be GREATER THAN OR EQUAL TO %s\n",
             xToString(pnew->inversePrice()), xToString(sellersPrice));
@@ -165,6 +168,7 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
             continue;
         }
 
+        /*Remember: priceIt->second is the map md_Set defined in the class "CMPContractDEx"*/
         md_Set* const pofferSet = &(priceIt->second);
 
         // at good (single) price level and property iterate over offers looking at all parameters to find the match
@@ -235,7 +239,7 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
 
             // If the resulting adjusted unit price is higher than Alice' price, the
             // orders shall not execute, and no representable fill is made
-            const rational_t xEffectivePrice(nWouldPay, nCouldBuy);
+            const int32_t xEffectivePrice(nWouldPay, nCouldBuy);
 
             if (xEffectivePrice > pnew->inversePrice()) {
                 if (msc_debug_metadex1) PrintToLog(
@@ -347,7 +351,7 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
  */
 std::string CMPContractDEx::displayUnitPrice() const
 {
-     rational_t tmpDisplayPrice;
+     int32_t tmpDisplayPrice;
      if (getDesProperty() == OMNI_PROPERTY_MSC || getDesProperty() == OMNI_PROPERTY_TMSC) {
          tmpDisplayPrice = unitPrice();
          if (isPropertyDivisible(getProperty())) tmpDisplayPrice = tmpDisplayPrice * COIN;
@@ -374,7 +378,7 @@ std::string CMPContractDEx::displayUnitPrice() const
  */
 std::string CMPContractDEx::displayFullUnitPrice() const
 {
-    rational_t tempUnitPrice = unitPrice();
+    int32_t tempUnitPrice = unitPrice();
 
     /* Matching types require no action (divisible/divisible or indivisible/indivisible)
        Non-matching types require adjustment for display purposes
@@ -388,18 +392,12 @@ std::string CMPContractDEx::displayFullUnitPrice() const
     return unitPriceStr;
 }
 
-rational_t CMPContractDEx::unitPrice() const
+/*New things for Contract: Contract tx parameters: propertyid, type, amount, price - e.g. 3423, 'sell', 5, 69002*/
+int32_t CMPContractDEx::priceContract() const
 {
-    rational_t effectivePrice;
-    if (amount_forsale) effectivePrice = rational_t(amount_desired, amount_forsale);
+    int32_t effectivePrice;
+    if (contract_price) effectivePrice = int32_t(contract_price);
     return effectivePrice;
-}
-
-rational_t CMPContractDEx::inversePrice() const
-{
-    rational_t inversePrice;
-    if (amount_desired) inversePrice = rational_t(amount_forsale, amount_desired);
-    return inversePrice;
 }
 
 int64_t CMPContractDEx::getAmountToFill() const
@@ -546,7 +544,7 @@ int mastercore::MetaDEx_CANCEL_AT_PRICE(const uint256& txid, unsigned int block,
 
     // within the desired property map (given one property) iterate over the items
     for (md_PricesMap::iterator my_it = prices->begin(); my_it != prices->end(); ++my_it) {
-        rational_t sellers_price = my_it->first;
+        int32_t sellers_price = my_it->first;
 
         if (mdex.unitPrice() != sellers_price) continue;
 
@@ -655,7 +653,7 @@ int mastercore::MetaDEx_CANCEL_EVERYTHING(const uint256& txid, unsigned int bloc
         md_PricesMap& prices = my_it->second;
 
         for (md_PricesMap::iterator it = prices.begin(); it != prices.end(); ++it) {
-            rational_t price = it->first;
+            int32_t price = it->first;
             md_Set& indexes = it->second;
 
             PrintToLog("  # Price Level: %s\n", xToString(price));
@@ -818,7 +816,7 @@ void mastercore::MetaDEx_debug_print(bool bShowPriceLevel, bool bDisplay)
         md_PricesMap& prices = my_it->second;
 
         for (md_PricesMap::iterator it = prices.begin(); it != prices.end(); ++it) {
-            rational_t price = it->first;
+            int32_t price = it->first;
             md_Set& indexes = it->second;
 
             if (bShowPriceLevel) PrintToLog("  # Price Level: %s\n", xToString(price));
