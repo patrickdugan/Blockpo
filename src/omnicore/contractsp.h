@@ -1,5 +1,5 @@
-#ifndef OMNICORE_CONTRACT_H
-#define OMNICORE_CONTRACT_H
+#ifndef OMNICORE_CONTRACTSP_H
+#define OMNICORE_CONTRACTSP_H
 
 #include "omnicore/log.h"
 #include "omnicore/omnicore.h"

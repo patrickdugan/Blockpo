@@ -1,6 +1,6 @@
 // Smart Properties & Crowd Sales
 
-#include "omnicore/contract.h"
+#include "omnicore/contractsp.h"
 
 #include "omnicore/log.h"
 #include "omnicore/omnicore.h"

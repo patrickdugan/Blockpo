@@ -136,6 +136,7 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 {
     const uint32_t propertyForSale = pnew->getProperty();
     const uint32_t propertyDesired = pnew->getDesProperty();
+
     MatchReturnType NewReturn = NOTHING;
     bool bBuyerSatisfied = false;
 
@@ -164,7 +165,7 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 
         md_Set* const pofferSet = &(priceIt->second);
 
-        // at good (single) price level and property iterate over offers looking at all parameters to find the match
+        // At good (single) price level and property iterate over offers looking at all parameters to find the match
         md_Set::iterator offerIt = pofferSet->begin();
         while (offerIt != pofferSet->end()) { // specific price, check all properties
             const CMPMetaDEx* const pold = &(*offerIt);
@@ -181,7 +182,7 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 
             if (msc_debug_metadex1) PrintToLog("MATCH FOUND, Trade: %s = %s\n", xToString(sellersPrice), pold->ToString());
 
-            // match found, execute trade now!
+            // Match found, execute trade now!
             const int64_t seller_amountForSale = pold->getAmountRemaining();
             const int64_t buyer_amountOffered = pnew->getAmountRemaining();
 
