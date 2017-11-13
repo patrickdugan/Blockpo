@@ -53,7 +53,7 @@ private:
     uint64_t nNewValue;
 
     /*New things for Contracts: We added the new private variable "cp" for the contract price int32_t*/
-    uint32_t cp;
+    uint32_t cpValue;
 
     // SimpleSend, SendToOwners, TradeOffer, MetaDEx, AcceptOfferBTC,
     // CreatePropertyFixed, CreatePropertyVariable, CloseCrowdsale,

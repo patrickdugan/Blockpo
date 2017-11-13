@@ -36,34 +36,34 @@ class CMPContractDEx
     private:
 
         int block;
-        uint256 txid;
         unsigned int idx; //Index within block "Base address of a block within the blockchain"
         uint32_t property;
         int32_t contract_price;
         std::string addr;
+        uint256 txid;
 
 	public:
 
         int getBlock() const { return block; }
-	    uint256 getHash() const { return txid; }
         unsigned int getIdx() const { return idx; }
         uint32_t getProperty() const { return property; }
         void setAmountRemaining(int64_t nValue, const std::string &label = "");
         const std::string &getAddr() const { return addr; }
         int64_t getBlockTime() const;
+        const std::string& getAddr() const { return addr; }
+        uint256 getHash() const { return txid; }
+
 
 		CMPContractDEx()
-			: block(0), idx(0), property(0), desired_property(0), contract_price(0), subaction(0) {}
+			: block(0), idx(0), property(0) {}
 
-        CMPContractDEx(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad,
-                   const uint256& tx, uint32_t i, uint8_t suba)
-            : block(b), txid(tx), idx(i), property(c), desired_property(cd), contract_price(cp), 
-            subaction(suba), addr(addr) {}
+        CMPContractDEx(const std::string& addr, int b, uint32_t c, int64_t cpValue, const uint256 &tx, uint32_t i)
+            : addr(addr), block(b), property(c), contract_price(cpValue), txid(tx), idx(i) {}
 
         CMPContractDEx(const CMPTransaction &tx)
-            : block(tx.block), txid(tx.txid), idx(tx.tx_idx), property(tx.property), desired_property(tx.desired_property)
-            , contract_price(cp), subaction(tx.subaction), addr(tx.sender) {}
-            /*Remember: "sender" is coming from the class CMPTransaction defined in tx.h and is copy to addr*/
+            : block(tx.block), txid(tx.txid), idx(tx.tx_idx), property(tx.property), contract_price(tx.cpValue), 
+            addr(tx.sender) {}
+            /*Remember: "sender" is coming from the class CMPTransaction defined in tx.h and it is copied to addr*/
     
     std::string ToString() const;
     int32_t priceContract() const;
@@ -87,6 +87,7 @@ namespace mastercore
     typedef std::set<CMPContractDEx, ContractDEx_compare> md_Set; 
 
     //! Map of prices; there is a set of sorted objects for each price
+    /*Remember: int32_t =  prices; md_Set = Set for the Contract class*/
     typedef std::map<int32_t, md_Set> md_PricesMap;
 
     //! Map of properties; there is a map of prices for each property

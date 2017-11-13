@@ -171,9 +171,10 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
         /*Remember: priceIt->second is the map md_Set defined in the class "CMPContractDEx"*/
         md_Set* const pofferSet = &(priceIt->second);
 
-        // at good (single) price level and property iterate over offers looking at all parameters to find the match
+        /*Remember: At good (single) price level and property iterate over offers looking at all parameters to find the match*/
         md_Set::iterator offerIt = pofferSet->begin();
         while (offerIt != pofferSet->end()) { // specific price, check all properties
+
             const CMPContractDEx* const pold = &(*offerIt);
             assert(pold->unitPrice() == sellersPrice);
 
