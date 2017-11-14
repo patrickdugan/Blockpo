@@ -53,7 +53,7 @@ private:
     uint64_t nNewValue;
 
     /*New things for Contracts: We added the new private variable "cp" for the contract price int32_t*/
-    uint32_t cpValue;
+
 
     // SimpleSend, SendToOwners, TradeOffer, MetaDEx, AcceptOfferBTC,
     // CreatePropertyFixed, CreatePropertyVariable, CloseCrowdsale,
@@ -85,6 +85,10 @@ private:
 
     // TradeOffer
     uint64_t amount_desired;
+    /////////////////////////////////////////
+    /*New things for Contract: We added the new private variable for de desired price of one contract*/
+    uint64_t desired_price;
+    /////////////////////////////////////////
     unsigned char blocktimelimit;
     uint64_t min_fee;
     unsigned char subaction;
@@ -248,6 +252,10 @@ public:
         desired_value = 0;
         action = 0;
         amount_desired = 0;
+        /////////////////////////////////////////
+        /*New things for Contract: We added the new private variable for de desired price of one contract*/
+        desired_price = 0;
+        /////////////////////////////////////////
         blocktimelimit = 0;
         min_fee = 0;
         subaction = 0;

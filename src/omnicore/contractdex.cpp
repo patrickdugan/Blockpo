@@ -396,15 +396,6 @@ std::string CMPContractDEx::displayFullUnitPrice() const
     return unitPriceStr;
 }
 
-/*New things for Contract: Contract tx parameters: propertyid, type, amount, price - e.g. 3423, 'sell', 5, 69002*/
-int64_t CMPContractDEx::contractPrice() const
-{
-    int64_t effectivePrice;
-    
-    if (amount_forsale) effectivePrice = amount_forsale;
-    return effectivePrice;
-}
-
 int32_t CMPContractDEx::desiredPrice() const
 {
     int64_t desiredPrice;
