@@ -89,7 +89,9 @@ enum TransactionType {
   MSC_TYPE_CHANGE_ISSUER_ADDRESS      = 70,
   OMNICORE_MESSAGE_TYPE_DEACTIVATION  = 65533,
   OMNICORE_MESSAGE_TYPE_ACTIVATION    = 65534,
-  OMNICORE_MESSAGE_TYPE_ALERT         = 65535
+  OMNICORE_MESSAGE_TYPE_ALERT         = 65535,
+  /*New things for Contract*/ 
+  MSC_TYPE_CONTRACT                   = 41
 };
 
 #define MSC_PROPERTY_TYPE_INDIVISIBLE             1
@@ -162,7 +164,7 @@ extern CCriticalSection cs_tally;
 class COmniTransactionDB : public CDBBase
 {
 public:
-    COmniTransactionDB(const boost::filesystem::path& path, bool fWipe)
+    COmniTransactionDB(const boost::filesystem::path &path, bool fWipe)
     {
         leveldb::Status status = Open(path, fWipe);
         PrintToConsole("Loading master transactions database: %s\n", status.ToString());
@@ -185,8 +187,7 @@ public:
     uint32_t FetchTransactionPosition(const uint256& txid);
 };
 
-/** LevelDB based storage for STO recipients.
- */
+/*LevelDB based storage for STO recipients.*/
 class CMPSTOList : public CDBBase
 {
 public:
@@ -363,4 +364,4 @@ std::string getTokenLabel(uint32_t propertyId);
 }
 
 
-#endif // OMNICORE_OMNICORE_H
+#endif //OMNICORE_OMNICORE_H

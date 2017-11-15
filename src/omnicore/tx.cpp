@@ -63,6 +63,8 @@ std::string mastercore::strTransactionType(uint16_t txType)
         case OMNICORE_MESSAGE_TYPE_ALERT: return "ALERT";
         case OMNICORE_MESSAGE_TYPE_DEACTIVATION: return "Feature Deactivation";
         case OMNICORE_MESSAGE_TYPE_ACTIVATION: return "Feature Activation";
+        /*New things for Contract*/
+        case MSC_TYPE_CONTRACT: return "Future Contract";
 
         default: return "* unknown type *";
     }
@@ -157,10 +159,16 @@ bool CMPTransaction::interpret_Transaction()
 
         case OMNICORE_MESSAGE_TYPE_ALERT:
             return interpret_Alert();
+            
+        /*New things for Contract*/
+        case MSC_TYPE_CONTRACT:
+            return interpret_Contract();
+
     }
 
     return false;
 }
+
 
 /** Version and type */
 bool CMPTransaction::interpret_TransactionType()
@@ -185,6 +193,44 @@ bool CMPTransaction::interpret_TransactionType()
 
     return true;
 }
+
+
+/** Tx 41: MSC_TYPE_CONTRACT = 41*/
+/*Remember: pkt container some of the private variables in the "class ContractDEx": property, desired_property,...*/
+bool CMPTransaction::interpret_Contract()
+{
+    int expectedSize = (version == MP_TX_PKT_V0) ? 33 : 34;
+    if (pkt_size < expectedSize) {
+        return false;
+    }
+    memcpy(&property, &pkt[4], 4);
+    swapByteOrder32(property);
+    memcpy(&nValue, &pkt[8], 8);
+    swapByteOrder64(nValue);
+    nNewValue = nValue;
+    memcpy(&amount_desired, &pkt[16], 8);
+    memcpy(&blocktimelimit, &pkt[24], 1);
+    memcpy(&min_fee, &pkt[25], 8);
+    if (version > MP_TX_PKT_V0) {
+        memcpy(&subaction, &pkt[33], 1);
+    }
+    swapByteOrder64(amount_desired);
+    swapByteOrder64(min_fee);
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
+        PrintToLog("\t           value: %s\n", FormatMP(property, nValue));
+        PrintToLog("\t  amount desired: %s\n", FormatDivisibleMP(amount_desired));
+        PrintToLog("\tblock time limit: %d\n", blocktimelimit);
+        PrintToLog("\t         min fee: %s\n", FormatDivisibleMP(min_fee));
+        if (version > MP_TX_PKT_V0) {
+            PrintToLog("\t      sub-action: %d\n", subaction);
+        }
+    }
+
+    return true;
+}
+
 
 /** Tx 1 */
 bool CMPTransaction::interpret_SimpleSend()
@@ -252,13 +298,13 @@ bool CMPTransaction::interpret_SendAll()
 }
 
 /** Tx 20 */
-/*Remember: pkt container of private variables in the "class ContractDEx": property, desired_property,...*/
 bool CMPTransaction::interpret_TradeOffer()
 {
     int expectedSize = (version == MP_TX_PKT_V0) ? 33 : 34;
     if (pkt_size < expectedSize) {
         return false;
     }
+
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
     memcpy(&nValue, &pkt[8], 8);

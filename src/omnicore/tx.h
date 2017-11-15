@@ -3,7 +3,10 @@
 
 class CMPMetaDEx;
 class CMPOffer;
+//////////////////////////////
+/*New things for Contract: This class was added in "contractdex.cc"*/
 class CMPContractDEx;
+//////////////////////////////
 class CTransaction;
 
 #include "omnicore/omnicore.h"
@@ -35,6 +38,9 @@ private:
     int block;
     int64_t blockTime;  // internally nTime is still an "unsigned int"
     unsigned int tx_idx;  // tx # within the block, 0-based
+
+    uint64_t price_desired;/*New things for Contract: We added the new variable for the desired price of one contract*/
+    
     uint64_t tx_fee_paid;
 
     int pkt_size;
@@ -85,10 +91,7 @@ private:
 
     // TradeOffer
     uint64_t amount_desired;
-    /////////////////////////////////////////
-    /*New things for Contract: We added the new private variable for de desired price of one contract*/
-    uint64_t desired_price;
-    /////////////////////////////////////////
+ 
     unsigned char blocktimelimit;
     uint64_t min_fee;
     unsigned char subaction;
@@ -211,6 +214,9 @@ public:
     uint32_t getActivationBlock() const { return activation_block; }
     uint32_t getMinClientVersion() const { return min_client_version; }
     unsigned int getIndexInBlock() const { return tx_idx; }
+    /*New things for Contract: Desired Prices*/
+    uint64_t getDesiredPrice() const { return price_desired;}
+    
     uint32_t getDistributionProperty() const { return distribution_property; }
 
     /** Creates a new CMPTransaction object. */
@@ -226,6 +232,9 @@ public:
         block = -1;
         blockTime = 0;
         tx_idx = 0;
+
+        price_desired = 0; /*New things for Contract: Desired Price*/
+        
         tx_fee_paid = 0;
         pkt_size = 0;
         memset(&pkt, 0, sizeof(pkt));
@@ -251,11 +260,10 @@ public:
         desired_property = 0;
         desired_value = 0;
         action = 0;
-        amount_desired = 0;
-        /////////////////////////////////////////
+        ////////////////////////////// Amount_desired = 0;
         /*New things for Contract: We added the new private variable for de desired price of one contract*/
-        desired_price = 0;
-        /////////////////////////////////////////
+        price_desired = 0;
+
         blocktimelimit = 0;
         min_fee = 0;
         subaction = 0;
@@ -278,16 +286,35 @@ public:
         blockTime = bt;
     }
 
-    /** Sets the given values. */
-    /*Remember: pkt container of private variables in the "class ContractDEx": property, desired_property,...*/
-    void Set(const std::string& s, const std::string& r, uint64_t n, const uint256& t,
-        int b, unsigned int idx, unsigned char *p, unsigned int size, int encodingClassIn, uint64_t txf)
+    /*Sets the given values.*/
+    void Set(const std::string& s, const std::string& r, uint64_t n, const uint256& t, int b, unsigned int idx, 
+        unsigned char *p, unsigned int size, int encodingClassIn, uint64_t txf)
     {
         sender = s;
         receiver = r;
         txid = t;
         block = b;
         tx_idx = idx;
+        pkt_size = size < sizeof (pkt) ? size : sizeof (pkt);
+        nValue = n;
+        nNewValue = n;
+        encodingClass = encodingClassIn;
+        tx_fee_paid = txf;
+        memcpy(&pkt, p, pkt_size);
+    }
+
+    /*Remember: This is a new Set function defined for ContractDEx*/
+    /*Remember: pkt container someones of the private variables in the "class ContractDEx"*/
+    void Set(const std::string& s, const std::string& r, uint64_t n, const uint256& t, int b, unsigned int idx, 
+            unsigned char *p, unsigned int size, int encodingClassIn, uint64_t txf, int64_t pd) 
+            /*New things for Contract: Desired price*/
+    {
+        sender = s;
+        receiver = r;
+        txid = t;
+        block = b;
+        tx_idx = idx;
+        price_desired = pd; /*New things for Contract: Desired Price*/
         pkt_size = size < sizeof (pkt) ? size : sizeof (pkt);
         nValue = n;
         nNewValue = n;

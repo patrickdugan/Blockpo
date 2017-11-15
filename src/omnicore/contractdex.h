@@ -19,6 +19,8 @@
 #include <set>
 #include <string>
 
+typedef uint64_t uinteger_t;
+
 // ContractDEx trade statuses
 #define TRADE_INVALID                 -1
 #define TRADE_OPEN                    1 
@@ -43,15 +45,14 @@ class CMPContractDEx
         uint32_t desired_property;
         /*Remember: These are for to know the amount of contracts for sale and desired*/ 
         int64_t amount_forsale;
-        int64_t amount_desired; 
+        int64_t amount_desired;
+        /*Remember: These are contract prices*/
+        int64_t price_forsale;
+        int64_t price_desired; 
         /*Remember: This is the remaining amount still up for sale that need to be update*/
         int64_t amount_remaining;
         /*Remember: This is the addres of the sender*/
         std::string addr;
-        /*Remember: These are contract prices*/
-        int64_t contract_price;
-        int64_t desired_price;
-
         uint256 txid;
 
 	public:
@@ -65,8 +66,8 @@ class CMPContractDEx
         int64_t getAmountRemaining() const { return amount_remaining; }
         void setAmountRemaining(int64_t nValue, const std::string &label = "");
         const std::string &getAddr() const { return addr; }
-        int64_t getContractPrice() const { return contract_price; }
-        int64_t getDesiredPrice() const { return desired_price; }
+        int64_t getContractPrice() const { return price_forsale; }
+        int64_t getDesiredCPrice() const { return price_desired; }
         int64_t getBlockTime() const;
         uint256 getHash() const { return txid; }
 
@@ -74,31 +75,37 @@ class CMPContractDEx
 
 		CMPContractDEx()
 			: block(0), idx(0), property(0) desired_property(0), amount_remaining(0), amount_forsale(0), amount_desired(0) 
-            , contract_price(0), desired_price(0) {}
+            , price_forsale(0), price_desired(0) {}
 
         CMPContractDEx(const std::string& addr, int b, uint32_t c, uint32_t cd, const uint256 &tx, uint32_t i, 
-            int64_t nValue, int64_t ad, int64_t cp, int64_t dp)
+            int64_t nValue, int64_t pfs, int64_t ad, int64_t pd)
             : addr(addr), block(b), property(c), desired_property(cd), txid(tx), idx(i), amount_remaining(nValue)
-            , amount_forsale(nValue), amount_desired(ad), contract_price(cp), desired_price(dp) {}
+            , amount_forsale(nValue), price_forsale(sp), amount_desired(ad), price_desired(dp) {}
 
         CMPContractDEx(const std::string& addr, int b, uint32_t c, uint32_t cd, const uint256 &tx, uint32_t i, 
-            int64_t nValue, int64_t ad, int64_t cp, int64_t dp)
+            int64_t nValue, int64_t pfs, int64_t ad, int64_t pd)
             : addr(addr), block(b), property(c), desired_property(cd), txid(tx), idx(i), amount_remaining(ar)
-            , amount_forsale(nValue), amount_desired(ad), contract_price(cp), desired_price(dp) {}
+            , amount_forsale(nValue), price_forsale(pfs), amount_desired(ad), price_desired(pd) {}
+
+            : addr(addr), block(b), property(c), desired_property(cd), txid(tx), idx(i), amount_remaining(ar)
+            , amount_forsale(nValue), amount_desired(ad), price_forsale(cp), price_desired(dp) {}
 
         CMPContractDEx(const CMPTransaction &tx)
             : addr(tx.sender), block(tx.block), property(tx.property), desired_property(tx.desired_property)
             , txid(tx.txid), idx(tx.tx_idx), amount_remaining(tx.nValue), amount_forsale(nValue)
-            , contract_price(tx.cpValue), amount_desired(ad), contract_price(tx.contract_price)
-            , desired_price(tx.desired_price) {}
-            /*Remember: "sender" is coming from the class CMPTransaction defined in tx.h and it is copied to addr*/
+            , price_forsale(tx.price_desired), amount_desired(ad), price_desired(tx.price_desired) {}
+            /*Remember: Some private variables are coming from the class CMPTransaction in tx.h and it does the copy by 
+            mean its Set() funtion Set*/
     
     std::string ToString() const;
-
     /** Used for display of unit prices to 8 decimal places at UI layer. */
-    std::string displayUnitPrice() const;
+    std::string displaycontractPrice() const;
     /** Used for display of unit prices with 50 decimal places at RPC layer. */
-    std::string displayFullUnitPrice() const;
+    std::string displayFullcontractPrice() const;
+
+    /*New things for Contract: Functions to get Contract Price and Desired Price*/
+    uinteger_t contractPrice() const;
+    uinteger_t desiredCPrice() const;
 
     void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };
@@ -115,7 +122,7 @@ namespace mastercore
 
     //! Map of prices; there is a set of sorted objects for each price
     /*Remember: int32_t =  prices; md_Set = Set for the Contract class*/
-    typedef std::map<int64_t, md_Set> md_PricesMap;
+    typedef std::map<price_forsale, md_Set> md_PricesMap;
 
     //! Map of properties; there is a map of prices for each property
     /*Remember: uint32_t =  property; md_PricesMap = Price Map*/

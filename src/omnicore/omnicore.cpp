@@ -110,7 +110,7 @@ std::map<uint32_t, int64_t> global_balance_reserved;
 //! Vector containing a list of properties relative to the wallet
 std::set<uint32_t> global_wallet_property_list;
 
-/**
+/*
  * Used to indicate, whether to automatically commit created transactions.
  *
  * Can be set with configuration "-autocommit" or RPC "setautocommit_OMNI".
@@ -830,6 +830,7 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
 
     // ### DATA POPULATION ### - save output addresses, values and scripts
     std::string strReference;
+    /*Remember: This array has "MAX_PACKETS*PACKET_SIZE = 255*31 = 7905" elements*/
     unsigned char single_pkt[MAX_PACKETS * PACKET_SIZE];
     unsigned int packet_size = 0;
     std::vector<std::string> script_data;
@@ -1134,7 +1135,7 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
 
     // ### SET MP TX INFO ###
     if (msc_debug_verbose) PrintToLog("single_pkt: %s\n", HexStr(single_pkt, packet_size + single_pkt));
-    mp_tx.Set(strSender, strReference, 0, wtx.GetHash(), nBlock, idx, (unsigned char *)&single_pkt, packet_size, omniClass, (inAll-outAll));
+    mp_tx.Set(strSender, strReference, 0, wtx.GetHash(), nBlock, idx, (unsigned char *) &single_pkt, packet_size, omniClass, (inAll-outAll));
 
     // TODO: the following is a bit aweful
     // Provide a hint for DEx payments
