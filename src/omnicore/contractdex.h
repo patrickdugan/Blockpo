@@ -66,8 +66,6 @@ class CMPContractDEx
         int64_t getAmountRemaining() const { return amount_remaining; }
         void setAmountRemaining(int64_t nValue, const std::string &label = "");
         const std::string &getAddr() const { return addr; }
-        int64_t getContractPrice() const { return price_forsale; }
-        int64_t getDesiredCPrice() const { return price_desired; }
         int64_t getBlockTime() const;
         uint256 getHash() const { return txid; }
 

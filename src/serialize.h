@@ -155,9 +155,12 @@ inline float ser_uint32_to_float(uint32_t y)
 enum
 {
     // primary actions
-    SER_NETWORK         = (1 << 0),
-    SER_DISK            = (1 << 1),
-    SER_GETHASH         = (1 << 2),
+    /*Remember*/
+    /* x << y == x*2^y */
+    /* x >> y == x/2^y */
+    SER_NETWORK         = (1 << 0), /*0000 0001 -> 1 base 10*/  
+    SER_DISK            = (1 << 1), /*0000 0010 -> 2 base 10*/
+    SER_GETHASH         = (1 << 2), /*0000 0100 -> 4 base 10*/
 };
 
 #define READWRITE(obj)      (::SerReadWrite(s, (obj), nType, nVersion, ser_action))

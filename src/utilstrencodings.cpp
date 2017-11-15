@@ -89,7 +89,7 @@ vector<unsigned char> ParseHex(const char* psz)
 
 vector<unsigned char> ParseHex(const string& str)
 {
-    return ParseHex(str.c_str());
+  return ParseHex(str.c_str());
 }
 
 string EncodeBase64(const unsigned char* pch, size_t len)

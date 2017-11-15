@@ -156,12 +156,15 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
 
     // within the desired property map (given one property) iterate over the items looking at prices
     for (md_PricesMap::iterator priceIt = ppriceMap->begin(); priceIt != ppriceMap->end(); ++priceIt) { // check all prices
+        
         const uinteger_t sellersPrice = priceIt->first;
 
         if (msc_debug_metadex2) PrintToLog("comparing prices: desprice %s needs to be GREATER THAN OR EQUAL TO %s\n",
             xToString(pnew->desiredCPrice()), xToString(sellersPrice));
 
         // Is the desired price check satisfied? The buyer's inverse price must be larger than that of the seller.
+
+        /*Remember: Here we choose just "desiredCPrice() >= sellersPrice".In this case go to the next line.*/
         if (pnew->desiredCPrice() < sellersPrice) {
             continue;
         }
@@ -171,7 +174,9 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
         // At good (single) price level and property iterate over offers looking at all parameters to find the match
         md_Set::iterator offerIt = pofferSet->begin();
         while (offerIt != pofferSet->end()) { // specific price, check all properties
+
             const CMPContractDEx* const pold = &(*offerIt);
+            /*Remeber: Here we check if price_forsale = sellersPrice outside*/
             assert(pold->contractPrice() == sellersPrice);
 
             if (msc_debug_metadex1) PrintToLog("Looking at existing: %s (its prop= %d, its des prop= %d) = %s\n",
@@ -196,14 +201,17 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
 
             ///////////////////////////
 
-            // preconditions
+            // Preconditions
+            /*Remember: New preconditions for Contract*/
             assert(0 < pold->getAmountRemaining());
             assert(0 < pnew->getAmountRemaining());
-            assert(pnew->getProperty() != pnew->getDesProperty());
+            
+            //assert(pnew->getProperty() != pnew->getDesProperty());
             assert(pnew->getProperty() == pold->getDesProperty());
             assert(pold->getProperty() == pnew->getDesProperty());
+
             assert(pold->contractPrice() <= pnew->desiredCPrice());
-            assert(pnew->contractPrice() <= pold->desiredCPrice());
+            //assert(pnew->contractPrice() <= pold->desiredCPrice());
 
             ///////////////////////////
 
@@ -211,6 +219,9 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
             // purchase from Bob, using Bob's unit price
             // This implies rounding down, since rounding up is impossible, and would
             // require more tokens than Alice has
+
+
+            /*We are here for now*/
             arith_uint256 iCouldBuy = (ConvertTo256(pnew->getAmountRemaining()) * ConvertTo256(pold->getAmountForSale())) / ConvertTo256(pold->getAmountDesired());
 
             int64_t nCouldBuy = 0;
@@ -263,26 +274,6 @@ static MatchReturnType x_Trade(CMPContractDEx* const pnew)
             assert(seller_amountForSale == seller_amountLeft + buyer_amountGot);
             assert(buyer_amountOffered == buyer_amountLeft + seller_amountGot);
 
-            ///////////////////////////
-
-            int64_t buyer_amountGotAfterFee = buyer_amountGot;
-            int64_t tradingFee = 0;
-
-            // strip a 0.05% fee from non-OMNI pairs if fees are activated
-            if (IsFeatureActivated(FEATURE_FEES, pnew->getBlock())) {
-                if (pold->getProperty() > OMNI_PROPERTY_TMSC && pold->getDesProperty() > OMNI_PROPERTY_TMSC) {
-                    int64_t feeDivider = 2000; // 0.05%
-                    tradingFee = buyer_amountGot / feeDivider;
-
-                    // subtract the fee from the amount the seller will receive
-                    buyer_amountGotAfterFee = buyer_amountGot - tradingFee;
-
-                    // add the fee to the fee cache
-                    p_feecache->AddFee(pnew->getDesProperty(), pnew->getBlock(), tradingFee);
-                } else {
-                    if (msc_debug_fees) PrintToLog("Skipping fee reduction for trade match %s:%s as one of the properties is Omni\n", pold->getHash().GetHex(), pnew->getHash().GetHex());
-                }
-            }
 
             // transfer the payment property from buyer to seller
             assert(update_tally_map(pnew->getAddr(), pnew->getProperty(), -seller_amountGot, BALANCE));
