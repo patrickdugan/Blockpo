@@ -41,19 +41,21 @@ class CMPContractDEx
         int block;
         unsigned int idx; 
         /*Remember: These are for to know the kind of criptocurrency TMSC or MSC*/
-        uint32_t property;
-        uint32_t desired_property;
+        uint32_t property; /*->tx.cpp*/
+        uint32_t desired_property; /*->tx.cpp*/
         /*Remember: These are for to know the amount of contracts for sale and desired*/ 
         int64_t amount_forsale;
-        int64_t amount_desired;
-        /*Remember: These are contract prices*/
+        int64_t amount_desired; /*->tx.cpp*/
+        /*New things for Contract: These are contract prices*/
         int64_t price_forsale;
         int64_t price_desired; 
         /*Remember: This is the remaining amount still up for sale that need to be update*/
         int64_t amount_remaining;
         /*Remember: This is the addres of the sender*/
         std::string addr;
+        /*Remember: This index is used to identify 'send' and 'receive' category of transactions*/
         uint256 txid;
+        /*Remember: Every private variable is defined in the input_mp_mdexorder_string(.) inside omnicore.cpp*/
 
 	public:
 
@@ -76,22 +78,14 @@ class CMPContractDEx
             , price_forsale(0), price_desired(0) {}
 
         CMPContractDEx(const std::string& addr, int b, uint32_t c, uint32_t cd, const uint256 &tx, uint32_t i, 
-            int64_t nValue, int64_t pfs, int64_t ad, int64_t pd)
-            : addr(addr), block(b), property(c), desired_property(cd), txid(tx), idx(i), amount_remaining(nValue)
-            , amount_forsale(nValue), price_forsale(sp), amount_desired(ad), price_desired(dp) {}
-
-        CMPContractDEx(const std::string& addr, int b, uint32_t c, uint32_t cd, const uint256 &tx, uint32_t i, 
-            int64_t nValue, int64_t pfs, int64_t ad, int64_t pd)
+            int64_t ar, int64_t afs, int64_t pfs, int64_t ad, int64_t pd)
             : addr(addr), block(b), property(c), desired_property(cd), txid(tx), idx(i), amount_remaining(ar)
-            , amount_forsale(nValue), price_forsale(pfs), amount_desired(ad), price_desired(pd) {}
-
-            : addr(addr), block(b), property(c), desired_property(cd), txid(tx), idx(i), amount_remaining(ar)
-            , amount_forsale(nValue), amount_desired(ad), price_forsale(cp), price_desired(dp) {}
+            , amount_forsale(afs), price_forsale(pfs), amount_desired(ad), price_desired(pd) {}
 
         CMPContractDEx(const CMPTransaction &tx)
             : addr(tx.sender), block(tx.block), property(tx.property), desired_property(tx.desired_property)
-            , txid(tx.txid), idx(tx.tx_idx), amount_remaining(tx.nValue), amount_forsale(nValue)
-            , price_forsale(tx.price_desired), amount_desired(ad), price_desired(tx.price_desired) {}
+            , txid(tx.txid), idx(tx.tx_idx), amount_remaining(tx.ar), amount_forsale(afs), price_forsale(tx.price_desired)
+            , amount_desired(ad), price_desired(tx.price_desired) {}
             /*Remember: Some private variables are coming from the class CMPTransaction in tx.h and it does the copy by 
             mean its Set() funtion Set*/
     
@@ -145,20 +139,19 @@ namespace mastercore
     bool ContractDEx_isOpen(const uint256& txid, uint32_t propertyIdForSale = 0);
     int ContractDEx_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold = -1);
     std::string ContractDEx_getStatusText(int tradeStatus);
-
-    /*New things for Contract*/
-    int ContractDEx_CANCEL_BY_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
-    int ContractDEx_CANCEL_BY_CONTRACT(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
-    int ContractDEx_ALL_CONTRACT_ORDERS(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
-    bool ContractDEx_GET_ORDER_TYPE(const uint256& txid, const std::string&, uint32_t propertyIdForSale,  int64_t amountForSale, int64_t amount_desired);
-    int ContractDEx_BALANCE_LOGIC(uint32_t propertyId, TallyType ttype);
-    int ContractDEx_MARGIN_LOGIC(int ContractDExExecuted, CMPContractDEx* objCMPContractDEx, CMPContract &objCMPContract);
-
     /*Added RPC-info-related functions for getTradeInfo*/
 
     // Locates a trade in the ContractDEx maps via txid and returns the trade object
     const CMPContractDEx* ContractDEx_RetrieveTrade(const uint256& txid); 
     /*Observe that: ContractDEx_RetrieveTrade return pointer to an object of type CMPContractDEx*/
 }
+
+   /*New things for Contract*/
+    int ContractDEx_CANCEL_BY_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
+    int ContractDEx_CANCEL_BY_CONTRACT(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
+    int ContractDEx_ALL_CONTRACT_ORDERS(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
+    bool ContractDEx_GET_ORDER_TYPE(const uint256& txid, const std::string&, uint32_t propertyIdForSale,  int64_t amountForSale, int64_t amount_desired);
+    int ContractDEx_BALANCE_LOGIC(uint32_t propertyId, TallyType ttype);
+    int ContractDEx_MARGIN_LOGIC(int ContractDExExecuted, CMPContractDEx* objCMPContractDEx, CMPContract &objCMPContract);
 
 #endif 

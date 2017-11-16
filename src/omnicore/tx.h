@@ -149,6 +149,9 @@ private:
     int logicMath_MetaDExCancelPair();
     int logicMath_MetaDExCancelEcosystem();
     int logicMath_CreatePropertyFixed();
+    /*New things for Contract: Remember defined this logicMath_Contract() function*/
+    int logicMath_Contract();
+
     int logicMath_CreatePropertyVariable();
     int logicMath_CloseCrowdsale();
     int logicMath_CreatePropertyManaged();
