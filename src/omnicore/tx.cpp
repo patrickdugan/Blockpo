@@ -165,7 +165,6 @@ bool CMPTransaction::interpret_Transaction()
             return interpret_Contract();
 
     }
-
     return false;
 }
 
@@ -199,30 +198,25 @@ bool CMPTransaction::interpret_TransactionType()
 /*Remember: pkt container some of the private variables in the "class ContractDEx": property, desired_property,...*/
 bool CMPTransaction::interpret_Contract()
 {
-    int expectedSize = (version == MP_TX_PKT_V0) ? 33 : 34;
-    if (pkt_size < expectedSize) {
+    if (pkt_size < 25) {
         return false;
     }
+
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
-    
     memcpy(&amount_desired, &pkt[16], 8);
     swapByteOrder64(amount_desired);
+    memcpy(&prop_type, &pkt[5], 2);
+    swapByteOrder16(prop_type);
 
     memcpy(&blocktimelimit, &pkt[24], 1);
 
-
     if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
         PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
-        PrintToLog("\t           value: %s\n", FormatMP(property, nValue));
         PrintToLog("\t  amount desired: %s\n", FormatDivisibleMP(amount_desired));
+        PrintToLog("\t   property type: %d (%s)\n", prop_type, strPropertyType(prop_type));
         PrintToLog("\tblock time limit: %d\n", blocktimelimit);
-        PrintToLog("\t         min fee: %s\n", FormatDivisibleMP(min_fee));
-        if (version > MP_TX_PKT_V0) {
-            PrintToLog("\t      sub-action: %d\n", subaction);
-        }
     }
-
     return true;
 }
 
@@ -824,7 +818,6 @@ int CMPTransaction::interpretPacket()
         case MSC_TYPE_CONTRACT:
             return logicMath_Contract();
     }
-
     return (PKT_ERROR -100);
 }
 

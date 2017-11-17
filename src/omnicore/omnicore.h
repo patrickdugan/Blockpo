@@ -160,6 +160,16 @@ extern bool autoCommit;
 
 //! Global lock for state objects
 extern CCriticalSection cs_tally;
+/*Remember: Definition of "CCriticalSection" coming from "Bitcoin Core"*/
+/*class CCriticalSection : public AnnotatedMixin<std::recursive_mutex>
+  {
+    public:
+      ~CCriticalSection() {
+      DeleteLock((void*)this);
+    }
+  };
+*/
+
 
 /** LevelDB based storage for storing Omni transaction data.  This will become the new master database, holding serialized Omni transactions.
  *  Note, intention is to consolidate and clean up data storage
@@ -332,6 +342,8 @@ extern COmniTransactionDB *p_OmniTXDB;
 extern CCoinsView viewDummy;
 extern CCoinsViewCache view;
 //! Guards coins view cache
+
+/*Remember: */
 extern CCriticalSection cs_tx_cache;
 
 std::string strMPProperty(uint32_t propertyId);

@@ -106,14 +106,14 @@ int64_t CMPTally::getMoney(uint32_t propertyId, TallyType ttype) const
     if (TALLY_TYPE_COUNT <= ttype) {
         return 0;
     }
+
     int64_t money = 0;
     TokenMap::const_iterator it = mp_token.find(propertyId);
 
     if (it != mp_token.end()) {
-        const BalanceRecord& record = it->second;
+        const BalanceRecord &record = it->second;
         money = record.balance[ttype];
     }
-
     return money;
 }
 

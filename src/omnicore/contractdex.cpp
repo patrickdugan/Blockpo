@@ -449,7 +449,7 @@ bool ContractDEx_compare::operator()(const CMPContractDEx &lhs, const CMPContrac
     else return lhs.getBlock() < rhs.getBlock();
 }
 
-bool ContractDEx_INSERT(const CMPContractDEx& objContractDEx)
+bool ContractDEx_INSERT(const CMPContractDEx &objContractDEx)
 {
     // Create an empty price map (to use in case price map for this property does not already exist)
     md_PricesMap temp_prices;
@@ -465,6 +465,7 @@ bool ContractDEx_INSERT(const CMPContractDEx& objContractDEx)
 
     // Attempt to obtain a set of ContractDEx objects for this price from the price map
     if (p_prices) p_indexes = get_Indexes(p_prices, objContractDEx.contractPrice());
+    
     // See if the set was populated, if not no set exists at this price level, use the empty set that we created earlier
     if (!p_indexes) p_indexes = &temp_indexes;
 

@@ -328,6 +328,7 @@ int64_t mastercore::getTotalTokens(uint32_t propertyId, int64_t* n_owners_total)
 
     LOCK(cs_tally);
 
+    /*Remember: The object "_my_sps" is defined in sp.cpp like an "extern CMPSPInfo* _my_sps"*/
     CMPSPInfo::Entry property;
     if (false == _my_sps->getSP(propertyId, property)) {
         return 0; // property ID does not exist
@@ -341,6 +342,8 @@ int64_t mastercore::getTotalTokens(uint32_t propertyId, int64_t* n_owners_total)
             totalTokens += tally.getMoney(propertyId, SELLOFFER_RESERVE);
             totalTokens += tally.getMoney(propertyId, ACCEPT_RESERVE);
             totalTokens += tally.getMoney(propertyId, METADEX_RESERVE);
+            /*New things for Contracts*/
+            totalTokens += tally.getMoney(propertyId, CONTRACT_DEX_RESERVE);
 
             if (prev != totalTokens) {
                 prev = totalTokens;
@@ -513,11 +516,14 @@ void CheckWalletUpdate(bool forceUpdate)
             // work out the balances and add to globals
             global_balance_money[propertyId] += getUserAvailableMPbalance(address, propertyId);
             global_balance_reserved[propertyId] += getMPbalance(address, propertyId, SELLOFFER_RESERVE);
-            global_balance_reserved[propertyId] += getMPbalance(address, propertyId, METADEX_RESERVE);
             global_balance_reserved[propertyId] += getMPbalance(address, propertyId, ACCEPT_RESERVE);
+            global_balance_reserved[propertyId] += getMPbalance(address, propertyId, METADEX_RESERVE);
+            /*New things for Contracts*/
+            global_balance_reserved[propertyId] += getMPbalance(address, propertyId, CONTRACT_DEX_RESERVE);
         }
     }
     // signal an Omni balance change
+    /*Remember: This function is defined in /srs/ui_interface.h*/
     uiInterface.OmniBalanceChanged();
 #endif
 }
@@ -547,7 +553,6 @@ static bool TXExodusFundraiser(const CTransaction& tx, const std::string& sender
             return true;
         }
     }
-
     return false;
 }
 
@@ -1401,10 +1406,10 @@ int input_msc_balances_string(const std::string& s)
         boost::split(curProperty, *iter, boost::is_any_of(":"), boost::token_compress_on);
         if (curProperty.size() != 2) return -1;
 
-        // "balance,sellreserved,acceptreserved,metadexreserved"
+        // "balance,sellreserved,acceptreserved,metadexreserved, contractdexreserved"
         std::vector<std::string> curBalance;
         boost::split(curBalance, curProperty[1], boost::is_any_of(","), boost::token_compress_on);
-        if (curBalance.size() != 4) return -1;
+        if (curBalance.size() != 5) return -1;
 
         uint32_t propertyId = boost::lexical_cast<uint32_t>(curProperty[0]);
 
@@ -1412,13 +1417,17 @@ int input_msc_balances_string(const std::string& s)
         int64_t sellReserved = boost::lexical_cast<int64_t>(curBalance[1]);
         int64_t acceptReserved = boost::lexical_cast<int64_t>(curBalance[2]);
         int64_t metadexReserved = boost::lexical_cast<int64_t>(curBalance[3]);
+        /*New things for Contracts*/
+        int64_t contractdexReserved = boost::lexical_cast<int64_t>(curBalance[4]);
 
         if (balance) update_tally_map(strAddress, propertyId, balance, BALANCE);
         if (sellReserved) update_tally_map(strAddress, propertyId, sellReserved, SELLOFFER_RESERVE);
         if (acceptReserved) update_tally_map(strAddress, propertyId, acceptReserved, ACCEPT_RESERVE);
         if (metadexReserved) update_tally_map(strAddress, propertyId, metadexReserved, METADEX_RESERVE);
-    }
+        /*New things for Contracts*/
+        if (contractdexReserved) update_tally_map(strAddress, propertyId, contractdexReserved, CONTRACT_DEX_RESERVE);
 
+    }
     return 0;
 }
 
@@ -1593,7 +1602,7 @@ int input_mp_contractdexorder_string(const std::string& s)
     std::vector<std::string> vstr;
     boost::split(vstr, s, boost::is_any_of(" ,="), boost::token_compress_on);
 
-    if (10 != vstr.size()) return -1;
+    if (12 != vstr.size()) return -1;
 
     int i = 0;
 
@@ -1613,12 +1622,13 @@ int input_mp_contractdexorder_string(const std::string& s)
     int64_t price_desired = boost::lexical_cast<int64_t>(vstr[i++]);
 
     CMPContractDEx contractdexObj(addr, block, property, desired_property, txid, idx, amount_remaining, amount_forsale, 
-                            price_forsale, price_desired);
+                                  price_forsale, price_desired);
 
-    if (!ContractDEx_INSERT(mdexObj)) return -1;
+    if (!ContractDEx_INSERT(contractdexObj)) return -1;
 
     return 0;
 }
+
 //////////////////////////////////////
 
 static int msc_file_load(const string &filename, int what, bool verifyHash = false)
@@ -1872,21 +1882,25 @@ static int write_msc_balances(std::ofstream& file, SHA256_CTX* shaCtx)
             int64_t sellReserved = (*iter).second.getMoney(propertyId, SELLOFFER_RESERVE);
             int64_t acceptReserved = (*iter).second.getMoney(propertyId, ACCEPT_RESERVE);
             int64_t metadexReserved = (*iter).second.getMoney(propertyId, METADEX_RESERVE);
+            /*New things for Contracts*/
+            int64_t contractdexReserved = (*iter).second.getMoney(propertyId, CONTRACT_DEX_RESERVE);
 
             // we don't allow 0 balances to read in, so if we don't write them
             // it makes things match up better between persisted state and processed state
-            if (0 == balance && 0 == sellReserved && 0 == acceptReserved && 0 == metadexReserved) {
+            if (0 == balance && 0 == sellReserved && 0 == acceptReserved && 0 == metadexReserved 
+                && 0 == contractdexReserved ) { /*<--New things for Contracts*/
                 continue;
             }
 
             emptyWallet = false;
 
-            lineOut.append(strprintf("%d:%d,%d,%d,%d;",
+            lineOut.append(strprintf("%d:%d,%d,%d,%d,%d;",
                     propertyId,
                     balance,
                     sellReserved,
                     acceptReserved,
-                    metadexReserved));
+                    metadexReserved,
+                    contractdexReserved));
         }
 
         if (false == emptyWallet) {
