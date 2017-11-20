@@ -19,8 +19,6 @@
 #include <set>
 #include <string>
 
-typedef uint64_t uinteger_t;
-
 // ContractDEx trade statuses
 #define TRADE_INVALID                 -1
 #define TRADE_OPEN                    1 
@@ -47,8 +45,8 @@ class CMPContractDEx
         int64_t amount_forsale;
         int64_t amount_desired; /*->tx.cpp*/
         /*New things for Contract: These are contract prices*/
-        int64_t price_forsale;
-        int64_t price_desired; 
+        uint64_t price_forsale;
+        uint64_t price_desired; 
         /*Remember: This is the remaining amount still up for sale that need to be update*/
         int64_t amount_remaining;
         /*Remember: This is the addres of the sender*/
@@ -96,8 +94,8 @@ class CMPContractDEx
     std::string displayFullcontractPrice() const;
 
     /*New things for Contract: Functions to get Contract Price and Desired Price*/
-    uinteger_t contractPrice() const;
-    uinteger_t desiredCPrice() const;
+    uint64_t contractPrice() const;
+    uint64_t desiredCPrice() const;
 
     void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };

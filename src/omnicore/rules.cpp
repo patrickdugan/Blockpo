@@ -577,7 +577,7 @@ bool IsFeatureActivated(uint16_t featureId, int transactionBlock)
  */
 bool IsTransactionTypeAllowed(int txBlock, uint32_t txProperty, uint16_t txType, uint16_t version)
 {
-    const std::vector<TransactionRestriction>& vTxRestrictions = ConsensusParams().GetRestrictions();
+    const std::vector<TransactionRestriction> &vTxRestrictions = ConsensusParams().GetRestrictions();
 
     for (std::vector<TransactionRestriction>::const_iterator it = vTxRestrictions.begin(); it != vTxRestrictions.end(); ++it)
     {
