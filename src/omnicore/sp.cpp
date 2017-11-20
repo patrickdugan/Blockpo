@@ -76,7 +76,6 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
     implied_omni.name = "Omni";
     implied_omni.url = "http://www.omnilayer.org";
     implied_omni.data = "Omni serve as the binding between Bitcoin, smart properties and contracts created on the Omni Layer.";
-
  
     implied_tomni.issuer = ExodusAddress().ToString();
     /*New things for Contract: MSC_PROPERTY_TYPE_DIVISIBLE -> MSC_PROPERTY_TYPE_CONTRACT*/

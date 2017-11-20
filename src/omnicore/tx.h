@@ -308,23 +308,23 @@ public:
 
     /*Remember: This is a new Set function defined for ContractDEx*/
     /*Remember: pkt container someones of the private variables in the "class ContractDEx"*/
-    void Set(const std::string& s, const std::string& r, uint64_t n, const uint256& t, int b, unsigned int idx, 
-            unsigned char *p, unsigned int size, int encodingClassIn, uint64_t txf, int64_t pd) 
-            /*New things for Contract: Desired price*/
-    {
-        sender = s;
-        receiver = r;
-        txid = t;
-        block = b;
-        tx_idx = idx;
-        price_desired = pd; /*New things for Contract: Desired Price*/
-        pkt_size = size < sizeof (pkt) ? size : sizeof (pkt);
-        nValue = n;
-        nNewValue = n;
-        encodingClass = encodingClassIn;
-        tx_fee_paid = txf;
-        memcpy(&pkt, p, pkt_size);
-    }
+    // void Set(const std::string& s, const std::string& r, uint64_t n, const uint256& t, int b, unsigned int idx, 
+    //         unsigned char *p, unsigned int size, int encodingClassIn, uint64_t txf, int64_t pd) 
+    //         /*New things for Contract: Desired price*/
+    // {
+    //     sender = s;
+    //     receiver = r;
+    //     txid = t;
+    //     block = b;
+    //     tx_idx = idx;
+    //     price_desired = pd; /*New things for Contract: Desired Price*/
+    //     pkt_size = size < sizeof (pkt) ? size : sizeof (pkt);
+    //     nValue = n;
+    //     nNewValue = n;
+    //     encodingClass = encodingClassIn;
+    //     tx_fee_paid = txf;
+    //     memcpy(&pkt, p, pkt_size);
+    // }
 
     /** Parses the packet or payload. */
     bool interpret_Transaction();

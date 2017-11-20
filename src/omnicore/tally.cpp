@@ -73,6 +73,7 @@ bool CMPTally::updateMoney(uint32_t propertyId, int64_t amount, TallyType ttype)
         return false;
     }
     bool fUpdated = false;
+    /*Remember: std::map<uint32_t, BalanceRecord> mp_token*/
     int64_t now64 = mp_token[propertyId].balance[ttype];
 
     if (isOverflow(now64, amount)) {

@@ -2524,6 +2524,7 @@ int mastercore::WalletTxBuilder(const std::string& senderAddress, const std::str
 
 void COmniTransactionDB::RecordTransaction(const uint256& txid, uint32_t posInBlock)
 {
+    /*Remember: The pointer "pdb" is defined inside "src/leveldb/include/leveldb/db.h"*/
     assert(pdb);
 
     const std::string key = txid.ToString();
@@ -3559,13 +3560,13 @@ void CMPTradeList::getTradesForPair(uint32_t propertyIdSideA, uint32_t propertyI
 // sorted by block then index
 void CMPTradeList::getTradesForAddress(std::string address, std::vector<uint256>& vecTransactions, uint32_t propertyIdFilter)
 {
-  if (!pdb) return;
-  std::map<std::string,uint256> mapTrades;
-  leveldb::Iterator* it = NewIterator();
-  for(it->SeekToFirst(); it->Valid(); it->Next()) {
-      std::string strKey = it->key().ToString();
-      std::string strValue = it->value().ToString();
-      std::vector<std::string> vecValues;
+     if (!pdb) return;
+    std::map<std::string,uint256> mapTrades;
+    leveldb::Iterator* it = NewIterator();
+    for(it->SeekToFirst(); it->Valid(); it->Next()) {
+          std::string strKey = it->key().ToString();
+        std::string strValue = it->value().ToString();
+        std::vector<std::string> vecValues;
       if (strKey.size() != 64) continue; // only interested in trades
       uint256 txid = uint256S(strKey);
       size_t addressMatch = strValue.find(address);
@@ -3589,27 +3590,31 @@ void CMPTradeList::getTradesForAddress(std::string address, std::vector<uint256>
   }
 }
 
-void CMPTradeList::recordNewTrade(const uint256& txid, const std::string& address, uint32_t propertyIdForSale, uint32_t propertyIdDesired, int blockNum, int blockIndex)
+void CMPTradeList::recordNewTrade(const uint256& txid, const std::string& address, uint32_t propertyIdForSale, 
+                                  uint32_t propertyIdDesired, int blockNum, int blockIndex)
 {
-  if (!pdb) return;
-  std::string strValue = strprintf("%s:%d:%d:%d:%d", address, propertyIdForSale, propertyIdDesired, blockNum, blockIndex);
-  Status status = pdb->Put(writeoptions, txid.ToString(), strValue);
-  ++nWritten;
-  if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
-}
-
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee)
-{
-  if (!pdb) return;
-  const string key = txid1.ToString() + "+" + txid2.ToString();
-  const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d", address1, address2, prop1, prop2, amount1, amount2, blockNum, fee);
-  Status status;
-  if (pdb)
-  {
-    status = pdb->Put(writeoptions, key, value);
+    if (!pdb) return;
+    std::string strValue = strprintf("%s:%d:%d:%d:%d", address, propertyIdForSale, propertyIdDesired, blockNum, blockIndex);
+    Status status = pdb->Put(writeoptions, txid.ToString(), strValue);
     ++nWritten;
     if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
-  }
+}
+
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2,
+                                      unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, 
+                                      int blockNum, int64_t fee)
+{
+    /*Remember: The pointer "pdb" is defined inside "src/leveldb/include/leveldb/db.h"*/
+    if (!pdb) return;
+    const string key = txid1.ToString() + "+" + txid2.ToString();
+    const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d", address1, address2, prop1, prop2, amount1, amount2, blockNum, fee);
+    Status status;
+    if (pdb)
+    {
+        status = pdb->Put(writeoptions, key, value);
+        ++nWritten;
+        if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
+    }
 }
 
 /**
