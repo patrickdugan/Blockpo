@@ -70,7 +70,7 @@ public:
     int getBlock() const { return block; }
     unsigned int getIdx() const { return idx; }
 
-    int64_t getBlockTime() const;
+    int64_t getBlockTime() const;  
 
     CMPMetaDEx()
       : block(0), idx(0), property(0), amount_forsale(0), desired_property(0), amount_desired(0),
@@ -93,6 +93,9 @@ public:
 
     std::string ToString() const;
 
+    // uint64_t txforsalePrice(CMPTransaction &tx) { return tx.forsale_price; }
+    // uint64_t txdesiredPrice(CMPTransaction &tx) { return tx.desired_price; }
+
     /*New things for Contract*/
     uint64_t forsalePrice() const;
     uint64_t desiredPrice() const;
@@ -103,6 +106,17 @@ public:
     std::string displayFullUnitPrice() const;
 
     void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
+};
+
+class CMPContractDex : public CMPMetaDEx
+{
+    //Here defined the respectives constructors for the friend and the inheritance: working on it
+    private:
+        uint64_t desired_price;
+        uint64_t forsale_pricel
+    public:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+         CMPContractDex();
+        ~ CMPContractDex();    
 };
 
 namespace mastercore

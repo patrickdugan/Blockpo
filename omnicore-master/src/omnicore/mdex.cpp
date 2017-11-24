@@ -344,7 +344,7 @@ std::string CMPMetaDEx::displayUnitPrice() const
      return displayValue;
 }
 
-uint64_t CMPMetaDEx::forsalePrice() const
+uint64_t CMPMetaDEx::forsalePrice() const 
 {
 	CMPTransaction *p;
     uint64_t effectivePrice = 0;
