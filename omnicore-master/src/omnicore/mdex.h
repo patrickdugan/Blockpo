@@ -108,15 +108,32 @@ public:
     void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };
 
+/*New things for Contracts*/
 class CMPContractDex : public CMPMetaDEx
 {
-    //Here defined the respectives constructors for the friend and the inheritance: working on it
     private:
         uint64_t desired_price;
-        uint64_t forsale_pricel
-    public:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-         CMPContractDex();
-        ~ CMPContractDex();    
+        uint64_t forsale_price;
+  
+    public: 
+        CMPContractDex()
+        : desired_price(0), forsale_price(0) {}
+
+        CMPContractDex(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad, 
+                       const uint256& tx, uint32_t i, uint8_t suba, uint64_t dsp, uint64_t fsp) 
+        : CMPMetaDEx(addr, b, c, nValue, cd, ad, tx, i, suba), desired_price(dsp), forsale_price(fsp) {}
+
+        CMPContractDex(const CMPTransaction &tx)
+        : CMPMetaDEx(tx), desired_price(tx.desired_price), forsale_price(tx.forsale_price) {}
+
+        /*Here the Deallocation process happens*/
+        virtual ~CMPContractDex()
+        {
+            if (msc_debug_persistence) PrintToLog("CMPTransaction closed\n");
+        }
+
+        int64_t getDesiredPrice() const { return desired_price; }
+        int64_t getForsalePrice() const { return forsale_price; }
 };
 
 namespace mastercore
