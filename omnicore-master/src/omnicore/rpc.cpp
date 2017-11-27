@@ -88,7 +88,7 @@ void PropertyToJSON(const CMPSPInfo::Entry& sProperty, UniValue& property_obj)
     property_obj.push_back(Pair("divisible", sProperty.isDivisible()));
 }
 
-void MetaDexObjectToJSON(const CMPMetaDEx& obj, UniValue& metadex_obj)
+void MetaDexObjectToJSON(const CMPContractDex& obj, UniValue& metadex_obj)
 {
     bool propertyIdForSaleIsDivisible = isPropertyDivisible(obj.getProperty());
     bool propertyIdDesiredIsDivisible = isPropertyDivisible(obj.getDesProperty());
@@ -109,14 +109,14 @@ void MetaDexObjectToJSON(const CMPMetaDEx& obj, UniValue& metadex_obj)
     metadex_obj.push_back(Pair("blocktime", obj.getBlockTime()));
 }
 
-void MetaDexObjectsToJSON(std::vector<CMPMetaDEx>& vMetaDexObjs, UniValue& response)
+void MetaDexObjectsToJSON(std::vector<CMPContractDex>& vMetaDexObjs, UniValue& response)
 {
     MetaDEx_compare compareByHeight;
 
     // sorts metadex objects based on block height and position in block
     std::sort (vMetaDexObjs.begin(), vMetaDexObjs.end(), compareByHeight);
 
-    for (std::vector<CMPMetaDEx>::const_iterator it = vMetaDexObjs.begin(); it != vMetaDexObjs.end(); ++it) {
+    for (std::vector<CMPContractDex>::const_iterator it = vMetaDexObjs.begin(); it != vMetaDexObjs.end(); ++it) {
         UniValue metadex_obj(UniValue::VOBJ);
         MetaDexObjectToJSON(*it, metadex_obj);
 
@@ -1329,7 +1329,7 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
         RequireDifferentIds(propertyIdForSale, propertyIdDesired);
     }
 
-    std::vector<CMPMetaDEx> vecMetaDexObjects;
+    std::vector<CMPContractDex> vecMetaDexObjects;
     {
         LOCK(cs_tally);
         for (md_PropertiesMap::const_iterator my_it = metadex.begin(); my_it != metadex.end(); ++my_it) {
@@ -1337,7 +1337,7 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
             for (md_PricesMap::const_iterator it = prices.begin(); it != prices.end(); ++it) {
                 const md_Set& indexes = it->second;
                 for (md_Set::const_iterator it = indexes.begin(); it != indexes.end(); ++it) {
-                    const CMPMetaDEx& obj = *it;
+                    const CMPContractDex& obj = *it;
                     if (obj.getProperty() != propertyIdForSale) continue;
                     if (!filterDesired || obj.getDesProperty() == propertyIdDesired) vecMetaDexObjects.push_back(obj);
                 }

@@ -1433,7 +1433,8 @@ int CMPTransaction::logicMath_MetaDExTrade()
     // ------------------------------------------
 
     t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
-    int rc = MetaDEx_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx);
+    /*New things for Contracts: Here we added the prices of the contract*/
+    int rc = MetaDEx_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, desired_price, forsale_price);
     return rc;
 }
 
@@ -1488,7 +1489,7 @@ int CMPTransaction::logicMath_MetaDExCancelPrice()
 
     // ------------------------------------------
 
-    int rc = MetaDEx_CANCEL_AT_PRICE(txid, block, sender, property, nNewValue, desired_property, desired_value);
+    int rc = MetaDEx_CANCEL_AT_PRICE(txid, block, sender, property, nNewValue, desired_property, desired_value, desired_price, forsale_price);
 
     return rc;
 }

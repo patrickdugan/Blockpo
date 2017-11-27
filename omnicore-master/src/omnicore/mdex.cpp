@@ -93,15 +93,16 @@ std::string xToString(const uint64_t &price)
 // NOTE: sometimes I refer to the older order as seller & the newer order as buyer, in this trade
 // INPUT: property, desprop, desprice = of the new order being inserted; the new object being processed
 // RETURN: 
-static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
+static MatchReturnType x_Trade(CMPContractDex* const pnew)
 {
     const uint32_t propertyForSale = pnew->getProperty();
     const uint32_t propertyDesired = pnew->getDesProperty();
+
     MatchReturnType NewReturn = NOTHING;
     bool bBuyerSatisfied = false;
 
     if (msc_debug_metadex1) PrintToLog("%s(%s: prop=%d, desprop=%d, desprice= %s);newo: %s\n",
-        __FUNCTION__, pnew->getAddr(), propertyForSale, propertyDesired, xToString(pnew->desiredPrice()), pnew->ToString());
+        __FUNCTION__, pnew->getAddr(), propertyForSale, propertyDesired, xToString(pnew->getDesiredPrice()), pnew->ToString());
 
     md_PricesMap* const ppriceMap = get_Prices(propertyDesired);
 
@@ -116,10 +117,10 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
         const uint64_t sellersPrice = priceIt->first;
 
         if (msc_debug_metadex2) PrintToLog("comparing prices: desprice %s needs to be GREATER THAN OR EQUAL TO %s\n",
-            xToString(pnew->desiredPrice()), xToString(sellersPrice));
+            xToString(pnew->getDesiredPrice()), xToString(sellersPrice));
 
         // Is the desired price check satisfied? The buyer's inverse price must be larger than that of the seller.
-        if (pnew->desiredPrice() < sellersPrice) {
+        if (pnew->getDesiredPrice() < sellersPrice) {
             continue;
         }
 
@@ -128,8 +129,8 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
         // at good (single) price level and property iterate over offers looking at all parameters to find the match
         md_Set::iterator offerIt = pofferSet->begin();
         while (offerIt != pofferSet->end()) { // specific price, check all properties
-            const CMPMetaDEx* const pold = &(*offerIt);
-            assert(pold->forsalePrice() == sellersPrice);
+            const CMPContractDex* const pold = &(*offerIt);
+            assert(pold->getForsalePrice() == sellersPrice);
 
             if (msc_debug_metadex1) PrintToLog("Looking at existing: %s (its prop= %d, its des prop= %d) = %s\n",
                 xToString(sellersPrice), pold->getProperty(), pold->getDesProperty(), pold->ToString());
@@ -159,8 +160,8 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
             assert(pnew->getProperty() != pnew->getDesProperty());
             assert(pnew->getProperty() == pold->getDesProperty());
             assert(pold->getProperty() == pnew->getDesProperty());
-            assert(pold->forsalePrice() <= pnew->desiredPrice());
-            assert(pnew->forsalePrice() <= pold->desiredPrice());
+            assert(pold->getForsalePrice() <= pnew->getDesiredPrice());
+            assert(pnew->getForsalePrice() <= pold->getDesiredPrice());
 
             ///////////////////////////
 
@@ -193,9 +194,9 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 
             // If the resulting adjusted unit price is higher than Alice' price, the
             // orders shall not execute, and no representable fill is made
-            const uint64_t xEffectivePrice = pold->forsalePrice();
+            const uint64_t xEffectivePrice = pold->getForsalePrice();
 
-            if (xEffectivePrice > pnew->desiredPrice()) {
+            if (xEffectivePrice > pnew->getDesiredPrice()) {
                 if (msc_debug_metadex1) PrintToLog(
                         "-- effective price is too expensive: %s\n", xToString(xEffectivePrice));
                 ++offerIt;
@@ -213,8 +214,8 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
             ///////////////////////////
 
             // postconditions
-            assert(xEffectivePrice >= pold->forsalePrice());
-            assert(xEffectivePrice <= pnew->desiredPrice());
+            assert(xEffectivePrice >= pold->getForsalePrice());
+            assert(xEffectivePrice <= pnew->getDesiredPrice());
             assert(0 <= seller_amountLeft);
             assert(0 <= buyer_amountLeft);
             assert(seller_amountForSale == seller_amountLeft + buyer_amountGot);
@@ -251,7 +252,7 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 
             NewReturn = TRADED;
 
-            CMPMetaDEx seller_replacement = *pold; // < can be moved into last if block
+            CMPContractDex seller_replacement = *pold; // < can be moved into last if block
             seller_replacement.setAmountRemaining(seller_amountLeft, "seller_replacement");
 
             pnew->setAmountRemaining(buyer_amountLeft, "buyer");
@@ -304,31 +305,33 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
  * Automatically returns unit or inverse price as needed.
  */
 
-std::string CMPMetaDEx::displayFullUnitPrice() const
+std::string CMPContractDex::displayFullUnitPrice() const
 {
-    uint64_t tempUnitPrice = forsalePrice();
+    uint64_t tempUnitPrice = getDesiredPrice();
 
     /* Matching types require no action (divisible/divisible or indivisible/indivisible)
        Non-matching types require adjustment for display purposes
            divisible/indivisible   : *COIN
            indivisible/divisible   : /COIN
     */
-    if ( isPropertyDivisible(getProperty()) && !isPropertyDivisible(getDesProperty()) ) tempUnitPrice = tempUnitPrice*COIN;
-    if ( !isPropertyDivisible(getProperty()) && isPropertyDivisible(getDesProperty()) ) tempUnitPrice = tempUnitPrice/COIN;
+    if ( isPropertyDivisible(CMPMetaDEx::getProperty()) && !isPropertyDivisible(CMPMetaDEx::getDesProperty()) ) 
+        tempUnitPrice = tempUnitPrice*COIN;
+    if ( !isPropertyDivisible(CMPMetaDEx::getProperty()) && isPropertyDivisible(CMPMetaDEx::getDesProperty()) ) 
+        tempUnitPrice = tempUnitPrice/COIN;
 
     std::string unitPriceStr = xToString(tempUnitPrice);
     return unitPriceStr;
 }
 
-std::string CMPMetaDEx::displayUnitPrice() const
+std::string CMPContractDex::displayUnitPrice() const
 {
      uint64_t tmpDisplayPrice;
-     if (getDesProperty() == OMNI_PROPERTY_MSC || getDesProperty() == OMNI_PROPERTY_TMSC) {
-         tmpDisplayPrice = forsalePrice();
-         if (isPropertyDivisible(getProperty())) tmpDisplayPrice = tmpDisplayPrice * COIN;
+     if (CMPMetaDEx::getDesProperty() == OMNI_PROPERTY_MSC || CMPMetaDEx::getDesProperty() == OMNI_PROPERTY_TMSC) {
+         tmpDisplayPrice = getDesiredPrice();
+         if (isPropertyDivisible(CMPMetaDEx::getProperty())) tmpDisplayPrice = tmpDisplayPrice * COIN;
      } else {
-         tmpDisplayPrice = desiredPrice();
-         if (isPropertyDivisible(getDesProperty())) tmpDisplayPrice = tmpDisplayPrice * COIN;
+         tmpDisplayPrice = getDesiredPrice();
+         if (isPropertyDivisible(CMPMetaDEx::getDesProperty())) tmpDisplayPrice = tmpDisplayPrice * COIN;
      }
 
      // offers with unit prices under 0.00000001 will be excluded from UI layer - TODO: find a better way to identify sub 0.00000001 prices
@@ -344,26 +347,10 @@ std::string CMPMetaDEx::displayUnitPrice() const
      return displayValue;
 }
 
-uint64_t CMPMetaDEx::forsalePrice() const 
-{
-	CMPTransaction *p;
-    uint64_t effectivePrice = 0;
-    if (amount_forsale) effectivePrice = p->getForsalePrice();
-    return effectivePrice;
-}
-
-uint64_t CMPMetaDEx::desiredPrice() const
-{
-	CMPTransaction *p;
-    uint64_t desiredPrice = 0;
-    if (amount_desired) desiredPrice = p->getDesiredPrice();
-    return desiredPrice;
-}
-
-int64_t CMPMetaDEx::getAmountToFill() const
+int64_t CMPContractDex::getAmountToFill() const
 {
     // round up to ensure that the amount we present will actually result in buying all available tokens
-    arith_uint256 iAmountNeededToFill = DivideAndRoundUp((ConvertTo256(amount_remaining) * ConvertTo256(amount_desired)), ConvertTo256(amount_forsale));
+    arith_uint256 iAmountNeededToFill = DivideAndRoundUp((ConvertTo256(CMPMetaDEx::getAmountRemaining()) * ConvertTo256(CMPMetaDEx::getAmountDesired())), ConvertTo256(CMPMetaDEx::getAmountForSale()));
     int64_t nAmountNeededToFill = ConvertTo64(iAmountNeededToFill);
     return nAmountNeededToFill;
 }
@@ -383,7 +370,7 @@ void CMPMetaDEx::setAmountRemaining(int64_t amount, const std::string& label)
 std::string CMPMetaDEx::ToString() const
 {
     return strprintf("%s:%34s in %d/%03u, txid: %s , trade #%u %s for #%u %s",
-        xToString(forsalePrice()), addr, block, idx, txid.ToString().substr(0, 10),
+        xToString(getForsalePrice()), addr, block, idx, txid.ToString().substr(0, 10),
         property, FormatMP(property, amount_forsale), desired_property, FormatMP(desired_property, amount_desired));
 }
 
@@ -409,13 +396,13 @@ void CMPMetaDEx::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
     file << lineOut << std::endl;
 }
 
-bool MetaDEx_compare::operator()(const CMPMetaDEx &lhs, const CMPMetaDEx &rhs) const
+bool MetaDEx_compare::operator()(const CMPContractDex &lhs, const CMPContractDex &rhs) const
 {
     if (lhs.getBlock() == rhs.getBlock()) return lhs.getIdx() < rhs.getIdx();
     else return lhs.getBlock() < rhs.getBlock();
 }
 
-bool mastercore::MetaDEx_INSERT(const CMPMetaDEx& objMetaDEx)
+bool mastercore::MetaDEx_INSERT(const CMPContractDex& objMetaDEx)
 {
     // Create an empty price map (to use in case price map for this property does not already exist)
     md_PricesMap temp_prices;
@@ -430,7 +417,7 @@ bool mastercore::MetaDEx_INSERT(const CMPMetaDEx& objMetaDEx)
     std::pair <md_Set::iterator, bool> ret;
 
     // Attempt to obtain a set of metadex objects for this price from the price map
-    if (p_prices) p_indexes = get_Indexes(p_prices, objMetaDEx.forsalePrice());
+    if (p_prices) p_indexes = get_Indexes(p_prices, objMetaDEx.getForsalePrice());
     // See if the set was populated, if not no set exists at this price level, use the empty set that we created earlier
     if (!p_indexes) p_indexes = &temp_indexes;
 
@@ -442,7 +429,7 @@ bool mastercore::MetaDEx_INSERT(const CMPMetaDEx& objMetaDEx)
     if (!p_prices) p_prices = &temp_prices;
 
     // Update the prices map with the new set at this price
-    (*p_prices)[objMetaDEx.forsalePrice()] = *p_indexes;
+    (*p_prices)[objMetaDEx.getForsalePrice()] = *p_indexes;
 
     // Set the metadex map for the property to the updated (or new if it didn't exist) price map
     metadex[objMetaDEx.getProperty()] = *p_prices;
@@ -451,33 +438,34 @@ bool mastercore::MetaDEx_INSERT(const CMPMetaDEx& objMetaDEx)
 }
 
 // pretty much directly linked to the ADD TX21 command off the wire
-int mastercore::MetaDEx_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx)
+int mastercore::MetaDEx_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t desired_price, uint64_t forsale_price)
 {
     int rc = METADEX_ERROR -1;
 
     // Create a MetaDEx object from paremeters
-    CMPMetaDEx new_mdex(sender_addr, block, prop, amount, property_desired, amount_desired, txid, idx, CMPTransaction::ADD);
-    if (msc_debug_metadex1) PrintToLog("%s(); buyer obj: %s\n", __FUNCTION__, new_mdex.ToString());
+    /*Remember: Here CMPTransaction::ADD is the subaction coming from CMPMetaDEx*/
+    CMPContractDex new_cdex(sender_addr, block, prop, amount, property_desired, amount_desired, txid, idx, CMPTransaction::ADD, desired_price, forsale_price);
+    if (msc_debug_metadex1) PrintToLog("%s(); buyer obj: %s\n", __FUNCTION__, new_cdex.ToString());
 
     // Ensure this is not a badly priced trade (for example due to zero amounts)
-    if (0 >= new_mdex.forsalePrice()) return METADEX_ERROR -66;
+    if (0 >= new_cdex.getForsalePrice()) return METADEX_ERROR -66;
 
     // Match against existing trades, remainder of the order will be put into the order book
     if (msc_debug_metadex3) MetaDEx_debug_print();
-    x_Trade(&new_mdex);
+    x_Trade(&new_cdex);
     if (msc_debug_metadex3) MetaDEx_debug_print();
 
     // Insert the remaining order into the MetaDEx maps
-    if (0 < new_mdex.getAmountRemaining()) { //switch to getAmountRemaining() when ready
-        if (!MetaDEx_INSERT(new_mdex)) {
+    if (0 < new_cdex.getAmountRemaining()) { //switch to getAmountRemaining() when ready
+        if (!MetaDEx_INSERT(new_cdex)) {
             PrintToLog("%s() ERROR: ALREADY EXISTS, line %d, file: %s\n", __FUNCTION__, __LINE__, __FILE__);
             return METADEX_ERROR -70;
         } else {
             // move tokens into reserve
-            assert(update_tally_map(sender_addr, prop, -new_mdex.getAmountRemaining(), BALANCE));
-            assert(update_tally_map(sender_addr, prop, new_mdex.getAmountRemaining(), METADEX_RESERVE));
+            assert(update_tally_map(sender_addr, prop, -new_cdex.getAmountRemaining(), BALANCE));
+            assert(update_tally_map(sender_addr, prop, new_cdex.getAmountRemaining(), METADEX_RESERVE));
 
-            if (msc_debug_metadex1) PrintToLog("==== INSERTED: %s= %s\n", xToString(new_mdex.forsalePrice()), new_mdex.ToString());
+            if (msc_debug_metadex1) PrintToLog("==== INSERTED: %s= %s\n", xToString(new_cdex.getForsalePrice()), new_cdex.ToString());
             if (msc_debug_metadex3) MetaDEx_debug_print();
         }
     }
@@ -486,19 +474,19 @@ int mastercore::MetaDEx_ADD(const std::string& sender_addr, uint32_t prop, int64
     return rc;
 }
 
-int mastercore::MetaDEx_CANCEL_AT_PRICE(const uint256& txid, unsigned int block, const std::string& sender_addr, uint32_t prop, int64_t amount, uint32_t property_desired, int64_t amount_desired)
+int mastercore::MetaDEx_CANCEL_AT_PRICE(const uint256& txid, unsigned int block, const std::string& sender_addr, uint32_t prop, int64_t amount, uint32_t property_desired, int64_t amount_desired, uint64_t desired_price, uint64_t forsale_price)
 {
     int rc = METADEX_ERROR -20;
-    CMPMetaDEx mdex(sender_addr, 0, prop, amount, property_desired, amount_desired, uint256(), 0, CMPTransaction::CANCEL_AT_PRICE);
+    CMPContractDex cdex(sender_addr, 0, prop, amount, property_desired, amount_desired, uint256(), 0, CMPTransaction::CANCEL_AT_PRICE, desired_price, forsale_price);
     md_PricesMap* prices = get_Prices(prop);
-    const CMPMetaDEx* p_mdex = NULL;
+    const CMPContractDex* p_cdex = NULL;
 
-    if (msc_debug_metadex1) PrintToLog("%s():%s\n", __FUNCTION__, mdex.ToString());
+    if (msc_debug_metadex1) PrintToLog("%s():%s\n", __FUNCTION__, cdex.ToString());
 
     if (msc_debug_metadex2) MetaDEx_debug_print();
 
     if (!prices) {
-        PrintToLog("%s() NOTHING FOUND for %s\n", __FUNCTION__, mdex.ToString());
+        PrintToLog("%s() NOTHING FOUND for %s\n", __FUNCTION__, cdex.ToString());
         return rc -1;
     }
 
@@ -506,30 +494,30 @@ int mastercore::MetaDEx_CANCEL_AT_PRICE(const uint256& txid, unsigned int block,
     for (md_PricesMap::iterator my_it = prices->begin(); my_it != prices->end(); ++my_it) {
         uint64_t sellers_price = my_it->first;
 
-        if (mdex.forsalePrice() != sellers_price) continue;
+        if (cdex.getForsalePrice() != sellers_price) continue;
 
         md_Set* indexes = &(my_it->second);
 
         for (md_Set::iterator iitt = indexes->begin(); iitt != indexes->end();) {
-            p_mdex = &(*iitt);
+            p_cdex = &(*iitt);
 
-            if (msc_debug_metadex3) PrintToLog("%s(): %s\n", __FUNCTION__, p_mdex->ToString());
+            if (msc_debug_metadex3) PrintToLog("%s(): %s\n", __FUNCTION__, p_cdex->ToString());
 
-            if ((p_mdex->getDesProperty() != property_desired) || (p_mdex->getAddr() != sender_addr)) {
+            if ((p_cdex->getDesProperty() != property_desired) || (p_cdex->getAddr() != sender_addr)) {
                 ++iitt;
                 continue;
             }
 
             rc = 0;
-            PrintToLog("%s(): REMOVING %s\n", __FUNCTION__, p_mdex->ToString());
+            PrintToLog("%s(): REMOVING %s\n", __FUNCTION__, p_cdex->ToString());
 
             // move from reserve to main
-            assert(update_tally_map(p_mdex->getAddr(), p_mdex->getProperty(), -p_mdex->getAmountRemaining(), METADEX_RESERVE));
-            assert(update_tally_map(p_mdex->getAddr(), p_mdex->getProperty(), p_mdex->getAmountRemaining(), BALANCE));
+            assert(update_tally_map(p_cdex->getAddr(), p_cdex->getProperty(), -p_cdex->getAmountRemaining(), METADEX_RESERVE));
+            assert(update_tally_map(p_cdex->getAddr(), p_cdex->getProperty(), p_cdex->getAmountRemaining(), BALANCE));
 
             // record the cancellation
             bool bValid = true;
-            p_txlistdb->recordMetaDExCancelTX(txid, p_mdex->getHash(), bValid, block, p_mdex->getProperty(), p_mdex->getAmountRemaining());
+            p_txlistdb->recordMetaDExCancelTX(txid, p_cdex->getHash(), bValid, block, p_cdex->getProperty(), p_cdex->getAmountRemaining());
 
             indexes->erase(iitt++);
         }
@@ -544,7 +532,7 @@ int mastercore::MetaDEx_CANCEL_ALL_FOR_PAIR(const uint256& txid, unsigned int bl
 {
     int rc = METADEX_ERROR -30;
     md_PricesMap* prices = get_Prices(prop);
-    const CMPMetaDEx* p_mdex = NULL;
+    const CMPContractDex* p_mdex = NULL;
 
     PrintToLog("%s(%d,%d)\n", __FUNCTION__, prop, property_desired);
 
@@ -706,7 +694,7 @@ bool mastercore::MetaDEx_isOpen(const uint256& txid, uint32_t propertyIdForSale)
         for (md_PricesMap::iterator it = prices.begin(); it != prices.end(); ++it) {
             md_Set & indexes = (it->second);
             for (md_Set::iterator it = indexes.begin(); it != indexes.end(); ++it) {
-                CMPMetaDEx obj = *it;
+                CMPContractDEx obj = *it;
                 if( obj.getHash().GetHex() == txid.GetHex() ) return true;
             }
         }
@@ -796,7 +784,7 @@ void mastercore::MetaDEx_debug_print(bool bShowPriceLevel, bool bDisplay)
  * Locates a trade in the MetaDEx maps via txid and returns the trade object
  *
  */
-const CMPMetaDEx* mastercore::MetaDEx_RetrieveTrade(const uint256& txid)
+const CMPContractDex* mastercore::MetaDEx_RetrieveTrade(const uint256& txid)
 {
     for (md_PropertiesMap::iterator propIter = metadex.begin(); propIter != metadex.end(); ++propIter) {
         md_PricesMap & prices = propIter->second;
@@ -807,5 +795,5 @@ const CMPMetaDEx* mastercore::MetaDEx_RetrieveTrade(const uint256& txid)
             }
         }
     }
-    return (CMPMetaDEx*) NULL;
+    return (CMPContractDex*) NULL;
 }

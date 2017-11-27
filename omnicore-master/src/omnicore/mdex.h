@@ -92,14 +92,6 @@ public:
         subaction(tx.subaction), addr(tx.sender) {}
 
     std::string ToString() const;
-
-    // uint64_t txforsalePrice(CMPTransaction &tx) { return tx.forsale_price; }
-    // uint64_t txdesiredPrice(CMPTransaction &tx) { return tx.desired_price; }
-
-    /*New things for Contract*/
-    uint64_t forsalePrice() const;
-    uint64_t desiredPrice() const;
-
     /** Used for display of unit prices to 8 decimal places at UI layer. */
     std::string displayUnitPrice() const;
     /** Used for display of unit prices with 50 decimal places at RPC layer. */
@@ -108,14 +100,15 @@ public:
     void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };
 
+///////////////////////////////////////////
 /*New things for Contracts*/
 class CMPContractDex : public CMPMetaDEx
 {
     private:
         uint64_t desired_price;
         uint64_t forsale_price;
-  
-    public: 
+
+    public:
         CMPContractDex()
         : desired_price(0), forsale_price(0) {}
 
@@ -123,58 +116,67 @@ class CMPContractDex : public CMPMetaDEx
                        const uint256& tx, uint32_t i, uint8_t suba, uint64_t dsp, uint64_t fsp) 
         : CMPMetaDEx(addr, b, c, nValue, cd, ad, tx, i, suba), desired_price(dsp), forsale_price(fsp) {}
 
+        /*Remember: Needed for omnicore.cpp*/
+        CMPContractDex(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad, 
+                       const uint256& tx, uint32_t i, uint8_t suba, int64_t ar, uint64_t dsp, uint64_t fsp) 
+        : CMPMetaDEx(addr, b, c, nValue, cd, ad, tx, i, suba, ar), desired_price(dsp), forsale_price(fsp) {}
+     
         CMPContractDex(const CMPTransaction &tx)
         : CMPMetaDEx(tx), desired_price(tx.desired_price), forsale_price(tx.forsale_price) {}
 
-        /*Here the Deallocation process happens*/
         virtual ~CMPContractDex()
         {
             if (msc_debug_persistence) PrintToLog("CMPTransaction closed\n");
         }
+        uint64_t getDesiredPrice() const { return desired_price; }
+        uint64_t getForsalePrice() const { return forsale_price; }
 
-        int64_t getDesiredPrice() const { return desired_price; }
-        int64_t getForsalePrice() const { return forsale_price; }
+        std::string displayUnitPrice() const;
+        std::string displayFullUnitPrice() const;
+        int64_t getAmountToFill() const;
+        int64_t getBlockTime() const { return CMPMetaDEx::getBlockTime(); }
+        std::string ToString() const { return CMPMetaDEx::ToString(); }
 };
+///////////////////////////////////////////
 
-namespace mastercore
+namespace mastercore          
 {
-struct MetaDEx_compare
-{
-    bool operator()(const CMPMetaDEx& lhs, const CMPMetaDEx& rhs) const;
-};
+    struct MetaDEx_compare                                                                                                                                                                                          
+    {
+        bool operator()(const CMPContractDex& lhs, const CMPContractDex& rhs) const;    
+    };
 
 // ---------------
 //! Set of objects sorted by block+idx
-typedef std::set<CMPMetaDEx, MetaDEx_compare> md_Set; 
+    typedef std::set<CMPContractDex, MetaDEx_compare> md_Set; 
 //! Map of prices; there is a set of sorted objects for each price
-typedef std::map<uint64_t, md_Set> md_PricesMap;
+    typedef std::map<uint64_t, md_Set> md_PricesMap;
 //! Map of properties; there is a map of prices for each property
-typedef std::map<uint32_t, md_PricesMap> md_PropertiesMap;
+    typedef std::map<uint32_t, md_PricesMap> md_PropertiesMap;
 
 //! Global map for price and order data
-extern md_PropertiesMap metadex;
+    extern md_PropertiesMap metadex;
 
 // TODO: explore a property-pair, instead of a single property as map's key........
-md_PricesMap* get_Prices(uint32_t prop);
+    md_PricesMap* get_Prices(uint32_t prop);
 /*Remember: Here we changed "prices -> uint64_t"*/
-md_Set* get_Indexes(md_PricesMap* p, uint64_t price);
+    md_Set* get_Indexes(md_PricesMap* p, uint64_t price);
 // ---------------
 
-int MetaDEx_ADD(const std::string& sender_addr, uint32_t, int64_t, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx);
-int MetaDEx_CANCEL_AT_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
-int MetaDEx_CANCEL_ALL_FOR_PAIR(const uint256&, uint32_t, const std::string&, uint32_t, uint32_t);
-int MetaDEx_CANCEL_EVERYTHING(const uint256& txid, uint32_t block, const std::string& sender_addr, unsigned char ecosystem);
-int MetaDEx_SHUTDOWN();
-int MetaDEx_SHUTDOWN_ALLPAIR();
-bool MetaDEx_INSERT(const CMPMetaDEx& objMetaDEx);
-void MetaDEx_debug_print(bool bShowPriceLevel = false, bool bDisplay = false);
-bool MetaDEx_isOpen(const uint256& txid, uint32_t propertyIdForSale = 0);
-int MetaDEx_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold = -1);
-std::string MetaDEx_getStatusText(int tradeStatus);
+    int MetaDEx_ADD(const std::string& sender_addr, uint32_t, int64_t, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t desired_price, uint64_t forsale_price);
+    int MetaDEx_CANCEL_AT_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t, uint64_t, uint64_t);
+    int MetaDEx_CANCEL_ALL_FOR_PAIR(const uint256&, uint32_t, const std::string&, uint32_t, uint32_t);
+    int MetaDEx_CANCEL_EVERYTHING(const uint256& txid, uint32_t block, const std::string& sender_addr, unsigned char ecosystem);
+    int MetaDEx_SHUTDOWN();
+    int MetaDEx_SHUTDOWN_ALLPAIR();
+    bool MetaDEx_INSERT(const CMPContractDex& objMetaDEx);
+    void MetaDEx_debug_print(bool bShowPriceLevel = false, bool bDisplay = false);
+    bool MetaDEx_isOpen(const uint256& txid, uint32_t propertyIdForSale = 0);
+    int MetaDEx_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold = -1);
+    std::string MetaDEx_getStatusText(int tradeStatus);
 
 // Locates a trade in the MetaDEx maps via txid and returns the trade object
-const CMPMetaDEx* MetaDEx_RetrieveTrade(const uint256& txid);
-
+    const CMPContractDex* MetaDEx_RetrieveTrade(const uint256& txid);
 }
 
 #endif // OMNICORE_MDEX_H

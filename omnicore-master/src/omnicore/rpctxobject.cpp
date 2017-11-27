@@ -332,7 +332,7 @@ void populateRPCTypeTradeOffer(CMPTransaction& omniObj, UniValue& txobj)
 
 void populateRPCTypeMetaDExTrade(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails)
 {
-    CMPMetaDEx metaObj(omniObj);
+    CMPContractDex metaObj(omniObj);
 
     bool propertyIdForSaleIsDivisible = isPropertyDivisible(omniObj.getProperty());
     bool propertyIdDesiredIsDivisible = isPropertyDivisible(metaObj.getDesProperty());
@@ -351,7 +351,7 @@ void populateRPCTypeMetaDExTrade(CMPTransaction& omniObj, UniValue& txobj, bool 
 
 void populateRPCTypeSimpleSendopulateRPCTypeMetaDExCancelPrice(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails)
 {
-    CMPMetaDEx metaObj(omniObj);
+    CMPContractDex metaObj(omniObj);
 
     bool propertyIdForSaleIsDivisible = isPropertyDivisible(omniObj.getProperty());
     bool propertyIdDesiredIsDivisible = isPropertyDivisible(metaObj.getDesProperty());
@@ -370,7 +370,7 @@ void populateRPCTypeSimpleSendopulateRPCTypeMetaDExCancelPrice(CMPTransaction& o
 
 void populateRPCTypeMetaDExCancelPair(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails)
 {
-    CMPMetaDEx metaObj(omniObj);
+    CMPContractDex metaObj(omniObj);
 
     // populate
     txobj.push_back(Pair("propertyidforsale", (uint64_t)omniObj.getProperty()));
@@ -524,7 +524,7 @@ void populateRPCExtendedTypeMetaDExTrade(const uint256& txid, uint32_t propertyI
     t_tradelistdb->getMatchingTrades(txid, propertyIdForSale, tradeArray, totalSold, totalReceived);
     int tradeStatus = MetaDEx_getStatus(txid, propertyIdForSale, amountForSale, totalSold);
     if (tradeStatus == TRADE_OPEN || tradeStatus == TRADE_OPEN_PART_FILLED) {
-        const CMPMetaDEx* tradeObj = MetaDEx_RetrieveTrade(txid);
+        const CMPContractDex* tradeObj = MetaDEx_RetrieveTrade(txid);
         if (tradeObj != NULL) {
             txobj.push_back(Pair("amountremaining", FormatMP(tradeObj->getProperty(), tradeObj->getAmountRemaining())));
             txobj.push_back(Pair("amounttofill", FormatMP(tradeObj->getDesProperty(), tradeObj->getAmountToFill())));

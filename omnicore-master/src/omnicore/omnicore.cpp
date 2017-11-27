@@ -1580,10 +1580,14 @@ int input_mp_mdexorder_string(const std::string& s)
     uint256 txid = uint256S(vstr[i++]);
     int64_t amount_remaining = boost::lexical_cast<int64_t>(vstr[i++]);
 
-    CMPMetaDEx mdexObj(addr, block, property, amount_forsale, desired_property,
-            amount_desired, txid, idx, subaction, amount_remaining);
+    /*New things for Contracts: Prices of the Contract*/
+    uint64_t desired_price = boost::lexical_cast<uint64_t>(vstr[i++]);
+    uint64_t forsale_price = boost::lexical_cast<uint64_t>(vstr[i++]);
 
-    if (!MetaDEx_INSERT(mdexObj)) return -1;
+    CMPContractDex cdexObj(addr, block, property, amount_forsale, desired_property, amount_desired, txid, idx, 
+                           subaction, amount_remaining, desired_price, forsale_price);
+
+    if (!MetaDEx_INSERT(cdexObj)) return -1;
 
     return 0;
 }
