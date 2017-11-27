@@ -65,7 +65,7 @@ public:
 
     uint8_t getAction() const { return subaction; }
 
-    const std::string& getAddr() const { return addr; }
+    const std::string &getAddr() const { return addr; }
 
     int getBlock() const { return block; }
     unsigned int getIdx() const { return idx; }
@@ -91,18 +91,16 @@ public:
         desired_property(tx.desired_property), amount_desired(tx.desired_value), amount_remaining(tx.nValue),
         subaction(tx.subaction), addr(tx.sender) {}
 
-        /*New things for Contract*/
+
     uint64_t forsalePrice() const;
     uint64_t desiredPrice() const;
 
-
-    std::string ToString() const;
     /** Used for display of unit prices to 8 decimal places at UI layer. */
     std::string displayUnitPrice() const;
     /** Used for display of unit prices with 50 decimal places at RPC layer. */
     std::string displayFullUnitPrice() const;
 
-    void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
+    // void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };
 
 ///////////////////////////////////////////
@@ -121,7 +119,7 @@ class CMPContractDex : public CMPMetaDEx
                        const uint256& tx, uint32_t i, uint8_t suba, uint64_t dsp, uint64_t fsp) 
         : CMPMetaDEx(addr, b, c, nValue, cd, ad, tx, i, suba), desired_price(dsp), forsale_price(fsp) {}
 
-        /*Remember: Needed for omnicore.cpp*/
+        /*Remember: Needed for omnicore.cpp "ar"*/
         CMPContractDex(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad, 
                        const uint256& tx, uint32_t i, uint8_t suba, int64_t ar, uint64_t dsp, uint64_t fsp) 
         : CMPMetaDEx(addr, b, c, nValue, cd, ad, tx, i, suba, ar), desired_price(dsp), forsale_price(fsp) {}
@@ -140,7 +138,7 @@ class CMPContractDex : public CMPMetaDEx
         std::string displayFullUnitPrice() const;
         int64_t getAmountToFill() const;
         int64_t getBlockTime() const { return CMPMetaDEx::getBlockTime(); }
-        std::string ToString() const { return CMPMetaDEx::ToString(); }
+        std::string ToString() const;
         void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };
 ///////////////////////////////////////////

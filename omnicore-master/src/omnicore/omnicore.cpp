@@ -1879,8 +1879,6 @@ static int write_mp_offers(ofstream &file, SHA256_CTX *shaCtx)
     CMPOffer const &offer = (*iter).second;
     offer.saveOffer(file, shaCtx, vstr[0]);
   }
-
-
   return 0;
 }
 
@@ -1894,7 +1892,8 @@ static int write_mp_metadex(ofstream &file, SHA256_CTX *shaCtx)
       md_Set & indexes = (it->second);
       for (md_Set::iterator it = indexes.begin(); it != indexes.end(); ++it)
       {
-        CMPMetaDEx meta = *it;
+        /*New things for Contracts*/
+        CMPContractDex meta = *it;
         meta.saveOffer(file, shaCtx);
       }
     }

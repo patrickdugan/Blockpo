@@ -305,22 +305,6 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
  * Automatically returns unit or inverse price as needed.
  */
 
-uint64_t CMPMetaDEx::forsalePrice() const 
-{
-	CMPTransaction *p;
-    uint64_t effectivePrice = 0;
-    if (amount_forsale) effectivePrice = p->getForsalePrice();
-    return effectivePrice;
-}
-
-uint64_t CMPMetaDEx::desiredPrice() const
-{
-	CMPTransaction *p;
-    uint64_t desiredPrice = 0;
-    if (amount_desired) desiredPrice = p->getDesiredPrice();
-    return desiredPrice;
-}
-
 std::string CMPContractDex::displayFullUnitPrice() const
 {
     uint64_t tempUnitPrice = getDesiredPrice();
@@ -377,17 +361,21 @@ int64_t CMPMetaDEx::getBlockTime() const
     return pblockindex->GetBlockTime();
 }
 
+//////////////////////////////
+/*Remember: Here we remove ToString. This can be added later*/
 void CMPMetaDEx::setAmountRemaining(int64_t amount, const std::string& label)
 {
     amount_remaining = amount;
-    PrintToLog("update remaining amount still up for sale (%ld %s):%s\n", amount, label, ToString());
+    PrintToLog("update remaining amount still up for sale (%ld %s)\n", amount, label);
 }
-
-std::string CMPMetaDEx::ToString() const
+//////////////////////////////
+std::string CMPContractDex::ToString() const
 {
     return strprintf("%s:%34s in %d/%03u, txid: %s , trade #%u %s for #%u %s",
-        xToString(forsalePrice()), addr, block, idx, txid.ToString().substr(0, 10),
-        property, FormatMP(property, amount_forsale), desired_property, FormatMP(desired_property, amount_desired));
+        xToString(getForsalePrice()), CMPMetaDEx::getAddr(), CMPMetaDEx::getBlock(), CMPMetaDEx::getIdx(), 
+        CMPMetaDEx::getHash().ToString().substr(0, 10), CMPMetaDEx::getProperty(), 
+        FormatMP(CMPMetaDEx::getProperty(), CMPMetaDEx::getAmountForSale()), CMPMetaDEx::getDesProperty(), 
+        FormatMP(CMPMetaDEx::getDesProperty(), CMPMetaDEx::getAmountDesired()));
 }
 
 void CMPContractDex::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
@@ -411,40 +399,18 @@ void CMPContractDex::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
     file << lineOut << std::endl;
 }
 
-void CMPMetaDEx::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
-{
-    std::string lineOut = strprintf("%s,%d,%d,%d,%d,%d,%d,%d,%s,%d",
-        addr,
-        block,
-        amount_forsale,
-        property,
-        amount_desired,
-        desired_property,
-        subaction,
-        idx,
-        txid.ToString(),
-        amount_remaining
-    );
-
-    // add the line to the hash
-    SHA256_Update(shaCtx, lineOut.c_str(), lineOut.length());
-
-    // write the line
-    file << lineOut << std::endl;
-}
-
 bool MetaDEx_compare::operator()(const CMPContractDex &lhs, const CMPContractDex &rhs) const
 {
     if (lhs.getBlock() == rhs.getBlock()) return lhs.getIdx() < rhs.getIdx();
     else return lhs.getBlock() < rhs.getBlock();
 }
 
-bool mastercore::MetaDEx_INSERT(const CMPContractDex &objMetaDEx)
+bool mastercore::MetaDEx_INSERT(const CMPContractDex &objContractDex)
 {
     // Create an empty price map (to use in case price map for this property does not already exist)
     md_PricesMap temp_prices;
     // Attempt to obtain the price map for the property
-    md_PricesMap *p_prices = get_Prices(objMetaDEx.getProperty());
+    md_PricesMap *p_prices = get_Prices(objContractDex.getProperty());
 
     // Create an empty set of metadex objects (to use in case no set currently exists at this price)
     md_Set temp_indexes;
@@ -454,22 +420,22 @@ bool mastercore::MetaDEx_INSERT(const CMPContractDex &objMetaDEx)
     std::pair <md_Set::iterator, bool> ret;
 
     // Attempt to obtain a set of metadex objects for this price from the price map
-    if (p_prices) p_indexes = get_Indexes(p_prices, objMetaDEx.getForsalePrice());
+    if (p_prices) p_indexes = get_Indexes(p_prices, objContractDex.getForsalePrice());
     // See if the set was populated, if not no set exists at this price level, use the empty set that we created earlier
     if (!p_indexes) p_indexes = &temp_indexes;
 
     // Attempt to insert the metadex object into the set
-    ret = p_indexes->insert(objMetaDEx);
+    ret = p_indexes->insert(objContractDex);
     if (false == ret.second) return false;
 
     // If a prices map did not exist for this property, set p_prices to the temp empty price map
     if (!p_prices) p_prices = &temp_prices;
 
     // Update the prices map with the new set at this price
-    (*p_prices)[objMetaDEx.getForsalePrice()] = *p_indexes;
+    (*p_prices)[objContractDex.getForsalePrice()] = *p_indexes;
 
     // Set the metadex map for the property to the updated (or new if it didn't exist) price map
-    metadex[objMetaDEx.getProperty()] = *p_prices;
+    metadex[objContractDex.getProperty()] = *p_prices;
 
     return true;
 }
@@ -807,7 +773,7 @@ void mastercore::MetaDEx_debug_print(bool bShowPriceLevel, bool bDisplay)
             if (bShowPriceLevel) PrintToLog("  # Price Level: %s\n", xToString(price));
 
             for (md_Set::iterator it = indexes.begin(); it != indexes.end(); ++it) {
-                const CMPMetaDEx& obj = *it;
+                const CMPContractDex &obj = *it;
 
                 if (bDisplay) PrintToConsole("%s= %s\n", xToString(price), obj.ToString());
                 else PrintToLog("%s= %s\n", xToString(price), obj.ToString());
