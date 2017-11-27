@@ -91,6 +91,11 @@ public:
         desired_property(tx.desired_property), amount_desired(tx.desired_value), amount_remaining(tx.nValue),
         subaction(tx.subaction), addr(tx.sender) {}
 
+        /*New things for Contract*/
+    uint64_t forsalePrice() const;
+    uint64_t desiredPrice() const;
+
+
     std::string ToString() const;
     /** Used for display of unit prices to 8 decimal places at UI layer. */
     std::string displayUnitPrice() const;
@@ -136,6 +141,7 @@ class CMPContractDex : public CMPMetaDEx
         int64_t getAmountToFill() const;
         int64_t getBlockTime() const { return CMPMetaDEx::getBlockTime(); }
         std::string ToString() const { return CMPMetaDEx::ToString(); }
+        void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };
 ///////////////////////////////////////////
 
@@ -143,7 +149,7 @@ namespace mastercore
 {
     struct MetaDEx_compare                                                                                                                                                                                          
     {
-        bool operator()(const CMPContractDex& lhs, const CMPContractDex& rhs) const;    
+        bool operator()(const CMPContractDex &lhs, const CMPContractDex &rhs) const;    
     };
 
 // ---------------
