@@ -3550,6 +3550,7 @@ void CMPTradeList::recordNewTrade(const uint256& txid, const std::string& addres
   if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
 }
 
+/*Remember: Check this function */
 void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee)
 {
   if (!pdb) return;

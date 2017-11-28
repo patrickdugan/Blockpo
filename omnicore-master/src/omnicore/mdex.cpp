@@ -88,7 +88,6 @@ std::string xToString(const uint64_t &price)
     return strprintf("%s", boost::lexical_cast<std::string>(price));
 }
 ///////////////////////////////
-
 // find the best match on the market
 // NOTE: sometimes I refer to the older order as seller & the newer order as buyer, in this trade
 // INPUT: property, desprop, desprice = of the new order being inserted; the new object being processed
@@ -102,7 +101,8 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
     bool bBuyerSatisfied = false;
 
     if (msc_debug_metadex1) PrintToLog("%s(%s: prop=%d, desprop=%d, desprice= %s);newo: %s\n",
-        __FUNCTION__, pnew->getAddr(), propertyForSale, propertyDesired, xToString(pnew->getDesiredPrice()), pnew->ToString());
+        __FUNCTION__, pnew->getAddr(), propertyForSale, propertyDesired, xToString(pnew->getDesiredPrice()), 
+        pnew->ToString());
 
     md_PricesMap* const ppriceMap = get_Prices(propertyDesired);
 
@@ -114,28 +114,34 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
 
     // within the desired property map (given one property) iterate over the items looking at prices
     for (md_PricesMap::iterator priceIt = ppriceMap->begin(); priceIt != ppriceMap->end(); ++priceIt) { // check all prices
+        
         const uint64_t sellersPrice = priceIt->first;
 
         if (msc_debug_metadex2) PrintToLog("comparing prices: desprice %s needs to be GREATER THAN OR EQUAL TO %s\n",
             xToString(pnew->getDesiredPrice()), xToString(sellersPrice));
 
         // Is the desired price check satisfied? The buyer's inverse price must be larger than that of the seller.
+
+        /*Remember: Here we choose just "desiredCPrice() >= sellersPrice".In this case go to the next line.*/
         if (pnew->getDesiredPrice() < sellersPrice) {
             continue;
         }
 
         md_Set* const pofferSet = &(priceIt->second);
 
-        // at good (single) price level and property iterate over offers looking at all parameters to find the match
+        // At good (single) price level and property iterate over offers looking at all parameters to find the match
         md_Set::iterator offerIt = pofferSet->begin();
         while (offerIt != pofferSet->end()) { // specific price, check all properties
+
             const CMPContractDex* const pold = &(*offerIt);
+            /*Remeber: Here we check if price for sale = sellersPrice outside*/
             assert(pold->getForsalePrice() == sellersPrice);
 
             if (msc_debug_metadex1) PrintToLog("Looking at existing: %s (its prop= %d, its des prop= %d) = %s\n",
                 xToString(sellersPrice), pold->getProperty(), pold->getDesProperty(), pold->ToString());
 
             // does the desired property match?
+            /*Remember: Here we make a match betewen Criptocurrencies*/
             if (pold->getDesProperty() != propertyForSale) {
                 ++offerIt;
                 continue;
@@ -143,125 +149,83 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             if (msc_debug_metadex1) PrintToLog("MATCH FOUND, Trade: %s = %s\n", xToString(sellersPrice), pold->ToString());
 
-            // match found, execute trade now!
+            // Match found, execute trade now!
             const int64_t seller_amountForSale = pold->getAmountRemaining();
-            const int64_t buyer_amountOffered = pnew->getAmountRemaining();
+            // const int64_t buyer_amountOffered = pnew->getAmountRemaining();
 
-            if (msc_debug_metadex1) PrintToLog("$$ trading using price: %s; seller: forsale=%d, desired=%d, remaining=%d, buyer amount offered=%d\n",
+            if (msc_debug_metadex1) PrintToLog("$$ trading using price: %s; seller: forsale=%d, desired=%d, remaining=%d, buyer amount offered=%d\n", 
                 xToString(sellersPrice), pold->getAmountForSale(), pold->getAmountDesired(), pold->getAmountRemaining(), pnew->getAmountRemaining());
+
             if (msc_debug_metadex1) PrintToLog("$$ old: %s\n", pold->ToString());
             if (msc_debug_metadex1) PrintToLog("$$ new: %s\n", pnew->ToString());
 
             ///////////////////////////
 
-            // preconditions
+            // Preconditions
+            /*Remember: New preconditions for Contract*/
             assert(0 < pold->getAmountRemaining());
             assert(0 < pnew->getAmountRemaining());
-            assert(pnew->getProperty() != pnew->getDesProperty());
+            
+            //assert(pnew->getProperty() != pnew->getDesProperty());
             assert(pnew->getProperty() == pold->getDesProperty());
             assert(pold->getProperty() == pnew->getDesProperty());
+
             assert(pold->getForsalePrice() <= pnew->getDesiredPrice());
-            assert(pnew->getForsalePrice() <= pold->getDesiredPrice());
+            //assert(pnew->contractPrice() <= pold->desiredCPrice());
 
             ///////////////////////////
-
-            // First determine how many representable (indivisible) tokens Alice can
-            // purchase from Bob, using Bob's unit price
-            // This implies rounding down, since rounding up is impossible, and would
-            // require more tokens than Alice has
-            arith_uint256 iCouldBuy = (ConvertTo256(pnew->getAmountRemaining()) * ConvertTo256(pold->getAmountForSale())) / ConvertTo256(pold->getAmountDesired());
-
+            /*New things for Contract: We compare the amounts desired for the buyer with the remaining of the seller*/
             int64_t nCouldBuy = 0;
-            if (iCouldBuy < ConvertTo256(pold->getAmountRemaining())) {
-                nCouldBuy = ConvertTo64(iCouldBuy);
+
+            if ( pnew->getAmountDesired() < pold->getAmountRemaining() ) {
+                nCouldBuy = pnew->getAmountDesired();
             } else {
-                nCouldBuy = pold->getAmountRemaining();
+                nCouldBuy = pold->getAmountRemaining(); 
             }
 
             if (nCouldBuy == 0) {
                 if (msc_debug_metadex1) PrintToLog(
-                        "-- buyer has not enough tokens for sale to purchase one unit!\n");
+                        "-- The buyer has not enough contracts for sale!\n");
                 ++offerIt;
                 continue;
             }
 
-            // If the amount Alice would have to pay to buy Bob's tokens at his price
-            // is fractional, always round UP the amount Alice has to pay
-            // This will always be better for Bob. Rounding in the other direction
-            // will always be impossible, because ot would violate Bob's accepted price
-            arith_uint256 iWouldPay = DivideAndRoundUp((ConvertTo256(nCouldBuy) * ConvertTo256(pold->getAmountDesired())), ConvertTo256(pold->getAmountForSale()));
-            int64_t nWouldPay = ConvertTo64(iWouldPay);
-
-            // If the resulting adjusted unit price is higher than Alice' price, the
-            // orders shall not execute, and no representable fill is made
-            const uint64_t xEffectivePrice = pold->getForsalePrice();
-
-            if (xEffectivePrice > pnew->getDesiredPrice()) {
+            if (pold->getForsalePrice() > pnew->getDesiredPrice()) {
                 if (msc_debug_metadex1) PrintToLog(
-                        "-- effective price is too expensive: %s\n", xToString(xEffectivePrice));
+                        "-- The contract price is too expensive: %s\n", xToString(pold->getForsalePrice()));
                 ++offerIt;
                 continue;
             }
 
-            const int64_t buyer_amountGot = nCouldBuy;
-            const int64_t seller_amountGot = nWouldPay;
-            const int64_t buyer_amountLeft = pnew->getAmountRemaining() - seller_amountGot;
+            /*Remember: "buyer_amountGot" Desired Amounts*/
+            const int64_t buyer_amountGot = nCouldBuy; 
             const int64_t seller_amountLeft = pold->getAmountRemaining() - buyer_amountGot;
 
-            if (msc_debug_metadex1) PrintToLog("$$ buyer_got= %d, seller_got= %d, seller_left_for_sale= %d, buyer_still_for_sale= %d\n",
-                buyer_amountGot, seller_amountGot, seller_amountLeft, buyer_amountLeft);
+            if (msc_debug_metadex1) PrintToLog("$$ buyer_amountGot= %d, seller_amountLeft= %d\n"
+                                                    , buyer_amountGot, seller_amountLeft);
 
             ///////////////////////////
-
-            // postconditions
-            assert(xEffectivePrice >= pold->getForsalePrice());
-            assert(xEffectivePrice <= pnew->getDesiredPrice());
-            assert(0 <= seller_amountLeft);
-            assert(0 <= buyer_amountLeft);
+            // Postconditions
+            assert(pold->getForsalePrice() <= pnew->getDesiredPrice());
             assert(seller_amountForSale == seller_amountLeft + buyer_amountGot);
-            assert(buyer_amountOffered == buyer_amountLeft + seller_amountGot);
 
-            ///////////////////////////
-
-            int64_t buyer_amountGotAfterFee = buyer_amountGot;
-            int64_t tradingFee = 0;
-
-            // strip a 0.05% fee from non-OMNI pairs if fees are activated
-            if (IsFeatureActivated(FEATURE_FEES, pnew->getBlock())) {
-                if (pold->getProperty() > OMNI_PROPERTY_TMSC && pold->getDesProperty() > OMNI_PROPERTY_TMSC) {
-                    int64_t feeDivider = 2000; // 0.05%
-                    tradingFee = buyer_amountGot / feeDivider;
-
-                    // subtract the fee from the amount the seller will receive
-                    buyer_amountGotAfterFee = buyer_amountGot - tradingFee;
-
-                    // add the fee to the fee cache
-                    p_feecache->AddFee(pnew->getDesProperty(), pnew->getBlock(), tradingFee);
-                } else {
-                    if (msc_debug_fees) PrintToLog("Skipping fee reduction for trade match %s:%s as one of the properties is Omni\n", pold->getHash().GetHex(), pnew->getHash().GetHex());
-                }
-            }
-
-            // transfer the payment property from buyer to seller
-            assert(update_tally_map(pnew->getAddr(), pnew->getProperty(), -seller_amountGot, BALANCE));
-            assert(update_tally_map(pold->getAddr(), pold->getDesProperty(), seller_amountGot, BALANCE));
-
-            // transfer the market (the one being sold) property from seller to buyer
-            assert(update_tally_map(pold->getAddr(), pold->getProperty(), -buyer_amountGot, METADEX_RESERVE));
-            assert(update_tally_map(pnew->getAddr(), pnew->getDesProperty(), buyer_amountGotAfterFee, BALANCE));
+            // Transfer the payment property from buyer to seller
+            /*Remember: Here we are working just with the amount of contracts "short" or "long"*/
+            assert(update_tally_map(pnew->getAddr(), pnew->getProperty(), buyer_amountGot, BALANCE));
+            assert(update_tally_map(pold->getAddr(), pold->getDesProperty(), -buyer_amountGot, BALANCE));
 
             NewReturn = TRADED;
 
             CMPContractDex seller_replacement = *pold; // < can be moved into last if block
+
             seller_replacement.setAmountRemaining(seller_amountLeft, "seller_replacement");
+            pnew->setAmountRemaining(buyer_amountGot, "buyer");
 
-            pnew->setAmountRemaining(buyer_amountLeft, "buyer");
-
-            if (0 < buyer_amountLeft) {
+            if (seller_amountLeft < 0) {
                 NewReturn = TRADED_MOREINBUYER;
             }
 
-            if (0 == buyer_amountLeft) {
+            if (0 == seller_amountLeft) {
                 bBuyerSatisfied = true;
             }
 
@@ -272,8 +236,12 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
             if (msc_debug_metadex1) PrintToLog("==== TRADED !!! %u=%s\n", NewReturn, getTradeReturnType(NewReturn));
 
             // record the trade in MPTradeList
+            /*Remember: We don't need for now fees*/
+            int64_t tradingFee = 0;
+
             t_tradelistdb->recordMatchedTrade(pold->getHash(), pnew->getHash(), // < might just pass pold, pnew
-                pold->getAddr(), pnew->getAddr(), pold->getDesProperty(), pnew->getDesProperty(), seller_amountGot, buyer_amountGotAfterFee, pnew->getBlock(), tradingFee);
+                pold->getAddr(), pnew->getAddr(), pold->getDesProperty(), pnew->getDesProperty()
+                , pold->getAmountForSale(), pnew->getAmountDesired(), pnew->getBlock(), tradingFee);/*Remember: Check buyer_amountGot here in omnicore.cpp*/
 
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());
             // erase the old seller element
@@ -284,13 +252,7 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
                 PrintToLog("++ inserting seller_replacement: %s\n", seller_replacement.ToString());
                 pofferSet->insert(seller_replacement);
             }
-
-            if (bBuyerSatisfied) {
-                assert(buyer_amountLeft == 0);
-                break;
-            }
         } // specific price, check all properties
-
         if (bBuyerSatisfied) break;
     } // check all prices
 
