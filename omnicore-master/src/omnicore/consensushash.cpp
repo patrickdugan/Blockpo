@@ -83,6 +83,15 @@ std::string GenerateConsensusString(const CMPMetaDEx& tradeObj)
             tradeObj.getHash().GetHex(), tradeObj.getAddr(), tradeObj.getProperty(), tradeObj.getAmountForSale(),
             tradeObj.getDesProperty(), tradeObj.getAmountDesired(), tradeObj.getAmountRemaining());
 }
+/*New things for Contracts: This the new GenerateConsensusString function for CMPContractDex*/
+std::string GenerateConsensusString(const CMPContractDex &tradeObj)
+{
+    return strprintf("%s|%s|%d|%d|%d|%d|%d|%d|%d|",
+            tradeObj.getHash().GetHex(), tradeObj.getAddr(), tradeObj.getProperty(), tradeObj.getAmountForSale(),
+            tradeObj.getDesProperty(), tradeObj.getAmountDesired(), tradeObj.getAmountRemaining(), 
+            tradeObj.getDesiredPrice(), tradeObj.getForsalePrice());
+}
+
 
 // Generates a consensus string for hashing based on a crowdsale object
 std::string GenerateConsensusString(const CMPCrowd& crowdObj)

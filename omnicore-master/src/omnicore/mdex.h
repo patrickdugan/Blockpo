@@ -137,7 +137,7 @@ class CMPContractDex : public CMPMetaDEx
         std::string displayUnitPrice() const;
         std::string displayFullUnitPrice() const;
         int64_t getAmountToFill() const;
-        int64_t getBlockTime() const { return CMPMetaDEx::getBlockTime(); }
+        // int64_t getBlockTime() const { return CMPMetaDEx::getBlockTime(); }
         std::string ToString() const;
         void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };

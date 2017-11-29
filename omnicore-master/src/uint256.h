@@ -19,6 +19,7 @@ template<unsigned int BITS>
 class base_blob
 {
 protected:
+    /*Remember: Change form bits to bytes*/
     enum { WIDTH=BITS/8 };
     uint8_t data[WIDTH];
 public:
@@ -150,6 +151,7 @@ inline uint256 uint256S(const char *str)
 {
     uint256 rv;
     rv.SetHex(str);
+
     return rv;
 }
 /* uint256 from std::string.
