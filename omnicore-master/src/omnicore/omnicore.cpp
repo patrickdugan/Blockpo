@@ -840,7 +840,7 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
     std::vector<std::string> address_data;
     std::vector<int64_t> value_data;
 
-    for (unsigned int n = 0; n < wtx.vout.size(); ++n) {
+    for (unsigned int n = 0; n < wtx.vout.size(); ++n)  {
         txnouttype whichType;
         if (!GetOutputType(wtx.vout[n].scriptPubKey, whichType)) {
             continue;
@@ -1138,10 +1138,10 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
 
     // ### SET MP TX INFO ###
     if (msc_debug_verbose) PrintToLog("single_pkt: %s\n", HexStr(single_pkt, packet_size + single_pkt));
-    mp_tx.Set(strSender, strReference, 0, wtx.GetHash(), nBlock, idx, (unsigned char *)&single_pkt, packet_size, omniClass, (inAll-outAll));
+    mp_tx.Set(strSender, strReference, 0, wtx.GetHash(), nBlock, idx, (unsigned char *) &single_pkt, packet_size, omniClass, (inAll-outAll));
 
     // TODO: the following is a bit aweful
-    // Provide a hint for DEx payments
+    // Provide a hint for DEx paymentsf
     if (omniClass == OMNI_CLASS_A && packet_size == 0) {
         return 1;
     }

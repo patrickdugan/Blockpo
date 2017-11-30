@@ -163,7 +163,7 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             // Preconditions
             /*Remember: New preconditions for Contract*/
-            assert(0 < pold->getAmountRemaining());
+            assert(pold->getAmountRemaining() > 0);
             assert(pnew->getAmountRemaining() >= 0);
             
             //assert(pnew->getProperty() != pnew->getDesProperty());
