@@ -47,7 +47,7 @@ private:
     uint32_t desired_property;
     int64_t amount_desired;
     int64_t amount_remaining;
-    uint8_t subaction;
+    uint8_t subaction; /*Remember: This is defined in tx.h "ActionTypes"*/
     std::string addr;   
 
 public:
