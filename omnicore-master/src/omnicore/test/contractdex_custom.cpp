@@ -50,6 +50,10 @@
 #include <limits>
 #include <vector>
 
+#define PACKET_SIZE         31
+#define MAX_PACKETS        255
+#define PACKET_SIZE_CLASS_C 19
+
 /*Remember: This new function was defined to build the new class CMPContractDex*/
 namespace mastercore
 {
@@ -137,66 +141,104 @@ static CTxOut createTxOut(int64_t amount, const std::string& dest)
 
 BOOST_AUTO_TEST_CASE(object_matching)
 {
-	{
-        int nBlock = ConsensusParams().NULLDATA_BLOCK;
+	// {
+ //        int nBlock = ConsensusParams().NULLDATA_BLOCK;
 
-        std::vector<CTxOut> txInputs;
-        txInputs.push_back(createTxOut(5000000, "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz"));
+ //        std::vector<CTxOut> txInputs;
+ //        txInputs.push_back(createTxOut(5000000, "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz"));
 
-        std::vector<CTxOut> txOutputs;
-        txOutputs.push_back(OpReturn_MultiSimpleSend());
-        txOutputs.push_back(createTxOut(2700000, ExodusAddress().ToString()));
+ //        std::vector<CTxOut> txOutputs;
+ //        txOutputs.push_back(OpReturn_MultiSimpleSend());
+ //        txOutputs.push_back(createTxOut(2700000, ExodusAddress().ToString()));
 
-        CTransaction dummyTx = TxClassC(txInputs, txOutputs);
+ //        CTransaction dummyTx = TxClassC(txInputs, txOutputs);
 
-        CMPTransaction metaTx;
-        BOOST_CHECK(ParseTransaction(dummyTx, nBlock, 1, metaTx) == 0);
-        BOOST_CHECK(metaTx.getReceiver().empty());
-        BOOST_CHECK_EQUAL(metaTx.getFeePaid(), 2300000);
-        BOOST_CHECK_EQUAL(metaTx.getSender(), "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz");
-        BOOST_CHECK_EQUAL(metaTx.getPayload(), "00000000000000070000000006dac2c0");
-        BOOST_CHECK_EQUAL(metaTx.getTypeString(), "Simple Send");
+ //        CMPTransaction metaTx;
+ //        BOOST_CHECK(ParseTransaction(dummyTx, nBlock, 1, metaTx) == 0);
+ //        BOOST_CHECK(metaTx.getReceiver().empty());
+ //        BOOST_CHECK_EQUAL(metaTx.getFeePaid(), 2300000);
+ //        BOOST_CHECK_EQUAL(metaTx.getSender(), "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz");
+ //        BOOST_CHECK_EQUAL(metaTx.getPayload(), "00000000000000070000000006dac2c0");
+ //        BOOST_CHECK_EQUAL(metaTx.getTypeString(), "Simple Send");
 
-        CMPContractDex objCDex(metaTx);
+ //        CMPContractDex objCDex(metaTx);
 
-        /////////////////////////////////
-        std::vector<CTxOut> txInputsB;
-        txInputs.push_back(createTxOut(5000000, "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz"));
+ //        /////////////////////////////////
+ //        std::vector<CTxOut> txInputsB;
+ //        txInputs.push_back(createTxOut(5000000, "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz"));
 
-        std::vector<CTxOut> txOutputsB;
-        txOutputs.push_back(OpReturn_MultiSimpleSend());
-        txOutputs.push_back(createTxOut(2700000, ExodusAddress().ToString()));
+ //        std::vector<CTxOut> txOutputsB;
+ //        txOutputs.push_back(OpReturn_MultiSimpleSend());
+ //        txOutputs.push_back(createTxOut(2700000, ExodusAddress().ToString()));
 
-        CTransaction dummyTxB = TxClassC(txInputsB, txOutputsB);
+ //        CTransaction dummyTxB = TxClassC(txInputsB, txOutputsB);
 
-        CMPTransaction metaTxB;
-        BOOST_CHECK(ParseTransaction(dummyTxB, nBlock, 1, metaTxB) == 0);
-        BOOST_CHECK(metaTxB.getReceiver().empty());
-        BOOST_CHECK_EQUAL(metaTxB.getFeePaid(), 2300000);
-        BOOST_CHECK_EQUAL(metaTxB.getSender(), "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz");
-        BOOST_CHECK_EQUAL(metaTxB.getPayload(), "00000000000000070000000006dac2c0");
-        BOOST_CHECK_EQUAL(metaTxB.getTypeString(), "Simple Send");
+ //        CMPTransaction metaTxB;
+ //        BOOST_CHECK(ParseTransaction(dummyTxB, nBlock, 1, metaTxB) == 0);
+ //        BOOST_CHECK(metaTxB.getReceiver().empty());
+ //        BOOST_CHECK_EQUAL(metaTxB.getFeePaid(), 2300000);
+ //        BOOST_CHECK_EQUAL(metaTxB.getSender(), "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz");
+ //        BOOST_CHECK_EQUAL(metaTxB.getPayload(), "00000000000000070000000006dac2c0");
+ //        BOOST_CHECK_EQUAL(metaTxB.getTypeString(), "Simple Send");
 
-        CMPContractDex objCDexB(metaTxB);
-        // CMPContractDex *pB;
-        // pB = &objCDexB;
+ //        CMPContractDex objCDexB(metaTxB);
+ //        CMPContractDex *pB;
+ //        pB = &objCDexB;
 
-        BOOST_CHECK(mastercore::MetaDEx_INSERT(objCDex));
-        // BOOST_CHECK_EQUAL(NOTHING, x_Trade(pB));
-  }
+ //        BOOST_CHECK(mastercore::MetaDEx_INSERT(objCDex));
+ //        BOOST_CHECK_EQUAL(NOTHING, x_Trade(pB));
+ //  }
 
   {
-     // Sell tokens for bitcoins [type 20, version 1]
-        std::vector<unsigned char> vch = CreatePayload_DExSell(
-        static_cast<uint32_t>(1),         // property: MSC
-        static_cast<int64_t>(100000000),  // amount to transfer: 1.0 MSC (in willets)
-        static_cast<int64_t>(20000000),   // amount desired: 0.2 BTC (in satoshis)
-        static_cast<uint8_t>(10),         // payment window in blocks
-        static_cast<int64_t>(10000),      // commitment fee in satoshis
-        static_cast<uint8_t>(1));         // sub-action: new offer
+        unsigned int packet_size = 0;
+        ////////////////////////////////////////////////////////////////////////////////
+        // Objeto #A
+        unsigned char single_pktA[MAX_PACKETS * PACKET_SIZE];
+        packet_size = PACKET_SIZE_CLASS_C;
+        memcpy(single_pktA, &ParseHex("0000001900000001000000000ee6b2800000001f000000012a05f200")[0], packet_size);
 
-        BOOST_CHECK_EQUAL(HexStr(vch), "00010014000000010000000005f5e1000000000001312d000a000000000000271001");
+        CMPTransaction objCMPTA;
+        objCMPTA.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 4000000, 
+         uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d"), 395000, 1, 
+         (unsigned char *)&single_pktA, 33, 3, 0);
+
+        CMPContractDex objCMPCA(objCMPTA);
+        CMPContractDex *pA;
+        pA = &objCMPCA;
+
+        BOOST_CHECK_EQUAL(objCMPCA.getAmountForSale(), 4000000);
+        BOOST_CHECK_EQUAL(objCMPCA.getAmountDesired(), 0);
+        BOOST_CHECK_EQUAL(objCMPCA.getAmountRemaining(), 4000000);
+        BOOST_CHECK_EQUAL(objCMPCA.getDesiredPrice(), 0);
+        BOOST_CHECK_EQUAL(objCMPCA.getForsalePrice(), 0);
+
+        ////////////////////////////////////////////////////////////////////////////////
+        // Objeto #B
+        unsigned char single_pktB[MAX_PACKETS * PACKET_SIZE];
+        packet_size = PACKET_SIZE_CLASS_C;
+        memcpy(single_pktB, &ParseHex("00010014000000010000000005f5e1000000000001312d000a000000000000271001")[0], packet_size);
+
+        CMPTransaction objCMPTB;
+        objCMPTB.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 2000000, 
+         uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d"), 395000, 1, 
+         (unsigned char *)&single_pktB, 33, 3, 0);
+
+        CMPContractDex objCMPCB(objCMPTB);
+
+        BOOST_CHECK(mastercore::MetaDEx_INSERT(objCMPCB));
+        BOOST_CHECK_EQUAL(NOTHING, x_Trade(pA));
+        ////////////////////////////////////////////////////////////////////////////////
   }
+
+        //  // Sell tokens for bitcoins [type 20, version 1]
+        // std::vector<unsigned char> vch = CreatePayload_DExSell(
+        // static_cast<uint32_t>(1),         // property: MSC
+        // static_cast<int64_t>(100000000),  // amount to transfer: 1.0 MSC (in willets)
+        // static_cast<int64_t>(20000000),   // amount desired: 0.2 BTC (in satoshis)
+        // static_cast<uint8_t>(10),         // payment window in blocks
+        // static_cast<int64_t>(10000),      // commitment fee in satoshis
+        // static_cast<uint8_t>(1));         // sub-action: new offer
+
 
 
 		// CMPTransaction objCMPTransactionB;
@@ -251,6 +293,5 @@ BOOST_AUTO_TEST_CASE(object_matching)
 		// BOOST_CHECK(mastercore::MetaDEx_INSERT(tradeB));
   //       BOOST_CHECK_EQUAL(NOTHING, x_Trade(pobjContractDexC));
 }
-
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -91,10 +91,6 @@ public:
         desired_property(tx.desired_property), amount_desired(tx.desired_value), amount_remaining(tx.nValue),
         subaction(tx.subaction), addr(tx.sender) {}
 
-
-    uint64_t forsalePrice() const;
-    uint64_t desiredPrice() const;
-
     /** Used for display of unit prices to 8 decimal places at UI layer. */
     std::string displayUnitPrice() const;
     /** Used for display of unit prices with 50 decimal places at RPC layer. */
