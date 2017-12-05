@@ -31,6 +31,20 @@
 #include "sync.h"
 #include "uint256.h"
 
+
+#include "base58.h"
+#include "coins.h"
+#include "core_io.h"
+#include "main.h"
+#include "primitives/transaction.h"
+#include "script/script.h"
+#include "script/standard.h"
+#include "test/test_bitcoin.h"
+#include "utilstrencodings.h"
+
+
+
+
 #include <univalue.h>
 
 #include <boost/multiprecision/cpp_int.hpp>
@@ -49,249 +63,151 @@
 #include <boost/test/unit_test.hpp>
 #include <limits>
 #include <vector>
+#include <sstream>
 
 #define PACKET_SIZE         31
 #define MAX_PACKETS        255
-#define PACKET_SIZE_CLASS_C 19
+#define PACKET_SIZE_CLASS_A 19
 
 /*Remember: This new function was defined to build the new class CMPContractDex*/
 namespace mastercore
 {
 	extern std::string GenerateConsensusString(const CMPContractDex &tradeObj);
 }
-
-/*Remember: Check in Boost library BasicTestingSetup option*/
-BOOST_FIXTURE_TEST_SUITE(omnicore_contractdex_object, BasicTestingSetup)
-
-BOOST_AUTO_TEST_CASE(object_default)
-{
-    	CMPContractDex tradeA;
-   		BOOST_CHECK_EQUAL("0000000000000000000000000000000000000000000000000000000000000000||0|0|0|0|0|0|0|",
-        GenerateConsensusString(tradeA));
-
-		CMPContractDex tradeB("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", 395000, 31, 1000000, 1, 2000000,
-        uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d"), 1, 1, 900000, 500000, 400000);
-    	BOOST_CHECK_EQUAL("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d|1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH|31|1000000|1|2000000|900000|500000|400000|",
-        GenerateConsensusString(tradeB));
-		CMPContractDex *pobjContractDex;        
-		pobjContractDex = &tradeB;
-
-        BOOST_CHECK_EQUAL(0, pobjContractDex->getProperty());  // testing some properties of the object
-        BOOST_CHECK_EQUAL(0, pobjContractDex->getDesProperty());
-        BOOST_CHECK_EQUAL("CASH", pobjContractDex->getAddr());
-        BOOST_CHECK_EQUAL(0,pobjContractDex->getAmountForSale());
-        BOOST_CHECK_EQUAL(0,pobjContractDex->getAmountDesired());
-        BOOST_CHECK_EQUAL(0,pobjContractDex->getAmountRemaining());
-        BOOST_CHECK_EQUAL(0, pobjContractDex->getDesiredPrice());
-        BOOST_CHECK_EQUAL(0, pobjContractDex->getForsalePrice());
-        BOOST_CHECK_EQUAL(0, pobjContractDex->getBlock());
-
-        BOOST_CHECK_EQUAL(NOTHING, x_Trade(pobjContractDex));
-}
-
-//////////////////////////////
-
 /** Creates a dummy transaction with the given inputs and outputs. */
 static CTransaction TxClassC(const std::vector<CTxOut>& txInputs, const std::vector<CTxOut>& txOuts)
 {
-    CMutableTransaction mutableTx;
+		CMutableTransaction mutableTx;
 
-    // Inputs:
-    for (std::vector<CTxOut>::const_iterator it = txInputs.begin(); it != txInputs.end(); ++it)
-    {
-        const CTxOut& txOut = *it;
+		// Inputs:
+		for (std::vector<CTxOut>::const_iterator it = txInputs.begin(); it != txInputs.end(); ++it)
+		{
+				const CTxOut& txOut = *it;
 
-        // Create transaction for input:
-        CMutableTransaction inputTx;
-        unsigned int nOut = 0;
-        inputTx.vout.push_back(txOut);
-        CTransaction tx(inputTx);
+				// Create transaction for input:
+				CMutableTransaction inputTx;
+				unsigned int nOut = 0;
+				inputTx.vout.push_back(txOut);
+				CTransaction tx(inputTx);
 
-        // Populate transaction cache:
-        CCoinsModifier coins = view.ModifyCoins(tx.GetHash());
+				// Populate transaction cache:
+				CCoinsModifier coins = view.ModifyCoins(tx.GetHash());
 
-        if (nOut >= coins->vout.size()) {
-            coins->vout.resize(nOut+1);
-        }
-        coins->vout[nOut].scriptPubKey = txOut.scriptPubKey;
-        coins->vout[nOut].nValue = txOut.nValue;
+				if (nOut >= coins->vout.size()) {
+						coins->vout.resize(nOut+1);
+				}
+				coins->vout[nOut].scriptPubKey = txOut.scriptPubKey;
+				coins->vout[nOut].nValue = txOut.nValue;
 
-        // Add input:
-        CTxIn txIn(tx.GetHash(), nOut);
-        mutableTx.vin.push_back(txIn);
-    }
+				// Add input:
+				CTxIn txIn(tx.GetHash(), nOut);
+				mutableTx.vin.push_back(txIn);
+		}
 
-    for (std::vector<CTxOut>::const_iterator it = txOuts.begin(); it != txOuts.end(); ++it)
-    {
-        const CTxOut& txOut = *it;
-        mutableTx.vout.push_back(txOut);
-    }
+		for (std::vector<CTxOut>::const_iterator it = txOuts.begin(); it != txOuts.end(); ++it)
+		{
+				const CTxOut& txOut = *it;
+				mutableTx.vout.push_back(txOut);
+		}
 
-    return CTransaction(mutableTx);
+		return CTransaction(mutableTx);
 }
 
 /** Helper to create a CTxOut object. */
 static CTxOut createTxOut(int64_t amount, const std::string& dest)
 {
-    return CTxOut(amount, GetScriptForDestination(CBitcoinAddress(dest).Get()));
+		return CTxOut(amount, GetScriptForDestination(CBitcoinAddress(dest).Get()));
 }
 
-//////////////////////////////
+
+BOOST_FIXTURE_TEST_SUITE(omnicore_contractdex_object, BasicTestingSetup)
+
+BOOST_AUTO_TEST_CASE(object_default)
+{
+
+  CMPTally tally;  // the tally map object
+  const uint256 tx;   // address,block,property,amount for sale, desired property, amount desired,uint256 tx,idx, suba, amount remaining,desire price, for sale price
+  CMPContractDex object2("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH",1, 1, 0, 1, 8,tx, 1, 1, 1, 5, 5); //the buyer
+	CMPContractDex object("1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz",1, 1, 3, 1, 0,tx, 2, 1, 3, 5, 25); // the seller
+	CMPContractDex *pobjContractDex;
+	pobjContractDex = &object;
+	CMPContractDex *q;
+	q = &object2;
+
+	BOOST_CHECK_EQUAL(0, object2.getProperty());  // buyer
+	BOOST_CHECK_EQUAL(0, object2.getDesProperty());
+	BOOST_CHECK_EQUAL("", object2.getAddr());
+	BOOST_CHECK_EQUAL(0,object2.getAmountDesired());
+	BOOST_CHECK_EQUAL(0,object2.getAmountRemaining());
+	BOOST_CHECK_EQUAL(0, object2.getDesiredPrice());
+	BOOST_CHECK_EQUAL(0, object2.getForsalePrice());
+	BOOST_CHECK_EQUAL(0, object2.getBlock());
+
+  BOOST_CHECK_EQUAL(0, pobjContractDex->getProperty());  // seller
+  BOOST_CHECK_EQUAL(0, pobjContractDex->getDesProperty());
+  BOOST_CHECK_EQUAL("", pobjContractDex->getAddr());
+  BOOST_CHECK_EQUAL(0,pobjContractDex->getAmountForSale());
+  BOOST_CHECK_EQUAL(0,pobjContractDex->getAmountDesired());
+  BOOST_CHECK_EQUAL(0,pobjContractDex->getAmountRemaining());
+  BOOST_CHECK_EQUAL(0, pobjContractDex->getDesiredPrice());
+  BOOST_CHECK_EQUAL(0, pobjContractDex->getForsalePrice());
+  BOOST_CHECK_EQUAL(0, pobjContractDex->getBlock());
+
+	BOOST_CHECK(mastercore::update_tally_map(object2.getAddr(), object2.getProperty(), 10, BALANCE));  // putting some money here
+	BOOST_CHECK(mastercore::update_tally_map(pobjContractDex->getAddr(), pobjContractDex->getProperty(), 10, BALANCE));
+	BOOST_CHECK_EQUAL(10,getMPbalance(object2.getAddr(), object2.getProperty(), BALANCE)); //checking balance of sender
+	BOOST_CHECK_EQUAL(10,getMPbalance(pobjContractDex->getAddr(), pobjContractDex->getProperty(), BALANCE));
+
+
+	BOOST_CHECK(mastercore::MetaDEx_INSERT(object)); // the seller is inserted
+  BOOST_CHECK_EQUAL(TRADED, x_Trade(q));   // the buyer wants 6 contracts at  price of 5!
+                                            // the seller has 10 contracts at price of 5!
+
+	BOOST_CHECK_EQUAL(10,getMPbalance(object2.getAddr(), object2.getProperty(), BALANCE)); //checking balance of sender
+	BOOST_CHECK_EQUAL(10,getMPbalance(pobjContractDex->getAddr(), pobjContractDex->getProperty(), BALANCE));
+
+
+
+
+
+}
+
+
 
 
 BOOST_AUTO_TEST_CASE(object_matching)
 {
-	// {
- //        int nBlock = ConsensusParams().NULLDATA_BLOCK;
-
- //        std::vector<CTxOut> txInputs;
- //        txInputs.push_back(createTxOut(5000000, "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz"));
-
- //        std::vector<CTxOut> txOutputs;
- //        txOutputs.push_back(OpReturn_MultiSimpleSend());
- //        txOutputs.push_back(createTxOut(2700000, ExodusAddress().ToString()));
-
- //        CTransaction dummyTx = TxClassC(txInputs, txOutputs);
-
- //        CMPTransaction metaTx;
- //        BOOST_CHECK(ParseTransaction(dummyTx, nBlock, 1, metaTx) == 0);
- //        BOOST_CHECK(metaTx.getReceiver().empty());
- //        BOOST_CHECK_EQUAL(metaTx.getFeePaid(), 2300000);
- //        BOOST_CHECK_EQUAL(metaTx.getSender(), "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz");
- //        BOOST_CHECK_EQUAL(metaTx.getPayload(), "00000000000000070000000006dac2c0");
- //        BOOST_CHECK_EQUAL(metaTx.getTypeString(), "Simple Send");
-
- //        CMPContractDex objCDex(metaTx);
-
- //        /////////////////////////////////
- //        std::vector<CTxOut> txInputsB;
- //        txInputs.push_back(createTxOut(5000000, "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz"));
-
- //        std::vector<CTxOut> txOutputsB;
- //        txOutputs.push_back(OpReturn_MultiSimpleSend());
- //        txOutputs.push_back(createTxOut(2700000, ExodusAddress().ToString()));
-
- //        CTransaction dummyTxB = TxClassC(txInputsB, txOutputsB);
-
- //        CMPTransaction metaTxB;
- //        BOOST_CHECK(ParseTransaction(dummyTxB, nBlock, 1, metaTxB) == 0);
- //        BOOST_CHECK(metaTxB.getReceiver().empty());
- //        BOOST_CHECK_EQUAL(metaTxB.getFeePaid(), 2300000);
- //        BOOST_CHECK_EQUAL(metaTxB.getSender(), "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz");
- //        BOOST_CHECK_EQUAL(metaTxB.getPayload(), "00000000000000070000000006dac2c0");
- //        BOOST_CHECK_EQUAL(metaTxB.getTypeString(), "Simple Send");
-
- //        CMPContractDex objCDexB(metaTxB);
- //        CMPContractDex *pB;
- //        pB = &objCDexB;
-
- //        BOOST_CHECK(mastercore::MetaDEx_INSERT(objCDex));
- //        BOOST_CHECK_EQUAL(NOTHING, x_Trade(pB));
- //  }
-
-  {
-        unsigned int packet_size = 0;
-        ////////////////////////////////////////////////////////////////////////////////
-        // Objeto #A
-        unsigned char single_pktA[MAX_PACKETS * PACKET_SIZE];
-        packet_size = PACKET_SIZE_CLASS_C;
-        memcpy(single_pktA, &ParseHex("0000001900000001000000000ee6b2800000001f000000012a05f200")[0], packet_size);
-
-        CMPTransaction objCMPTA;
-        objCMPTA.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 4000000, 
-         uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d"), 395000, 1, 
-         (unsigned char *)&single_pktA, 33, 3, 0);
-
-        CMPContractDex objCMPCA(objCMPTA);
-        CMPContractDex *pA;
-        pA = &objCMPCA;
-
-        BOOST_CHECK_EQUAL(objCMPCA.getAmountForSale(), 4000000);
-        BOOST_CHECK_EQUAL(objCMPCA.getAmountDesired(), 0);
-        BOOST_CHECK_EQUAL(objCMPCA.getAmountRemaining(), 4000000);
-        BOOST_CHECK_EQUAL(objCMPCA.getDesiredPrice(), 0);
-        BOOST_CHECK_EQUAL(objCMPCA.getForsalePrice(), 0);
-
-        ////////////////////////////////////////////////////////////////////////////////
-        // Objeto #B
-        unsigned char single_pktB[MAX_PACKETS * PACKET_SIZE];
-        packet_size = PACKET_SIZE_CLASS_C;
-        memcpy(single_pktB, &ParseHex("00010014000000010000000005f5e1000000000001312d000a000000000000271001")[0], packet_size);
-
-        CMPTransaction objCMPTB;
-        objCMPTB.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 2000000, 
-         uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d"), 395000, 1, 
-         (unsigned char *)&single_pktB, 33, 3, 0);
-
-        CMPContractDex objCMPCB(objCMPTB);
-
-        BOOST_CHECK(mastercore::MetaDEx_INSERT(objCMPCB));
-        BOOST_CHECK_EQUAL(NOTHING, x_Trade(pA));
-        ////////////////////////////////////////////////////////////////////////////////
-  }
-
-        //  // Sell tokens for bitcoins [type 20, version 1]
-        // std::vector<unsigned char> vch = CreatePayload_DExSell(
-        // static_cast<uint32_t>(1),         // property: MSC
-        // static_cast<int64_t>(100000000),  // amount to transfer: 1.0 MSC (in willets)
-        // static_cast<int64_t>(20000000),   // amount desired: 0.2 BTC (in satoshis)
-        // static_cast<uint8_t>(10),         // payment window in blocks
-        // static_cast<int64_t>(10000),      // commitment fee in satoshis
-        // static_cast<uint8_t>(1));         // sub-action: new offer
 
 
 
-		// CMPTransaction objCMPTransactionB;
-		// objCMPTransactionB.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 4000000, 
-		// 	uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d"), 395000, 1, 
-		// 	(unsigned char *)&single_pkt, 33, 1, 0);
+        // BOOST_CHECK(mastercore::MetaDEx_INSERT(objCDex));
+        // BOOST_CHECK_EQUAL(NOTHING, x_Trade(pB));
+
+				// Trade tokens for tokens [type 25, version 0]
+		    std::vector<unsigned char> vch = CreatePayload_MetaDExTrade(
+		        static_cast<uint32_t>(1),          // property: MSC
+		        static_cast<int64_t>(2),   // amount for sale: 2.5 MSC
+		        static_cast<uint32_t>(999),         // property desired: TetherUS
+		        static_cast<int64_t>(254)); // amount desired: 50.0 TetherUS
+
+		    BOOST_CHECK_EQUAL(HexStr(vch),"000000190000000100000000054c56380000002c0000000005f5e0ff");
+
+        std::vector<unsigned char> v1 = ParseHex("00000019000000010000000000000002000003e700000000000000fe");
+
+				std::ostringstream s;
+				for(int i=0;i<28;i++)    // v1 is the pkt vector, the pkt size is in function of the tx.cpp specifications!!
+				{                        // ae: for tx=25 the size is 28 excel in the v1 array(metadextrade).v1[4]=25 = tx type
+					                       //   v1[8] = 1  (property)
+					int j = v1[i];         //   v1[16] = 2 (property desired)
+					                       //   v1[20] = 3 (property desired)
+												  			 //   v1[28] = 4  (amount desired)
+				BOOST_TEST_MESSAGE("vch:" << j);
+			  }
 
 
-		// /*Remember: Here amount_desired = 0 "seller"*/
-		// CMPContractDex tradeB("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", 395000, 31, 4000000, 1, 0,
-  //       uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d"), 1, 1, 2000000, 0, 100000);
-  //   	BOOST_CHECK_EQUAL("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d|1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH|31|4000000|1|0|2000000|0|100000|",
-  //       GenerateConsensusString(tradeB));
-		// CMPContractDex *pobjContractDexB;        
-		// pobjContractDexB = &tradeB;
+      //  BOOST_TEST_MESSAGE( "v1[1]:" << v1[1] );
+			//  BOOST_TEST_MESSAGE( "v1[2]:" << v1[2] );
 
-		// /*Remember: Here amount_forsale = 0 "buyer"*/
-		// CMPContractDex tradeC("1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 395000, 31, 0, 1, 2000000,
-  //       uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d"), 1, 1, 0, 100000, 0);
-  //   	BOOST_CHECK_EQUAL("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d|1zAtHRASgdHvZDfHs6xJquMghga4eG7gy|31|0|1|2000000|0|100000|0|",
-  //       GenerateConsensusString(tradeC));
-		// CMPContractDex *pobjContractDexC;        
-		// pobjContractDexC = &tradeC;
-
-		// /*Seller*/
-  //       BOOST_CHECK_EQUAL("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", pobjContractDexB->getAddr());  
-  //       BOOST_CHECK_EQUAL(395000, pobjContractDexB->getBlock());
-  //       BOOST_CHECK_EQUAL(31, pobjContractDexB->getProperty());
-  //       BOOST_CHECK_EQUAL(4000000, pobjContractDexB->getAmountForSale());
-  //       BOOST_CHECK_EQUAL(1, pobjContractDexB->getDesProperty());
-  //       BOOST_CHECK_EQUAL(0, pobjContractDexB->getAmountDesired());
-		// BOOST_CHECK_EQUAL(1, pobjContractDexB->getIdx());
-		// BOOST_CHECK_EQUAL(1, pobjContractDexB->getAction());
-		// BOOST_CHECK_EQUAL(2000000, pobjContractDexB->getAmountRemaining());
-		// BOOST_CHECK_EQUAL(0, pobjContractDexB->getDesiredPrice());
-		// BOOST_CHECK_EQUAL(100000, pobjContractDexB->getForsalePrice());
-
-		// /*Buyer*/
-		// BOOST_CHECK_EQUAL("1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", pobjContractDexC->getAddr());  
-  //       BOOST_CHECK_EQUAL(395000, pobjContractDexC->getBlock());
-  //       BOOST_CHECK_EQUAL(31, pobjContractDexC->getProperty());
-  //       BOOST_CHECK_EQUAL(0, pobjContractDexC->getAmountForSale());
-  //       BOOST_CHECK_EQUAL(1, pobjContractDexC->getDesProperty());
-  //       BOOST_CHECK_EQUAL(2000000, pobjContractDexC->getAmountDesired());
-		// BOOST_CHECK_EQUAL(1, pobjContractDexC->getIdx());
-		// BOOST_CHECK_EQUAL(1, pobjContractDexC->getAction());
-		// BOOST_CHECK_EQUAL(0, pobjContractDexC->getAmountRemaining());
-		// BOOST_CHECK_EQUAL(100000, pobjContractDexC->getDesiredPrice());
-		// BOOST_CHECK_EQUAL(0, pobjContractDexC->getForsalePrice());
-
-
-		// BOOST_CHECK(mastercore::MetaDEx_INSERT(tradeB));
-  //       BOOST_CHECK_EQUAL(NOTHING, x_Trade(pobjContractDexC));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

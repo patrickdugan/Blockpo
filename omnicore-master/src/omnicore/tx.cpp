@@ -259,7 +259,10 @@ bool CMPTransaction::interpret_SimpleSend()
     if (pkt_size < 16) {
         return false;
     }
- 
+    // unsigned char pkt1=23                                               ;
+    // unsigned char *p;
+    // p = &pkt1;
+
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
     memcpy(&nValue, &pkt[8], 8);
