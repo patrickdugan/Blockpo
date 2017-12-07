@@ -91,16 +91,12 @@ public:
         desired_property(tx.desired_property), amount_desired(tx.desired_value), amount_remaining(tx.nValue),
         subaction(tx.subaction), addr(tx.sender) {}
 
-
-    uint64_t forsalePrice() const;
-    uint64_t desiredPrice() const;
-
     /** Used for display of unit prices to 8 decimal places at UI layer. */
     std::string displayUnitPrice() const;
     /** Used for display of unit prices with 50 decimal places at RPC layer. */
     std::string displayFullUnitPrice() const;
 
-    // void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
+    void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };
 
 ///////////////////////////////////////////
@@ -131,13 +127,14 @@ class CMPContractDex : public CMPMetaDEx
         {
             if (msc_debug_persistence) PrintToLog("CMPTransaction closed\n");
         }
+
         uint64_t getDesiredPrice() const { return desired_price; }
         uint64_t getForsalePrice() const { return forsale_price; }
 
         std::string displayUnitPrice() const;
         std::string displayFullUnitPrice() const;
         int64_t getAmountToFill() const;
-        // int64_t getBlockTime() const { return CMPMetaDEx::getBlockTime(); }
+
         std::string ToString() const;
         void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };

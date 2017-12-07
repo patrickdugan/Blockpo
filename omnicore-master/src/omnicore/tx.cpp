@@ -29,6 +29,7 @@
 #include <utility>
 #include <vector>
 
+
 using boost::algorithm::token_compress_on;
 
 using namespace mastercore;
@@ -50,6 +51,10 @@ std::string mastercore::strTransactionType(uint16_t txType)
         case MSC_TYPE_METADEX_CANCEL_PRICE: return "MetaDEx cancel-price";
         case MSC_TYPE_METADEX_CANCEL_PAIR: return "MetaDEx cancel-pair";
         case MSC_TYPE_METADEX_CANCEL_ECOSYSTEM: return "MetaDEx cancel-ecosystem";
+        /////////////////////////////
+        /*New things for Contract*/
+        case MSC_TYPE_CONTRACTDEX_TRADE: return "Future Contract";
+        /////////////////////////////
         case MSC_TYPE_ACCEPT_OFFER_BTC: return "DEx Accept Offer";
         case MSC_TYPE_CREATE_PROPERTY_FIXED: return "Create Property - Fixed";
         case MSC_TYPE_CREATE_PROPERTY_VARIABLE: return "Create Property - Variable";
@@ -63,8 +68,6 @@ std::string mastercore::strTransactionType(uint16_t txType)
         case OMNICORE_MESSAGE_TYPE_ALERT: return "ALERT";
         case OMNICORE_MESSAGE_TYPE_DEACTIVATION: return "Feature Deactivation";
         case OMNICORE_MESSAGE_TYPE_ACTIVATION: return "Feature Activation";
-        /*New things for Contract*/
-        case MSC_TYPE_CONTRACT: return "Future Contract";
 
         default: return "* unknown type *";
     }
@@ -94,7 +97,7 @@ bool CMPTransaction::isOverrun(const char* p)
 
 // -------------------- PACKET PARSING -----------------------
 
-/** Parses the packet or payload. */
+/** Parses the packet or payload.*/
 bool CMPTransaction::interpret_Transaction()
 {
     if (!interpret_TransactionType()) {
@@ -129,7 +132,11 @@ bool CMPTransaction::interpret_Transaction()
 
         case MSC_TYPE_METADEX_CANCEL_ECOSYSTEM:
             return interpret_MetaDExCancelEcosystem();
-
+        ////////////////////////////////
+        /*New things for Contract*/
+        case MSC_TYPE_CONTRACTDEX_TRADE:
+            return interpret_ContractDexTrade();
+        ////////////////////////////////
         case MSC_TYPE_CREATE_PROPERTY_FIXED:
             return interpret_CreatePropertyFixed();
 
@@ -159,75 +166,10 @@ bool CMPTransaction::interpret_Transaction()
 
         case OMNICORE_MESSAGE_TYPE_ALERT:
             return interpret_Alert();
-
-        /*New things for Contract*/
-        case MSC_TYPE_CONTRACT:
-            return interpret_Contract();
     }
 
     return false;
 }
-
-//////////////////////////////
-/*New things for Contracts*/
-bool CMPTransaction::interpret_Contract()
-{
-    int expectedSize = (version == MP_TX_PKT_V0) ? 33 : 34;
-    if (pkt_size < expectedSize) {
-        return false;
-    }
-    /////////////////////////////////////////////
-    /*Remember: These are the Contract Prices*/
-    memcpy(&desired_price, &pkt[20], 8);
-    swapByteOrder64(desired_price);
-    memcpy(&forsale_price, &pkt[25], 8);
-    swapByteOrder64(forsale_price);
-    /////////////////////////////////////////////
-
-    const char* p = 11 + (char*) &pkt;
-    std::vector<std::string> spstr;
-
-    memcpy(&nValue, &pkt[8], 8);
-    swapByteOrder64(nValue);
-    memcpy(&amount_desired, &pkt[16], 8);
-    swapByteOrder64(amount_desired);
-    memcpy(&property, &pkt[4], 4);
-    swapByteOrder32(property);
-    memcpy(&subaction, &pkt[33], 1);
-
-    for (int i = 0; i < 5; i++) {
-        spstr.push_back(std::string(p));
-        p += spstr.back().size() + 1;
-    }
-
-    int i = 0;
-    memcpy(category, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(category)-1)); i++;
-    memcpy(subcategory, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(subcategory)-1)); i++;
-    memcpy(name, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(name)-1)); i++;
-    memcpy(url, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(url)-1)); i++;
-    memcpy(data, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(data)-1)); i++;
-    p += 8;
-    nNewValue = nValue;
-
-    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
-        PrintToLog("\t       ecosystem: %d\n", ecosystem);
-        PrintToLog("\t   property type: %d (%s)\n", prop_type, strPropertyType(prop_type));
-        PrintToLog("\tprev property id: %d\n", prev_prop_id);
-        PrintToLog("\t        category: %s\n", category);
-        PrintToLog("\t     subcategory: %s\n", subcategory);
-        PrintToLog("\t            name: %s\n", name);
-        PrintToLog("\t             url: %s\n", url);
-        PrintToLog("\t            data: %s\n", data);
-        PrintToLog("\t           value: %s\n", FormatByType(nValue, prop_type));
-    }
-
-    if (isOverrun(p)) {
-        PrintToLog("%s(): rejected: malformed string value(s)\n", __func__);
-        return false;
-    }
-    return true;
-}
-//////////////////////////////
 
 /** Version and type */
 bool CMPTransaction::interpret_TransactionType()
@@ -259,9 +201,6 @@ bool CMPTransaction::interpret_SimpleSend()
     if (pkt_size < 16) {
         return false;
     }
-    // unsigned char pkt1=23                                               ;
-    // unsigned char *p;
-    // p = &pkt1;
 
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
@@ -353,7 +292,6 @@ bool CMPTransaction::interpret_TradeOffer()
             PrintToLog("\t      sub-action: %d\n", subaction);
         }
     }
-
     return true;
 }
 
@@ -383,13 +321,17 @@ bool CMPTransaction::interpret_MetaDExTrade()
     if (pkt_size < 28) {
         return false;
     }
+
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
+
     memcpy(&nValue, &pkt[8], 8);
     swapByteOrder64(nValue);
     nNewValue = nValue;
-    memcpy(&desired_property, &pkt[16], 4);
+
+    memcpy(&desired_property, &pkt[16], 4); /*ContractDex*/
     swapByteOrder32(desired_property);
+    
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
 
@@ -401,7 +343,6 @@ bool CMPTransaction::interpret_MetaDExTrade()
         PrintToLog("\tdesired property: %d (%s)\n", desired_property, strMPProperty(desired_property));
         PrintToLog("\t   desired value: %s\n", FormatMP(desired_property, desired_value));
     }
-
     return true;
 }
 
@@ -478,6 +419,36 @@ bool CMPTransaction::interpret_MetaDExCancelEcosystem()
 
     return true;
 }
+
+//////////////////////////////
+/*New things for Contracts*/
+/*Tx 29*/
+bool CMPTransaction::interpret_ContractDexTrade()
+{
+    memcpy(&property, &pkt[4], 4);
+    swapByteOrder32(property);
+
+    memcpy(&nValue, &pkt[8], 8);
+    swapByteOrder64(nValue);
+    nNewValue = nValue;
+
+    memcpy(&desired_property, &pkt[16], 4); /*ContractDex*/
+    swapByteOrder32(desired_property);
+    
+    memcpy(&desired_value, &pkt[20], 8);
+    swapByteOrder64(desired_value);
+
+    memcpy(&desired_price, &pkt[28], 8);
+    swapByteOrder64(desired_price);
+
+    memcpy(&forsale_price, &pkt[36], 8);
+    swapByteOrder64(forsale_price);
+
+    action = CMPTransaction::ADD; // depreciated
+
+    return true;
+}
+//////////////////////////////
 
 /** Tx 50 */
 bool CMPTransaction::interpret_CreatePropertyFixed()
@@ -818,7 +789,11 @@ int CMPTransaction::interpretPacket()
 
         case MSC_TYPE_METADEX_CANCEL_ECOSYSTEM:
             return logicMath_MetaDExCancelEcosystem();
-
+        ///////////////////////////////
+        /*New things for Contract*/
+        case MSC_TYPE_CONTRACTDEX_TRADE:
+            return logicMath_ContractDexTrade();
+        ///////////////////////////////
         case MSC_TYPE_CREATE_PROPERTY_FIXED:
             return logicMath_CreatePropertyFixed();
 
@@ -848,10 +823,6 @@ int CMPTransaction::interpretPacket()
 
         case OMNICORE_MESSAGE_TYPE_ALERT:
             return logicMath_Alert();
-
-        /*New things for Contract*/
-        case MSC_TYPE_CONTRACT:
-            return logicMath_Contract();
     }
 
     return (PKT_ERROR -100);
@@ -935,78 +906,6 @@ int CMPTransaction::logicHelper_CrowdsaleParticipation()
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-/*New things for Contract*/
-int CMPTransaction::logicMath_Contract()
-{
-    uint256 blockHash;
-    {
-        LOCK(cs_main);
-
-        CBlockIndex* pindex = chainActive[block];
-        if (pindex == NULL) {
-            PrintToLog("%s(): ERROR: block %d not in the active chain\n", __func__, block);
-            return (PKT_ERROR_SP -20);
-        }
-        blockHash = pindex->GetBlockHash();
-    }
-
-    if (OMNI_PROPERTY_MSC != ecosystem && OMNI_PROPERTY_TMSC != ecosystem) {
-        PrintToLog("%s(): rejected: invalid ecosystem: %d\n", __func__, (uint32_t) ecosystem);
-        return (PKT_ERROR_SP -21);
-    }
-
-    if (!IsTransactionTypeAllowed(block, ecosystem, type, version)) {
-        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
-                __func__,
-                type,
-                version,
-                property,
-                block);
-        return (PKT_ERROR_SP -22);
-    }
-
-    if (nValue <= 0 || MAX_INT_8_BYTES < nValue) {
-        PrintToLog("%s(): rejected: value out of range or zero: %d\n", __func__, nValue);
-        return (PKT_ERROR_SP -23);
-    }
-
-    if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
-        PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
-        return (PKT_ERROR_SP -36);
-    }
-
-    if ('\0' == name[0]) {
-        PrintToLog("%s(): rejected: property name must not be empty\n", __func__);
-        return (PKT_ERROR_SP -37);
-    }
-
-    // ------------------------------------------
-
-    CMPSPInfo::Entry newSP;
-    newSP.issuer = sender;
-    newSP.txid = txid;
-    newSP.prop_type = prop_type;
-    newSP.num_tokens = nValue;
-    newSP.category.assign(category);
-    newSP.subcategory.assign(subcategory);
-    newSP.name.assign(name);
-    newSP.url.assign(url);
-    newSP.data.assign(data);
-    newSP.fixed = true;
-    newSP.creation_block = blockHash;
-    newSP.update_block = newSP.creation_block;
-
-    const uint32_t propertyId = _my_sps->putSP(ecosystem, newSP);
-    assert(propertyId > 0);
-    assert(update_tally_map(sender, propertyId, nValue, BALANCE));
-
-    NotifyTotalTokensChanged(propertyId, block);
-
-    return 0;
-}
-/////////////////////////////////////////////////////////////////////////////////////////
 
 /** Tx 0 */
 int CMPTransaction::logicMath_SimpleSend()
@@ -1436,6 +1335,92 @@ int CMPTransaction::logicMath_MetaDExTrade()
 
     // ------------------------------------------
 
+    t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
+    /*New things for Contracts: Here we added the prices of the contract*/
+    int rc = MetaDEx_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, desired_price, forsale_price);
+    return rc;
+}
+
+/** Tx 41 */
+int CMPTransaction::logicMath_ContractDexTrade()
+{
+    if (!IsTransactionTypeAllowed(block, property, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_METADEX -22);
+    }
+
+    if (property == desired_property) {
+        PrintToLog("%s(): rejected: property for sale %d and desired property %d must not be equal\n",
+                __func__,
+                property,
+                desired_property);
+        return (PKT_ERROR_METADEX -29);
+    }
+
+    if (isTestEcosystemProperty(property) != isTestEcosystemProperty(desired_property)) {
+        PrintToLog("%s(): rejected: property for sale %d and desired property %d not in same ecosystem\n",
+                __func__,
+                property,
+                desired_property);
+        return (PKT_ERROR_METADEX -30);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property for sale %d does not exist\n", __func__, property);
+        return (PKT_ERROR_METADEX -31);
+    }
+
+    if (!IsPropertyIdValid(desired_property)) {
+        PrintToLog("%s(): rejected: desired property %d does not exist\n", __func__, desired_property);
+        return (PKT_ERROR_METADEX -32);
+    }
+
+    if (nNewValue <= 0 || MAX_INT_8_BYTES < nNewValue) {
+        PrintToLog("%s(): rejected: amount for sale out of range or zero: %d\n", __func__, nNewValue);
+        return (PKT_ERROR_METADEX -33);
+    }
+
+    if (desired_value <= 0 || MAX_INT_8_BYTES < desired_value) {
+        PrintToLog("%s(): rejected: desired amount out of range or zero: %d\n", __func__, desired_value);
+        return (PKT_ERROR_METADEX -34);
+    }
+
+    if (desired_price <= 0 || MAX_INT_8_BYTES < desired_price) {
+        PrintToLog("%s(): rejected: desired price out of range or zero: %d\n", __func__, desired_price);
+        return (PKT_ERROR_METADEX -35);
+    }
+
+    if (forsale_price <= 0 || MAX_INT_8_BYTES < forsale_price) {
+        PrintToLog("%s(): rejected: forsale price out of range or zero: %d\n", __func__, forsale_price);
+        return (PKT_ERROR_METADEX -36);
+    }
+
+    if (!IsFeatureActivated(FEATURE_TRADEALLPAIRS, block)) {
+        // Trading non-Omni pairs is not allowed before trading all pairs is activated
+        if ((property != OMNI_PROPERTY_MSC) && (desired_property != OMNI_PROPERTY_MSC) &&
+            (property != OMNI_PROPERTY_TMSC) && (desired_property != OMNI_PROPERTY_TMSC)) {
+            PrintToLog("%s(): rejected: one side of a trade [%d, %d] must be OMNI or TOMNI\n", __func__, property, desired_property);
+            return (PKT_ERROR_METADEX -37);
+        }
+    }
+
+    int64_t nBalance = getMPbalance(sender, property, BALANCE);
+    if (nBalance < (int64_t) nNewValue) {
+        PrintToLog("%s(): rejected: sender %s has insufficient balance of property %d [%s < %s]\n",
+                __func__,
+                sender,
+                property,
+                FormatMP(property, nBalance),
+                FormatMP(property, nNewValue));
+        return (PKT_ERROR_METADEX -25);
+    }
+
+    // ------------------------------------------
     t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
     /*New things for Contracts: Here we added the prices of the contract*/
     int rc = MetaDEx_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, desired_price, forsale_price);

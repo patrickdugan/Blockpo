@@ -401,6 +401,34 @@ std::vector<unsigned char> CreatePayload_MetaDExCancelEcosystem(uint8_t ecosyste
     return payload;
 }
 
+std::vector<unsigned char> CreatePayload_ContractDexTrade(uint32_t propertyIdForSale, uint64_t amountForSale, uint32_t propertyIdDesired, uint64_t amountDesired, uint64_t desired_price, uint64_t forsale_price)
+{
+    std::vector<unsigned char> payload;
+
+    uint16_t messageVer = 0;
+    uint16_t messageType = 29;
+
+    mastercore::swapByteOrder16(messageVer);
+    mastercore::swapByteOrder16(messageType);
+    mastercore::swapByteOrder32(propertyIdForSale); /*pkt[4]*/
+    mastercore::swapByteOrder64(amountForSale);     /*pkt[8]*/
+    mastercore::swapByteOrder32(propertyIdDesired); /*pkt[16]*/
+    mastercore::swapByteOrder64(amountDesired);     /*pkt[20]*/
+    mastercore::swapByteOrder64(desired_price);     /*pkt[28]*/
+    mastercore::swapByteOrder64(forsale_price);     /*pkt[36]*/
+
+    PUSH_BACK_BYTES(payload, messageVer);           /*vch[0]: 2 = 2 bytes*/
+    PUSH_BACK_BYTES(payload, messageType);          /*vch[1]: 2+2 = 4 bytes*/
+    PUSH_BACK_BYTES(payload, propertyIdForSale);    /*vch[2]: 2+2+ 4 = 8 bytes*/
+    PUSH_BACK_BYTES(payload, amountForSale);        /*vch[3]: 2+2+4+ 8 = 16 bytes*/
+    PUSH_BACK_BYTES(payload, propertyIdDesired);    /*vch[4]: 2+2+4+8+ 4 = 20 bytes*/
+    PUSH_BACK_BYTES(payload, amountDesired);        /*vch[5]: 2+2+4+8+4+ 8 = 28 bytes*/
+    PUSH_BACK_BYTES(payload, desired_price);        /*vch[6]: 2+2+4+8+4+8+ 8 = 36 bytes*/
+    PUSH_BACK_BYTES(payload, forsale_price);        /*vch[7]: 2+2+4+8+4+8+8 +8 = 44 bytes*/
+    
+    return payload;
+}
+
 std::vector<unsigned char> CreatePayload_DeactivateFeature(uint16_t featureId)
 {
     std::vector<unsigned char> payload;

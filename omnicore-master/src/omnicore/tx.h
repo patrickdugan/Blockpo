@@ -123,6 +123,7 @@ private:
     bool interpret_MetaDExCancelPrice();
     bool interpret_MetaDExCancelPair();
     bool interpret_MetaDExCancelEcosystem();
+    bool interpret_ContractDexTrade();
     bool interpret_AcceptOfferBTC();
     bool interpret_CreatePropertyFixed();
     bool interpret_CreatePropertyVariable();
@@ -134,7 +135,6 @@ private:
     bool interpret_Activation();
     bool interpret_Deactivation();
     bool interpret_Alert();
-    bool interpret_Contract();
 
     /**
      * Logic and "effects"
@@ -148,6 +148,7 @@ private:
     int logicMath_MetaDExCancelPrice();
     int logicMath_MetaDExCancelPair();
     int logicMath_MetaDExCancelEcosystem();
+    int logicMath_ContractDexTrade();
     int logicMath_CreatePropertyFixed();
     int logicMath_CreatePropertyVariable();
     int logicMath_CloseCrowdsale();
@@ -158,7 +159,6 @@ private:
     int logicMath_Activation();
     int logicMath_Deactivation();
     int logicMath_Alert();
-    int logicMath_Contract();
 
     /**
      * Logic helpers
@@ -217,8 +217,8 @@ public:
     unsigned int getIndexInBlock() const { return tx_idx; }
     uint32_t getDistributionProperty() const { return distribution_property; }
     /*New things for Contract: Desired Price and Forsale Price */
-    uint64_t getDesiredPrice() const { return desired_price;}
-    uint64_t getForsalePrice() const { return forsale_price;}
+    // uint64_t getDesiredPrice() const { return desired_price;}
+    // uint64_t getForsalePrice() const { return forsale_price;}
 
     /** Creates a new CMPTransaction object. */
     CMPTransaction()

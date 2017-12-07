@@ -239,9 +239,9 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
             /*Remember: We don't need for now fees*/
             int64_t tradingFee = 0;
 
-            // t_tradelistdb->recordMatchedTrade(pold->getHash(), pnew->getHash(), // < might just pass pold, pnew
-            //     pold->getAddr(), pnew->getAddr(), pold->getDesProperty(), pnew->getDesProperty()
-            //     , pold->getAmountForSale(), pnew->getAmountDesired(), pnew->getBlock(), tradingFee);/*Remember: Check buyer_amountGot here in omnicore.cpp*/
+            t_tradelistdb->recordMatchedTrade(pold->getHash(), pnew->getHash(), // < might just pass pold, pnew
+                pold->getAddr(), pnew->getAddr(), pold->getDesProperty(), pnew->getDesProperty()
+                , pold->getAmountForSale(), pnew->getAmountDesired(), pnew->getBlock(), tradingFee);/*Remember: Check buyer_amountGot here in omnicore.cpp*/
 
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());
             // erase the old seller element

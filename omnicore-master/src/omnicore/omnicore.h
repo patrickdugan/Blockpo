@@ -76,6 +76,10 @@ enum TransactionType {
   MSC_TYPE_METADEX_CANCEL_PRICE       = 26,
   MSC_TYPE_METADEX_CANCEL_PAIR        = 27,
   MSC_TYPE_METADEX_CANCEL_ECOSYSTEM   = 28,
+  ////////////////////////////////////
+  /*New things for Contract*/ 
+  MSC_TYPE_CONTRACTDEX_TRADE          = 29,
+  ////////////////////////////////////
   MSC_TYPE_NOTIFICATION               = 31,
   MSC_TYPE_OFFER_ACCEPT_A_BET         = 40,
   MSC_TYPE_CREATE_PROPERTY_FIXED      = 50,
@@ -89,18 +93,18 @@ enum TransactionType {
   OMNICORE_MESSAGE_TYPE_DEACTIVATION  = 65533,
   OMNICORE_MESSAGE_TYPE_ACTIVATION    = 65534,
   OMNICORE_MESSAGE_TYPE_ALERT         = 65535,
-  /*New things for Contract*/ 
-  MSC_TYPE_CONTRACT                   = 41
 };
 
 #define MSC_PROPERTY_TYPE_INDIVISIBLE             1
 #define MSC_PROPERTY_TYPE_DIVISIBLE               2
+////////////////////////////////
+/*New property type #3 Contract*/
+#define MSC_PROPERTY_TYPE_CONTRACT                3
+////////////////////////////////
 #define MSC_PROPERTY_TYPE_INDIVISIBLE_REPLACING   65
 #define MSC_PROPERTY_TYPE_DIVISIBLE_REPLACING     66
 #define MSC_PROPERTY_TYPE_INDIVISIBLE_APPENDING   129
 #define MSC_PROPERTY_TYPE_DIVISIBLE_APPENDING     130
-/*New property type #3 Contract*/
-#define MSC_PROPERTY_TYPE_CONTRACT                3
 
 enum FILETYPES {
   FILETYPE_BALANCES = 0,
