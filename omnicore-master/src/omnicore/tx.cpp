@@ -421,15 +421,15 @@ bool CMPTransaction::interpret_MetaDExCancelEcosystem()
 }
 
 //////////////////////////////
-/*New things for Contracts*/
-/*Tx 29*/
+/* New things for Contracts */
+
+/** Tx 29*/
 bool CMPTransaction::interpret_ContractDexTrade()
 {
     if (pkt_size < 44) {
         return false;
     }
-    const char* p = 28 + (char*) &pkt;
-    
+
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
 
@@ -437,26 +437,31 @@ bool CMPTransaction::interpret_ContractDexTrade()
     swapByteOrder64(nValue);
     nNewValue = nValue;
 
-    memcpy(&desired_property, &pkt[16], 4); 
+    memcpy(&desired_property, &pkt[16], 4);
     swapByteOrder32(desired_property);
-    
+
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
 
-    /*New things for ContractDex: Private variables "desired_price" and "desired_price"*/
-    memcpy(&desired_price, p, 8);
+    memcpy(&desired_price, &pkt[28], 8);
     swapByteOrder64(desired_price);
 
-    p += 8;
-    memcpy(&forsale_price, p, 8);
+    memcpy(&forsale_price, &pkt[34], 8);
     swapByteOrder64(forsale_price);
 
-    if (isOverrun(p)) {
-        PrintToLog("%s(): rejected: malformed string value(s)\n", __func__);
-        return false;
+    action = CMPTransaction::ADD; // depreciated
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
+        PrintToLog("\t           value: %s\n", FormatMP(property, nValue));
+        PrintToLog("\tdesired property: %d (%s)\n", desired_property, strMPProperty(desired_property));
+        PrintToLog("\t   desired value: %s\n", FormatMP(desired_property, desired_value));
+        PrintToLog("\t   desired price: %d\n", desired_price);
+        PrintToLog("\t   forsale price: %d\n", forsale_price);
     }
+
     return true;
-}                                       
+}
 //////////////////////////////
 
 /** Tx 50 */
