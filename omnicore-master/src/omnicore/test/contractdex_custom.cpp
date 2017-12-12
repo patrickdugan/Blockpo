@@ -181,52 +181,49 @@ BOOST_AUTO_TEST_CASE(object_default)
 
 BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
     std::vector<unsigned char> vch = CreatePayload_MetaDExTrade(
-            static_cast<uint32_t> (1), /*property*/
-            static_cast<uint64_t> (45), /*amount_forsale*/
-            static_cast<uint32_t> (1), /*property_desired*/
-            static_cast<uint64_t> (254)); /*amount_desired*/
+            static_cast<uint32_t> (1),    // property
+            static_cast<uint64_t> (45),   // amount_forsale
+            static_cast<uint32_t> (3),    // property_desired
+            static_cast<uint64_t> (254)); // amount_desired
 
-    BOOST_CHECK_EQUAL(HexStr(vch), "000000190000000100000000054c56380000002c0000000005f5e0ff");
+    BOOST_CHECK_EQUAL(HexStr(vch), "0000001900000001000000000000002d0000000300000000000000fe");
 
-    std::vector<unsigned char> strScriptData = ParseHex(
-        "0000001900000001000000000000002d0000000100000000000000fe");
-
-    BOOST_TEST_MESSAGE("sizeof(strScriptData):" << sizeof (strScriptData));
-
-    int packet_size = sizeof (strScriptData) + sizeof (uint32_t);
-    for (int i = 0; i < packet_size; ++i) {
-        int j = strScriptData[i];
-        BOOST_TEST_MESSAGE("strScriptData[i]:" << j);
-    }
-
-    unsigned char single_pkt[packet_size];
-    memcpy(single_pkt, &strScriptData[0], packet_size);
-
-    for (int i = 0; i < packet_size; ++i) {
-        int z = single_pkt[i];
-        BOOST_TEST_MESSAGE("single_pkt[i]:" << z);
-    }
+    size_t packet_size = vch.size();
+    unsigned char packet[packet_size];
+    memcpy(packet, &vch[0], packet_size);
 
     const uint256 tx;
-    CMPTransaction objCMPTran;
-    objCMPTran.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 4000000, tx, 395000, 1,
-            (unsigned char *) &single_pkt, 33, 31, 32);
+    CMPTransaction objTrans;
+    objTrans.Set(
+            "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", // sender
+            "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy",  // receiver
+            4000000,                              // nValue, nNewValue
+            tx,                                   // txid
+            395000,                               // block
+            1,                                    // idx
+            (unsigned char *) &packet,            // pkt
+            packet_size,                          // pkt_size
+            31,                                   // encodingClass
+            32                                    // tx_fee_paid
+    );
 
-    BOOST_CHECK_EQUAL(objCMPTran.getSender(), "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH");
-    BOOST_CHECK_EQUAL(objCMPTran.getReceiver(), "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy");
-    BOOST_CHECK_EQUAL(objCMPTran.getAmount(), 4000000);
-    BOOST_CHECK_EQUAL(objCMPTran.getNewAmount(), 4000000);
-    BOOST_CHECK_EQUAL(objCMPTran.getIndexInBlock(), 1);
-    BOOST_CHECK_EQUAL(objCMPTran.getEncodingClass(), 31);
-    BOOST_CHECK_EQUAL(objCMPTran.getFeePaid(), 32);
-    BOOST_CHECK_EQUAL(objCMPTran.getProperty(), 1);
+    BOOST_CHECK_EQUAL(objTrans.getSender(), "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH");
+    BOOST_CHECK_EQUAL(objTrans.getReceiver(), "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy");
+    BOOST_CHECK_EQUAL(objTrans.getAmount(), 4000000);
+    BOOST_CHECK_EQUAL(objTrans.getNewAmount(), 4000000);
+    BOOST_CHECK_EQUAL(objTrans.getIndexInBlock(), 1);
+    BOOST_CHECK_EQUAL(objTrans.getEncodingClass(), 31);
+    BOOST_CHECK_EQUAL(objTrans.getFeePaid(), 32);
 
-    BOOST_CHECK_EQUAL(objCMPTran.interpret_Transaction(), true);
-    CMPContractDex objCMPCont(objCMPTran);
-    BOOST_CHECK_EQUAL(objCMPCont.getProperty(), 1);
-    BOOST_CHECK_EQUAL(objCMPCont.getDesProperty(), 1);
-    BOOST_CHECK_EQUAL(objCMPCont.getAmountForSale(), 45);
-    BOOST_CHECK_EQUAL(objCMPCont.getAmountDesired(), 254);
+    BOOST_CHECK_EQUAL(objTrans.interpret_Transaction(), true);
+    BOOST_CHECK_EQUAL(objTrans.getPayloadSize(), 28);
+    BOOST_CHECK_EQUAL(objTrans.getPayload(), HexStr(vch));
+
+    CMPMetaDEx objMetaDEx(objTrans);
+    BOOST_CHECK_EQUAL(objMetaDEx.getProperty(), 1);
+    BOOST_CHECK_EQUAL(objMetaDEx.getAmountForSale(), 45);
+    BOOST_CHECK_EQUAL(objMetaDEx.getDesProperty(), 3);
+    BOOST_CHECK_EQUAL(objMetaDEx.getAmountDesired(), 254);
 }
 
 BOOST_AUTO_TEST_CASE(object_contractdex_payload)
