@@ -229,55 +229,53 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
 BOOST_AUTO_TEST_CASE(object_contractdex_payload)
 {
     std::vector<unsigned char> vch = CreatePayload_ContractDexTrade(
-            static_cast<uint32_t> (1), /*property*/
-            static_cast<uint64_t> (50), /*amount_forsale*/
-            static_cast<uint32_t> (1), /*property_desired*/
-            static_cast<uint64_t> (40), /*amount_desired*/
-            static_cast<uint64_t> (20), /*price_desired*/
-            static_cast<uint64_t> (30)); /*price_forsale*/
+            static_cast<uint32_t> (1),   // property
+            static_cast<uint64_t> (50),  // amount_forsale
+            static_cast<uint32_t> (3),   // property_desired
+            static_cast<uint64_t> (40),  // amount_desired
+            static_cast<uint64_t> (20),  // price_desired
+            static_cast<uint64_t> (30)); // price_forsale
 
-    BOOST_CHECK_EQUAL(HexStr(vch), "000000190000000100000000054c56380000002c0000000005f5e0ff");
-    std::vector<unsigned char> strScriptData = ParseHex(
-            "0000001d0000000100000000000000320000000100000000000000280000000000000014000000000000001e");
+    BOOST_CHECK_EQUAL(HexStr(vch), "0000001d0000000100000000000000320000000300000000000000280000000000000014000000000000001e");
 
-    BOOST_TEST_MESSAGE("sizeof(strScriptData):" << sizeof (strScriptData));
-
-    int packet_size = sizeof (strScriptData) + sizeof (uint32_t) + 2 * sizeof (uint64_t);
-    for (int i = 0; i < packet_size; ++i) {
-        int j = strScriptData[i];
-        BOOST_TEST_MESSAGE("strScriptData[i]:" << j);
-    }
-
-    unsigned char single_pkt[packet_size];
-    memcpy(single_pkt, &strScriptData[0], packet_size);
-
-    for (int i = 0; i < packet_size; ++i) {
-        int z = single_pkt[i];
-        BOOST_TEST_MESSAGE("single_pkt[i]:" << z);
-    }
+    size_t packet_size = vch.size();
+    unsigned char packet[packet_size];
+    memcpy(packet, &vch[0], packet_size);
 
     const uint256 tx;
-    CMPTransaction objCMPTran;
-    objCMPTran.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 4000000, tx, 395000, 1,
-            (unsigned char *) &single_pkt, 33, 31, 32);
+    CMPTransaction objTrans;
+    objTrans.Set(
+            "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", // sender
+            "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy",  // receiver
+            4000000,                              // nValue, nNewValue
+            tx,                                   // txid
+            395000,                               // block
+            1,                                    // idx
+            (unsigned char *) &packet,            // pkt
+            packet_size,                          // pkt_size
+            31,                                   // encodingClass
+            32                                    // tx_fee_paid
+    );
 
-    BOOST_CHECK_EQUAL(objCMPTran.getSender(), "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH");
-    BOOST_CHECK_EQUAL(objCMPTran.getReceiver(), "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy");
-    BOOST_CHECK_EQUAL(objCMPTran.getAmount(), 4000000);
-    BOOST_CHECK_EQUAL(objCMPTran.getNewAmount(), 4000000);
-    BOOST_CHECK_EQUAL(objCMPTran.getIndexInBlock(), 1);
-    BOOST_CHECK_EQUAL(objCMPTran.getEncodingClass(), 31);
-    BOOST_CHECK_EQUAL(objCMPTran.getFeePaid(), 32);
+    BOOST_CHECK_EQUAL(objTrans.getSender(), "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH");
+    BOOST_CHECK_EQUAL(objTrans.getReceiver(), "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy");
+    BOOST_CHECK_EQUAL(objTrans.getAmount(), 4000000);
+    BOOST_CHECK_EQUAL(objTrans.getNewAmount(), 4000000);
+    BOOST_CHECK_EQUAL(objTrans.getIndexInBlock(), 1);
+    BOOST_CHECK_EQUAL(objTrans.getEncodingClass(), 31);
+    BOOST_CHECK_EQUAL(objTrans.getFeePaid(), 32);
 
-    BOOST_CHECK_EQUAL(objCMPTran.interpret_Transaction(), true);
-    // CMPContractDex objCMPCont(objCMPTran);
-    // BOOST_CHECK_EQUAL(objCMPCont.getProperty(), 1);
-    // BOOST_CHECK_EQUAL(objCMPCont.getAmountForSale(), 50);
-    // BOOST_CHECK_EQUAL(objCMPCont.getDesProperty(), 1);
-    // BOOST_CHECK_EQUAL(objCMPCont.getAmountDesired(), 40);
-    // BOOST_CHECK_EQUAL(objCMPCont.getDesiredPrice(), 20);    
+    BOOST_CHECK_EQUAL(objTrans.interpret_Transaction(), true);
+    BOOST_CHECK_EQUAL(objTrans.getPayloadSize(), 44);
+    BOOST_CHECK_EQUAL(objTrans.getPayload(), HexStr(vch));
 
-    BOOST_TEST_MESSAGE("Size of single_pkt: " << sizeof (single_pkt));
+    CMPContractDex objContractDEx(objTrans);
+    BOOST_CHECK_EQUAL(objContractDEx.getProperty(), 1);
+    BOOST_CHECK_EQUAL(objContractDEx.getAmountForSale(), 50);
+    BOOST_CHECK_EQUAL(objContractDEx.getDesProperty(), 3);
+    BOOST_CHECK_EQUAL(objContractDEx.getAmountDesired(), 40);
+    BOOST_CHECK_EQUAL(objContractDEx.getAmountDesired(), 40);
+    BOOST_CHECK_EQUAL(objContractDEx.getDesiredPrice(), 20);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
