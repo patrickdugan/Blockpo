@@ -425,6 +425,11 @@ bool CMPTransaction::interpret_MetaDExCancelEcosystem()
 /*Tx 29*/
 bool CMPTransaction::interpret_ContractDexTrade()
 {
+    if (pkt_size < 44) {
+        return false;
+    }
+    const char* p = 28 + (char*) &pkt;
+    
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
 
@@ -432,22 +437,26 @@ bool CMPTransaction::interpret_ContractDexTrade()
     swapByteOrder64(nValue);
     nNewValue = nValue;
 
-    memcpy(&desired_property, &pkt[16], 4); /*ContractDex*/
+    memcpy(&desired_property, &pkt[16], 4); 
     swapByteOrder32(desired_property);
     
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
 
-    memcpy(&desired_price, &pkt[28], 8);
+    /*New things for ContractDex: Private variables "desired_price" and "desired_price"*/
+    memcpy(&desired_price, p, 8);
     swapByteOrder64(desired_price);
 
-    memcpy(&forsale_price, &pkt[36], 8);
+    p += 8;
+    memcpy(&forsale_price, p, 8);
     swapByteOrder64(forsale_price);
 
-    action = CMPTransaction::ADD; // depreciated
-
+    if (isOverrun(p)) {
+        PrintToLog("%s(): rejected: malformed string value(s)\n", __func__);
+        return false;
+    }
     return true;
-}
+}                                       
 //////////////////////////////
 
 /** Tx 50 */
@@ -506,31 +515,38 @@ bool CMPTransaction::interpret_CreatePropertyVariable()
     }
     const char* p = 11 + (char*) &pkt;
     std::vector<std::string> spstr;
+
     memcpy(&ecosystem, &pkt[4], 1);
     memcpy(&prop_type, &pkt[5], 2);
     swapByteOrder16(prop_type);
     memcpy(&prev_prop_id, &pkt[7], 4);
     swapByteOrder32(prev_prop_id);
+
     for (int i = 0; i < 5; i++) {
         spstr.push_back(std::string(p));
         p += spstr.back().size() + 1;
     }
+    
     int i = 0;
     memcpy(category, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(category)-1)); i++;
     memcpy(subcategory, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(subcategory)-1)); i++;
     memcpy(name, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(name)-1)); i++;
     memcpy(url, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(url)-1)); i++;
     memcpy(data, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(data)-1)); i++;
+
     memcpy(&property, p, 4);
     swapByteOrder32(property);
     p += 4;
+
     memcpy(&nValue, p, 8);
     swapByteOrder64(nValue);
     p += 8;
     nNewValue = nValue;
+
     memcpy(&deadline, p, 8);
     swapByteOrder64(deadline);
     p += 8;
+
     memcpy(&early_bird, p++, 1);
     memcpy(&percentage, p++, 1);
 
@@ -1341,7 +1357,7 @@ int CMPTransaction::logicMath_MetaDExTrade()
     return rc;
 }
 
-/** Tx 41 */
+/** Tx 29 */
 int CMPTransaction::logicMath_ContractDexTrade()
 {
     if (!IsTransactionTypeAllowed(block, property, type, version)) {
@@ -1587,7 +1603,7 @@ int CMPTransaction::logicMath_CreatePropertyFixed()
         return (PKT_ERROR_SP -23);
     }
 
-    if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+    if (MSC_PROPERTY_TYPE_CONTRACT != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
         PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
         return (PKT_ERROR_SP -36);
     }
@@ -1675,7 +1691,7 @@ int CMPTransaction::logicMath_CreatePropertyVariable()
         return (PKT_ERROR_SP -24);
     }
 
-    if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+    if (MSC_PROPERTY_TYPE_CONTRACT != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
         PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
         return (PKT_ERROR_SP -36);
     }
@@ -1821,7 +1837,7 @@ int CMPTransaction::logicMath_CreatePropertyManaged()
         return (PKT_ERROR_SP -22);
     }
 
-    if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+    if (MSC_PROPERTY_TYPE_CONTRACT != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
         PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
         return (PKT_ERROR_SP -36);
     }

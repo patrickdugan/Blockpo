@@ -219,7 +219,7 @@ public:
     /*New things for Contract: Desired Price and Forsale Price */
     // uint64_t getDesiredPrice() const { return desired_price;}
     // uint64_t getForsalePrice() const { return forsale_price;}
-
+    
     /** Creates a new CMPTransaction object. */
     CMPTransaction()
     {

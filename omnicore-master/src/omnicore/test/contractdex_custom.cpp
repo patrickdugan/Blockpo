@@ -236,7 +236,7 @@ BOOST_AUTO_TEST_CASE(object_contractdex_payload)
     {                        
       int j = strScriptData[i];
       BOOST_TEST_MESSAGE("strScriptData[i]:" << j);
-    }
+    } 
 
     unsigned char single_pkt[packet_size];
     memcpy(single_pkt, &strScriptData[0], packet_size);
@@ -259,13 +259,16 @@ BOOST_AUTO_TEST_CASE(object_contractdex_payload)
     BOOST_CHECK_EQUAL(objCMPTran.getIndexInBlock(), 1);
     BOOST_CHECK_EQUAL(objCMPTran.getEncodingClass(), 31);
     BOOST_CHECK_EQUAL(objCMPTran.getFeePaid(), 32);
-
+    
     BOOST_CHECK_EQUAL(objCMPTran.interpret_Transaction(), true);
-    CMPContractDex objCMPCont(objCMPTran);
-    BOOST_CHECK_EQUAL(objCMPCont.getProperty(), 1);
-    BOOST_CHECK_EQUAL(objCMPCont.getAmountForSale(), 50);
-    BOOST_CHECK_EQUAL(objCMPCont.getDesProperty(), 1);
-    BOOST_CHECK_EQUAL(objCMPCont.getAmountDesired(), 40);
+    // CMPContractDex objCMPCont(objCMPTran);
+    // BOOST_CHECK_EQUAL(objCMPCont.getProperty(), 1);
+    // BOOST_CHECK_EQUAL(objCMPCont.getAmountForSale(), 50);
+    // BOOST_CHECK_EQUAL(objCMPCont.getDesProperty(), 1);
+    // BOOST_CHECK_EQUAL(objCMPCont.getAmountDesired(), 40);
+    // BOOST_CHECK_EQUAL(objCMPCont.getDesiredPrice(), 20);    
+
+    BOOST_TEST_MESSAGE("Size of single_pkt: " << sizeof(single_pkt));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -44,7 +44,8 @@ bool CMPSPInfo::Entry::isDivisible() const
         case MSC_PROPERTY_TYPE_DIVISIBLE:
         case MSC_PROPERTY_TYPE_DIVISIBLE_REPLACING:
         case MSC_PROPERTY_TYPE_DIVISIBLE_APPENDING:
-            return true;
+        case MSC_PROPERTY_TYPE_CONTRACT:
+        return true;
     }
     return false;
 }
@@ -67,7 +68,7 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
 
     // special cases for constant SPs OMNI and TOMNI
     implied_omni.issuer = ExodusAddress().ToString();
-    implied_omni.prop_type = MSC_PROPERTY_TYPE_DIVISIBLE;
+    implied_omni.prop_type = MSC_PROPERTY_TYPE_CONTRACT;
     implied_omni.num_tokens = 700000;
     implied_omni.category = "N/A";
     implied_omni.subcategory = "N/A";
@@ -75,7 +76,7 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
     implied_omni.url = "http://www.omnilayer.org";
     implied_omni.data = "Omni serve as the binding between Bitcoin, smart properties and contracts created on the Omni Layer.";
     implied_tomni.issuer = ExodusAddress().ToString();
-    implied_tomni.prop_type = MSC_PROPERTY_TYPE_DIVISIBLE;
+    implied_tomni.prop_type = MSC_PROPERTY_TYPE_CONTRACT;
     implied_tomni.num_tokens = 700000;
     implied_tomni.category = "N/A";
     implied_tomni.subcategory = "N/A";
@@ -884,11 +885,11 @@ std::string mastercore::strPropertyType(uint16_t propertyType)
     switch (propertyType) {
         case MSC_PROPERTY_TYPE_DIVISIBLE: return "divisible";
         case MSC_PROPERTY_TYPE_INDIVISIBLE: return "indivisible";
+        case MSC_PROPERTY_TYPE_CONTRACT: return "contract";
     }
-
     return "unknown";
 }
-
+                                                                                              
 std::string mastercore::strEcosystem(uint8_t ecosystem)
 {
     switch (ecosystem) {

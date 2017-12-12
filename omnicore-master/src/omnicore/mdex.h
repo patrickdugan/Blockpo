@@ -176,7 +176,7 @@ namespace mastercore
     int MetaDEx_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold = -1);
     std::string MetaDEx_getStatusText(int tradeStatus);
 
-// Locates a trade in the MetaDEx maps via txid and returns the trade object
+    //Locates a trade in the MetaDEx maps via txid and returns the trade object
     const CMPContractDex* MetaDEx_RetrieveTrade(const uint256& txid);
 }
 

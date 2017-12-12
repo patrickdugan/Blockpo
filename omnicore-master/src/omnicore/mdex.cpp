@@ -435,7 +435,6 @@ int mastercore::MetaDEx_ADD(const std::string& sender_addr, uint32_t prop, int64
             if (msc_debug_metadex3) MetaDEx_debug_print();
         }
     }
-
     rc = 0;
     return rc;
 }
