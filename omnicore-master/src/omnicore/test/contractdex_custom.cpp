@@ -148,24 +148,24 @@ BOOST_AUTO_TEST_CASE(object_default)
             25  // for sale price
     ); // the seller
 
-    BOOST_CHECK_EQUAL(0, object2.getProperty()); // buyer
-    BOOST_CHECK_EQUAL(0, object2.getDesProperty());
-    BOOST_CHECK_EQUAL("", object2.getAddr());
-    BOOST_CHECK_EQUAL(0, object2.getAmountDesired());
-    BOOST_CHECK_EQUAL(0, object2.getAmountRemaining());
-    BOOST_CHECK_EQUAL(0, object2.getDesiredPrice());
-    BOOST_CHECK_EQUAL(0, object2.getForsalePrice());
-    BOOST_CHECK_EQUAL(0, object2.getBlock());
+    BOOST_CHECK_EQUAL(1, object2.getProperty()); // buyer
+    BOOST_CHECK_EQUAL(1, object2.getDesProperty());
+    BOOST_CHECK_EQUAL("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", object2.getAddr());
+    BOOST_CHECK_EQUAL(8, object2.getAmountDesired());
+    BOOST_CHECK_EQUAL(1, object2.getAmountRemaining());
+    BOOST_CHECK_EQUAL(5, object2.getDesiredPrice());
+    BOOST_CHECK_EQUAL(5, object2.getForsalePrice());
+    BOOST_CHECK_EQUAL(1 , object2.getBlock());
 
-    BOOST_CHECK_EQUAL(0, object.getProperty()); // seller
-    BOOST_CHECK_EQUAL(0, object.getDesProperty());
-    BOOST_CHECK_EQUAL("", object.getAddr());
-    BOOST_CHECK_EQUAL(0, object.getAmountForSale());
+    BOOST_CHECK_EQUAL(1, object.getProperty()); // seller
+    BOOST_CHECK_EQUAL(1, object.getDesProperty());
+    BOOST_CHECK_EQUAL("1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", object.getAddr());
+    BOOST_CHECK_EQUAL(3, object.getAmountForSale());
     BOOST_CHECK_EQUAL(0, object.getAmountDesired());
-    BOOST_CHECK_EQUAL(0, object.getAmountRemaining());
-    BOOST_CHECK_EQUAL(0, object.getDesiredPrice());
-    BOOST_CHECK_EQUAL(0, object.getForsalePrice());
-    BOOST_CHECK_EQUAL(0, object.getBlock());
+    BOOST_CHECK_EQUAL(3, object.getAmountRemaining());
+    BOOST_CHECK_EQUAL(5, object.getDesiredPrice());
+    BOOST_CHECK_EQUAL(25, object.getForsalePrice());
+    BOOST_CHECK_EQUAL(1, object.getBlock());
 
     BOOST_CHECK(mastercore::update_tally_map(object2.getAddr(), object2.getProperty(), 10, BALANCE)); // putting some money here
     BOOST_CHECK(mastercore::update_tally_map(object.getAddr(), object.getProperty(), 10, BALANCE));
@@ -177,7 +177,6 @@ BOOST_AUTO_TEST_CASE(object_default)
 
     BOOST_CHECK_EQUAL(10, getMPbalance(object2.getAddr(), object2.getProperty(), BALANCE)); // checking balance of sender
     BOOST_CHECK_EQUAL(10, getMPbalance(object.getAddr(), object.getProperty(), BALANCE));
-
 }
 
 BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
