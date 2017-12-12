@@ -1,117 +1,21 @@
 #include "omnicore/createpayload.h"
-#include "omnicore/encoding.h"
-#include "base58.h"
-#include "coins.h"
-#include "script/script.h"
-#include "script/standard.h"
-#include "utilstrencodings.h"
 
-#include "omnicore/consensushash.h"
-#include "omnicore/test/utils_tx.h"
-#include "omnicore/tally.h"
 #include "omnicore/mdex.h"
-#include "omnicore/mdex.cpp"
-#include "omnicore/errors.h"
-#include "omnicore/fees.h"
-#include "omnicore/log.h"
+#include "omnicore/mdex.cpp" // TODO: make x_Trade and MatchReturnType public!
 #include "omnicore/omnicore.h"
-#include "omnicore/rules.h"
-#include "omnicore/sp.h"
-#include "omnicore/tx.h"
-#include "omnicore/uint256_extensions.h"
-#include "omnicore/script.h"
-#include "primitives/transaction.h"
-#include "test/test_bitcoin.h"
-#include "arith_uint256.h"
-#include "chain.h"
-#include "main.h"
-#include "tinyformat.h"
 
-#include "arith_uint256.h"
-#include "sync.h"
+#include "test/test_bitcoin.h"
 #include "uint256.h"
-
-#include "omnicore/convert.h"
-
-#include "base58.h"
-#include "coins.h"
-#include "core_io.h"
-#include "main.h"
-#include "primitives/transaction.h"
-#include "script/script.h"
-#include "script/standard.h"
-#include "test/test_bitcoin.h"
 #include "utilstrencodings.h"
 
-#include <univalue.h>
+#include <boost/test/unit_test.hpp>
 
-#include <boost/multiprecision/cpp_int.hpp>
-#include <boost/rational.hpp>
-
-#include <openssl/sha.h>
-
-#include <assert.h>
+#include <stddef.h>
 #include <stdint.h>
 
-#include <fstream>
-#include <limits>
-#include <map>
-#include <set>
-#include <string>
-#include <boost/test/unit_test.hpp>
-#include <limits>
 #include <vector>
-#include <sstream>
+#include <string>
 
-#define PACKET_SIZE         31
-#define MAX_PACKETS        255
-#define PACKET_SIZE_CLASS_A 19
-
-/*Remember: This new function was defined to build the new class CMPContractDex*/
-namespace mastercore {
-    extern std::string GenerateConsensusString(const CMPContractDex &tradeObj);
-}
-
-/** Creates a dummy transaction with the given inputs and outputs. */
-static CTransaction TxClassC(const std::vector<CTxOut>& txInputs, const std::vector<CTxOut>& txOuts) {
-    CMutableTransaction mutableTx;
-
-    // Inputs:
-    for (std::vector<CTxOut>::const_iterator it = txInputs.begin(); it != txInputs.end(); ++it) {
-        const CTxOut& txOut = *it;
-
-        // Create transaction for input:
-        CMutableTransaction inputTx;
-        unsigned int nOut = 0;
-        inputTx.vout.push_back(txOut);
-        CTransaction tx(inputTx);
-
-        // Populate transaction cache:
-        CCoinsModifier coins = view.ModifyCoins(tx.GetHash());
-
-        if (nOut >= coins->vout.size()) {
-            coins->vout.resize(nOut + 1);
-        }
-        coins->vout[nOut].scriptPubKey = txOut.scriptPubKey;
-        coins->vout[nOut].nValue = txOut.nValue;
-
-        // Add input:
-        CTxIn txIn(tx.GetHash(), nOut);
-        mutableTx.vin.push_back(txIn);
-    }
-
-    for (std::vector<CTxOut>::const_iterator it = txOuts.begin(); it != txOuts.end(); ++it) {
-        const CTxOut& txOut = *it;
-        mutableTx.vout.push_back(txOut);
-    }
-
-    return CTransaction(mutableTx);
-}
-
-/** Helper to create a CTxOut object. */
-static CTxOut createTxOut(int64_t amount, const std::string& dest) {
-    return CTxOut(amount, GetScriptForDestination(CBitcoinAddress(dest).Get()));
-}
 
 BOOST_FIXTURE_TEST_SUITE(omnicore_contractdex_object, BasicTestingSetup)
 
@@ -173,7 +77,7 @@ BOOST_AUTO_TEST_CASE(object_default)
     BOOST_CHECK_EQUAL(10, getMPbalance(object.getAddr(), object.getProperty(), BALANCE));
 
     BOOST_CHECK(mastercore::MetaDEx_INSERT(object)); // the seller is inserted
-    BOOST_CHECK_EQUAL(TRADED, x_Trade(&object2)); // the buyer wants 6 contracts at price of 5!
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(&object2)); // the buyer wants 6 contracts at price of 5! // TODO!
 
     BOOST_CHECK_EQUAL(10, getMPbalance(object2.getAddr(), object2.getProperty(), BALANCE)); // checking balance of sender
     BOOST_CHECK_EQUAL(10, getMPbalance(object.getAddr(), object.getProperty(), BALANCE));
@@ -181,10 +85,10 @@ BOOST_AUTO_TEST_CASE(object_default)
 
 BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
     std::vector<unsigned char> vch = CreatePayload_MetaDExTrade(
-            static_cast<uint32_t> (1),    // property
-            static_cast<uint64_t> (45),   // amount_forsale
-            static_cast<uint32_t> (3),    // property_desired
-            static_cast<uint64_t> (254)); // amount_desired
+            static_cast<uint32_t>(1),    // property
+            static_cast<uint64_t>(45),   // amount_forsale
+            static_cast<uint32_t>(3),    // property_desired
+            static_cast<uint64_t>(254)); // amount_desired
 
     BOOST_CHECK_EQUAL(HexStr(vch), "0000001900000001000000000000002d0000000300000000000000fe");
 
@@ -226,15 +130,15 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
     BOOST_CHECK_EQUAL(objMetaDEx.getAmountDesired(), 254);
 }
 
-BOOST_AUTO_TEST_CASE(object_contractdex_payload)
+BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
 {
     std::vector<unsigned char> vch = CreatePayload_ContractDexTrade(
-            static_cast<uint32_t> (1),   // property
-            static_cast<uint64_t> (50),  // amount_forsale
-            static_cast<uint32_t> (3),   // property_desired
-            static_cast<uint64_t> (40),  // amount_desired
-            static_cast<uint64_t> (20),  // price_desired
-            static_cast<uint64_t> (30)); // price_forsale
+            static_cast<uint32_t>(1),   // property
+            static_cast<uint64_t>(50),  // amount_forsale
+            static_cast<uint32_t>(3),   // property_desired
+            static_cast<uint64_t>(40),  // amount_desired
+            static_cast<uint64_t>(20),  // price_desired
+            static_cast<uint64_t>(30)); // price_forsale
 
     BOOST_CHECK_EQUAL(HexStr(vch), "0000001d0000000100000000000000320000000300000000000000280000000000000014000000000000001e");
 
