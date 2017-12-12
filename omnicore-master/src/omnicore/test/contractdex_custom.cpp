@@ -115,16 +115,38 @@ static CTxOut createTxOut(int64_t amount, const std::string& dest) {
 
 BOOST_FIXTURE_TEST_SUITE(omnicore_contractdex_object, BasicTestingSetup)
 
-BOOST_AUTO_TEST_CASE(object_default) {
+BOOST_AUTO_TEST_CASE(object_default)
+{
+    const uint256 tx; // empty txid
+    CMPContractDex object2(
+            "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
+            1,  // block
+            1,  // property for sale
+            0,  // amount for sale <-- is this correct?
+            1,  // desired property
+            8,  // amount desired
+            tx, // txid
+            1,  // position in block
+            1,  // subaction
+            1,  // amount remaining
+            5,  // desired price
+            5   // for sale price
+    ); // the buyer
 
-    CMPTally tally; // the tally map object
-    const uint256 tx; // address,block,property,amount for sale, desired property, amount desired,uint256 tx,idx, suba, amount remaining,desire price, for sale price
-    CMPContractDex object2("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 1, 1, 0, 1, 8, tx, 1, 1, 1, 5, 5); //the buyer
-    CMPContractDex object("1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", 1, 1, 3, 1, 0, tx, 2, 1, 3, 5, 25); // the seller
-    CMPContractDex *pobjContractDex;
-    pobjContractDex = &object;
-    CMPContractDex *q;
-    q = &object2;
+    CMPContractDex object(
+            "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", // address
+            1,  // block
+            1,  // property for sale
+            3,  // amount for sale
+            1,  // desired property
+            0,  // amount desired <-- is this correct?
+            tx, // txid
+            2,  // position in block
+            1,  // subaction
+            3,  // amount remaining
+            5,  // desired price
+            25  // for sale price
+    ); // the seller
 
     BOOST_CHECK_EQUAL(0, object2.getProperty()); // buyer
     BOOST_CHECK_EQUAL(0, object2.getDesProperty());
@@ -135,26 +157,26 @@ BOOST_AUTO_TEST_CASE(object_default) {
     BOOST_CHECK_EQUAL(0, object2.getForsalePrice());
     BOOST_CHECK_EQUAL(0, object2.getBlock());
 
-    BOOST_CHECK_EQUAL(0, pobjContractDex->getProperty()); // seller
-    BOOST_CHECK_EQUAL(0, pobjContractDex->getDesProperty());
-    BOOST_CHECK_EQUAL("", pobjContractDex->getAddr());
-    BOOST_CHECK_EQUAL(0, pobjContractDex->getAmountForSale());
-    BOOST_CHECK_EQUAL(0, pobjContractDex->getAmountDesired());
-    BOOST_CHECK_EQUAL(0, pobjContractDex->getAmountRemaining());
-    BOOST_CHECK_EQUAL(0, pobjContractDex->getDesiredPrice());
-    BOOST_CHECK_EQUAL(0, pobjContractDex->getForsalePrice());
-    BOOST_CHECK_EQUAL(0, pobjContractDex->getBlock());
+    BOOST_CHECK_EQUAL(0, object.getProperty()); // seller
+    BOOST_CHECK_EQUAL(0, object.getDesProperty());
+    BOOST_CHECK_EQUAL("", object.getAddr());
+    BOOST_CHECK_EQUAL(0, object.getAmountForSale());
+    BOOST_CHECK_EQUAL(0, object.getAmountDesired());
+    BOOST_CHECK_EQUAL(0, object.getAmountRemaining());
+    BOOST_CHECK_EQUAL(0, object.getDesiredPrice());
+    BOOST_CHECK_EQUAL(0, object.getForsalePrice());
+    BOOST_CHECK_EQUAL(0, object.getBlock());
 
     BOOST_CHECK(mastercore::update_tally_map(object2.getAddr(), object2.getProperty(), 10, BALANCE)); // putting some money here
-    BOOST_CHECK(mastercore::update_tally_map(pobjContractDex->getAddr(), pobjContractDex->getProperty(), 10, BALANCE));
-    BOOST_CHECK_EQUAL(10, getMPbalance(object2.getAddr(), object2.getProperty(), BALANCE)); //checking balance of sender
-    BOOST_CHECK_EQUAL(10, getMPbalance(pobjContractDex->getAddr(), pobjContractDex->getProperty(), BALANCE));
+    BOOST_CHECK(mastercore::update_tally_map(object.getAddr(), object.getProperty(), 10, BALANCE));
+    BOOST_CHECK_EQUAL(10, getMPbalance(object2.getAddr(), object2.getProperty(), BALANCE)); // checking balance of sender
+    BOOST_CHECK_EQUAL(10, getMPbalance(object.getAddr(), object.getProperty(), BALANCE));
 
     BOOST_CHECK(mastercore::MetaDEx_INSERT(object)); // the seller is inserted
-    BOOST_CHECK_EQUAL(TRADED, x_Trade(q)); // the buyer wants 6 contracts at  price of 5!
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(&object2)); // the buyer wants 6 contracts at price of 5!
 
-    BOOST_CHECK_EQUAL(10, getMPbalance(object2.getAddr(), object2.getProperty(), BALANCE)); //checking balance of sender
-    BOOST_CHECK_EQUAL(10, getMPbalance(pobjContractDex->getAddr(), pobjContractDex->getProperty(), BALANCE));
+    BOOST_CHECK_EQUAL(10, getMPbalance(object2.getAddr(), object2.getProperty(), BALANCE)); // checking balance of sender
+    BOOST_CHECK_EQUAL(10, getMPbalance(object.getAddr(), object.getProperty(), BALANCE));
 
 }
 
