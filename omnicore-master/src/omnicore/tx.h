@@ -3,11 +3,11 @@
 
 class CMPMetaDEx;
 class CMPOffer;
-/*New things for Contracts*/
-class CMPContractDex;
-
 class CTransaction;
-
+////////////////////////////
+/** New things for Contracts */
+class CMPContractDex;
+////////////////////////////
 
 #include "omnicore/omnicore.h"
 
@@ -30,8 +30,10 @@ class CMPTransaction
 {
     friend class CMPMetaDEx;
     friend class CMPOffer;
-    /*New things for Contracts*/
+    ////////////////////////////
+    /** New things for Contracts */
     friend class CMPContractDex;
+    
 
 private:
     uint256 txid;
@@ -84,10 +86,17 @@ private:
     unsigned char action; // depreciated
 
     ////////////////////////////////////
-    /*New things Contract*/
+    /** New things Contract */
     uint64_t desired_price;
     uint64_t forsale_price;
     ////////////////////////////////////
+
+    /** New things for Contracts */
+    uint32_t blocks_until_expiration;
+    uint32_t notional_size;
+    uint32_t collateral_currency;
+    uint32_t margin_requirement;
+    ////////////////////////////
 
     // TradeOffer
     uint64_t amount_desired;
@@ -123,7 +132,11 @@ private:
     bool interpret_MetaDExCancelPrice();
     bool interpret_MetaDExCancelPair();
     bool interpret_MetaDExCancelEcosystem();
+    ///////////////////////////////////////////////
+    /** New things for Contract */
     bool interpret_ContractDexTrade();
+    bool interpret_CreateContractDex();
+    ///////////////////////////////////////////////
     bool interpret_AcceptOfferBTC();
     bool interpret_CreatePropertyFixed();
     bool interpret_CreatePropertyVariable();
@@ -132,6 +145,10 @@ private:
     bool interpret_GrantTokens();
     bool interpret_RevokeTokens();
     bool interpret_ChangeIssuer();
+    bool interpret_EnableFreezing();
+    bool interpret_DisableFreezing();
+    bool interpret_FreezeTokens();
+    bool interpret_UnfreezeTokens();
     bool interpret_Activation();
     bool interpret_Deactivation();
     bool interpret_Alert();
@@ -148,7 +165,11 @@ private:
     int logicMath_MetaDExCancelPrice();
     int logicMath_MetaDExCancelPair();
     int logicMath_MetaDExCancelEcosystem();
+    ///////////////////////////////////////////////
+    /** New things for Contract */
     int logicMath_ContractDexTrade();
+    int logicMath_CreateContractDex();
+    ///////////////////////////////////////////////
     int logicMath_CreatePropertyFixed();
     int logicMath_CreatePropertyVariable();
     int logicMath_CloseCrowdsale();
@@ -156,6 +177,10 @@ private:
     int logicMath_GrantTokens();
     int logicMath_RevokeTokens();
     int logicMath_ChangeIssuer();
+    int logicMath_EnableFreezing();
+    int logicMath_DisableFreezing();
+    int logicMath_FreezeTokens();
+    int logicMath_UnfreezeTokens();
     int logicMath_Activation();
     int logicMath_Deactivation();
     int logicMath_Alert();
@@ -216,10 +241,7 @@ public:
     uint32_t getMinClientVersion() const { return min_client_version; }
     unsigned int getIndexInBlock() const { return tx_idx; }
     uint32_t getDistributionProperty() const { return distribution_property; }
-    /*New things for Contract: Desired Price and Forsale Price */
-    // uint64_t getDesiredPrice() const { return desired_price;}
-    // uint64_t getForsalePrice() const { return forsale_price;}
-    
+
     /** Creates a new CMPTransaction object. */
     CMPTransaction()
     {
@@ -258,13 +280,6 @@ public:
         desired_property = 0;
         desired_value = 0;
         action = 0;
-
-        ////////////////////////////////////
-        /*New things for Contracts*/
-        forsale_price = 0;
-        desired_price = 0;
-        ////////////////////////////////////
-
         amount_desired = 0;
         blocktimelimit = 0;
         min_fee = 0;
@@ -277,6 +292,12 @@ public:
         activation_block = 0;
         min_client_version = 0;
         distribution_property = 0;
+
+        ////////////////////////////////////
+        /** New things for Contracts */
+        forsale_price = 0;
+        desired_price = 0;
+        ////////////////////////////////////
     }
 
     /** Sets the given values. */

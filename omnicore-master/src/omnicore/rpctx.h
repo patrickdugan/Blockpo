@@ -17,6 +17,11 @@ UniValue omni_sendrevoke(const UniValue& params, bool fHelp);
 UniValue omni_sendclosecrowdsale(const UniValue& params, bool fHelp);
 UniValue trade_MP(const UniValue& params, bool fHelp);
 UniValue omni_sendtrade(const UniValue& params, bool fHelp);
+/////////////////////////////////////////
+/** New things for Contract */
+UniValue omni_tradecontract(const UniValue& params, bool fHelp);
+UniValue omni_createcontract(const UniValue& params, bool fHelp);
+/////////////////////////////////////////
 UniValue omni_sendcanceltradesbyprice(const UniValue& params, bool fHelp);
 UniValue omni_sendcanceltradesbypair(const UniValue& params, bool fHelp);
 UniValue omni_sendcancelalltrades(const UniValue& params, bool fHelp);

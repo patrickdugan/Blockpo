@@ -36,7 +36,7 @@ int const MAX_STATE_HISTORY = 50;
 #define TEST_ECO_PROPERTY_1 (0x80000003UL)
 
 // increment this value to force a refresh of the state (similar to --startclean)
-#define DB_VERSION 3
+#define DB_VERSION 6
 
 // could probably also use: int64_t maxInt64 = std::numeric_limits<int64_t>::max();
 // maximum numeric values from the spec:
@@ -77,11 +77,14 @@ enum TransactionType {
   MSC_TYPE_METADEX_CANCEL_PAIR        = 27,
   MSC_TYPE_METADEX_CANCEL_ECOSYSTEM   = 28,
   ////////////////////////////////////
-  /*New things for Contract*/ 
+  /** New things for Contract */ 
   MSC_TYPE_CONTRACTDEX_TRADE          = 29,
   ////////////////////////////////////
   MSC_TYPE_NOTIFICATION               = 31,
-  MSC_TYPE_OFFER_ACCEPT_A_BET         = 40,
+  ////////////////////////////////////
+  /** New things for Contract: Here we changed "MSC_TYPE_OFFER_ACCEPT_A_BET = 40" */ 
+  MSC_TYPE_CREATE_CONTRACT            = 40,
+  ////////////////////////////////////
   MSC_TYPE_CREATE_PROPERTY_FIXED      = 50,
   MSC_TYPE_CREATE_PROPERTY_VARIABLE   = 51,
   MSC_TYPE_PROMOTE_PROPERTY           = 52,
@@ -90,9 +93,13 @@ enum TransactionType {
   MSC_TYPE_GRANT_PROPERTY_TOKENS      = 55,
   MSC_TYPE_REVOKE_PROPERTY_TOKENS     = 56,
   MSC_TYPE_CHANGE_ISSUER_ADDRESS      = 70,
+  MSC_TYPE_ENABLE_FREEZING            = 71,
+  MSC_TYPE_DISABLE_FREEZING           = 72,
+  MSC_TYPE_FREEZE_PROPERTY_TOKENS     = 185,
+  MSC_TYPE_UNFREEZE_PROPERTY_TOKENS   = 186,
   OMNICORE_MESSAGE_TYPE_DEACTIVATION  = 65533,
   OMNICORE_MESSAGE_TYPE_ACTIVATION    = 65534,
-  OMNICORE_MESSAGE_TYPE_ALERT         = 65535,
+  OMNICORE_MESSAGE_TYPE_ALERT         = 65535
 };
 
 #define MSC_PROPERTY_TYPE_INDIVISIBLE             1
@@ -113,8 +120,6 @@ enum FILETYPES {
   FILETYPE_GLOBALS,
   FILETYPE_CROWDSALES,
   FILETYPE_MDEXORDERS,
-  /*New things for Contracts*/
-  FILETYPE_CONTRACTORDERS,
   NUM_FILETYPES
 };
 
@@ -187,8 +192,10 @@ public:
      *
      * and so on...
      */
-    void RecordTransaction(const uint256& txid, uint32_t posInBlock);
+    void RecordTransaction(const uint256& txid, uint32_t posInBlock, int processingResult);
+    std::vector<std::string> FetchTransactionDetails(const uint256& txid);
     uint32_t FetchTransactionPosition(const uint256& txid);
+    std::string FetchInvalidReason(const uint256& txid);
 };
 
 /** LevelDB based storage for STO recipients.
@@ -286,6 +293,8 @@ public:
     std::set<int> GetSeedBlocks(int startHeight, int endHeight);
     void LoadAlerts(int blockHeight);
     void LoadActivations(int blockHeight);
+    bool LoadFreezeState(int blockHeight);
+    bool CheckForFreezeTxs(int blockHeight);
 
     void printStats();
     void printAll();
@@ -302,6 +311,7 @@ extern std::set<uint32_t> global_wallet_property_list;
 
 int64_t getMPbalance(const std::string& address, uint32_t propertyId, TallyType ttype);
 int64_t getUserAvailableMPbalance(const std::string& address, uint32_t propertyId);
+int64_t getUserFrozenMPbalance(const std::string& address, uint32_t propertyId);
 
 /** Global handler to initialize Omni Core. */
 int mastercore_init();
@@ -366,7 +376,28 @@ bool getValidMPTX(const uint256 &txid, int *block = NULL, unsigned int *type = N
 bool update_tally_map(const std::string& who, uint32_t propertyId, int64_t amount, TallyType ttype);
 
 std::string getTokenLabel(uint32_t propertyId);
-}
 
+/**
+    NOTE: The following functions are only permitted for properties
+          managed by a central issuer that have enabled freezing.
+ **/
+/** Adds an address and property to the frozenMap **/
+void freezeAddress(const std::string& address, uint32_t propertyId);
+/** Removes an address and property from the frozenMap **/
+void unfreezeAddress(const std::string& address, uint32_t propertyId);
+/** Checks whether an address and property are frozen **/
+bool isAddressFrozen(const std::string& address, uint32_t propertyId);
+/** Adds a property to the freezingEnabledMap **/
+void enableFreezing(uint32_t propertyId, int liveBlock);
+/** Removes a property from the freezingEnabledMap **/
+void disableFreezing(uint32_t propertyId);
+/** Checks whether a property has freezing enabled **/
+bool isFreezingEnabled(uint32_t propertyId, int block);
+/** Clears the freeze state in the event of a reorg **/
+void ClearFreezeState();
+/** Prints the freeze state **/
+void PrintFreezeState();
+
+}
 
 #endif // OMNICORE_OMNICORE_H

@@ -13,8 +13,12 @@
 #include "omnicore/rules.h"
 #include "omnicore/sp.h"
 #include "omnicore/sto.h"
+#include "omnicore/utils.h"
+#include "omnicore/utilsbitcoin.h"
+#include "omnicore/version.h"
 
 #include "amount.h"
+#include "base58.h"
 #include "main.h"
 #include "sync.h"
 #include "utiltime.h"
@@ -28,7 +32,6 @@
 #include <algorithm>
 #include <utility>
 #include <vector>
-
 
 using boost::algorithm::token_compress_on;
 
@@ -52,8 +55,9 @@ std::string mastercore::strTransactionType(uint16_t txType)
         case MSC_TYPE_METADEX_CANCEL_PAIR: return "MetaDEx cancel-pair";
         case MSC_TYPE_METADEX_CANCEL_ECOSYSTEM: return "MetaDEx cancel-ecosystem";
         /////////////////////////////
-        /*New things for Contract*/
+        /** New things for Contract */
         case MSC_TYPE_CONTRACTDEX_TRADE: return "Future Contract";
+        case MSC_TYPE_CREATE_CONTRACT: return "Create Contract";
         /////////////////////////////
         case MSC_TYPE_ACCEPT_OFFER_BTC: return "DEx Accept Offer";
         case MSC_TYPE_CREATE_PROPERTY_FIXED: return "Create Property - Fixed";
@@ -64,6 +68,10 @@ std::string mastercore::strTransactionType(uint16_t txType)
         case MSC_TYPE_GRANT_PROPERTY_TOKENS: return "Grant Property Tokens";
         case MSC_TYPE_REVOKE_PROPERTY_TOKENS: return "Revoke Property Tokens";
         case MSC_TYPE_CHANGE_ISSUER_ADDRESS: return "Change Issuer Address";
+        case MSC_TYPE_ENABLE_FREEZING: return "Enable Freezing";
+        case MSC_TYPE_DISABLE_FREEZING: return "Disable Freezing";
+        case MSC_TYPE_FREEZE_PROPERTY_TOKENS: return "Freeze Property Tokens";
+        case MSC_TYPE_UNFREEZE_PROPERTY_TOKENS: return "Unfreeze Property Tokens";
         case MSC_TYPE_NOTIFICATION: return "Notification";
         case OMNICORE_MESSAGE_TYPE_ALERT: return "ALERT";
         case OMNICORE_MESSAGE_TYPE_DEACTIVATION: return "Feature Deactivation";
@@ -97,7 +105,7 @@ bool CMPTransaction::isOverrun(const char* p)
 
 // -------------------- PACKET PARSING -----------------------
 
-/** Parses the packet or payload.*/
+/** Parses the packet or payload. */
 bool CMPTransaction::interpret_Transaction()
 {
     if (!interpret_TransactionType()) {
@@ -133,9 +141,11 @@ bool CMPTransaction::interpret_Transaction()
         case MSC_TYPE_METADEX_CANCEL_ECOSYSTEM:
             return interpret_MetaDExCancelEcosystem();
         ////////////////////////////////
-        /*New things for Contract*/
+        /** New things for Contract */
         case MSC_TYPE_CONTRACTDEX_TRADE:
             return interpret_ContractDexTrade();
+        case MSC_TYPE_CREATE_CONTRACT:
+            return interpret_CreateContractDex();
         ////////////////////////////////
         case MSC_TYPE_CREATE_PROPERTY_FIXED:
             return interpret_CreatePropertyFixed();
@@ -157,6 +167,18 @@ bool CMPTransaction::interpret_Transaction()
 
         case MSC_TYPE_CHANGE_ISSUER_ADDRESS:
             return interpret_ChangeIssuer();
+
+        case MSC_TYPE_ENABLE_FREEZING:
+            return interpret_EnableFreezing();
+
+        case MSC_TYPE_DISABLE_FREEZING:
+            return interpret_DisableFreezing();
+
+        case MSC_TYPE_FREEZE_PROPERTY_TOKENS:
+            return interpret_FreezeTokens();
+
+        case MSC_TYPE_UNFREEZE_PROPERTY_TOKENS:
+            return interpret_UnfreezeTokens();
 
         case OMNICORE_MESSAGE_TYPE_DEACTIVATION:
             return interpret_Deactivation();
@@ -201,7 +223,6 @@ bool CMPTransaction::interpret_SimpleSend()
     if (pkt_size < 16) {
         return false;
     }
-
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
     memcpy(&nValue, &pkt[8], 8);
@@ -292,6 +313,7 @@ bool CMPTransaction::interpret_TradeOffer()
             PrintToLog("\t      sub-action: %d\n", subaction);
         }
     }
+
     return true;
 }
 
@@ -321,17 +343,13 @@ bool CMPTransaction::interpret_MetaDExTrade()
     if (pkt_size < 28) {
         return false;
     }
-
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
-
     memcpy(&nValue, &pkt[8], 8);
     swapByteOrder64(nValue);
     nNewValue = nValue;
-
-    memcpy(&desired_property, &pkt[16], 4); /*ContractDex*/
+    memcpy(&desired_property, &pkt[16], 4);
     swapByteOrder32(desired_property);
-    
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
 
@@ -343,6 +361,7 @@ bool CMPTransaction::interpret_MetaDExTrade()
         PrintToLog("\tdesired property: %d (%s)\n", desired_property, strMPProperty(desired_property));
         PrintToLog("\t   desired value: %s\n", FormatMP(desired_property, desired_value));
     }
+
     return true;
 }
 
@@ -421,15 +440,14 @@ bool CMPTransaction::interpret_MetaDExCancelEcosystem()
 }
 
 //////////////////////////////
-/* New things for Contracts */
-
-/** Tx 29*/
+/** New things for Contracts */
+/** Tx 29 */
 bool CMPTransaction::interpret_ContractDexTrade()
 {
-    if (pkt_size < 44) {
+    if (pkt_size < 33) {
         return false;
     }
-
+    
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
 
@@ -437,19 +455,17 @@ bool CMPTransaction::interpret_ContractDexTrade()
     swapByteOrder64(nValue);
     nNewValue = nValue;
 
-    memcpy(&desired_property, &pkt[16], 4);
+    memcpy(&desired_property, &pkt[16], 4); 
     swapByteOrder32(desired_property);
-
+    
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
 
-    memcpy(&desired_price, &pkt[28], 8);
-    swapByteOrder64(desired_price);
+    memcpy(&desired_price, &pkt[28], 8); 
+    swapByteOrder64(desired_price); 
 
-    memcpy(&forsale_price, &pkt[34], 8);
+    memcpy(&forsale_price, &pkt[36], 8);
     swapByteOrder64(forsale_price);
-
-    action = CMPTransaction::ADD; // depreciated
 
     if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
         PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
@@ -459,11 +475,9 @@ bool CMPTransaction::interpret_ContractDexTrade()
         PrintToLog("\t   desired price: %d\n", desired_price);
         PrintToLog("\t   forsale price: %d\n", forsale_price);
     }
-
     return true;
-}
+}                                       
 //////////////////////////////
-
 /** Tx 50 */
 bool CMPTransaction::interpret_CreatePropertyFixed()
 {
@@ -520,38 +534,31 @@ bool CMPTransaction::interpret_CreatePropertyVariable()
     }
     const char* p = 11 + (char*) &pkt;
     std::vector<std::string> spstr;
-
     memcpy(&ecosystem, &pkt[4], 1);
     memcpy(&prop_type, &pkt[5], 2);
     swapByteOrder16(prop_type);
     memcpy(&prev_prop_id, &pkt[7], 4);
     swapByteOrder32(prev_prop_id);
-
     for (int i = 0; i < 5; i++) {
         spstr.push_back(std::string(p));
         p += spstr.back().size() + 1;
     }
-    
     int i = 0;
     memcpy(category, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(category)-1)); i++;
     memcpy(subcategory, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(subcategory)-1)); i++;
     memcpy(name, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(name)-1)); i++;
     memcpy(url, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(url)-1)); i++;
     memcpy(data, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(data)-1)); i++;
-
     memcpy(&property, p, 4);
     swapByteOrder32(property);
     p += 4;
-
     memcpy(&nValue, p, 8);
     swapByteOrder64(nValue);
     p += 8;
     nNewValue = nValue;
-
     memcpy(&deadline, p, 8);
     swapByteOrder64(deadline);
     p += 8;
-
     memcpy(&early_bird, p++, 1);
     memcpy(&percentage, p++, 1);
 
@@ -578,6 +585,88 @@ bool CMPTransaction::interpret_CreatePropertyVariable()
 
     return true;
 }
+
+///////////////////////////////////////////////
+/** New things for Contract */
+/** Tx  40*/
+bool CMPTransaction::interpret_CreateContractDex()
+{
+    if (pkt_size < 55) {
+        return false;
+    }
+    const char* p = 11 + (char*) &pkt;
+    std::vector<std::string> spstr;
+
+    memcpy(&ecosystem, &pkt[4], 1);
+    memcpy(&prop_type, &pkt[5], 2);
+    swapByteOrder16(prop_type);
+    memcpy(&prev_prop_id, &pkt[7], 4);
+    swapByteOrder32(prev_prop_id);
+    
+    for (int i = 0; i < 5; i++) {
+        spstr.push_back(std::string(p));
+        p += spstr.back().size() + 1;
+    }
+    
+    int i = 0;
+    memcpy(category, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(category)-1)); i++;
+    memcpy(subcategory, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(subcategory)-1)); i++;
+    memcpy(name, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(name)-1)); i++;
+    memcpy(url, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(url)-1)); i++;
+    memcpy(data, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(data)-1)); i++;
+
+    memcpy(&property, p, 4);
+    swapByteOrder32(property);
+    p += 4;
+    memcpy(&nValue, p, 8);
+    swapByteOrder64(nValue);
+    p += 8;
+    nNewValue = nValue;
+    memcpy(&deadline, p, 8);
+    swapByteOrder64(deadline);
+    p += 8;
+    memcpy(&early_bird, p++, 1);
+    memcpy(&percentage, p++, 1);
+
+    memcpy(&blocks_until_expiration, p, 4);
+    swapByteOrder32(blocks_until_expiration);
+    p += 4;
+    memcpy(&notional_size, p, 4);
+    swapByteOrder32(notional_size);
+    p += 4;
+    memcpy(&collateral_currency, p, 4);
+    swapByteOrder32(collateral_currency);
+    p += 4;
+    memcpy(&margin_requirement, p, 4);
+    swapByteOrder32(margin_requirement);
+
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t       ecosystem: %d\n", ecosystem);
+        PrintToLog("\t   property type: %d (%s)\n", prop_type, strPropertyType(prop_type));
+        PrintToLog("\tprev property id: %d\n", prev_prop_id);
+        PrintToLog("\t        category: %s\n", category);
+        PrintToLog("\t     subcategory: %s\n", subcategory);
+        PrintToLog("\t            name: %s\n", name);
+        PrintToLog("\t             url: %s\n", url);
+        PrintToLog("\t            data: %s\n", data);
+        PrintToLog("\tproperty desired: %d (%s)\n", property, strMPProperty(property));
+        PrintToLog("\t tokens per unit: %s\n", FormatByType(nValue, prop_type));
+        PrintToLog("\t        deadline: %s (%x)\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", deadline), deadline);
+        PrintToLog("\tearly bird bonus: %d\n", early_bird);
+        PrintToLog("\t    issuer bonus: %d\n", percentage);
+        PrintToLog("\tblocks until expiration: %d\n", blocks_until_expiration);
+        PrintToLog("\tnotional size: %d\n", notional_size);
+        PrintToLog("\tcollateral currency: %d\n", collateral_currency); 
+        PrintToLog("\tmargin requirement: %d\n", margin_requirement); 
+    }
+    if (isOverrun(p)) {
+        PrintToLog("%s(): rejected: malformed string value(s)\n", __func__);
+        return false;
+    }
+    return true;
+}
+///////////////////////////////////////////////
 
 /** Tx 53 */
 bool CMPTransaction::interpret_CloseCrowdsale()
@@ -694,6 +783,116 @@ bool CMPTransaction::interpret_ChangeIssuer()
     return true;
 }
 
+/** Tx 71 */
+bool CMPTransaction::interpret_EnableFreezing()
+{
+    if (pkt_size < 8) {
+        return false;
+    }
+    memcpy(&property, &pkt[4], 4);
+    swapByteOrder32(property);
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
+    }
+
+    return true;
+}
+
+/** Tx 72 */
+bool CMPTransaction::interpret_DisableFreezing()
+{
+    if (pkt_size < 8) {
+        return false;
+    }
+    memcpy(&property, &pkt[4], 4);
+    swapByteOrder32(property);
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
+    }
+
+    return true;
+}
+
+/** Tx 185 */
+bool CMPTransaction::interpret_FreezeTokens()
+{
+    if (pkt_size < 37) {
+        return false;
+    }
+    memcpy(&property, &pkt[4], 4);
+    swapByteOrder32(property);
+    memcpy(&nValue, &pkt[8], 8);
+    swapByteOrder64(nValue);
+    nNewValue = nValue;
+
+    /**
+        Note, TX185 is a virtual reference transaction type.
+              With virtual reference transactions a hash160 in the payload sets the receiver.
+              Reference outputs are ignored.
+    **/
+    unsigned char address_version;
+    uint160 address_hash160;
+    memcpy(&address_version, &pkt[16], 1);
+    memcpy(&address_hash160, &pkt[17], 20);
+    receiver = HashToAddress(address_version, address_hash160);
+    if (receiver.empty()) {
+        return false;
+    }
+    CBitcoinAddress recAddress(receiver);
+    if (!recAddress.IsValid()) {
+        return false;
+    }
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
+        PrintToLog("\t  value (unused): %s\n", FormatMP(property, nValue));
+        PrintToLog("\t         address: %s\n", receiver);
+    }
+
+    return true;
+}
+
+/** Tx 186 */
+bool CMPTransaction::interpret_UnfreezeTokens()
+{
+    if (pkt_size < 37) {
+        return false;
+    }
+    memcpy(&property, &pkt[4], 4);
+    swapByteOrder32(property);
+    memcpy(&nValue, &pkt[8], 8);
+    swapByteOrder64(nValue);
+    nNewValue = nValue;
+
+    /**
+        Note, TX186 virtual reference transaction type.
+              With virtual reference transactions a hash160 in the payload sets the receiver.
+              Reference outputs are ignored.
+    **/
+    unsigned char address_version;
+    uint160 address_hash160;
+    memcpy(&address_version, &pkt[16], 1);
+    memcpy(&address_hash160, &pkt[17], 20);
+    receiver = HashToAddress(address_version, address_hash160);
+    if (receiver.empty()) {
+        return false;
+    }
+    CBitcoinAddress recAddress(receiver);
+    if (!recAddress.IsValid()) {
+        return false;
+    }
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
+        PrintToLog("\t  value (unused): %s\n", FormatMP(property, nValue));
+        PrintToLog("\t         address: %s\n", receiver);
+    }
+
+    return true;
+}
+
 /** Tx 65533 */
 bool CMPTransaction::interpret_Deactivation()
 {
@@ -783,6 +982,11 @@ int CMPTransaction::interpretPacket()
 
     LOCK(cs_tally);
 
+    if (isAddressFrozen(sender, property)) {
+        PrintToLog("%s(): REJECTED: address %s is frozen for property %d\n", __func__, sender, property);
+        return (PKT_ERROR -3);
+    }
+
     switch (type) {
         case MSC_TYPE_SIMPLE_SEND:
             return logicMath_SimpleSend();
@@ -811,9 +1015,12 @@ int CMPTransaction::interpretPacket()
         case MSC_TYPE_METADEX_CANCEL_ECOSYSTEM:
             return logicMath_MetaDExCancelEcosystem();
         ///////////////////////////////
-        /*New things for Contract*/
+        /** New things for Contract */
         case MSC_TYPE_CONTRACTDEX_TRADE:
             return logicMath_ContractDexTrade();
+
+        case MSC_TYPE_CREATE_CONTRACT:
+            return logicMath_CreateContractDex();
         ///////////////////////////////
         case MSC_TYPE_CREATE_PROPERTY_FIXED:
             return logicMath_CreatePropertyFixed();
@@ -835,6 +1042,18 @@ int CMPTransaction::interpretPacket()
 
         case MSC_TYPE_CHANGE_ISSUER_ADDRESS:
             return logicMath_ChangeIssuer();
+
+        case MSC_TYPE_ENABLE_FREEZING:
+            return logicMath_EnableFreezing();
+
+        case MSC_TYPE_DISABLE_FREEZING:
+            return logicMath_DisableFreezing();
+
+        case MSC_TYPE_FREEZE_PROPERTY_TOKENS:
+            return logicMath_FreezeTokens();
+
+        case MSC_TYPE_UNFREEZE_PROPERTY_TOKENS:
+            return logicMath_UnfreezeTokens();
 
         case OMNICORE_MESSAGE_TYPE_DEACTIVATION:
             return logicMath_Deactivation();
@@ -1144,6 +1363,12 @@ int CMPTransaction::logicMath_SendAll()
             continue;
         }
 
+        // do not transfer tokens from a frozen property
+        if (isAddressFrozen(sender, propertyId)) {
+            PrintToLog("%s(): sender %s is frozen for property %d - the property will not be included in processing.\n", __func__, sender, propertyId);
+            continue;
+        }
+
         int64_t moneyAvailable = ptally->getMoney(propertyId, BALANCE);
         if (moneyAvailable > 0) {
             ++numberOfPropertiesSent;
@@ -1357,94 +1582,7 @@ int CMPTransaction::logicMath_MetaDExTrade()
     // ------------------------------------------
 
     t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
-    /*New things for Contracts: Here we added the prices of the contract*/
-    int rc = MetaDEx_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, desired_price, forsale_price);
-    return rc;
-}
-
-/** Tx 29 */
-int CMPTransaction::logicMath_ContractDexTrade()
-{
-    if (!IsTransactionTypeAllowed(block, property, type, version)) {
-        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
-                __func__,
-                type,
-                version,
-                property,
-                block);
-        return (PKT_ERROR_METADEX -22);
-    }
-
-    if (property == desired_property) {
-        PrintToLog("%s(): rejected: property for sale %d and desired property %d must not be equal\n",
-                __func__,
-                property,
-                desired_property);
-        return (PKT_ERROR_METADEX -29);
-    }
-
-    if (isTestEcosystemProperty(property) != isTestEcosystemProperty(desired_property)) {
-        PrintToLog("%s(): rejected: property for sale %d and desired property %d not in same ecosystem\n",
-                __func__,
-                property,
-                desired_property);
-        return (PKT_ERROR_METADEX -30);
-    }
-
-    if (!IsPropertyIdValid(property)) {
-        PrintToLog("%s(): rejected: property for sale %d does not exist\n", __func__, property);
-        return (PKT_ERROR_METADEX -31);
-    }
-
-    if (!IsPropertyIdValid(desired_property)) {
-        PrintToLog("%s(): rejected: desired property %d does not exist\n", __func__, desired_property);
-        return (PKT_ERROR_METADEX -32);
-    }
-
-    if (nNewValue <= 0 || MAX_INT_8_BYTES < nNewValue) {
-        PrintToLog("%s(): rejected: amount for sale out of range or zero: %d\n", __func__, nNewValue);
-        return (PKT_ERROR_METADEX -33);
-    }
-
-    if (desired_value <= 0 || MAX_INT_8_BYTES < desired_value) {
-        PrintToLog("%s(): rejected: desired amount out of range or zero: %d\n", __func__, desired_value);
-        return (PKT_ERROR_METADEX -34);
-    }
-
-    if (desired_price <= 0 || MAX_INT_8_BYTES < desired_price) {
-        PrintToLog("%s(): rejected: desired price out of range or zero: %d\n", __func__, desired_price);
-        return (PKT_ERROR_METADEX -35);
-    }
-
-    if (forsale_price <= 0 || MAX_INT_8_BYTES < forsale_price) {
-        PrintToLog("%s(): rejected: forsale price out of range or zero: %d\n", __func__, forsale_price);
-        return (PKT_ERROR_METADEX -36);
-    }
-
-    if (!IsFeatureActivated(FEATURE_TRADEALLPAIRS, block)) {
-        // Trading non-Omni pairs is not allowed before trading all pairs is activated
-        if ((property != OMNI_PROPERTY_MSC) && (desired_property != OMNI_PROPERTY_MSC) &&
-            (property != OMNI_PROPERTY_TMSC) && (desired_property != OMNI_PROPERTY_TMSC)) {
-            PrintToLog("%s(): rejected: one side of a trade [%d, %d] must be OMNI or TOMNI\n", __func__, property, desired_property);
-            return (PKT_ERROR_METADEX -37);
-        }
-    }
-
-    int64_t nBalance = getMPbalance(sender, property, BALANCE);
-    if (nBalance < (int64_t) nNewValue) {
-        PrintToLog("%s(): rejected: sender %s has insufficient balance of property %d [%s < %s]\n",
-                __func__,
-                sender,
-                property,
-                FormatMP(property, nBalance),
-                FormatMP(property, nNewValue));
-        return (PKT_ERROR_METADEX -25);
-    }
-
-    // ------------------------------------------
-    t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
-    /*New things for Contracts: Here we added the prices of the contract*/
-    int rc = MetaDEx_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, desired_price, forsale_price);
+    int rc = MetaDEx_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx);
     return rc;
 }
 
@@ -1499,7 +1637,7 @@ int CMPTransaction::logicMath_MetaDExCancelPrice()
 
     // ------------------------------------------
 
-    int rc = MetaDEx_CANCEL_AT_PRICE(txid, block, sender, property, nNewValue, desired_property, desired_value, desired_price, forsale_price);
+    int rc = MetaDEx_CANCEL_AT_PRICE(txid, block, sender, property, nNewValue, desired_property, desired_value);
 
     return rc;
 }
@@ -1573,6 +1711,193 @@ int CMPTransaction::logicMath_MetaDExCancelEcosystem()
     return rc;
 }
 
+///////////////////////////////////////////////
+/** New things for Contract */
+/** Tx 29 */
+int CMPTransaction::logicMath_ContractDexTrade()
+{
+    if (!IsTransactionTypeAllowed(block, property, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_METADEX -22);
+    }
+
+    if (property == desired_property) {
+        PrintToLog("%s(): rejected: property for sale %d and desired property %d must not be equal\n",
+                __func__,
+                property,
+                desired_property);
+        return (PKT_ERROR_METADEX -29);
+    }
+
+    if (isTestEcosystemProperty(property) != isTestEcosystemProperty(desired_property)) {
+        PrintToLog("%s(): rejected: property for sale %d and desired property %d not in same ecosystem\n",
+                __func__,
+                property,
+                desired_property);
+        return (PKT_ERROR_METADEX -30);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property for sale %d does not exist\n", __func__, property);
+        return (PKT_ERROR_METADEX -31);
+    }
+
+    if (!IsPropertyIdValid(desired_property)) {
+        PrintToLog("%s(): rejected: desired property %d does not exist\n", __func__, desired_property);
+        return (PKT_ERROR_METADEX -32);
+    }
+
+    if (nNewValue <= 0 || MAX_INT_8_BYTES < nNewValue) {
+        PrintToLog("%s(): rejected: amount for sale out of range or zero: %d\n", __func__, nNewValue);
+        return (PKT_ERROR_METADEX -33);
+    }
+
+    if (desired_value <= 0 || MAX_INT_8_BYTES < desired_value) {
+        PrintToLog("%s(): rejected: desired amount out of range or zero: %d\n", __func__, desired_value);
+        return (PKT_ERROR_METADEX -34);
+    }
+
+    if (!IsFeatureActivated(FEATURE_TRADEALLPAIRS, block)) {
+        // Trading non-Omni pairs is not allowed before trading all pairs is activated
+        if ((property != OMNI_PROPERTY_MSC) && (desired_property != OMNI_PROPERTY_MSC) &&
+            (property != OMNI_PROPERTY_TMSC) && (desired_property != OMNI_PROPERTY_TMSC)) {
+            PrintToLog("%s(): rejected: one side of a trade [%d, %d] must be OMNI or TOMNI\n", __func__, property, desired_property);
+            return (PKT_ERROR_METADEX -35);
+        }
+    }
+
+    int64_t nBalance = getMPbalance(sender, property, BALANCE);
+    if (nBalance < (int64_t) nNewValue) {
+        PrintToLog("%s(): rejected: sender %s has insufficient balance of property %d [%s < %s]\n",
+                __func__,
+                sender,
+                property,
+                FormatMP(property, nBalance),
+                FormatMP(property, nNewValue));
+        return (PKT_ERROR_METADEX -25);
+    }
+
+    // ------------------------------------------
+
+    t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
+    int rc = ContractDex_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, desired_price, forsale_price);
+    return rc;
+}
+
+///////////////////////////////////////////////
+/** New things for Contract */
+/** Tx 40 */
+int CMPTransaction::logicMath_CreateContractDex()
+{
+    uint256 blockHash;
+    {
+        LOCK(cs_main);
+
+        CBlockIndex* pindex = chainActive[block];
+        if (pindex == NULL) {
+            PrintToLog("%s(): ERROR: block %d not in the active chain\n", __func__, block);
+            return (PKT_ERROR_SP -20);
+        }
+        blockHash = pindex->GetBlockHash();
+    }
+
+    if (OMNI_PROPERTY_MSC != ecosystem && OMNI_PROPERTY_TMSC != ecosystem) {
+        PrintToLog("%s(): rejected: invalid ecosystem: %d\n", __func__, (uint32_t) ecosystem);
+        return (PKT_ERROR_SP -21);
+    }
+
+    if (IsFeatureActivated(FEATURE_SPCROWDCROSSOVER, block)) {
+    /**
+     * Ecosystem crossovers shall not be allowed after the feature was enabled.
+     */
+    if (isTestEcosystemProperty(ecosystem) != isTestEcosystemProperty(property)) {
+        PrintToLog("%s(): rejected: ecosystem %d of tokens to issue and desired property %d not in same ecosystem\n",
+                __func__,
+                ecosystem,
+                property);
+        return (PKT_ERROR_SP -50);
+    }
+    }
+
+    if (!IsTransactionTypeAllowed(block, ecosystem, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_SP -22);
+    }
+
+    if (nValue <= 0 || MAX_INT_8_BYTES < nValue) {
+        PrintToLog("%s(): rejected: value out of range or zero: %d\n", __func__, nValue);
+        return (PKT_ERROR_SP -23);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property %d does not exist\n", __func__, property);
+        return (PKT_ERROR_SP -24);
+    }
+
+    if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+        PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
+        return (PKT_ERROR_SP -36);
+    }
+
+    if ('\0' == name[0]) {
+        PrintToLog("%s(): rejected: property name must not be empty\n", __func__);
+        return (PKT_ERROR_SP -37);
+    }
+
+    if (!deadline || (int64_t) deadline < blockTime) {
+        PrintToLog("%s(): rejected: deadline must not be in the past [%d < %d]\n", __func__, deadline, blockTime);
+        return (PKT_ERROR_SP -38);
+    }
+
+    if (NULL != getCrowd(sender)) {
+        PrintToLog("%s(): rejected: sender %s has an active crowdsale\n", __func__, sender);
+        return (PKT_ERROR_SP -39);
+    }
+
+    // ------------------------------------------
+
+    CMPSPInfo::Entry newSP;
+    newSP.issuer = sender;
+    newSP.txid = txid;
+    newSP.prop_type = prop_type;
+    newSP.num_tokens = nValue;
+    newSP.category.assign(category);
+    newSP.subcategory.assign(subcategory);
+    newSP.name.assign(name);
+    newSP.url.assign(url);
+    newSP.data.assign(data);
+    newSP.fixed = false;
+    newSP.property_desired = property;
+    newSP.deadline = deadline;
+    newSP.early_bird = early_bird;
+    newSP.percentage = percentage;
+    newSP.creation_block = blockHash;
+    newSP.update_block = newSP.creation_block;
+    ////////////////////////////
+    /** New things for Contracts */
+    newSP.blocks_until_expiration = blocks_until_expiration;
+    newSP.notional_size = notional_size;
+    newSP.collateral_currency = collateral_currency;
+    newSP.margin_requirement = margin_requirement;
+    ////////////////////////////
+
+    const uint32_t propertyId = _my_sps->putSP(ecosystem, newSP);
+    assert(propertyId > 0);
+
+    return 0;
+}
+//////////////////////////////////////////////
+
 /** Tx 50 */
 int CMPTransaction::logicMath_CreatePropertyFixed()
 {
@@ -1608,7 +1933,7 @@ int CMPTransaction::logicMath_CreatePropertyFixed()
         return (PKT_ERROR_SP -23);
     }
 
-    if (MSC_PROPERTY_TYPE_CONTRACT != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+    if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
         PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
         return (PKT_ERROR_SP -36);
     }
@@ -1696,7 +2021,7 @@ int CMPTransaction::logicMath_CreatePropertyVariable()
         return (PKT_ERROR_SP -24);
     }
 
-    if (MSC_PROPERTY_TYPE_CONTRACT != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+    if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
         PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
         return (PKT_ERROR_SP -36);
     }
@@ -1842,7 +2167,7 @@ int CMPTransaction::logicMath_CreatePropertyManaged()
         return (PKT_ERROR_SP -22);
     }
 
-    if (MSC_PROPERTY_TYPE_CONTRACT != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+    if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
         PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
         return (PKT_ERROR_SP -36);
     }
@@ -2101,6 +2426,236 @@ int CMPTransaction::logicMath_ChangeIssuer()
     return 0;
 }
 
+/** Tx 71 */
+int CMPTransaction::logicMath_EnableFreezing()
+{
+    uint256 blockHash;
+    {
+        LOCK(cs_main);
+
+        CBlockIndex* pindex = chainActive[block];
+        if (pindex == NULL) {
+            PrintToLog("%s(): ERROR: block %d not in the active chain\n", __func__, block);
+            return (PKT_ERROR_TOKENS -20);
+        }
+        blockHash = pindex->GetBlockHash();
+    }
+
+    if (!IsTransactionTypeAllowed(block, property, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_TOKENS -22);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property %d does not exist\n", __func__, property);
+        return (PKT_ERROR_TOKENS -24);
+    }
+
+    CMPSPInfo::Entry sp;
+    assert(_my_sps->getSP(property, sp));
+
+    if (!sp.manual) {
+        PrintToLog("%s(): rejected: property %d is not managed\n", __func__, property);
+        return (PKT_ERROR_TOKENS -42);
+    }
+
+    if (sender != sp.issuer) {
+        PrintToLog("%s(): rejected: sender %s is not issuer of property %d [issuer=%s]\n", __func__, sender, property, sp.issuer);
+        return (PKT_ERROR_TOKENS -43);
+    }
+
+    if (isFreezingEnabled(property, block)) {
+        PrintToLog("%s(): rejected: freezing is already enabled for property %d\n", __func__, property);
+        return (PKT_ERROR_TOKENS -49);
+    }
+
+    int liveBlock = 0;
+    if (!IsFeatureActivated(FEATURE_FREEZENOTICE, block)) {
+        liveBlock = block;
+    } else {
+        const CConsensusParams& params = ConsensusParams();
+        liveBlock = params.OMNI_FREEZE_WAIT_PERIOD + block;
+    }
+
+    enableFreezing(property, liveBlock);
+
+    return 0;
+}
+
+/** Tx 72 */
+int CMPTransaction::logicMath_DisableFreezing()
+{
+    uint256 blockHash;
+    {
+        LOCK(cs_main);
+
+        CBlockIndex* pindex = chainActive[block];
+        if (pindex == NULL) {
+            PrintToLog("%s(): ERROR: block %d not in the active chain\n", __func__, block);
+            return (PKT_ERROR_TOKENS -20);
+        }
+        blockHash = pindex->GetBlockHash();
+    }
+
+    if (!IsTransactionTypeAllowed(block, property, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_TOKENS -22);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property %d does not exist\n", __func__, property);
+        return (PKT_ERROR_TOKENS -24);
+    }
+
+    CMPSPInfo::Entry sp;
+    assert(_my_sps->getSP(property, sp));
+
+    if (!sp.manual) {
+        PrintToLog("%s(): rejected: property %d is not managed\n", __func__, property);
+        return (PKT_ERROR_TOKENS -42);
+    }
+
+    if (sender != sp.issuer) {
+        PrintToLog("%s(): rejected: sender %s is not issuer of property %d [issuer=%s]\n", __func__, sender, property, sp.issuer);
+        return (PKT_ERROR_TOKENS -43);
+    }
+
+    if (!isFreezingEnabled(property, block)) {
+        PrintToLog("%s(): rejected: freezing is not enabled for property %d\n", __func__, property);
+        return (PKT_ERROR_TOKENS -47);
+    }
+
+    disableFreezing(property);
+
+    return 0;
+}
+
+/** Tx 185 */
+int CMPTransaction::logicMath_FreezeTokens()
+{
+    uint256 blockHash;
+    {
+        LOCK(cs_main);
+
+        CBlockIndex* pindex = chainActive[block];
+        if (pindex == NULL) {
+            PrintToLog("%s(): ERROR: block %d not in the active chain\n", __func__, block);
+            return (PKT_ERROR_TOKENS -20);
+        }
+        blockHash = pindex->GetBlockHash();
+    }
+
+    if (!IsTransactionTypeAllowed(block, property, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_TOKENS -22);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property %d does not exist\n", __func__, property);
+        return (PKT_ERROR_TOKENS -24);
+    }
+
+    CMPSPInfo::Entry sp;
+    assert(_my_sps->getSP(property, sp));
+
+    if (!sp.manual) {
+        PrintToLog("%s(): rejected: property %d is not managed\n", __func__, property);
+        return (PKT_ERROR_TOKENS -42);
+    }
+
+    if (sender != sp.issuer) {
+        PrintToLog("%s(): rejected: sender %s is not issuer of property %d [issuer=%s]\n", __func__, sender, property, sp.issuer);
+        return (PKT_ERROR_TOKENS -43);
+    }
+
+    if (!isFreezingEnabled(property, block)) {
+        PrintToLog("%s(): rejected: freezing is not enabled for property %d\n", __func__, property);
+        return (PKT_ERROR_TOKENS -47);
+    }
+
+    if (isAddressFrozen(receiver, property)) {
+        PrintToLog("%s(): rejected: address %s is already frozen for property %d\n", __func__, receiver, property);
+        return (PKT_ERROR_TOKENS -50);
+    }
+
+    freezeAddress(receiver, property);
+
+    return 0;
+}
+
+/** Tx 186 */
+int CMPTransaction::logicMath_UnfreezeTokens()
+{
+    uint256 blockHash;
+    {
+        LOCK(cs_main);
+
+        CBlockIndex* pindex = chainActive[block];
+        if (pindex == NULL) {
+            PrintToLog("%s(): ERROR: block %d not in the active chain\n", __func__, block);
+            return (PKT_ERROR_TOKENS -20);
+        }
+        blockHash = pindex->GetBlockHash();
+    }
+
+    if (!IsTransactionTypeAllowed(block, property, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_TOKENS -22);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property %d does not exist\n", __func__, property);
+        return (PKT_ERROR_TOKENS -24);
+    }
+
+    CMPSPInfo::Entry sp;
+    assert(_my_sps->getSP(property, sp));
+
+    if (!sp.manual) {
+        PrintToLog("%s(): rejected: property %d is not managed\n", __func__, property);
+        return (PKT_ERROR_TOKENS -42);
+    }
+
+    if (sender != sp.issuer) {
+        PrintToLog("%s(): rejected: sender %s is not issuer of property %d [issuer=%s]\n", __func__, sender, property, sp.issuer);
+        return (PKT_ERROR_TOKENS -43);
+    }
+
+    if (!isFreezingEnabled(property, block)) {
+        PrintToLog("%s(): rejected: freezing is not enabled for property %d\n", __func__, property);
+        return (PKT_ERROR_TOKENS -47);
+    }
+
+    if (!isAddressFrozen(receiver, property)) {
+        PrintToLog("%s(): rejected: address %s is not frozen for property %d\n", __func__, receiver, property);
+        return (PKT_ERROR_TOKENS -48);
+    }
+
+    unfreezeAddress(receiver, property);
+
+    return 0;
+}
+
 /** Tx 65533 */
 int CMPTransaction::logicMath_Deactivation()
 {
@@ -2203,6 +2758,20 @@ int CMPTransaction::logicMath_Alert()
         return (PKT_ERROR -51);
     }
 
+    if (alert_type == ALERT_CLIENT_VERSION_EXPIRY && OMNICORE_VERSION < alert_expiry) {
+        // regular alert keys CANNOT be used to force a client upgrade on mainnet - at least 3 signatures from board/devs are required
+        if (sender == "34kwkVRSvFVEoUwcQSgpQ4ZUasuZ54DJLD" || isNonMainNet()) {
+            std::string msgText = "Client upgrade is required!  Shutting down due to unsupported consensus state!";
+            PrintToLog(msgText);
+            PrintToConsole(msgText);
+            if (!GetBoolArg("-overrideforcedshutdown", false)) {
+                boost::filesystem::path persistPath = GetDataDir() / "MP_persist";
+                if (boost::filesystem::exists(persistPath)) boost::filesystem::remove_all(persistPath); // prevent the node being restarted without a reparse after forced shutdown
+                AbortNode(msgText, msgText);
+            }
+        }
+    }
+
     if (alert_type == 65535) { // set alert type to FFFF to clear previously sent alerts
         DeleteAlerts(sender);
     } else {
@@ -2214,3 +2783,4 @@ int CMPTransaction::logicMath_Alert()
 
     return 0;
 }
+

@@ -16,6 +16,11 @@ UniValue omni_createpayload_grant(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_revoke(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_changeissuer(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_trade(const UniValue& params, bool fHelp);
+//////////////////////////////////
+/** New things for Contracts */
+UniValue omni_createpayload_contract_trade(const UniValue& params, bool fHelp);
+UniValue omni_createpayload_createcontract(const UniValue& params, bool fHelp);
+//////////////////////////////////
 UniValue omni_createpayload_canceltradesbyprice(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_canceltradesbypair(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_cancelalltrades(const UniValue& params, bool fHelp);

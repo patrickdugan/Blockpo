@@ -272,6 +272,73 @@ UniValue omni_createpayload_issuancecrowdsale(const UniValue& params, bool fHelp
     return HexStr(payload.begin(), payload.end());
 }
 
+///////////////////////////////////////////
+/** New things for Contracts */
+UniValue omni_createpayload_createcontract(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 17)
+        throw runtime_error(
+            "omni_createpayload_issuancecrowdsale ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline earlybonus issuerpercentage\n"
+
+            "\nCreates the payload for a new tokens issuance with crowdsale.\n"
+
+            "\nArguments:\n"
+            "1. ecosystem            (string, required) the ecosystem to create the tokens in (1 for main ecosystem, 2 for test ecosystem)\n"
+            "2. type                 (number, required) the type of the tokens to create: (1 for indivisible tokens, 2 for divisible tokens)\n"
+            "3. previousid           (number, required) an identifier of a predecessor token (0 for new crowdsales)\n"
+            "4. category             (string, required) a category for the new tokens (can be \"\")\n"
+            "5. subcategory          (string, required) a subcategory for the new tokens  (can be \"\")\n"
+            "6. name                 (string, required) the name of the new tokens to create\n"
+            "7. url                  (string, required) an URL for further information about the new tokens (can be \"\")\n"
+            "8. data                 (string, required) a description for the new tokens (can be \"\")\n"
+            "9. propertyiddesired    (number, required) the identifier of a token eligible to participate in the crowdsale\n"
+            "10. tokensperunit       (string, required) the amount of tokens granted per unit invested in the crowdsale\n"
+            "11. deadline            (number, required) the deadline of the crowdsale as Unix timestamp\n"
+            "12. earlybonus          (number, required) an early bird bonus for participants in percent per week\n"
+            "13. issuerpercentage    (number, required) a percentage of tokens that will be granted to the issuer\n"
+            "14. blocks_until_expiration    (number, required) blocks until expiration\n"
+            "15. notional_size    (number, required) notional size\n"
+            "16. collateral_currency    (number, required) collateral currency\n"
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_issuancecrowdsale", "2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2 4461 100 1 25")
+            + HelpExampleRpc("omni_createpayload_issuancecrowdsale", "2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2, 4461, 100, 1, 25")
+        );
+
+    uint8_t ecosystem = ParseEcosystem(params[0]);
+    uint16_t type = ParsePropertyType(params[1]);
+    uint32_t previousId = ParsePreviousPropertyId(params[2]);
+    std::string category = ParseText(params[3]);
+    std::string subcategory = ParseText(params[4]);
+    std::string name = ParseText(params[5]);
+    std::string url = ParseText(params[6]);
+    std::string data = ParseText(params[7]);
+    uint32_t propertyIdDesired = ParsePropertyId(params[8]);
+    int64_t numTokens = ParseAmount(params[9], type);
+    int64_t deadline = ParseDeadline(params[10]);
+    uint8_t earlyBonus = ParseEarlyBirdBonus(params[11]);
+    uint8_t issuerPercentage = ParseIssuerBonus(params[12]);
+    ////////////////////////////
+    /** New things for Contracts */
+    uint32_t blocks_until_expiration = ParseNewValues(params[13]);
+    uint32_t notional_size = ParseNewValues(params[14]);
+    uint32_t collateral_currency = ParseNewValues(params[15]);
+    uint32_t margin_requirement = ParseNewValues(params[16]);
+    ////////////////////////////
+    
+    RequirePropertyName(name);
+    RequireExistingProperty(propertyIdDesired);
+    RequireSameEcosystem(ecosystem, propertyIdDesired);
+
+    std::vector<unsigned char> payload = CreatePayload_CreateContract(ecosystem, type, previousId, category, subcategory, name, url, data, propertyIdDesired, numTokens, deadline, earlyBonus, issuerPercentage, blocks_until_expiration, notional_size, collateral_currency, margin_requirement);
+
+    return HexStr(payload.begin(), payload.end());
+}
+///////////////////////////////////////////
+
 UniValue omni_createpayload_issuancemanaged(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 8)
@@ -470,6 +537,52 @@ UniValue omni_createpayload_trade(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
+//////////////////////////////////
+/** New things for Contracts */
+UniValue omni_createpayload_contract_trade(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 6)
+        throw runtime_error(
+            "omni_createpayload_trade propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+
+            "\nCreates the payload to place a trade offer on the distributed token exchange.\n"
+
+            "\nArguments:\n"
+            "1. propertyidforsale    (number, required) the identifier of the contracts to list for sale\n"
+            "2. amountforsale        (string, required) the amount of contracts to list for sale\n"
+            "3. propertiddesired     (number, required) the identifier of the contract desired in exchange\n"
+            "4. amountdesired        (string, required) the amount of contract desired in exchange\n"
+            "5. desired_price        (string, required) the price of contract desired in exchange\n"
+            "6. forsale_price        (string, required) the price of contract desired in exchange\n"
+            
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_contract_trade", "31\"250.0\"1\"10.0\"70.0\"80.0\"")
+            + HelpExampleRpc("omni_createpayload_contract_trade", "31,\"250.0\",1,\"10.0,\"70.0,\"80.0\"")
+        );
+
+    uint32_t propertyIdForSale = ParsePropertyId(params[0]);
+    RequireExistingProperty(propertyIdForSale);
+    int64_t amountForSale = ParseAmount(params[1], isPropertyDivisible(propertyIdForSale));
+
+    uint32_t propertyIdDesired = ParsePropertyId(params[2]);
+    RequireExistingProperty(propertyIdDesired);
+    int64_t amountDesired = ParseAmount(params[3], isPropertyDivisible(propertyIdDesired));
+
+    uint64_t desired_price = ParseAmount(params[4], isPropertyDivisible(propertyIdDesired));
+    uint64_t forsale_price = ParseAmount(params[5], isPropertyDivisible(propertyIdForSale));
+
+    RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
+    RequireDifferentIds(propertyIdForSale, propertyIdDesired);
+    RequireDifferentIds(propertyIdForSale, propertyIdDesired);
+
+    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, desired_price, forsale_price);
+    return HexStr(payload.begin(), payload.end());
+}
+//////////////////////////////////
+
 UniValue omni_createpayload_canceltradesbyprice(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 4)
@@ -564,6 +677,129 @@ UniValue omni_createpayload_cancelalltrades(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
+UniValue omni_createpayload_enablefreezing(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "omni_createpayload_enablefreezing propertyid\n"
+
+            "\nCreates the payload to enable address freezing for a centrally managed property.\n"
+
+            "\nArguments:\n"
+            "1. propertyid           (number, required) the identifier of the tokens\n"
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_enablefreezing", "3")
+            + HelpExampleRpc("omni_createpayload_enablefreezing", "3")
+        );
+
+    uint32_t propertyId = ParsePropertyId(params[0]);
+    RequireExistingProperty(propertyId);
+    RequireManagedProperty(propertyId);
+
+    std::vector<unsigned char> payload = CreatePayload_EnableFreezing(propertyId);
+
+    return HexStr(payload.begin(), payload.end());
+}
+
+UniValue omni_createpayload_disablefreezing(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "omni_createpayload_disablefreezing propertyid\n"
+
+            "\nCreates the payload to disable address freezing for a centrally managed property.\n"
+            "\nIMPORTANT NOTE:  Disabling freezing for a property will UNFREEZE all frozen addresses for that property!"
+
+            "\nArguments:\n"
+            "1. propertyid           (number, required) the identifier of the tokens\n"
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_disablefreezing", "3")
+            + HelpExampleRpc("omni_createpayload_disablefreezing", "3")
+        );
+
+    uint32_t propertyId = ParsePropertyId(params[0]);
+    RequireExistingProperty(propertyId);
+    RequireManagedProperty(propertyId);
+
+    std::vector<unsigned char> payload = CreatePayload_DisableFreezing(propertyId);
+
+    return HexStr(payload.begin(), payload.end());
+}
+
+UniValue omni_createpayload_freeze(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 3)
+        throw runtime_error(
+            "omni_createpayload_freeze \"toaddress\" propertyid amount \n"
+
+            "\nCreates the payload to freeze an address for a centrally managed token.\n"
+
+            "\nArguments:\n"
+            "1. toaddress            (string, required) the address to freeze tokens for\n"
+            "2. propertyid           (number, required) the property to freeze tokens for (must be managed type and have freezing option enabled)\n"
+            "3. amount               (number, required) the amount of tokens to freeze (note: this is unused - once frozen an address cannot send any transactions)\n"
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_freeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
+            + HelpExampleRpc("omni_createpayload_freeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
+        );
+
+    std::string refAddress = ParseAddress(params[0]);
+    uint32_t propertyId = ParsePropertyId(params[1]);
+    int64_t amount = ParseAmount(params[2], isPropertyDivisible(propertyId));
+
+    RequireExistingProperty(propertyId);
+    RequireManagedProperty(propertyId);
+
+    std::vector<unsigned char> payload = CreatePayload_FreezeTokens(propertyId, amount, refAddress);
+
+    return HexStr(payload.begin(), payload.end());
+}
+
+UniValue omni_createpayload_unfreeze(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 3)
+        throw runtime_error(
+            "omni_createpayload_unfreeze \"toaddress\" propertyid amount \n"
+
+            "\nCreates the payload to unfreeze an address for a centrally managed token.\n"
+
+            "\nArguments:\n"
+            "1. toaddress            (string, required) the address to unfreeze tokens for\n"
+            "2. propertyid           (number, required) the property to unfreeze tokens for (must be managed type and have freezing option enabled)\n"
+            "3. amount               (number, required) the amount of tokens to unfreeze (note: this is unused)\n"
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_unfreeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
+            + HelpExampleRpc("omni_createpayload_unfreeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
+        );
+
+    std::string refAddress = ParseAddress(params[0]);
+    uint32_t propertyId = ParsePropertyId(params[1]);
+    int64_t amount = ParseAmount(params[2], isPropertyDivisible(propertyId));
+
+    RequireExistingProperty(propertyId);
+    RequireManagedProperty(propertyId);
+
+    std::vector<unsigned char> payload = CreatePayload_UnfreezeTokens(propertyId, amount, refAddress);
+
+    return HexStr(payload.begin(), payload.end());
+}
+
 static const CRPCCommand commands[] =
 { //  category                         name                                      actor (function)                         okSafeMode
   //  -------------------------------- ----------------------------------------- ---------------------------------------- ----------
@@ -583,6 +819,14 @@ static const CRPCCommand commands[] =
     { "omni layer (payload creation)", "omni_createpayload_canceltradesbyprice", &omni_createpayload_canceltradesbyprice, true },
     { "omni layer (payload creation)", "omni_createpayload_canceltradesbypair",  &omni_createpayload_canceltradesbypair,  true },
     { "omni layer (payload creation)", "omni_createpayload_cancelalltrades",     &omni_createpayload_cancelalltrades,     true },
+    { "omni layer (payload creation)", "omni_createpayload_enablefreezing",      &omni_createpayload_enablefreezing,      true },
+    { "omni layer (payload creation)", "omni_createpayload_disablefreezing",     &omni_createpayload_disablefreezing,     true },
+    { "omni layer (payload creation)", "omni_createpayload_freeze",              &omni_createpayload_freeze,              true },
+    { "omni layer (payload creation)", "omni_createpayload_unfreeze",            &omni_createpayload_unfreeze,            true },
+    ////////////////////////////////////////
+    /** New things for Contracts */
+    { "omni layer (payload creation)", "omni_createpayload_contract_trade",      &omni_createpayload_contract_trade,            true },
+    ////////////////////////////////////////
 };
 
 void RegisterOmniPayloadCreationRPCCommands(CRPCTable &tableRPC)

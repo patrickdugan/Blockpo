@@ -135,6 +135,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_getfeetrigger", 0 },
     { "omni_getfeedistribution", 0 },
     { "omni_getfeedistributions", 0 },
+    { "omni_getbalanceshash", 0 },
 
     /* Omni Core - transaction calls */
     { "omni_send", 2 },
@@ -170,6 +171,10 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_sendgrant", 2 },
     { "omni_sendrevoke", 1 },
     { "omni_sendchangeissuer", 2 },
+    { "omni_sendenablefreezing", 1 },
+    { "omni_senddisablefreezing", 1 },
+    { "omni_sendfreeze", 2 },
+    { "omni_sendunfreeze", 2 },
     { "omni_senddeactivation", 1 },
     { "omni_sendactivation", 1 },
     { "omni_sendactivation", 2 },
@@ -208,6 +213,53 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_createpayload_issuancecrowdsale", 10 },
     { "omni_createpayload_issuancecrowdsale", 11 },
     { "omni_createpayload_issuancecrowdsale", 12 },
+
+    ///////////////////////////
+    /** New things for Contracts */
+    { "omni_createpayload_createcontract", 0},
+    { "omni_createpayload_createcontract", 1},
+    { "omni_createpayload_createcontract", 2},
+    { "omni_createpayload_createcontract", 8},
+    { "omni_createpayload_createcontract", 9},
+    { "omni_createpayload_createcontract", 10},
+    { "omni_createpayload_createcontract", 11},
+    { "omni_createpayload_createcontract", 12},
+    { "omni_createpayload_createcontract", 13},
+    { "omni_createpayload_createcontract", 14},
+    { "omni_createpayload_createcontract", 15},
+    { "omni_createpayload_createcontract", 16},
+    ///////////////////////////
+    /** New things for Contracts */
+    { "omni_createpayload_contract_trade", 0},
+    { "omni_createpayload_contract_trade", 1},
+    { "omni_createpayload_contract_trade", 2},
+    { "omni_createpayload_contract_trade", 3},
+    { "omni_createpayload_contract_trade", 4},
+    { "omni_createpayload_contract_trade", 5},
+    ///////////////////////////
+    /** New things for Contracts */
+    { "omni_createcontract", 1},
+    { "omni_createcontract", 2},
+    { "omni_createcontract", 3},
+    { "omni_createcontract", 9},
+    { "omni_createcontract", 10},
+    { "omni_createcontract", 11},
+    { "omni_createcontract", 12},
+    { "omni_createcontract", 13},
+    { "omni_createcontract", 14},
+    { "omni_createcontract", 15},
+    { "omni_createcontract", 16},
+    { "omni_createcontract", 17},
+    ///////////////////////////
+    /** New things for Contracts */
+    { "omni_tradecontract", 1},
+    { "omni_tradecontract", 2},
+    { "omni_tradecontract", 3},
+    { "omni_tradecontract", 4},
+    { "omni_tradecontract", 5},
+    { "omni_tradecontract", 6},
+    ///////////////////////////
+
     { "omni_createpayload_closecrowdsale", 0 },
     { "omni_createpayload_grant", 0 },
     { "omni_createpayload_revoke", 0 },

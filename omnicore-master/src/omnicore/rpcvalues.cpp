@@ -207,6 +207,18 @@ uint32_t ParseOutputIndex(const UniValue& value)
     return static_cast<uint32_t>(nOut);
 }
 
+//////////////////////////////////
+/** New things for Contracts */
+uint32_t ParseNewValues(const UniValue& value)
+{
+    int nOut = value.get_int();
+    if (nOut < 0) {
+        throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Vout index must be positive");
+    }
+    return static_cast<uint32_t>(nOut);
+}
+//////////////////////////////////
+
 /** Parses previous transaction outputs. */
 std::vector<PrevTxsEntry> ParsePrevTxs(const UniValue& value)
 {

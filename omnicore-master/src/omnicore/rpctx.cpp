@@ -431,6 +431,91 @@ UniValue omni_sendissuancecrowdsale(const UniValue& params, bool fHelp)
     }
 }
 
+//////////////////////////////////////
+/** New things for Contract */
+UniValue omni_createcontract(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 18)
+        throw runtime_error(
+            "omni_sendissuancecrowdsale \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline ( earlybonus issuerpercentage )\n"
+
+            "Create new tokens as crowdsale."
+
+            "\nArguments:\n"
+            "1. fromaddress          (string, required) the address to send from\n"
+            "2. ecosystem            (string, required) the ecosystem to create the tokens in (1 for main ecosystem, 2 for test ecosystem)\n"
+            "3. type                 (number, required) the type of the tokens to create: (1 for indivisible tokens, 2 for divisible tokens)\n"
+            "4. previousid           (number, required) an identifier of a predecessor token (0 for new crowdsales)\n"
+            "5. category             (string, required) a category for the new tokens (can be \"\")\n"
+            "6. subcategory          (string, required) a subcategory for the new tokens  (can be \"\")\n"
+            "7. name                 (string, required) the name of the new tokens to create\n"
+            "8. url                  (string, required) an URL for further information about the new tokens (can be \"\")\n"
+            "9. data                 (string, required) a description for the new tokens (can be \"\")\n"
+            "10. propertyiddesired   (number, required) the identifier of a token eligible to participate in the crowdsale\n"
+            "11. tokensperunit       (string, required) the amount of tokens granted per unit invested in the crowdsale\n"
+            "12. deadline            (number, required) the deadline of the crowdsale as Unix timestamp\n"
+            "13. earlybonus          (number, required) an early bird bonus for participants in percent per week\n"
+            "14. issuerpercentage    (number, required) a percentage of tokens that will be granted to the issuer\n"
+            "15. blocks_until_expiration    (number, required) blocks until expiration\n"
+            "16. notional_size    (number, required) notional size\n"
+            "17. collateral_currency    (number, required) collateral currency\n"
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_issuancecrowdsale", "2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2 4461 100 1 25")
+            + HelpExampleRpc("omni_createpayload_issuancecrowdsale", "2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2, 4461, 100, 1, 25")
+        );
+
+    std::string fromAddress = ParseAddress(params[0]);
+    uint8_t ecosystem = ParseEcosystem(params[1]);
+    uint16_t type = ParsePropertyType(params[2]);
+    uint32_t previousId = ParsePreviousPropertyId(params[3]);
+    std::string category = ParseText(params[4]);
+    std::string subcategory = ParseText(params[5]);
+    std::string name = ParseText(params[6]);
+    std::string url = ParseText(params[7]);
+    std::string data = ParseText(params[8]);
+    uint32_t propertyIdDesired = ParsePropertyId(params[9]);
+    int64_t numTokens = ParseAmount(params[10], type);
+    int64_t deadline = ParseDeadline(params[11]);
+    uint8_t earlyBonus = ParseEarlyBirdBonus(params[12]);
+    uint8_t issuerPercentage = ParseIssuerBonus(params[13]);
+    ////////////////////////////
+    /** New things for Contracts */
+    uint32_t blocks_until_expiration = ParseNewValues(params[14]);
+    uint32_t notional_size = ParseNewValues(params[15]);
+    uint32_t collateral_currency = ParseNewValues(params[16]);
+    uint32_t margin_requirement = ParseNewValues(params[17]);
+    ////////////////////////////
+
+    // perform checks
+    RequirePropertyName(name);
+    RequireExistingProperty(propertyIdDesired);
+    RequireSameEcosystem(ecosystem, propertyIdDesired);
+
+    // create a payload for the transaction
+    std::vector<unsigned char> payload = CreatePayload_CreateContract(ecosystem, type, previousId, category, subcategory, name, url, data, propertyIdDesired, numTokens, deadline, earlyBonus, issuerPercentage, blocks_until_expiration, notional_size, collateral_currency, margin_requirement);
+
+    // request the wallet build the transaction (and if needed commit it)
+    uint256 txid;
+    std::string rawHex;
+    int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
+
+    // check error and return the txid (or raw hex depending on autocommit)
+    if (result != 0) {
+        throw JSONRPCError(result, error_str(result));
+    } else {
+        if (!autoCommit) {
+            return rawHex;
+        } else {
+            return txid.GetHex();
+        }
+    }
+}
+//////////////////////////////////////
+
 UniValue omni_sendissuancefixed(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 10)
@@ -888,6 +973,75 @@ UniValue omni_sendtrade(const UniValue& params, bool fHelp)
     }
 }
 
+/////////////////////////////////////////
+/** New things for Contract */
+UniValue omni_tradecontract(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 7)
+        throw runtime_error(
+            "omni_sendtrade \"fromaddress\" propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+
+            "\nPlace a trade offer on the distributed token exchange.\n"
+
+            "\nArguments:\n"
+            "1. fromaddress          (string, required) the address to trade with\n"
+            "2. propertyidforsale    (number, required) the identifier of the tokens to list for sale\n"
+            "3. amountforsale        (string, required) the amount of tokens to list for sale\n"
+            "4. propertiddesired     (number, required) the identifier of the tokens desired in exchange\n"
+            "5. amountdesired        (string, required) the amount of tokens desired in exchange\n"
+            "6. desired_price        (string, required) the price of contract desired in exchange\n"
+            "7. forsale_price        (string, required) the price of contract desired in exchange\n"
+            
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_tradecontract", "31\"250.0\"1\"10.0\"70.0\"80.0\"")
+            + HelpExampleRpc("omni_tradecontract", "31,\"250.0\",1,\"10.0,\"70.0,\"80.0\"")
+        );
+
+    // obtain parameters & info
+    std::string fromAddress = ParseAddress(params[0]);
+    uint32_t propertyIdForSale = ParsePropertyId(params[1]);
+    int64_t amountForSale = ParseAmount(params[2], isPropertyDivisible(propertyIdForSale));
+    uint32_t propertyIdDesired = ParsePropertyId(params[3]);
+    int64_t amountDesired = ParseAmount(params[4], isPropertyDivisible(propertyIdDesired));
+
+    /////////////////////////////////////////
+    /** New things for Contract */
+    int64_t desired_price = ParseAmount(params[5], isPropertyDivisible(propertyIdDesired));
+    int64_t forsale_price = ParseAmount(params[6], isPropertyDivisible(propertyIdForSale));
+    /////////////////////////////////////////
+
+    // perform checks
+    RequireExistingProperty(propertyIdForSale);
+    RequireExistingProperty(propertyIdDesired);
+    RequireBalance(fromAddress, propertyIdForSale, amountForSale);
+    RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
+    RequireDifferentIds(propertyIdForSale, propertyIdDesired);
+
+    // create a payload for the transaction
+    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, desired_price, forsale_price);
+
+    // request the wallet build the transaction (and if needed commit it)
+    uint256 txid;
+    std::string rawHex;
+    int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
+
+    // check error and return the txid (or raw hex depending on autocommit)
+    if (result != 0) {
+        throw JSONRPCError(result, error_str(result));
+    } else {
+        if (!autoCommit) {
+            return rawHex;
+        } else {
+            PendingAdd(txid, fromAddress, MSC_TYPE_CONTRACTDEX_TRADE, propertyIdForSale, amountForSale);
+            return txid.GetHex();
+        }
+    }
+}
+/////////////////////////////////////////
+
 UniValue omni_sendcanceltradesbyprice(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 5)
@@ -1098,6 +1252,207 @@ UniValue omni_sendchangeissuer(const UniValue& params, bool fHelp)
     }
 }
 
+UniValue omni_sendenablefreezing(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 2)
+        throw runtime_error(
+            "omni_sendenablefreezing \"fromaddress\" propertyid\n"
+
+            "\nEnables address freezing for a centrally managed property.\n"
+
+            "\nArguments:\n"
+            "1. fromaddress          (string,  required) the issuer of the tokens\n"
+            "2. propertyid           (number,  required) the identifier of the tokens\n"
+
+            "\nResult:\n"
+            "\"hash\"                  (string) the hex-encoded transaction hash\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_sendenablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 3")
+            + HelpExampleRpc("omni_sendenablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 3")
+        );
+
+    // obtain parameters & info
+    std::string fromAddress = ParseAddress(params[0]);
+    uint32_t propertyId = ParsePropertyId(params[1]);
+
+    // perform checks
+    RequireExistingProperty(propertyId);
+    RequireManagedProperty(propertyId);
+    RequireTokenIssuer(fromAddress, propertyId);
+
+    // create a payload for the transaction
+    std::vector<unsigned char> payload = CreatePayload_EnableFreezing(propertyId);
+
+    // request the wallet build the transaction (and if needed commit it)
+    uint256 txid;
+    std::string rawHex;
+    int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
+
+    // check error and return the txid (or raw hex depending on autocommit)
+    if (result != 0) {
+        throw JSONRPCError(result, error_str(result));
+    } else {
+        if (!autoCommit) {
+            return rawHex;
+        } else {
+            return txid.GetHex();
+        }
+    }
+}
+
+UniValue omni_senddisablefreezing(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 2)
+        throw runtime_error(
+            "omni_senddisablefreezing \"fromaddress\" propertyid\n"
+
+            "\nDisables address freezing for a centrally managed property.\n"
+            "\nIMPORTANT NOTE:  Disabling freezing for a property will UNFREEZE all frozen addresses for that property!"
+
+            "\nArguments:\n"
+            "1. fromaddress          (string,  required) the issuer of the tokens\n"
+            "2. propertyid           (number,  required) the identifier of the tokens\n"
+
+            "\nResult:\n"
+            "\"hash\"                  (string) the hex-encoded transaction hash\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_senddisablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 3")
+            + HelpExampleRpc("omni_senddisablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 3")
+        );
+
+    // obtain parameters & info
+    std::string fromAddress = ParseAddress(params[0]);
+    uint32_t propertyId = ParsePropertyId(params[1]);
+
+    // perform checks
+    RequireExistingProperty(propertyId);
+    RequireManagedProperty(propertyId);
+    RequireTokenIssuer(fromAddress, propertyId);
+
+    // create a payload for the transaction
+    std::vector<unsigned char> payload = CreatePayload_DisableFreezing(propertyId);
+
+    // request the wallet build the transaction (and if needed commit it)
+    uint256 txid;
+    std::string rawHex;
+    int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
+
+    // check error and return the txid (or raw hex depending on autocommit)
+    if (result != 0) {
+        throw JSONRPCError(result, error_str(result));
+    } else {
+        if (!autoCommit) {
+            return rawHex;
+        } else {
+            return txid.GetHex();
+        }
+    }
+}
+
+UniValue omni_sendfreeze(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 4)
+        throw runtime_error(
+            "omni_sendfreeze \"fromaddress\" \"toaddress\" propertyid amount \n"
+            "\nFreeze an address for a centrally managed token.\n"
+            "\nNote: Only the issuer may freeze tokens, and only if the token is of the managed type with the freezing option enabled.\n"
+            "\nArguments:\n"
+            "1. fromaddress          (string, required) the address to send from (must be the issuer of the property)\n"
+            "2. toaddress            (string, required) the address to freeze tokens for\n"
+            "3. propertyid           (number, required) the property to freeze tokens for (must be managed type and have freezing option enabled)\n"
+            "4. amount               (number, required) the amount of tokens to freeze (note: this is unused - once frozen an address cannot send any transactions for the property)\n"
+            "\nResult:\n"
+            "\"hash\"                  (string) the hex-encoded transaction hash\n"
+            "\nExamples:\n"
+            + HelpExampleCli("omni_sendfreeze", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
+            + HelpExampleRpc("omni_sendfreeze", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
+        );
+
+    // obtain parameters & info
+    std::string fromAddress = ParseAddress(params[0]);
+    std::string refAddress = ParseAddress(params[1]);
+    uint32_t propertyId = ParsePropertyId(params[2]);
+    int64_t amount = ParseAmount(params[3], isPropertyDivisible(propertyId));
+
+    // perform checks
+    RequireExistingProperty(propertyId);
+    RequireManagedProperty(propertyId);
+    RequireTokenIssuer(fromAddress, propertyId);
+
+    // create a payload for the transaction
+    std::vector<unsigned char> payload = CreatePayload_FreezeTokens(propertyId, amount, refAddress);
+
+    // request the wallet build the transaction (and if needed commit it)
+    // Note: no ref address is sent to WalletTxBuilder as the ref address is contained within the payload
+    uint256 txid;
+    std::string rawHex;
+    int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
+
+    // check error and return the txid (or raw hex depending on autocommit)
+    if (result != 0) {
+        throw JSONRPCError(result, error_str(result));
+    } else {
+        if (!autoCommit) {
+            return rawHex;
+        } else {
+            return txid.GetHex();
+        }
+    }
+}
+
+UniValue omni_sendunfreeze(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 4)
+        throw runtime_error(
+            "omni_sendunfreeze \"fromaddress\" \"toaddress\" propertyid amount \n"
+            "\nUnfreezes an address for a centrally managed token.\n"
+            "\nNote: Only the issuer may unfreeze tokens.\n"
+            "\nArguments:\n"
+            "1. fromaddress          (string, required) the address to send from (must be the issuer of the property)\n"
+            "2. toaddress            (string, required) the address to unfreeze tokens for\n"
+            "3. propertyid           (number, required) the property to unfreeze tokens for (must be managed type and have freezing option enabled)\n"
+            "4. amount               (number, required) the amount of tokens to unfreeze (note: this is unused - once frozen an address cannot send any transactions for the property)\n"
+            "\nResult:\n"
+            "\"hash\"                  (string) the hex-encoded transaction hash\n"
+            "\nExamples:\n"
+            + HelpExampleCli("omni_sendunfreeze", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
+            + HelpExampleRpc("omni_sendunfreeze", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
+        );
+
+    // obtain parameters & info
+    std::string fromAddress = ParseAddress(params[0]);
+    std::string refAddress = ParseAddress(params[1]);
+    uint32_t propertyId = ParsePropertyId(params[2]);
+    int64_t amount = ParseAmount(params[3], isPropertyDivisible(propertyId));
+
+    // perform checks
+    RequireExistingProperty(propertyId);
+    RequireManagedProperty(propertyId);
+    RequireTokenIssuer(fromAddress, propertyId);
+
+    // create a payload for the transaction
+    std::vector<unsigned char> payload = CreatePayload_UnfreezeTokens(propertyId, amount, refAddress);
+
+    // request the wallet build the transaction (and if needed commit it)
+    // Note: no ref address is sent to WalletTxBuilder as the ref address is contained within the payload
+    uint256 txid;
+    std::string rawHex;
+    int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
+
+    // check error and return the txid (or raw hex depending on autocommit)
+    if (result != 0) {
+        throw JSONRPCError(result, error_str(result));
+    } else {
+        if (!autoCommit) {
+            return rawHex;
+        } else {
+            return txid.GetHex();
+        }
+    }
+}
+
 UniValue omni_sendactivation(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 4)
@@ -1258,6 +1613,10 @@ static const CRPCCommand commands[] =
     { "omni layer (transaction creation)", "omni_sendclosecrowdsale",      &omni_sendclosecrowdsale,      false },
     { "omni layer (transaction creation)", "omni_sendchangeissuer",        &omni_sendchangeissuer,        false },
     { "omni layer (transaction creation)", "omni_sendall",                 &omni_sendall,                 false },
+    { "omni layer (transaction creation)", "omni_sendenablefreezing",      &omni_sendenablefreezing,      false },
+    { "omni layer (transaction creation)", "omni_senddisablefreezing",     &omni_senddisablefreezing,     false },
+    { "omni layer (transaction creation)", "omni_sendfreeze",              &omni_sendfreeze,              false },
+    { "omni layer (transaction creation)", "omni_sendunfreeze",            &omni_sendunfreeze,            false },
     { "hidden",                            "omni_senddeactivation",        &omni_senddeactivation,        true  },
     { "hidden",                            "omni_sendactivation",          &omni_sendactivation,          false },
     { "hidden",                            "omni_sendalert",               &omni_sendalert,               true  },
