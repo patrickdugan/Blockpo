@@ -83,15 +83,6 @@ std::string GenerateConsensusString(const CMPMetaDEx& tradeObj)
             tradeObj.getHash().GetHex(), tradeObj.getAddr(), tradeObj.getProperty(), tradeObj.getAmountForSale(),
             tradeObj.getDesProperty(), tradeObj.getAmountDesired(), tradeObj.getAmountRemaining());
 }
-/*New things for Contracts: This the new GenerateConsensusString function for CMPContractDex*/
-std::string GenerateConsensusString(const CMPContractDex &tradeObj)
-{
-    return strprintf("%s|%s|%d|%d|%d|%d|%d|%d|%d|",
-            tradeObj.getHash().GetHex(), tradeObj.getAddr(), tradeObj.getProperty(), tradeObj.getAmountForSale(),
-            tradeObj.getDesProperty(), tradeObj.getAmountDesired(), tradeObj.getAmountRemaining(), 
-            tradeObj.getDesiredPrice(), tradeObj.getForsalePrice());
-}
-
 
 // Generates a consensus string for hashing based on a crowdsale object
 std::string GenerateConsensusString(const CMPCrowd& crowdObj)
@@ -317,6 +308,38 @@ uint256 GetMetaDExHash(const uint32_t propertyId)
     SHA256_Final((unsigned char*)&metadexHash, &shaCtx);
 
     return metadexHash;
+}
+
+/** Obtains a hash of the balances for a specific property. */
+uint256 GetBalancesHash(const uint32_t hashPropertyId)
+{
+    SHA256_CTX shaCtx;
+    SHA256_Init(&shaCtx);
+
+    LOCK(cs_tally);
+
+    std::map<std::string, CMPTally> tallyMapSorted;
+    for (std::unordered_map<string, CMPTally>::iterator uoit = mp_tally_map.begin(); uoit != mp_tally_map.end(); ++uoit) {
+        tallyMapSorted.insert(std::make_pair(uoit->first,uoit->second));
+    }
+    for (std::map<string, CMPTally>::iterator my_it = tallyMapSorted.begin(); my_it != tallyMapSorted.end(); ++my_it) {
+        const std::string& address = my_it->first;
+        CMPTally& tally = my_it->second;
+        tally.init();
+        uint32_t propertyId = 0;
+        while (0 != (propertyId = (tally.next()))) {
+            if (propertyId != hashPropertyId) continue;
+            std::string dataStr = GenerateConsensusString(tally, address, propertyId);
+            if (dataStr.empty()) continue;
+            if (msc_debug_consensus_hash) PrintToLog("Adding data to balances hash: %s\n", dataStr);
+            SHA256_Update(&shaCtx, dataStr.c_str(), dataStr.length());
+        }
+    }
+
+    uint256 balancesHash;
+    SHA256_Final((unsigned char*)&balancesHash, &shaCtx);
+
+    return balancesHash;
 }
 
 } // namespace mastercore

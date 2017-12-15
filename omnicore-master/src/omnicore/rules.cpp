@@ -56,6 +56,10 @@ std::vector<TransactionRestriction> CConsensusParams::GetRestrictions() const
         { MSC_TYPE_GRANT_PROPERTY_TOKENS,     MP_TX_PKT_V0,  false,   MSC_MANUALSP_BLOCK },
         { MSC_TYPE_REVOKE_PROPERTY_TOKENS,    MP_TX_PKT_V0,  false,   MSC_MANUALSP_BLOCK },
         { MSC_TYPE_CHANGE_ISSUER_ADDRESS,     MP_TX_PKT_V0,  false,   MSC_MANUALSP_BLOCK },
+        { MSC_TYPE_ENABLE_FREEZING,           MP_TX_PKT_V0,  false,   MSC_MANUALSP_BLOCK },
+        { MSC_TYPE_DISABLE_FREEZING,          MP_TX_PKT_V0,  false,   MSC_MANUALSP_BLOCK },
+        { MSC_TYPE_FREEZE_PROPERTY_TOKENS,    MP_TX_PKT_V0,  false,   MSC_MANUALSP_BLOCK },
+        { MSC_TYPE_UNFREEZE_PROPERTY_TOKENS,  MP_TX_PKT_V0,  false,   MSC_MANUALSP_BLOCK },
 
         { MSC_TYPE_SEND_TO_OWNERS,            MP_TX_PKT_V0,  false,   MSC_STO_BLOCK      },
         { MSC_TYPE_SEND_TO_OWNERS,            MP_TX_PKT_V1,  false,   MSC_STOV1_BLOCK    },
@@ -66,8 +70,7 @@ std::vector<TransactionRestriction> CConsensusParams::GetRestrictions() const
         { MSC_TYPE_METADEX_CANCEL_ECOSYSTEM,  MP_TX_PKT_V0,  false,   MSC_METADEX_BLOCK  },
 
         { MSC_TYPE_SEND_ALL,                  MP_TX_PKT_V0,  false,   MSC_SEND_ALL_BLOCK },
-
-        { MSC_TYPE_OFFER_ACCEPT_A_BET,        MP_TX_PKT_V0,  false,   MSC_BET_BLOCK      },
+        // { MSC_TYPE_OFFER_ACCEPT_A_BET,        MP_TX_PKT_V0,  false,   MSC_BET_BLOCK      },
     };
 
     const size_t nSize = sizeof(vTxRestrictions) / sizeof(vTxRestrictions[0]);
@@ -136,6 +139,12 @@ std::vector<ConsensusCheckpoint> CMainConsensusParams::GetCheckpoints() const
                   uint256S("ed4a1b81afd4662089e9310b5bec98e77cfb6a70a6f679ba365aed24d3d5e71d") },
         { 460000, uint256S("000000000000000000ef751bbce8e744ad303c47ece06c8d863e4d417efc258c"),
                   uint256S("a5740ebaad24b87ffb1bbd35ea64a3cda6c58e777a513acec51623fed8287d2d") },
+        { 470000, uint256S("0000000000000000006c539c722e280a0769abd510af0073430159d71e6d7589"),
+                  uint256S("eb68d4ed7b0a84dbf75802d717a754a4cc0c2ad48955e3ea89900493b8101845") },
+        { 480000, uint256S("000000000000000001024c5d7a766b173fc9dbb1be1a4dc7e039e631fd96a8b1"),
+                  uint256S("500cc23ba7af3a1fc5d4d910e0c375df515f967b0b9b71871cf38dfc34fb5334") },
+        { 490000, uint256S("000000000000000000de069137b17b8d5a3dfbd5b145b2dcfb203f15d0c4de90"),
+                  uint256S("37248b5d4ec7c2c6ff4fd2aa98a4092c46f2c38a19f9241bffb47157cfb76e4f") },
     };
 
     const size_t nSize = sizeof(vCheckpoints) / sizeof(vCheckpoints[0]);
@@ -157,6 +166,8 @@ CMainConsensusParams::CMainConsensusParams()
     // Notice range for feature activations:
     MIN_ACTIVATION_BLOCKS = 2048;  // ~2 weeks
     MAX_ACTIVATION_BLOCKS = 12288; // ~12 weeks
+    // Waiting period for enabling freezing
+    OMNI_FREEZE_WAIT_PERIOD = 4096; // ~4 weeks
     // Script related:
     PUBKEYHASH_BLOCK = 0;
     SCRIPTHASH_BLOCK = 322000;
@@ -179,6 +190,7 @@ CMainConsensusParams::CMainConsensusParams()
     SPCROWDCROSSOVER_FEATURE_BLOCK = 395000;
     TRADEALLPAIRS_FEATURE_BLOCK = 438500;
     FEES_FEATURE_BLOCK = 999999;
+    FREEZENOTICE_FEATURE_BLOCK = 999999;
 }
 
 /**
@@ -195,6 +207,8 @@ CTestNetConsensusParams::CTestNetConsensusParams()
     // Notice range for feature activations:
     MIN_ACTIVATION_BLOCKS = 0;
     MAX_ACTIVATION_BLOCKS = 999999;
+    // Waiting period for enabling freezing
+    OMNI_FREEZE_WAIT_PERIOD = 0;
     // Script related:
     PUBKEYHASH_BLOCK = 0;
     SCRIPTHASH_BLOCK = 0;
@@ -217,6 +231,7 @@ CTestNetConsensusParams::CTestNetConsensusParams()
     SPCROWDCROSSOVER_FEATURE_BLOCK = 0;
     TRADEALLPAIRS_FEATURE_BLOCK = 0;
     FEES_FEATURE_BLOCK = 0;
+    FREEZENOTICE_FEATURE_BLOCK = 0;
 }
 
 /**
@@ -233,6 +248,8 @@ CRegTestConsensusParams::CRegTestConsensusParams()
     // Notice range for feature activations:
     MIN_ACTIVATION_BLOCKS = 5;
     MAX_ACTIVATION_BLOCKS = 10;
+    // Waiting period for enabling freezing
+    OMNI_FREEZE_WAIT_PERIOD = 10;
     // Script related:
     PUBKEYHASH_BLOCK = 0;
     SCRIPTHASH_BLOCK = 0;
@@ -255,6 +272,7 @@ CRegTestConsensusParams::CRegTestConsensusParams()
     SPCROWDCROSSOVER_FEATURE_BLOCK = 999999;
     TRADEALLPAIRS_FEATURE_BLOCK = 999999;
     FEES_FEATURE_BLOCK = 999999;
+    FREEZENOTICE_FEATURE_BLOCK = 999999;
 }
 
 //! Consensus parameters for mainnet
@@ -417,6 +435,9 @@ bool ActivateFeature(uint16_t featureId, int activationBlock, uint32_t minClient
         case FEATURE_STOV1:
             MutableConsensusParams().MSC_STOV1_BLOCK = activationBlock;
         break;
+        case FEATURE_FREEZENOTICE:
+            MutableConsensusParams().FREEZENOTICE_FEATURE_BLOCK = activationBlock;
+        break;
         default:
             supported = false;
         break;
@@ -485,6 +506,9 @@ bool DeactivateFeature(uint16_t featureId, int transactionBlock)
         case FEATURE_STOV1:
             MutableConsensusParams().MSC_STOV1_BLOCK = 999999;
         break;
+        case FEATURE_FREEZENOTICE:
+            MutableConsensusParams().FREEZENOTICE_FEATURE_BLOCK = 999999;
+        break;
         default:
             return false;
         break;
@@ -515,6 +539,7 @@ std::string GetFeatureName(uint16_t featureId)
         case FEATURE_TRADEALLPAIRS: return "Allow trading all pairs on the Distributed Exchange";
         case FEATURE_FEES: return "Fee system (inc 0.05% fee from trades of non-Omni pairs)";
         case FEATURE_STOV1: return "Cross-property Send To Owners";
+        case FEATURE_FREEZENOTICE: return "Activate the waiting period for enabling freezing";
 
         default: return "Unknown feature";
     }
@@ -559,6 +584,9 @@ bool IsFeatureActivated(uint16_t featureId, int transactionBlock)
         case FEATURE_STOV1:
             activationBlock = params.MSC_STOV1_BLOCK;
             break;
+        case FEATURE_FREEZENOTICE:
+            activationBlock = params.FREEZENOTICE_FEATURE_BLOCK;
+        break;
         default:
             return false;
     }

@@ -11,11 +11,6 @@ enum TallyType {
     ACCEPT_RESERVE = 2,
     PENDING = 3,
     METADEX_RESERVE = 4,
-    /*New Things for Contract*/
-    CONTRACT_DEX_RESERVE = 5, //Included margin for oustanding contract and reserve margin for pending orders
-    REALIZED_PROFIT = 6, //Includes profit every time margin logic is call
-    REALIZED_LOSSES = 7, //Includes losses every time margin logic is call
-    
     TALLY_TYPE_COUNT
 };
 

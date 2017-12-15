@@ -50,6 +50,18 @@ bool CMPSPInfo::Entry::isDivisible() const
     return false;
 }
 
+///////////////////////////////////////
+/** New things for Contracts */
+bool CMPSPInfo::Entry::isUndivisible() const
+{
+    switch (prop_type) {
+        case MSC_PROPERTY_TYPE_CONTRACT:
+            return true;
+    }
+    return false;
+}
+///////////////////////////////////////
+
 void CMPSPInfo::Entry::print() const
 {
     PrintToConsole("%s:%s(Fixed=%s,Divisible=%s):%d:%s/%s, %s %s, blocks until expiration:%d, notional size:%d, collateral currency:%d, margin requirement:%d\n",
@@ -587,6 +599,19 @@ bool mastercore::IsPropertyIdValid(uint32_t propertyId)
 
     return false;
 }
+
+//////////////////////////////////////
+/** New things for Contracts */
+bool mastercore::isPropertyUndivisible(uint32_t propertyId)
+{
+    // TODO: is a lock here needed
+    CMPSPInfo::Entry sp;
+
+    if (_my_sps->getSP(propertyId, sp)) return sp.isUndivisible();
+
+    return true;
+}
+//////////////////////////////////////
 
 bool mastercore::isPropertyDivisible(uint32_t propertyId)
 {

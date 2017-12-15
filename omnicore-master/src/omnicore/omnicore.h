@@ -102,6 +102,7 @@ enum TransactionType {
   OMNICORE_MESSAGE_TYPE_ALERT         = 65535
 };
 
+/** Remember: This is the "prop_type" */
 #define MSC_PROPERTY_TYPE_INDIVISIBLE             1
 #define MSC_PROPERTY_TYPE_DIVISIBLE               2
 ////////////////////////////////
@@ -141,6 +142,7 @@ enum FILETYPES {
 #define PKT_ERROR_TOKENS      (-82000)
 #define PKT_ERROR_SEND_ALL    (-83000)
 
+/** Remember: This the "propertyId" */
 #define OMNI_PROPERTY_BTC   0
 #define OMNI_PROPERTY_MSC   1
 #define OMNI_PROPERTY_TMSC  2

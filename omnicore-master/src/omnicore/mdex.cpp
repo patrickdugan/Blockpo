@@ -587,9 +587,24 @@ std::string CMPMetaDEx::displayFullUnitPrice() const
     return unitPriceStr;
 }
 
+//////////////////////////////////////
+/** New things for Contracts */
+std::string CMPContractDex::displayFullContractPrice() const
+{
+    uint64_t pForsale = getForsalePrice();
+    int64_t  aForsale = getAmountForSale();
+
+    if ( isPropertyUndivisible(getProperty()) && !isPropertyUndivisible(getDesProperty()) ) pForsale = pForsale*1;
+    if ( isPropertyUndivisible(getProperty()) && !isPropertyUndivisible(getDesProperty()) ) aForsale = aForsale*1;
+
+    std::string priceForsaleStr = xToString(pForsale*aForsale); 
+    return priceForsaleStr;
+}
+//////////////////////////////////////
+
 rational_t CMPMetaDEx::unitPrice() const
 {
-    rational_t effectivePrice;
+    rational_t effectivePrice; 
     if (amount_forsale) effectivePrice = rational_t(amount_desired, amount_forsale);
     return effectivePrice;
 }
@@ -1106,4 +1121,18 @@ const CMPMetaDEx* mastercore::MetaDEx_RetrieveTrade(const uint256& txid)
         }
     }
     return (CMPMetaDEx*) NULL;
+}
+
+const CMPContractDex *mastercore::ContractDex_RetrieveTrade(const uint256 &txid)
+{
+    for (cd_PropertiesMap::iterator propIter = contractdex.begin(); propIter != contractdex.end(); ++propIter) {
+        cd_PricesMap &prices = propIter->second;
+        for (cd_PricesMap::iterator pricesIter = prices.begin(); pricesIter != prices.end(); ++pricesIter) {
+            cd_Set &indexes = pricesIter->second;
+            for (cd_Set::iterator tradesIter = indexes.begin(); tradesIter != indexes.end(); ++tradesIter) {
+                if (txid == (*tradesIter).getHash()) return &(*tradesIter);
+            }
+        }
+    }
+    return (CMPContractDex*) NULL;
 }

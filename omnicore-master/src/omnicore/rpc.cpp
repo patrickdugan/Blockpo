@@ -88,7 +88,7 @@ void PropertyToJSON(const CMPSPInfo::Entry& sProperty, UniValue& property_obj)
     property_obj.push_back(Pair("divisible", sProperty.isDivisible()));
 }
 
-void MetaDexObjectToJSON(const CMPContractDex& obj, UniValue& metadex_obj)
+void MetaDexObjectToJSON(const CMPMetaDEx& obj, UniValue& metadex_obj)
 {
     bool propertyIdForSaleIsDivisible = isPropertyDivisible(obj.getProperty());
     bool propertyIdDesiredIsDivisible = isPropertyDivisible(obj.getDesProperty());
@@ -109,14 +109,14 @@ void MetaDexObjectToJSON(const CMPContractDex& obj, UniValue& metadex_obj)
     metadex_obj.push_back(Pair("blocktime", obj.getBlockTime()));
 }
 
-void MetaDexObjectsToJSON(std::vector<CMPContractDex>& vMetaDexObjs, UniValue& response)
+void MetaDexObjectsToJSON(std::vector<CMPMetaDEx>& vMetaDexObjs, UniValue& response)
 {
     MetaDEx_compare compareByHeight;
 
     // sorts metadex objects based on block height and position in block
     std::sort (vMetaDexObjs.begin(), vMetaDexObjs.end(), compareByHeight);
 
-    for (std::vector<CMPContractDex>::const_iterator it = vMetaDexObjs.begin(); it != vMetaDexObjs.end(); ++it) {
+    for (std::vector<CMPMetaDEx>::const_iterator it = vMetaDexObjs.begin(); it != vMetaDexObjs.end(); ++it) {
         UniValue metadex_obj(UniValue::VOBJ);
         MetaDexObjectToJSON(*it, metadex_obj);
 
@@ -134,12 +134,16 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
     nReserved += getMPbalance(address, property, METADEX_RESERVE);
     nReserved += getMPbalance(address, property, SELLOFFER_RESERVE);
 
+    int64_t nFrozen = getUserFrozenMPbalance(address, property);
+
     if (divisible) {
         balance_obj.push_back(Pair("balance", FormatDivisibleMP(nAvailable)));
         balance_obj.push_back(Pair("reserved", FormatDivisibleMP(nReserved)));
+        if (nFrozen != 0) balance_obj.push_back(Pair("frozen", FormatDivisibleMP(nFrozen)));
     } else {
         balance_obj.push_back(Pair("balance", FormatIndivisibleMP(nAvailable)));
         balance_obj.push_back(Pair("reserved", FormatIndivisibleMP(nReserved)));
+        if (nFrozen != 0) balance_obj.push_back(Pair("frozen", FormatIndivisibleMP(nFrozen)));
     }
 
     if (nAvailable == 0 && nReserved == 0) {
@@ -899,6 +903,7 @@ UniValue omni_getproperty(const UniValue& params, bool fHelp)
             "  \"issuer\" : \"address\",            (string) the Bitcoin address of the issuer on record\n"
             "  \"creationtxid\" : \"hash\",         (string) the hex-encoded creation transaction hash\n"
             "  \"fixedissuance\" : true|false,    (boolean) whether the token supply is fixed\n"
+            "  \"managedissuance\" : true|false,    (boolean) whether the token supply is managed\n"
             "  \"totaltokens\" : \"n.nnnnnnnn\"     (string) the total number of tokens in existence\n"
             "}\n"
             "\nExamples:\n"
@@ -927,6 +932,12 @@ UniValue omni_getproperty(const UniValue& params, bool fHelp)
     response.push_back(Pair("issuer", sp.issuer));
     response.push_back(Pair("creationtxid", strCreationHash));
     response.push_back(Pair("fixedissuance", sp.fixed));
+    response.push_back(Pair("managedissuance", sp.manual));
+    if (sp.manual) {
+        int currentBlock = GetHeight();
+        LOCK(cs_tally);
+        response.push_back(Pair("freezingenabled", isFreezingEnabled(propertyId, currentBlock)));
+    }
     response.push_back(Pair("totaltokens", strTotalTokens));
 
     return response;
@@ -1085,8 +1096,8 @@ UniValue omni_getcrowdsale(const UniValue& params, bool fHelp)
 
     // note the database is already deserialized here and there is minimal performance penalty to iterate recipients to calculate amountRaised
     int64_t amountRaised = 0;
-    uint16_t propertyIdType = isPropertyDivisible(propertyId) ? MSC_PROPERTY_TYPE_DIVISIBLE : MSC_PROPERTY_TYPE_CONTRACT;
-    uint16_t desiredIdType = isPropertyDivisible(sp.property_desired) ? MSC_PROPERTY_TYPE_DIVISIBLE : MSC_PROPERTY_TYPE_CONTRACT;
+    uint16_t propertyIdType = isPropertyDivisible(propertyId) ? MSC_PROPERTY_TYPE_DIVISIBLE : MSC_PROPERTY_TYPE_INDIVISIBLE;
+    uint16_t desiredIdType = isPropertyDivisible(sp.property_desired) ? MSC_PROPERTY_TYPE_DIVISIBLE : MSC_PROPERTY_TYPE_INDIVISIBLE;
     std::map<std::string, UniValue> sortMap;
     for (std::map<uint256, std::vector<int64_t> >::const_iterator it = database.begin(); it != database.end(); it++) {
         UniValue participanttx(UniValue::VOBJ);
@@ -1329,7 +1340,7 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
         RequireDifferentIds(propertyIdForSale, propertyIdDesired);
     }
 
-    std::vector<CMPContractDex> vecMetaDexObjects;
+    std::vector<CMPMetaDEx> vecMetaDexObjects;
     {
         LOCK(cs_tally);
         for (md_PropertiesMap::const_iterator my_it = metadex.begin(); my_it != metadex.end(); ++my_it) {
@@ -1337,7 +1348,7 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
             for (md_PricesMap::const_iterator it = prices.begin(); it != prices.end(); ++it) {
                 const md_Set& indexes = it->second;
                 for (md_Set::const_iterator it = indexes.begin(); it != indexes.end(); ++it) {
-                    const CMPContractDex& obj = *it;
+                    const CMPMetaDEx& obj = *it;
                     if (obj.getProperty() != propertyIdForSale) continue;
                     if (!filterDesired || obj.getDesProperty() == propertyIdDesired) vecMetaDexObjects.push_back(obj);
                 }
@@ -1674,6 +1685,7 @@ UniValue omni_gettransaction(const UniValue& params, bool fHelp)
             "  \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in bitcoins\n"
             "  \"blocktime\" : nnnnnnnnnn,         (number) the timestamp of the block that contains the transaction\n"
             "  \"valid\" : true|false,             (boolean) whether the transaction is valid\n"
+            "  \"invalidreason\" : \"reason\",     (string) if a transaction is invalid, the reason \n"
             "  \"version\" : n,                    (number) the transaction version\n"
             "  \"type_int\" : n,                   (number) the transaction type as number\n"
             "  \"type\" : \"type\",                  (string) the transaction type as string\n"
@@ -2157,6 +2169,47 @@ UniValue omni_getmetadexhash(const UniValue& params, bool fHelp)
     return response;
 }
 
+UniValue omni_getbalanceshash(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "omni_getbalanceshash propertyid\n"
+            "\nReturns a hash of the balances for the property.\n"
+            "\nArguments:\n"
+            "1. propertyid                  (number, required) the property to hash balances for\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"block\" : nnnnnn,          (number) the index of the block this hash applies to\n"
+            "  \"blockhash\" : \"hash\",    (string) the hash of the corresponding block\n"
+            "  \"propertyid\" : nnnnnn,     (number) the property id of the hashed balances\n"
+            "  \"balanceshash\" : \"hash\"  (string) the hash for the balances\n"
+            "}\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_getbalanceshash", "31")
+            + HelpExampleRpc("omni_getbalanceshash", "31")
+        );
+
+    LOCK(cs_main);
+
+    uint32_t propertyId = ParsePropertyId(params[0]);
+    RequireExistingProperty(propertyId);
+
+    int block = GetHeight();
+    CBlockIndex* pblockindex = chainActive[block];
+    uint256 blockHash = pblockindex->GetBlockHash();
+
+    uint256 balancesHash = GetBalancesHash(propertyId);
+
+    UniValue response(UniValue::VOBJ);
+    response.push_back(Pair("block", block));
+    response.push_back(Pair("blockhash", blockHash.GetHex()));
+    response.push_back(Pair("propertyid", (uint64_t)propertyId));
+    response.push_back(Pair("balanceshash", balancesHash.GetHex()));
+
+    return response;
+}
+
 static const CRPCCommand commands[] =
 { //  category                             name                            actor (function)               okSafeMode
   //  ------------------------------------ ------------------------------- ------------------------------ ----------
@@ -2187,6 +2240,7 @@ static const CRPCCommand commands[] =
     { "omni layer (data retrieval)", "omni_getfeetrigger",             &omni_getfeetrigger,              false },
     { "omni layer (data retrieval)", "omni_getfeedistribution",        &omni_getfeedistribution,         false },
     { "omni layer (data retrieval)", "omni_getfeedistributions",       &omni_getfeedistributions,        false },
+    { "omni layer (data retrieval)", "omni_getbalanceshash",           &omni_getbalanceshash,            false },
 #ifdef ENABLE_WALLET
     { "omni layer (data retrieval)", "omni_listtransactions",          &omni_listtransactions,           false },
     { "omni layer (data retrieval)", "omni_getfeeshare",               &omni_getfeeshare,                false },

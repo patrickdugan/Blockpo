@@ -139,11 +139,9 @@ class CMPContractDex : public CMPMetaDEx
         uint64_t getDesiredPrice() const { return desired_price; }
         uint64_t getForsalePrice() const { return forsale_price; }
 
-        std::string displayUnitPrice() const;
-        std::string displayFullUnitPrice() const;
-        int64_t getAmountToFill() const;
-
+        std::string displayFullContractPrice() const;
         std::string ToString() const;
+
         void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };
 ///////////////////////////////////////////
@@ -160,7 +158,7 @@ namespace mastercore
 	typedef std::set<CMPMetaDEx, MetaDEx_compare> md_Set; 
 	//! Map of prices; there is a set of sorted objects for each price
 	typedef std::map<rational_t, md_Set> md_PricesMap;
-	//! Map of properties; there is a map of prices for each property
+	//! Map of properties; there is a map of prices for exchange each property
 	typedef std::map<uint32_t, md_PricesMap> md_PropertiesMap;
 
 	//! Global map for price and order data
@@ -171,8 +169,8 @@ namespace mastercore
 	md_Set* get_Indexes(md_PricesMap* p, rational_t price);
 	// ---------------
 
-///////////////////////////////////////////
-/** New things for Contracts */
+    ///////////////////////////////////////////
+    /** New things for Contracts */
 	struct ContractDex_compare                                                                                                                                                                                          
 	{
         bool operator()(const CMPContractDex &lhs, const CMPContractDex &rhs) const;    
@@ -206,6 +204,7 @@ namespace mastercore
 
 // Locates a trade in the MetaDEx maps via txid and returns the trade object
 const CMPMetaDEx* MetaDEx_RetrieveTrade(const uint256& txid);
+const CMPContractDex* ContractDex_RetrieveTrade(const uint256&);
 
 }
 
