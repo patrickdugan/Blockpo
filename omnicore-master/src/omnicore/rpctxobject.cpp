@@ -579,7 +579,7 @@ void populateRPCExtendedTypeContractDexTrade(const uint256& txid, uint32_t prope
     int64_t totalReceived = 0, totalSold = 0;
     LOCK(cs_tally);
     t_tradelistdb->getMatchingTrades(txid, propertyIdForSale, tradeArray, totalSold, totalReceived);
-    int tradeStatus = MetaDEx_getStatus(txid, propertyIdForSale, amountForSale, totalSold);
+    int tradeStatus = ContractDex_getStatus(txid, propertyIdForSale, amountForSale, totalSold);
     if (tradeStatus == TRADE_OPEN || tradeStatus == TRADE_OPEN_PART_FILLED) {
         const CMPContractDex *tradeObj = ContractDex_RetrieveTrade(txid);
         if (tradeObj != NULL) {
@@ -587,7 +587,7 @@ void populateRPCExtendedTypeContractDexTrade(const uint256& txid, uint32_t prope
             txobj.push_back(Pair("amounttofill", FormatMP(tradeObj->getDesProperty(), tradeObj->getAmountToFill())));
         }
     }
-    txobj.push_back(Pair("status", MetaDEx_getStatusText(tradeStatus)));
+    txobj.push_back(Pair("status", ContractDex_getStatusText(tradeStatus)));
     if (tradeStatus == TRADE_CANCELLED || tradeStatus == TRADE_CANCELLED_PART_FILLED) {
         txobj.push_back(Pair("canceltxid", p_txlistdb->findMetaDExCancel(txid).GetHex()));
     }

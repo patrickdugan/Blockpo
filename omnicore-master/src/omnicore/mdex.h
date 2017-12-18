@@ -184,13 +184,22 @@ namespace mastercore
 
 	cd_PricesMap *get_PricesCd(uint32_t prop);
 	cd_Set *get_IndexesCd(cd_PricesMap *p, uint64_t price);																																																																																																																																																				
-	///////////////////////////////////////////
 
-	int MetaDEx_ADD(const std::string& sender_addr, uint32_t, int64_t, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx);
 	///////////////////////////////////////////
 	/** New things for Contracts */
 	int ContractDex_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t desired_price, uint64_t forsale_price);
+    bool ContractDex_INSERT(const CMPContractDex &objContractDex);
+    int ContractDex_CANCEL_EVERYTHING(const uint256& txid, unsigned int block, const std::string& sender_addr, unsigned char ecosystem);
+    void ContractDex_debug_print(bool bShowPriceLevel, bool bDisplay);
+    const CMPContractDex *ContractDex_RetrieveTrade(const uint256& txid);
+    bool ContractDex_isOpen(const uint256& txid, uint32_t propertyIdForSale);
+    int ContractDex_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold);
+    std::string ContractDex_getStatusText(int tradeStatus);
+    int ContractDex_SHUTDOWN();
+    int ContractDex_SHUTDOWN_ALLPAIR();
+    int ContractDex_CANCEL_ALL_FOR_PAIR(const uint256& txid, unsigned int block, const std::string& sender_addr, uint32_t prop, uint32_t property_desired);
 	///////////////////////////////////////////
+    int MetaDEx_ADD(const std::string& sender_addr, uint32_t, int64_t, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx);
 	int MetaDEx_CANCEL_AT_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
 	int MetaDEx_CANCEL_ALL_FOR_PAIR(const uint256&, uint32_t, const std::string&, uint32_t, uint32_t);
 	int MetaDEx_CANCEL_EVERYTHING(const uint256& txid, uint32_t block, const std::string& sender_addr, unsigned char ecosystem);
@@ -202,10 +211,10 @@ namespace mastercore
 	int MetaDEx_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold = -1);
 	std::string MetaDEx_getStatusText(int tradeStatus);
 
-// Locates a trade in the MetaDEx maps via txid and returns the trade object
-const CMPMetaDEx* MetaDEx_RetrieveTrade(const uint256& txid);
-const CMPContractDex* ContractDex_RetrieveTrade(const uint256&);
 
+// Locates a trade in the MetaDEx maps via txid and returns the trade object
+    const CMPMetaDEx* MetaDEx_RetrieveTrade(const uint256& txid);
+    const CMPContractDex* ContractDex_RetrieveTrade(const uint256&);
 }
 
 #endif // OMNICORE_MDEX_H

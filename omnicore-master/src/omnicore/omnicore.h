@@ -61,6 +61,7 @@ int const MAX_STATE_HISTORY = 50;
 #define MAX_PACKETS        255
 
 // Transaction types, from the spec
+/** Remember: This is the txType */
 enum TransactionType {
   MSC_TYPE_SIMPLE_SEND                =  0,
   MSC_TYPE_RESTRICTED_SEND            =  2,
@@ -102,11 +103,11 @@ enum TransactionType {
   OMNICORE_MESSAGE_TYPE_ALERT         = 65535
 };
 
-/** Remember: This is the "prop_type" */
+/** Remember: These are the "prop_type" */
 #define MSC_PROPERTY_TYPE_INDIVISIBLE             1
 #define MSC_PROPERTY_TYPE_DIVISIBLE               2
 ////////////////////////////////
-/*New property type #3 Contract*/
+/** New property type #3 Contract */
 #define MSC_PROPERTY_TYPE_CONTRACT                3
 ////////////////////////////////
 #define MSC_PROPERTY_TYPE_INDIVISIBLE_REPLACING   65
@@ -121,6 +122,7 @@ enum FILETYPES {
   FILETYPE_GLOBALS,
   FILETYPE_CROWDSALES,
   FILETYPE_MDEXORDERS,
+  FILETYPE_CDEXORDERS,
   NUM_FILETYPES
 };
 
@@ -139,6 +141,12 @@ enum FILETYPES {
 #define PKT_ERROR_TRADEOFFER  (-70000)
 #define PKT_ERROR_METADEX     (-80000)
 #define METADEX_ERROR         (-81000)
+
+////////////////////////////////////
+/** New things for Contracts */
+#define CONTRACTDEX_ERROR     (-81000)
+////////////////////////////////////
+
 #define PKT_ERROR_TOKENS      (-82000)
 #define PKT_ERROR_SEND_ALL    (-83000)
 
@@ -242,6 +250,10 @@ public:
     }
 
     void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee);
+    /////////////////////////////////
+    /** New things for Contract */
+    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status);
+    /////////////////////////////////
     void recordNewTrade(const uint256& txid, const std::string& address, uint32_t propertyIdForSale, uint32_t propertyIdDesired, int blockNum, int blockIndex);
     int deleteAboveBlock(int blockNum);
     bool exists(const uint256 &txid);
@@ -272,6 +284,12 @@ public:
     void recordTX(const uint256 &txid, bool fValid, int nBlock, unsigned int type, uint64_t nValue);
     void recordPaymentTX(const uint256 &txid, bool fValid, int nBlock, unsigned int vout, unsigned int propertyId, uint64_t nValue, string buyer, string seller);
     void recordMetaDExCancelTX(const uint256 &txidMaster, const uint256 &txidSub, bool fValid, int nBlock, unsigned int propertyId, uint64_t nValue);
+
+    /////////////////////////////////////////////
+    /** New things for Contracts */
+    void recordContractDexCancelTX(const uint256 &txidMaster, const uint256 &txidSub, bool fValid, int nBlock, unsigned int propertyId, uint64_t nValue);
+    /////////////////////////////////////////////
+
     /** Records a "send all" sub record. */
     void recordSendAllSubRecord(const uint256& txid, int subRecordNumber, uint32_t propertyId, int64_t nvalue);
 
@@ -332,6 +350,11 @@ int mastercore_handler_disc_end(int nBlockNow, CBlockIndex const * pBlockIndex);
 int mastercore_handler_block_begin(int nBlockNow, CBlockIndex const * pBlockIndex);
 int mastercore_handler_block_end(int nBlockNow, CBlockIndex const * pBlockIndex, unsigned int);
 bool mastercore_handler_tx(const CTransaction& tx, int nBlock, unsigned int idx, const CBlockIndex* pBlockIndex);
+////////////////////////////////////
+/** New things for Contracts */
+int mastercore_handlercd_block_end(int nBlockNow, CBlockIndex const * pBlockIndex, unsigned int countMP);
+bool mastercore_handlercd_tx(const CTransaction& tx, int nBlock, unsigned int idx, const CBlockIndex* pBlockIndex);
+////////////////////////////////////
 int mastercore_save_state( CBlockIndex const *pBlockIndex );
 
 namespace mastercore

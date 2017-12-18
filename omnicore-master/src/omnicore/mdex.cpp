@@ -131,7 +131,7 @@ static int64_t xToRoundUpInt64(const rational_t& value)
 
 std::string xToString(const dec_float& value)
 {
-    return value.str(DISPLAY_PRECISION_LEN, std::ios_base::fixed);
+                return value.str(DISPLAY_PRECISION_LEN, std::ios_base::fixed);
 }
 
 std::string xToString(const int128_t& value)
@@ -537,7 +537,6 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
 
     return NewReturn;
 }
-
 /////////////////////////////////////////////////////
 /**
  * Used for display of unit prices to 8 decimal places at UI layer.
@@ -597,7 +596,8 @@ std::string CMPContractDex::displayFullContractPrice() const
     if ( isPropertyUndivisible(getProperty()) && !isPropertyUndivisible(getDesProperty()) ) pForsale = pForsale*1;
     if ( isPropertyUndivisible(getProperty()) && !isPropertyUndivisible(getDesProperty()) ) aForsale = aForsale*1;
 
-    std::string priceForsaleStr = xToString(pForsale*aForsale); 
+    int128_t p = int128_t(aForsale)*int128_t(pForsale);
+    std::string priceForsaleStr = xToString(p); 
     return priceForsaleStr;
 }
 //////////////////////////////////////
@@ -675,6 +675,33 @@ void CMPMetaDEx::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
     file << lineOut << std::endl;
 }
 
+////////////////////////////////////
+/** New things for Contract */
+void CMPContractDex::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
+{
+    std::string lineOut = strprintf("%s,%d,%d,%d,%d,%d,%d,%d,%s,%d,%d,%d",
+        getAddr(),
+        getBlock(),
+        getAmountForSale(),
+        getProperty(),
+        getAmountDesired(),
+        getDesProperty(),
+        getAction(),
+        getIdx(),
+        getHash().ToString(),
+        getAmountRemaining(),
+        desired_price,
+        forsale_price
+    );
+
+    // add the line to the hash
+    SHA256_Update(shaCtx, lineOut.c_str(), lineOut.length());
+
+    // write the line
+    file << lineOut << std::endl;
+}
+////////////////////////////////////
+
 bool MetaDEx_compare::operator()(const CMPMetaDEx &lhs, const CMPMetaDEx &rhs) const
 {
     if (lhs.getBlock() == rhs.getBlock()) return lhs.getIdx() < rhs.getIdx();
@@ -724,6 +751,44 @@ bool mastercore::MetaDEx_INSERT(const CMPMetaDEx& objMetaDEx)
 
     return true;
 }
+
+///////////////////////////////////////////
+/** New things for Contracts */
+bool mastercore::ContractDex_INSERT(const CMPContractDex &objContractDex)
+{
+    // Create an empty price map (to use in case price map for this property does not already exist)
+    cd_PricesMap temp_prices;
+    // Attempt to obtain the price map for the property
+    cd_PricesMap *p_prices = get_PricesCd(objContractDex.getProperty());
+
+    // Create an empty set of contractdex objects (to use in case no set currently exists at this price)
+    cd_Set temp_indexes;
+    cd_Set *p_indexes = NULL;
+
+    // Prepare for return code
+    std::pair <cd_Set::iterator, bool> ret;
+
+    // Attempt to obtain a set of contractdex objects for this price from the price map
+    if (p_prices) p_indexes = get_IndexesCd(p_prices, objContractDex.getForsalePrice());
+    // See if the set was populated, if not no set exists at this price level, use the empty set that we created earlier
+    if (!p_indexes) p_indexes = &temp_indexes;
+
+    // Attempt to insert the contractdex object into the set
+    ret = p_indexes->insert(objContractDex);
+    if (false == ret.second) return false;
+
+    // If a prices map did not exist for this property, set p_prices to the temp empty price map
+    if (!p_prices) p_prices = &temp_prices;
+
+    // Update the prices map with the new set at this price
+    (*p_prices)[objContractDex.getForsalePrice()] = *p_indexes;
+
+    // Set the contractdex map for the property to the updated (or new if it didn't exist) price map
+    contractdex[objContractDex.getProperty()] = *p_prices;
+
+    return true;
+}
+///////////////////////////////////////////
 
 // pretty much directly linked to the ADD TX21 command off the wire
 int mastercore::MetaDEx_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx)
@@ -902,6 +967,58 @@ int mastercore::MetaDEx_CANCEL_ALL_FOR_PAIR(const uint256& txid, unsigned int bl
     return rc;
 }
 
+////////////////////////////////
+/** New things for Contracts */
+int mastercore::ContractDex_CANCEL_ALL_FOR_PAIR(const uint256& txid, unsigned int block, const std::string& sender_addr, uint32_t prop, uint32_t property_desired)
+{
+    int rc = METADEX_ERROR -30;
+    cd_PricesMap* prices = get_PricesCd(prop);
+    const CMPContractDex* p_cdex = NULL;
+
+    PrintToLog("%s(%d,%d)\n", __FUNCTION__, prop, property_desired);
+
+    if (msc_debug_metadex3) MetaDEx_debug_print();
+
+    if (!prices) {
+        PrintToLog("%s() NOTHING FOUND\n", __FUNCTION__);
+        return rc -1;
+    }
+
+    // within the desired property map (given one property) iterate over the items
+    for (cd_PricesMap::iterator my_it = prices->begin(); my_it != prices->end(); ++my_it) {
+        cd_Set* indexes = &(my_it->second);
+
+        for (cd_Set::iterator iitt = indexes->begin(); iitt != indexes->end();) {
+            p_cdex = &(*iitt);
+
+            if (msc_debug_metadex3) PrintToLog("%s(): %s\n", __FUNCTION__, p_cdex->ToString());
+
+            if ((p_cdex->getDesProperty() != property_desired) || (p_cdex->getAddr() != sender_addr)) {
+                ++iitt;
+                continue;
+            }
+
+            rc = 0;
+            PrintToLog("%s(): REMOVING %s\n", __FUNCTION__, p_cdex->ToString());
+
+            // move from reserve to main
+            assert(update_tally_map(p_cdex->getAddr(), p_cdex->getProperty(), -p_cdex->getAmountRemaining(), METADEX_RESERVE));
+            assert(update_tally_map(p_cdex->getAddr(), p_cdex->getProperty(), p_cdex->getAmountRemaining(), BALANCE));
+
+            // record the cancellation
+            bool bValid = true;
+            p_txlistdb->recordContractDexCancelTX(txid, p_cdex->getHash(), bValid, block, p_cdex->getProperty(), p_cdex->getAmountRemaining());
+
+            indexes->erase(iitt++);
+        }
+    }
+
+    if (msc_debug_metadex3) MetaDEx_debug_print();
+
+    return rc;
+}
+////////////////////////////////
+
 /**
  * Scans the orderbook and remove everything for an address.
  */
@@ -961,6 +1078,65 @@ int mastercore::MetaDEx_CANCEL_EVERYTHING(const uint256& txid, unsigned int bloc
     return rc;
 }
 
+//////////////////////////////////////
+/** New things for Contracts */
+int mastercore::ContractDex_CANCEL_EVERYTHING(const uint256& txid, unsigned int block, const std::string& sender_addr, unsigned char ecosystem)
+{
+    int rc = METADEX_ERROR -40;
+
+    PrintToLog("%s()\n", __FUNCTION__);
+
+    if (msc_debug_metadex2) MetaDEx_debug_print();
+
+    PrintToLog("<<<<<<\n");
+
+    for (cd_PropertiesMap::iterator my_it = contractdex.begin(); my_it != contractdex.end(); ++my_it) {
+        unsigned int prop = my_it->first;
+
+        // skip property, if it is not in the expected ecosystem
+        if (isMainEcosystemProperty(ecosystem) && !isMainEcosystemProperty(prop)) continue;
+        if (isTestEcosystemProperty(ecosystem) && !isTestEcosystemProperty(prop)) continue;
+
+        PrintToLog(" ## property: %u\n", prop);
+        cd_PricesMap &prices = my_it->second;
+
+        for (cd_PricesMap::iterator it = prices.begin(); it != prices.end(); ++it) {
+            uint64_t price = it->first;
+            cd_Set &indexes = it->second;
+
+            PrintToLog("  # Price Level: %s\n", xToString(price));
+
+            for (cd_Set::iterator it = indexes.begin(); it != indexes.end();) {
+                PrintToLog("%s= %s\n", xToString(price), it->ToString());
+
+                if (it->getAddr() != sender_addr) {
+                    ++it;
+                    continue;
+                }
+
+                rc = 0;
+                PrintToLog("%s(): REMOVING %s\n", __FUNCTION__, it->ToString());
+
+                // move from reserve to balance
+                assert(update_tally_map(it->getAddr(), it->getProperty(), -it->getAmountRemaining(), METADEX_RESERVE));
+                assert(update_tally_map(it->getAddr(), it->getProperty(), it->getAmountRemaining(), BALANCE));
+
+                // record the cancellation
+                bool bValid = true;
+                p_txlistdb->recordContractDexCancelTX(txid, it->getHash(), bValid, block, it->getProperty(), it->getAmountRemaining());
+
+                indexes.erase(it++);
+            }
+        }
+    }
+    PrintToLog(">>>>>>\n");
+
+    if (msc_debug_metadex2) MetaDEx_debug_print();
+
+    return rc;
+}
+//////////////////////////////////////
+
 /**
  * Scans the orderbook and removes every all-pair order
  */
@@ -986,6 +1162,31 @@ int mastercore::MetaDEx_SHUTDOWN_ALLPAIR()
     return rc;
 }
 
+///////////////////////////////////
+/** New things for Contracts */
+int mastercore::ContractDex_SHUTDOWN_ALLPAIR()
+{
+    int rc = 0;
+    PrintToLog("%s()\n", __FUNCTION__);
+    for (cd_PropertiesMap::iterator my_it = contractdex.begin(); my_it != contractdex.end(); ++my_it) {
+        cd_PricesMap &prices = my_it->second;
+        for (cd_PricesMap::iterator it = prices.begin(); it != prices.end(); ++it) {
+            cd_Set &indexes = it->second;
+            for (cd_Set::iterator it = indexes.begin(); it != indexes.end();) {
+                if (it->getDesProperty() > OMNI_PROPERTY_TMSC && it->getProperty() > OMNI_PROPERTY_TMSC) { // no OMNI/TOMNI side to the trade
+                    PrintToLog("%s(): REMOVING %s\n", __FUNCTION__, it->ToString());
+                    // move from reserve to balance
+                    assert(update_tally_map(it->getAddr(), it->getProperty(), -it->getAmountRemaining(), METADEX_RESERVE));
+                    assert(update_tally_map(it->getAddr(), it->getProperty(), it->getAmountRemaining(), BALANCE));
+                    indexes.erase(it++);
+                }
+            }
+        }
+    }
+    return rc;
+}
+///////////////////////////////////
+
 /**
  * Scans the orderbook and removes every order
  */
@@ -1009,6 +1210,29 @@ int mastercore::MetaDEx_SHUTDOWN()
     return rc;
 }
 
+//////////////////////////////////
+/** New things for Contracts */
+int mastercore::ContractDex_SHUTDOWN()
+{
+    int rc = 0;
+    PrintToLog("%s()\n", __FUNCTION__);
+    for (cd_PropertiesMap::iterator my_it = contractdex.begin(); my_it != contractdex.end(); ++my_it) {
+        cd_PricesMap &prices = my_it->second;
+        for (cd_PricesMap::iterator it = prices.begin(); it != prices.end(); ++it) {
+            cd_Set &indexes = it->second;
+            for (cd_Set::iterator it = indexes.begin(); it != indexes.end();) {
+                PrintToLog("%s(): REMOVING %s\n", __FUNCTION__, it->ToString());
+                // move from reserve to balance
+                assert(update_tally_map(it->getAddr(), it->getProperty(), -it->getAmountRemaining(), METADEX_RESERVE));
+                assert(update_tally_map(it->getAddr(), it->getProperty(), it->getAmountRemaining(), BALANCE));
+                indexes.erase(it++);
+            }
+        }
+    }
+    return rc;
+}
+//////////////////////////////////
+
 // searches the metadex maps to see if a trade is still open
 // allows search to be optimized if propertyIdForSale is specified
 bool mastercore::MetaDEx_isOpen(const uint256& txid, uint32_t propertyIdForSale)
@@ -1027,6 +1251,25 @@ bool mastercore::MetaDEx_isOpen(const uint256& txid, uint32_t propertyIdForSale)
     return false;
 }
 
+/////////////////////////////////////
+/** New things for Contracts */
+bool mastercore::ContractDex_isOpen(const uint256& txid, uint32_t propertyIdForSale)
+{
+    for (cd_PropertiesMap::iterator my_it = contractdex.begin(); my_it != contractdex.end(); ++my_it) {
+        if (propertyIdForSale != 0 && propertyIdForSale != my_it->first) continue;
+        cd_PricesMap &prices = my_it->second;
+        for (cd_PricesMap::iterator it = prices.begin(); it != prices.end(); ++it) {
+            cd_Set &indexes = (it->second);
+            for (cd_Set::iterator it = indexes.begin(); it != indexes.end(); ++it) {
+                CMPContractDex obj = *it;
+                if( obj.getHash().GetHex() == txid.GetHex() ) return true;
+            }
+        }
+    }
+    return false;
+}
+////////////////////////////////////
+
 /**
  * Returns a string describing the status of a trade
  *
@@ -1043,6 +1286,22 @@ std::string mastercore::MetaDEx_getStatusText(int tradeStatus)
         default: return "unknown";
     }
 }
+
+////////////////////////////////
+/** New things for Contracts */
+std::string mastercore::ContractDex_getStatusText(int tradeStatus)
+{
+    switch (tradeStatus) {
+        case TRADE_OPEN: return "open";
+        case TRADE_OPEN_PART_FILLED: return "open part filled";
+        case TRADE_FILLED: return "filled";
+        case TRADE_CANCELLED: return "cancelled";
+        case TRADE_CANCELLED_PART_FILLED: return "cancelled part filled";
+        case TRADE_INVALID: return "trade invalid";
+        default: return "unknown";
+    }
+}
+////////////////////////////////
 
 /**
  * Returns the status of a MetaDEx trade
@@ -1079,6 +1338,40 @@ int mastercore::MetaDEx_getStatus(const uint256& txid, uint32_t propertyIdForSal
     }
 }
 
+///////////////////////////////
+/** New things for Contracts */
+int mastercore::ContractDex_getStatus(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, int64_t totalSold)
+{
+    // NOTE: If the calling code is already aware of the total amount sold, pass the value in to this function to avoid duplication of
+    //       work.  If the calling code doesn't know the amount, leave default (-1) and we will calculate it from levelDB lookups.
+    if (totalSold == -1) {
+        UniValue tradeArray(UniValue::VARR);
+        int64_t totalReceived;
+        t_tradelistdb->getMatchingTrades(txid, propertyIdForSale, tradeArray, totalSold, totalReceived);
+    }
+
+    // Return a "trade invalid" status if the trade was invalidated at parsing/interpretation (eg insufficient funds)
+    if (!getValidMPTX(txid)) return TRADE_INVALID;
+
+    // Calculate and return the status of the trade via the amount sold and open/closed attributes.
+    if (ContractDex_isOpen(txid, propertyIdForSale)) {
+        if (totalSold == 0) {
+            return TRADE_OPEN;
+        } else {
+            return TRADE_OPEN_PART_FILLED;
+        }
+    } else {
+        if (totalSold == 0) {
+            return TRADE_CANCELLED;
+        } else if (totalSold < amountForSale) {
+            return TRADE_CANCELLED_PART_FILLED;
+        } else {
+            return TRADE_FILLED;
+        }
+    }
+}
+///////////////////////////////
+
 void mastercore::MetaDEx_debug_print(bool bShowPriceLevel, bool bDisplay)
 {
     PrintToLog("<<<\n");
@@ -1105,6 +1398,35 @@ void mastercore::MetaDEx_debug_print(bool bShowPriceLevel, bool bDisplay)
     PrintToLog(">>>\n");
 }
 
+/////////////////////////////////////
+/** New things for Contracts */
+void mastercore::ContractDex_debug_print(bool bShowPriceLevel, bool bDisplay)
+{
+    PrintToLog("<<<\n");
+    for (cd_PropertiesMap::iterator my_it = contractdex.begin(); my_it != contractdex.end(); ++my_it) {
+        uint32_t prop = my_it->first;
+
+        PrintToLog(" ## property: %u\n", prop);
+        cd_PricesMap &prices = my_it->second;
+
+        for (cd_PricesMap::iterator it = prices.begin(); it != prices.end(); ++it) {
+            uint64_t price = it->first;
+            cd_Set &indexes = it->second;
+
+            if (bShowPriceLevel) PrintToLog("  # Price Level: %s\n", xToString(price));
+
+            for (cd_Set::iterator it = indexes.begin(); it != indexes.end(); ++it) {
+                const CMPContractDex &obj = *it;
+
+                if (bDisplay) PrintToConsole("%s= %s\n", xToString(price), obj.ToString());
+                else PrintToLog("%s= %s\n", xToString(price), obj.ToString());
+            }
+        }
+    }
+    PrintToLog(">>>\n");
+}
+/////////////////////////////////////
+
 /**
  * Locates a trade in the MetaDEx maps via txid and returns the trade object
  *
@@ -1123,7 +1445,9 @@ const CMPMetaDEx* mastercore::MetaDEx_RetrieveTrade(const uint256& txid)
     return (CMPMetaDEx*) NULL;
 }
 
-const CMPContractDex *mastercore::ContractDex_RetrieveTrade(const uint256 &txid)
+////////////////////////////////////////
+/** New things for Contracts */
+const CMPContractDex* mastercore::ContractDex_RetrieveTrade(const uint256& txid)
 {
     for (cd_PropertiesMap::iterator propIter = contractdex.begin(); propIter != contractdex.end(); ++propIter) {
         cd_PricesMap &prices = propIter->second;
@@ -1136,3 +1460,4 @@ const CMPContractDex *mastercore::ContractDex_RetrieveTrade(const uint256 &txid)
     }
     return (CMPContractDex*) NULL;
 }
+////////////////////////////////////////

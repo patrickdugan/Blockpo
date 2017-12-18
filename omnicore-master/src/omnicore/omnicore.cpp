@@ -1979,8 +1979,6 @@ static int write_mp_offers(ofstream &file, SHA256_CTX *shaCtx)
     CMPOffer const &offer = (*iter).second;
     offer.saveOffer(file, shaCtx, vstr[0]);
   }
-
-
   return 0;
 }
 
@@ -2002,6 +2000,27 @@ static int write_mp_metadex(ofstream &file, SHA256_CTX *shaCtx)
 
   return 0;
 }
+
+////////////////////////////
+/** New things for Contract */
+static int write_mp_contractdex(ofstream &file, SHA256_CTX *shaCtx)
+{
+  for (cd_PropertiesMap::iterator my_it = contractdex.begin(); my_it != contractdex.end(); ++my_it)
+  {
+    cd_PricesMap &prices = my_it->second;
+    for (cd_PricesMap::iterator it = prices.begin(); it != prices.end(); ++it)
+    {
+      cd_Set &indexes = (it->second);
+      for (cd_Set::iterator it = indexes.begin(); it != indexes.end(); ++it)
+      {
+        CMPContractDex contract = *it;
+        contract.saveOffer(file, shaCtx);
+      }
+    }
+  }
+  return 0;
+}
+////////////////////////////
 
 static int write_mp_accepts(ofstream &file, SHA256_CTX *shaCtx)
 {
@@ -2082,6 +2101,10 @@ static int write_state_file( CBlockIndex const *pBlockIndex, int what )
 
   case FILETYPE_MDEXORDERS:
       result = write_mp_metadex(file, &shaCtx);
+      break;
+
+  case FILETYPE_CDEXORDERS:
+      result = write_mp_contractdex(file, &shaCtx);
       break;
   }
 
@@ -2478,6 +2501,73 @@ bool mastercore_handler_tx(const CTransaction& tx, int nBlock, unsigned int idx,
 
     return fFoundTx;
 }
+
+///////////////////////////////////////
+/** New things for Contracts */
+bool mastercore_handlercd_tx(const CTransaction& tx, int nBlock, unsigned int idx, const CBlockIndex* pBlockIndex)
+{
+    LOCK(cs_tally);
+
+    if (!mastercoreInitialized) {
+        mastercore_init();
+    }
+
+    // clear pending, if any
+    // NOTE1: Every incoming TX is checked, not just MP-ones because:
+    // if for some reason the incoming TX doesn't pass our parser validation steps successfuly, I'd still want to clear pending amounts for that TX.
+    // NOTE2: Plus I wanna clear the amount before that TX is parsed by our protocol, in case we ever consider pending amounts in internal calculations.
+    PendingDelete(tx.GetHash());
+
+    // we do not care about parsing blocks prior to our waterline (empty blockchain defense)
+    if (nBlock < nWaterlineBlock) return false;
+    int64_t nBlockTime = pBlockIndex->GetBlockTime();
+
+    CMPTransaction mp_obj;
+    mp_obj.unlockLogic();
+
+    bool fFoundTx = false;
+    int pop_ret = parseTransaction(false, tx, nBlock, idx, mp_obj, nBlockTime);
+
+    if (pop_ret >= 0) {
+        assert(mp_obj.getEncodingClass() != NO_MARKER);
+        assert(mp_obj.getSender().empty() == false);
+
+        // extra iteration of the outputs for every transaction, not needed on mainnet after Exodus closed
+        const CConsensusParams& params = ConsensusParams();
+        if (isNonMainNet() || nBlock <= params.LAST_EXODUS_BLOCK) {
+            fFoundTx |= HandleExodusPurchase(tx, nBlock, mp_obj.getSender(), nBlockTime);
+        }
+    }
+
+    if (pop_ret > 0) {
+        assert(mp_obj.getEncodingClass() == OMNI_CLASS_A);
+        assert(mp_obj.getPayload().empty() == true);
+
+        fFoundTx |= HandleDExPayments(tx, nBlock, mp_obj.getSender());
+    }
+
+    if (0 == pop_ret) {
+        int interp_ret = mp_obj.interpretPacket();
+        if (interp_ret) PrintToLog("!!! interpretPacket() returned %d !!!\n", interp_ret);
+
+        // Only structurally valid transactions get recorded in levelDB
+        // PKT_ERROR - 2 = interpret_Transaction failed, structurally invalid payload
+        if (interp_ret != PKT_ERROR - 2) {
+            bool bValid = (0 <= interp_ret);
+            p_txlistdb->recordTX(tx.GetHash(), bValid, nBlock, mp_obj.getType(), mp_obj.getNewAmount());
+            p_OmniTXDB->RecordTransaction(tx.GetHash(), idx, interp_ret);
+        }
+        fFoundTx |= (interp_ret == 0);
+    }
+
+    if (fFoundTx && msc_debug_consensus_hash_every_transaction) {
+        uint256 consensusHash = GetConsensusHashContractDex();
+        PrintToLog("Consensus hash for transaction %s: %s\n", tx.GetHash().GetHex(), consensusHash.GetHex());
+    }
+
+    return fFoundTx;
+}
+///////////////////////////////////////
 
 /**
  * Determines, whether it is valid to use a Class C transaction for a given payload size.
@@ -3141,6 +3231,61 @@ void CMPTxList::recordMetaDExCancelTX(const uint256 &txidMaster, const uint256 &
        }
 }
 
+/////////////////////////////////////////////
+/** New things for Contracts */
+void CMPTxList::recordContractDexCancelTX(const uint256 &txidMaster, const uint256 &txidSub, bool fValid, int nBlock, unsigned int propertyId, uint64_t nValue)
+{
+  if (!pdb) return;
+
+       // Prep - setup vars
+       unsigned int type = 99992104;
+       unsigned int refNumber = 1;
+       uint64_t existingAffectedTXCount = 0;
+       string txidMasterStr = txidMaster.ToString() + "-C";
+
+       // Step 1 - Check TXList to see if this cancel TXID exists
+       // Step 2a - If doesn't exist leave number of affected txs & ref set to 1
+       // Step 2b - If does exist add +1 to existing ref and set this ref as new number of affected
+       std::vector<std::string> vstr;
+       string strValue;
+       Status status = pdb->Get(readoptions, txidMasterStr, &strValue);
+       if (status.ok())
+       {
+           // parse the string returned
+           boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
+
+           // obtain the existing affected tx count
+           if (4 <= vstr.size())
+           {
+               existingAffectedTXCount = atoi(vstr[3]);
+               refNumber = existingAffectedTXCount + 1;
+           }
+       }
+
+       // Step 3 - Create new/update master record for cancel tx in TXList
+       const string key = txidMasterStr;
+       const string value = strprintf("%u:%d:%u:%lu", fValid ? 1:0, nBlock, type, refNumber);
+       PrintToLog("CONTRACTDEXCANCELDEBUG : Writing master record %s(%s, valid=%s, block= %d, type= %d, number of affected transactions= %d)\n", __FUNCTION__, txidMaster.ToString(), fValid ? "YES":"NO", nBlock, type, refNumber);
+       if (pdb)
+       {
+           status = pdb->Put(writeoptions, key, value);
+           PrintToLog("CONTRACTDEXCANCELDEBUG : %s(): %s, line %d, file: %s\n", __FUNCTION__, status.ToString(), __LINE__, __FILE__);
+       }
+
+       // Step 4 - Write sub-record with cancel details
+       const string txidStr = txidMaster.ToString() + "-C";
+       const string subKey = STR_REF_SUBKEY_TXID_REF_COMBO(txidStr, refNumber);
+       const string subValue = strprintf("%s:%d:%lu", txidSub.ToString(), propertyId, nValue);
+       Status subStatus;
+       PrintToLog("CONTRACTDEXCANCELDEBUG : Writing sub-record %s with value %s\n", subKey, subValue);
+       if (pdb)
+       {
+           subStatus = pdb->Put(writeoptions, subKey, subValue);
+           PrintToLog("CONTRACTDEXCANCELDEBUG : %s(): %s, line %d, file: %s\n", __FUNCTION__, subStatus.ToString(), __LINE__, __FILE__);
+       }
+}
+/////////////////////////////////////////////
+
 /**
  * Records a "send all" sub record.
  */
@@ -3801,6 +3946,23 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
   }
 }
 
+/////////////////////////////////
+/** New things for Contract */
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status)
+{
+  if (!pdb) return;
+  const string key = txid1.ToString() + "+" + txid2.ToString();
+  const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d:%s", address1, address2, prop1, prop2, amount1, amount2, blockNum, fee, t_status);
+  Status status;
+  if (pdb)
+  {
+    status = pdb->Put(writeoptions, key, value);
+    ++nWritten;
+    if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
+  }
+}
+////////////////////////////////
+
 /**
  * This function deletes records of trades above/equal to a specific block from the trade database.
  *
@@ -4053,6 +4215,74 @@ int mastercore_handler_block_end(int nBlockNow, CBlockIndex const * pBlockIndex,
 
     return 0;
 }
+
+////////////////////////////////////
+/** New things for Contracts */
+int mastercore_handlercd_block_end(int nBlockNow, CBlockIndex const * pBlockIndex, unsigned int countMP)
+{
+    LOCK(cs_tally);
+
+    if (!mastercoreInitialized) {
+        mastercore_init();
+    }
+
+    // for every new received block must do:
+    // 1) remove expired entries from the accept list (per spec accept entries are
+    //    valid until their blocklimit expiration; because the customer can keep
+    //    paying BTC for the offer in several installments)
+    // 2) update the amount in the Exodus address
+    int64_t devmsc = 0;
+    unsigned int how_many_erased = eraseExpiredAccepts(nBlockNow);
+
+    if (how_many_erased) {
+        PrintToLog("%s(%d); erased %u accepts this block, line %d, file: %s\n",
+            __FUNCTION__, how_many_erased, nBlockNow, __LINE__, __FILE__);
+    }
+
+    // calculate devmsc as of this block and update the Exodus' balance
+    devmsc = calculate_and_update_devmsc(pBlockIndex->GetBlockTime(), nBlockNow);
+
+    if (msc_debug_exo) {
+        int64_t balance = getMPbalance(exodus_address, OMNI_PROPERTY_MSC, BALANCE);
+        PrintToLog("devmsc for block %d: %d, Exodus balance: %d\n", nBlockNow, devmsc, FormatDivisibleMP(balance));
+    }
+
+    // check the alert status, do we need to do anything else here?
+    CheckExpiredAlerts(nBlockNow, pBlockIndex->GetBlockTime());
+
+    // check that pending transactions are still in the mempool
+    PendingCheck();
+
+    // transactions were found in the block, signal the UI accordingly
+    if (countMP > 0) CheckWalletUpdate(true);
+
+    // calculate and print a consensus hash if required
+    if (ShouldConsensusHashBlock(nBlockNow)) {
+        uint256 consensusHash = GetConsensusHashContractDex();
+        PrintToLog("Consensus hash for block %d: %s\n", nBlockNow, consensusHash.GetHex());
+    }
+
+    // request checkpoint verification
+    bool checkpointValid = VerifyCheckpoint(nBlockNow, pBlockIndex->GetBlockHash());
+    if (!checkpointValid) {
+        // failed checkpoint, can't be trusted to provide valid data - shutdown client
+        const std::string& msg = strprintf("Shutting down due to failed checkpoint for block %d (hash %s)\n", nBlockNow, pBlockIndex->GetBlockHash().GetHex());
+        PrintToLog(msg);
+        if (!GetBoolArg("-overrideforcedshutdown", false)) {
+            boost::filesystem::path persistPath = GetDataDir() / "MP_persist";
+            if (boost::filesystem::exists(persistPath)) boost::filesystem::remove_all(persistPath); // prevent the node being restarted without a reparse after forced shutdown
+            AbortNode(msg, msg);
+        }
+    } else {
+        // save out the state after this block
+        if (writePersistence(nBlockNow)) {
+            mastercore_save_state(pBlockIndex);
+        }
+    }
+
+    return 0;
+}
+////////////////////////////////////
 
 int mastercore_handler_disc_begin(int nBlockNow, CBlockIndex const * pBlockIndex)
 {

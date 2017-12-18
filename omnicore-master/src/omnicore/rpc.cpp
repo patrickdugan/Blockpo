@@ -2169,6 +2169,53 @@ UniValue omni_getmetadexhash(const UniValue& params, bool fHelp)
     return response;
 }
 
+///////////////////////////////////////
+/** New things for Contracts */
+UniValue omni_getcontractdexhash(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() > 1)
+        throw runtime_error(
+            "omni_contractdexhash propertyId\n"
+            "\nReturns a hash of the current state of the ContractDex (default) or orderbook.\n"
+            "\nArguments:\n"
+            "1. propertyid                  (number, optional) hash orderbook (only trades selling propertyid)\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"block\" : nnnnnn,          (number) the index of the block this hash applies to\n"
+            "  \"blockhash\" : \"hash\",    (string) the hash of the corresponding block\n"
+            "  \"propertyid\" : nnnnnn,     (number) the market this hash applies to (or 0 for all markets)\n"
+            "  \"metadexhash\" : \"hash\"   (string) the hash for the state of the MetaDEx/orderbook\n"
+            "}\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_contractdexhash", "3")
+            + HelpExampleRpc("omni_contractdexhash", "3")
+        );
+
+    LOCK(cs_main);
+
+    uint32_t propertyId = 0;
+    if (params.size() > 0) {
+        propertyId = ParsePropertyId(params[0]);
+        RequireExistingProperty(propertyId);
+    }
+
+    int block = GetHeight();
+    CBlockIndex* pblockindex = chainActive[block];
+    uint256 blockHash = pblockindex->GetBlockHash();
+
+    uint256 metadexHash = GetContractDexHash(propertyId);
+
+    UniValue response(UniValue::VOBJ);
+    response.push_back(Pair("block", block));
+    response.push_back(Pair("blockhash", blockHash.GetHex()));
+    response.push_back(Pair("propertyid", (uint64_t)propertyId));
+    response.push_back(Pair("metadexhash", metadexHash.GetHex()));
+
+    return response;
+}
+///////////////////////////////////////
+
 UniValue omni_getbalanceshash(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
@@ -2236,6 +2283,7 @@ static const CRPCCommand commands[] =
     { "omni layer (data retrieval)", "omni_getpayload",                &omni_getpayload,                 false },
     { "omni layer (data retrieval)", "omni_getseedblocks",             &omni_getseedblocks,              false },
     { "omni layer (data retrieval)", "omni_getmetadexhash",            &omni_getmetadexhash,             false },
+    { "omni layer (data retrieval)", "omni_getcontractdexhash",        &omni_getcontractdexhash,         false },
     { "omni layer (data retrieval)", "omni_getfeecache",               &omni_getfeecache,                false },
     { "omni layer (data retrieval)", "omni_getfeetrigger",             &omni_getfeetrigger,              false },
     { "omni layer (data retrieval)", "omni_getfeedistribution",        &omni_getfeedistribution,         false },
