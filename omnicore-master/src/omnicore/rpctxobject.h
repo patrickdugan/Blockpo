@@ -45,6 +45,9 @@ bool showRefForTx(uint32_t txType);
 /** New things for Contracts */
 void populateRPCTypeContractDexTrade(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails);
 void populateRPCExtendedTypeContractDexTrade(const uint256& txid, uint32_t propertyIdForSale, int64_t amountForSale, UniValue& txobj);
+void populateRPCTypeContractDexCancelPrice(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails);
+void populateRPCTypeContractDexCancelPair(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails);
+void populateRPCExtendedTypeContractDexCancel(const uint256& txid, UniValue& txobj);
 /////////////////////////////////////
 
 #endif // OMNICORE_RPCTXOBJECT_H

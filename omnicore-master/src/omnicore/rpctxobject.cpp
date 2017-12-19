@@ -393,6 +393,28 @@ void populateRPCTypeMetaDExCancelPrice(CMPTransaction& omniObj, UniValue& txobj,
     if (extendedDetails) populateRPCExtendedTypeMetaDExCancel(omniObj.getHash(), txobj);
 }
 
+/////////////////////////////////
+/** New things for Contracts */
+void populateRPCTypeContractDexCancelPrice(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails)
+{
+    CMPContractDex contractObj(omniObj);
+
+    bool propertyIdForSaleIsDivisible = isPropertyDivisible(omniObj.getProperty());
+    bool propertyIdDesiredIsDivisible = isPropertyDivisible(contractObj.getDesProperty());
+    std::string unitPriceStr = contractObj.displayFullContractPrice();
+
+    // populate
+    txobj.push_back(Pair("propertyidforsale", (uint64_t)omniObj.getProperty()));
+    txobj.push_back(Pair("propertyidforsaleisdivisible", propertyIdForSaleIsDivisible));
+    txobj.push_back(Pair("amountforsale", FormatMP(omniObj.getProperty(), omniObj.getAmount())));
+    txobj.push_back(Pair("propertyiddesired", (uint64_t)contractObj.getDesProperty()));
+    txobj.push_back(Pair("propertyiddesiredisdivisible", propertyIdDesiredIsDivisible));
+    txobj.push_back(Pair("amountdesired", FormatMP(contractObj.getDesProperty(), contractObj.getAmountDesired())));
+    txobj.push_back(Pair("for sale price", contractObj.getForsalePrice()));
+    if (extendedDetails) populateRPCExtendedTypeContractDexCancel(omniObj.getHash(), txobj);
+}
+/////////////////////////////////
+
 void populateRPCTypeMetaDExCancelPair(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails)
 {
     CMPMetaDEx metaObj(omniObj);
@@ -402,6 +424,19 @@ void populateRPCTypeMetaDExCancelPair(CMPTransaction& omniObj, UniValue& txobj, 
     txobj.push_back(Pair("propertyiddesired", (uint64_t)metaObj.getDesProperty()));
     if (extendedDetails) populateRPCExtendedTypeMetaDExCancel(omniObj.getHash(), txobj);
 }
+
+/////////////////////////////////
+/** New things for Contracts */
+void populateRPCTypeContractDexCancelPair(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails)
+{
+    CMPContractDex contractObj(omniObj);
+
+    // populate
+    txobj.push_back(Pair("propertyidforsale", (uint64_t)omniObj.getProperty()));
+    txobj.push_back(Pair("propertyiddesired", (uint64_t)contractObj.getDesProperty()));
+    if (extendedDetails) populateRPCExtendedTypeContractDexCancel(omniObj.getHash(), txobj);
+}
+/////////////////////////////////
 
 void populateRPCTypeMetaDExCancelEcosystem(CMPTransaction& omniObj, UniValue& txobj, bool extendedDetails)
 {
@@ -621,6 +656,36 @@ void populateRPCExtendedTypeMetaDExCancel(const uint256& txid, UniValue& txobj)
     }
     txobj.push_back(Pair("cancelledtransactions", cancelArray));
 }
+
+/////////////////////////////////////
+/** New things for Contracts */
+void populateRPCExtendedTypeContractDexCancel(const uint256& txid, UniValue& txobj)
+{
+    UniValue cancelArray(UniValue::VARR);
+    LOCK(cs_tally);
+    int numberOfCancels = p_txlistdb->getNumberOfContractDexCancels(txid);
+    if (0<numberOfCancels) {
+        for(int refNumber = 1; refNumber <= numberOfCancels; refNumber++) {
+            UniValue cancelTx(UniValue::VOBJ);
+            std::string strValue = p_txlistdb->getKeyValue(txid.ToString() + "-C" + strprintf("%d",refNumber));
+            if (strValue.empty()) continue;
+            std::vector<std::string> vstr;
+            boost::split(vstr, strValue, boost::is_any_of(":"), boost::token_compress_on);
+            if (vstr.size() != 3) {
+                PrintToLog("TXListDB Error - trade cancel number of contracts is not as expected (%s)\n", strValue);
+                continue;
+            }
+            uint32_t propId = boost::lexical_cast<uint32_t>(vstr[1]);
+            int64_t amountUnreserved = boost::lexical_cast<int64_t>(vstr[2]);
+            cancelTx.push_back(Pair("txid", vstr[0]));
+            cancelTx.push_back(Pair("propertyid", (uint64_t) propId));
+            cancelTx.push_back(Pair("amountunreserved", FormatMP(propId, amountUnreserved)));
+            cancelArray.push_back(cancelTx);
+        }
+    }
+    txobj.push_back(Pair("cancelledtransactions", cancelArray));
+}
+////////////////////////////////////
 
 /* Function to enumerate sub sends for a given txid and add to supplied JSON array
  * Note: this function exists as send all has the potential to carry multiple sends in a single transaction.

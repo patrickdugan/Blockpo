@@ -298,6 +298,12 @@ public:
     /** Returns the number of sub records. */
     int getNumberOfSubRecords(const uint256& txid);
     int getNumberOfMetaDExCancels(const uint256 txid);
+
+    //////////////////////////////////////
+    /** New things for Contracts */
+    int getNumberOfContractDexCancels(const uint256 txid);
+    //////////////////////////////////////
+
     bool getPurchaseDetails(const uint256 txid, int purchaseNumber, string *buyer, string *seller, uint64_t *vout, uint64_t *propertyId, uint64_t *nValue);
     /** Retrieves details about a "send all" record. */
     bool getSendAllDetails(const uint256& txid, int subSend, uint32_t& propertyId, int64_t& amount);
