@@ -33,6 +33,7 @@ OMNICORE_TEST_CPP = \
   omnicore/test/contractdex_custom.cpp \
   omnicore/test/uint256_extensions_tests.cpp \
   omnicore/test/utils_tx.cpp \
+  omnicore/test/db_test.cpp \
   omnicore/test/version_tests.cpp
 
 BITCOIN_TESTS += \
