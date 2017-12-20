@@ -3953,12 +3953,13 @@ void CMPTradeList::recordNewTrade(const uint256& txid, const std::string& addres
   ++nWritten;
   if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
 }
-
+    
 void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee)
 {
   if (!pdb) return;
   const string key = txid1.ToString() + "+" + txid2.ToString();
   const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d", address1, address2, prop1, prop2, amount1, amount2, blockNum, fee);
+
   Status status;
   if (pdb)
   {
@@ -3983,8 +3984,31 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
   }
 }
-////////////////////////////////
+/////////////////////////////////
+/** New things for Contract */
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid)
+{
+    if (!pdb) return;
+    const string key = txid1.ToString() + "+" + txid2.ToString();
+    const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d:%s:", address1, address2, prop1, prop2, amount1, amount2, blockNum, fee, t_status);
+    std::vector<std::string> STxid;
+    string result;                                              
 
+    for (unsigned int n = 0; n < vecTxid.size(); ++n) {
+        STxid.push_back(vecTxid[n].ToString());
+    }
+    std::string joined = boost::algorithm::join(STxid, ":");
+    result = value + joined;
+
+    Status status;
+    if (pdb)
+    {
+        status = pdb->Put(writeoptions, key, result);
+        ++nWritten;
+        if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
+    }
+}
+/////////////////////////////////
 /**
  * This function deletes records of trades above/equal to a specific block from the trade database.
  *

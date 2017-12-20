@@ -477,6 +477,7 @@ bool CMPTransaction::interpret_ContractDexTrade()
     }
     return true;
 }                                       
+
 //////////////////////////////
 /** Tx 50 */
 bool CMPTransaction::interpret_CreatePropertyFixed()
@@ -1844,7 +1845,7 @@ int CMPTransaction::logicMath_CreateContractDex()
         return (PKT_ERROR_SP -24);
     }
 
-    if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+    if (MSC_PROPERTY_TYPE_INDIVISIBLE == prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
         PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
         return (PKT_ERROR_SP -36);
     }
