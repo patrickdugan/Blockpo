@@ -604,7 +604,6 @@ bool mastercore::IsPropertyIdValid(uint32_t propertyId)
 /** New things for Contracts */
 bool mastercore::isPropertyUndivisible(uint32_t propertyId)
 {
-    // TODO: is a lock here needed
     CMPSPInfo::Entry sp;
 
     if (_my_sps->getSP(propertyId, sp)) return sp.isUndivisible();

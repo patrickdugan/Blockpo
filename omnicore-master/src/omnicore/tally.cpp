@@ -72,6 +72,7 @@ bool CMPTally::updateMoney(uint32_t propertyId, int64_t amount, TallyType ttype)
     if (TALLY_TYPE_COUNT <= ttype || amount == 0) {
         return false;
     }
+  
     bool fUpdated = false;
     int64_t now64 = mp_token[propertyId].balance[ttype];
 
@@ -84,13 +85,11 @@ bool CMPTally::updateMoney(uint32_t propertyId, int64_t amount, TallyType ttype)
         // NOTE:
         // Negative balances are only permitted for pending balances
     } else {
-
         now64 += amount;
         mp_token[propertyId].balance[ttype] = now64;
 
         fUpdated = true;
     }
-
     return fUpdated;
 }
 
@@ -161,8 +160,15 @@ int64_t CMPTally::getMoneyReserved(uint32_t propertyId) const
         money += record.balance[SELLOFFER_RESERVE];
         money += record.balance[ACCEPT_RESERVE];
         money += record.balance[METADEX_RESERVE];
+        //////////////////////////////////////
+        /** New things for Contracts */
+        money += record.balance[CONTRACTDEX_RESERVE];
+        money += record.balance[POSSITIVE_BALANCE];
+        money += record.balance[NEGATIVE_BALANCE];
+        money += record.balance[REALIZED_PROFIT];
+        money += record.balance[REALIZED_LOSSES];
+        //////////////////////////////////////
     }
-
     return money;
 }
 
@@ -227,11 +233,11 @@ int64_t CMPTally::print(uint32_t propertyId, bool bDivisible) const
     int64_t accept_reserve = 0;
     int64_t pending = 0;
     int64_t metadex_reserve = 0;
-
+ 
     TokenMap::const_iterator it = mp_token.find(propertyId);
 
     if (it != mp_token.end()) {
-        const BalanceRecord& record = it->second;
+        const BalanceRecord &record = it->second;
         balance = record.balance[BALANCE];
         selloffer_reserve = record.balance[SELLOFFER_RESERVE];
         accept_reserve = record.balance[ACCEPT_RESERVE];
@@ -251,3 +257,47 @@ int64_t CMPTally::print(uint32_t propertyId, bool bDivisible) const
 
     return (balance + selloffer_reserve + accept_reserve + metadex_reserve);
 }
+
+////////////////////////////
+/** New things for Contracts */
+int64_t CMPTally::printcd(uint32_t propertyId, bool bUndivisible) const
+{
+    int64_t balance = 0;
+    int64_t selloffer_reserve = 0;
+    int64_t accept_reserve = 0;
+    int64_t pending = 0;
+    //////////////////////////////////////
+    /** New things for Contracts */
+    int64_t contractdex_reserve = 0;
+    int64_t possitive_balance = 0; 
+    int64_t negative_balance = 0;
+    int64_t realized_profit = 0;
+    int64_t realized_losses = 0; 
+    //////////////////////////////////////
+
+    TokenMap::const_iterator it = mp_token.find(propertyId);
+
+    if (it != mp_token.end()) {
+        const BalanceRecord &record = it->second;
+        balance = record.balance[BALANCE];
+        selloffer_reserve = record.balance[SELLOFFER_RESERVE];
+        accept_reserve = record.balance[ACCEPT_RESERVE];
+        pending = record.balance[PENDING];
+        //////////////////////////////////////
+        /** New things for Contracts */
+        contractdex_reserve = record.balance[CONTRACTDEX_RESERVE];
+        possitive_balance = record.balance[POSSITIVE_BALANCE];
+        negative_balance = record.balance[NEGATIVE_BALANCE];
+        realized_profit = record.balance[REALIZED_PROFIT];
+        realized_losses = record.balance[REALIZED_LOSSES];
+        //////////////////////////////////////
+    }
+
+    if (bUndivisible) {
+        PrintToConsole("%14d [ SO_RESERVE= %14d, ACCEPT_RESERVE= %14d, CONTRACTDEX_RESERVE= %14d ] %14d, POSSITIVE_BALANCE = %14d, NEGATIVE_BALANCE = %14d, REALIZED_PROFIT = %14d, REALIZED_LOSSES = %14d\n",
+                        balance, selloffer_reserve, accept_reserve, contractdex_reserve, pending, possitive_balance, negative_balance, realized_profit, realized_losses);
+    }
+
+    return (balance + selloffer_reserve + accept_reserve + contractdex_reserve);
+}
+//////////////////////////////

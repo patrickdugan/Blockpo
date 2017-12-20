@@ -11,9 +11,17 @@ enum TallyType {
     ACCEPT_RESERVE = 2,
     PENDING = 3,
     METADEX_RESERVE = 4,
+    //////////////////////////////////////
+    /** New things for Contracts */
+    CONTRACTDEX_RESERVE = 5,
+    POSSITIVE_BALANCE = 6, 
+    NEGATIVE_BALANCE = 7,
+    REALIZED_PROFIT = 8, 
+    REALIZED_LOSSES = 9, 
+    //////////////////////////////////////
     TALLY_TYPE_COUNT
 };
-
+            
 /** Balance records of a single entity.
  */
 class CMPTally
@@ -60,7 +68,11 @@ public:
 
     /** Prints a balance record to the console. */
     int64_t print(uint32_t propertyId = 1, bool bDivisible = true) const;
-};
 
+    ////////////////////////////
+    /** New things for Contracts */
+    int64_t printcd(uint32_t propertyId = 1, bool bDivisible = true) const;
+    ////////////////////////////
+};
 
 #endif // OMNICORE_TALLY_H

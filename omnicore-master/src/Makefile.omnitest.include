@@ -14,7 +14,6 @@ OMNICORE_TEST_CPP = \
   omnicore/test/lock_tests.cpp \
   omnicore/test/marker_tests.cpp \
   omnicore/test/mbstring_tests.cpp \
-  omnicore/test/params_tests.cpp \
   omnicore/test/obfuscation_tests.cpp \
   omnicore/test/output_restriction_tests.cpp \
   omnicore/test/parsing_a_tests.cpp \
@@ -30,10 +29,10 @@ OMNICORE_TEST_CPP = \
   omnicore/test/strtoint64_tests.cpp \
   omnicore/test/swapbyteorder_tests.cpp \
   omnicore/test/tally_tests.cpp \
-  omnicore/test/contractdex_custom.cpp \
   omnicore/test/uint256_extensions_tests.cpp \
   omnicore/test/utils_tx.cpp \
-  omnicore/test/version_tests.cpp
+  omnicore/test/version_tests.cpp \
+  omnicore/test/contractdex_custom.cpp 
 
 BITCOIN_TESTS += \
   $(OMNICORE_TEST_CPP) \

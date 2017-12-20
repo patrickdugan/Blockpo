@@ -235,7 +235,7 @@ std::string FormatByType(int64_t amount, uint16_t propertyType)
     if (propertyType & MSC_PROPERTY_TYPE_INDIVISIBLE) {
         return FormatIndivisibleMP(amount);
     ////////////////////////////////
-    /*New property type #3 Contract*/
+    /*New property type No 3 Contract*/
     } else if(propertyType & MSC_PROPERTY_TYPE_CONTRACT) {
         return FormatIndivisibleMP(amount);
     ////////////////////////////////

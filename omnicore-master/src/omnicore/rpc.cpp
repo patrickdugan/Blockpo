@@ -745,6 +745,176 @@ UniValue mscrpc(const UniValue& params, bool fHelp)
     return GetHeight();
 }
 
+//////////////////////////////////
+/** New things for Contracts */
+UniValue mscrpc_contractdex(const UniValue& params, bool fHelp)
+{
+    int extra = 0;
+    int extra2 = 0;
+    int extra3 = 0;
+
+    if (fHelp || params.size() > 3)
+        throw runtime_error(
+            "mscrpc_contractdex\n"
+            "\nReturns the number of blocks in the longest block chain.\n"
+            "\nResult:\n"
+            "n    (number) the current block count\n"
+            "\nExamples:\n"
+            + HelpExampleCli("mscrpc_contractdex", "")
+            + HelpExampleRpc("mscrpc_contractdex", "")
+        );
+
+    if (0 < params.size()) extra = atoi(params[0].get_str());
+    if (1 < params.size()) extra2 = atoi(params[1].get_str());
+    if (2 < params.size()) extra3 = atoi(params[2].get_str());
+
+    PrintToConsole("%s(extra=%d,extra2=%d,extra3=%d)\n", __FUNCTION__, extra, extra2, extra3);
+
+    bool bUndivisible = isPropertyUndivisible(extra2);
+
+    // various extra tests
+    switch (extra) {
+        case 0:
+        {
+            LOCK(cs_tally);
+            int64_t total = 0;
+            // display all balances
+            for (std::unordered_map<std::string, CMPTally>::iterator my_it = mp_tally_map.begin(); my_it != mp_tally_map.end(); ++my_it) {
+                PrintToConsole("%34s => ", my_it->first);
+                total += (my_it->second).printcd(extra2, bUndivisible);
+            }
+            PrintToConsole("total for property %d  = %X is %s\n", extra2, extra2, FormatIndivisibleMP(total));
+            break;
+        }
+        case 1:
+        {
+            LOCK(cs_tally);
+            // display the whole CMPTxList (leveldb)
+            p_txlistdb->printAll();
+            p_txlistdb->printStats();
+            break;
+        }
+        case 2:
+        {
+            LOCK(cs_tally);
+            // display smart properties
+            _my_sps->printAll();
+            break;
+        }
+        case 3:
+        {
+            LOCK(cs_tally);
+            uint32_t id = 0;
+            // for each address display all currencies it holds
+            for (std::unordered_map<std::string, CMPTally>::iterator my_it = mp_tally_map.begin(); my_it != mp_tally_map.end(); ++my_it) {
+                PrintToConsole("%34s => ", my_it->first);
+                (my_it->second).print(extra2);
+                (my_it->second).init();
+                while (0 != (id = (my_it->second).next())) {
+                    PrintToConsole("Id: %u=0x%X ", id, id);
+                }
+                PrintToConsole("\n");
+            }
+            break;
+        }
+        case 4:
+        {
+            LOCK(cs_tally);
+            for (CrowdMap::const_iterator it = my_crowds.begin(); it != my_crowds.end(); ++it) {
+                (it->second).print(it->first);
+            }
+            break;
+        }
+        case 5:
+        {
+            LOCK(cs_tally);
+            PrintToConsole("isMPinBlockRange(%d,%d)=%s\n", extra2, extra3, isMPinBlockRange(extra2, extra3, false) ? "YES" : "NO");
+            break;
+        }
+        case 6:
+        {
+            LOCK(cs_tally);
+            ContractDex_debug_print(true, true);
+            break;
+        }
+        case 7:
+        {
+            LOCK(cs_tally);
+            // display the whole CMPTradeList (leveldb)
+            t_tradelistdb->printAll();
+            t_tradelistdb->printStats();
+            break;
+        }
+        case 8:
+        {
+            LOCK(cs_tally);
+            // display the STO receive list
+            s_stolistdb->printAll();
+            s_stolistdb->printStats();
+            break;
+        }
+        case 9:
+        {
+            PrintToConsole("Locking cs_tally for %d milliseconds..\n", extra2);
+            LOCK(cs_tally);
+            MilliSleep(extra2);
+            PrintToConsole("Unlocking cs_tally now\n");
+            break;
+        }
+        case 10:
+        {
+            PrintToConsole("Locking cs_main for %d milliseconds..\n", extra2);
+            LOCK(cs_main);
+            MilliSleep(extra2);
+            PrintToConsole("Unlocking cs_main now\n");
+            break;
+        }
+#ifdef ENABLE_WALLET
+        case 11:
+        {
+            PrintToConsole("Locking pwalletMain->cs_wallet for %d milliseconds..\n", extra2);
+            LOCK(pwalletMain->cs_wallet);
+            MilliSleep(extra2);
+            PrintToConsole("Unlocking pwalletMain->cs_wallet now\n");
+            break;
+        }
+#endif
+        case 14:
+        {
+            LOCK(cs_tally);
+            p_feecache->printAll();
+            p_feecache->printStats();
+
+            int64_t a = 1000;
+            int64_t b = 1999;
+            int64_t c = 2001;
+            int64_t d = 20001;
+            int64_t e = 19999;
+
+            int64_t z = 2000;
+
+            int64_t aa = a/z;
+            int64_t bb = b/z;
+            int64_t cc = c/z;
+            int64_t dd = d/z;
+            int64_t ee = e/z;
+
+            PrintToConsole("%d / %d = %d\n",a,z,aa);
+            PrintToConsole("%d / %d = %d\n",b,z,bb);
+            PrintToConsole("%d / %d = %d\n",c,z,cc);
+            PrintToConsole("%d / %d = %d\n",d,z,dd);
+            PrintToConsole("%d / %d = %d\n",e,z,ee);
+
+            break;
+        }
+        default:
+            break;
+    }
+
+    return GetHeight();
+}
+//////////////////////////////////
+
 // display an MP balance via RPC
 UniValue omni_getbalance(const UniValue& params, bool fHelp)
 {
@@ -2295,7 +2465,7 @@ static const CRPCCommand commands[] =
     { "omni layer (configuration)",  "omni_setautocommit",             &omni_setautocommit,              true  },
 #endif
     { "hidden",                      "mscrpc",                         &mscrpc,                          true  },
-
+    { "hidden",                      "mscrpc_contractdex",             &mscrpc_contractdex,              true  },
     /* depreciated: */
     { "hidden",                      "getinfo_MP",                     &omni_getinfo,                    true  },
     { "hidden",                      "getbalance_MP",                  &omni_getbalance,                 false },

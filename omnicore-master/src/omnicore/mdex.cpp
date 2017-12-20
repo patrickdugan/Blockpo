@@ -367,6 +367,7 @@ static MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 
     return NewReturn;
 }
+
 //////////////////////////////////////////////////////
 /** New things for Contracts */
 static MatchReturnType x_Trade(CMPContractDex* const pnew)
