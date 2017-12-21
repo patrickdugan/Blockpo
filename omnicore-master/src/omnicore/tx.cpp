@@ -675,13 +675,13 @@ bool CMPTransaction::interpret_CloseCrowdsale()
     if (pkt_size < 8) {
         return false;
     }
+
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
 
     if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
         PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
     }
-
     return true;
 }
 
@@ -1182,6 +1182,14 @@ int CMPTransaction::logicMath_SimpleSend()
         return (PKT_ERROR_SEND -25);
     }
 
+    /////////////////////////////////////////
+    /*New property type No 3 Contract*/
+    if (MSC_PROPERTY_TYPE_CONTRACT == prop_type) {
+        PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
+        return (PKT_ERROR_SP -36);
+    }
+    /////////////////////////////////////////
+
     // ------------------------------------------
 
     // Special case: if can't find the receiver -- assume send to self!
@@ -1284,6 +1292,14 @@ int CMPTransaction::logicMath_SendToOwners()
             return (PKT_ERROR_STO -28);
         }
     }
+
+    /////////////////////////////////////////
+    /*New property type No 3 Contract*/
+    if (MSC_PROPERTY_TYPE_CONTRACT == prop_type) {
+        PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
+        return (PKT_ERROR_SP -36);
+    }
+    /////////////////////////////////////////
 
     // ------------------------------------------
 
@@ -2101,6 +2117,14 @@ int CMPTransaction::logicMath_CloseCrowdsale()
         return (PKT_ERROR_SP -24);
     }
 
+    /////////////////////////////////////////
+    /*New property type No 3 Contract*/
+    if (MSC_PROPERTY_TYPE_CONTRACT == prop_type) {
+        PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
+        return (PKT_ERROR_SP -36);
+    }
+    /////////////////////////////////////////
+
     CrowdMap::iterator it = my_crowds.find(sender);
     if (it == my_crowds.end()) {
         PrintToLog("%s(): rejected: sender %s has no active crowdsale\n", __func__, sender);
@@ -2113,6 +2137,8 @@ int CMPTransaction::logicMath_CloseCrowdsale()
         return (PKT_ERROR_SP -41);
     }
 
+
+// PKT_ERROR_SP -36
     // ------------------------------------------
 
     CMPSPInfo::Entry sp;
