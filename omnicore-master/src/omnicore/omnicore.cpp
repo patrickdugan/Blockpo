@@ -212,10 +212,23 @@ std::string mastercore::FormatIndivisibleMP(int64_t n)
     return strprintf("%d", n);
 }
 
+/////////////////////////////////////////
+/*New property type No 3 Contract*/
+std::string mastercore::FormatContractMP(int64_t n)
+{
+    return strprintf("%d", n);
+}
+/////////////////////////////////////////
+
 std::string FormatShortMP(uint32_t property, int64_t n)
 {
     if (isPropertyDivisible(property)) {
         return FormatDivisibleShortMP(n);
+    /////////////////////////////////////////
+    /*New property type No 3 Contract*/
+    } else if (isPropertyContract(property)) {
+        return FormatContractMP(n);
+    /////////////////////////////////////////
     } else {
         return FormatIndivisibleMP(n);
     }
@@ -225,6 +238,11 @@ std::string FormatMP(uint32_t property, int64_t n, bool fSign)
 {
     if (isPropertyDivisible(property)) {
         return FormatDivisibleMP(n, fSign);
+    /////////////////////////////////////////
+    /*New property type No 3 Contract*/
+    } else if (isPropertyContract(property)) {
+        return FormatContractMP(n);
+    /////////////////////////////////////////
     } else {
         return FormatIndivisibleMP(n);
     }
@@ -234,15 +252,20 @@ std::string FormatByType(int64_t amount, uint16_t propertyType)
 {
     if (propertyType & MSC_PROPERTY_TYPE_INDIVISIBLE) {
         return FormatIndivisibleMP(amount);
-    ////////////////////////////////
-    /*New property type No 3 Contract*/
-    } else if(propertyType & MSC_PROPERTY_TYPE_CONTRACT) {
-        return FormatIndivisibleMP(amount);
-    ////////////////////////////////
     } else {
         return FormatDivisibleMP(amount);
     }
 }
+
+/////////////////////////////////////////
+/*New property type No 3 Contract*/
+std::string FormatByTypeContract(int64_t amount, uint16_t propertyType)
+{
+    if (propertyType & MSC_PROPERTY_TYPE_CONTRACT) {
+        return FormatContractMP(amount);
+    }
+}
+/////////////////////////////////////////
 
 OfferMap mastercore::my_offers;
 AcceptMap mastercore::my_accepts;

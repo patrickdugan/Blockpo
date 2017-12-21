@@ -594,10 +594,9 @@ std::string CMPContractDex::displayFullContractPrice() const
     uint64_t pForsale = getForsalePrice();
     int64_t  aForsale = getAmountForSale();
 
-    if ( isPropertyUndivisible(getProperty()) && !isPropertyUndivisible(getDesProperty()) ) pForsale = pForsale*1;
-    if ( isPropertyUndivisible(getProperty()) && !isPropertyUndivisible(getDesProperty()) ) aForsale = aForsale*1;
+    if ( isPropertyContract(getProperty()) ) pForsale = pForsale*1;
 
-    int128_t p = int128_t(aForsale)*int128_t(pForsale);
+    int128_t p = int128_t(pForsale);
     std::string priceForsaleStr = xToString(p); 
     return priceForsaleStr;
 }
@@ -649,8 +648,7 @@ std::string CMPContractDex::ToString() const
 {
     return strprintf("%s:%34s in %d/%03u, txid: %s , trade #%u %s for #%u %s",
         xToString(getForsalePrice()), getAddr(), getBlock(), getIdx(), getHash().ToString().substr(0, 10), 
-        getProperty(), FormatMP(getProperty(), getAmountForSale()), getDesProperty(),
-        FormatMP(getDesProperty(), getAmountDesired()));
+        getProperty(), FormatMP(getProperty(), getAmountForSale()));
 }
 //////////////////////////////////////
 

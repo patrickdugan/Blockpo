@@ -770,7 +770,7 @@ UniValue mscrpc_contractdex(const UniValue& params, bool fHelp)
 
     PrintToConsole("%s(extra=%d,extra2=%d,extra3=%d)\n", __FUNCTION__, extra, extra2, extra3);
 
-    bool bUndivisible = isPropertyUndivisible(extra2);
+    bool bContract = isPropertyContract(extra2);
 
     // various extra tests
     switch (extra) {
@@ -781,9 +781,9 @@ UniValue mscrpc_contractdex(const UniValue& params, bool fHelp)
             // display all balances
             for (std::unordered_map<std::string, CMPTally>::iterator my_it = mp_tally_map.begin(); my_it != mp_tally_map.end(); ++my_it) {
                 PrintToConsole("%34s => ", my_it->first);
-                total += (my_it->second).printcd(extra2, bUndivisible);
+                total += (my_it->second).printcd(extra2, bContract);
             }
-            PrintToConsole("total for property %d  = %X is %s\n", extra2, extra2, FormatIndivisibleMP(total));
+            PrintToConsole("total for property %d  = %X is %s\n", extra2, extra2, FormatContractMP(total));
             break;
         }
         case 1:

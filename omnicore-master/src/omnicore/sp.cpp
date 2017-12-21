@@ -52,7 +52,7 @@ bool CMPSPInfo::Entry::isDivisible() const
 
 ///////////////////////////////////////
 /** New things for Contracts */
-bool CMPSPInfo::Entry::isUndivisible() const
+bool CMPSPInfo::Entry::isContract() const
 {
     switch (prop_type) {
         case MSC_PROPERTY_TYPE_CONTRACT:
@@ -602,11 +602,11 @@ bool mastercore::IsPropertyIdValid(uint32_t propertyId)
 
 //////////////////////////////////////
 /** New things for Contracts */
-bool mastercore::isPropertyUndivisible(uint32_t propertyId)
+bool mastercore::isPropertyContract(uint32_t propertyId)
 {
     CMPSPInfo::Entry sp;
 
-    if (_my_sps->getSP(propertyId, sp)) return sp.isUndivisible();
+    if (_my_sps->getSP(propertyId, sp)) return sp.isContract();
 
     return true;
 }

@@ -358,17 +358,14 @@ void populateRPCTypeContractDexTrade(CMPTransaction& omniObj, UniValue& txobj, b
 {
     CMPContractDex contractObj(omniObj);
 
-    bool propertyIdForSaleIsUndivisible = isPropertyUndivisible(omniObj.getProperty());
-    bool propertyIdDesiredIsUndivisible = isPropertyUndivisible(contractObj.getDesProperty());
+    bool propertyIdForSaleIsContract = isPropertyContract(omniObj.getProperty());
     std::string unitPriceStr = contractObj.displayFullContractPrice();
 
     // populate
     txobj.push_back(Pair("propertyidforsale", (uint64_t)omniObj.getProperty()));
-    txobj.push_back(Pair("propertyidforsaleisdivisible", propertyIdForSaleIsUndivisible));
+    txobj.push_back(Pair("propertyid for sale iscontract", propertyIdForSaleIsContract));
     txobj.push_back(Pair("amountforsale", FormatMP(omniObj.getProperty(), omniObj.getAmount())));
-    txobj.push_back(Pair("propertyiddesired", (uint64_t)contractObj.getDesProperty()));
-    txobj.push_back(Pair("propertyiddesiredisdivisible", propertyIdDesiredIsUndivisible));
-    txobj.push_back(Pair("amountdesired", FormatMP(contractObj.getDesProperty(), contractObj.getAmountDesired())));
+    txobj.push_back(Pair("amountdesired", FormatMP(contractObj.getProperty(), contractObj.getAmountForSale())));
     txobj.push_back(Pair("unitprice", unitPriceStr));
     if (extendedDetails) populateRPCExtendedTypeContractDexTrade(omniObj.getHash(), omniObj.getProperty(), omniObj.getAmount(), txobj);
 }
@@ -399,17 +396,14 @@ void populateRPCTypeContractDexCancelPrice(CMPTransaction& omniObj, UniValue& tx
 {
     CMPContractDex contractObj(omniObj);
 
-    bool propertyIdForSaleIsDivisible = isPropertyDivisible(omniObj.getProperty());
-    bool propertyIdDesiredIsDivisible = isPropertyDivisible(contractObj.getDesProperty());
+    bool propertyIdForSaleIsContract = isPropertyContract(omniObj.getProperty());
+    bool propertyIdForSaleContract = isPropertyContract(contractObj.getProperty());
     std::string unitPriceStr = contractObj.displayFullContractPrice();
 
     // populate
-    txobj.push_back(Pair("propertyidforsale", (uint64_t)omniObj.getProperty()));
-    txobj.push_back(Pair("propertyidforsaleisdivisible", propertyIdForSaleIsDivisible));
+    txobj.push_back(Pair("propertyid forsale", (uint64_t)omniObj.getProperty()));
+    txobj.push_back(Pair("propertyid forsale iscontract", propertyIdForSaleContract));
     txobj.push_back(Pair("amountforsale", FormatMP(omniObj.getProperty(), omniObj.getAmount())));
-    txobj.push_back(Pair("propertyiddesired", (uint64_t)contractObj.getDesProperty()));
-    txobj.push_back(Pair("propertyiddesiredisdivisible", propertyIdDesiredIsDivisible));
-    txobj.push_back(Pair("amountdesired", FormatMP(contractObj.getDesProperty(), contractObj.getAmountDesired())));
     txobj.push_back(Pair("for sale price", contractObj.getForsalePrice()));
     if (extendedDetails) populateRPCExtendedTypeContractDexCancel(omniObj.getHash(), txobj);
 }
@@ -433,7 +427,7 @@ void populateRPCTypeContractDexCancelPair(CMPTransaction& omniObj, UniValue& txo
 
     // populate
     txobj.push_back(Pair("propertyidforsale", (uint64_t)omniObj.getProperty()));
-    txobj.push_back(Pair("propertyiddesired", (uint64_t)contractObj.getDesProperty()));
+    txobj.push_back(Pair("propertyidcontract", (uint64_t)contractObj.getProperty()));
     if (extendedDetails) populateRPCExtendedTypeContractDexCancel(omniObj.getHash(), txobj);
 }
 /////////////////////////////////
@@ -619,7 +613,6 @@ void populateRPCExtendedTypeContractDexTrade(const uint256& txid, uint32_t prope
         const CMPContractDex *tradeObj = ContractDex_RetrieveTrade(txid);
         if (tradeObj != NULL) {
             txobj.push_back(Pair("amountremaining", FormatMP(tradeObj->getProperty(), tradeObj->getAmountRemaining())));
-            txobj.push_back(Pair("amounttofill", FormatMP(tradeObj->getDesProperty(), tradeObj->getAmountToFill())));
         }
     }
     txobj.push_back(Pair("status", ContractDex_getStatusText(tradeStatus)));

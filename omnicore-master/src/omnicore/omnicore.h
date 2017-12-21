@@ -162,6 +162,11 @@ std::string FormatMP(uint32_t propertyId, int64_t amount, bool fSign = false);
 std::string FormatShortMP(uint32_t propertyId, int64_t amount);
 std::string FormatByType(int64_t amount, uint16_t propertyType);
 
+/////////////////////////////////////////
+/*New property type No 3 Contract*/
+std::string FormatByTypeContract(int64_t amount, uint16_t propertyType);
+/////////////////////////////////////////
+  
 /** Returns the Exodus address. */
 const CBitcoinAddress ExodusAddress();
 
@@ -381,6 +386,11 @@ extern CCriticalSection cs_tx_cache;
 std::string strMPProperty(uint32_t propertyId);
 
 bool isMPinBlockRange(int starting_block, int ending_block, bool bDeleteFound);
+
+/////////////////////////////////////////
+/*New property type No 3 Contract*/
+std::string FormatContractMP(int64_t n);
+/////////////////////////////////////////
 
 std::string FormatIndivisibleMP(int64_t n);
 
