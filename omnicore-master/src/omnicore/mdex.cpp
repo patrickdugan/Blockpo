@@ -406,7 +406,7 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             const CMPContractDex* const pold = &(*offerIt);
 
-            if (pold->getAction() == pnew->getAction()) {  // no sigue si ambos venden o ambos compran.
+            if (pold->getTradingAction() == pnew->getTradingAction()) {  // no sigue si ambos venden o ambos compran.
                 ++offerIt;
                 continue;
             }
@@ -426,7 +426,7 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
             assert(pold->getEffectivePrice() <= pnew->getEffectivePrice());
             int64_t nCouldBuy = 0;
 
-            if (pold->getAction() == BUY)    // si el pold vende
+            if (pold->getTradingAction() == BUY)    // si el pold vende
             {
                 if ( pnew->getAmountForSale() < pold->getAmountForSale() ) {
                     nCouldBuy = pnew->getAmountForSale();
@@ -450,7 +450,7 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
                     }
             int64_t difference = 0;
             uint64_t possitive = 0;
-            if (pold->getAction() == BUY)    // si el pold vende
+            if (pold->getTradingAction() == BUY)    // si el pold vende
                {
                   difference = pold->getAmountForSale() - pnew->getAmountForSale();
                   possitive = getMPbalance(pold->getAddr(), pold->getProperty(),POSSITIVE_BALANCE); // balance positivo del vendedor
