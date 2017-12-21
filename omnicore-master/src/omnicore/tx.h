@@ -87,8 +87,8 @@ private:
 
     ////////////////////////////////////
     /** New things Contract */
-    uint64_t desired_price;
-    uint64_t forsale_price;
+    uint64_t effective_price;
+    uint8_t trading_action;
     ////////////////////////////////////
 
     /** New things for Contracts */
@@ -295,8 +295,8 @@ public:
 
         ////////////////////////////////////
         /** New things for Contracts */
-        forsale_price = 0;
-        desired_price = 0;
+        effective_price = 0;
+        trading_action = 0;
         ////////////////////////////////////
     }
 

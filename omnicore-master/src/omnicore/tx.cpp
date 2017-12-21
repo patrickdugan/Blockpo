@@ -461,19 +461,18 @@ bool CMPTransaction::interpret_ContractDexTrade()
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
 
-    memcpy(&desired_price, &pkt[28], 8); 
-    swapByteOrder64(desired_price); 
+    memcpy(&effective_price, &pkt[28], 8); 
+    swapByteOrder64(effective_price); 
 
-    memcpy(&forsale_price, &pkt[36], 8);
-    swapByteOrder64(forsale_price);
+    memcpy(&trading_action, &pkt[36], 1);
 
     if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
         PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
         PrintToLog("\t           value: %s\n", FormatMP(property, nValue));
         PrintToLog("\tdesired property: %d (%s)\n", desired_property, strMPProperty(desired_property));
         PrintToLog("\t   desired value: %s\n", FormatMP(desired_property, desired_value));
-        PrintToLog("\t   desired price: %d\n", desired_price);
-        PrintToLog("\t   forsale price: %d\n", forsale_price);
+        PrintToLog("\t   desired price: %d\n", effective_price);
+        PrintToLog("\t   forsale price: %d\n", trading_action);
     }
     return true;
 }                                       
@@ -1802,7 +1801,7 @@ int CMPTransaction::logicMath_ContractDexTrade()
     // ------------------------------------------
 
     t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
-    int rc = ContractDex_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, desired_price, forsale_price);
+    int rc = ContractDex_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, effective_price, trading_action);
     return rc;
 }
 

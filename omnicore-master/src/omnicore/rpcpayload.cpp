@@ -552,8 +552,8 @@ UniValue omni_createpayload_contract_trade(const UniValue& params, bool fHelp)
             "2. amountforsale        (string, required) the amount of contracts to list for sale\n"
             "3. propertiddesired     (number, required) the identifier of the contract desired in exchange\n"
             "4. amountdesired        (string, required) the amount of contract desired in exchange\n"
-            "5. desired_price        (string, required) the price of contract desired in exchange\n"
-            "6. forsale_price        (string, required) the price of contract desired in exchange\n"
+            "5. effective_price      (string, required) the price of contract desired in exchange\n"
+            "6. trading_action       (string, required) the price of contract desired in exchange\n"
             
             "\nResult:\n"
             "\"payload\"             (string) the hex-encoded payload\n"
@@ -565,20 +565,20 @@ UniValue omni_createpayload_contract_trade(const UniValue& params, bool fHelp)
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
     RequireExistingProperty(propertyIdForSale);
-    int64_t amountForSale = ParseAmount(params[1], isPropertyDivisible(propertyIdForSale));
+    int64_t amountForSale = ParseAmount(params[1], isPropertyContract(propertyIdForSale));
 
     uint32_t propertyIdDesired = ParsePropertyId(params[2]);
     RequireExistingProperty(propertyIdDesired);
-    int64_t amountDesired = ParseAmount(params[3], isPropertyDivisible(propertyIdDesired));
+    int64_t amountDesired = ParseAmount(params[3], isPropertyContract(propertyIdDesired));
 
-    uint64_t desired_price = ParseAmount(params[4], isPropertyDivisible(propertyIdDesired));
-    uint64_t forsale_price = ParseAmount(params[5], isPropertyDivisible(propertyIdForSale));
+    uint64_t effective_price = ParseAmount(params[4], isPropertyContract(propertyIdDesired));
+    uint8_t trading_action = ParseAmount(params[5], isPropertyContract(propertyIdForSale));
 
     RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
     RequireDifferentIds(propertyIdForSale, propertyIdDesired);
     RequireDifferentIds(propertyIdForSale, propertyIdDesired);
 
-    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, desired_price, forsale_price);
+    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, effective_price, trading_action);
     return HexStr(payload.begin(), payload.end());
 }
 //////////////////////////////////

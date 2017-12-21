@@ -402,9 +402,10 @@ void populateRPCTypeContractDexCancelPrice(CMPTransaction& omniObj, UniValue& tx
 
     // populate
     txobj.push_back(Pair("propertyid forsale", (uint64_t)omniObj.getProperty()));
-    txobj.push_back(Pair("propertyid forsale iscontract", propertyIdForSaleContract));
+    txobj.push_back(Pair("propertyid forsale iscontract", propertyIdForSaleIsContract));
+    txobj.push_back(Pair("propertyid forsale contract", propertyIdForSaleContract));
     txobj.push_back(Pair("amountforsale", FormatMP(omniObj.getProperty(), omniObj.getAmount())));
-    txobj.push_back(Pair("for sale price", contractObj.getForsalePrice()));
+    txobj.push_back(Pair("for sale price", contractObj.getEffectivePrice()));
     if (extendedDetails) populateRPCExtendedTypeContractDexCancel(omniObj.getHash(), txobj);
 }
 /////////////////////////////////

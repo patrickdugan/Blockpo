@@ -989,8 +989,8 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
             "3. amountforsale        (string, required) the amount of tokens to list for sale\n"
             "4. propertiddesired     (number, required) the identifier of the tokens desired in exchange\n"
             "5. amountdesired        (string, required) the amount of tokens desired in exchange\n"
-            "6. desired_price        (string, required) the price of contract desired in exchange\n"
-            "7. forsale_price        (string, required) the price of contract desired in exchange\n"
+            "6. effective_price      (string, required) the price of contract desired in exchange\n"
+            "7. trading_action       (string, required) the price of contract desired in exchange\n"
             
             "\nResult:\n"
             "\"payload\"             (string) the hex-encoded payload\n"
@@ -1003,14 +1003,14 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
     // obtain parameters & info
     std::string fromAddress = ParseAddress(params[0]);
     uint32_t propertyIdForSale = ParsePropertyId(params[1]);
-    int64_t amountForSale = ParseAmount(params[2], isPropertyDivisible(propertyIdForSale));
+    int64_t amountForSale = ParseAmount(params[2], isPropertyContract(propertyIdForSale));
     uint32_t propertyIdDesired = ParsePropertyId(params[3]);
-    int64_t amountDesired = ParseAmount(params[4], isPropertyDivisible(propertyIdDesired));
+    int64_t amountDesired = ParseAmount(params[4], isPropertyContract(propertyIdDesired));
 
     /////////////////////////////////////////
     /** New things for Contract */
-    int64_t desired_price = ParseAmount(params[5], isPropertyDivisible(propertyIdDesired));
-    int64_t forsale_price = ParseAmount(params[6], isPropertyDivisible(propertyIdForSale));
+    int64_t effective_price = ParseAmount(params[5], isPropertyContract(propertyIdDesired));
+    int64_t trading_action = ParseAmount(params[6], isPropertyContract(propertyIdForSale));
     /////////////////////////////////////////
 
     // perform checks
@@ -1021,7 +1021,7 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
     RequireDifferentIds(propertyIdForSale, propertyIdDesired);
 
     // create a payload for the transaction
-    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, desired_price, forsale_price);
+    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, effective_price, trading_action);
 
     // request the wallet build the transaction (and if needed commit it)
     uint256 txid;
