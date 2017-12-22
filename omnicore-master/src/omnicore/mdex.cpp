@@ -376,6 +376,7 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
 
     MatchReturnType NewReturn = NOTHING;
     bool bBuyerSatisfied = false;
+    std::string Status;
 
     cd_PricesMap* const ppriceMap = get_PricesCd(propertyForSale); // generamos un mapa de precios con la propertyDesired.
 
@@ -497,13 +498,25 @@ static MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             // if (msc_debug_metadex1) PrintToLog("==== TRADED !!! %u=%s\n", NewReturn, getTradeReturnType(NewReturn));
 
-            // record the trade in MPTradeList
-            /*Remember: We don't need for now fees*/
-            // int64_t tradingFee = 0;
+            ///////////////////////////////////////////
+            /** New things for Contracts */
+            if ( pold->getAmountRemaining() == 0 && pnew->getAmountRemaining() == 0 ) {
+                Status = "NETTED";
+            } else if ( pold->getAmountRemaining() > 0 && pnew->getAmountRemaining() == 0 ) {
+                Status = "SHORT NETTED";
+            } else {
+                Status = "LONG NETTED";                
+            }
 
-            // t_tradelistdb->recordMatchedTrade(pold->getHash(), pnew->getHash(), // < might just pass pold, pnew
-            //     pold->getAddr(), pnew->getAddr(), pold->getDesProperty(), pnew->getDesProperty()
-            //     , pold->getAmountForSale(), pnew->getAmountDesired(), pnew->getBlock(), tradingFee);/*Remember: Check buyer_amountGot here in omnicore.cpp*/
+            t_tradelistdb->recordMatchedTrade(pold->getHash(), pnew->getHash(), 
+                                              pold->getAddr(), pnew->getAddr(), 
+                                              pold->getProperty(), pnew->getProperty(), 
+                                              pold->getAmountForSale(), pnew->getAmountForSale(), 
+                                              pold->getBlock(), pnew->getBlock(),
+                                              pold->getEffectivePrice(), pnew->getEffectivePrice(),
+                                              pold->getAmountRemaining(), pnew->getAmountRemaining(),
+                                              pold->getTradingAction(), pnew->getTradingAction(), Status);
+            ///////////////////////////////////////////
 
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());
             // erase the old seller element

@@ -146,45 +146,6 @@ class CMPContractDex : public CMPMetaDEx
 };
 ///////////////////////////////////////////
 
-// ///////////////////////////////////////////
-// /** New things for Contracts */
-// class CMPContractDex : public CMPMetaDEx
-// {
-//     private:
-//         uint64_t desired_price;
-//         uint64_t forsale_price;
-
-//     public:
-//         CMPContractDex()
-//         : desired_price(0), forsale_price(0) {}
-
-//         CMPContractDex(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad, 
-//                        const uint256& tx, uint32_t i, uint8_t suba, uint64_t dsp, uint64_t fsp) 
-//         : CMPMetaDEx(addr, b, c, nValue, cd, ad, tx, i, suba), desired_price(dsp), forsale_price(fsp) {}
-
-//         /*Remember: Needed for omnicore.cpp "ar"*/
-//         CMPContractDex(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad, 
-//                        const uint256& tx, uint32_t i, uint8_t suba, int64_t ar, uint64_t dsp, uint64_t fsp) 
-//         : CMPMetaDEx(addr, b, c, nValue, cd, ad, tx, i, suba, ar), desired_price(dsp), forsale_price(fsp) {}
-     
-//         CMPContractDex(const CMPTransaction &tx)
-//         : CMPMetaDEx(tx), desired_price(tx.desired_price), forsale_price(tx.forsale_price) {}
-
-//         virtual ~CMPContractDex()
-//         {
-//             if (msc_debug_persistence) PrintToLog("CMPTransaction closed\n");
-//         }
-
-//         uint64_t getDesiredPrice() const { return desired_price; }
-//         uint64_t getForsalePrice() const { return forsale_price; }
-
-//         std::string displayFullContractPrice() const;
-//         std::string ToString() const;
-
-//         void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
-// };
-// ///////////////////////////////////////////
-
 namespace mastercore
 {
 	struct MetaDEx_compare

@@ -3994,11 +3994,11 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
 /////////////////////////////////
 /** New things for Contract */
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status)
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum1, int blockNum2, uint64_t effective_price1, uint64_t effective_price2, uint64_t amountr1, uint64_t amountr2, uint8_t trading_action1, uint8_t trading_action2, string s_status)
 {
   if (!pdb) return;
   const string key = txid1.ToString() + "+" + txid2.ToString();
-  const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d:%s", address1, address2, prop1, prop2, amount1, amount2, blockNum, fee, t_status);
+  const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d:%lu:%lu:%lu:%lu:%s", address1, address2, prop1, prop2, amount1, amount2, blockNum1, blockNum2, effective_price1, effective_price2, amountr1, amountr2, trading_action1, trading_action2, s_status);
   Status status;
   if (pdb)
   {
