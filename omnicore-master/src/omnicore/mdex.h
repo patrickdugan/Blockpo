@@ -37,6 +37,16 @@ std::string xToString(const rational_t& value);
 std::string xToString(const uint64_t &value);
 ///////////////////////////////
 
+enum MatchReturnType
+{
+    NOTHING = 0,
+    TRADED = 1,
+    TRADED_MOREINSELLER,
+    TRADED_MOREINBUYER,
+    ADDED,
+    CANCELLED,
+};
+
 /** A trade on the distributed exchange.
  */
 class CMPMetaDEx
@@ -64,7 +74,12 @@ public:
     int64_t getAmountRemaining() const { return amount_remaining; }
     int64_t getAmountToFill() const;
 
-    void setAmountRemaining(int64_t ar, const std::string& label = "");
+    void setAmountRemaining(int64_t ar, const std::string &label = "");
+    
+    ///////////////////////////////////////////
+    /** New things for Contracts */
+    void setAmountForsale(int64_t ar, const std::string &label = "");
+    ///////////////////////////////////////////
 
     uint8_t getAction() const { return subaction; }
 
@@ -142,6 +157,11 @@ class CMPContractDex : public CMPMetaDEx
         std::string displayFullContractPrice() const;
         std::string ToString() const;
 
+        ///////////////////////////////
+        /*New things for Contracts*/
+        MatchReturnType x_Trade(CMPContractDex* const pnew);
+        ///////////////////////////////
+
         void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 };
 ///////////////////////////////////////////
@@ -185,8 +205,6 @@ namespace mastercore
 	cd_PricesMap *get_PricesCd(uint32_t prop);
 	cd_Set *get_IndexesCd(cd_PricesMap *p, uint64_t price);																																																																																																																																																				
 
-	///////////////////////////////////
-	/** New things for Contracts */
     int ContractDex_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t effective_price, uint8_t trading_action);
     bool ContractDex_INSERT(const CMPContractDex &objContractDex);
     int ContractDex_CANCEL_EVERYTHING(const uint256& txid, unsigned int block, const std::string& sender_addr, unsigned char ecosystem);
@@ -199,6 +217,7 @@ namespace mastercore
     int ContractDex_SHUTDOWN_ALLPAIR();
     int ContractDex_CANCEL_ALL_FOR_PAIR(const uint256& txid, unsigned int block, const std::string& sender_addr, uint32_t prop, uint32_t property_desired);
 	///////////////////////////////////
+
     int MetaDEx_ADD(const std::string& sender_addr, uint32_t, int64_t, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx);
 	int MetaDEx_CANCEL_AT_PRICE(const uint256&, uint32_t, const std::string&, uint32_t, int64_t, uint32_t, int64_t);
 	int MetaDEx_CANCEL_ALL_FOR_PAIR(const uint256&, uint32_t, const std::string&, uint32_t, uint32_t);

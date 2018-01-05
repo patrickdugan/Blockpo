@@ -264,7 +264,7 @@ public:
     void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee);
     /////////////////////////////////
     /** New things for Contract */
-    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum1, int blockNum2, uint64_t effective_price1, uint64_t effective_price2, uint64_t amountr1, uint64_t amountr2, uint8_t trading_action1, uint8_t trading_action2, string s_status);
+    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum1, int blockNum2, uint64_t effective_price1, uint64_t effective_price2, uint8_t trading_action1, uint8_t trading_action2, string s_status);
     void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid);
     /////////////////////////////////
     void recordNewTrade(const uint256& txid, const std::string& address, uint32_t propertyIdForSale, uint32_t propertyIdDesired, int blockNum, int blockIndex);
