@@ -81,17 +81,6 @@ cd_Set *mastercore::get_IndexesCd(cd_PricesMap *p, uint64_t price)
 
     return (cd_Set*) NULL;
 }
-///////////////////////////////////////////
-
-// enum MatchReturnType
-// {
-//     NOTHING = 0,
-//     TRADED = 1,
-//     TRADED_MOREINSELLER,
-//     TRADED_MOREINBUYER,
-//     ADDED,
-//     CANCELLED,
-// };
 
 static const std::string getTradeReturnType(MatchReturnType ret)
 {
@@ -370,7 +359,7 @@ MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 
 ///////////////////////////////////////
 /** New things for Contracts */
-MatchReturnType CMPContractDex::x_Trade(CMPContractDex* const pnew)
+MatchReturnType x_Trade(CMPContractDex* const pnew)
 {
     const uint32_t propertyForSale = pnew->getProperty();
 
@@ -524,7 +513,7 @@ MatchReturnType CMPContractDex::x_Trade(CMPContractDex* const pnew)
 
             } else if (seller_amount == buyer_amount){	
                	pnew->setAmountForsale(0, "no_remaining");
-               // contract_replacement.setAmountForsale(0, "no_remaining");
+                contract_replacement.setAmountForsale(0, "no_remaining");
                NewReturn = TRADED;
             }
 

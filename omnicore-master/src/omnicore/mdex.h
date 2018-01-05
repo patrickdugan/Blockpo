@@ -75,8 +75,6 @@ public:
     int64_t getAmountToFill() const;
 
     void setAmountRemaining(int64_t ar, const std::string &label = "");
-    
-    ///////////////////////////////////////////
     /** New things for Contracts */
     void setAmountForsale(int64_t ar, const std::string &label = "");
     ///////////////////////////////////////////
@@ -120,6 +118,8 @@ public:
     std::string displayFullUnitPrice() const;
 
     void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
+
+    friend MatchReturnType x_Trade(CMPMetaDEx* const pnew);
 };
 
 ///////////////////////////////////////////
@@ -157,14 +157,13 @@ class CMPContractDex : public CMPMetaDEx
         std::string displayFullContractPrice() const;
         std::string ToString() const;
 
+        void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
+
         ///////////////////////////////
         /*New things for Contracts*/
-        MatchReturnType x_Trade(CMPContractDex* const pnew);
+        friend MatchReturnType x_Trade(CMPContractDex* const pnew);
         ///////////////////////////////
-
-        void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
-};
-///////////////////////////////////////////
+};    
 
 namespace mastercore
 {
