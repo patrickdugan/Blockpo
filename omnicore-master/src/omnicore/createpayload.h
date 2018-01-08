@@ -38,10 +38,16 @@ std::vector<unsigned char> CreatePayload_MetaDExCancelPair(uint32_t propertyIdFo
 std::vector<unsigned char> CreatePayload_MetaDExCancelEcosystem(uint8_t ecosystem);
 ///////////////////////////
 /** New things for Contracts */
+std::vector<unsigned char> CreatePayload_ContractDexCancelEcosystem(uint8_t ecosystem);
 std::vector<unsigned char> CreatePayload_ContractDexTrade(uint32_t propertyIdForSale, uint64_t amountForSale, uint32_t propertyIdDesired, uint64_t amountDesired, uint64_t effective_price, uint8_t trading_action);
 ///////////////////////////
 std::vector<unsigned char> CreatePayload_OmniCoreAlert(uint16_t alertType, uint32_t expiryValue, const std::string& alertMessage);
 std::vector<unsigned char> CreatePayload_DeactivateFeature(uint16_t featureId);
 std::vector<unsigned char> CreatePayload_ActivateFeature(uint16_t featureId, uint32_t activationBlock, uint32_t minClientVersion);
+
+///////////////////////////
+/** New things for Contracts */
+std::vector<unsigned char> CreatePayload_ContractDexCancelPrice(uint32_t propertyIdForSale, uint64_t amountForSale, uint32_t propertyIdDesired, uint64_t amountDesired, uint64_t effective_price, uint8_t trading_action);
+///////////////////////////
 
 #endif // OMNICORE_CREATEPAYLOAD_H

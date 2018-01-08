@@ -80,8 +80,12 @@ enum TransactionType {
   ////////////////////////////////////
   /** New things for Contract */ 
   MSC_TYPE_CONTRACTDEX_TRADE          = 29,
+  MSC_TYPE_CONTRACTDEX_CANCEL_PRICE   = 30,
   ////////////////////////////////////
   MSC_TYPE_NOTIFICATION               = 31,
+  ////////////////////////////////////
+  /** New things for Contract */ 
+  MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM   = 32,
   ////////////////////////////////////
   /** New things for Contract: Here we changed "MSC_TYPE_OFFER_ACCEPT_A_BET = 40" */ 
   MSC_TYPE_CREATE_CONTRACT            = 40,

@@ -136,6 +136,8 @@ private:
     /** New things for Contract */
     bool interpret_ContractDexTrade();
     bool interpret_CreateContractDex();
+    bool interpret_ContractDexCancelPrice();
+    bool interpret_ContractDexCancelEcosystem();
     ///////////////////////////////////////////////
     bool interpret_AcceptOfferBTC();
     bool interpret_CreatePropertyFixed();
@@ -169,6 +171,8 @@ private:
     /** New things for Contract */
     int logicMath_ContractDexTrade();
     int logicMath_CreateContractDex();
+    int logicMath_ContractDexCancelPrice();
+    int logicMath_ContractDexCancelEcosystem();
     ///////////////////////////////////////////////
     int logicMath_CreatePropertyFixed();
     int logicMath_CreatePropertyVariable();

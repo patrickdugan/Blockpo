@@ -35,7 +35,6 @@ std::string xToString(const rational_t& value);
 ///////////////////////////////
 /*New things for Contracts*/
 std::string xToString(const uint64_t &value);
-///////////////////////////////
 
 enum MatchReturnType
 {
@@ -46,6 +45,7 @@ enum MatchReturnType
     ADDED,
     CANCELLED,
 };
+///////////////////////////////
 
 /** A trade on the distributed exchange.
  */
@@ -119,7 +119,6 @@ public:
 
     void saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const;
 
-    friend MatchReturnType x_Trade(CMPMetaDEx* const pnew);
 };
 
 ///////////////////////////////////////////
@@ -206,7 +205,6 @@ namespace mastercore
 
     int ContractDex_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t effective_price, uint8_t trading_action);
     bool ContractDex_INSERT(const CMPContractDex &objContractDex);
-    int ContractDex_CANCEL_EVERYTHING(const uint256& txid, unsigned int block, const std::string& sender_addr, unsigned char ecosystem);
     void ContractDex_debug_print(bool bShowPriceLevel, bool bDisplay);
     const CMPContractDex *ContractDex_RetrieveTrade(const uint256& txid);
     bool ContractDex_isOpen(const uint256& txid, uint32_t propertyIdForSale);
@@ -215,6 +213,11 @@ namespace mastercore
     int ContractDex_SHUTDOWN();
     int ContractDex_SHUTDOWN_ALLPAIR();
     int ContractDex_CANCEL_ALL_FOR_PAIR(const uint256& txid, unsigned int block, const std::string& sender_addr, uint32_t prop, uint32_t property_desired);
+
+    ///////////////////////////////////
+    /** New things for Contracts */
+    int ContractDex_CANCEL_EVERYTHING(const uint256& txid, unsigned int block, const std::string& sender_addr, unsigned char ecosystem);
+    int ContractDex_CANCEL_AT_PRICE(const uint256& txid, unsigned int block, const std::string& sender_addr, uint32_t prop, int64_t amount, uint32_t property_desired, int64_t amount_desired, uint64_t effective_price, uint8_t trading_action);
 	///////////////////////////////////
 
     int MetaDEx_ADD(const std::string& sender_addr, uint32_t, int64_t, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx);

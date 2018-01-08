@@ -3276,7 +3276,7 @@ void CMPTxList::recordMetaDExCancelTX(const uint256 &txidMaster, const uint256 &
        }
 }
 
-/////////////////////////////////////////////
+//////////////////////////////////////
 /** New things for Contracts */
 void CMPTxList::recordContractDexCancelTX(const uint256 &txidMaster, const uint256 &txidSub, bool fValid, int nBlock, unsigned int propertyId, uint64_t nValue)
 {
@@ -3329,7 +3329,7 @@ void CMPTxList::recordContractDexCancelTX(const uint256 &txidMaster, const uint2
            PrintToLog("CONTRACTDEXCANCELDEBUG : %s(): %s, line %d, file: %s\n", __FUNCTION__, subStatus.ToString(), __LINE__, __FILE__);
        }
 }
-/////////////////////////////////////////////
+//////////////////////////////////////
 
 /**
  * Records a "send all" sub record.

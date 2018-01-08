@@ -953,6 +953,63 @@ int mastercore::MetaDEx_CANCEL_AT_PRICE(const uint256& txid, unsigned int block,
     return rc;
 }
 
+//////////////////////////////////////
+/** New things for Contracts */
+int mastercore::ContractDex_CANCEL_AT_PRICE(const uint256& txid, unsigned int block, const std::string& sender_addr, uint32_t prop, int64_t amount, uint32_t property_desired, int64_t amount_desired, uint64_t effective_price, uint8_t trading_action)
+{
+    int rc = METADEX_ERROR -20;
+    CMPContractDex cdex(sender_addr, 0, prop, amount, property_desired, amount_desired, uint256(), 0, CMPTransaction::CANCEL_AT_PRICE, effective_price, trading_action);
+    cd_PricesMap* prices = get_PricesCd(prop);
+    const CMPContractDex* p_cdex = NULL;
+
+    if (msc_debug_metadex1) PrintToLog("%s():%s\n", __FUNCTION__, cdex.ToString());
+
+    if (msc_debug_metadex2) MetaDEx_debug_print();
+
+    if (!prices) {
+        PrintToLog("%s() NOTHING FOUND for %s\n", __FUNCTION__, cdex.ToString());
+        return rc -1;
+    }
+
+    // within the desired property map (given one property) iterate over the items
+    for (cd_PricesMap::iterator my_it = prices->begin(); my_it != prices->end(); ++my_it) {
+        uint64_t sellers_price = my_it->first;
+
+        if (cdex.getEffectivePrice() != sellers_price) continue;
+
+        cd_Set* indexes = &(my_it->second);
+
+        for (cd_Set::iterator iitt = indexes->begin(); iitt != indexes->end();) {
+            p_cdex = &(*iitt);
+
+            if (msc_debug_metadex3) PrintToLog("%s(): %s\n", __FUNCTION__, p_cdex->ToString());
+
+            if ((p_cdex->getProperty() != property_desired) || (p_cdex->getAddr() != sender_addr)) {
+                ++iitt;
+                continue;
+            }
+
+            rc = 0;
+            PrintToLog("%s(): REMOVING %s\n", __FUNCTION__, p_cdex->ToString());
+
+            // move from reserve to main
+            assert(update_tally_map(p_cdex->getAddr(), p_cdex->getProperty(), -p_cdex->getAmountForSale(), METADEX_RESERVE));
+            assert(update_tally_map(p_cdex->getAddr(), p_cdex->getProperty(), p_cdex->getAmountForSale(), BALANCE));
+
+            // record the cancellation
+            bool bValid = true;
+            p_txlistdb->recordContractDexCancelTX(txid, p_cdex->getHash(), bValid, block, p_cdex->getProperty(), p_cdex->getAmountForSale());
+
+            indexes->erase(iitt++);
+        }
+    }
+
+    if (msc_debug_metadex2) MetaDEx_debug_print();
+
+    return rc;
+}
+//////////////////////////////////////
+
 int mastercore::MetaDEx_CANCEL_ALL_FOR_PAIR(const uint256& txid, unsigned int block, const std::string& sender_addr, uint32_t prop, uint32_t property_desired)
 {
     int rc = METADEX_ERROR -30;
@@ -1113,6 +1170,9 @@ int mastercore::MetaDEx_CANCEL_EVERYTHING(const uint256& txid, unsigned int bloc
     return rc;
 }
 
+/**
+ * Scans the orderbook and remove everything for an address.
+ */
 //////////////////////////////////////
 /** New things for Contracts */
 int mastercore::ContractDex_CANCEL_EVERYTHING(const uint256& txid, unsigned int block, const std::string& sender_addr, unsigned char ecosystem)
@@ -1153,12 +1213,12 @@ int mastercore::ContractDex_CANCEL_EVERYTHING(const uint256& txid, unsigned int 
                 PrintToLog("%s(): REMOVING %s\n", __FUNCTION__, it->ToString());
 
                 // move from reserve to balance
-                assert(update_tally_map(it->getAddr(), it->getProperty(), -it->getAmountRemaining(), METADEX_RESERVE));
-                assert(update_tally_map(it->getAddr(), it->getProperty(), it->getAmountRemaining(), BALANCE));
+                assert(update_tally_map(it->getAddr(), it->getProperty(), -it->getAmountForSale(), METADEX_RESERVE));
+                assert(update_tally_map(it->getAddr(), it->getProperty(), it->getAmountForSale(), BALANCE));
 
                 // record the cancellation
                 bool bValid = true;
-                p_txlistdb->recordContractDexCancelTX(txid, it->getHash(), bValid, block, it->getProperty(), it->getAmountRemaining());
+                p_txlistdb->recordContractDexCancelTX(txid, it->getHash(), bValid, block, it->getProperty(), it->getAmountForSale());
 
                 indexes.erase(it++);
             }

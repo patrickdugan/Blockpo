@@ -57,6 +57,8 @@ std::string mastercore::strTransactionType(uint16_t txType)
         /////////////////////////////
         /** New things for Contract */
         case MSC_TYPE_CONTRACTDEX_TRADE: return "Future Contract";
+        case MSC_TYPE_CONTRACTDEX_CANCEL_PRICE: return "ContractDex cancel-price";
+        case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM: return "ContractDex cancel-ecosystem";        
         case MSC_TYPE_CREATE_CONTRACT: return "Create Contract";
         /////////////////////////////
         case MSC_TYPE_ACCEPT_OFFER_BTC: return "DEx Accept Offer";
@@ -144,6 +146,13 @@ bool CMPTransaction::interpret_Transaction()
         /** New things for Contract */
         case MSC_TYPE_CONTRACTDEX_TRADE:
             return interpret_ContractDexTrade();
+
+        case MSC_TYPE_CONTRACTDEX_CANCEL_PRICE:
+            return interpret_ContractDexCancelPrice();
+
+        case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM:
+            return interpret_ContractDexCancelEcosystem();
+
         case MSC_TYPE_CREATE_CONTRACT:
             return interpret_CreateContractDex();
         ////////////////////////////////
@@ -393,6 +402,43 @@ bool CMPTransaction::interpret_MetaDExCancelPrice()
     return true;
 }
 
+///////////////////////////////////
+/** New things for Contracts */
+/** Tx 30 */
+bool CMPTransaction::interpret_ContractDexCancelPrice()
+{
+    if (pkt_size < 33) {
+        return false;
+    }
+
+    memcpy(&property, &pkt[4], 4);
+    swapByteOrder32(property);
+    memcpy(&nValue, &pkt[8], 8);
+    swapByteOrder64(nValue);
+    nNewValue = nValue;
+    memcpy(&desired_property, &pkt[16], 4);
+    swapByteOrder32(desired_property);
+    memcpy(&desired_value, &pkt[20], 8);
+    swapByteOrder64(desired_value);
+    memcpy(&effective_price, &pkt[28], 8); 
+    swapByteOrder64(effective_price); 
+    memcpy(&trading_action, &pkt[36], 1);
+
+    action = CMPTransaction::CANCEL_AT_PRICE; // depreciated
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
+        PrintToLog("\t           value: %s\n", FormatMP(property, nValue));
+        PrintToLog("\tdesired property: %d (%s)\n", desired_property, strMPProperty(desired_property));
+        PrintToLog("\t   desired value: %s\n", FormatMP(desired_property, desired_value));
+        PrintToLog("\t   desired price: %d\n", effective_price);
+        PrintToLog("\t   forsale price: %d\n", trading_action);
+    }
+
+    return true;
+}
+////////////////////////////////////
+
 /** Tx 27 */
 bool CMPTransaction::interpret_MetaDExCancelPair()
 {
@@ -438,6 +484,30 @@ bool CMPTransaction::interpret_MetaDExCancelEcosystem()
 
     return true;
 }
+
+//////////////////////////////
+/** New things for Contracts */
+bool CMPTransaction::interpret_ContractDexCancelEcosystem()
+{
+    if (pkt_size < 5) {
+        return false;
+    }
+    memcpy(&ecosystem, &pkt[4], 1);
+
+    property = ecosystem; // depreciated
+    desired_property = ecosystem; // depreciated
+    nValue = 0; // depreciated
+    nNewValue = nValue; // depreciated
+    desired_value = 0; // depreciated
+    action = CMPTransaction::CANCEL_EVERYTHING; // depreciated
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t       ecosystem: %d\n", (int)ecosystem);
+    }
+
+    return true;
+}
+//////////////////////////////
 
 //////////////////////////////
 /** New things for Contracts */
@@ -1018,6 +1088,9 @@ int CMPTransaction::interpretPacket()
         /** New things for Contract */
         case MSC_TYPE_CONTRACTDEX_TRADE:
             return logicMath_ContractDexTrade();
+
+        case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM:
+            return logicMath_ContractDexCancelEcosystem();
 
         case MSC_TYPE_CREATE_CONTRACT:
             return logicMath_CreateContractDex();
@@ -1658,6 +1731,64 @@ int CMPTransaction::logicMath_MetaDExCancelPrice()
     return rc;
 }
 
+///////////////////////////////////////////
+/** New things for Contracts */
+/** Tx 30 */
+int CMPTransaction::logicMath_ContractDexCancelPrice()
+{
+    if (!IsTransactionTypeAllowed(block, property, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_METADEX -22);
+    }
+
+    if (property == desired_property) {
+        PrintToLog("%s(): rejected: property for sale %d and desired property %d must not be equal\n",
+                __func__,
+                property,
+                desired_property);
+        return (PKT_ERROR_METADEX -29);
+    }
+
+    if (isTestEcosystemProperty(property) != isTestEcosystemProperty(desired_property)) {
+        PrintToLog("%s(): rejected: property for sale %d and desired property %d not in same ecosystem\n",
+                __func__,
+                property,
+                desired_property);
+        return (PKT_ERROR_METADEX -30);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property for sale %d does not exist\n", __func__, property);
+        return (PKT_ERROR_METADEX -31);
+    }
+
+    if (!IsPropertyIdValid(desired_property)) {
+        PrintToLog("%s(): rejected: desired property %d does not exist\n", __func__, desired_property);
+        return (PKT_ERROR_METADEX -32);
+    }
+
+    if (nNewValue <= 0 || MAX_INT_8_BYTES < nNewValue) {
+        PrintToLog("%s(): rejected: amount for sale out of range or zero: %d\n", __func__, nNewValue);
+        return (PKT_ERROR_METADEX -33);
+    }
+
+    if (desired_value <= 0 || MAX_INT_8_BYTES < desired_value) {
+        PrintToLog("%s(): rejected: desired amount out of range or zero: %d\n", __func__, desired_value);
+        return (PKT_ERROR_METADEX -34);
+    }
+
+    // ------------------------------------------
+
+    int rc = ContractDex_CANCEL_AT_PRICE(txid, block, sender, property, nNewValue, desired_property, desired_value, effective_price, trading_action);
+
+    return rc;
+}
+
 /** Tx 27 */
 int CMPTransaction::logicMath_MetaDExCancelPair()
 {
@@ -1726,6 +1857,31 @@ int CMPTransaction::logicMath_MetaDExCancelEcosystem()
 
     return rc;
 }
+
+///////////////////////////////////////////////
+/** New things for Contract */
+int CMPTransaction::logicMath_ContractDexCancelEcosystem()
+{
+    if (!IsTransactionTypeAllowed(block, ecosystem, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_METADEX -22);
+    }
+
+    if (OMNI_PROPERTY_MSC != ecosystem && OMNI_PROPERTY_TMSC != ecosystem) {
+        PrintToLog("%s(): rejected: invalid ecosystem: %d\n", __func__, ecosystem);
+        return (PKT_ERROR_METADEX -21);
+    }
+
+    int rc = ContractDex_CANCEL_EVERYTHING(txid, block, sender, ecosystem);
+
+    return rc;
+}
+///////////////////////////////////////////////
 
 ///////////////////////////////////////////////
 /** New things for Contract */
