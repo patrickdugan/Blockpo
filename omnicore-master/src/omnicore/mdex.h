@@ -75,9 +75,10 @@ public:
     int64_t getAmountToFill() const;
 
     void setAmountRemaining(int64_t ar, const std::string &label = "");
+    ////////////////////////////////////////
     /** New things for Contracts */
     void setAmountForsale(int64_t ar, const std::string &label = "");
-    ///////////////////////////////////////////
+    ////////////////////////////////////////
 
     uint8_t getAction() const { return subaction; }
 

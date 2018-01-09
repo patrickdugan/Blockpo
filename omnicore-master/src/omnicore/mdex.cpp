@@ -514,7 +514,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             } else if (seller_amount == buyer_amount){	
                	pnew->setAmountForsale(0, "no_remaining");
                 contract_replacement.setAmountForsale(0, "no_remaining");
-               NewReturn = TRADED;
+                NewReturn = TRADED;
             }
 
             if (msc_debug_metadex1) PrintToLog("==== TRADED !!! %u=%s\n", NewReturn, getTradeReturnType(NewReturn));
@@ -531,13 +531,14 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 Status = "LONG NETTED";                
             }
 
-            t_tradelistdb->recordMatchedTrade(pold->getHash(), pnew->getHash(), 
-                                              pold->getAddr(), pnew->getAddr(), 
-                                              pold->getProperty(), pnew->getProperty(), 
-                                              pold->getAmountForSale(), pnew->getAmountForSale(), 
-                                              pold->getBlock(), pnew->getBlock(),
-                                              pold->getEffectivePrice(), pnew->getEffectivePrice(),
-                                              pold->getTradingAction(), pnew->getTradingAction(), Status);
+            t_tradelistdb->recordMatchedTrade(pold->getHash(), 
+                                              pnew->getHash(), 
+                                              pold->getEffectivePrice(), 
+                                              pold->getAmountForSale(), 
+                                              contract_replacement.getAmountForSale(), 
+                                              pold->getBlock(), 
+                                              pnew->getBlock(),
+                                              Status);
             ///////////////////////////////////////
 
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());	        

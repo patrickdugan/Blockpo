@@ -4007,6 +4007,23 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
   }
 }
+
+/////////////////////////////////
+/** New things for Contract */
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status) 
+{
+  if (!pdb) return;
+  const string key = txid1.ToString() + "+" + txid2.ToString();
+  const string value = strprintf("%lu:%lu:%lu:%d:%d:%s", effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status);
+  Status status;
+  if (pdb)
+  {
+    status = pdb->Put(writeoptions, key, value);
+    ++nWritten;
+    if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
+  }
+}
+
 /////////////////////////////////
 /** New things for Contract */
 void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid)
@@ -4032,6 +4049,7 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     }
 }
 /////////////////////////////////
+
 /**
  * This function deletes records of trades above/equal to a specific block from the trade database.
  *

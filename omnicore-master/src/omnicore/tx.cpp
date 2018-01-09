@@ -487,6 +487,7 @@ bool CMPTransaction::interpret_MetaDExCancelEcosystem()
 
 //////////////////////////////
 /** New things for Contracts */
+/** Tx 32 */
 bool CMPTransaction::interpret_ContractDexCancelEcosystem()
 {
     if (pkt_size < 5) {
@@ -1860,6 +1861,7 @@ int CMPTransaction::logicMath_MetaDExCancelEcosystem()
 
 ///////////////////////////////////////////////
 /** New things for Contract */
+/** Tx 32 */
 int CMPTransaction::logicMath_ContractDexCancelEcosystem()
 {
     if (!IsTransactionTypeAllowed(block, ecosystem, type, version)) {
