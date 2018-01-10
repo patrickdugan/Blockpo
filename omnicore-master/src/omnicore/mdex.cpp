@@ -492,9 +492,9 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             CMPContractDex contract_replacement = *pold;
 
             if (seller_amount > buyer_amount && pold->getTradingAction() == SELL) {
-               contract_replacement.setAmountForsale(seller_amount - buyer_amount, "moreinseller");
-               pnew->setAmountForsale(0, "no_remaining");
-               NewReturn = TRADED_MOREINSELLER;
+                contract_replacement.setAmountForsale(seller_amount - buyer_amount, "moreinseller");
+                pnew->setAmountForsale(0, "no_remaining");
+                NewReturn = TRADED_MOREINSELLER;
 
             } else if (seller_amount < buyer_amount && pold->getTradingAction() == SELL){
                 contract_replacement.setAmountForsale(0, "no_remaining");
@@ -502,32 +502,33 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 NewReturn = TRADED_MOREINBUYER; 
 
             } else if (seller_amount > buyer_amount && pold->getTradingAction() == BUY){
-               pnew->setAmountForsale(seller_amount - buyer_amount, "moreinseller");
-               contract_replacement.setAmountForsale(0, "no_remaining");
-               NewReturn = TRADED_MOREINSELLER;
+                pnew->setAmountForsale(seller_amount - buyer_amount, "moreinseller");
+                contract_replacement.setAmountForsale(0, "no_remaining");
+                NewReturn = TRADED_MOREINSELLER;
 
             } else if (seller_amount < buyer_amount && pold->getTradingAction() == BUY){
-               pnew->setAmountForsale(0, "no_remaining");
-               contract_replacement.setAmountForsale(buyer_amount -seller_amount, "moreinbuyer");
-               NewReturn = TRADED_MOREINBUYER;
+                pnew->setAmountForsale(0, "no_remaining");
+                contract_replacement.setAmountForsale(buyer_amount -seller_amount, "moreinbuyer");
+                NewReturn = TRADED_MOREINBUYER;
 
             } else if (seller_amount == buyer_amount){	
-               	pnew->setAmountForsale(0, "no_remaining");
+                pnew->setAmountForsale(0, "no_remaining");
                 contract_replacement.setAmountForsale(0, "no_remaining");
                 NewReturn = TRADED;
             }
 
             if (msc_debug_metadex1) PrintToLog("==== TRADED !!! %u=%s\n", NewReturn, getTradeReturnType(NewReturn));
-
             ///////////////////////////////////////////
             /** New things for Contracts */
             std::string Status;
 
-            if ( pold->getAmountForSale() == 0 && pnew->getAmountForSale() == 0 ) {
-                Status = "NETTED";
-            } else if ( pold->getAmountForSale() > 0 && pnew->getAmountForSale() == 0 ) {
+            if ( (contract_replacement.getHash() == pnew->getHash()) && (contract_replacement.getAmountForSale() == pnew->getAmountForSale()) ) {
+                Status = "CLOSED POSITION";
+
+            } else if ( (contract_replacement.getHash() != pnew->getHash()) && (contract_replacement.getAmountForSale() > 0 && pnew->getAmountForSale() == 0) ) {
                 Status = "SHORT NETTED";
-            } else {
+                
+            } else if ( (contract_replacement.getHash() != pnew->getHash()) && (contract_replacement.getAmountForSale() == 0 && pnew->getAmountForSale() > 0) ) {
                 Status = "LONG NETTED";                
             }
 
