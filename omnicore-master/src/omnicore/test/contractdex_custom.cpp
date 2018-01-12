@@ -413,7 +413,8 @@ BOOST_AUTO_TEST_CASE(PNL)
 {
 
  string addr = "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH";
- int63_t amountToReserve = 0;
+ int64_t amountToReserve = 0;
+ int64_t nBalance = 0;
  BOOST_CHECK_EQUAL(1250000000,amountToReserve);
 
     //  BOOST_CHECK(mastercore::update_tally_map(object2.getAddr(), object2.getProperty(), 10, BALANCE)); // putting some money here
