@@ -77,19 +77,22 @@ enum TransactionType {
   MSC_TYPE_METADEX_CANCEL_PRICE       = 26,
   MSC_TYPE_METADEX_CANCEL_PAIR        = 27,
   MSC_TYPE_METADEX_CANCEL_ECOSYSTEM   = 28,
+
   ////////////////////////////////////
   /** New things for Contract */ 
   MSC_TYPE_CONTRACTDEX_TRADE          = 29,
   MSC_TYPE_CONTRACTDEX_CANCEL_PRICE   = 30,
   ////////////////////////////////////
+
   MSC_TYPE_NOTIFICATION               = 31,
+
   ////////////////////////////////////
   /** New things for Contract */ 
   MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM   = 32,
-  ////////////////////////////////////
-  /** New things for Contract: Here we changed "MSC_TYPE_OFFER_ACCEPT_A_BET = 40" */ 
+  /** !Here we changed "MSC_TYPE_OFFER_ACCEPT_A_BET = 40" */ 
   MSC_TYPE_CREATE_CONTRACT            = 40,
   ////////////////////////////////////
+  
   MSC_TYPE_CREATE_PROPERTY_FIXED      = 50,
   MSC_TYPE_CREATE_PROPERTY_VARIABLE   = 51,
   MSC_TYPE_PROMOTE_PROPERTY           = 52,

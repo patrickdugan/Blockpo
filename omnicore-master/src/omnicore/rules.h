@@ -34,6 +34,8 @@ const uint16_t FEATURE_TRADEALLPAIRS = 8;
 const uint16_t FEATURE_FEES = 9;
 //! Feature identifier to enable cross property (v1) Send To Owners
 const uint16_t FEATURE_STOV1 = 10;
+//! Feature identifier to enable cross property (v1) Send To Owners
+const uint16_t FEATURE_CONTRACTDEX = 11;
 //! Feature identifier to activate the waiting period for enabling managed property address freezing
 const uint16_t FEATURE_FREEZENOTICE = 14;
 
@@ -114,6 +116,12 @@ public:
     int MSC_STO_BLOCK;
     //! Block to enable MetaDEx transactions
     int MSC_METADEX_BLOCK;
+    
+    ////////////////////////////////////
+    /** New things for Contract: ! Block to enable MetaDEx transactions */
+    int MSC_CONTRACTDEX_BLOCK;
+    ////////////////////////////////////
+    
     //! Block to enable "send all" transactions
     int MSC_SEND_ALL_BLOCK;
     //! Block to enable betting transactions
