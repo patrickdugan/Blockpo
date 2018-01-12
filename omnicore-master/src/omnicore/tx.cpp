@@ -58,7 +58,7 @@ std::string mastercore::strTransactionType(uint16_t txType)
         /** New things for Contract */
         case MSC_TYPE_CONTRACTDEX_TRADE: return "Future Contract";
         case MSC_TYPE_CONTRACTDEX_CANCEL_PRICE: return "ContractDex cancel-price";
-        case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM: return "ContractDex cancel-ecosystem";        
+        case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM: return "ContractDex cancel-ecosystem";
         case MSC_TYPE_CREATE_CONTRACT: return "Create Contract";
         /////////////////////////////
         case MSC_TYPE_ACCEPT_OFFER_BTC: return "DEx Accept Offer";
@@ -420,8 +420,8 @@ bool CMPTransaction::interpret_ContractDexCancelPrice()
     swapByteOrder32(desired_property);
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
-    memcpy(&effective_price, &pkt[28], 8); 
-    swapByteOrder64(effective_price); 
+    memcpy(&effective_price, &pkt[28], 8);
+    swapByteOrder64(effective_price);
     memcpy(&trading_action, &pkt[36], 1);
 
     action = CMPTransaction::CANCEL_AT_PRICE; // depreciated
@@ -518,7 +518,7 @@ bool CMPTransaction::interpret_ContractDexTrade()
     if (pkt_size < 33) {
         return false;
     }
-    
+
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
 
@@ -526,14 +526,14 @@ bool CMPTransaction::interpret_ContractDexTrade()
     swapByteOrder64(nValue);
     nNewValue = nValue;
 
-    memcpy(&desired_property, &pkt[16], 4); 
+    memcpy(&desired_property, &pkt[16], 4);
     swapByteOrder32(desired_property);
-    
+
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
 
-    memcpy(&effective_price, &pkt[28], 8); 
-    swapByteOrder64(effective_price); 
+    memcpy(&effective_price, &pkt[28], 8);
+    swapByteOrder64(effective_price);
 
     memcpy(&trading_action, &pkt[36], 1);
 
@@ -546,7 +546,7 @@ bool CMPTransaction::interpret_ContractDexTrade()
         PrintToLog("\t   forsale price: %d\n", trading_action);
     }
     return true;
-}                                       
+}
 
 //////////////////////////////
 /** Tx 50 */
@@ -673,12 +673,12 @@ bool CMPTransaction::interpret_CreateContractDex()
     swapByteOrder16(prop_type);
     memcpy(&prev_prop_id, &pkt[7], 4);
     swapByteOrder32(prev_prop_id);
-    
+
     for (int i = 0; i < 5; i++) {
         spstr.push_back(std::string(p));
         p += spstr.back().size() + 1;
     }
-    
+
     int i = 0;
     memcpy(category, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(category)-1)); i++;
     memcpy(subcategory, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(subcategory)-1)); i++;
@@ -728,8 +728,8 @@ bool CMPTransaction::interpret_CreateContractDex()
         PrintToLog("\t    issuer bonus: %d\n", percentage);
         PrintToLog("\tblocks until expiration: %d\n", blocks_until_expiration);
         PrintToLog("\tnotional size: %d\n", notional_size);
-        PrintToLog("\tcollateral currency: %d\n", collateral_currency); 
-        PrintToLog("\tmargin requirement: %d\n", margin_requirement); 
+        PrintToLog("\tcollateral currency: %d\n", collateral_currency);
+        PrintToLog("\tmargin requirement: %d\n", margin_requirement);
     }
     if (isOverrun(p)) {
         PrintToLog("%s(): rejected: malformed string value(s)\n", __func__);
@@ -1883,7 +1883,6 @@ int CMPTransaction::logicMath_ContractDexCancelEcosystem()
 
     return rc;
 }
-///////////////////////////////////////////////
 
 ///////////////////////////////////////////////
 /** New things for Contract */
@@ -1946,23 +1945,25 @@ int CMPTransaction::logicMath_ContractDexTrade()
     }
 
     int64_t nBalance = getMPbalance(sender, property, BALANCE);
-    if (nBalance < (int64_t) nNewValue) {
-        PrintToLog("%s(): rejected: sender %s has insufficient balance of property %d [%s < %s]\n",
+    uint32_t marginRequirementValue = getMarginRequirement();
+    uint32_t notionalSizeValue = getNotionalSize();
+    uint32_t sum = notionalSizeValue + marginRequirementValue;
+    int64_t amountToReserve = nNewValue*sum;
+
+    if (nBalance <= (int64_t) amountToReserve) {
+        PrintToLog("%s(): rejected: sender %s has insufficient balance for contracts %d [%s < %s]\n",
                 __func__,
                 sender,
                 property,
                 FormatMP(property, nBalance),
-                FormatMP(property, nNewValue));
+                FormatMP(property, amountToReserve));
         return (PKT_ERROR_METADEX -25);
     }
 
-    // ------------------------------------------
-
     t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
-    int rc = ContractDex_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, effective_price, trading_action);
+    int rc = ContractDex_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, effective_price, trading_action,amountToReserve);
     return rc;
 }
-
 ///////////////////////////////////////////////
 /** New things for Contract */
 /** Tx 40 */
@@ -2967,4 +2968,3 @@ int CMPTransaction::logicMath_Alert()
 
     return 0;
 }
-

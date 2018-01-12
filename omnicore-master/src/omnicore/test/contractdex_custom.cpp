@@ -124,7 +124,7 @@ BOOST_AUTO_TEST_CASE(test1)  // seller_amount = 10, buyer_amount = 10;
     pold = &object;
     CMPMetaDEx metadex_replacement = *pold;
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
 
 BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
 {
@@ -191,7 +191,7 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
     BOOST_CHECK_EQUAL(TRADED, x_Trade(pt_objContractDEx));
 
     //////////////////////////////////////////////
-    
+
     std::vector<unsigned char> vch1 = CreatePayload_ContractDexTrade(
             static_cast<uint32_t>(1),   // property
             static_cast<uint64_t>(30),  // amount_forsale
@@ -259,7 +259,7 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
 bool direction = true;
 
 BOOST_AUTO_TEST_CASE(equal_amount)
-{ 
+{
     CMPTally tally;  // the tally map object
     const uint256 tx;   // address,block,property,amount for sale, desired property, amount desired,uint256 tx,idx, suba, amount remaining,desire price, for sale price
     CMPContractDex seller(
@@ -317,12 +317,122 @@ BOOST_AUTO_TEST_CASE(equal_amount)
     if (direction){
         BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
         BOOST_CHECK(ContractDex_INSERT(seller));
-        BOOST_CHECK_EQUAL(TRADED, x_Trade(b));   // the buyer wants 10 contracts at  price of 5! // There's  match!!!!  
+        BOOST_CHECK_EQUAL(TRADED, x_Trade(b));   // the buyer wants 10 contracts at  price of 5! // There's  match!!!!
     } else {
         BOOST_TEST_MESSAGE("The buyer is inserted in priceMap, the seller in x_Trade");
         BOOST_CHECK(ContractDex_INSERT(buyer));
         BOOST_CHECK_EQUAL(TRADED, x_Trade(s));
     }
+}
+
+BOOST_AUTO_TEST_CASE(balance_reserve)
+{
+ CMPTally tally;  // the tally map object
+ const uint256 tx;
+ CMPContractDex new_cdex(
+         "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
+         1,  // block
+         3,  // property for sale
+         100,  // amount of contracts for sale   (100 contracts!!!)
+         0,  // desired property
+         0,
+         tx, // txid
+         1,  // position in block
+         1,  // subaction
+         0,  // amount remaining
+         5,  // effective_price
+         2 // trading_action
+ );
+// Showing the balance of Address:
+BOOST_CHECK_EQUAL(0,getMPbalance(new_cdex.getAddr(), new_cdex.getProperty(),BALANCE));
+BOOST_CHECK_EQUAL(0,getMPbalance(new_cdex.getAddr(), new_cdex.getProperty(),CONTRACTDEX_RESERVE));
+
+// Putting some money in balance: 10000
+BOOST_CHECK(mastercore::update_tally_map(new_cdex.getAddr(), new_cdex.getProperty(),13000,BALANCE));
+
+// Showing the balance of Address now:
+BOOST_CHECK_EQUAL(13000,getMPbalance(new_cdex.getAddr(), new_cdex.getProperty(),BALANCE));
+BOOST_CHECK_EQUAL(0,getMPbalance(new_cdex.getAddr(), new_cdex.getProperty(),CONTRACTDEX_RESERVE));
+
+ // if (msc_debug_metadex1) PrintToLog("%s(); buyer obj: %s\n", __FUNCTION__, new_cdex.ToString());
+
+ // Ensure this is not a badly priced trade (for example due to zero amounts)
+ // if (0 >= new_cdex.getEffectivePrice()) return METADEX_ERROR -66;
+
+ // Match against existing trades, remainder of the order will be put into the order book
+ // if (msc_debug_metadex3) MetaDEx_debug_print();
+ x_Trade(&new_cdex);
+ // if (msc_debug_metadex3) MetaDEx_debug_print();
+ int64_t margin_requirement = 25; // the margin of contract
+ int64_t multiplier = 100; // value of unit contract
+ int64_t amount_to_reserve = (margin_requirement+multiplier)*new_cdex.getAmountForSale();
+ // Insert the remaining order into the ContractDex maps
+ if (0 < new_cdex.getAmountForSale()) { //switch to getAmounForSale() when ready
+     if (!MetaDEx_INSERT(new_cdex)) {
+         PrintToLog("%s() ERROR: ALREADY EXISTS, line %d, file: %s\n", __FUNCTION__, __LINE__, __FILE__);
+        //  return METADEX_ERROR -70;
+     } else {
+         // move tokens into reserve, the amount of tokens is AmountForSale*margin_requirement
+         assert(update_tally_map(new_cdex.getAddr(), new_cdex.getProperty(),-amount_to_reserve , BALANCE));
+         assert(update_tally_map(new_cdex.getAddr(), new_cdex.getProperty(),amount_to_reserve, CONTRACTDEX_RESERVE));
+
+     }
+ }
+ // Checking finally Balance & Reserve (= 125*100)
+ BOOST_CHECK_EQUAL(500,getMPbalance(new_cdex.getAddr(), new_cdex.getProperty(),BALANCE));
+ BOOST_CHECK_EQUAL(12500,getMPbalance(new_cdex.getAddr(), new_cdex.getProperty(),CONTRACTDEX_RESERVE));
+
+}
+
+BOOST_AUTO_TEST_CASE(multiplication)
+{
+///////////////////////////////
+int64_t nBalance = 20000000000;
+int64_t nNewValue = 10000000;
+uint32_t marginRequirementValue = 25;
+uint32_t notionalSizeValue = 100;
+uint32_t sum = notionalSizeValue + marginRequirementValue;
+int64_t amountToReserve = nNewValue*sum;
+BOOST_CHECK_EQUAL(1250000000,amountToReserve);
+
+if (nBalance <= (int64_t) amountToReserve) {
+
+    BOOST_TEST_MESSAGE("rejected: sender has insufficient balance for contracts");
+    BOOST_TEST_MESSAGE("nBalance: "<< nBalance);
+    BOOST_TEST_MESSAGE("amountToReserve: "<< amountToReserve);
+} else {
+
+
+  BOOST_TEST_MESSAGE("nBalance: "<< nBalance);
+  BOOST_TEST_MESSAGE("amountToReserve: "<< amountToReserve);
+ }
+
+}
+
+BOOST_AUTO_TEST_CASE(PNL)
+{
+
+ string addr = "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH";
+
+ BOOST_CHECK_EQUAL(1250000000,amountToReserve);
+
+     BOOST_CHECK(mastercore::update_tally_map(object2.getAddr(), object2.getProperty(), 10, BALANCE)); // putting some money here
+     BOOST_CHECK(mastercore::update_tally_map(object.getAddr(), object.getProperty(), 10, BALANCE));
+     BOOST_CHECK_EQUAL(10, getMPbalance(object2.getAddr(), object2.getProperty(), BALANCE)); // checking balance of sender
+     BOOST_CHECK_EQUAL(10, getMPbalance(object.getAddr(), object.getProperty(), BALANCE));
+
+if (nBalance <= (int64_t) amountToReserve) {
+
+    BOOST_TEST_MESSAGE("rejected: sender has insufficient balance for contracts");
+    BOOST_TEST_MESSAGE("nBalance: "<< nBalance);
+    BOOST_TEST_MESSAGE("amountToReserve: "<< amountToReserve);
+} else {
+
+
+  BOOST_TEST_MESSAGE("nBalance: "<< nBalance);
+  BOOST_TEST_MESSAGE("amountToReserve: "<< amountToReserve);
+ }
+
 }
 
 
@@ -391,7 +501,7 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 // }
 
 // BOOST_AUTO_TEST_CASE(equal_amount_metadex)
-// { 
+// {
 //     CMPTally tally;  // the tally map object
 //     const uint256 tx;   // address,block,property,amount for sale, desired property, amount desired,uint256 tx,idx, suba, amount remaining,desire price, for sale price
 //     CMPMetaDEx seller(
@@ -445,13 +555,13 @@ BOOST_AUTO_TEST_CASE(equal_amount)
     // if (direction){
     //     BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
     //     BOOST_CHECK(MetaDEx_INSERT(seller));
-    //     BOOST_CHECK_EQUAL(TRADED, x_Trade(b));   // the buyer wants 10 contracts at  price of 5! // There's  match!!!!  
+    //     BOOST_CHECK_EQUAL(TRADED, x_Trade(b));   // the buyer wants 10 contracts at  price of 5! // There's  match!!!!
     // } else {
     //     BOOST_TEST_MESSAGE("The buyer is inserted in priceMap, the seller in x_Trade");
     //     BOOST_CHECK(MetaDEx_INSERT(buyer));
     //     BOOST_CHECK_EQUAL(TRADED, x_Trade(s));
     // }
- 
+
     // BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(),POSSITIVE_BALANCE));
     // BOOST_CHECK_EQUAL(10, getMPbalance(seller.getAddr(), seller.getProperty(),NEGATIVE_BALANCE));
     // BOOST_CHECK_EQUAL(10, getMPbalance(buyer.getAddr(), buyer.getProperty(),POSSITIVE_BALANCE));
@@ -550,7 +660,7 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 //                     5,  // desired price
 //                     5   // for sale price
 //     ); // the buyer
-    
+
 //     std::string t_status = "Netted";
 //     int64_t tradingFee = 0;
 //     CMPContractDex *pnew, *pold;
@@ -737,7 +847,7 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 // }
 
 // BOOST_AUTO_TEST_CASE(object_checkpkt_metadex)
-// {        
+// {
 // 		    std::vector<unsigned char> vch = CreatePayload_MetaDExTrade(
 // 		        static_cast<uint32_t>(1),          /*property*/
 // 		        static_cast<uint64_t>(45),         /*amount_forsale*/
@@ -747,12 +857,12 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 // 		    BOOST_CHECK_EQUAL(HexStr(vch),"000000190000000100000000054c56380000002c0000000005f5e0ff");
 
 //         std::vector<unsigned char> strScriptData = ParseHex("0000001900000001000000000000002d0000000100000000000000fe");
-				
+
 //         BOOST_TEST_MESSAGE("sizeof(strScriptData):" << sizeof(strScriptData));
-        
+
 //         int packet_size = sizeof(strScriptData) + sizeof(uint32_t);
 //         for(int i = 0; i < packet_size; ++i)
-// 				{                        
+// 				{
 // 					int j = strScriptData[i];
 //   				BOOST_TEST_MESSAGE("strScriptData[i]:" << j);
 //    			}
@@ -768,7 +878,7 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 
 //         const uint256 tx;
 //         CMPTransaction objCMPTran;
-//         objCMPTran.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 4000000, tx, 395000, 1, 
+//         objCMPTran.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 4000000, tx, 395000, 1,
 //                       (unsigned char *)&single_pkt, 33, 31, 32);
 
 //         BOOST_CHECK_EQUAL(objCMPTran.getSender(), "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH");
@@ -789,7 +899,7 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 // }
 
 // BOOST_AUTO_TEST_CASE(object_contractdex_payload)
-// {        
+// {
 //   std::vector<unsigned char> vch = CreatePayload_ContractDexTrade(
 //     static_cast<uint32_t>(1),          /*property*/
 //     static_cast<uint64_t>(50),         /*amount_forsale*/
@@ -800,15 +910,15 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 
 //     BOOST_CHECK_EQUAL(HexStr(vch),"000000190000000100000000054c56380000002c0000000005f5e0ff");
 //     std::vector<unsigned char> strScriptData = ParseHex("0000001d0000000100000000000000320000000100000000000000280000000000000014000000000000001e");
-        
+
 //     BOOST_TEST_MESSAGE("sizeof(strScriptData):" << sizeof(strScriptData));
-        
+
 //     int packet_size = sizeof(strScriptData) + sizeof(uint32_t) + 2*sizeof(uint64_t);
 //     for(int i = 0; i < packet_size; ++i)
-//     {                        
+//     {
 //       int j = strScriptData[i];
 //       BOOST_TEST_MESSAGE("strScriptData[i]:" << j);
-//     } 
+//     }
 
 //     unsigned char single_pkt[packet_size];
 //     memcpy(single_pkt, &strScriptData[0], packet_size);
@@ -821,7 +931,7 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 
 //     const uint256 tx;
 //     CMPTransaction objCMPTran;
-//     objCMPTran.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 4000000, tx, 395000, 1, 
+//     objCMPTran.Set("1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy", 4000000, tx, 395000, 1,
 //                    (unsigned char *)&single_pkt, 33, 31, 32);
 
 //     BOOST_CHECK_EQUAL(objCMPTran.getSender(), "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH");
@@ -831,14 +941,14 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 //     BOOST_CHECK_EQUAL(objCMPTran.getIndexInBlock(), 1);
 //     BOOST_CHECK_EQUAL(objCMPTran.getEncodingClass(), 31);
 //     BOOST_CHECK_EQUAL(objCMPTran.getFeePaid(), 32);
-    
+
 //     BOOST_CHECK_EQUAL(objCMPTran.interpret_Transaction(), true);
 //     CMPContractDex objCMPCont(objCMPTran);
 //     BOOST_CHECK_EQUAL(objCMPCont.getProperty(), 1);
 //     BOOST_CHECK_EQUAL(objCMPCont.getAmountForSale(), 50);
 //     BOOST_CHECK_EQUAL(objCMPCont.getDesProperty(), 1);
 //     BOOST_CHECK_EQUAL(objCMPCont.getAmountDesired(), 40);
-//     BOOST_CHECK_EQUAL(objCMPCont.getEffectivePrice(), 20);    
+//     BOOST_CHECK_EQUAL(objCMPCont.getEffectivePrice(), 20);
 
 //     BOOST_TEST_MESSAGE("Size of single_pkt: " << sizeof(single_pkt));
 // }

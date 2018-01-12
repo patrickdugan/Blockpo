@@ -33,7 +33,7 @@ class CMPTransaction
     ////////////////////////////
     /** New things for Contracts */
     friend class CMPContractDex;
-    
+
 
 private:
     uint256 txid;
@@ -226,6 +226,13 @@ public:
     uint64_t getNewAmount() const { return nNewValue; }
     uint8_t getEcosystem() const { return ecosystem; }
     uint32_t getPreviousId() const { return prev_prop_id; }
+
+    ////////////////////////////////
+    /** New things for Contracts */
+    uint32_t getMarginRequirement() const { return margin_requirement; }
+    uint32_t getNotionalSize() const { return notional_size; }
+    ////////////////////////////////
+    
     std::string getSPCategory() const { return category; }
     std::string getSPSubCategory() const { return subcategory; }
     std::string getSPName() const { return name; }

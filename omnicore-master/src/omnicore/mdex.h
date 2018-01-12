@@ -134,15 +134,15 @@ class CMPContractDex : public CMPMetaDEx
         CMPContractDex()
         : effective_price(0), trading_action(0) {}
 
-        CMPContractDex(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad, 
-                       const uint256& tx, uint32_t i, uint8_t suba, uint64_t effp, uint8_t act) 
+        CMPContractDex(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad,
+                       const uint256& tx, uint32_t i, uint8_t suba, uint64_t effp, uint8_t act)
         : CMPMetaDEx(addr, b, c, nValue, cd, ad, tx, i, suba), effective_price(effp), trading_action(act) {}
 
         /*Remember: Needed for omnicore.cpp "ar"*/
-        CMPContractDex(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad, 
-                       const uint256& tx, uint32_t i, uint8_t suba, int64_t ar, uint64_t effp, uint8_t act) 
+        CMPContractDex(const std::string& addr, int b, uint32_t c, int64_t nValue, uint32_t cd, int64_t ad,
+                       const uint256& tx, uint32_t i, uint8_t suba, int64_t ar, uint64_t effp, uint8_t act)
         : CMPMetaDEx(addr, b, c, nValue, cd, ad, tx, i, suba, ar), effective_price(effp), trading_action(act) {}
-     
+
         CMPContractDex(const CMPTransaction &tx)
         : CMPMetaDEx(tx), effective_price(tx.effective_price), trading_action(tx.trading_action) {}
 
@@ -163,7 +163,7 @@ class CMPContractDex : public CMPMetaDEx
         /*New things for Contracts*/
         friend MatchReturnType x_Trade(CMPContractDex* const pnew);
         ///////////////////////////////
-};    
+};
 
 namespace mastercore
 {
@@ -174,7 +174,7 @@ namespace mastercore
 
 	// ---------------
 	//! Set of objects sorted by block+idx
-	typedef std::set<CMPMetaDEx, MetaDEx_compare> md_Set; 
+	typedef std::set<CMPMetaDEx, MetaDEx_compare> md_Set;
 	//! Map of prices; there is a set of sorted objects for each price
 	typedef std::map<rational_t, md_Set> md_PricesMap;
 	//! Map of properties; there is a map of prices for exchange each property
@@ -190,9 +190,9 @@ namespace mastercore
 
     ///////////////////////////////////////////
     /** New things for Contracts */
-	struct ContractDex_compare                                                                                                                                                                                          
+	struct ContractDex_compare
 	{
-        bool operator()(const CMPContractDex &lhs, const CMPContractDex &rhs) const;    
+        bool operator()(const CMPContractDex &lhs, const CMPContractDex &rhs) const;
 	};
 
 	typedef std::set<CMPContractDex, ContractDex_compare> cd_Set;
@@ -202,9 +202,9 @@ namespace mastercore
 	extern cd_PropertiesMap contractdex;
 
 	cd_PricesMap *get_PricesCd(uint32_t prop);
-	cd_Set *get_IndexesCd(cd_PricesMap *p, uint64_t price);																																																																																																																																																				
+	cd_Set *get_IndexesCd(cd_PricesMap *p, uint64_t price);
 
-    int ContractDex_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t effective_price, uint8_t trading_action);
+    int ContractDex_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t effective_price, uint8_t trading_action, int64_t amount_to_reserve);
     bool ContractDex_INSERT(const CMPContractDex &objContractDex);
     void ContractDex_debug_print(bool bShowPriceLevel, bool bDisplay);
     const CMPContractDex *ContractDex_RetrieveTrade(const uint256& txid);
