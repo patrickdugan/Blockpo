@@ -54,13 +54,15 @@ std::string mastercore::strTransactionType(uint16_t txType)
         case MSC_TYPE_METADEX_CANCEL_PRICE: return "MetaDEx cancel-price";
         case MSC_TYPE_METADEX_CANCEL_PAIR: return "MetaDEx cancel-pair";
         case MSC_TYPE_METADEX_CANCEL_ECOSYSTEM: return "MetaDEx cancel-ecosystem";
+
         /////////////////////////////
         /** New things for Contract */
         case MSC_TYPE_CONTRACTDEX_TRADE: return "Future Contract";
         case MSC_TYPE_CONTRACTDEX_CANCEL_PRICE: return "ContractDex cancel-price";
-        case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM: return "ContractDex cancel-ecosystem";
+        case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM: return "ContractDex cancel-ecosystem";        
         case MSC_TYPE_CREATE_CONTRACT: return "Create Contract";
         /////////////////////////////
+
         case MSC_TYPE_ACCEPT_OFFER_BTC: return "DEx Accept Offer";
         case MSC_TYPE_CREATE_PROPERTY_FIXED: return "Create Property - Fixed";
         case MSC_TYPE_CREATE_PROPERTY_VARIABLE: return "Create Property - Variable";
@@ -142,6 +144,7 @@ bool CMPTransaction::interpret_Transaction()
 
         case MSC_TYPE_METADEX_CANCEL_ECOSYSTEM:
             return interpret_MetaDExCancelEcosystem();
+     
         ////////////////////////////////
         /** New things for Contract */
         case MSC_TYPE_CONTRACTDEX_TRADE:
@@ -156,6 +159,7 @@ bool CMPTransaction::interpret_Transaction()
         case MSC_TYPE_CREATE_CONTRACT:
             return interpret_CreateContractDex();
         ////////////////////////////////
+
         case MSC_TYPE_CREATE_PROPERTY_FIXED:
             return interpret_CreatePropertyFixed();
 
@@ -420,8 +424,8 @@ bool CMPTransaction::interpret_ContractDexCancelPrice()
     swapByteOrder32(desired_property);
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
-    memcpy(&effective_price, &pkt[28], 8);
-    swapByteOrder64(effective_price);
+    memcpy(&effective_price, &pkt[28], 8); 
+    swapByteOrder64(effective_price); 
     memcpy(&trading_action, &pkt[36], 1);
 
     action = CMPTransaction::CANCEL_AT_PRICE; // depreciated
@@ -518,7 +522,7 @@ bool CMPTransaction::interpret_ContractDexTrade()
     if (pkt_size < 33) {
         return false;
     }
-
+    
     memcpy(&property, &pkt[4], 4);
     swapByteOrder32(property);
 
@@ -526,14 +530,14 @@ bool CMPTransaction::interpret_ContractDexTrade()
     swapByteOrder64(nValue);
     nNewValue = nValue;
 
-    memcpy(&desired_property, &pkt[16], 4);
+    memcpy(&desired_property, &pkt[16], 4); 
     swapByteOrder32(desired_property);
-
+    
     memcpy(&desired_value, &pkt[20], 8);
     swapByteOrder64(desired_value);
 
-    memcpy(&effective_price, &pkt[28], 8);
-    swapByteOrder64(effective_price);
+    memcpy(&effective_price, &pkt[28], 8); 
+    swapByteOrder64(effective_price); 
 
     memcpy(&trading_action, &pkt[36], 1);
 
@@ -546,7 +550,7 @@ bool CMPTransaction::interpret_ContractDexTrade()
         PrintToLog("\t   forsale price: %d\n", trading_action);
     }
     return true;
-}
+}                                       
 
 //////////////////////////////
 /** Tx 50 */
@@ -673,12 +677,12 @@ bool CMPTransaction::interpret_CreateContractDex()
     swapByteOrder16(prop_type);
     memcpy(&prev_prop_id, &pkt[7], 4);
     swapByteOrder32(prev_prop_id);
-
+    
     for (int i = 0; i < 5; i++) {
         spstr.push_back(std::string(p));
         p += spstr.back().size() + 1;
     }
-
+    
     int i = 0;
     memcpy(category, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(category)-1)); i++;
     memcpy(subcategory, spstr[i].c_str(), std::min(spstr[i].length(), sizeof(subcategory)-1)); i++;
@@ -728,8 +732,8 @@ bool CMPTransaction::interpret_CreateContractDex()
         PrintToLog("\t    issuer bonus: %d\n", percentage);
         PrintToLog("\tblocks until expiration: %d\n", blocks_until_expiration);
         PrintToLog("\tnotional size: %d\n", notional_size);
-        PrintToLog("\tcollateral currency: %d\n", collateral_currency);
-        PrintToLog("\tmargin requirement: %d\n", margin_requirement);
+        PrintToLog("\tcollateral currency: %d\n", collateral_currency); 
+        PrintToLog("\tmargin requirement: %d\n", margin_requirement); 
     }
     if (isOverrun(p)) {
         PrintToLog("%s(): rejected: malformed string value(s)\n", __func__);
@@ -1964,6 +1968,7 @@ int CMPTransaction::logicMath_ContractDexTrade()
     int rc = ContractDex_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, effective_price, trading_action,amountToReserve);
     return rc;
 }
+
 ///////////////////////////////////////////////
 /** New things for Contract */
 /** Tx 40 */
@@ -2058,6 +2063,7 @@ int CMPTransaction::logicMath_CreateContractDex()
     newSP.percentage = percentage;
     newSP.creation_block = blockHash;
     newSP.update_block = newSP.creation_block;
+
     ////////////////////////////
     /** New things for Contracts */
     newSP.blocks_until_expiration = blocks_until_expiration;

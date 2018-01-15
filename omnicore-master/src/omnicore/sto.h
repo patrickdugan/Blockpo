@@ -25,5 +25,4 @@ typedef std::set<std::pair<int64_t, std::string>, SendToOwners_compare> OwnerAdd
 OwnerAddrType STO_GetReceivers(const std::string& sender, uint32_t property, int64_t amount);
 }
 
-
 #endif // OMNICORE_STO_H

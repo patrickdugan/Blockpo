@@ -437,7 +437,7 @@ UniValue omni_createcontract(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 18)
         throw runtime_error(
-            "omni_sendissuancecrowdsale \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline ( earlybonus issuerpercentage )\n"
+            "omni_createcontract \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline ( earlybonus issuerpercentage )\n"
 
             "Create new tokens as crowdsale."
 
@@ -979,7 +979,7 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 7)
         throw runtime_error(
-            "omni_sendtrade \"fromaddress\" propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+            "omni_tradecontract \"fromaddress\" propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
             "\nPlace a trade offer on the distributed token exchange.\n"
 
@@ -1617,6 +1617,11 @@ static const CRPCCommand commands[] =
     { "omni layer (transaction creation)", "omni_senddisablefreezing",     &omni_senddisablefreezing,     false },
     { "omni layer (transaction creation)", "omni_sendfreeze",              &omni_sendfreeze,              false },
     { "omni layer (transaction creation)", "omni_sendunfreeze",            &omni_sendunfreeze,            false },
+    ///////////////////////////////////
+    /** New things for Contracts */
+    { "omni layer (transaction creation)", "omni_createcontract",          &omni_createcontract,          false },
+    { "omni layer (transaction creation)", "omni_tradecontract",           &omni_tradecontract,           false },
+    ///////////////////////////////////
     { "hidden",                            "omni_senddeactivation",        &omni_senddeactivation,        true  },
     { "hidden",                            "omni_sendactivation",          &omni_sendactivation,          false },
     { "hidden",                            "omni_sendalert",               &omni_sendalert,               true  },

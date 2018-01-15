@@ -719,7 +719,7 @@ UniValue omni_createpayload_cancelalltrades(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-//////////////////////////////
+//////////////////////////////////
 /** New things for Contracts */
 UniValue omni_createpayload_cancelalltradescontract(const UniValue& params, bool fHelp)
 {
@@ -746,7 +746,7 @@ UniValue omni_createpayload_cancelalltradescontract(const UniValue& params, bool
 
     return HexStr(payload.begin(), payload.end());
 }
-//////////////////////////////
+//////////////////////////////////
 
 UniValue omni_createpayload_enablefreezing(const UniValue& params, bool fHelp)
 {
@@ -890,7 +890,6 @@ static const CRPCCommand commands[] =
     { "omni layer (payload creation)", "omni_createpayload_canceltradesbyprice",        &omni_createpayload_canceltradesbyprice, true },
     { "omni layer (payload creation)", "omni_createpayload_canceltradesbypair",         &omni_createpayload_canceltradesbypair,  true },
     { "omni layer (payload creation)", "omni_createpayload_cancelalltrades",            &omni_createpayload_cancelalltrades,     true },
-    { "omni layer (payload creation)", "omni_createpayload_cancelalltradescontract",    &omni_createpayload_cancelalltradescontract,     true },
     { "omni layer (payload creation)", "omni_createpayload_enablefreezing",             &omni_createpayload_enablefreezing,      true },
     { "omni layer (payload creation)", "omni_createpayload_disablefreezing",            &omni_createpayload_disablefreezing,     true },
     { "omni layer (payload creation)", "omni_createpayload_freeze",                     &omni_createpayload_freeze,              true },
@@ -899,6 +898,8 @@ static const CRPCCommand commands[] =
     /** New things for Contracts */
     { "omni layer (payload creation)", "omni_createpayload_contract_trade",             &omni_createpayload_contract_trade,      true },
     { "omni layer (payload creation)", "omni_createpayload_cancelcontracttradesbyprice",&omni_createpayload_cancelcontracttradesbyprice,      true },
+    { "omni layer (payload creation)", "omni_createpayload_createcontract",             &omni_createpayload_createcontract,      true },
+    { "omni layer (payload creation)", "omni_createpayload_cancelalltradescontract",    &omni_createpayload_cancelalltradescontract,     true },
     ////////////////////////////////////////
 };
 

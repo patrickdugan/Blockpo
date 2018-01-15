@@ -224,11 +224,13 @@ std::string FormatShortMP(uint32_t property, int64_t n)
 {
     if (isPropertyDivisible(property)) {
         return FormatDivisibleShortMP(n);
+
     /////////////////////////////////////////
     /*New property type No 3 Contract*/
     } else if (isPropertyContract(property)) {
         return FormatContractMP(n);
     /////////////////////////////////////////
+
     } else {
         return FormatIndivisibleMP(n);
     }
@@ -238,11 +240,13 @@ std::string FormatMP(uint32_t property, int64_t n, bool fSign)
 {
     if (isPropertyDivisible(property)) {
         return FormatDivisibleMP(n, fSign);
+
     /////////////////////////////////////////
     /*New property type No 3 Contract*/
     } else if (isPropertyContract(property)) {
         return FormatContractMP(n);
     /////////////////////////////////////////
+
     } else {
         return FormatIndivisibleMP(n);
     }
@@ -678,7 +682,6 @@ static bool TXExodusFundraiser(const CTransaction& tx, const std::string& sender
             return true;
         }
     }
-
     return false;
 }
 

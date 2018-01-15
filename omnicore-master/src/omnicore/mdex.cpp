@@ -151,7 +151,7 @@ std::string xToString(const uint64_t &price)
 // find the best match on the market
 // NOTE: sometimes I refer to the older order as seller & the newer order as buyer, in this trade
 // INPUT: property, desprop, desprice = of the new order being inserted; the new object being processed
-// RETURN:
+// RETURN: 
 MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 {
     const uint32_t propertyForSale = pnew->getProperty();
@@ -499,7 +499,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             } else if (seller_amount < buyer_amount && pold->getTradingAction() == SELL){
                 contract_replacement.setAmountForsale(0, "no_remaining");
                 pnew->setAmountForsale(buyer_amount - seller_amount, "moreinbuyer");
-                NewReturn = TRADED_MOREINBUYER;
+                NewReturn = TRADED_MOREINBUYER; 
 
             } else if (seller_amount > buyer_amount && pold->getTradingAction() == BUY){
                 pnew->setAmountForsale(seller_amount - buyer_amount, "moreinseller");
@@ -511,7 +511,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 contract_replacement.setAmountForsale(buyer_amount -seller_amount, "moreinbuyer");
                 NewReturn = TRADED_MOREINBUYER;
 
-            } else if (seller_amount == buyer_amount){
+            } else if (seller_amount == buyer_amount){	
                 pnew->setAmountForsale(0, "no_remaining");
                 contract_replacement.setAmountForsale(0, "no_remaining");
                 NewReturn = TRADED;
@@ -527,25 +527,25 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             } else if ( (contract_replacement.getHash() != pnew->getHash()) && (contract_replacement.getAmountForSale() > 0 && pnew->getAmountForSale() == 0) ) {
                 Status = "SHORT NETTED";
-
+                
             } else if ( (contract_replacement.getHash() != pnew->getHash()) && (contract_replacement.getAmountForSale() == 0 && pnew->getAmountForSale() > 0) ) {
-                Status = "LONG NETTED";
+                Status = "LONG NETTED";                
             }
 
-            t_tradelistdb->recordMatchedTrade(pold->getHash(),
-                                              pnew->getHash(),
-                                              pold->getEffectivePrice(),
-                                              pold->getAmountForSale(),
-                                              contract_replacement.getAmountForSale(),
-                                              pold->getBlock(),
+            t_tradelistdb->recordMatchedTrade(pold->getHash(), 
+                                              pnew->getHash(), 
+                                              pold->getEffectivePrice(), 
+                                              pold->getAmountForSale(), 
+                                              contract_replacement.getAmountForSale(), 
+                                              pold->getBlock(), 
                                               pnew->getBlock(),
                                               Status);
             ///////////////////////////////////////
 
-            if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());
+            if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());	        
 	        // erase the old seller element
              pofferSet->erase(offerIt++);
-
+          
             // insert the updated one in place of the old
             if (seller_amount != buyer_amount) {
                 PrintToLog("++ inserting contract_replacement: %s\n", contract_replacement.ToString());
@@ -621,14 +621,14 @@ std::string CMPContractDex::displayFullContractPrice() const
     int128_t fullprice;
     if ( isPropertyContract(getProperty()) ) multiply(fullprice, priceForsale, amountForsale);;
 
-    std::string priceForsaleStr = xToString(fullprice);
+    std::string priceForsaleStr = xToString(fullprice); 
     return priceForsaleStr;
 }
 //////////////////////////////////////
 
 rational_t CMPMetaDEx::unitPrice() const
 {
-    rational_t effectivePrice;
+    rational_t effectivePrice; 
     if (amount_forsale) effectivePrice = rational_t(amount_desired, amount_forsale);
     return effectivePrice;
 }
@@ -681,7 +681,7 @@ std::string CMPMetaDEx::ToString() const
 std::string CMPContractDex::ToString() const
 {
     return strprintf("%s:%34s in %d/%03u, txid: %s , trade #%u %s for #%u %s",
-        xToString(getEffectivePrice()), getAddr(), getBlock(), getIdx(), getHash().ToString().substr(0, 10),
+        xToString(getEffectivePrice()), getAddr(), getBlock(), getIdx(), getHash().ToString().substr(0, 10), 
         getProperty(), FormatMP(getProperty(), getAmountForSale()));
 }
 //////////////////////////////////////
@@ -804,13 +804,13 @@ bool mastercore::ContractDex_INSERT(const CMPContractDex &objContractDex)
 
     // Attempt to obtain a set of contractdex objects for this price from the price map
     if (cd_prices) p_indexes = get_IndexesCd(cd_prices, objContractDex.getEffectivePrice());
-
+  
     // See if the set was populated, if not no set exists at this price level, use the empty set that we created earlier
     if (!p_indexes) p_indexes = &temp_indexes;
 
     // Attempt to insert the contractdex object into the set
     ret = p_indexes->insert(objContractDex);
-
+    
     if (false == ret.second) return false;
 
     // If a prices map did not exist for this property, set p_prices to the temp empty price map
@@ -858,12 +858,12 @@ int mastercore::MetaDEx_ADD(const std::string& sender_addr, uint32_t prop, int64
             if (msc_debug_metadex3) MetaDEx_debug_print();
         }
     }
-
     rc = 0;
     return rc;
 }
-///////////////////////////////////////////
-/** New things for Contracts */
+
+/////////////////////////////////////////
+/** New things for Contract */
 int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t effective_price, uint8_t trading_action, int64_t amount_to_reserve)
 {
     int rc = METADEX_ERROR -1;
