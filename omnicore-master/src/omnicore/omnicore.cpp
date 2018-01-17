@@ -1840,6 +1840,7 @@ static char const * const statePrefix[NUM_FILETYPES] = {
     "globals",
     "crowdsales",
     "mdexorders",
+    "cdexorders",
 };
 
 // returns the height of the state loaded
@@ -2221,6 +2222,7 @@ int mastercore_save_state( CBlockIndex const *pBlockIndex )
     write_state_file(pBlockIndex, FILETYPE_GLOBALS);
     write_state_file(pBlockIndex, FILETYPE_CROWDSALES);
     write_state_file(pBlockIndex, FILETYPE_MDEXORDERS);
+    write_state_file(pBlockIndex, FILETYPE_CDEXORDERS);
 
     // clean-up the directory
     prune_state_files(pBlockIndex);
