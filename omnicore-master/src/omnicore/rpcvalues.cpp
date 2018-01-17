@@ -57,6 +57,18 @@ uint32_t ParsePropertyId(const UniValue& value)
     return static_cast<uint32_t>(propertyId);
 }
 
+///////////////////////////////////
+// /** New things for Contracts */
+// uint64_t ParseEffectivePrice(const UniValue& value)
+// {
+//     int64_t effPrice = StrToInt64(value.get_str(), true);  // BTC is divisible
+//     if (effPrice < 0) {
+//         throw JSONRPCError(RPC_TYPE_ERROR, "Price should be positive");
+//     }
+//     return effPrice;
+// }
+///////////////////////////////////
+
 int64_t ParseAmount(const UniValue& value, bool isDivisible)
 {
     int64_t amount = mastercore::StrToInt64(value.get_str(), isDivisible);
@@ -71,6 +83,24 @@ int64_t ParseAmount(const UniValue& value, int propertyType)
     bool fDivisible = (propertyType == 2);  // 1 = indivisible, 2 = divisible
     return ParseAmount(value, fDivisible);
 }
+
+//////////////////////////////////
+/** New things for Contracts */
+int64_t ParseAmountContract(const UniValue& value, bool fContract)
+{
+    int64_t amount = mastercore::StrToInt64(value.get_str(), fContract);
+    if (amount < 1) {
+        throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
+    }
+    return amount;
+}
+
+int64_t ParseAmountContract(const UniValue& value, int propertyType)
+{
+    bool fContract = (propertyType == 3);  // 3 = contract
+    return ParseAmountContract(value, fContract);
+}
+//////////////////////////////////
 
 uint8_t ParseDExPaymentWindow(const UniValue& value)
 {
@@ -108,11 +138,23 @@ uint8_t ParseEcosystem(const UniValue& value)
     return static_cast<uint8_t>(ecosystem);
 }
 
+/////////////////////////////////
+/** New things for Contracts */
+uint8_t ParseContractDexAction(const UniValue& value)
+{
+    int64_t action = value.get_int64();
+    if (action < 1 || 2 < action) {
+        throw JSONRPCError(RPC_TYPE_ERROR, "Invalid action (1=BUY, 2=SELL only)");
+    }
+    return static_cast<uint8_t>(action);
+}
+/////////////////////////////////
+
 uint16_t ParsePropertyType(const UniValue& value)
 {
     int64_t propertyType = value.get_int64();
-    if (propertyType < 1 || 2 < propertyType) {
-        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid property type (1 = indivisible, 2 = divisible only)");
+    if (propertyType < 1 || 3 < propertyType) {
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid property type (1 = indivisible, 2 = divisible, 3 = contract)");
     }
     return static_cast<uint16_t>(propertyType);
 }
@@ -211,11 +253,11 @@ uint32_t ParseOutputIndex(const UniValue& value)
 /** New things for Contracts */
 uint32_t ParseNewValues(const UniValue& value)
 {
-    int nOut = value.get_int();
-    if (nOut < 0) {
-        throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Vout index must be positive");
+    int64_t Nvalue = value.get_int64();
+    if (Nvalue < 1 || 4294967295LL < Nvalue) {
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Value is out of range");
     }
-    return static_cast<uint32_t>(nOut);
+    return static_cast<uint32_t>(Nvalue);
 }
 //////////////////////////////////
 

@@ -75,6 +75,7 @@ public:
     int64_t getAmountToFill() const;
 
     void setAmountRemaining(int64_t ar, const std::string &label = "");
+
     ////////////////////////////////////////
     /** New things for Contracts */
     void setAmountForsale(int64_t ar, const std::string &label = "");
@@ -234,7 +235,7 @@ namespace mastercore
 	std::string MetaDEx_getStatusText(int tradeStatus);
 
 
-// Locates a trade in the MetaDEx maps via txid and returns the trade object
+    // Locates a trade in the MetaDEx maps via txid and returns the trade object
     const CMPMetaDEx* MetaDEx_RetrieveTrade(const uint256& txid);
     const CMPContractDex* ContractDex_RetrieveTrade(const uint256&);
 }

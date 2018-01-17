@@ -1009,8 +1009,10 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
 
     /////////////////////////////////////////
     /** New things for Contract */
-    int64_t effective_price = ParseAmount(params[5], isPropertyContract(propertyIdDesired));
-    int64_t trading_action = ParseAmount(params[6], isPropertyContract(propertyIdForSale));
+    // uint64_t effective_price = ParseEffectivePrice(params[5]);
+    uint64_t effective_price = 60;
+    // uint64_t trading_action = ParseContractDexAction(params[6]);
+    uint64_t trading_action = ParseContractDexAction(params[5]);
     /////////////////////////////////////////
 
     // perform checks

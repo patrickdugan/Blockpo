@@ -1273,7 +1273,7 @@ int mastercore::ContractDex_SHUTDOWN_ALLPAIR()
                     PrintToLog("%s(): REMOVING %s\n", __FUNCTION__, it->ToString());
                     // move from reserve to balance
                     assert(update_tally_map(it->getAddr(), it->getProperty(), -it->getAmountRemaining(), METADEX_RESERVE));
-                    assert(update_tally_map(it->getAddr(), it->getProperty(), it->getAmountRemaining(), BALANCE));
+                    assert(update_tally_map(it->getAddr(), it->getProperty(),  it->getAmountRemaining(), BALANCE));
                     indexes.erase(it++);
                 }
             }

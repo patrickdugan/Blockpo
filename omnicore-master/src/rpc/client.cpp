@@ -220,7 +220,6 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_createpayload_createcontract", 1},
     { "omni_createpayload_createcontract", 2},
     { "omni_createpayload_createcontract", 8},
-    { "omni_createpayload_createcontract", 9},
     { "omni_createpayload_createcontract", 10},
     { "omni_createpayload_createcontract", 11},
     { "omni_createpayload_createcontract", 12},
@@ -228,15 +227,15 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_createpayload_createcontract", 14},
     { "omni_createpayload_createcontract", 15},
     { "omni_createpayload_createcontract", 16},
-    ///////////////////////////
+    ////////////////////////////////////
     /** New things for Contracts */
     { "omni_createpayload_contract_trade", 0},
     { "omni_createpayload_contract_trade", 1},
-    { "omni_createpayload_contract_trade", 2},
-    { "omni_createpayload_contract_trade", 3},
-    { "omni_createpayload_contract_trade", 4},
-    { "omni_createpayload_contract_trade", 5},
-    ///////////////////////////
+    // { "omni_createpayload_contract_trade", 2},
+    // { "omni_createpayload_contract_trade", 3},
+    // { "omni_createpayload_contract_trade", 4},
+    // { "omni_createpayload_contract_trade", 5},
+    ////////////////////////////////////
     /** New things for Contracts */
     { "omni_createpayload_cancelcontracttradesbyprice", 0},
     { "omni_createpayload_cancelcontracttradesbyprice", 1},
@@ -244,10 +243,10 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_createpayload_cancelcontracttradesbyprice", 3},
     { "omni_createpayload_cancelcontracttradesbyprice", 4},
     { "omni_createpayload_cancelcontracttradesbyprice", 5},
-    ///////////////////////////
+    /////////////////////////////////////
     /** New things for Contracts */
     { "omni_createpayload_cancelalltradescontract", 0},
-    ///////////////////////////
+    ////////////////////////////////////
     /** New things for Contracts */
     { "omni_createcontract", 1},
     { "omni_createcontract", 2},

@@ -33,10 +33,14 @@ CTransaction ParseTransaction(const UniValue& value);
 CMutableTransaction ParseMutableTransaction(const UniValue& value);
 CPubKey ParsePubKeyOrAddress(const UniValue& value);
 uint32_t ParseOutputIndex(const UniValue& value);
-///////////////////////////
+//////////////////////////////////
 /** New things for Contracts */
 uint32_t ParseNewValues(const UniValue& value);
-///////////////////////////
+uint8_t ParseContractDexAction(const UniValue& value);
+int64_t ParseAmountContract(const UniValue& value, int propertyType);
+int64_t ParseAmountContract(const UniValue& value, bool fContract);
+// uint64_t ParseEffectivePrice(const UniValue& value);
+//////////////////////////////////
 /** Parses previous transaction outputs. */
 std::vector<PrevTxsEntry> ParsePrevTxs(const UniValue& value);
 

@@ -278,7 +278,7 @@ UniValue omni_createpayload_createcontract(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 17)
         throw runtime_error(
-            "omni_createpayload_issuancecrowdsale ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline earlybonus issuerpercentage\n"
+            "omni_createpayload_createcontract ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline earlybonus issuerpercentage\n"
 
             "\nCreates the payload for a new tokens issuance with crowdsale.\n"
 
@@ -304,8 +304,8 @@ UniValue omni_createpayload_createcontract(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_issuancecrowdsale", "2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2 4461 100 1 25")
-            + HelpExampleRpc("omni_createpayload_issuancecrowdsale", "2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2, 4461, 100, 1, 25")
+            + HelpExampleCli("omni_createpayload_createcontract", "2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2 4461 100 1 25")
+            + HelpExampleRpc("omni_createpayload_createcontract", "2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2, 4461, 100, 1, 25")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);
@@ -317,17 +317,17 @@ UniValue omni_createpayload_createcontract(const UniValue& params, bool fHelp)
     std::string url = ParseText(params[6]);
     std::string data = ParseText(params[7]);
     uint32_t propertyIdDesired = ParsePropertyId(params[8]);
-    int64_t numTokens = ParseAmount(params[9], type);
+    int64_t numTokens = ParseAmountContract(params[9], type);
     int64_t deadline = ParseDeadline(params[10]);
     uint8_t earlyBonus = ParseEarlyBirdBonus(params[11]);
     uint8_t issuerPercentage = ParseIssuerBonus(params[12]);
-    ////////////////////////////
+    ////////////////////////////////////
     /** New things for Contracts */
     uint32_t blocks_until_expiration = ParseNewValues(params[13]);
     uint32_t notional_size = ParseNewValues(params[14]);
     uint32_t collateral_currency = ParseNewValues(params[15]);
     uint32_t margin_requirement = ParseNewValues(params[16]);
-    ////////////////////////////
+    ////////////////////////////////////
     
     RequirePropertyName(name);
     RequireExistingProperty(propertyIdDesired);
@@ -541,7 +541,7 @@ UniValue omni_createpayload_trade(const UniValue& params, bool fHelp)
 /** New things for Contracts */
 UniValue omni_createpayload_contract_trade(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() != 6)
+    if (fHelp || params.size() != 2)
         throw runtime_error(
             "omni_createpayload_trade propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
@@ -563,20 +563,19 @@ UniValue omni_createpayload_contract_trade(const UniValue& params, bool fHelp)
             + HelpExampleRpc("omni_createpayload_contract_trade", "31,\"250.0\",1,\"10.0,\"70.0,\"80.0\"")
         );
 
-    uint32_t propertyIdForSale = ParsePropertyId(params[0]);
-    RequireExistingProperty(propertyIdForSale);
-    int64_t amountForSale = ParseAmount(params[1], isPropertyContract(propertyIdForSale));
+    // Aquí estas weon!!!
+    uint16_t propertyIdForSale = ParsePropertyType(params[0]);
+    int64_t amountForSale = ParseAmountContract(params[1], propertyIdForSale);
 
-    uint32_t propertyIdDesired = ParsePropertyId(params[2]);
-    RequireExistingProperty(propertyIdDesired);
-    int64_t amountDesired = ParseAmount(params[3], isPropertyContract(propertyIdDesired));
+    uint16_t propertyIdDesired = 3;
+    int64_t amountDesired = 55;
+    // uint16_t propertyIdDesired = ParsePropertyId(params[2]);
+    // int64_t amountDesired = ParseAmountContract(params[3], propertyIdDesired);
 
-    uint64_t effective_price = ParseAmount(params[4], isPropertyContract(propertyIdDesired));
-    uint8_t trading_action = ParseAmount(params[5], isPropertyContract(propertyIdForSale));
-
-    RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
-    RequireDifferentIds(propertyIdForSale, propertyIdDesired);
-    RequireDifferentIds(propertyIdForSale, propertyIdDesired);
+    // uint64_t effective_price = ParseEffectivePrice(params[4]);
+    // uint8_t trading_action = ParseContractDexAction(params[5]);
+    uint64_t effective_price = 60;
+    uint8_t trading_action = 50;
 
     std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, effective_price, trading_action);
     return HexStr(payload.begin(), payload.end());
@@ -639,8 +638,8 @@ UniValue omni_createpayload_cancelcontracttradesbyprice(const UniValue& params, 
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_canceltradesbyprice", "31 \"100.0\" 1 \"5.0\"")
-            + HelpExampleRpc("omni_createpayload_canceltradesbyprice", "31, \"100.0\", 1, \"5.0\"")
+            + HelpExampleCli("omni_createpayload_canceltradesbyprice", "31 \"100.0\" 1 \"5.0\" \"100\" 1")
+            + HelpExampleRpc("omni_createpayload_canceltradesbyprice", "31, \"100.0\", 1, \"5.0\" \"100\", 1")
         );
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
@@ -649,8 +648,11 @@ UniValue omni_createpayload_cancelcontracttradesbyprice(const UniValue& params, 
     uint32_t propertyIdDesired = ParsePropertyId(params[2]);
     RequireExistingProperty(propertyIdDesired);
     int64_t amountDesired = ParseAmount(params[3], isPropertyContract(propertyIdDesired));
-    uint64_t effective_price = ParseAmount(params[4], isPropertyContract(propertyIdDesired));
-    uint8_t trading_action = ParseAmount(params[5], isPropertyContract(propertyIdForSale));
+
+    // uint64_t effective_price = ParseEffectivePrice(params[4]);
+    uint64_t effective_price = 60;
+    // uint8_t trading_action = ParseContractDexAction(params[5]);
+    uint8_t trading_action = ParseContractDexAction(params[4]);
 
     RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
     RequireDifferentIds(propertyIdForSale, propertyIdDesired);
