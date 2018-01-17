@@ -541,41 +541,32 @@ UniValue omni_createpayload_trade(const UniValue& params, bool fHelp)
 /** New things for Contracts */
 UniValue omni_createpayload_contract_trade(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() != 2)
+    if (fHelp || params.size() != 6)
         throw runtime_error(
-            "omni_createpayload_trade propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+            "omni_createpayload_contract_trade propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
             "\nCreates the payload to place a trade offer on the distributed token exchange.\n"
 
             "\nArguments:\n"
-            "1. propertyidforsale    (number, required) the identifier of the contracts to list for sale\n"
-            "2. amountforsale        (string, required) the amount of contracts to list for sale\n"
-            "3. propertiddesired     (number, required) the identifier of the contract desired in exchange\n"
-            "4. amountdesired        (string, required) the amount of contract desired in exchange\n"
-            "5. effective_price      (string, required) the price of contract desired in exchange\n"
-            "6. trading_action       (string, required) the price of contract desired in exchange\n"
-            
+            "1. propertyidforsale    (number, required) the identifier of the tokens to list for sale\n"
+            "2. amountforsale        (string, required) the amount of tokens to list for sale\n"
+            "3. propertiddesired     (number, required) the identifier of the tokens desired in exchange\n"
+            "4. amountdesired        (string, required) the amount of tokens desired in exchange\n"
+
             "\nResult:\n"
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_contract_trade", "31\"250.0\"1\"10.0\"70.0\"80.0\"")
-            + HelpExampleRpc("omni_createpayload_contract_trade", "31,\"250.0\",1,\"10.0,\"70.0,\"80.0\"")
+            + HelpExampleCli("omni_createpayload_contract_trade", "31 \"250.0\" 1 \"10.0\"")
+            + HelpExampleRpc("omni_createpayload_contract_trade", "31, \"250.0\", 1, \"10.0\"")
         );
 
-    // Aquí estas weon!!!
-    uint16_t propertyIdForSale = ParsePropertyType(params[0]);
-    int64_t amountForSale = ParseAmountContract(params[1], propertyIdForSale);
-
-    uint16_t propertyIdDesired = 3;
-    int64_t amountDesired = 55;
-    // uint16_t propertyIdDesired = ParsePropertyId(params[2]);
-    // int64_t amountDesired = ParseAmountContract(params[3], propertyIdDesired);
-
-    // uint64_t effective_price = ParseEffectivePrice(params[4]);
-    // uint8_t trading_action = ParseContractDexAction(params[5]);
-    uint64_t effective_price = 60;
-    uint8_t trading_action = 50;
+    uint32_t propertyIdForSale = ParsePropertyId(params[0]);
+    int64_t amountForSale = ParseAmountContract(params[1], isPropertyContract(propertyIdForSale));
+    uint32_t propertyIdDesired = ParsePropertyId(params[2]);
+    int64_t amountDesired = ParseAmountContract(params[3], isPropertyContract(propertyIdDesired));
+    uint64_t effective_price = ParseEffectivePrice(params[4]);
+    uint8_t trading_action = ParseContractDexAction(params[5]);
 
     std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, effective_price, trading_action);
     return HexStr(payload.begin(), payload.end());
@@ -624,7 +615,7 @@ UniValue omni_createpayload_cancelcontracttradesbyprice(const UniValue& params, 
 {
     if (fHelp || params.size() != 6)
         throw runtime_error(
-            "omni_createpayload_canceltradesbyprice propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+            "omni_createpayload_cancelcontracttradesbyprice propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
             "\nCreates the payload to cancel offers on the distributed token exchange with the specified price.\n"
 
@@ -638,25 +629,17 @@ UniValue omni_createpayload_cancelcontracttradesbyprice(const UniValue& params, 
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_canceltradesbyprice", "31 \"100.0\" 1 \"5.0\" \"100\" 1")
-            + HelpExampleRpc("omni_createpayload_canceltradesbyprice", "31, \"100.0\", 1, \"5.0\" \"100\", 1")
+            + HelpExampleCli("omni_createpayload_cancelcontracttradesbyprice", "31 \"100.0\" 1 \"5.0\" 100 1")
+            + HelpExampleRpc("omni_createpayload_cancelcontracttradesbyprice", "31 \"100.0\" 1 \"5.0\" 100 1")
         );
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
-    RequireExistingProperty(propertyIdForSale);
-    int64_t amountForSale = ParseAmount(params[1], isPropertyContract(propertyIdForSale));
+    int64_t amountForSale = ParseAmountContract(params[1], isPropertyContract(propertyIdForSale));
     uint32_t propertyIdDesired = ParsePropertyId(params[2]);
-    RequireExistingProperty(propertyIdDesired);
-    int64_t amountDesired = ParseAmount(params[3], isPropertyContract(propertyIdDesired));
-
-    // uint64_t effective_price = ParseEffectivePrice(params[4]);
-    uint64_t effective_price = 60;
-    // uint8_t trading_action = ParseContractDexAction(params[5]);
-    uint8_t trading_action = ParseContractDexAction(params[4]);
-
-    RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
-    RequireDifferentIds(propertyIdForSale, propertyIdDesired);
-
+    int64_t amountDesired = ParseAmountContract(params[3], isPropertyContract(propertyIdDesired));
+    uint64_t effective_price = ParseEffectivePrice(params[4]);
+    uint8_t trading_action = ParseContractDexAction(params[5]);
+    
     std::vector<unsigned char> payload = CreatePayload_ContractDexCancelPrice(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, effective_price, trading_action);
 
     return HexStr(payload.begin(), payload.end());

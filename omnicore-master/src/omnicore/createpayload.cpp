@@ -581,8 +581,6 @@ std::vector<unsigned char> CreatePayload_ContractDexCancelEcosystem(uint8_t ecos
     return payload;
 }
 ///////////////////////////////
-
-///////////////////////////
 /** New things for Contracts */
 std::vector<unsigned char> CreatePayload_ContractDexTrade(uint32_t propertyIdForSale, uint64_t amountForSale, uint32_t propertyIdDesired, uint64_t amountDesired, uint64_t effective_price, uint8_t trading_action)
 {
@@ -605,12 +603,13 @@ std::vector<unsigned char> CreatePayload_ContractDexTrade(uint32_t propertyIdFor
     PUSH_BACK_BYTES(payload, amountForSale);        /*vch[3]: 2+2+4+ 8 = 16 bytes*/
     PUSH_BACK_BYTES(payload, propertyIdDesired);    /*vch[4]: 2+2+4+8+ 4 = 20 bytes*/
     PUSH_BACK_BYTES(payload, amountDesired);        /*vch[5]: 2+2+4+8+4+ 8 = 28 bytes*/
-    PUSH_BACK_BYTES(payload, effective_price);        /*vch[6]: 2+2+4+8+4+8+ 8 = 36 bytes*/
-    PUSH_BACK_BYTES(payload, trading_action);        /*vch[7]: 2+2+4+8+4+8+8 +1 = 37 bytes*/
+    PUSH_BACK_BYTES(payload, effective_price);      /*vch[6]: 2+2+4+8+4+8+ 8 = 36 bytes*/
+    PUSH_BACK_BYTES(payload, trading_action);       /*vch[7]: 2+2+4+8+4+8+8 +1 = 37 bytes*/
     
     return payload;
 }
-///////////////////////////
+/////////////////////////////////
+
 std::vector<unsigned char> CreatePayload_DeactivateFeature(uint16_t featureId)
 {
     std::vector<unsigned char> payload;

@@ -57,17 +57,17 @@ uint32_t ParsePropertyId(const UniValue& value)
     return static_cast<uint32_t>(propertyId);
 }
 
-///////////////////////////////////
-// /** New things for Contracts */
-// uint64_t ParseEffectivePrice(const UniValue& value)
-// {
-//     int64_t effPrice = StrToInt64(value.get_str(), true);  // BTC is divisible
-//     if (effPrice < 0) {
-//         throw JSONRPCError(RPC_TYPE_ERROR, "Price should be positive");
-//     }
-//     return effPrice;
-// }
-///////////////////////////////////
+/////////////////////////////////
+/** New things for Contracts */
+uint64_t ParseEffectivePrice(const UniValue& value)
+{
+    int64_t effPrice = StrToInt64(value.getValStr(), true);  // BTC is divisible
+    if (effPrice < 0) {
+        throw JSONRPCError(RPC_TYPE_ERROR, "Price should be positive");
+    }
+    return effPrice;
+}
+/////////////////////////////////
 
 int64_t ParseAmount(const UniValue& value, bool isDivisible)
 {
@@ -87,8 +87,9 @@ int64_t ParseAmount(const UniValue& value, int propertyType)
 //////////////////////////////////
 /** New things for Contracts */
 int64_t ParseAmountContract(const UniValue& value, bool fContract)
-{
-    int64_t amount = mastercore::StrToInt64(value.get_str(), fContract);
+{   
+    /** Here we use getValStr() instead of get_str */
+    int64_t amount = mastercore::StrToInt64(value.getValStr(), fContract);
     if (amount < 1) {
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
     }
