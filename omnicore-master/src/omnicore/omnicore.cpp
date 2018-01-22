@@ -298,7 +298,7 @@ int64_t getMPbalance(const std::string& address, uint32_t propertyId, TallyType 
     }
     if (ttype == ACCEPT_RESERVE && propertyId > OMNI_PROPERTY_TMSC) {
         // ACCEPT_RESERVE is always empty, except for MSC and TMSC
-        return 0; 
+        return 0;
     }
 
     LOCK(cs_tally);
@@ -502,7 +502,7 @@ bool mastercore::update_tally_map(const std::string& who, uint32_t propertyId, i
         PrintToLog("%s(%s, %u=0x%X, %+d, ttype=%d) ERROR: invalid tally type\n", __func__, who, propertyId, propertyId, amount, ttype);
         return false;
     }
-    
+
     bool bRet = false;
     int64_t before = 0;
     int64_t after = 0;
@@ -3387,7 +3387,7 @@ void CMPTxList::recordPaymentTX(const uint256 &txid, bool fValid, int nBlock, un
 
        // Step 3 - Create new/update master record for payment tx in TXList
        const string key = txid.ToString();
-       const string value = strprintf("%u:%d:%u:%lu", fValid ? 1:0, nBlock, type, numberOfPayments); 
+       const string value = strprintf("%u:%d:%u:%lu", fValid ? 1:0, nBlock, type, numberOfPayments);
        Status status;
        PrintToLog("DEXPAYDEBUG : Writing master record %s(%s, valid=%s, block= %d, type= %d, number of payments= %lu)\n", __FUNCTION__, txid.ToString(), fValid ? "YES":"NO", nBlock, type, numberOfPayments);
        if (pdb)
@@ -3841,6 +3841,60 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
   if (count) { return true; } else { return false; }
 }
 
+//*New things for contracts*
+bool CMPTradeList::getMatchingTrades(const uint256& txid)
+{
+    if (!pdb) return false;
+
+    int count = 0;
+    // totalReceived = 0;
+    // totalSold = 0;
+
+    std::vector<std::string> vstr;
+    string txidStr = txid.ToString();
+    leveldb::Iterator* it = NewIterator();
+    for(it->SeekToFirst(); it->Valid(); it->Next()) {
+        // search key to see if this is a matching trade
+        std::string strKey = it->key().ToString();
+        std::string strValue = it->value().ToString();
+        std::string matchTxid;
+        size_t txidMatch = strKey.find(txidStr);
+        if (txidMatch == std::string::npos) continue; // no match
+
+        // sanity check key is the correct length for a matched trade
+        //if (strKey.length() != 129) continue;
+
+        // obtain the txid of the match
+        //if (txidMatch==0) { matchTxid = strKey.substr(65,64); } else { matchTxid = strKey.substr(0,64); }
+
+        // ensure correct amount of tokens in value string
+        boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
+        // if (vstr.size() != 8) {
+        //     PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
+        //     continue;
+        // }
+
+        // decode the details from the value string
+            int64_t output0 = boost::lexical_cast<int64_t>(vstr[0]);
+            int64_t output1 = boost::lexical_cast<int64_t>(vstr[1]);
+        // uint32_t prop1 = boost::lexical_cast<uint32_t>(vstr[2]);
+        // uint32_t prop2 = boost::lexical_cast<uint32_t>(vstr[3]);
+        // int64_t amount1 = boost::lexical_cast<int64_t>(vstr[4]);
+        // int64_t amount2 = boost::lexical_cast<int64_t>(vstr[5]);
+        // int blockNum = atoi(vstr[6]);
+        // int64_t tradingFee = boost::lexical_cast<int64_t>(vstr[7]);
+
+        printf("first output: %d \n",output0);
+        printf("second output: %d \n", output1);
+        //tradeArray.push_back(trade);
+        ++count;
+    }
+
+    // clean up
+    delete it;
+    if (count) { return true; } else { return false; }
+  }
+
 bool CompareTradePair(const std::pair<int64_t, UniValue>& firstJSONObj, const std::pair<int64_t, UniValue>& secondJSONObj)
 {
     return firstJSONObj.first > secondJSONObj.first;
@@ -3981,7 +4035,7 @@ void CMPTradeList::recordNewTrade(const uint256& txid, const std::string& addres
   ++nWritten;
   if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
 }
-    
+
 void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee)
 {
   if (!pdb) return;
@@ -3999,11 +4053,11 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
 /////////////////////////////////
 /** New things for Contract */
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum1, int blockNum2, uint64_t effective_price1, uint64_t effective_price2, uint8_t trading_action1, uint8_t trading_action2, string s_status)
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, string s_clives)
 {
   if (!pdb) return;
   const string key = txid1.ToString() + "+" + txid2.ToString();
-  const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d:%lu:%lu:%s", address1, address2, prop1, prop2, amount1, amount2, blockNum1, blockNum2, effective_price1, effective_price2, trading_action1, trading_action2, s_status);
+  const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%s", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, s_clives);
   Status status;
   if (pdb)
   {
@@ -4015,44 +4069,44 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
 /////////////////////////////////
 /** New things for Contract */
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status) 
-{
-  if (!pdb) return;
-  const string key = txid1.ToString() + "+" + txid2.ToString();
-  const string value = strprintf("%lu:%lu:%lu:%d:%d:%s", effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status);
-  Status status;
-  if (pdb)
-  {
-    status = pdb->Put(writeoptions, key, value);
-    ++nWritten;
-    if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
-  }
-}
+// void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status)
+// {
+//   if (!pdb) return;
+//   const string key = txid1.ToString() + "+" + txid2.ToString();
+//   const string value = strprintf("%lu:%lu:%lu:%d:%d:%s", effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status);
+//   Status status;
+//   if (pdb)
+//   {
+//     status = pdb->Put(writeoptions, key, value);
+//     ++nWritten;
+//     if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
+//   }
+// }
 
-/////////////////////////////////
-/** New things for Contract */
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid)
-{
-    if (!pdb) return;
-    const string key = txid1.ToString() + "+" + txid2.ToString();
-    const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d:%s:", address1, address2, prop1, prop2, amount1, amount2, blockNum, fee, t_status);
-    std::vector<std::string> STxid;
-    string result;                                              
+// /////////////////////////////////
+// /** New things for Contract */
+// void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid)
+// {
+//     if (!pdb) return;
+//     const string key = txid1.ToString() + "+" + txid2.ToString();
+//     const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d:%s:", address1, address2, prop1, prop2, amount1, amount2, blockNum, fee, t_status);
+//     std::vector<std::string> STxid;
+//     string result;
 
-    for (unsigned int n = 0; n < vecTxid.size(); ++n) {
-        STxid.push_back(vecTxid[n].ToString());
-    }
-    std::string joined = boost::algorithm::join(STxid, ":");
-    result = value + joined;
+//     for (unsigned int n = 0; n < vecTxid.size(); ++n) {
+//         STxid.push_back(vecTxid[n].ToString());
+//     }
+//     std::string joined = boost::algorithm::join(STxid, ":");
+//     result = value + joined;
 
-    Status status;
-    if (pdb)
-    {
-        status = pdb->Put(writeoptions, key, result);
-        ++nWritten;
-        if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
-    }
-}
+//     Status status;
+//     if (pdb)
+//     {
+//         status = pdb->Put(writeoptions, key, result);
+//         ++nWritten;
+//         if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
+//     }
+// }
 /////////////////////////////////
 
 /**

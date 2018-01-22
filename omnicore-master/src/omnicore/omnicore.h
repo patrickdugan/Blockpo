@@ -79,7 +79,7 @@ enum TransactionType {
   MSC_TYPE_METADEX_CANCEL_ECOSYSTEM   = 28,
 
   ////////////////////////////////////
-  /** New things for Contract */ 
+  /** New things for Contract */
   MSC_TYPE_CONTRACTDEX_TRADE          = 29,
   MSC_TYPE_CONTRACTDEX_CANCEL_PRICE   = 30,
   ////////////////////////////////////
@@ -87,12 +87,12 @@ enum TransactionType {
   MSC_TYPE_NOTIFICATION               = 31,
 
   ////////////////////////////////////
-  /** New things for Contract */ 
+  /** New things for Contract */
   MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM   = 32,
-  /** !Here we changed "MSC_TYPE_OFFER_ACCEPT_A_BET = 40" */ 
+  /** !Here we changed "MSC_TYPE_OFFER_ACCEPT_A_BET = 40" */
   MSC_TYPE_CREATE_CONTRACT            = 40,
   ////////////////////////////////////
-  
+
   MSC_TYPE_CREATE_PROPERTY_FIXED      = 50,
   MSC_TYPE_CREATE_PROPERTY_VARIABLE   = 51,
   MSC_TYPE_PROMOTE_PROPERTY           = 52,
@@ -180,7 +180,7 @@ std::string FormatByType(int64_t amount, uint16_t propertyType);
 /*New property type No 3 Contract*/
 std::string FormatByTypeContract(int64_t amount, uint16_t propertyType);
 /////////////////////////////////////////
-  
+
 /** Returns the Exodus address. */
 const CBitcoinAddress ExodusAddress();
 
@@ -272,8 +272,9 @@ public:
     /////////////////////////////////
     /** New things for Contract */
     void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum1, int blockNum2, uint64_t effective_price1, uint64_t effective_price2, uint8_t trading_action1, uint8_t trading_action2, string s_status);
-    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid);
-    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status);
+    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, string s_clives);
+    // void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid);
+    // void recordMatchedTrade(const uint256 txid1, const uint256 txid2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status);
     /////////////////////////////////
     void recordNewTrade(const uint256& txid, const std::string& address, uint32_t propertyIdForSale, uint32_t propertyIdDesired, int blockNum, int blockIndex);
     int deleteAboveBlock(int blockNum);
@@ -281,6 +282,7 @@ public:
     void printStats();
     void printAll();
     bool getMatchingTrades(const uint256& txid, uint32_t propertyId, UniValue& tradeArray, int64_t& totalSold, int64_t& totalBought);
+    bool getMatchingTrades(const uint256& txid);
     void getTradesForAddress(std::string address, std::vector<uint256>& vecTransactions, uint32_t propertyIdFilter = 0);
     void getTradesForPair(uint32_t propertyIdSideA, uint32_t propertyIdSideB, UniValue& response, uint64_t count);
     int getMPTradeCountTotal();
