@@ -26,6 +26,7 @@ BOOST_FIXTURE_TEST_SUITE(omnicore_contractdex_object, BasicTestingSetup)
 
 
 BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
+
     std::vector<unsigned char> vch = CreatePayload_MetaDExTrade(
             static_cast<uint32_t>(1),    // property
             static_cast<uint64_t>(45),   // amount_forsale
@@ -70,63 +71,111 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
     BOOST_CHECK_EQUAL(objMetaDEx.getAmountForSale(), 45);
     BOOST_CHECK_EQUAL(objMetaDEx.getDesProperty(), 3);
     BOOST_CHECK_EQUAL(objMetaDEx.getAmountDesired(), 254);
-}
 
+    /////////////////////////////////////////////
+
+    std::vector<unsigned char> vch1 = CreatePayload_MetaDExTrade(
+            static_cast<uint32_t>(1),    // property
+            static_cast<uint64_t>(45),   // amount_forsale
+            static_cast<uint32_t>(3),    // property_desired
+            static_cast<uint64_t>(254)); // amount_desired
+
+    BOOST_CHECK_EQUAL(HexStr(vch1), "0000001900000001000000000000002d0000000300000000000000fe");
+
+    size_t packet_size1 = vch1.size();
+    unsigned char packet1[packet_size1];
+    memcpy(packet1, &vch1[0], packet_size1);
+
+    const uint256 tx1;
+    CMPTransaction objTrans1;
+    objTrans1.Set(
+            "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", // sender
+            "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy",  // receiver
+            4000000,                              // nValue, nNewValue
+            tx1,                                   // txid
+            395000,                               // block
+            1,                                    // idx
+            (unsigned char *) &packet1,            // pkt
+            packet_size1,                          // pkt_size
+            31,                                   // encodingClass
+            32                                    // tx_fee_paid
+    );
+
+    BOOST_CHECK_EQUAL(objTrans1.getSender(), "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH");
+    BOOST_CHECK_EQUAL(objTrans1.getReceiver(), "1zAtHRASgdHvZDfHs6xJquMghga4eG7gy");
+    BOOST_CHECK_EQUAL(objTrans1.getAmount(), 4000000);
+    BOOST_CHECK_EQUAL(objTrans1.getNewAmount(), 4000000);
+    BOOST_CHECK_EQUAL(objTrans1.getIndexInBlock(), 1);
+    BOOST_CHECK_EQUAL(objTrans1.getEncodingClass(), 31);
+    BOOST_CHECK_EQUAL(objTrans1.getFeePaid(), 32);
+
+    BOOST_CHECK_EQUAL(objTrans1.interpret_Transaction(), true);
+    BOOST_CHECK_EQUAL(objTrans1.getPayloadSize(), 28);
+    BOOST_CHECK_EQUAL(objTrans1.getPayload(), HexStr(vch1));
+
+    CMPMetaDEx objMetaDEx1(objTrans1);
+    BOOST_CHECK_EQUAL(objMetaDEx1.getProperty(), 1);
+    BOOST_CHECK_EQUAL(objMetaDEx1.getAmountForSale(), 45);
+    BOOST_CHECK_EQUAL(objMetaDEx1.getDesProperty(), 3);
+    BOOST_CHECK_EQUAL(objMetaDEx1.getAmountDesired(), 254);
+
+    CMPMetaDEx *pt_objMetaDEx1;
+    pt_objMetaDEx1 = &objMetaDEx1;
+    BOOST_CHECK(MetaDEx_INSERT(objMetaDEx));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(pt_objMetaDEx1));
+
+}
 
 BOOST_AUTO_TEST_CASE(test1)  // seller_amount = 10, buyer_amount = 10;
 {
     CMPTally tally;  // the tally map object
     const uint256 tx;
-    int64_t amount = 5;
     CMPContractDex seller(
                     "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
                     1,  // block
                     3,  // property for sale
                     10,  // amount of contracts for sale
-                    0,  // desired property
+                    1,  // desired property
                     0,
                     tx, // txid
                     1,  // position in block
                     1,  // subaction
-                    amount,  // amount remaining
-                    15,  // effective_price
+                    5,  // amount remaining
+                    2,  // effective_price
                     2 // trading_action
     );
+
+    BOOST_CHECK_EQUAL(seller.getProperty(), 3);
+    BOOST_CHECK_EQUAL(seller.getAmountForSale(), 10);
+    BOOST_CHECK_EQUAL(seller.getEffectivePrice(), 5);
+    BOOST_CHECK_EQUAL(seller.getTradingAction(), 2);
 
     CMPContractDex buyer(
                     "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", // address
                     1,  // block
                     3,  // property for sale
-                    10,  // amount of contracts for trade
-                    0,   // desired property
+                    5,  // amount of contracts for trade
+                    1,   // desired property
                     0,
                     tx, // txid
                     2,  // position in block
                     1,  // subaction
-                    2,  // amount remaining
-                    5,  // effective_price
+                    5,  // amount remaining
+                    2,  // effective_price
                     1 // trading_action
     );
 
-    CMPMetaDEx object(
-                    "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
-                    1,  // block
-                    3,  // property for sale
-                    10,  // amount of contracts for sale
-                    0,  // desired property
-                    0,
-                    tx, // txid
-                    1,  // position in block
-                    1,  // subaction
-                    3  // amount remaining
-    );
+    BOOST_CHECK_EQUAL(buyer.getProperty(), 3);
+    BOOST_CHECK_EQUAL(buyer.getAmountForSale(), 5);
+    BOOST_CHECK_EQUAL(buyer.getEffectivePrice(), 2);
+    BOOST_CHECK_EQUAL(buyer.getTradingAction(), 1);
 
-    BOOST_CHECK_EQUAL(3, object.getAmountRemaining());
-    CMPMetaDEx *pold;
-    pold = &object;
-    CMPMetaDEx metadex_replacement = *pold;
+
+    CMPContractDex *pt_buyer;
+    pt_buyer = &buyer;
+    BOOST_CHECK(ContractDex_INSERT(seller));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(pt_buyer));
 }
-
 
 BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
 {
@@ -188,10 +237,6 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
     BOOST_CHECK_EQUAL(objContractDEx.getTradingAction(), 1);
     BOOST_CHECK_EQUAL(objContractDEx.getAmountRemaining(), 50);
 
-    CMPContractDex *pt_objContractDEx;
-    pt_objContractDEx = &objContractDEx;
-    BOOST_CHECK_EQUAL(TRADED, x_Trade(pt_objContractDEx));
-
     //////////////////////////////////////////////
 
     std::vector<unsigned char> vch1 = CreatePayload_ContractDexTrade(
@@ -241,7 +286,7 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
     BOOST_CHECK_EQUAL(objTrans1.getPayloadSize(), 37);
     BOOST_CHECK_EQUAL(objTrans1.getPayload(), HexStr(vch));
 
-    CMPContractDex objContractDEx1(objTrans);
+    CMPContractDex objContractDEx1(objTrans1);
     BOOST_CHECK_EQUAL(objContractDEx1.getProperty(), 1);
     BOOST_CHECK_EQUAL(objContractDEx1.getAmountForSale(), 50);
     BOOST_CHECK_EQUAL(objContractDEx1.getDesProperty(), 3);

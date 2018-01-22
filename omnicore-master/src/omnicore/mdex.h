@@ -45,6 +45,8 @@ enum MatchReturnType
     ADDED,
     CANCELLED,
 };
+
+MatchReturnType x_Trade(CMPMetaDEx* const pnew);
 ///////////////////////////////
 
 /** A trade on the distributed exchange.
