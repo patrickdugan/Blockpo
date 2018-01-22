@@ -133,7 +133,7 @@ BOOST_AUTO_TEST_CASE(test1)  // seller_amount = 10, buyer_amount = 10;
     CMPContractDex seller(
                     "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
                     1,  // block
-                    3,  // property for sale
+                    1,  // property for sale
                     10,  // amount of contracts for sale
                     1,  // desired property
                     0,
@@ -145,7 +145,7 @@ BOOST_AUTO_TEST_CASE(test1)  // seller_amount = 10, buyer_amount = 10;
                     2 // trading_action
     );
 
-    BOOST_CHECK_EQUAL(seller.getProperty(), 3);
+    BOOST_CHECK_EQUAL(seller.getProperty(), 1);
     BOOST_CHECK_EQUAL(seller.getAmountForSale(), 10);
     BOOST_CHECK_EQUAL(seller.getEffectivePrice(), 5);
     BOOST_CHECK_EQUAL(seller.getTradingAction(), 2);
@@ -153,7 +153,7 @@ BOOST_AUTO_TEST_CASE(test1)  // seller_amount = 10, buyer_amount = 10;
     CMPContractDex buyer(
                     "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", // address
                     1,  // block
-                    3,  // property for sale
+                    1,  // property for sale
                     5,  // amount of contracts for trade
                     1,   // desired property
                     0,
@@ -165,7 +165,7 @@ BOOST_AUTO_TEST_CASE(test1)  // seller_amount = 10, buyer_amount = 10;
                     1 // trading_action
     );
 
-    BOOST_CHECK_EQUAL(buyer.getProperty(), 3);
+    BOOST_CHECK_EQUAL(buyer.getProperty(), 1);
     BOOST_CHECK_EQUAL(buyer.getAmountForSale(), 5);
     BOOST_CHECK_EQUAL(buyer.getEffectivePrice(), 2);
     BOOST_CHECK_EQUAL(buyer.getTradingAction(), 1);
@@ -303,7 +303,7 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
     //////////////////////////////////////////////
 }
 
-bool direction = true;
+bool direction = false;
 
 BOOST_AUTO_TEST_CASE(equal_amount)
 {
