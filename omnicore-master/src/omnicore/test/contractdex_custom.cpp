@@ -382,12 +382,16 @@ BOOST_AUTO_TEST_CASE(equal_amount)
     BOOST_CHECK_EQUAL(1, buyer.getTradingAction()); //buyer
     BOOST_CHECK_EQUAL(5, buyer.getEffectivePrice());
 
-    BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
+    mastercore_init();
+
+    BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),5,POSSITIVE_BALANCE));
+    BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(),5,NEGATIVE_BALANCE));
+
+    BOOST_CHECK_EQUAL(5, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
     BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
     BOOST_CHECK_EQUAL(0, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
-    BOOST_CHECK_EQUAL(0, getMPbalance(buyer.getAddr(), buyer.getProperty(), NEGATIVE_BALANCE));
+    BOOST_CHECK_EQUAL(5, getMPbalance(buyer.getAddr(), buyer.getProperty(), NEGATIVE_BALANCE));
 
-    mastercore_init();
     if (direction){
         BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
         BOOST_CHECK(ContractDex_INSERT(seller));
@@ -398,9 +402,9 @@ BOOST_AUTO_TEST_CASE(equal_amount)
         BOOST_CHECK_EQUAL(TRADED, x_Trade(s));
     }
 
-    BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
-    BOOST_CHECK_EQUAL(10, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
-    BOOST_CHECK_EQUAL(10, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
+    BOOST_CHECK_EQUAL(2, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
+    BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
+    BOOST_CHECK_EQUAL(3, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
     BOOST_CHECK_EQUAL(0, getMPbalance(buyer.getAddr(), buyer.getProperty(), NEGATIVE_BALANCE));
 
     BOOST_CHECK_EQUAL(0, seller.getAmountForSale());  // seller

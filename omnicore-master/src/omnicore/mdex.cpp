@@ -151,7 +151,7 @@ std::string xToString(const uint64_t &price)
 // find the best match on the market
 // NOTE: sometimes I refer to the older order as seller & the newer order as buyer, in this trade
 // INPUT: property, desprop, desprice = of the new order being inserted; the new object being processed
-// RETURN: 
+// RETURN:
 MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 {
     const uint32_t propertyForSale = pnew->getProperty();
@@ -366,7 +366,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
     MatchReturnType NewReturn = NOTHING;
     bool bBuyerSatisfied = false;
 
-    // if (msc_debug_metadex1) PrintToLog("%s(%s: prop=%d, desprice= %s);newo: %s\n", __FUNCTION__, pnew->getAddr(), 
+    // if (msc_debug_metadex1) PrintToLog("%s(%s: prop=%d, desprice= %s);newo: %s\n", __FUNCTION__, pnew->getAddr(),
     //                                    propertyForSale, xToString(pnew->getEffectivePrice()), pnew->ToString());
 
     cd_PricesMap* const ppriceMap = get_PricesCd(propertyForSale);
@@ -402,7 +402,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             // if (msc_debug_metadex1) PrintToLog("Looking at existing: %s (its prop= %d) = %s\n",
             //     xToString(sellersPrice), pold->getProperty(), pold->ToString());
 
-            // Does the desired property match? Does the tradingaction match? 
+            // Does the desired property match? Does the tradingaction match?
             if ( (pold->getProperty() != propertyForSale) || (pold->getTradingAction() == pnew->getTradingAction()) ) {
                 ++offerIt;
                 continue;
@@ -487,31 +487,23 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             }
 
             ///////////////////////////
+            std::string Status_s, Status_b;
 
             NewReturn = TRADED;
             CMPContractDex contract_replacement = *pold;
+            int64_t remaining = abs(seller_amount - buyer_amount);
 
-            if (seller_amount > buyer_amount && pold->getTradingAction() == SELL) {
-                contract_replacement.setAmountForsale(seller_amount - buyer_amount, "moreinseller");
+            if ((seller_amount > buyer_amount && pold->getTradingAction() == SELL) || (seller_amount < buyer_amount && pold->getTradingAction() == BUY)) {
+                contract_replacement.setAmountForsale(remaining, "moreinseller");
                 pnew->setAmountForsale(0, "no_remaining");
                 NewReturn = TRADED_MOREINSELLER;
 
-            } else if (seller_amount < buyer_amount && pold->getTradingAction() == SELL){
+            } else if ((seller_amount < buyer_amount && pold->getTradingAction() == SELL) || (seller_amount > buyer_amount && pold->getTradingAction() == BUY)) {
                 contract_replacement.setAmountForsale(0, "no_remaining");
-                pnew->setAmountForsale(buyer_amount - seller_amount, "moreinbuyer");
-                NewReturn = TRADED_MOREINBUYER; 
-
-            } else if (seller_amount > buyer_amount && pold->getTradingAction() == BUY){
-                pnew->setAmountForsale(seller_amount - buyer_amount, "moreinseller");
-                contract_replacement.setAmountForsale(0, "no_remaining");
-                NewReturn = TRADED_MOREINSELLER;
-
-            } else if (seller_amount < buyer_amount && pold->getTradingAction() == BUY){
-                pnew->setAmountForsale(0, "no_remaining");
-                contract_replacement.setAmountForsale(buyer_amount -seller_amount, "moreinbuyer");
+                pnew->setAmountForsale(remaining, "moreinbuyer");
                 NewReturn = TRADED_MOREINBUYER;
 
-            } else if (seller_amount == buyer_amount){    
+            } else if (seller_amount == buyer_amount) {
                 pnew->setAmountForsale(0, "no_remaining");
                 contract_replacement.setAmountForsale(0, "no_remaining");
                 NewReturn = TRADED;
@@ -519,59 +511,68 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             ///////////////////////////////////////
 
-            std::string Status;
+            if( (possitive_sell > 0) && (possitive_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE)) ) {
+                Status_s = "Long Netted";
 
-            if( (contract_replacement->getTradingAction() == SELL) ) {
-                
-                if( ( possitive_sell > getMPbalance(contract_replacement->getAddr(), contract_replacement->getProperty(), POSSITIVE_BALANCE) ) && ( possitive_sell > 0 ) )
-                    Status = "Long Netted";
-                
-                else if( possitive_sell < getMPbalance(contract_replacement->getAddr(), contract_replacement->getProperty(), POSSITIVE_BALANCE) && ( possitive_sell >= 0 ) )
-                    Status = "Live Contract";
+            } else if ( (negative_sell > 0) && (negative_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE)) ) {
+                 Status_s = "Short Netted";                 
+            }
+            if( (possitive_buy > 0) && (possitive_buy > getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE)) ) {
+                 Status_b = "Long Netted";
 
-                if( ( negative_sell > getMPbalance(contract_replacement->getAddr(), contract_replacement->getProperty(), NEGATIVE_BALANCE) ) && ( negative_sell > 0 ) )
-                    Status = "Short Netted";
-                
-                else if( ( negative_sell < getMPbalance(contract_replacement->getAddr(), contract_replacement->getProperty(), NEGATIVE_BALANCE) ) && ( negative_sell >= 0 ) )
-                    Status = "Live Contract";
-
-            } else {
-
-                if( ( possitive_sell > getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) ) && ( possitive_sell > 0 ) )
-                    Status = "Long Netted";
-                
-                else if( possitive_sell < getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) && ( possitive_sell >= 0 ) )
-                    Status = "Live Contract";
-
-                if( ( negative_sell > getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) ) && ( negative_sell > 0 ) )
-                    Status = "Short Netted";
-                
-                else if( ( negative_sell < getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) ) && ( negative_sell >= 0 ) )
-                    Status = "Live Contract";
+            } else if( (negative_buy > 0) && (negative_buy > getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE)) ) {
+                 Status_b = "Short Netted";
             }
 
             ///////////////////////////////////////
 
-            t_tradelistdb->recordMatchedTrade(pold->getHash(), 
-                                              pnew->getHash(), 
+            if( ((getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ) && (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) == 0 )) &&  
+                 ((getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 )) ) {
+                Status_b = "Netted";
+                Status_s = "Netted";
+            }
+
+            ///////////////////////////////////////
+
+            int64_t lives_maker = 0, lives_taker = 0;
+
+            if( (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) > 0) && ( getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ) ) {
+                lives_maker = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE);
+
+            } else if( (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) > 0 ) && (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) == 0 ) ) {
+                lives_maker = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
+            }
+
+            if( (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) > 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ) ) {
+                lives_taker = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
+
+            } else if( (getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) > 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 ) ) {
+                lives_taker = getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE);
+            }
+
+            ///////////////////////////////////////
+
+            t_tradelistdb->recordMatchedTrade(pold->getHash(),
+                                              pnew->getHash(),
                                               pold->getAddr(),
                                               pnew->getAddr(),
-                                              pold->getEffectivePrice(), 
-                                              pold->getAmountForSale(), 
-                                              contract_replacement.getAmountForSale(), 
-                                              pold->getBlock(), 
+                                              pold->getEffectivePrice(),
+                                              contract_replacement.getAmountForSale(),
+                                              pnew->getAmountForSale(),
+                                              pold->getBlock(),
                                               pnew->getBlock(),
-                                              "Status Maker",
-                                              "Status Taker", 
-                                              "Live Contracts");
+                                              Status_s,
+                                              Status_b,
+                                              lives_maker, 
+                                              lives_taker);
 
             ///////////////////////////////////////
 
             volatile uint64_t marketPrice;
             marketPrice = pold->getEffectivePrice();
 
-            // if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());         
-                pofferSet->erase(offerIt++); 
+            // if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());
+                pofferSet->erase(offerIt++);
 
             if (seller_amount != buyer_amount) {
                 // PrintToLog("++ inserting contract_replacement: %s\n", contract_replacement.ToString());
@@ -583,7 +584,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             }
       }
       if (bBuyerSatisfied) break;
-    } 
+    }
     return NewReturn;
 }
 
@@ -647,14 +648,14 @@ std::string CMPContractDex::displayFullContractPrice() const
     int128_t fullprice;
     if ( isPropertyContract(getProperty()) ) multiply(fullprice, priceForsale, amountForsale);;
 
-    std::string priceForsaleStr = xToString(fullprice); 
+    std::string priceForsaleStr = xToString(fullprice);
     return priceForsaleStr;
 }
 //////////////////////////////////////
 
 rational_t CMPMetaDEx::unitPrice() const
 {
-    rational_t effectivePrice; 
+    rational_t effectivePrice;
     if (amount_forsale) effectivePrice = rational_t(amount_desired, amount_forsale);
     return effectivePrice;
 }
@@ -706,7 +707,7 @@ std::string CMPMetaDEx::ToString() const
 std::string CMPContractDex::ToString() const
 {
     return strprintf("%s:%34s in %d/%03u, txid: %s , trade #%u %s for #%u %s",
-        xToString(getEffectivePrice()), getAddr(), getBlock(), getIdx(), getHash().ToString().substr(0, 10), 
+        xToString(getEffectivePrice()), getAddr(), getBlock(), getIdx(), getHash().ToString().substr(0, 10),
         getProperty(), FormatMP(getProperty(), getAmountForSale()));
 }
 //////////////////////////////////////
@@ -829,13 +830,13 @@ bool mastercore::ContractDex_INSERT(const CMPContractDex &objContractDex)
 
     // Attempt to obtain a set of contractdex objects for this price from the price map
     if (cd_prices) p_indexes = get_IndexesCd(cd_prices, objContractDex.getEffectivePrice());
-  
+
     // See if the set was populated, if not no set exists at this price level, use the empty set that we created earlier
     if (!p_indexes) p_indexes = &temp_indexes;
 
     // Attempt to insert the contractdex object into the set
     ret = p_indexes->insert(objContractDex);
-    
+
     if (false == ret.second) return false;
 
     // If a prices map did not exist for this property, set p_prices to the temp empty price map
