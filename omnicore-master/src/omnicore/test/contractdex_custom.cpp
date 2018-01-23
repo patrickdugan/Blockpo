@@ -328,21 +328,20 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
 
     //////////////////////////////////////////////
 }
-
+																																																											
 bool direction = true;
-
+																													
 BOOST_AUTO_TEST_CASE(equal_amount)
 {
     CMPTally tally;  // the tally map object
-    const uint256 tx;   // address,block,property,amount for sale, desired property, amount desired,uint256 tx,idx, suba, amount remaining,desire price, for sale price
     CMPContractDex seller(
                     "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
                     172,  // block
                     1,  // property for sale
-                    5,  // amount of contracts for sale
+                    10,  // amount of contracts for sale
                     0,  // desired property
                     0,
-                    tx, // txid
+                    uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d"), // txid
                     1,  // position in block
                     1,  // subaction
                     0,  // amount remaining
@@ -354,10 +353,10 @@ BOOST_AUTO_TEST_CASE(equal_amount)
                     "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", // address
                     172,  // block
                     1,  // property for sale
-                    3,  // amount of contracts for trade
+                    10,  // amount of contracts for trade
                     0,   // desired property
                     0,
-                    tx, // txid
+                    uint256S("3c9a055899147b03b2c5240a030c1f94d243a834ecc06ab8cfa504ee29d07b7f"), // txid
                     2,  // position in block
                     1,  // subaction
                     0,  // amount remaining
@@ -384,8 +383,9 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 
     mastercore_init();
 
-    BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),5,POSSITIVE_BALANCE));
-    BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(),5,NEGATIVE_BALANCE));
+    // BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),10,POSSITIVE_BALANCE));
+    BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),10, NEGATIVE_BALANCE));
+    BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(),10, POSSITIVE_BALANCE));
 
     BOOST_CHECK_EQUAL(5, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
     BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));

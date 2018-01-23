@@ -509,28 +509,37 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 NewReturn = TRADED;
             }
 
-            ///////////////////////////////////////
+            /////////////////////////////////////// 
 
-            if( (possitive_sell > 0) && (possitive_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE)) ) {
-                Status_s = "Long Netted";
+            if ( possitive_sell > 0 ) {
+                if ( pold->getTradingAction() == SELL ) {
+                    Status_s = (possitive_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE)) ? "Long Netted" : "None";
+                } else {
+                    Status_s = (possitive_sell > getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE)) ? "Long Netted" : "None";
+                }
 
-            } else if ( (negative_sell > 0) && (negative_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE)) ) {
-                 Status_s = "Short Netted";                 
-            }
-            if( (possitive_buy > 0) && (possitive_buy > getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE)) ) {
-                 Status_b = "Long Netted";
+            } else if ( negative_sell > 0 ) {
+                if ( pold->getTradingAction() == SELL ) {
+                    Status_s = (negative_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE)) ? "Short Netted" : "None";
+                } else {
+                    Status_s = (negative_sell > getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE)) ? "Short Netted" : "None";
+                }    
+            } 
 
-            } else if( (negative_buy > 0) && (negative_buy > getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE)) ) {
-                 Status_b = "Short Netted";
-            }
+            if ( possitive_buy > 0 ) {
+                Status_b = (possitive_buy > getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE)) ? "Long Netted" : "None";
+
+            } else if ( negative_buy > 0 ) {
+                Status_b = (negative_buy > getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE)) ? "Short Netted" : "None";
+            } 
 
             ///////////////////////////////////////
 
             if( ((getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ) && (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) == 0 )) &&  
-                 ((getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 )) ) {
+                ((getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 )) ) {
                 Status_b = "Netted";
                 Status_s = "Netted";
-            }
+            } 
 
             ///////////////////////////////////////
 
