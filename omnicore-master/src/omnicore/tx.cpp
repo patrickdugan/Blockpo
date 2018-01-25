@@ -42,7 +42,7 @@ using namespace mastercore;
 uint32_t blocksUntilExpiration;
 uint32_t notionalSize;
 uint32_t collateralCurrency;
-uint32_t marginRequirementContract;
+uint32_t marginRequirementContract = 25;
 ///////////////////////////////
 
 /** Returns a label for the given transaction type. */
@@ -520,7 +520,6 @@ bool CMPTransaction::interpret_ContractDexCancelEcosystem()
 
     return true;
 }
-//////////////////////////////
 
 //////////////////////////////
 /** New things for Contracts */
@@ -1060,6 +1059,8 @@ bool CMPTransaction::interpret_Alert()
  */
 int CMPTransaction::interpretPacket()
 {
+    PrintToLog("Type %d\n", type);
+
     if (rpcOnly) {
         PrintToLog("%s(): ERROR: attempt to execute logic in RPC mode\n", __func__);
         return (PKT_ERROR -1);
@@ -1075,7 +1076,7 @@ int CMPTransaction::interpretPacket()
         PrintToLog("%s(): REJECTED: address %s is frozen for property %d\n", __func__, sender, property);
         return (PKT_ERROR -3);
     }
-
+    
     switch (type) {
         case MSC_TYPE_SIMPLE_SEND:
             return logicMath_SimpleSend();
@@ -2071,7 +2072,7 @@ int CMPTransaction::logicMath_CreateContractDex()
     blocksUntilExpiration = blocks_until_expiration;
     notionalSize = notional_size;
     collateralCurrency = collateral_currency;
-    marginRequirementContract = margin_requirement;
+    // marginRequirementContract = margin_requirement;
     ///////////////////////////////////////
 
     CMPSPInfo::Entry newSP;

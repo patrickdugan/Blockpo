@@ -6,6 +6,7 @@
 
 //! Balance record types
 enum TallyType {
+    
     BALANCE = 0,
     SELLOFFER_RESERVE = 1,
     ACCEPT_RESERVE = 2,
