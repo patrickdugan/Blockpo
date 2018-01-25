@@ -95,8 +95,8 @@ using std::vector;
 
 BOOST_FIXTURE_TEST_SUITE(omnicore_contractdex_object, BasicTestingSetup)
 
-
-BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
+BOOST_AUTO_TEST_CASE(object_checkpkt_metadex)
+{
     std::vector<unsigned char> vch = CreatePayload_MetaDExTrade(
             static_cast<uint32_t>(1),    // property
             static_cast<uint64_t>(45),   // amount_forsale
@@ -105,7 +105,7 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
 
     BOOST_CHECK_EQUAL(HexStr(vch), "0000001900000001000000000000002d0000000300000000000000fe");
 
-    size_t packet_size = vch.size();
+    const size_t packet_size = vch.size();
     unsigned char packet[packet_size];
     memcpy(packet, &vch[0], packet_size);
 
@@ -142,7 +142,6 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_metadex) {
     BOOST_CHECK_EQUAL(objMetaDEx.getDesProperty(), 3);
     BOOST_CHECK_EQUAL(objMetaDEx.getAmountDesired(), 254);
 }
-
 
 BOOST_AUTO_TEST_CASE(test1)  // seller_amount = 10, buyer_amount = 10;
 {
@@ -198,7 +197,6 @@ BOOST_AUTO_TEST_CASE(test1)  // seller_amount = 10, buyer_amount = 10;
     CMPMetaDEx metadex_replacement = *pold;
 }
 
-
 BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
 {
     //////////////////////////////////////////////
@@ -213,11 +211,11 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
 
     BOOST_CHECK_EQUAL(HexStr(vch), "0000001d000000010000000000000032000000030000000000000028000000000000001401");
 
-    size_t packet_size = vch.size();
+    const size_t packet_size = vch.size();
     unsigned char packet[packet_size];
     memcpy(packet, &vch[0], packet_size);
 
-    for (int i = 0; i < packet_size; ++i)
+    for (unsigned int i = 0; i < packet_size; ++i)
     {
         int z = packet[i];
         BOOST_TEST_MESSAGE("packet[i]:" << z);
@@ -275,11 +273,11 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
 
     BOOST_CHECK_EQUAL(HexStr(vch1), "0000001d000000010000000000000032000000030000000000000028000000000000001401");
 
-    size_t packet_size1 = vch1.size();
+    const size_t packet_size1 = vch1.size();
     unsigned char packet1[packet_size1];
     memcpy(packet1, &vch1[0], packet_size1);
 
-    for (int i = 0; i < packet_size1; ++i)
+    for (unsigned int i = 0; i < packet_size1; ++i)
     {
         int z = packet1[i];
         BOOST_TEST_MESSAGE("packet1[i]:" << z);
@@ -369,13 +367,13 @@ BOOST_AUTO_TEST_CASE(equal_amount)
     CMPContractDex *b;
     b = &buyer;
 
-    BOOST_CHECK_EQUAL(3, seller.getProperty());
+    BOOST_CHECK_EQUAL(1, seller.getProperty());
     BOOST_CHECK_EQUAL("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", seller.getAddr());
     BOOST_CHECK_EQUAL(10, seller.getAmountForSale());
     BOOST_CHECK_EQUAL(2, seller.getTradingAction());  // seller
     BOOST_CHECK_EQUAL(5, seller.getEffectivePrice());
 
-    BOOST_CHECK_EQUAL(3, buyer.getProperty());
+    BOOST_CHECK_EQUAL(1, buyer.getProperty());
     BOOST_CHECK_EQUAL("1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", buyer.getAddr());
     BOOST_CHECK_EQUAL(10, buyer.getAmountForSale());
     BOOST_CHECK_EQUAL(1, buyer.getTradingAction()); //buyer
@@ -387,10 +385,10 @@ BOOST_AUTO_TEST_CASE(equal_amount)
     BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),10, NEGATIVE_BALANCE));
     BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(),10, POSSITIVE_BALANCE));
 
-    BOOST_CHECK_EQUAL(5, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
-    BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
-    BOOST_CHECK_EQUAL(0, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
-    BOOST_CHECK_EQUAL(5, getMPbalance(buyer.getAddr(), buyer.getProperty(), NEGATIVE_BALANCE));
+    BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
+    BOOST_CHECK_EQUAL(10, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
+    BOOST_CHECK_EQUAL(10, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
+    BOOST_CHECK_EQUAL(0, getMPbalance(buyer.getAddr(), buyer.getProperty(), NEGATIVE_BALANCE));
 
     if (direction){
         BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
@@ -402,12 +400,12 @@ BOOST_AUTO_TEST_CASE(equal_amount)
         BOOST_CHECK_EQUAL(TRADED, x_Trade(s));
     }
 
-    BOOST_CHECK_EQUAL(2, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
-    BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
-    BOOST_CHECK_EQUAL(3, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
+    BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
+    BOOST_CHECK_EQUAL(20, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
+    BOOST_CHECK_EQUAL(20, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
     BOOST_CHECK_EQUAL(0, getMPbalance(buyer.getAddr(), buyer.getProperty(), NEGATIVE_BALANCE));
 
-    BOOST_CHECK_EQUAL(0, seller.getAmountForSale());  // seller
+    BOOST_CHECK_EQUAL(10, seller.getAmountForSale());  // seller
     BOOST_CHECK_EQUAL(0, buyer.getAmountForSale());
 
 	t_tradelistdb->printAll();
@@ -506,11 +504,11 @@ BOOST_AUTO_TEST_CASE(db_status)
 
   BOOST_CHECK_EQUAL(HexStr(vch), "0000001d000000010000000000000032000000030000000000000028000000000000001401");
 
-  size_t packet_size = vch.size();
+  const size_t packet_size = vch.size();
   unsigned char packet[packet_size];
   memcpy(packet, &vch[0], packet_size);
 
-  for (int i = 0; i < packet_size; ++i)
+  for (unsigned int i = 0; i < packet_size; ++i)
   {
       int z = packet[i];
       BOOST_TEST_MESSAGE("packet[i]:" << z);
@@ -552,8 +550,8 @@ BOOST_AUTO_TEST_CASE(db_status)
   BOOST_CHECK_EQUAL(objContractDEx.getTradingAction(), 1);
   BOOST_CHECK_EQUAL(objContractDEx.getAmountRemaining(), 50);
 
-  CMPContractDex *pt_objContractDEx;
-  pt_objContractDEx = &objContractDEx;
+  // CMPContractDex *pt_objContractDEx;
+  // pt_objContractDEx = &objContractDEx;
   // BOOST_CHECK_EQUAL(TRADED, x_Trade(pt_objContractDEx));
 
   //////////////////////////////////////////////
@@ -568,11 +566,11 @@ BOOST_AUTO_TEST_CASE(db_status)
 
   BOOST_CHECK_EQUAL(HexStr(vch1), "0000001d000000010000000000000032000000030000000000000028000000000000001401");
 
-  size_t packet_size1 = vch1.size();
+  const size_t packet_size1 = vch1.size();
   unsigned char packet1[packet_size1];
   memcpy(packet1, &vch1[0], packet_size1);
 
-  for (int i = 0; i < packet_size1; ++i)
+  for (unsigned int i = 0; i < packet_size1; ++i)
   {
       int z = packet1[i];
       BOOST_TEST_MESSAGE("packet1[i]:" << z);
@@ -624,107 +622,5 @@ BOOST_AUTO_TEST_CASE(db_status)
 
 
 }
-
-// BOOST_AUTO_TEST_CASE(univalue_typecheck)
-// {
-//     UniValue v4;
-//     BOOST_CHECK(v4.setNumStr("2147483648"));
-//     BOOST_CHECK_EQUAL(v4.get_int64(), 2147483648);
-//     BOOST_CHECK_THROW(v4.get_int(), runtime_error);
-//     BOOST_CHECK_THROW(v4.get_str(), runtime_error);
-//     BOOST_CHECK_EQUAL(v4.getValStr(), 2147483648);
-//     BOOST_CHECK(v4.setNumStr("1000"));
-//     BOOST_CHECK_EQUAL(v4.get_int(), 1000);
-//     BOOST_CHECK_THROW(v4.get_str(), runtime_error);
-//     BOOST_CHECK_EQUAL(v4.get_real(), 1000);
-//     BOOST_CHECK_THROW(v4.get_array(), runtime_error);
-//     BOOST_CHECK_THROW(v4.getKeys(), runtime_error);
-//     BOOST_CHECK_THROW(v4.getValues(), runtime_error);
-//     BOOST_CHECK_THROW(v4.get_obj(), runtime_error);
-// }
-//  BOOST_AUTO_TEST_CASE(record_match_trade)
-// {
-//   CMPTally tally;  // the tally map object
-//   const uint256 tx;
-//   int64_t amount = 5;
-//   CMPContractDex object(
-//                   "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
-//                   1539,  // block
-//                   3,  // property for sale
-//                   10,  // amount of contracts for sale
-//                   0,  // desired property
-//                   0,
-//                   tx, // txid
-//                   1,  // position in block
-//                   1,  // subaction
-//                   amount,  // amount remaining
-//                   5,  // effective_price
-//                   2 // trading_action
-//   );
-
-//   CMPContractDex object2(
-//                   "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", // address
-//                   1536,  // block
-//                   3,  // property for sale
-//                   10,  // amount of contracts for trade
-//                   0,   // desired property
-//                   0,
-//                   tx, // txid
-//                   2,  // position in block
-//                   1,  // subaction
-//                   2,  // amount remaining
-//                   5,  // effective_price
-//                   1 // trading_action
-//   );
-
-//     std::string Status = "SHORT NETTED";
-//     int64_t tradingFee = 0;
-//     CMPContractDex *pnew, *pold;
-//     pnew = &object;
-//     pold = &object2;
-//     CMPTradeList *t_tradelistdb1;
-//     std::vector<uint256> vec;
-//     const uint256 a = uint256S("2c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07b7d");
-//     const uint256 b = uint256S("3c9a055899147b03b2c5240a030c1f94d243a834ecc06ab8cfa504ee29d07b7f");
-//     const uint256 c = uint256S("4c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d87870");
-//     const uint256 d = uint256S("5c9a055899147b03b2c5240a030c1f94d243a834ecc06ab8cfa504ee29d01fc9");
-//     t_tradelistdb1 = new CMPTradeList(GetDataDir() / "MP_tradelist", true);
-//     t_tradelistdb1->recordMatchedTrade(pold->getHash(),
-//                                       pnew->getHash(),
-//                                       pold->getEffectivePrice(),
-//                                       pold->getAmountForSale(),
-//                                       pold->getAmountForSale(),
-//                                       pold->getBlock(),
-//                                       pnew->getBlock(),
-//                                       Status);
-//     t_tradelistdb1->recordMatchedTrade(a,
-//                                        b,
-//                                        100,
-//                                        20,
-//                                       pold->getAmountForSale(),
-//                                       pold->getBlock(),
-//                                       pnew->getBlock(),
-//                                       "NETTED");
-//     t_tradelistdb1->recordMatchedTrade(c,
-//                                        d,
-//                                        50,
-//                                        8,
-//                                        pold->getAmountForSale(),
-//                                        pold->getBlock(),
-//                                        pnew->getBlock(),
-//                                        "NETTED");
-//     t_tradelistdb1->getMatchingTrades(tx);
-//     t_tradelistdb1->getMatchingTrades(a);
-//     t_tradelistdb1->getMatchingTrades(c);
-//     t_tradelistdb1->printAll();
-
-// }
-
-
-
-
-
-
-
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -3883,9 +3883,8 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid)
         // int64_t amount2 = boost::lexical_cast<int64_t>(vstr[5]);
         // int blockNum = atoi(vstr[6]);
         // int64_t tradingFee = boost::lexical_cast<int64_t>(vstr[7]);
-
-        printf("first output: %d \n",output0);
-        printf("second output: %d \n", output1);
+        PrintToLog(" Output0 (%d)\n", output0);
+        PrintToLog(" Output1 (%d)\n", output1);
         //tradeArray.push_back(trade);
         ++count;
     }
@@ -4066,22 +4065,6 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
   }
 }
-
-/////////////////////////////////
-/** New things for Contract */
-// void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status)
-// {
-//   if (!pdb) return;
-//   const string key = txid1.ToString() + "+" + txid2.ToString();
-//   const string value = strprintf("%lu:%lu:%lu:%d:%d:%s", effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status);
-//   Status status;
-//   if (pdb)
-//   {
-//     status = pdb->Put(writeoptions, key, value);
-//     ++nWritten;
-//     if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
-//   }
-// }
 
 // /////////////////////////////////
 // /** New things for Contract */

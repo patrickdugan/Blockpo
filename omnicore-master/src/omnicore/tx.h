@@ -22,6 +22,14 @@ class CMPContractDex;
 
 using mastercore::strTransactionType;
 
+///////////////////////////////////////
+/** New things for Contracts */
+extern uint32_t blocksUntilExpiration;
+extern uint32_t notionalSize;
+extern uint32_t collateralCurrency;
+extern uint32_t marginRequirementContract;
+///////////////////////////////////////
+
 /** The class is responsible for transaction interpreting/parsing.
  *
  * It invokes other classes and methods: offers, accepts, tallies (balances).

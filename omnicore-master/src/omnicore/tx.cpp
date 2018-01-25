@@ -37,6 +37,14 @@ using boost::algorithm::token_compress_on;
 
 using namespace mastercore;
 
+///////////////////////////////
+/*New things for Contracts*/
+uint32_t blocksUntilExpiration;
+uint32_t notionalSize;
+uint32_t collateralCurrency;
+uint32_t marginRequirementContract;
+///////////////////////////////
+
 /** Returns a label for the given transaction type. */
 std::string mastercore::strTransactionType(uint16_t txType)
 {
@@ -669,6 +677,12 @@ bool CMPTransaction::interpret_CreateContractDex()
     if (pkt_size < 55) {
         return false;
     }
+
+    uint32_t blocks_until_expiration;
+    uint32_t notional_size;
+    uint32_t collateral_currency;
+    uint32_t margin_requirement;
+
     const char* p = 11 + (char*) &pkt;
     std::vector<std::string> spstr;
 
@@ -1947,13 +1961,14 @@ int CMPTransaction::logicMath_ContractDexTrade()
             return (PKT_ERROR_METADEX -35);
         }
     }
+
     ///////////////////////////////////////////////
     /** New things for Contract */
     int64_t nBalance = getMPbalance(sender, property, BALANCE);
-    uint32_t marginRequirementValue = getMarginRequirement();
-    uint32_t notionalSizeValue = getNotionalSize();
-    uint32_t sum = notionalSizeValue + marginRequirementValue;
-    int64_t amountToReserve = nNewValue*sum;
+    uint32_t Sum = notionalSize + marginRequirementContract;
+    int64_t amountToReserve = nValue*Sum;
+    ///////////////////////////////////////////////
+
     if (nBalance < (int64_t) amountToReserve) {
         PrintToLog("%s(): rejected: sender %s has insufficient balance for contracts %d [%s < %s]\n",
                 __func__,
@@ -1963,15 +1978,16 @@ int CMPTransaction::logicMath_ContractDexTrade()
                 FormatMP(property, amountToReserve));
         return (PKT_ERROR_METADEX -25);
     } else {
+
         assert(update_tally_map(sender, property, -amountToReserve, BALANCE));
-        assert(update_tally_map(sender, property, amountToReserve, CONTRACTDEX_RESERVE));
+        assert(update_tally_map(sender, property,  amountToReserve, CONTRACTDEX_RESERVE));
+
         t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
-        int rc = ContractDex_ADD(sender, property, nNewValue, block, desired_property, desired_value, txid, tx_idx, effective_price, trading_action,amountToReserve);
+
+        int rc = ContractDex_ADD(sender, property, nValue, block, desired_property, desired_value, txid, tx_idx, effective_price, trading_action,amountToReserve);
         return rc;
     }
-////////////////////////////////////////////////
-    return rc = 0;
-
+    ////////////////////////////////////////////////
 }
 
 ///////////////////////////////////////////////
@@ -2050,6 +2066,13 @@ int CMPTransaction::logicMath_CreateContractDex()
     }
 
     // ------------------------------------------
+    ////////////////////////////////////////
+    /** New things for Contracts */    
+    blocksUntilExpiration = blocks_until_expiration;
+    notionalSize = notional_size;
+    collateralCurrency = collateral_currency;
+    marginRequirementContract = margin_requirement;
+    ///////////////////////////////////////
 
     CMPSPInfo::Entry newSP;
     newSP.issuer = sender;
@@ -2069,13 +2092,13 @@ int CMPTransaction::logicMath_CreateContractDex()
     newSP.creation_block = blockHash;
     newSP.update_block = newSP.creation_block;
 
-    ////////////////////////////
+    //////////////////////////////
     /** New things for Contracts */
     newSP.blocks_until_expiration = blocks_until_expiration;
     newSP.notional_size = notional_size;
     newSP.collateral_currency = collateral_currency;
     newSP.margin_requirement = margin_requirement;
-    ////////////////////////////
+    //////////////////////////////
 
     const uint32_t propertyId = _my_sps->putSP(ecosystem, newSP);
     assert(propertyId > 0);
