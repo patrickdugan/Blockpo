@@ -176,11 +176,6 @@ std::string FormatMP(uint32_t propertyId, int64_t amount, bool fSign = false);
 std::string FormatShortMP(uint32_t propertyId, int64_t amount);
 std::string FormatByType(int64_t amount, uint16_t propertyType);
 
-/////////////////////////////////////////
-/*New property type No 3 Contract*/
-std::string FormatByTypeContract(int64_t amount, uint16_t propertyType);
-/////////////////////////////////////////
-
 /** Returns the Exodus address. */
 const CBitcoinAddress ExodusAddress();
 

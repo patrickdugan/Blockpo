@@ -591,7 +591,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
                 int128_t desiredProductMaker;
                 multiply(desiredProductMaker, MReqNew, countClosedSeller);
-                freedReserverExPNLMaker = desiredProductMaker.convert_to<int64_t>();
+                freedReserverExPNLMaker = desiredProductMaker.convert_to<uint64_t>();
 
                 assert(update_tally_map(seller_address, seller_prop, -freedReserverExPNLMaker, CONTRACTDEX_RESERVE));
                 assert(update_tally_map(seller_address, seller_prop,  freedReserverExPNLMaker, BALANCE));
@@ -602,7 +602,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
                 int128_t desiredProductTaker;
                 multiply(desiredProductTaker, MReqNew, countClosedBuyer);
-                freedReserverExPNLTaker = desiredProductTaker.convert_to<int64_t>();
+                freedReserverExPNLTaker = desiredProductTaker.convert_to<uint64_t>();
 
                 assert(update_tally_map(buyer_address, buyer_prop, -freedReserverExPNLTaker, CONTRACTDEX_RESERVE));
                 assert(update_tally_map(buyer_address, buyer_prop,  freedReserverExPNLTaker, BALANCE));

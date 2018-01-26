@@ -677,11 +677,6 @@ bool CMPTransaction::interpret_CreateContractDex()
         return false;
     }
 
-    uint32_t blocks_until_expiration;
-    uint32_t notional_size;
-    uint32_t collateral_currency;
-    uint32_t margin_requirement;
-
     const char* p = 11 + (char*) &pkt;
     std::vector<std::string> spstr;
 

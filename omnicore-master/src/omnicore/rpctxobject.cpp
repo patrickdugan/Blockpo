@@ -466,7 +466,7 @@ void populateRPCTypeCreatePropertyFixed(CMPTransaction& omniObj, UniValue& txobj
         uint32_t propertyId = _my_sps->findSPByTX(omniObj.getHash());
         if (propertyId > 0) {
             txobj.push_back(Pair("propertyid", (uint64_t) propertyId));
-            txobj.push_back(Pair("divisible", isPropertyDivisible(propertyId)));
+            propertyId == MSC_PROPERTY_TYPE_CONTRACT ? txobj.push_back(Pair("contract", isPropertyContract(propertyId))) : txobj.push_back(Pair("divisible", isPropertyDivisible(propertyId)));
         }
     }
     txobj.push_back(Pair("ecosystem", strEcosystem(omniObj.getEcosystem())));
@@ -487,7 +487,7 @@ void populateRPCTypeCreatePropertyVariable(CMPTransaction& omniObj, UniValue& tx
         uint32_t propertyId = _my_sps->findSPByTX(omniObj.getHash());
         if (propertyId > 0) {
             txobj.push_back(Pair("propertyid", (uint64_t) propertyId));
-            txobj.push_back(Pair("divisible", isPropertyDivisible(propertyId)));
+            propertyId == MSC_PROPERTY_TYPE_CONTRACT ? txobj.push_back(Pair("contract", isPropertyContract(propertyId))) : txobj.push_back(Pair("divisible", isPropertyDivisible(propertyId)));
         }
     }
     txobj.push_back(Pair("propertytype", strPropertyType(omniObj.getPropertyType())));
@@ -514,7 +514,7 @@ void populateRPCTypeCreatePropertyManual(CMPTransaction& omniObj, UniValue& txob
         uint32_t propertyId = _my_sps->findSPByTX(omniObj.getHash());
         if (propertyId > 0) {
             txobj.push_back(Pair("propertyid", (uint64_t) propertyId));
-            txobj.push_back(Pair("divisible", isPropertyDivisible(propertyId)));
+            propertyId == MSC_PROPERTY_TYPE_CONTRACT ? txobj.push_back(Pair("contract", isPropertyContract(propertyId))) : txobj.push_back(Pair("divisible", isPropertyDivisible(propertyId)));
         }
     }
     txobj.push_back(Pair("propertytype", strPropertyType(omniObj.getPropertyType())));

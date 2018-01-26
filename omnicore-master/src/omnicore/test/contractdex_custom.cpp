@@ -448,6 +448,7 @@ BOOST_AUTO_TEST_CASE(equal_amount)
 	t_tradelistdb->printAll();
     mastercore_shutdown();
 }
+
 ////////////////////////////////////////////////////////
 
 BOOST_AUTO_TEST_CASE(freed_reserve)

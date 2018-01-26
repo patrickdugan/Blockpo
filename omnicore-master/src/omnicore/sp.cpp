@@ -64,11 +64,12 @@ bool CMPSPInfo::Entry::isContract() const
 
 void CMPSPInfo::Entry::print() const
 {
-    PrintToConsole("%s:%s(Fixed=%s,Divisible=%s):%d:%s/%s, %s %s, blocks until expiration:%d, notional size:%d, collateral currency:%d, margin requirement:%d\n",
+    PrintToConsole("%s:%s(Fixed=%s,Divisible=%s, Contract=%s):%d:%s/%s, %s %s, blocks until expiration:%d, notional size:%d, collateral currency:%d, margin requirement:%d\n",
             issuer,
             name,
             fixed ? "Yes" : "No",
             isDivisible() ? "Yes" : "No",
+            isContract() ? "Yes" : "No",
             num_tokens,
             category, subcategory, url, data,
             blocks_until_expiration,
