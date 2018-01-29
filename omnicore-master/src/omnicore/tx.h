@@ -261,6 +261,12 @@ public:
     unsigned int getIndexInBlock() const { return tx_idx; }
     uint32_t getDistributionProperty() const { return distribution_property; }
 
+    ///////////////////////////////////////////////
+    /** New things for Contract */
+    int getLogicMath_ContractDexTrade() { return logicMath_ContractDexTrade(); } 
+    int getLogicMath_CreateContractDex() { return logicMath_CreateContractDex(); } 
+    ///////////////////////////////////////////////
+
     /** Creates a new CMPTransaction object. */
     CMPTransaction()
     {
@@ -361,6 +367,12 @@ public:
         return tx_idx > other.tx_idx;
     }
 };
+
+///////////////////////////////////
+/** New things for Contracts */
+// int CMPTransaction::logicMath_ContractDexTrade() {};
+///////////////////////////////////
+
 
 /** Parses a transaction and populates the CMPTransaction object. */
 int ParseTransaction(const CTransaction& tx, int nBlock, unsigned int idx, CMPTransaction& mptx, unsigned int nTime=0);

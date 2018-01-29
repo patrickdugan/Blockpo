@@ -69,8 +69,8 @@ private:
     std::string addr;
 
 public:
-    uint256 getHash() const { return txid; }
 
+    uint256 getHash() const { return txid; }
     uint32_t getProperty() const { return property; }
     uint32_t getDesProperty() const { return desired_property; }
 

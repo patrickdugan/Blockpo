@@ -526,7 +526,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             int64_t countClosedSeller;
             int64_t countClosedBuyer;
-            if ( possitive_sell > 0 ) {
+            if ( possitive_sell > 0 && negative_sell == 0 ) {
                 if ( pold->getTradingAction() == SELL ) {
                     Status_s = (possitive_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE)) ? "Long Netted" : "None";
                     countClosedSeller = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) == 0 ? possitive_sell : possitive_sell - getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE);
@@ -535,7 +535,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                     countClosedSeller = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 ? possitive_sell : possitive_sell - getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
                 }
 
-            } else if ( negative_sell > 0 ) {
+            } else if ( negative_sell > 0 && possitive_sell == 0 ) {
                 if ( pold->getTradingAction() == SELL ) {
                     Status_s = (negative_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE)) ? "Short Netted" : "None";
                     countClosedSeller = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ? negative_sell : negative_sell - getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
@@ -543,17 +543,41 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 } else {
                     Status_s = (negative_sell > getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE)) ? "Short Netted" : "None";
                     countClosedSeller = getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ? negative_sell : negative_sell - getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE);
-                }    
-            } 
+                }
 
-            if ( possitive_buy > 0 ) {
+            } else if ( negative_sell == 0 && possitive_sell == 0 ) {
+                Status_s = "None";
+                if ( pold->getTradingAction() == SELL ) {
+                    int64_t negative_balance_pold = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
+                    int64_t positive_balance_pold = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE);
+                    countClosedSeller = negative_balance_pold == 0 ? positive_balance_pold : negative_balance_pold;
+                } else {
+                    int64_t negative_balance_pnew = getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE);
+                    int64_t positive_balance_pnew = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
+                    countClosedSeller = negative_balance_pnew == 0 ? positive_balance_pnew : negative_balance_pnew;
+                }
+            }
+
+            if ( possitive_buy > 0 && negative_buy == 0 ) {
                 Status_b = (possitive_buy > getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE)) ? "Long Netted" : "None";
                 countClosedBuyer = getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE) == 0 ? possitive_buy : possitive_buy - getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE);
 
-            } else if ( negative_buy > 0 ) {
+            } else if ( negative_buy > 0 && negative_buy == 0 ) {
                 Status_b = (negative_buy > getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE)) ? "Short Netted" : "None";
                 countClosedBuyer = getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE) == 0 ? negative_buy : negative_buy - getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE);
-            } 
+            
+            } else if ( negative_buy == 0 && possitive_buy == 0 ) {
+                Status_b = "None";
+                if ( pold->getTradingAction() == SELL) {
+                    int64_t negative_balance_pnew = getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE);
+                    int64_t positive_balance_pnew = getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE);
+                    countClosedBuyer = negative_balance_pnew == 0 ? positive_balance_pnew : negative_balance_pnew;
+                } else {
+                    int64_t negative_balance_pold = getMPbalance(contract_replacement.getAddr(), property_traded, NEGATIVE_BALANCE);
+                    int64_t positive_balance_pold = getMPbalance(contract_replacement.getAddr(), property_traded, POSSITIVE_BALANCE);
+                    countClosedBuyer = negative_balance_pold == 0 ? positive_balance_pold : negative_balance_pold;
+                }
+            }
 
             ///////////////////////////////////////
 

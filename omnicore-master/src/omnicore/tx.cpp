@@ -42,7 +42,8 @@ using namespace mastercore;
 uint32_t blocksUntilExpiration;
 uint32_t notionalSize;
 uint32_t collateralCurrency;
-uint32_t marginRequirementContract = 25;
+// uint32_t marginRequirementContract;
+uint32_t marginRequirementContract = 25; // Remember: Change this later: Coming from the interpret
 ///////////////////////////////
 
 /** Returns a label for the given transaction type. */
