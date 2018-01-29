@@ -3838,58 +3838,97 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
   if (count) { return true; } else { return false; }
 }
 
-//*New things for contracts*
-bool CMPTradeList::getMatchingTrades(const uint256& txid)
+/////////////////////////////////////////////
+/** New things for contracts */
+bool CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
 {
     if (!pdb) return false;
 
     int count = 0;
-    // totalReceived = 0;
-    // totalSold = 0;
+    uint32_t propertyTraded = 0;
+    int64_t remaining = 0;
 
+    int64_t totalContracts = 0;
+    int64_t totalAmount = 0;
     std::vector<std::string> vstr;
-    string txidStr = txid.ToString();
     leveldb::Iterator* it = NewIterator();
+
+    int64_t remainingValue = getMPbalance(address, property, REMAINING);
     for(it->SeekToFirst(); it->Valid(); it->Next()) {
-        // search key to see if this is a matching trade
+
+        if (address != vstr[0] && address != vstr[1]) continue;
+
+        if ( remainingValue == 0 ) {
+            ++count;
+            PrintToLog("Looking for next rows of the database: remaining = 0!! %d\n", count);
+            continue;
+        }
+
         std::string strKey = it->key().ToString();
         std::string strValue = it->value().ToString();
         std::string matchTxid;
-        size_t txidMatch = strKey.find(txidStr);
-        if (txidMatch == std::string::npos) continue; // no match
 
-        // sanity check key is the correct length for a matched trade
-        //if (strKey.length() != 129) continue;
-
-        // obtain the txid of the match
-        //if (txidMatch==0) { matchTxid = strKey.substr(65,64); } else { matchTxid = strKey.substr(0,64); }
-
-        // ensure correct amount of tokens in value string
         boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
-        // if (vstr.size() != 8) {
-        //     PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
-        //     continue;
-        // }
 
-        // decode the details from the value string
-            int64_t output0 = boost::lexical_cast<int64_t>(vstr[0]);
-            int64_t output1 = boost::lexical_cast<int64_t>(vstr[1]);
-        // uint32_t prop1 = boost::lexical_cast<uint32_t>(vstr[2]);
-        // uint32_t prop2 = boost::lexical_cast<uint32_t>(vstr[3]);
-        // int64_t amount1 = boost::lexical_cast<int64_t>(vstr[4]);
-        // int64_t amount2 = boost::lexical_cast<int64_t>(vstr[5]);
-        // int blockNum = atoi(vstr[6]);
-        // int64_t tradingFee = boost::lexical_cast<int64_t>(vstr[7]);
-        PrintToLog(" Output0 (%d)\n", output0);
-        PrintToLog(" Output1 (%d)\n", output1);
-        //tradeArray.push_back(trade);
-        ++count;
+        if (vstr.size() != 12) {
+            PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
+            continue;
+        }
+
+            std::string address1 = vstr[0];
+            std::string address2 = vstr[1];
+            int64_t effectivePrice = boost::lexical_cast<int64_t>(vstr[2]);
+            int64_t nCouldBuy = boost::lexical_cast<int64_t>(vstr[3]);
+            std::string StatusMaker = vstr[7];
+            std::string StatusTaker = vstr[8];
+            int64_t liveMaker = boost::lexical_cast<int64_t>(vstr[9]);
+            int64_t liveTaker = boost::lexical_cast<int64_t>(vstr[10]);
+            propertyTraded = boost::lexical_cast<uint32_t>(vstr[11]);
+
+            PrintToConsole("address1: %s\n", address1);
+            PrintToConsole("address2: %s\n", address2);
+            PrintToConsole("effectivePrice: %d\n", effectivePrice);
+            PrintToConsole("nCouldBuy: %d\n", nCouldBuy);
+            PrintToConsole("StatusMaker: %s\n", StatusMaker);
+            PrintToConsole("StatusTaker: %s\n", StatusTaker);
+            PrintToConsole("liveMaker: %d\n", liveMaker);
+            PrintToConsole("liveTaker: %d\n", liveTaker);
+
+            if(contractsClosed > totalContracts){
+
+                if (nCouldBuy > contractsClosed - totalContracts) {
+
+                    remaining = nCouldBuy-(contractsClosed - totalContracts);
+                    totalAmount += effectivePrice*(contractsClosed - totalContracts);
+                    totalContracts += contractsClosed - totalContracts;
+
+                } else {
+               
+                    totalAmount += effectivePrice*nCouldBuy;
+                    totalContracts += nCouldBuy;
+                }
+            } else {
+                break;
+            }
+
+            PrintToConsole("totalAmount: %d\n", totalAmount);
+            PrintToConsole("totalContracts: %d\n", totalContracts);
+
+            ++count;
     }
 
-    // clean up
+    PrintToConsole("count: %d\n", count);
+    assert(update_tally_map(address, propertyTraded, count, COUNT));
+
+    PrintToConsole("remanining: %d\n", remaining);
+    if ( remaining > 0 ) {
+        assert(update_tally_map(address, propertyTraded, remaining, REMAINING));
+    }    
+    
     delete it;
     if (count) { return true; } else { return false; }
-  }
+}
+/////////////////////////////////////////////
 
 bool CompareTradePair(const std::pair<int64_t, UniValue>& firstJSONObj, const std::pair<int64_t, UniValue>& secondJSONObj)
 {
@@ -3904,6 +3943,7 @@ void CMPTradeList::getTradesForPair(uint32_t propertyIdSideA, uint32_t propertyI
   std::vector<std::pair<int64_t, UniValue> > vecResponse;
   bool propertyIdSideAIsDivisible = isPropertyDivisible(propertyIdSideA);
   bool propertyIdSideBIsDivisible = isPropertyDivisible(propertyIdSideB);
+
   for(it->SeekToFirst(); it->Valid(); it->Next()) {
       std::string strKey = it->key().ToString();
       std::string strValue = it->value().ToString();
@@ -4049,11 +4089,11 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
 /////////////////////////////////
 /** New things for Contract */
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker)
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded)
 {
   if (!pdb) return;
   const string key = txid1.ToString() + "+" + txid2.ToString();
-  const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker);
+  const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded);
   Status status;
   if (pdb)
   {
@@ -4062,6 +4102,7 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
   }
 }
+/////////////////////////////////
 
 // /////////////////////////////////
 // /** New things for Contract */

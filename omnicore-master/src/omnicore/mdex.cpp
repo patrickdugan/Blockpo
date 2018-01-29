@@ -632,23 +632,33 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 assert(update_tally_map(buyer_address, buyer_prop,  freedReserverExPNLTaker, BALANCE));
             }            
 
+            ///////////////////////////////////////
+            std::string Status_maker, Status_taker;
+            if (pold->getAddr() == seller_address){
+                Status_maker = Status_s;
+                Status_taker = Status_b;
+            } else {
+                Status_maker = Status_b;
+                Status_taker = Status_s;
+            }
+            
             ///////////////////////////////////////            
-
             t_tradelistdb->recordMatchedTrade(pold->getHash(),
                                               pnew->getHash(),
                                               pold->getAddr(),
                                               pnew->getAddr(),
                                               pold->getEffectivePrice(),
-                                              contract_replacement.getAmountForSale(),
+                                              nCouldBuy,                                              
                                               pnew->getAmountForSale(),
                                               pold->getBlock(),
                                               pnew->getBlock(),
-                                              Status_s,
-                                              Status_b,
+                                              Status_maker,
+                                              Status_taker,
                                               lives_maker, 
-                                              lives_taker);
-
+                                              lives_taker, 
+                                              property_traded);
             ///////////////////////////////////////
+
             marketPrice = pold->getEffectivePrice();
 
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s, Effective price: %d\n", offerIt->ToString(), marketPrice);

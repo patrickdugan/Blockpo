@@ -258,7 +258,7 @@ int64_t CMPTally::print(uint32_t propertyId, bool bDivisible) const
     return (balance + selloffer_reserve + accept_reserve + metadex_reserve);
 }
 
-////////////////////////////
+////////////////////////////////////
 /** New things for Contracts */
 int64_t CMPTally::printcd(uint32_t propertyId, bool bUndivisible) const
 {
@@ -266,6 +266,7 @@ int64_t CMPTally::printcd(uint32_t propertyId, bool bUndivisible) const
     int64_t selloffer_reserve = 0;
     int64_t accept_reserve = 0;
     int64_t pending = 0;
+
     //////////////////////////////////////
     /** New things for Contracts */
     int64_t contractdex_reserve = 0;
@@ -283,6 +284,7 @@ int64_t CMPTally::printcd(uint32_t propertyId, bool bUndivisible) const
         selloffer_reserve = record.balance[SELLOFFER_RESERVE];
         accept_reserve = record.balance[ACCEPT_RESERVE];
         pending = record.balance[PENDING];
+        
         //////////////////////////////////////
         /** New things for Contracts */
         contractdex_reserve = record.balance[CONTRACTDEX_RESERVE];

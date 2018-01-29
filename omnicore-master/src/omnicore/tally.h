@@ -12,14 +12,18 @@ enum TallyType {
     ACCEPT_RESERVE = 2,
     PENDING = 3,
     METADEX_RESERVE = 4,
+
     //////////////////////////////////////
     /** New things for Contracts */
     CONTRACTDEX_RESERVE = 5,
     POSSITIVE_BALANCE = 6, 
     NEGATIVE_BALANCE = 7,
     REALIZED_PROFIT = 8, 
-    REALIZED_LOSSES = 9, 
+    REALIZED_LOSSES = 9,
+    COUNT = 10,
+    REMAINING = 11, 
     //////////////////////////////////////
+
     TALLY_TYPE_COUNT
 };
             
