@@ -636,11 +636,12 @@ BOOST_AUTO_TEST_CASE(PNL)  // seller_amount = 10, buyer_amount = 10;
                   6,  // effective_price
                   1 // trading_action
   );
+
   CMPContractDex seller3(
                   "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
                   172,  // block
                   1,  // property for sale
-                  7,  // amount of contracts for sale
+                  3,  // amount of contracts for sale
                   0,  // desired property
                   0,
                   uint256S("31"), // txid
@@ -655,7 +656,7 @@ BOOST_AUTO_TEST_CASE(PNL)  // seller_amount = 10, buyer_amount = 10;
                   "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", // magic address!
                   172,  // block
                   1,  // property for sale
-                  7,  // amount of contracts for trade
+                  3,  // amount of contracts for trade
                   0,   // desired property
                   0,
                   uint256S("32"), // txid
@@ -665,6 +666,36 @@ BOOST_AUTO_TEST_CASE(PNL)  // seller_amount = 10, buyer_amount = 10;
                   10,  // effective_price
                   1 // trading_action
   );
+
+  CMPContractDex seller4(
+                  "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
+                  172,  // block
+                  1,  // property for sale
+                  7,  // amount of contracts for sale
+                  0,  // desired property
+                  0,
+                  uint256S("31"), // txid
+                  1,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  10,  // effective_price
+                  2 // trading_action
+  );
+
+  CMPContractDex buyer4(
+                  "1PxejjeWZy2ZHph7A3SYDo2sk2Up4AcysH", // magic address!
+                  172,  // block
+                  1,  // property for sale
+                  7,  // amount of contracts for trade
+                  0,   // desired property
+                  0,
+                  uint256S("32"), // txid
+                  2,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  10,  // effective_price
+                  1 // trading_action
+  );  
 
   CMPContractDex *s;
   s = &seller;
@@ -678,6 +709,10 @@ BOOST_AUTO_TEST_CASE(PNL)  // seller_amount = 10, buyer_amount = 10;
   s3 = &seller3;
   CMPContractDex *b3;
   b3 = &buyer3;
+  CMPContractDex *s4;
+  s4 = &seller4;
+  CMPContractDex *b4;
+  b4 = &buyer4;
 
 
   mastercore_init();
@@ -726,10 +761,27 @@ if (direction){
     BOOST_CHECK_EQUAL(TRADED, x_Trade(s3));
 }
 
+if (direction){
+    BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
+    BOOST_CHECK(ContractDex_INSERT(seller4));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(b4));   // the buyer wants 10 contracts at  price of 5! // There's  match!!!!
+} else {
+    BOOST_TEST_MESSAGE("The buyer is inserted in priceMap, the seller in x_Trade");
+    BOOST_CHECK(ContractDex_INSERT(buyer4));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(s4));
+}
+
 t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 10, 1);
 t_tradelistdb->printAll();
- 
+
 mastercore_shutdown();
+
+// mastercore_init();
+
+// t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 10, 1);
+// t_tradelistdb->printAll();
+ 
+// mastercore_shutdown();
 
 }
 

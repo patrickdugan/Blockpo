@@ -3774,6 +3774,7 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
   std::vector<std::string> vstr;
   string txidStr = txid.ToString();
   leveldb::Iterator* it = NewIterator();
+
   for(it->SeekToFirst(); it->Valid(); it->Next()) {
       // search key to see if this is a matching trade
       std::string strKey = it->key().ToString();
@@ -3836,95 +3837,92 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
   // clean up
   delete it;
   if (count) { return true; } else { return false; }
+
 }
 
 /////////////////////////////////////////////
 /** New things for contracts */
 bool CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
-{
+{   
     if (!pdb) return false;
 
     int count = 0;
-    uint32_t propertyTraded = 0;
-    int64_t remaining = 0;
-
     int64_t totalContracts = 0;
     int64_t totalAmount = 0;
+    int64_t remaining = 0;
     std::vector<std::string> vstr;
+    std::string startStrKey = "";
+
     leveldb::Iterator* it = NewIterator();
-
-    int64_t remainingValue = getMPbalance(address, property, REMAINING);
-    for(it->SeekToFirst(); it->Valid(); it->Next()) {
-
-        if (address != vstr[0] && address != vstr[1]) continue;
-
-        if ( remainingValue == 0 ) {
-            ++count;
-            PrintToLog("Looking for next rows of the database: remaining = 0!! %d\n", count);
-            continue;
-        }
+    for(it->Seek(startStrKey); it->Valid(); it->Next()) {
 
         std::string strKey = it->key().ToString();
         std::string strValue = it->value().ToString();
         std::string matchTxid;
 
-        boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
+        boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);        
 
         if (vstr.size() != 12) {
             PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
             continue;
         }
 
-            std::string address1 = vstr[0];
-            std::string address2 = vstr[1];
-            int64_t effectivePrice = boost::lexical_cast<int64_t>(vstr[2]);
-            int64_t nCouldBuy = boost::lexical_cast<int64_t>(vstr[3]);
-            std::string StatusMaker = vstr[7];
-            std::string StatusTaker = vstr[8];
-            int64_t liveMaker = boost::lexical_cast<int64_t>(vstr[9]);
-            int64_t liveTaker = boost::lexical_cast<int64_t>(vstr[10]);
-            propertyTraded = boost::lexical_cast<uint32_t>(vstr[11]);
+        if (address != vstr[0] && address != vstr[1]) continue;
 
-            PrintToConsole("address1: %s\n", address1);
-            PrintToConsole("address2: %s\n", address2);
-            PrintToConsole("effectivePrice: %d\n", effectivePrice);
-            PrintToConsole("nCouldBuy: %d\n", nCouldBuy);
-            PrintToConsole("StatusMaker: %s\n", StatusMaker);
-            PrintToConsole("StatusTaker: %s\n", StatusTaker);
-            PrintToConsole("liveMaker: %d\n", liveMaker);
-            PrintToConsole("liveTaker: %d\n", liveTaker);
+        std::string address1 = vstr[0];
+        std::string address2 = vstr[1];
+        int64_t effectivePrice = boost::lexical_cast<int64_t>(vstr[2]);
+        int64_t nCouldBuy = boost::lexical_cast<int64_t>(vstr[3]);
+        std::string StatusMaker = vstr[7];
+        std::string StatusTaker = vstr[8];
+        int64_t liveMaker = boost::lexical_cast<int64_t>(vstr[9]);
+        int64_t liveTaker = boost::lexical_cast<int64_t>(vstr[10]);
 
-            if(contractsClosed > totalContracts){
+        PrintToConsole("address1: %s\n", address1);
+        PrintToConsole("address2: %s\n", address2);
+        PrintToConsole("effectivePrice: %d\n", effectivePrice);
+        PrintToConsole("contractsTrade: %d\n", nCouldBuy);
+        PrintToConsole("StatusMaker: %s\n", StatusMaker);
+        PrintToConsole("StatusTaker: %s\n", StatusTaker);
+        PrintToConsole("liveMaker: %d\n", liveMaker);
+        PrintToConsole("liveTaker: %d\n", liveTaker);
 
-                if (nCouldBuy > contractsClosed - totalContracts) {
+        if(contractsClosed > totalContracts){
 
-                    remaining = nCouldBuy-(contractsClosed - totalContracts);
-                    totalAmount += effectivePrice*(contractsClosed - totalContracts);
-                    totalContracts += contractsClosed - totalContracts;
+           if (nCouldBuy > contractsClosed - totalContracts){
 
-                } else {
-               
-                    totalAmount += effectivePrice*nCouldBuy;
-                    totalContracts += nCouldBuy;
-                }
-            } else {
-                break;
-            }
+             remaining = nCouldBuy-(contractsClosed - totalContracts);
+             totalAmount += effectivePrice*(contractsClosed - totalContracts);
+             totalContracts += contractsClosed - totalContracts;
 
-            PrintToConsole("totalAmount: %d\n", totalAmount);
-            PrintToConsole("totalContracts: %d\n", totalContracts);
+           }else {
+             totalAmount += effectivePrice*nCouldBuy;
+             totalContracts += nCouldBuy;
+           }
 
-            ++count;
+        } else {
+           break;
+        }
+     
+        PrintToConsole("totalAmount: %d\n", totalAmount);
+        PrintToConsole("totalContracts: %d\n", totalContracts);
+        ++count;
+
+        if ( remaining > 0 && count > 0) {
+        assert(update_tally_map(address, property, count, COUNT));
+        assert(update_tally_map(address, property, remaining, REMAINING));
+        }
+
+        PrintToConsole("count: %d\n", count);
+        PrintToConsole("remanining: %d\n", remaining);    
+        PrintToConsole("remanining value: %d\n", getMPbalance(address, property, REMAINING));
+
+        if (getMPbalance(address, property, REMAINING) != 0) {
+            startStrKey = it->key().ToString();
+        } 
+        
     }
 
-    PrintToConsole("count: %d\n", count);
-    assert(update_tally_map(address, propertyTraded, count, COUNT));
-
-    PrintToConsole("remanining: %d\n", remaining);
-    if ( remaining > 0 ) {
-        assert(update_tally_map(address, propertyTraded, remaining, REMAINING));
-    }    
-    
     delete it;
     if (count) { return true; } else { return false; }
 }
