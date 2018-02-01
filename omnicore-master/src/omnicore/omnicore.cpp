@@ -258,11 +258,11 @@ std::string FormatByType(int64_t amount, uint16_t propertyType)
         return FormatIndivisibleMP(amount);
 
     /////////////////////////////////////////
-    /*New property type No 3 Contract*/    
+    /*New property type No 3 Contract*/
     } else if (propertyType & MSC_PROPERTY_TYPE_CONTRACT) {
         return FormatContractMP(amount);
     /////////////////////////////////////////
-        
+
     } else {
         return FormatDivisibleMP(amount);
     }
@@ -3839,11 +3839,82 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
   if (count) { return true; } else { return false; }
 
 }
+/////////////////////////////////////////////
+/** New things for contracts */
+int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
+{
+    if (!pdb) return false;
 
+    int count = 0;
+    int64_t totalContracts = 0;
+    int64_t totalAmount = 0;
+    int64_t totalAux = 0;
+    int64_t newAux = 0;
+    int64_t pCouldBuy = 0;
+    int64_t aux = getMPbalance(address,property,REMAINING);
+    std::vector<std::string> vstr;
+
+    leveldb::Iterator* it = NewIterator();
+    for(it->SeekToFirst(); it->Valid(); it->Next()) {
+
+        std::string strKey = it->key().ToString();
+        std::string strValue = it->value().ToString();
+
+        boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
+
+        if (vstr.size() != 12) {
+            PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
+            continue;
+        }
+        if (address != vstr[0] && address != vstr[1]) continue;
+
+        // decode the details from the value string
+        std::string address1 = vstr[0];
+        std::string address2 = vstr[1];
+        int64_t effectivePrice = boost::lexical_cast<int64_t>(vstr[2]);
+        int64_t nCouldBuy = boost::lexical_cast<int64_t>(vstr[3]);
+
+        // making some calculations needed for PNL
+        if(aux > totalAux){
+          if (nCouldBuy > aux - totalAux){
+              pCouldBuy = nCouldBuy - (aux - totalAux);
+              totalAux += aux - totalAux;
+          }else {
+              totalAux += nCouldBuy;
+              continue;
+          }
+        }
+
+        if(contractsClosed > totalContracts){
+            if (pCouldBuy > 0){
+                nCouldBuy = pCouldBuy;
+            }
+            if (nCouldBuy > contractsClosed - totalContracts){
+                newAux = nCouldBuy-(contractsClosed - totalContracts);
+                totalAmount += effectivePrice*(contractsClosed - totalContracts);
+                totalContracts += contractsClosed - totalContracts;
+            }else {
+                totalAmount += effectivePrice*nCouldBuy;
+                totalContracts += nCouldBuy;
+            }
+            pCouldBuy = 0;
+
+            }else {
+                  assert(update_tally_map(address, property, totalContracts, REMAINING));
+                  break;
+             }
+
+
+        ++count;
+    }
+    // clean up
+    delete it;
+    return totalAmount;
+}
 // ///////////////////////////////////////////// Future solution
-// /** New things for contracts */ 
+// /** New things for contracts */
 // bool CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
-// {   
+// {
 //     if (!pdb) return false;
 
 //     int count = 0;
@@ -3858,7 +3929,7 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
 //         std::string strKey = it->key().ToString();
 //         std::string strValue = it->value().ToString();
 
-//         boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);        
+//         boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
 //         if (vstr.size() != 13) {
 //             PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
 //             continue;
@@ -3901,7 +3972,7 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
 //         } else {
 //            break;
 //         }
-     
+
 //         PrintToConsole("totalAmount: %d\n", totalAmount);
 //         PrintToConsole("totalContracts: %d\n", totalContracts);
 //         ++count;
@@ -3912,22 +3983,22 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
 //         }
 
 //         PrintToConsole("count: %d\n", count);
-//         PrintToConsole("remanining: %d\n", remaining);    
+//         PrintToConsole("remanining: %d\n", remaining);
 //         PrintToConsole("remanining value: %d\n", getMPbalance(address, property, REMAINING));
-        
+
 //         // int64_t balanceRemaining = getMPbalance(address, property, REMAINING);
 //         // if ( balanceRemaining != 0) {
 //         //     startStrKey = it->key().ToString();
 //         // } else if ( balanceRemaining == 0) {
 //         //     startStrKey = "REMAINING_ZERO";
-//         // }         
-                  
+//         // }
+
 //         //////////////////////////////////////
 //         /** New things for Contract */
 //         extern std::string startStrKey;
 //         startStrKey = "REMAINING_ZERO";
 //         //////////////////////////////////////
-        
+
 //         PrintToConsole("strKey: %s\n", strKey);
 //         // PrintToConsole("startStrKey: %s\n", startStrKey);
 //     }
