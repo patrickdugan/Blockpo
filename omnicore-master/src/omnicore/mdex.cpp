@@ -641,8 +641,16 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 Status_maker = Status_b;
                 Status_taker = Status_s;
             }
-            
             ///////////////////////////////////////            
+            // if ( startStrKey == "REMAINING_ZERO" ) {
+            //     newKey = pold->getHash().ToString() + "+" + pnew->getHash().ToString();
+            // } else {
+            //     newKey == startStrKey;
+            // }            
+            // extern std::string startStrKey;
+            // PrintToConsole("startStrKey: %s\n", startStrKey);
+            ///////////////////////////////////////
+            string newKey = "PRUEBA";            
             t_tradelistdb->recordMatchedTrade(pold->getHash(),
                                               pnew->getHash(),
                                               pold->getAddr(),
@@ -656,7 +664,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               Status_taker,
                                               lives_maker, 
                                               lives_taker, 
-                                              property_traded);
+                                              property_traded, 
+                                              newKey);
             ///////////////////////////////////////
 
             marketPrice = pold->getEffectivePrice();

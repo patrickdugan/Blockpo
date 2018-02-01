@@ -674,7 +674,7 @@ BOOST_AUTO_TEST_CASE(PNL)  // seller_amount = 10, buyer_amount = 10;
                   7,  // amount of contracts for sale
                   0,  // desired property
                   0,
-                  uint256S("31"), // txid
+                  uint256S("41"), // txid
                   1,  // position in block
                   1,  // subaction
                   0,  // amount remaining
@@ -689,7 +689,7 @@ BOOST_AUTO_TEST_CASE(PNL)  // seller_amount = 10, buyer_amount = 10;
                   7,  // amount of contracts for trade
                   0,   // desired property
                   0,
-                  uint256S("32"), // txid
+                  uint256S("42"), // txid
                   2,  // position in block
                   1,  // subaction
                   0,  // amount remaining
@@ -771,17 +771,10 @@ if (direction){
     BOOST_CHECK_EQUAL(TRADED, x_Trade(s4));
 }
 
-t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 10, 1);
-t_tradelistdb->printAll();
+// t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 15, 1);
+// t_tradelistdb->printAll();
 
 mastercore_shutdown();
-
-// mastercore_init();
-
-// t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 10, 1);
-// t_tradelistdb->printAll();
- 
-// mastercore_shutdown();
 
 }
 

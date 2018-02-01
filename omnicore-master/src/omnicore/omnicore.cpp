@@ -3840,93 +3840,102 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
 
 }
 
-/////////////////////////////////////////////
-/** New things for contracts */
-bool CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
-{   
-    if (!pdb) return false;
+// ///////////////////////////////////////////// Future solution
+// /** New things for contracts */ 
+// bool CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
+// {   
+//     if (!pdb) return false;
 
-    int count = 0;
-    int64_t totalContracts = 0;
-    int64_t totalAmount = 0;
-    int64_t remaining = 0;
-    std::vector<std::string> vstr;
-    std::string startStrKey = "";
+//     int count = 0;
+//     int64_t totalContracts = 0;
+//     int64_t totalAmount = 0;
+//     int64_t remaining = 0;
+//     std::vector<std::string> vstr;
 
-    leveldb::Iterator* it = NewIterator();
-    for(it->Seek(startStrKey); it->Valid(); it->Next()) {
+//     leveldb::Iterator* it = NewIterator();
+//     for(it->SeekToFirst(); it->Valid(); it->Next()) {
 
-        std::string strKey = it->key().ToString();
-        std::string strValue = it->value().ToString();
-        std::string matchTxid;
+//         std::string strKey = it->key().ToString();
+//         std::string strValue = it->value().ToString();
 
-        boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);        
+//         boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);        
+//         if (vstr.size() != 13) {
+//             PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
+//             continue;
+//         }
 
-        if (vstr.size() != 12) {
-            PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
-            continue;
-        }
+//         if (address != vstr[0] && address != vstr[1]) continue;
 
-        if (address != vstr[0] && address != vstr[1]) continue;
+//         std::string address1 = vstr[0];
+//         std::string address2 = vstr[1];
+//         int64_t effectivePrice = boost::lexical_cast<int64_t>(vstr[2]);
+//         int64_t nCouldBuy = boost::lexical_cast<int64_t>(vstr[3]);
+//         std::string StatusMaker = vstr[7];
+//         std::string StatusTaker = vstr[8];
+//         int64_t liveMaker = boost::lexical_cast<int64_t>(vstr[9]);
+//         int64_t liveTaker = boost::lexical_cast<int64_t>(vstr[10]);
+//         std::string newKey = vstr[11];
 
-        std::string address1 = vstr[0];
-        std::string address2 = vstr[1];
-        int64_t effectivePrice = boost::lexical_cast<int64_t>(vstr[2]);
-        int64_t nCouldBuy = boost::lexical_cast<int64_t>(vstr[3]);
-        std::string StatusMaker = vstr[7];
-        std::string StatusTaker = vstr[8];
-        int64_t liveMaker = boost::lexical_cast<int64_t>(vstr[9]);
-        int64_t liveTaker = boost::lexical_cast<int64_t>(vstr[10]);
+//         PrintToConsole("address1: %s\n", address1);
+//         PrintToConsole("address2: %s\n", address2);
+//         PrintToConsole("effectivePrice: %d\n", effectivePrice);
+//         PrintToConsole("contractsTrade: %d\n", nCouldBuy);
+//         PrintToConsole("StatusMaker: %s\n", StatusMaker);
+//         PrintToConsole("StatusTaker: %s\n", StatusTaker);
+//         PrintToConsole("liveMaker: %d\n", liveMaker);
+//         PrintToConsole("liveTaker: %d\n", liveTaker);
 
-        PrintToConsole("address1: %s\n", address1);
-        PrintToConsole("address2: %s\n", address2);
-        PrintToConsole("effectivePrice: %d\n", effectivePrice);
-        PrintToConsole("contractsTrade: %d\n", nCouldBuy);
-        PrintToConsole("StatusMaker: %s\n", StatusMaker);
-        PrintToConsole("StatusTaker: %s\n", StatusTaker);
-        PrintToConsole("liveMaker: %d\n", liveMaker);
-        PrintToConsole("liveTaker: %d\n", liveTaker);
+//         if(contractsClosed > totalContracts){
 
-        if(contractsClosed > totalContracts){
+//            if (nCouldBuy > contractsClosed - totalContracts){
 
-           if (nCouldBuy > contractsClosed - totalContracts){
+//              remaining = nCouldBuy-(contractsClosed - totalContracts);
+//              totalAmount += effectivePrice*(contractsClosed - totalContracts);
+//              totalContracts += contractsClosed - totalContracts;
 
-             remaining = nCouldBuy-(contractsClosed - totalContracts);
-             totalAmount += effectivePrice*(contractsClosed - totalContracts);
-             totalContracts += contractsClosed - totalContracts;
+//            } else {
+//              totalAmount += effectivePrice*nCouldBuy;
+//              totalContracts += nCouldBuy;
+//            }
 
-           }else {
-             totalAmount += effectivePrice*nCouldBuy;
-             totalContracts += nCouldBuy;
-           }
-
-        } else {
-           break;
-        }
+//         } else {
+//            break;
+//         }
      
-        PrintToConsole("totalAmount: %d\n", totalAmount);
-        PrintToConsole("totalContracts: %d\n", totalContracts);
-        ++count;
+//         PrintToConsole("totalAmount: %d\n", totalAmount);
+//         PrintToConsole("totalContracts: %d\n", totalContracts);
+//         ++count;
 
-        if ( remaining > 0 && count > 0) {
-        assert(update_tally_map(address, property, count, COUNT));
-        assert(update_tally_map(address, property, remaining, REMAINING));
-        }
+//         if ( remaining > 0 && count > 0) {
+//         assert(update_tally_map(address, property, count, COUNT));
+//         assert(update_tally_map(address, property, remaining, REMAINING));
+//         }
 
-        PrintToConsole("count: %d\n", count);
-        PrintToConsole("remanining: %d\n", remaining);    
-        PrintToConsole("remanining value: %d\n", getMPbalance(address, property, REMAINING));
-
-        if (getMPbalance(address, property, REMAINING) != 0) {
-            startStrKey = it->key().ToString();
-        } 
+//         PrintToConsole("count: %d\n", count);
+//         PrintToConsole("remanining: %d\n", remaining);    
+//         PrintToConsole("remanining value: %d\n", getMPbalance(address, property, REMAINING));
         
-    }
+//         // int64_t balanceRemaining = getMPbalance(address, property, REMAINING);
+//         // if ( balanceRemaining != 0) {
+//         //     startStrKey = it->key().ToString();
+//         // } else if ( balanceRemaining == 0) {
+//         //     startStrKey = "REMAINING_ZERO";
+//         // }         
+                  
+//         //////////////////////////////////////
+//         /** New things for Contract */
+//         extern std::string startStrKey;
+//         startStrKey = "REMAINING_ZERO";
+//         //////////////////////////////////////
+        
+//         PrintToConsole("strKey: %s\n", strKey);
+//         // PrintToConsole("startStrKey: %s\n", startStrKey);
+//     }
 
-    delete it;
-    if (count) { return true; } else { return false; }
-}
-/////////////////////////////////////////////
+//     delete it;
+//     if (count) { return true; } else { return false; }
+// }
+// /////////////////////////////////////////////
 
 bool CompareTradePair(const std::pair<int64_t, UniValue>& firstJSONObj, const std::pair<int64_t, UniValue>& secondJSONObj)
 {
@@ -4087,11 +4096,11 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
 /////////////////////////////////
 /** New things for Contract */
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded)
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string newKey)
 {
   if (!pdb) return;
   const string key = txid1.ToString() + "+" + txid2.ToString();
-  const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded);
+  const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d:%s", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded, newKey);
   Status status;
   if (pdb)
   {
