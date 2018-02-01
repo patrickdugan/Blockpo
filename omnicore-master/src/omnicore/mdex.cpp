@@ -34,9 +34,10 @@
 
 typedef boost::multiprecision::cpp_dec_float_100 dec_float;
 typedef boost::multiprecision::checked_int128_t int128_t;
+
 ///////////////////////////////
 /*New things for Contracts*/
-uint64_t marketPrice;
+volatile uint64_t marketPrice;
 ///////////////////////////////
 
 using namespace mastercore;
@@ -148,6 +149,11 @@ std::string xToString(const rational_t& value)
 ///////////////////////////////
 /** New things for Contracts */
 std::string xToString(const uint64_t &price)
+{
+    return strprintf("%s", boost::lexical_cast<std::string>(price));
+}
+
+std::string xToString(const int64_t &price)
 {
     return strprintf("%s", boost::lexical_cast<std::string>(price));
 }
@@ -524,25 +530,25 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             /////////////////////////////////////// 
 
-            int64_t countClosedSeller;
-            int64_t countClosedBuyer;
+            int64_t countClosedSeller = 0;
+            int64_t countClosedBuyer = 0;
             if ( possitive_sell > 0 && negative_sell == 0 ) {
                 if ( pold->getTradingAction() == SELL ) {
                     Status_s = (possitive_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE)) ? "Long Netted" : "None";
-                    countClosedSeller = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) == 0 ? possitive_sell : possitive_sell - getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE);
+                    countClosedSeller = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) == 0 ? possitive_sell : abs( possitive_sell - getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) );
                 } else {
                     Status_s = (possitive_sell > getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE)) ? "Long Netted" : "None";
-                    countClosedSeller = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 ? possitive_sell : possitive_sell - getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
+                    countClosedSeller = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 ? possitive_sell : abs( possitive_sell - getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) );
                 }
 
             } else if ( negative_sell > 0 && possitive_sell == 0 ) {
                 if ( pold->getTradingAction() == SELL ) {
                     Status_s = (negative_sell > getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE)) ? "Short Netted" : "None";
-                    countClosedSeller = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ? negative_sell : negative_sell - getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
+                    countClosedSeller = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ? negative_sell : abs( negative_sell - getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) );
 
                 } else {
                     Status_s = (negative_sell > getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE)) ? "Short Netted" : "None";
-                    countClosedSeller = getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ? negative_sell : negative_sell - getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE);
+                    countClosedSeller = getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ? negative_sell : abs( negative_sell - getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) );
                 }
 
             } else if ( negative_sell == 0 && possitive_sell == 0 ) {
@@ -560,11 +566,11 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             if ( possitive_buy > 0 && negative_buy == 0 ) {
                 Status_b = (possitive_buy > getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE)) ? "Long Netted" : "None";
-                countClosedBuyer = getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE) == 0 ? possitive_buy : possitive_buy - getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE);
+                countClosedBuyer = getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE) == 0 ? possitive_buy : abs( possitive_buy - getMPbalance(buyer_address, property_traded, POSSITIVE_BALANCE) );
 
             } else if ( negative_buy > 0 && negative_buy == 0 ) {
                 Status_b = (negative_buy > getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE)) ? "Short Netted" : "None";
-                countClosedBuyer = getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE) == 0 ? negative_buy : negative_buy - getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE);
+                countClosedBuyer = getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE) == 0 ? negative_buy : abs( negative_buy - getMPbalance(buyer_address, property_traded, NEGATIVE_BALANCE) );
             
             } else if ( negative_buy == 0 && possitive_buy == 0 ) {
                 Status_b = "None";
@@ -578,7 +584,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                     countClosedBuyer = negative_balance_pold == 0 ? positive_balance_pold : negative_balance_pold;
                 }
             }
-
             ///////////////////////////////////////
 
             if( ((getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ) && (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) == 0 )) &&  
@@ -604,14 +609,19 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 lives_taker = getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE);
             }
 
-            ///////////////////////////////////////
-           
+            ///////////////////////////////////////          
+            // if ( marketPrice != 0 ) {
+            //     PrintToConsole("matchPrice: %d\n", pold->getEffectivePrice());  
+            //     PrintToConsole("marketPrice: %d\n", marketPrice);
+            // }
+            // ///////////////////////////////////////
+                       
             uint32_t MReq = marginRequirementContract;
             std::string MReqStr = xToString(MReq);
             int64_t MReqNew = boost::lexical_cast<int64_t>(MReqStr.c_str());            
 
             uint64_t freedReserverExPNLMaker = 0;            
-            if ( (Status_s == "Long Netted") || (Status_s == "Short Netted") ) {
+            if ( Status_s == "Long Netted" || Status_s == "Short Netted" ) {
 
                 int128_t desiredProductMaker;
                 multiply(desiredProductMaker, MReqNew, countClosedSeller);
@@ -621,17 +631,23 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 assert(update_tally_map(seller_address, seller_prop,  freedReserverExPNLMaker, BALANCE));
             }
 
-            uint64_t freedReserverExPNLTaker = 0;
-            if ( (Status_b == "Long Netted") || (Status_b == "Short Netted") ) {
+            PrintToConsole("Market Price: %d, countClosedBuyer: %d, Match Price: %d\n", marketPrice, countClosedBuyer, pold->getEffectivePrice());
+            // if ( Status_b != "None" ) {
 
-                int128_t desiredProductTaker;
-                multiply(desiredProductTaker, MReqNew, countClosedBuyer);
-                freedReserverExPNLTaker = desiredProductTaker.convert_to<uint64_t>();
+                int64_t freedReserverExPNLTaker = marginRequirementContract*countClosedBuyer;
 
                 assert(update_tally_map(buyer_address, buyer_prop, -freedReserverExPNLTaker, CONTRACTDEX_RESERVE));
                 assert(update_tally_map(buyer_address, buyer_prop,  freedReserverExPNLTaker, BALANCE));
-            }            
 
+                int64_t basis_b = t_tradelistdb->getTradeBasis(buyer_address, countClosedBuyer, buyer_prop);
+                int64_t PNL_b = (marketPrice*countClosedBuyer - basis_b)*notionalSize;
+
+                // assert(update_tally_map(buyer_address, buyer_prop, PNL_b, BALANCE));
+            // }
+            PrintToConsole("PNL: %s\n", xToString(PNL_b));
+            PrintToConsole("Basis: %s\n", xToString(basis_b));
+            PrintToConsole("freedReserverExPNLTaker: %d\n", xToString(freedReserverExPNLTaker));
+            
             ///////////////////////////////////////
             std::string Status_maker, Status_taker;
             if (pold->getAddr() == seller_address){
@@ -641,7 +657,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 Status_maker = Status_b;
                 Status_taker = Status_s;
             }
-            ///////////////////////////////////////            
+
             // if ( startStrKey == "REMAINING_ZERO" ) {
             //     newKey = pold->getHash().ToString() + "+" + pnew->getHash().ToString();
             // } else {
@@ -667,7 +683,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               property_traded, 
                                               newKey);
             ///////////////////////////////////////
-
             marketPrice = pold->getEffectivePrice();
 
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s, Effective price: %d\n", offerIt->ToString(), marketPrice);

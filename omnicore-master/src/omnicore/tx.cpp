@@ -40,7 +40,7 @@ using namespace mastercore;
 ///////////////////////////////
 /*New things for Contracts*/
 uint32_t blocksUntilExpiration;
-uint32_t notionalSize;
+uint32_t notionalSize = 100;
 uint32_t collateralCurrency;
 // uint32_t marginRequirementContract;
 uint32_t marginRequirementContract = 25; // Remember: Change this later: Coming from the interpret
@@ -1962,7 +1962,7 @@ int CMPTransaction::logicMath_ContractDexTrade()
     ///////////////////////////////////////////////
     /** New things for Contract */
     int64_t nBalance = getMPbalance(sender, property, BALANCE);
-    uint32_t Sum = notionalSize + marginRequirementContract;
+    uint32_t Sum = marginRequirementContract;
     int64_t amountToReserve = nValue*Sum;
     ///////////////////////////////////////////////
 
@@ -2066,7 +2066,7 @@ int CMPTransaction::logicMath_CreateContractDex()
     ////////////////////////////////////////
     /** New things for Contracts */    
     blocksUntilExpiration = blocks_until_expiration;
-    notionalSize = notional_size;
+    // notionalSize = notional_size;
     collateralCurrency = collateral_currency;
     // marginRequirementContract = margin_requirement;
     ///////////////////////////////////////

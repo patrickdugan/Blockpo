@@ -771,10 +771,221 @@ if (direction){
     BOOST_CHECK_EQUAL(TRADED, x_Trade(s4));
 }
 
-// t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 15, 1);
-// t_tradelistdb->printAll();
+t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 15, 1);
+t_tradelistdb->printAll();
 
 mastercore_shutdown();
+
+}
+////////////////////////////////////////////////////////
+BOOST_AUTO_TEST_CASE(PNL2)  // seller_amount = 10, buyer_amount = 10;
+{
+  CMPTally tally;  // the tally map object
+  CMPContractDex seller(
+                  "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
+                  172,  // block
+                  1,  // property for sale
+                  5,  // amount of contracts for sale
+                  0,  // desired property
+                  0,
+                  uint256S("11"), // txid
+                  1,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  5,  // effective_price
+                  2 // trading_action
+  );
+
+  CMPContractDex buyer(
+                  "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", // address
+                  172,  // block
+                  1,  // property for sale
+                  5,  // amount of contracts for trade
+                  0,   // desired property
+                  0,
+                  uint256S("12"), // txid
+                  2,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  5,  // effective_price
+                  1 // trading_action
+  );
+  CMPContractDex seller2(
+                  "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
+                  172,  // block
+                  1,  // property for sale
+                  2,  // amount of contracts for sale
+                  0,  // desired property
+                  0,
+                  uint256S("21"), // txid
+                  1,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  6,  // effective_price
+                  2 // trading_action
+  );
+
+  CMPContractDex buyer2(
+                  "1NNQKWM8mC35pBNPxV1noWFZEw7A5X6zXz", // address
+                  172,  // block
+                  1,  // property for sale
+                  2,  // amount of contracts for trade
+                  0,   // desired property
+                  0,
+                  uint256S("22"), // txid
+                  2,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  6,  // effective_price
+                  1 // trading_action
+  );
+  CMPContractDex seller3(
+                  "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
+                  172,  // block
+                  1,  // property for sale
+                  7,  // amount of contracts for sale
+                  0,  // desired property
+                  0,
+                  uint256S("3c9a055899147b03b2c5240a020c1f94d243a834ecc06ab8cfa504ee29d07999"), // txid
+                  1,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  10,  // effective_price
+                  2 // trading_action
+  );
+
+  CMPContractDex buyer3(
+                  "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", // magic address!
+                  172,  // block
+                  1,  // property for sale
+                  7,  // amount of contracts for trade
+                  0,   // desired property
+                  0,
+                  uint256S("3c9a055899147b03b2c5240a030c1f94d243a834ecc06ab8cfa504ee29d07b7f"), // txid
+                  2,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  10,  // effective_price
+                  1 // trading_action
+  );
+  CMPContractDex seller4(
+                  "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
+                  172,  // block
+                  1,  // property for sale
+                  8,  // amount of contracts for sale
+                  0,  // desired property
+                  0,
+                  uint256S("41"), // txid
+                  1,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  10,  // effective_price
+                  2 // trading_action
+  );
+
+  CMPContractDex buyer4(
+                  "1PxejjeWZc9ZHph7A3SYDo2sk2Up4AcysH", // magic address!
+                  172,  // block
+                  1,  // property for sale
+                  8,  // amount of contracts for trade
+                  0,   // desired property
+                  0,
+                  uint256S("42"), // txid
+                  2,  // position in block
+                  1,  // subaction
+                  0,  // amount remaining
+                  10,  // effective_price
+                  1 // trading_action
+  );
+
+
+  CMPContractDex *s;
+  s = &seller;
+  CMPContractDex *b;
+  b = &buyer;
+  CMPContractDex *s2;
+  s2 = &seller2;
+  CMPContractDex *b2;
+  b2 = &buyer2;
+  CMPContractDex *s3;
+  s3 = &seller3;
+  CMPContractDex *b3;
+  b3 = &buyer3;
+  CMPContractDex *s4;
+  s4 = &seller4;
+  CMPContractDex *b4;
+  b4 = &buyer4;
+
+  mastercore_init();
+
+    // long seller, long buyer
+  BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(), 20, NEGATIVE_BALANCE));
+  BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(), 20, POSSITIVE_BALANCE));
+  BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller2.getProperty(), 20, NEGATIVE_BALANCE));
+  BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer2.getProperty(), 20, POSSITIVE_BALANCE));
+  //putting some money on reserve
+  BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(), 100000, CONTRACTDEX_RESERVE));
+  BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(), 100000, CONTRACTDEX_RESERVE));
+  BOOST_CHECK(mastercore::update_tally_map(seller2.getAddr(),seller2.getProperty(), 100000, CONTRACTDEX_RESERVE));
+  BOOST_CHECK(mastercore::update_tally_map(buyer2.getAddr(),buyer2.getProperty(), 100000, CONTRACTDEX_RESERVE));
+  BOOST_CHECK(mastercore::update_tally_map(seller3.getAddr(),seller3.getProperty(), 100000, CONTRACTDEX_RESERVE));
+  BOOST_CHECK(mastercore::update_tally_map(buyer3.getAddr(),buyer3.getProperty(), 100000, CONTRACTDEX_RESERVE));
+  //putting some remaining contracts (8)
+  BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),8, REMAINING));
+  // checking balance and reserve of seller
+  // BOOST_CHECK_EQUAL(20, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
+  // BOOST_CHECK_EQUAL(20, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
+  // checking the reserve
+
+
+  if (direction){
+      BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
+      BOOST_CHECK(ContractDex_INSERT(seller));
+      BOOST_CHECK_EQUAL(TRADED, x_Trade(b));   // the buyer wants 10 contracts at  price of 5! // There's  match!!!!
+  } else {
+      BOOST_TEST_MESSAGE("The buyer is inserted in priceMap, the seller in x_Trade");
+      BOOST_CHECK(ContractDex_INSERT(buyer));
+      BOOST_CHECK_EQUAL(TRADED, x_Trade(s));
+  }
+
+
+if (direction){
+    BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
+    BOOST_CHECK(ContractDex_INSERT(seller2));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(b2));   // the buyer wants 10 contracts at  price of 5! // There's  match!!!!
+} else {
+    BOOST_TEST_MESSAGE("The buyer is inserted in priceMap, the seller in x_Trade");
+    BOOST_CHECK(ContractDex_INSERT(buyer2));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(s2));
+}
+if (direction){
+    BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
+    BOOST_CHECK(ContractDex_INSERT(seller3));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(b3));   // the buyer wants 10 contracts at  price of 5! // There's  match!!!!
+} else {
+    BOOST_TEST_MESSAGE("The buyer is inserted in priceMap, the seller in x_Trade");
+    BOOST_CHECK(ContractDex_INSERT(buyer3));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(s3));
+}
+if (direction){
+    BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
+    BOOST_CHECK(ContractDex_INSERT(seller4));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(b4));   // the buyer wants 10 contracts at  price of 5! // There's  match!!!!
+} else {
+    BOOST_TEST_MESSAGE("The buyer is inserted in priceMap, the seller in x_Trade");
+    BOOST_CHECK(ContractDex_INSERT(buyer4));
+    BOOST_CHECK_EQUAL(TRADED, x_Trade(s4));
+}
+
+ // int64_t closedContracts = 4;
+ // int64_t amount = t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", closedContracts, seller.getProperty());
+ // BOOST_TEST_MESSAGE("amount: "<< amount);
+ // BOOST_CHECK_EQUAL(getMPbalance("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", seller.getProperty(), REMAINING), 12);
+ // int64_t marketPrice = 100;
+ // int64_t PNL = closedContracts*marketPrice - amount;
+ // BOOST_CHECK_EQUAL(360, PNL);
+ // t_tradelistdb->printAll();
+  mastercore_shutdown();
 
 }
 

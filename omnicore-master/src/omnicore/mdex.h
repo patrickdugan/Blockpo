@@ -35,8 +35,8 @@ std::string xToString(const rational_t& value);
 ///////////////////////////////
 /*New things for Contracts*/
 std::string xToString(const uint64_t &value);
+std::string xToString(const int64_t  &price);
 std::string xToString(const uint32_t &value);
-extern uint64_t marketPrice;
 ///////////////////////////////
 
 enum MatchReturnType

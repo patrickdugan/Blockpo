@@ -3862,13 +3862,16 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
 
         boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
 
-        if (vstr.size() != 12) {
+        if (vstr.size() != 13) {
             PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
             continue;
         }
         if (address != vstr[0] && address != vstr[1]) continue;
 
-        // decode the details from the value string
+        // if ( ( address != vstr[0] || "None" == vstr[7] ) ) continue;
+        // if ( ( address != vstr[1] || "None" == vstr[8] ) ) continue;
+
+        // Decode the details from the value string
         std::string address1 = vstr[0];
         std::string address2 = vstr[1];
         int64_t effectivePrice = boost::lexical_cast<int64_t>(vstr[2]);
@@ -3899,18 +3902,20 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
             }
             pCouldBuy = 0;
 
-            }else {
-                  assert(update_tally_map(address, property, totalContracts, REMAINING));
-                  break;
-             }
-
-
+        } else {
+            if ( totalContracts > 0 ) {
+                assert(update_tally_map(address, property, totalContracts, REMAINING));
+            }
+            break;
+        }
+        PrintToConsole("newAux: %d\n", newAux);        
         ++count;
     }
     // clean up
     delete it;
     return totalAmount;
 }
+
 // ///////////////////////////////////////////// Future solution
 // /** New things for contracts */
 // bool CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
