@@ -978,8 +978,8 @@ if (direction){
 }
 
  // int64_t closedContracts = 4;
- int64_t amount = t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", closedContracts, seller.getProperty());
- BOOST_TEST_MESSAGE("amount: "<< amount);
+ // int64_t amount = t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", closedContracts, seller.getProperty());
+ // BOOST_TEST_MESSAGE("amount: "<< amount);
  // BOOST_CHECK_EQUAL(getMPbalance("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", seller.getProperty(), REMAINING), 12);
  // int64_t marketPrice = 100;
  // int64_t PNL = closedContracts*marketPrice - amount;

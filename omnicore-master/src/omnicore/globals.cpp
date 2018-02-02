@@ -3,4 +3,4 @@
 
 using namespace std;
 
-std::string startStrKey;
+volatile uint64_t marketPrice;

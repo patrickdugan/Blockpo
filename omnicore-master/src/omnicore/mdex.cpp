@@ -35,11 +35,6 @@
 typedef boost::multiprecision::cpp_dec_float_100 dec_float;
 typedef boost::multiprecision::checked_int128_t int128_t;
 
-///////////////////////////////
-/*New things for Contracts*/
-volatile uint64_t marketPrice;
-///////////////////////////////
-
 using namespace mastercore;
 
 //! Number of digits of unit price
@@ -378,6 +373,7 @@ MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 MatchReturnType x_Trade(CMPContractDex* const pnew)
 {
     const uint32_t propertyForSale = pnew->getProperty();
+    extern volatile uint64_t marketPrice;
 
     MatchReturnType NewReturn = NOTHING;
     bool bBuyerSatisfied = false;
@@ -445,6 +441,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             int64_t possitive_sell = 0, difference_s = 0, seller_amount = 0, negative_sell = 0;
             int64_t possitive_buy  = 0, difference_b = 0, buyer_amount  = 0, negative_buy  = 0;
+            uint32_t   seller_prop = 0,   buyer_prop = 0;
             uint32_t property_traded = pold->getProperty();
             std::string seller_address, buyer_address;
 
@@ -456,8 +453,10 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             buyer_amount   = (pold->getTradingAction() == SELL) ? pnew->getAmountForSale() : pold->getAmountForSale();
             seller_address = (pold->getTradingAction() == SELL) ? pold->getAddr() : pnew->getAddr();
             buyer_address  = (pold->getTradingAction() == SELL) ? pnew->getAddr() : pold->getAddr();
-            ///////////////////////////
+            seller_prop    = (pold->getTradingAction() == SELL) ? pold->getProperty() : pnew->getProperty();
+            buyer_prop     = (pold->getTradingAction() == SELL) ? pnew->getProperty() : pold->getProperty();
 
+            ///////////////////////////
             int64_t nCouldBuy = 0;
             nCouldBuy = ( buyer_amount < seller_amount ) ? buyer_amount : seller_amount;
 
@@ -467,7 +466,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 ++offerIt;
                 continue;
             }
-
             ///////////////////////////
 
             if (possitive_sell > 0)
@@ -604,37 +602,39 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             } else if( (getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) > 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 ) ) {
                 lives_taker = getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE);
             }
-                       
-            PrintToConsole("Market Price: %d, countClosedBuyer: %d, Match Price: %d\n", marketPrice, countClosedBuyer, pold->getEffectivePrice());
-            if ( Status_s != "None" ) {
+            ///////////////////////////////////////
+            PrintToConsole("Market Price in Mdex: %d, countClosedBuyer: %d, Match Price: %d\n", marketPrice, countClosedBuyer, pold->getEffectivePrice());
+            // if ( Status_s == "Long Netted" || Status_s == "Short Netted" ) {
 
-                uint64_t freedReserverExPNLMaker = marginRequirementContract*countClosedSeller;
+                int64_t freedReserverExPNLMaker = marginRequirementContract*countClosedSeller;
 
-                assert(update_tally_map(seller_address, property_traded, -freedReserverExPNLMaker, CONTRACTDEX_RESERVE));
-                assert(update_tally_map(seller_address, property_traded,  freedReserverExPNLMaker, BALANCE));
+                assert(update_tally_map(seller_address, seller_prop, -freedReserverExPNLMaker, CONTRACTDEX_RESERVE));
+                assert(update_tally_map(seller_address, seller_prop,  freedReserverExPNLMaker, BALANCE));
 
-                int64_t basis_s = t_tradelistdb->getTradeBasis(seller_address, countClosedSeller, property_traded);
+                int64_t basis_s = t_tradelistdb->getTradeBasis(seller_address, countClosedSeller, seller_prop);
                 int64_t PNL_s = (marketPrice*countClosedSeller - basis_s)*notionalSize;
 
-                if ( PNL_s > 0 ) {
-                    assert(update_tally_map(seller_address, property_traded, PNL_s, BALANCE));
+                if (PNL_s > 0) {
+                    assert(update_tally_map(seller_address, seller_prop, PNL_s, BALANCE));   
                 }
-            }
+            // }
+            PrintToConsole("PNL seller: %s, Basis seller: %s, freedReserverExPNLMaker: %s\n", xToString(PNL_s), xToString(basis_s), xToString(freedReserverExPNLMaker));            
 
             if ( Status_b != "None" ) {
 
-                uint64_t freedReserverExPNLTaker = marginRequirementContract*countClosedBuyer;
+                int64_t freedReserverExPNLTaker = marginRequirementContract*countClosedBuyer;
 
-                assert(update_tally_map(buyer_address, property_traded, -freedReserverExPNLTaker, CONTRACTDEX_RESERVE));
-                assert(update_tally_map(buyer_address, property_traded,  freedReserverExPNLTaker, BALANCE));
+                assert(update_tally_map(buyer_address, buyer_prop, -freedReserverExPNLTaker, CONTRACTDEX_RESERVE));
+                assert(update_tally_map(buyer_address, buyer_prop,  freedReserverExPNLTaker, BALANCE));
 
-                int64_t basis_b = t_tradelistdb->getTradeBasis(buyer_address, countClosedBuyer, property_traded);
+                int64_t basis_b = t_tradelistdb->getTradeBasis(buyer_address, countClosedBuyer, buyer_prop);
                 int64_t PNL_b = (marketPrice*countClosedBuyer - basis_b)*notionalSize;
 
-                if ( PNL_b > 0 ) {
-                    assert(update_tally_map(buyer_address, property_traded, PNL_b, BALANCE));
+                if (PNL_b > 0) {
+                    assert(update_tally_map(buyer_address, buyer_prop, PNL_b, BALANCE));   
                 }
             }
+            // PrintToConsole("PNL buyer: %s, Basis buyer: %s, freedReserverExPNLTaker: %s\n", xToString(PNL_b), xToString(basis_b), xToString(freedReserverExPNLTaker));            
             ///////////////////////////////////////
             std::string Status_maker, Status_taker;
             if (pold->getAddr() == seller_address){
@@ -653,6 +653,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             // extern std::string startStrKey;
             // PrintToConsole("startStrKey: %s\n", startStrKey);
             ///////////////////////////////////////
+            string newKey = "PRUEBA";            
             t_tradelistdb->recordMatchedTrade(pold->getHash(),
                                               pnew->getHash(),
                                               pold->getAddr(),
@@ -666,7 +667,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               Status_taker,
                                               lives_maker, 
                                               lives_taker, 
-                                              property_traded);
+                                              property_traded, 
+                                              newKey);
             ///////////////////////////////////////
             marketPrice = pold->getEffectivePrice();
 
