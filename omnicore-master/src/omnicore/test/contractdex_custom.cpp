@@ -918,30 +918,17 @@ BOOST_AUTO_TEST_CASE(PNL2)  // seller_amount = 10, buyer_amount = 10;
 
   mastercore_init();
 
-    // long seller, long buyer
   BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(), 20, NEGATIVE_BALANCE));
-  BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller2.getProperty(), 20, NEGATIVE_BALANCE));
-
   BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(), 20, POSSITIVE_BALANCE));
-  BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer2.getProperty(), 20, POSSITIVE_BALANCE));
-
   //putting some money on reserve
   BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(), 100000, CONTRACTDEX_RESERVE));
   BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(), 100000, CONTRACTDEX_RESERVE));
-  BOOST_CHECK(mastercore::update_tally_map(seller2.getAddr(),seller2.getProperty(), 100000, CONTRACTDEX_RESERVE));
-  BOOST_CHECK(mastercore::update_tally_map(buyer2.getAddr(),buyer2.getProperty(), 100000, CONTRACTDEX_RESERVE));
-  BOOST_CHECK(mastercore::update_tally_map(seller3.getAddr(),seller3.getProperty(), 100000, CONTRACTDEX_RESERVE));
-  BOOST_CHECK(mastercore::update_tally_map(buyer3.getAddr(),buyer3.getProperty(), 100000, CONTRACTDEX_RESERVE));
-  //putting some remaining contracts (8)
-  BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),8, REMAINING));
   // checking balance and reserve of seller
   BOOST_CHECK_EQUAL(20, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
-  BOOST_CHECK_EQUAL(20, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
-
-  BOOST_CHECK_EQUAL(20, getMPbalance(buyer.getAddr(), buyer.getProperty(), NEGATIVE_BALANCE));
   BOOST_CHECK_EQUAL(20, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
   // checking the reserve
-
+  BOOST_CHECK_EQUAL(100000, getMPbalance(seller.getAddr(), seller.getProperty(), CONTRACTDEX_RESERVE));
+  BOOST_CHECK_EQUAL(100000, getMPbalance(buyer.getAddr(), buyer.getProperty(), CONTRACTDEX_RESERVE));
 
   if (direction){
       BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
@@ -990,7 +977,8 @@ if (direction){
  // int64_t PNL = closedContracts*marketPrice - amount;
  // BOOST_CHECK_EQUAL(360, PNL);
  // t_tradelistdb->printAll();
-  mastercore_shutdown();
+
+mastercore_shutdown();
 
 }
 

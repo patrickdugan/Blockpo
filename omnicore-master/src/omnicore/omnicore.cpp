@@ -3841,8 +3841,11 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
 /** New things for contracts */
 int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
 {
+    PrintToConsole("Checking Extern Volatil Variable coming from x_Trade\n");
     extern volatile uint64_t marketPrice;
     PrintToConsole("Market Price in Omnicore: %d\n", marketPrice);
+    PrintToConsole("/////////////////////////////////\n");
+    
     if (!pdb) return false;
 
     int count = 0;
