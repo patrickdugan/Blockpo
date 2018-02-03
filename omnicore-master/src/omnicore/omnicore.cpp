@@ -3833,11 +3833,9 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
       tradeArray.push_back(trade);
       ++count;
   }
-
   // clean up
   delete it;
   if (count) { return true; } else { return false; }
-
 }
 /////////////////////////////////////////////
 /** New things for contracts */

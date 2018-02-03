@@ -920,9 +920,11 @@ BOOST_AUTO_TEST_CASE(PNL2)  // seller_amount = 10, buyer_amount = 10;
 
     // long seller, long buyer
   BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(), 20, NEGATIVE_BALANCE));
-  BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(), 20, POSSITIVE_BALANCE));
   BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller2.getProperty(), 20, NEGATIVE_BALANCE));
+
+  BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(), 20, POSSITIVE_BALANCE));
   BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer2.getProperty(), 20, POSSITIVE_BALANCE));
+
   //putting some money on reserve
   BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(), 100000, CONTRACTDEX_RESERVE));
   BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(), 100000, CONTRACTDEX_RESERVE));
@@ -933,8 +935,11 @@ BOOST_AUTO_TEST_CASE(PNL2)  // seller_amount = 10, buyer_amount = 10;
   //putting some remaining contracts (8)
   BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),8, REMAINING));
   // checking balance and reserve of seller
-  // BOOST_CHECK_EQUAL(20, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
-  // BOOST_CHECK_EQUAL(20, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
+  BOOST_CHECK_EQUAL(20, getMPbalance(seller.getAddr(), seller.getProperty(), NEGATIVE_BALANCE));
+  BOOST_CHECK_EQUAL(20, getMPbalance(seller.getAddr(), seller.getProperty(), POSSITIVE_BALANCE));
+
+  BOOST_CHECK_EQUAL(20, getMPbalance(buyer.getAddr(), buyer.getProperty(), NEGATIVE_BALANCE));
+  BOOST_CHECK_EQUAL(20, getMPbalance(buyer.getAddr(), buyer.getProperty(), POSSITIVE_BALANCE));
   // checking the reserve
 
 
