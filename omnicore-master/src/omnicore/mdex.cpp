@@ -373,7 +373,18 @@ MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 MatchReturnType x_Trade(CMPContractDex* const pnew)
 {
     const uint32_t propertyForSale = pnew->getProperty();
+
+    ///////////////////////////////
+    /*New things for Contracts*/
+    extern volatile uint32_t notionalSize;
+    extern volatile uint32_t marginRequirementContract;
     extern volatile uint64_t marketPrice;
+    ///////////////////////////////
+    PrintToConsole("/////////////////////////////////\n");
+    PrintToConsole("Checking the margin requirement and notional size\n");
+    PrintToConsole("Margin requirement: %d, Notional size: %d\n", marginRequirementContract, notionalSize);
+    PrintToConsole("/////////////////////////////////\n");
+    ///////////////////////////
 
     MatchReturnType NewReturn = NOTHING;
     bool bBuyerSatisfied = false;
@@ -455,7 +466,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             seller_prop    = (pold->getTradingAction() == SELL) ? pold->getProperty() : pnew->getProperty();
             buyer_prop     = (pold->getTradingAction() == SELL) ? pnew->getProperty() : pold->getProperty();
             
-            PrintToConsole("/////////////////////////////////\n");
             PrintToConsole("Checking Initial Balances:\n");
             PrintToConsole("Possitive balance Sell: %d, Negative Balance Sell: %d\n", possitive_sell, negative_sell);
             PrintToConsole("Possitive balance Buy: %d, Negative Balance Buy: %d\n", possitive_buy, negative_buy);

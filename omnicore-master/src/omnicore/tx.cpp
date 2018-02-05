@@ -37,15 +37,6 @@ using boost::algorithm::token_compress_on;
 
 using namespace mastercore;
 
-///////////////////////////////
-/*New things for Contracts*/
-uint32_t blocksUntilExpiration;
-uint32_t notionalSize = 100;
-uint32_t collateralCurrency;
-// uint32_t marginRequirementContract;
-uint32_t marginRequirementContract = 25; // Remember: Change this later: Coming from the interpret
-///////////////////////////////
-
 /** Returns a label for the given transaction type. */
 std::string mastercore::strTransactionType(uint16_t txType)
 {
@@ -125,6 +116,8 @@ bool CMPTransaction::interpret_Transaction()
         PrintToLog("Failed to interpret type and version\n");
         return false;
     }
+
+    PrintToConsole("Transaction type: %d\n", type);
 
     switch (type) {
         case MSC_TYPE_SIMPLE_SEND:
@@ -1904,6 +1897,11 @@ int CMPTransaction::logicMath_ContractDexCancelEcosystem()
 /** Tx 29 */
 int CMPTransaction::logicMath_ContractDexTrade()
 {
+    ///////////////////////////////
+    /*New things for Contracts*/
+    extern volatile uint32_t marginRequirementContract;
+    ///////////////////////////////
+    
     if (!IsTransactionTypeAllowed(block, property, type, version)) {
         PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
                 __func__,
@@ -1992,6 +1990,14 @@ int CMPTransaction::logicMath_ContractDexTrade()
 /** Tx 40 */
 int CMPTransaction::logicMath_CreateContractDex()
 {
+    ///////////////////////////////
+    /*New things for Contracts*/
+    extern volatile uint32_t blocksUntilExpiration;
+    extern volatile uint32_t notionalSize;
+    extern volatile uint32_t collateralCurrency;
+    extern volatile uint32_t marginRequirementContract;
+    ///////////////////////////////
+
     uint256 blockHash;
     {
         LOCK(cs_main);
@@ -2062,13 +2068,14 @@ int CMPTransaction::logicMath_CreateContractDex()
         return (PKT_ERROR_SP -39);
     }
 
-    // ------------------------------------------
-    ////////////////////////////////////////
+    ///////////////////////////////
     /** New things for Contracts */    
     blocksUntilExpiration = blocks_until_expiration;
     // notionalSize = notional_size;
+    notionalSize = 100;
     collateralCurrency = collateral_currency;
     // marginRequirementContract = margin_requirement;
+    marginRequirementContract = 25;
     ///////////////////////////////////////
 
     CMPSPInfo::Entry newSP;
