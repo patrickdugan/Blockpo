@@ -376,10 +376,12 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
     ///////////////////////////////
     /*New things for Contracts*/
-    extern volatile uint32_t notionalSize;
-    extern volatile uint32_t marginRequirementContract;
+    extern uint32_t notionalSize;
+    extern uint32_t marginRequirementContract;
+    extern uint32_t collateralCurrency;
     extern volatile uint64_t marketPrice;
     ///////////////////////////////
+
     PrintToConsole("/////////////////////////////////\n");
     PrintToConsole("Checking the margin requirement and notional size\n");
     PrintToConsole("Margin requirement: %d, Notional size: %d\n", marginRequirementContract, notionalSize);
@@ -618,13 +620,14 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             PrintToConsole("Checking Market Price and Match Price:\n");
             PrintToConsole("Market Price in Mdex: %d, countClosedBuyer: %d, Match Price: %d\n", marketPrice, countClosedBuyer, pold->getEffectivePrice());
             PrintToConsole("/////////////////////////////////\n");
-            if ( Status_s != "None" ) {
+            
+            // if ( Status_s != "None" ) {
 
                 int64_t freedReserverExPNLMaker = marginRequirementContract*countClosedSeller;
 
                 if (freedReserverExPNLMaker != 0) {
-                	assert(update_tally_map(seller_address, seller_prop, -freedReserverExPNLMaker, CONTRACTDEX_RESERVE));
-                	assert(update_tally_map(seller_address, seller_prop,  freedReserverExPNLMaker, BALANCE));
+                	assert(update_tally_map(seller_address, collateralCurrency, -freedReserverExPNLMaker, CONTRACTDEX_RESERVE));
+                	assert(update_tally_map(seller_address, collateralCurrency,  freedReserverExPNLMaker, BALANCE));
             	}
 
                 int64_t basis_s = t_tradelistdb->getTradeBasis(seller_address, countClosedSeller, seller_prop);
@@ -633,16 +636,16 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 if (PNL_s != 0) {
                     assert(update_tally_map(seller_address, seller_prop, PNL_s, BALANCE));   
                 }
-            }
-            // PrintToConsole("PNL seller: %s, Basis seller: %s, freedReserverExPNLMaker: %s, Status seller: %s\n", xToString(PNL_s), xToString(basis_s), xToString(freedReserverExPNLMaker), Status_s);            
+            // }
+            PrintToConsole("PNL seller: %s, Basis seller: %s, freedReserverExPNLMaker: %s, Status seller: %s\n", xToString(PNL_s), xToString(basis_s), xToString(freedReserverExPNLMaker), Status_s);            
 
             if ( Status_b != "None" ) {
 
                 int64_t freedReserverExPNLTaker = marginRequirementContract*countClosedBuyer;
 
                 if ( freedReserverExPNLTaker != 0 ) {	
-                	assert(update_tally_map(buyer_address, buyer_prop, -freedReserverExPNLTaker, CONTRACTDEX_RESERVE));
-                	assert(update_tally_map(buyer_address, buyer_prop,  freedReserverExPNLTaker, BALANCE));
+                	assert(update_tally_map(buyer_address, collateralCurrency, -freedReserverExPNLTaker, CONTRACTDEX_RESERVE));
+                	assert(update_tally_map(buyer_address, collateralCurrency,  freedReserverExPNLTaker, BALANCE));
             	}
 
                 int64_t basis_b = t_tradelistdb->getTradeBasis(buyer_address, countClosedBuyer, buyer_prop);
@@ -1032,9 +1035,6 @@ int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, i
             PrintToLog("%s() ERROR: ALREADY EXISTS, line %d, file: %s\n", __FUNCTION__, __LINE__, __FILE__);
             return METADEX_ERROR -70;
         } else {
-            // move tokens into reserve:
-            assert(update_tally_map(sender_addr, prop,-amount_to_reserve , BALANCE));
-            assert(update_tally_map(sender_addr, prop,amount_to_reserve, CONTRACTDEX_RESERVE));
 
             if (msc_debug_metadex1) PrintToLog("==== INSERTED: %s= %s\n", xToString(new_cdex.getEffectivePrice()), new_cdex.ToString());
             if (msc_debug_metadex3) MetaDEx_debug_print();

@@ -128,7 +128,6 @@ enum TransactionType {
 #define SELL  2
 //////////////////////////////////////
 
-
 enum FILETYPES {
   FILETYPE_BALANCES = 0,
   FILETYPE_OFFERS,

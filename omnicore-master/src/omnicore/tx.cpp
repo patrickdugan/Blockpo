@@ -708,14 +708,35 @@ bool CMPTransaction::interpret_CreateContractDex()
     memcpy(&blocks_until_expiration, p, 4);
     swapByteOrder32(blocks_until_expiration);
     p += 4;
+
     memcpy(&notional_size, p, 4);
     swapByteOrder32(notional_size);
     p += 4;
+
     memcpy(&collateral_currency, p, 4);
     swapByteOrder32(collateral_currency);
     p += 4;
+
     memcpy(&margin_requirement, p, 4);
     swapByteOrder32(margin_requirement);
+
+    PrintToConsole("\t       ecosystem: %d\n", ecosystem);
+    PrintToConsole("\t   property type: %d (%s)\n", prop_type, strPropertyType(prop_type));
+    PrintToConsole("\tprev property id: %d\n", prev_prop_id);
+    PrintToConsole("\t        category: %s\n", category);
+    PrintToConsole("\t     subcategory: %s\n", subcategory);
+    PrintToConsole("\t            name: %s\n", name);
+    PrintToConsole("\t             url: %s\n", url);
+    PrintToConsole("\t            data: %s\n", data);
+    PrintToConsole("\tproperty desired: %d (%s)\n", property, strMPProperty(property));
+    PrintToConsole("\t tokens per unit: %s\n", FormatByType(nValue, prop_type));
+    PrintToConsole("\t        deadline: %s (%x)\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", deadline), deadline);
+    PrintToConsole("\tearly bird bonus: %d\n", early_bird);
+    PrintToConsole("\t    issuer bonus: %d\n", percentage);
+    PrintToConsole("\tblocks until expiration: %d\n", blocks_until_expiration);
+    PrintToConsole("\tnotional size: %d\n", notional_size);
+    PrintToConsole("\tcollateral currency: %d\n", collateral_currency);
+    PrintToConsole("\tmargin requirement: %d\n", margin_requirement);
 
 
     if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
@@ -1899,67 +1920,68 @@ int CMPTransaction::logicMath_ContractDexTrade()
 {
     ///////////////////////////////
     /*New things for Contracts*/
-    extern volatile uint32_t marginRequirementContract;
+    extern uint32_t marginRequirementContract;
+    extern uint32_t collateralCurrency;
     ///////////////////////////////
     
-    if (!IsTransactionTypeAllowed(block, property, type, version)) {
-        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
-                __func__,
-                type,
-                version,
-                property,
-                block);
-        return (PKT_ERROR_METADEX -22);
-    }
+    // if (!IsTransactionTypeAllowed(block, property, type, version)) {
+    //     PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+    //             __func__,
+    //             type,
+    //             version,
+    //             property,
+    //             block);
+    //     return (PKT_ERROR_METADEX -22);
+    // }
 
-    if (property == desired_property) {
-        PrintToLog("%s(): rejected: property for sale %d and desired property %d must not be equal\n",
-                __func__,
-                property,
-                desired_property);
-        return (PKT_ERROR_METADEX -29);
-    }
+    // if (property == desired_property) {
+    //     PrintToLog("%s(): rejected: property for sale %d and desired property %d must not be equal\n",
+    //             __func__,
+    //             property,
+    //             desired_property);
+    //     return (PKT_ERROR_METADEX -29);
+    // }
 
-    if (isTestEcosystemProperty(property) != isTestEcosystemProperty(desired_property)) {
-        PrintToLog("%s(): rejected: property for sale %d and desired property %d not in same ecosystem\n",
-                __func__,
-                property,
-                desired_property);
-        return (PKT_ERROR_METADEX -30);
-    }
+    // if (isTestEcosystemProperty(property) != isTestEcosystemProperty(desired_property)) {
+    //     PrintToLog("%s(): rejected: property for sale %d and desired property %d not in same ecosystem\n",
+    //             __func__,
+    //             property,
+    //             desired_property);
+    //     return (PKT_ERROR_METADEX -30);
+    // }
 
-    if (!IsPropertyIdValid(property)) {
-        PrintToLog("%s(): rejected: property for sale %d does not exist\n", __func__, property);
-        return (PKT_ERROR_METADEX -31);
-    }
+    // if (!IsPropertyIdValid(property)) {
+    //     PrintToLog("%s(): rejected: property for sale %d does not exist\n", __func__, property);
+    //     return (PKT_ERROR_METADEX -31);
+    // }
 
-    if (!IsPropertyIdValid(desired_property)) {
-        PrintToLog("%s(): rejected: desired property %d does not exist\n", __func__, desired_property);
-        return (PKT_ERROR_METADEX -32);
-    }
+    // if (!IsPropertyIdValid(desired_property)) {
+    //     PrintToLog("%s(): rejected: desired property %d does not exist\n", __func__, desired_property);
+    //     return (PKT_ERROR_METADEX -32);
+    // }
 
-    if (nNewValue <= 0 || MAX_INT_8_BYTES < nNewValue) {
-        PrintToLog("%s(): rejected: amount for sale out of range or zero: %d\n", __func__, nNewValue);
-        return (PKT_ERROR_METADEX -33);
-    }
+    // if (nNewValue <= 0 || MAX_INT_8_BYTES < nNewValue) {
+    //     PrintToLog("%s(): rejected: amount for sale out of range or zero: %d\n", __func__, nNewValue);
+    //     return (PKT_ERROR_METADEX -33);
+    // }
 
-    if (desired_value <= 0 || MAX_INT_8_BYTES < desired_value) {
-        PrintToLog("%s(): rejected: desired amount out of range or zero: %d\n", __func__, desired_value);
-        return (PKT_ERROR_METADEX -34);
-    }
+    // if (desired_value <= 0 || MAX_INT_8_BYTES < desired_value) {
+    //     PrintToLog("%s(): rejected: desired amount out of range or zero: %d\n", __func__, desired_value);
+    //     return (PKT_ERROR_METADEX -34);
+    // }
 
-    if (!IsFeatureActivated(FEATURE_TRADEALLPAIRS, block)) {
-        // Trading non-Omni pairs is not allowed before trading all pairs is activated
-        if ((property != OMNI_PROPERTY_MSC) && (desired_property != OMNI_PROPERTY_MSC) &&
-            (property != OMNI_PROPERTY_TMSC) && (desired_property != OMNI_PROPERTY_TMSC)) {
-            PrintToLog("%s(): rejected: one side of a trade [%d, %d] must be OMNI or TOMNI\n", __func__, property, desired_property);
-            return (PKT_ERROR_METADEX -35);
-        }
-    }
+    // if (!IsFeatureActivated(FEATURE_TRADEALLPAIRS, block)) {
+    //     // Trading non-Omni pairs is not allowed before trading all pairs is activated
+    //     if ((property != OMNI_PROPERTY_MSC) && (desired_property != OMNI_PROPERTY_MSC) &&
+    //         (property != OMNI_PROPERTY_TMSC) && (desired_property != OMNI_PROPERTY_TMSC)) {
+    //         PrintToLog("%s(): rejected: one side of a trade [%d, %d] must be OMNI or TOMNI\n", __func__, property, desired_property);
+    //         return (PKT_ERROR_METADEX -35);
+    //     }
+    // }
 
     ///////////////////////////////////////////////
     /** New things for Contract */
-    int64_t nBalance = getMPbalance(sender, property, BALANCE);
+    int64_t nBalance = getMPbalance(sender, collateralCurrency, BALANCE);
     uint32_t Sum = marginRequirementContract;
     int64_t amountToReserve = nValue*Sum;
     ///////////////////////////////////////////////
@@ -1974,15 +1996,14 @@ int CMPTransaction::logicMath_ContractDexTrade()
         return (PKT_ERROR_METADEX -25);
     } else {
 
-        assert(update_tally_map(sender, property, -amountToReserve, BALANCE));
-        assert(update_tally_map(sender, property,  amountToReserve, CONTRACTDEX_RESERVE));
+        assert(update_tally_map(sender, collateralCurrency, -amountToReserve, BALANCE));
+        assert(update_tally_map(sender, collateralCurrency,  amountToReserve, CONTRACTDEX_RESERVE));
 
         t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
 
         int rc = ContractDex_ADD(sender, property, nValue, block, desired_property, desired_value, txid, tx_idx, effective_price, trading_action,amountToReserve);
         return rc;
     }
-    ////////////////////////////////////////////////
 }
 
 ///////////////////////////////////////////////
@@ -1990,13 +2011,13 @@ int CMPTransaction::logicMath_ContractDexTrade()
 /** Tx 40 */
 int CMPTransaction::logicMath_CreateContractDex()
 {
-    ///////////////////////////////
+    ////////////////////////////////////////
     /*New things for Contracts*/
-    extern volatile uint32_t blocksUntilExpiration;
-    extern volatile uint32_t notionalSize;
-    extern volatile uint32_t collateralCurrency;
-    extern volatile uint32_t marginRequirementContract;
-    ///////////////////////////////
+    extern uint32_t blocksUntilExpiration;
+    extern uint32_t notionalSize;
+    extern uint32_t collateralCurrency;
+    extern uint32_t marginRequirementContract;
+    ////////////////////////////////////////
 
     uint256 blockHash;
     {
@@ -2010,72 +2031,70 @@ int CMPTransaction::logicMath_CreateContractDex()
         blockHash = pindex->GetBlockHash();
     }
 
-    if (OMNI_PROPERTY_MSC != ecosystem && OMNI_PROPERTY_TMSC != ecosystem) {
-        PrintToLog("%s(): rejected: invalid ecosystem: %d\n", __func__, (uint32_t) ecosystem);
-        return (PKT_ERROR_SP -21);
-    }
+    // if (OMNI_PROPERTY_MSC != ecosystem && OMNI_PROPERTY_TMSC != ecosystem) {
+    //     PrintToLog("%s(): rejected: invalid ecosystem: %d\n", __func__, (uint32_t) ecosystem);
+    //     return (PKT_ERROR_SP -21);
+    // }
 
-    if (IsFeatureActivated(FEATURE_SPCROWDCROSSOVER, block)) {
-    /**
-     * Ecosystem crossovers shall not be allowed after the feature was enabled.
-     */
-    if (isTestEcosystemProperty(ecosystem) != isTestEcosystemProperty(property)) {
-        PrintToLog("%s(): rejected: ecosystem %d of tokens to issue and desired property %d not in same ecosystem\n",
-                __func__,
-                ecosystem,
-                property);
-        return (PKT_ERROR_SP -50);
-    }
-    }
+    // if (IsFeatureActivated(FEATURE_SPCROWDCROSSOVER, block)) {
+    // /**
+    //  * Ecosystem crossovers shall not be allowed after the feature was enabled.
+    //  */
+    // if (isTestEcosystemProperty(ecosystem) != isTestEcosystemProperty(property)) {
+    //     PrintToLog("%s(): rejected: ecosystem %d of tokens to issue and desired property %d not in same ecosystem\n",
+    //             __func__,
+    //             ecosystem,
+    //             property);
+    //     return (PKT_ERROR_SP -50);
+    // }
+    // }
 
-    if (!IsTransactionTypeAllowed(block, ecosystem, type, version)) {
-        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
-                __func__,
-                type,
-                version,
-                property,
-                block);
-        return (PKT_ERROR_SP -22);
-    }
+    // if (!IsTransactionTypeAllowed(block, ecosystem, type, version)) {
+    //     PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+    //             __func__,
+    //             type,
+    //             version,
+    //             property,
+    //             block);
+    //     return (PKT_ERROR_SP -22);
+    // }
 
-    if (nValue <= 0 || MAX_INT_8_BYTES < nValue) {
-        PrintToLog("%s(): rejected: value out of range or zero: %d\n", __func__, nValue);
-        return (PKT_ERROR_SP -23);
-    }
+    // if (nValue <= 0 || MAX_INT_8_BYTES < nValue) {
+    //     PrintToLog("%s(): rejected: value out of range or zero: %d\n", __func__, nValue);
+    //     return (PKT_ERROR_SP -23);
+    // }
 
-    if (!IsPropertyIdValid(property)) {
-        PrintToLog("%s(): rejected: property %d does not exist\n", __func__, property);
-        return (PKT_ERROR_SP -24);
-    }
+    // if (!IsPropertyIdValid(property)) {
+    //     PrintToLog("%s(): rejected: property %d does not exist\n", __func__, property);
+    //     return (PKT_ERROR_SP -24);
+    // }
 
-    if (MSC_PROPERTY_TYPE_INDIVISIBLE == prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
-        PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
-        return (PKT_ERROR_SP -36);
-    }
+    // if (MSC_PROPERTY_TYPE_INDIVISIBLE == prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+    //     PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
+    //     return (PKT_ERROR_SP -36);
+    // }
 
-    if ('\0' == name[0]) {
-        PrintToLog("%s(): rejected: property name must not be empty\n", __func__);
-        return (PKT_ERROR_SP -37);
-    }
+    // if ('\0' == name[0]) {
+    //     PrintToLog("%s(): rejected: property name must not be empty\n", __func__);
+    //     return (PKT_ERROR_SP -37);
+    // }
 
-    if (!deadline || (int64_t) deadline < blockTime) {
-        PrintToLog("%s(): rejected: deadline must not be in the past [%d < %d]\n", __func__, deadline, blockTime);
-        return (PKT_ERROR_SP -38);
-    }
+    // if (!deadline || (int64_t) deadline < blockTime) {
+    //     PrintToLog("%s(): rejected: deadline must not be in the past [%d < %d]\n", __func__, deadline, blockTime);
+    //     return (PKT_ERROR_SP -38);
+    // }
 
-    if (NULL != getCrowd(sender)) {
-        PrintToLog("%s(): rejected: sender %s has an active crowdsale\n", __func__, sender);
-        return (PKT_ERROR_SP -39);
-    }
+    // if (NULL != getCrowd(sender)) {
+    //     PrintToLog("%s(): rejected: sender %s has an active crowdsale\n", __func__, sender);
+    //     return (PKT_ERROR_SP -39);
+    // }
 
-    ///////////////////////////////
+    ///////////////////////////////////////
     /** New things for Contracts */    
     blocksUntilExpiration = blocks_until_expiration;
-    // notionalSize = notional_size;
-    notionalSize = 100;
+    notionalSize = notional_size;
     collateralCurrency = collateral_currency;
-    // marginRequirementContract = margin_requirement;
-    marginRequirementContract = 25;
+    marginRequirementContract = margin_requirement;
     ///////////////////////////////////////
 
     CMPSPInfo::Entry newSP;
@@ -2096,13 +2115,13 @@ int CMPTransaction::logicMath_CreateContractDex()
     newSP.creation_block = blockHash;
     newSP.update_block = newSP.creation_block;
 
-    //////////////////////////////
+    ////////////////////////////////////////
     /** New things for Contracts */
     newSP.blocks_until_expiration = blocks_until_expiration;
     newSP.notional_size = notional_size;
     newSP.collateral_currency = collateral_currency;
     newSP.margin_requirement = margin_requirement;
-    //////////////////////////////
+    ////////////////////////////////////////
 
     const uint32_t propertyId = _my_sps->putSP(ecosystem, newSP);
     assert(propertyId > 0);

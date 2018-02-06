@@ -3837,6 +3837,7 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
   delete it;
   if (count) { return true; } else { return false; }
 }
+
 /////////////////////////////////////////////
 /** New things for contracts */
 int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)

@@ -347,7 +347,6 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
     BOOST_TEST_MESSAGE("The buyer is inserted in priceMap, the seller in x_Trade");
 
     BOOST_CHECK_EQUAL(objTrans1.interpret_Transaction(), true);
- 	objTrans1.getLogicMath_ContractDexTrade();    
     BOOST_CHECK(ContractDex_INSERT(objContractDEx1));
     // BOOST_CHECK_EQUAL(TRADED, x_Trade(buyer));
 
@@ -963,9 +962,7 @@ BOOST_AUTO_TEST_CASE(PNL2)  // seller_amount = 10, buyer_amount = 10;
             0                                     // tx_fee_paid
     );
     ////////////////////////////////////////////////////////
-
-    BOOST_CHECK(objTrans.interpret_Transaction());
-    BOOST_CHECK_EQUAL(objTrans.interpretPacket(), 0);
+    // BOOST_CHECK(objTrans.interpret_CreateContractDex());
 
     if (direction){
         BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
