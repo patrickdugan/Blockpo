@@ -1961,30 +1961,32 @@ int CMPTransaction::logicMath_ContractDexTrade()
 
     ///////////////////////////////////////////////
     /** New things for Contract */
-    int64_t nBalance = getMPbalance(sender, property, BALANCE); //(we need to add this on the createcontract)
+    int64_t nBalance = getMPbalance(sender, 1, BALANCE); //collateral currency (OMNI)
     // uint32_t Sum = marginRequirementContract;
     int64_t Sum = 25;
+    // PrintToConsole("Balance: %d \n",nBalance);
+    // PrintToConsole("nValue of contracts traded: %d \n",FormatMP(1, nValue));
     int64_t amountToReserve = nValue*Sum;
     ///////////////////////////////////////////////
 
-    // if (nBalance < (int64_t) amountToReserve) {
-    //     PrintToLog("%s(): rejected: sender %s has insufficient balance for contracts %d [%s < %s]\n",
-    //             __func__,
-    //             sender,
-    //             property,
-    //             FormatMP(property, nBalance),
-    //             FormatMP(property, amountToReserve));
-    //     return (PKT_ERROR_METADEX -25);
-    // } else {
-    //
-    //     assert(update_tally_map(sender, property, -amountToReserve, BALANCE));
-        assert(update_tally_map(sender, property,  amountToReserve, CONTRACTDEX_RESERVE));
+    if (nBalance < (int64_t) amountToReserve) {
+        PrintToLog("%s(): rejected: sender %s has insufficient balance for contracts %d [%s < %s]\n",
+                __func__,
+                sender,
+                property,
+                FormatMP(property, nBalance),
+                FormatMP(property, amountToReserve));
+        return (PKT_ERROR_METADEX -25);
+    } else {
+
+        assert(update_tally_map(sender, 1, -amountToReserve, BALANCE));
+        assert(update_tally_map(sender, 1,  amountToReserve, CONTRACTDEX_RESERVE));
 
         t_tradelistdb->recordNewTrade(txid, sender, property, desired_property, block, tx_idx);
 
         int rc = ContractDex_ADD(sender, property, nValue, block, desired_property, desired_value, txid, tx_idx, effective_price, trading_action,amountToReserve);
         return rc;
-    // }
+    }
     ////////////////////////////////////////////////
 }
 
