@@ -378,7 +378,7 @@ MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 MatchReturnType x_Trade(CMPContractDex* const pnew)
 {
     const uint32_t propertyForSale = pnew->getProperty();
-
+    extern uint32_t collateralCurrency;
     MatchReturnType NewReturn = NOTHING;
     bool bBuyerSatisfied = false;
 
@@ -661,8 +661,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 uint64_t freedReserverExPNLTaker = marginRequirementContract*countClosedBuyer;
                 // PrintToConsole("freedReserverExPNLTaker: %d\n",freedReserverExPNLTaker);
 
-                // assert(update_tally_map(buyer_address, property_traded, -freedReserverExPNLTaker, CONTRACTDEX_RESERVE));
-                // assert(update_tally_map(buyer_address, property_traded,  freedReserverExPNLTaker, BALANCE));
+                // assert(update_tally_map(buyer_address, collateralCurrency, -freedReserverExPNLTaker, CONTRACTDEX_RESERVE));
+                // assert(update_tally_map(buyer_address, collateralCurrency,  freedReserverExPNLTaker, BALANCE));
 
                 int64_t basis_b = t_tradelistdb->getTradeBasis(buyer_address, countClosedBuyer, property_traded);
                 // PrintToConsole("basis_b: %d\n",basis_b);
