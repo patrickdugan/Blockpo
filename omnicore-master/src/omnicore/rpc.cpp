@@ -187,6 +187,23 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
     }
 }
 
+////////////////////////////////////////
+/** New things for Contracts */
+bool PositionToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
+{
+    int64_t longPosition = getMPbalance(address, property, POSSITIVE_BALANCE);
+    int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
+    balance_obj.push_back(Pair("longPosition", FormatContractMP(longPosition)));
+    balance_obj.push_back(Pair("shortPosition", FormatContractMP(shortPosition)));
+
+    if (shortPosition == 0 && longPosition == 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+////////////////////////////////////////
+
 // Obtains details of a fee distribution
 UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
 {
@@ -2435,7 +2452,6 @@ UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
     ContractDexObjectsToJSON(vecContractDexObjects, response);
     return response;
 }
-///////////////////////////////////////
 
 ///////////////////////////////////////
 /** New things for Contracts */
@@ -2481,6 +2497,36 @@ UniValue omni_getcontractdexhash(const UniValue& params, bool fHelp)
     response.push_back(Pair("metadexhash", metadexHash.GetHex()));
 
     return response;
+}
+
+///////////////////////////////////////
+/** New things for Contracts */
+UniValue omni_getposition(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 2)
+        throw runtime_error(
+            "omni_getbalance \"address\" propertyid\n"
+            "\nReturns the position for the future contract for a given address and property.\n"
+            "\nArguments:\n"
+            "1. address              (string, required) the address\n"
+            "2. propertyid           (number, required) the future contract identifier\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"shortPosition\" : \"n.nnnnnnnn\",   (string) short position of the address \n"
+            "  \"longPosition\" : \"n.nnnnnnnn\"  (string) long position of the address\n"
+            "}\n"
+            "\nExamples:\n"
+            + HelpExampleCli("omni_getposition", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
+            + HelpExampleRpc("omni_getposition", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", 1")
+        );
+
+    std::string address = ParseAddress(params[0]);
+    uint32_t propertyId = ParsePropertyId(params[1]);
+
+    UniValue balanceObj(UniValue::VOBJ);
+    PositionToJSON(address, propertyId, balanceObj, isPropertyContract(propertyId));
+
+    return balanceObj;
 }
 ///////////////////////////////////////
 
@@ -2543,6 +2589,7 @@ static const CRPCCommand commands[] =
     ///////////////////////////////////////////
     /** New things for Contracts */
     { "omni layer (data retrieval)", "omni_getcontract_orderbook",     &omni_getcontract_orderbook,      false },
+    { "omni layer (data retrieval)", "omni_getposition",               &omni_getposition,                false },
     ///////////////////////////////////////////
     { "omni layer (data retrieval)", "omni_gettrade",                  &omni_gettrade,                   false },
     { "omni layer (data retrieval)", "omni_getsto",                    &omni_getsto,                     false },
