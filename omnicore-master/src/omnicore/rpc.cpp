@@ -193,8 +193,8 @@ bool PositionToJSON(const std::string& address, uint32_t property, UniValue& bal
 {
     int64_t longPosition = getMPbalance(address, property, POSSITIVE_BALANCE);
     int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
-    balance_obj.push_back(Pair("longPosition", FormatContractMP(longPosition)));
-    balance_obj.push_back(Pair("shortPosition", FormatContractMP(shortPosition)));
+    balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(longPosition)));
+    balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(shortPosition)));
 
     if (shortPosition == 0 && longPosition == 0) {
         return false;

@@ -111,6 +111,10 @@ printf "   * Checking OMNI balances ADDR2:\n"
 ./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance $ADDR2 1
 
 printf "////////////////////////////////\n"
+printf "   * Checking position in Future Contract 1 for ADDR2:\n"
+./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getposition $ADDR 2147483651
+
+printf "////////////////////////////////\n"
 printf "Stoping omnicored and omnicore-cli:\n"
 ./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest stop
 
