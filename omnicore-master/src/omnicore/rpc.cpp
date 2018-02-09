@@ -108,23 +108,21 @@ void MetaDexObjectToJSON(const CMPMetaDEx& obj, UniValue& metadex_obj)
     metadex_obj.push_back(Pair("block", obj.getBlock()));
     metadex_obj.push_back(Pair("blocktime", obj.getBlockTime()));
 }
-
-///////////////////////////////////////////
-/** New things for Contracts */
+ //*New things for contracts *//
 void ContractDexObjectToJSON(const CMPContractDex& obj, UniValue& contractdex_obj)
 {
+
     // add data to JSON object
     contractdex_obj.push_back(Pair("address", obj.getAddr()));
     contractdex_obj.push_back(Pair("txid", obj.getHash().GetHex()));
     contractdex_obj.push_back(Pair("propertyidforsale", (uint64_t) obj.getProperty()));
-    contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1, obj.getAmountForSale())));
+    contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1,obj.getAmountForSale())));
     contractdex_obj.push_back(Pair("tradingaction", obj.getTradingAction()));
-    contractdex_obj.push_back(Pair("effectiveprice",  FormatMP(1, obj.getEffectivePrice())));
+    contractdex_obj.push_back(Pair("effectiveprice",  FormatMP(1,obj.getEffectivePrice())));
     contractdex_obj.push_back(Pair("block", obj.getBlock()));
     contractdex_obj.push_back(Pair("blocktime", obj.getBlockTime()));
 }
-///////////////////////////////////////////
-
+//////////////////////////////////////////////////////////////////////////////////////////////////
 void MetaDexObjectsToJSON(std::vector<CMPMetaDEx>& vMetaDexObjs, UniValue& response)
 {
     MetaDEx_compare compareByHeight;
@@ -139,9 +137,7 @@ void MetaDexObjectsToJSON(std::vector<CMPMetaDEx>& vMetaDexObjs, UniValue& respo
         response.push_back(metadex_obj);
     }
 }
-
-///////////////////////////////////////////
-/** New things for Contracts */
+ //*New things for contracts *//
 void ContractDexObjectsToJSON(std::vector<CMPContractDex>& vContractDexObjs, UniValue& response)
 {
     ContractDex_compare compareByHeight;
@@ -156,7 +152,8 @@ void ContractDexObjectsToJSON(std::vector<CMPContractDex>& vContractDexObjs, Uni
         response.push_back(contractdex_obj);
     }
 }
-///////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
 {
@@ -186,24 +183,49 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
         return true;
     }
 }
-
-////////////////////////////////////////
-/** New things for Contracts */
-bool PositionToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
+//*New things for contracts *//
+bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
 {
-    int64_t longPosition = getMPbalance(address, property, POSSITIVE_BALANCE);
-    int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
-    balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(longPosition)));
-    balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(shortPosition)));
 
-    if (shortPosition == 0 && longPosition == 0) {
+    int64_t contractReserved = 0;
+    int64_t balance = 0;
+    contractReserved = getMPbalance(address, property, CONTRACTDEX_RESERVE);
+    balance = getMPbalance(address, property, BALANCE);
+
+    if (divisible) {
+        balance_obj.push_back(Pair("balance", FormatDivisibleMP(balance)));
+        balance_obj.push_back(Pair("contract-reserved", FormatDivisibleMP(contractReserved)));
+    }
+
+    if (contractReserved == 0 && balance == 0) {
         return false;
     } else {
         return true;
     }
 }
-////////////////////////////////////////
+//*New things for contracts *//
+bool PositionToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
+{
+    // confirmed balance minus unconfirmed, spent amounts
+    // int64_t nAvailable = getUserAvailableMPbalance(address, property);
 
+    int64_t longPosition = 0;
+    int64_t shortPosition = 0;
+    longPosition = getMPbalance(address, property, POSSITIVE_BALANCE);
+    shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
+    balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(longPosition)));
+    balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(shortPosition)));
+
+    if (shortPosition == 0 && longPosition == 0) {
+      balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(0)));
+      balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(0)));
+        return false;
+    } else {
+        return true;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 // Obtains details of a fee distribution
 UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
 {
@@ -830,9 +852,9 @@ UniValue mscrpc_contractdex(const UniValue& params, bool fHelp)
             LOCK(cs_tally);
             int64_t total = 0;
             // display all balances
-            for (std::unordered_map<std::string, CMPTally>::iterator my_it = mp_tally_map.begin(); my_it != mp_tally_map.end(); ++my_it) {
+            for (std::unordered_map<std::string, CDexTally>::iterator my_it = cd_tally_map.begin(); my_it != cd_tally_map.end(); ++my_it) {
                 PrintToConsole("%34s => ", my_it->first);
-                total += (my_it->second).printcd(extra2, bContract);
+                total += (my_it->second).print(extra2, bContract);
             }
             PrintToConsole("total for property %d  = %X is %s\n", extra2, extra2, FormatContractMP(total));
             break;
@@ -857,7 +879,7 @@ UniValue mscrpc_contractdex(const UniValue& params, bool fHelp)
             LOCK(cs_tally);
             uint32_t id = 0;
             // for each address display all currencies it holds
-            for (std::unordered_map<std::string, CMPTally>::iterator my_it = mp_tally_map.begin(); my_it != mp_tally_map.end(); ++my_it) {
+            for (std::unordered_map<std::string, CDexTally>::iterator my_it = cd_tally_map.begin(); my_it != cd_tally_map.end(); ++my_it) {
                 PrintToConsole("%34s => ", my_it->first);
                 (my_it->second).print(extra2);
                 (my_it->second).init();
@@ -996,6 +1018,68 @@ UniValue omni_getbalance(const UniValue& params, bool fHelp)
 
     return balanceObj;
 }
+//*New things for contracts*//
+UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 2)
+        throw runtime_error(
+            "omni_getbalance \"address\" propertyid\n"
+            "\nReturns the collateral token balance for a given future contract.\n"
+            "\nArguments:\n"
+            "1. address              (string, required) the address\n"
+            "2. propertyid           (number, required) the future contract identifier\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"balance\" : \"n.nnnnnnnn\",   (string) the available balance of the address\n"
+            "  \"reserved\" : \"n.nnnnnnnn\"   (string) the amount reserved for the contract\n"
+            "}\n"
+            "\nExamples:\n"
+            + HelpExampleCli("omni_getcontract_balance", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
+            + HelpExampleRpc("omni_getcontract_balance", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", 1")
+        );
+
+    std::string address = ParseAddress(params[0]);
+    uint32_t propertyId = ParsePropertyId(params[1]);
+
+    RequireExistingProperty(propertyId);
+
+    UniValue balanceObj(UniValue::VOBJ);
+    ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyDivisible(propertyId));
+
+    return balanceObj;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//*New things for contracts*//
+UniValue omni_getposition(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 2)
+        throw runtime_error(
+            "omni_getbalance \"address\" propertyid\n"
+            "\nReturns the position for the future contract for a given address and property.\n"
+            "\nArguments:\n"
+            "1. address              (string, required) the address\n"
+            "2. propertyid           (number, required) the future contract identifier\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"shortPosition\" : \"n.nnnnnnnn\",   (string) short position of the address \n"
+            "  \"longPosition\" : \"n.nnnnnnnn\"  (string) long position of the address\n"
+            "}\n"
+            "\nExamples:\n"
+            + HelpExampleCli("omni_getposition", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
+            + HelpExampleRpc("omni_getposition", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", 1")
+        );
+
+    std::string address = ParseAddress(params[0]);
+    uint32_t propertyId = ParsePropertyId(params[1]);
+
+    //RequireExistingProperty(propertyId);
+
+    UniValue balanceObj(UniValue::VOBJ);
+    PositionToJSON(address, propertyId, balanceObj,isPropertyContract(propertyId));
+
+    return balanceObj;
+}
+
 
 UniValue omni_getallbalancesforid(const UniValue& params, bool fHelp)
 {
@@ -1581,7 +1665,73 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
     MetaDexObjectsToJSON(vecMetaDexObjects, response);
     return response;
 }
+//* New things for contracts *//
+UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() < 2 || params.size() > 2)
+        throw runtime_error(
+            "omni_getcontract_orderbook propertyid tradingaction\n"
+            "\nList active offers on the distributed futures contracts exchange.\n"
+            "\nArguments:\n"
+            "1. propertyid           (number, required) filter orders by property identifier for sale\n"
+            "2. tradingaction        (number, required) filter orders by trading action desired (Buy = 1, Sell = 2)\n"
+            "\nResult:\n"
+            "[                                              (array of JSON objects)\n"
+            "  {\n"
+            "    \"address\" : \"address\",                         (string) the Bitcoin address of the trader\n"
+            "    \"txid\" : \"hash\",                               (string) the hex-encoded hash of the transaction of the order\n"
+            "    \"ecosystem\" : \"main\"|\"test\",                   (string) the ecosytem in which the order was made (if \"cancel-ecosystem\")\n"
+            "    \"propertyidforsale\" : n,                       (number) the identifier of the tokens put up for sale\n"
+            "    \"propertyidforsaleisdivisible\" : true|false,   (boolean) whether the tokens for sale are divisible\n"
+            "    \"amountforsale\" : \"n.nnnnnnnn\",                (string) the amount of tokens initially offered\n"
+            "    \"amountremaining\" : \"n.nnnnnnnn\",              (string) the amount of tokens still up for sale\n"
+            "    \"propertyiddesired\" : n,                       (number) the identifier of the tokens desired in exchange\n"
+            "    \"propertyiddesiredisdivisible\" : true|false,   (boolean) whether the desired tokens are divisible\n"
+            "    \"amountdesired\" : \"n.nnnnnnnn\",                (string) the amount of tokens initially desired\n"
+            "    \"amounttofill\" : \"n.nnnnnnnn\",                 (string) the amount of tokens still needed to fill the offer completely\n"
+            "    \"action\" : n,                                  (number) the action of the transaction: (1) \"trade\", (2) \"cancel-price\", (3) \"cancel-pair\", (4) \"cancel-ecosystem\"\n"
+            "    \"block\" : nnnnnn,                              (number) the index of the block that contains the transaction\n"
+            "    \"blocktime\" : nnnnnnnnnn                       (number) the timestamp of the block that contains the transaction\n"
+            "  },\n"
+            "  ...\n"
+            "]\n"
+            "\nExamples:\n"
+            + HelpExampleCli("omni_getcontract_orderbook", "2" "1")
+            + HelpExampleRpc("omni_getcontract_orderbook", "2" "1")
+        );
 
+    uint32_t propertyIdForSale = ParsePropertyId(params[0]);
+    uint32_t propertyIdDesired = 0;
+
+    RequireExistingProperty(propertyIdForSale);
+    uint8_t tradingaction = ParseContractDexAction(params[1]);
+
+        // RequireExistingProperty(propertyIdDesired);
+        // RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
+
+
+    std::vector<CMPContractDex> vecContractDexObjects;
+    {
+        LOCK(cs_tally);
+        for (cd_PropertiesMap::const_iterator my_it = contractdex.begin(); my_it != contractdex.end(); ++my_it) {
+            const cd_PricesMap& prices = my_it->second;
+            for (cd_PricesMap::const_iterator it = prices.begin(); it != prices.end(); ++it) {
+                const cd_Set& indexes = it->second;
+                for (cd_Set::const_iterator it = indexes.begin(); it != indexes.end(); ++it) {
+                    const CMPContractDex& obj = *it;
+                    if (obj.getProperty() != propertyIdForSale) continue;
+                    if (obj.getTradingAction() != tradingaction) continue;
+                    vecContractDexObjects.push_back(obj);
+                }
+            }
+        }
+    }
+
+    UniValue response(UniValue::VARR);
+    ContractDexObjectsToJSON(vecContractDexObjects, response);
+    return response;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 UniValue omni_gettradehistoryforaddress(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 3)
@@ -2392,69 +2542,6 @@ UniValue omni_getmetadexhash(const UniValue& params, bool fHelp)
 
 ///////////////////////////////////////
 /** New things for Contracts */
-UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
-{
-    if (fHelp || params.size() < 2 || params.size() > 2)
-        throw runtime_error(
-            "omni_getcontract_orderbook propertyid tradingaction\n"
-            "\nList active offers on the distributed futures contracts exchange.\n"
-            "\nArguments:\n"
-            "1. propertyid           (number, required) filter orders by property identifier for sale\n"
-            "2. tradingaction        (number, required) filter orders by trading action desired (Buy = 1, Sell = 2)\n"
-            "\nResult:\n"
-            "[                                              (array of JSON objects)\n"
-            "  {\n"
-            "    \"address\" : \"address\",                         (string) the Bitcoin address of the trader\n"
-            "    \"txid\" : \"hash\",                               (string) the hex-encoded hash of the transaction of the order\n"
-            "    \"ecosystem\" : \"main\"|\"test\",                   (string) the ecosytem in which the order was made (if \"cancel-ecosystem\")\n"
-            "    \"propertyidforsale\" : n,                       (number) the identifier of the tokens put up for sale\n"
-            "    \"propertyidforsaleisdivisible\" : true|false,   (boolean) whether the tokens for sale are divisible\n"
-            "    \"amountforsale\" : \"n.nnnnnnnn\",                (string) the amount of tokens initially offered\n"
-            "    \"amountremaining\" : \"n.nnnnnnnn\",              (string) the amount of tokens still up for sale\n"
-            "    \"propertyiddesired\" : n,                       (number) the identifier of the tokens desired in exchange\n"
-            "    \"propertyiddesiredisdivisible\" : true|false,   (boolean) whether the desired tokens are divisible\n"
-            "    \"amountdesired\" : \"n.nnnnnnnn\",                (string) the amount of tokens initially desired\n"
-            "    \"amounttofill\" : \"n.nnnnnnnn\",                 (string) the amount of tokens still needed to fill the offer completely\n"
-            "    \"action\" : n,                                  (number) the action of the transaction: (1) \"trade\", (2) \"cancel-price\", (3) \"cancel-pair\", (4) \"cancel-ecosystem\"\n"
-            "    \"block\" : nnnnnn,                              (number) the index of the block that contains the transaction\n"
-            "    \"blocktime\" : nnnnnnnnnn                       (number) the timestamp of the block that contains the transaction\n"
-            "  },\n"
-            "  ...\n"
-            "]\n"
-            "\nExamples:\n"
-            + HelpExampleCli("omni_getcontract_orderbook", "2" "1")
-            + HelpExampleRpc("omni_getcontract_orderbook", "2" "1")
-        );
-
-    uint32_t propertyIdForSale = ParsePropertyId(params[0]);
-
-    RequireExistingProperty(propertyIdForSale);
-    uint8_t tradingaction = ParseContractDexAction(params[1]);
-
-    std::vector<CMPContractDex> vecContractDexObjects;
-    {
-        LOCK(cs_tally);
-        for (cd_PropertiesMap::const_iterator my_it = contractdex.begin(); my_it != contractdex.end(); ++my_it) {
-            const cd_PricesMap& prices = my_it->second;
-            for (cd_PricesMap::const_iterator it = prices.begin(); it != prices.end(); ++it) {
-                const cd_Set& indexes = it->second;
-                for (cd_Set::const_iterator it = indexes.begin(); it != indexes.end(); ++it) {
-                    const CMPContractDex& obj = *it;
-                    if (obj.getProperty() != propertyIdForSale) continue;
-                    if (obj.getTradingAction() != tradingaction) continue;
-                    vecContractDexObjects.push_back(obj);
-                }
-            }
-        }
-    }
-
-    UniValue response(UniValue::VARR);
-    ContractDexObjectsToJSON(vecContractDexObjects, response);
-    return response;
-}
-
-///////////////////////////////////////
-/** New things for Contracts */
 UniValue omni_getcontractdexhash(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
@@ -2497,36 +2584,6 @@ UniValue omni_getcontractdexhash(const UniValue& params, bool fHelp)
     response.push_back(Pair("metadexhash", metadexHash.GetHex()));
 
     return response;
-}
-
-///////////////////////////////////////
-/** New things for Contracts */
-UniValue omni_getposition(const UniValue& params, bool fHelp)
-{
-    if (fHelp || params.size() != 2)
-        throw runtime_error(
-            "omni_getbalance \"address\" propertyid\n"
-            "\nReturns the position for the future contract for a given address and property.\n"
-            "\nArguments:\n"
-            "1. address              (string, required) the address\n"
-            "2. propertyid           (number, required) the future contract identifier\n"
-            "\nResult:\n"
-            "{\n"
-            "  \"shortPosition\" : \"n.nnnnnnnn\",   (string) short position of the address \n"
-            "  \"longPosition\" : \"n.nnnnnnnn\"  (string) long position of the address\n"
-            "}\n"
-            "\nExamples:\n"
-            + HelpExampleCli("omni_getposition", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
-            + HelpExampleRpc("omni_getposition", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", 1")
-        );
-
-    std::string address = ParseAddress(params[0]);
-    uint32_t propertyId = ParsePropertyId(params[1]);
-
-    UniValue balanceObj(UniValue::VOBJ);
-    PositionToJSON(address, propertyId, balanceObj, isPropertyContract(propertyId));
-
-    return balanceObj;
 }
 ///////////////////////////////////////
 
@@ -2586,11 +2643,11 @@ static const CRPCCommand commands[] =
     { "omni layer (data retrieval)", "omni_getactivedexsells",         &omni_getactivedexsells,          false },
     { "omni layer (data retrieval)", "omni_getactivecrowdsales",       &omni_getactivecrowdsales,        false },
     { "omni layer (data retrieval)", "omni_getorderbook",              &omni_getorderbook,               false },
-    ///////////////////////////////////////////
-    /** New things for Contracts */
+    //*New things for contracts*//
     { "omni layer (data retrieval)", "omni_getcontract_orderbook",     &omni_getcontract_orderbook,      false },
     { "omni layer (data retrieval)", "omni_getposition",               &omni_getposition,                false },
-    ///////////////////////////////////////////
+    { "omni layer (data retrieval)", "omni_getcontract_balance",       &omni_getcontract_balance,        false },
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     { "omni layer (data retrieval)", "omni_gettrade",                  &omni_gettrade,                   false },
     { "omni layer (data retrieval)", "omni_getsto",                    &omni_getsto,                     false },
     { "omni layer (data retrieval)", "omni_listblocktransactions",     &omni_listblocktransactions,      false },

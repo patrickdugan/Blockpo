@@ -389,6 +389,11 @@ int mastercore_save_state( CBlockIndex const *pBlockIndex );
 namespace mastercore
 {
   extern std::unordered_map<std::string, CMPTally> mp_tally_map;
+  /////////////////////////////////////////
+  /*New property type No 3 Contract*/
+  extern std::unordered_map<std::string, CDexTally> cd_tally_map;
+  /////////////////////////////////////////
+
   extern CMPTxList *p_txlistdb;
   extern CMPTradeList *t_tradelistdb;
   extern CMPSTOList *s_stolistdb;

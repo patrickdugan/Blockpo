@@ -442,8 +442,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             ///////////////////////////
             // Preconditions
-            assert(0 < pold->getAmountForSale());
-            assert(0 < pnew->getAmountForSale());
             assert(pold->getProperty() == pnew->getProperty());
 
             PrintToConsole("Checking effective prices and trading actions:\n");

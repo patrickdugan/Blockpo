@@ -276,6 +276,10 @@ CrowdMap mastercore::my_crowds;
 
 // this is the master list of all amounts for all addresses for all properties, map is unsorted
 std::unordered_map<std::string, CMPTally> mastercore::mp_tally_map;
+/////////////////////////////////////////
+/*New property type No 3 Contract*/
+std::unordered_map<std::string, CDexTally> mastercore::cd_tally_map;
+/////////////////////////////////////////
 
 CMPTally* mastercore::getTally(const std::string& address)
 {
@@ -3871,10 +3875,7 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
             continue;
         }
         if (address != vstr[0] && address != vstr[1]) continue;
-
-        // if ( ( address != vstr[0] || "None" == vstr[7] ) ) continue;
-        // if ( ( address != vstr[1] || "None" == vstr[8] ) ) continue;
-
+        
         // Decode the details from the value string
         std::string address1 = vstr[0];
         std::string address2 = vstr[1];
