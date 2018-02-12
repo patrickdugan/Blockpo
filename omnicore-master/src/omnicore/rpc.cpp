@@ -1701,14 +1701,8 @@ UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
         );
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
-    uint32_t propertyIdDesired = 0;
-
     RequireExistingProperty(propertyIdForSale);
     uint8_t tradingaction = ParseContractDexAction(params[1]);
-
-        // RequireExistingProperty(propertyIdDesired);
-        // RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
-
 
     std::vector<CMPContractDex> vecContractDexObjects;
     {
