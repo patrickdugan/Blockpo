@@ -1665,7 +1665,9 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
     MetaDexObjectsToJSON(vecMetaDexObjects, response);
     return response;
 }
-//* New things for contracts *//
+
+//////////////////////////////////////
+/** New things for Contracts */
 UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 2)
@@ -1725,7 +1727,8 @@ UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
     ContractDexObjectsToJSON(vecContractDexObjects, response);
     return response;
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////
+
 UniValue omni_gettradehistoryforaddress(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 3)

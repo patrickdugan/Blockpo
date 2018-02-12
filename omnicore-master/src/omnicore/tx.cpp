@@ -720,25 +720,6 @@ bool CMPTransaction::interpret_CreateContractDex()
     memcpy(&margin_requirement, p, 4);
     swapByteOrder32(margin_requirement);
 
-    // PrintToConsole("\t       ecosystem: %d\n", ecosystem);
-    // PrintToConsole("\t   property type: %d (%s)\n", prop_type, strPropertyType(prop_type));
-    // PrintToConsole("\tprev property id: %d\n", prev_prop_id);
-    // PrintToConsole("\t        category: %s\n", category);
-    // PrintToConsole("\t     subcategory: %s\n", subcategory);
-    // PrintToConsole("\t            name: %s\n", name);
-    // PrintToConsole("\t             url: %s\n", url);
-    // PrintToConsole("\t            data: %s\n", data);
-    // PrintToConsole("\tproperty desired: %d (%s)\n", property, strMPProperty(property));
-    // PrintToConsole("\t tokens per unit: %s\n", FormatByType(nValue, prop_type));
-    // PrintToConsole("\t        deadline: %s (%x)\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", deadline), deadline);
-    // PrintToConsole("\tearly bird bonus: %d\n", early_bird);
-    // PrintToConsole("\t    issuer bonus: %d\n", percentage);
-    // PrintToConsole("\tblocks until expiration: %d\n", blocks_until_expiration);
-    // PrintToConsole("\tnotional size: %d\n", notional_size);
-    // PrintToConsole("\tcollateral currency: %d\n", collateral_currency);
-    // PrintToConsole("\tmargin requirement: %d\n", margin_requirement);
-
-
     if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
         PrintToLog("\t       ecosystem: %d\n", ecosystem);
         PrintToLog("\t   property type: %d (%s)\n", prop_type, strPropertyType(prop_type));
