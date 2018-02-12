@@ -380,10 +380,10 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
     extern volatile uint64_t marketPrice;
     ///////////////////////////////
  	marketPrice = 100;
- 	PrintToConsole("/////////////////////////////////\n");
+    PrintToConsole("________________________________________\n");
     PrintToConsole("Checking the margin requirement and notional size\n");
     PrintToConsole("Margin requirement: %d, Notional size: %d\n", marginRequirementContract, notionalSize);
-    PrintToConsole("/////////////////////////////////\n");
+    PrintToConsole("________________________________________\n");
 
     const uint32_t propertyForSale = pnew->getProperty();
     MatchReturnType NewReturn = NOTHING;
@@ -452,7 +452,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             PrintToConsole("Effective price pnew: %d\n", pnew->getEffectivePrice());
             PrintToConsole("Trading action pold: %d\n", pold->getTradingAction());
             PrintToConsole("Trading action pnew: %d\n", pnew->getTradingAction());
-            PrintToConsole("/////////////////////////////////\n");
+            PrintToConsole("________________________________________\n");
             ///////////////////////////
             int64_t possitive_sell = 0, difference_s = 0, seller_amount = 0, negative_sell = 0;
             int64_t possitive_buy  = 0, difference_b = 0, buyer_amount  = 0, negative_buy  = 0;
@@ -573,7 +573,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             PrintToConsole("Checking Status for Seller and Buyer:\n");
             PrintToConsole("Status seller: %s, Status buyer: %s\n", Status_s, Status_b);
-            PrintToConsole("/////////////////////////////////\n");
+            PrintToConsole("________________________________________\n");
             ////////////////////////////////////////////////
             int64_t lives_maker = 0, lives_taker = 0;
 
@@ -600,7 +600,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             ///////////////////////////////////////
             PrintToConsole("Checking Market Price and Match Price:\n");
             PrintToConsole("Market Price in Mdex: %d, countClosedBuyer: %d, Match Price: %d\n", marketPrice, countClosedBuyer, pold->getEffectivePrice());
-            PrintToConsole("/////////////////////////////////\n");
+            PrintToConsole("________________________________________\n");
 
             if ( Status_s != "None") {
 

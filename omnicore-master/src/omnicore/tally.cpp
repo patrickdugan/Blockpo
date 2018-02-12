@@ -420,8 +420,7 @@ double CDexTally::print(uint32_t propertyId, bool bContract) const
     double balance = 0;
     double selloffer_reserve = 0;
     double accept_reserve = 0;
-    double pending = 0;
-    double metadex_reserve = 0;
+    double contractdex_reserve = 0;
 
     cdTokenMap::const_iterator it = cd_token.find(propertyId);
 
@@ -430,20 +429,9 @@ double CDexTally::print(uint32_t propertyId, bool bContract) const
         balance = record.balance_cd[BALANCE];
         selloffer_reserve = record.balance_cd[SELLOFFER_RESERVE];
         accept_reserve = record.balance_cd[ACCEPT_RESERVE];
-        pending = record.balance_cd[PENDING];
-        metadex_reserve = record.balance_cd[METADEX_RESERVE];
+        contractdex_reserve = record.balance_cd[CONTRACTDEX_RESERVE];
     }
 
-    // if (bContract) {
-    //     PrintToConsole("%22s [ SO_RESERVE= %22s, ACCEPT_RESERVE= %22s, METADEX_RESERVE= %22s ] %22s\n",
-    //             FormatDivisibleMP(balance, true), FormatDivisibleMP(selloffer_reserve, true),
-    //             FormatDivisibleMP(accept_reserve, true), FormatDivisibleMP(metadex_reserve, true),
-    //             FormatDivisibleMP(pending, true));
-    // } else {
-    //     PrintToConsole("%14d [ SO_RESERVE= %14d, ACCEPT_RESERVE= %14d, METADEX_RESERVE= %14d ] %14d\n",
-    //             balance, selloffer_reserve, accept_reserve, metadex_reserve, pending);
-    // }
-
-    return (balance + selloffer_reserve + accept_reserve + metadex_reserve);
+    return (balance + selloffer_reserve + accept_reserve + contractdex_reserve);
 }
 ////////////////////////////////////

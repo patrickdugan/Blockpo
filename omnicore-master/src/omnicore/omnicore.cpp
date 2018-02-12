@@ -3849,7 +3849,7 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
     PrintToConsole("Checking Extern Volatil Variable coming from x_Trade\n");
     extern volatile uint64_t marketPrice;
     PrintToConsole("Market Price in Omnicore: %d\n", marketPrice);
-    PrintToConsole("/////////////////////////////////\n");
+    PrintToConsole("________________________________________\n");
     
     if (!pdb) return false;
 
