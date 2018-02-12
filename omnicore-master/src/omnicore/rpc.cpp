@@ -1717,6 +1717,7 @@ UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
                     const CMPContractDex& obj = *it;
                     if (obj.getProperty() != propertyIdForSale) continue;
                     if (obj.getTradingAction() != tradingaction) continue;
+                    if (obj.getAmountForSale() <= 0) continue;
                     vecContractDexObjects.push_back(obj);
                 }
             }
