@@ -29,6 +29,7 @@
 #include "omnicore/version.h"
 #include "omnicore/walletcache.h"
 #include "omnicore/wallettxs.h"
+#include "omnicore/parse_string.h"
 
 #include "base58.h"
 #include "chainparams.h"
@@ -51,6 +52,7 @@
 #ifdef ENABLE_WALLET
 #include "script/ismine.h"
 #include "wallet/wallet.h"
+
 #endif
 
 #include <univalue.h>
@@ -3850,7 +3852,7 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
     extern volatile uint64_t marketPrice;
     PrintToConsole("Market Price in Omnicore: %d\n", marketPrice);
     PrintToConsole("________________________________________\n");
-    
+
     if (!pdb) return false;
 
     int count = 0;
@@ -3875,7 +3877,7 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
             continue;
         }
         if (address != vstr[0] && address != vstr[1]) continue;
-        
+
         // Decode the details from the value string
         std::string address1 = vstr[0];
         std::string address2 = vstr[1];
@@ -3913,15 +3915,112 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
             }
             break;
         }
-        // PrintToConsole("newAux: %d\n", newAux);        
+        // PrintToConsole("newAux: %d\n", newAux);
         ++count;
     }
     // clean up
     delete it;
     return totalAmount;
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/** New things for contracts */
+void CMPTradeList::marginLogic(uint32_t property) // vector of address matching for a given contract traded
+{
+    PrintToConsole("Looking for Address in getAddressMatched function\n");
+    std::vector<std::string> vstr;
+    std::vector<std::string> addr;   // vector for the address
+    extern volatile uint64_t marketPrice;
+    uint64_t mPrice = marketPrice;
+    leveldb::Iterator* it = NewIterator();
 
+    for(it->SeekToFirst(); it->Valid(); it->Next()) {
+
+        std::string strKey = it->key().ToString();
+        std::string strValue = it->value().ToString();
+
+        boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
+
+        if (vstr.size() != 12) {
+            PrintToLog("TRADEDB error - unexpected size of vector (%s)\n", strValue);
+            continue;
+        }
+        // Decode the details from the value string
+        std::string address1 = vstr[0];
+        std::string address2 = vstr[1];
+
+        // see if the address are inside of Vector
+        if (std::find(addr.begin(), addr.end(), address1) == addr.end() ) {
+            addr.push_back(address1);
+        }
+        if ((std::find(addr.begin(), addr.end(), address2) == addr.end()) && (address1 != address2)) {
+            addr.push_back(address2);
+        }
+      }
+
+      for(std::vector<std::string>::iterator it = addr.begin() ; it != addr.end(); ++it){
+
+        std::string address = *it;
+        PrintToConsole("address: %s\n",address);
+        int64_t liqPrice = getMPbalance(address,property,LIQUIDATION_PRICE);
+        //std:string sLiqPrice= xToString(liqPrice);
+        //uint64_t nLiqPrice = (uint64_t) StrToInt64(sLiqPrice, true);
+        uint64_t nLiqPrice = (uint64_t) liqPrice;
+        PrintToConsole("marketPrice in function: %d\n",marketPrice);
+        PrintToConsole("String LiqPrice: %d\n",nLiqPrice);
+
+        if(marketPrice <= nLiqPrice){
+
+           PrintToConsole("//////////////////////////////////////MARGIN CALL !!!!!!!!!!!\n");
+           PrintToConsole("liquidation price: %s\n",nLiqPrice);
+           int rc = marginCall(address,property, mPrice);
+           assert(update_tally_map(address, property,-liqPrice, LIQUIDATION_PRICE));
+
+        } else {
+
+           PrintToConsole("Nothing...\n");
+
+        }
+
+      }
+      delete it;  // Always you must clean this!!!
+ //return addr;
+}
 // ///////////////////////////////////////////// Future solution
+/** New things for contracts */
+int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice)
+{
+    PrintToConsole("Into the marginCall function\n");
+    const int64_t liqPrice = getMPbalance(address, propertyId, LIQUIDATION_PRICE);
+    const int64_t shortBalance = getMPbalance(address, propertyId, NEGATIVE_BALANCE);
+    const int64_t longBalance = getMPbalance(address, propertyId, POSSITIVE_BALANCE);
+
+    //ContractDex_ADD
+    int trading_action=0;
+    if (shortBalance > 0){
+        trading_action=1; //BUY
+    } else if( longBalance > 0) {
+        trading_action=2; //SELL
+    }
+    PrintToConsole("shortBalance: %d\n",shortBalance);
+    PrintToConsole("longBalance: %d\n",longBalance);
+    PrintToConsole("trading action: %d\n",trading_action);
+
+    const uint256 tx;
+    int rc = ContractDex_ADD(address, propertyId, 0, 1, 1, 0, tx, 1, marketPrice, trading_action,0);
+    if (rc == 0) {
+        PrintToConsole("return of ContractDex_ADD: %d\n",rc);
+    }
+
+
+    if (trading_action == 1){
+        assert(update_tally_map(address, propertyId, -shortBalance, NEGATIVE_BALANCE));
+    } else if( trading_action == 2) {
+        assert(update_tally_map(address, propertyId, -longBalance, POSSITIVE_BALANCE));
+    }
+
+    return rc;
+   }
+/////////////////////////////////////////////////////////////////////////////////////
 // /** New things for contracts */
 // bool CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
 // {

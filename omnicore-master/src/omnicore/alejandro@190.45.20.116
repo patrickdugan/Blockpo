@@ -379,11 +379,11 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
     extern uint32_t collateralCurrency;
     extern volatile uint64_t marketPrice;
     ///////////////////////////////
- 	 // marketPrice = 100;
-    // PrintToConsole("________________________________________\n");
-    // PrintToConsole("Checking the margin requirement and notional size\n");
-    // PrintToConsole("Margin requirement: %d, Notional size: %d\n", marginRequirementContract, notionalSize);
-    // PrintToConsole("________________________________________\n");
+ 	marketPrice = 100;
+    PrintToConsole("________________________________________\n");
+    PrintToConsole("Checking the margin requirement and notional size\n");
+    PrintToConsole("Margin requirement: %d, Notional size: %d\n", marginRequirementContract, notionalSize);
+    PrintToConsole("________________________________________\n");
 
     const uint32_t propertyForSale = pnew->getProperty();
     MatchReturnType NewReturn = NOTHING;
@@ -447,15 +447,12 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             // Preconditions
             assert(pold->getProperty() == pnew->getProperty());
 
-            get_LiquidationPrice(pnew->getEffectivePrice(), pnew->getAddr(), pnew->getProperty()); // setting liquidation prices
-            get_LiquidationPrice(pold->getEffectivePrice(), pold->getAddr(), pold->getProperty());
-            //
-            // PrintToConsole("Checking effective prices and trading actions:\n");
-            // PrintToConsole("Effective price pold: %d\n", pold->getEffectivePrice());
-            // PrintToConsole("Effective price pnew: %d\n", pnew->getEffectivePrice());
-            // PrintToConsole("Trading action pold: %d\n", pold->getTradingAction());
-            // PrintToConsole("Trading action pnew: %d\n", pnew->getTradingAction());
-            // PrintToConsole("________________________________________\n");
+            PrintToConsole("Checking effective prices and trading actions:\n");
+            PrintToConsole("Effective price pold: %d\n", pold->getEffectivePrice());
+            PrintToConsole("Effective price pnew: %d\n", pnew->getEffectivePrice());
+            PrintToConsole("Trading action pold: %d\n", pold->getTradingAction());
+            PrintToConsole("Trading action pnew: %d\n", pnew->getTradingAction());
+            PrintToConsole("________________________________________\n");
             ///////////////////////////
             int64_t possitive_sell = 0, difference_s = 0, seller_amount = 0, negative_sell = 0;
             int64_t possitive_buy  = 0, difference_b = 0, buyer_amount  = 0, negative_buy  = 0;
@@ -574,9 +571,9 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 countClosedBuyer = 0;
             }
 
-            // PrintToConsole("Checking Status for Seller and Buyer:\n");
-            // PrintToConsole("Status seller: %s, Status buyer: %s\n", Status_s, Status_b);
-            // PrintToConsole("________________________________________\n");
+            PrintToConsole("Checking Status for Seller and Buyer:\n");
+            PrintToConsole("Status seller: %s, Status buyer: %s\n", Status_s, Status_b);
+            PrintToConsole("________________________________________\n");
             ////////////////////////////////////////////////
             int64_t lives_maker = 0, lives_taker = 0;
 
@@ -601,9 +598,9 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                countClosedBuyer = 0;
             }
             ///////////////////////////////////////
-            // PrintToConsole("Checking Market Price and Match Price:\n");
-            // PrintToConsole("Market Price in Mdex: %d, countClosedBuyer: %d, Match Price: %d\n", marketPrice, countClosedBuyer, pold->getEffectivePrice());
-            // PrintToConsole("________________________________________\n");
+            PrintToConsole("Checking Market Price and Match Price:\n");
+            PrintToConsole("Market Price in Mdex: %d, countClosedBuyer: %d, Match Price: %d\n", marketPrice, countClosedBuyer, pold->getEffectivePrice());
+            PrintToConsole("________________________________________\n");
 
             if ( Status_s != "None") {
 
@@ -666,9 +663,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               lives_taker,
                                               property_traded);
             ///////////////////////////////////////
+            PrintToConsole(" punto posterior a recordMatchedTrade");
             marketPrice = pold->getEffectivePrice();
-            PrintToConsole("marketPrice: %d\n",marketPrice);
-            t_tradelistdb->marginLogic(property_traded); //checking margin
 
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());
                 pofferSet->erase(offerIt++);
@@ -687,15 +683,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 }
 
 /////////////////////////////////////
-/*New things for contracts */
-void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property)
-{
-    double liqPrice = effectivePrice* 0.85;
-    int64_t liq64 = static_cast<int64_t>(liqPrice);
-    assert(update_tally_map(address, property, liq64, LIQUIDATION_PRICE));
-    PrintToConsole ("precio de liquidación: %d\n",liq64);
-}
-////////////////////////////////////////
+
 /**
  * Used for display of unit prices to 8 decimal places at UI layer.
  *
@@ -1004,6 +992,7 @@ int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, i
     /*Remember: Here CMPTransaction::ADD is the subaction coming from CMPMetaDEx*/
     CMPContractDex new_cdex(sender_addr, block, prop, amount, property_desired, amount_desired, txid, idx, CMPTransaction::ADD, effective_price, trading_action);
     if (msc_debug_metadex1) PrintToLog("%s(); buyer obj: %s\n", __FUNCTION__, new_cdex.ToString());
+
     // Ensure this is not a badly priced trade (for example due to zero amounts)
     if (0 >= new_cdex.getEffectivePrice()) return METADEX_ERROR -66;
 
