@@ -22,6 +22,7 @@ enum TallyType {
     REALIZED_LOSSES = 9,
     COUNT = 10,
     REMAINING = 11,
+    LIQUIDATION_PRICE = 12,
     //////////////////////////////////////
 
     TALLY_TYPE_COUNT
@@ -74,7 +75,7 @@ public:
     /** Prints a balance record to the console. */
     int64_t print(uint32_t propertyId = 1, bool bDivisible = true) const;
 
-    
+
 
 };
 //*New Things for Contracts*//

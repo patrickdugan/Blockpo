@@ -380,11 +380,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
     extern uint32_t collateralCurrency;
     extern volatile uint64_t marketPrice;
     ///////////////////////////////
-<<<<<<< HEAD
- 	marketPrice = 100;
-=======
- 	 // marketPrice = 100;
->>>>>>> 6f8b814a8c45ebd1c519d17abda22568f434b91f
+
+ 	// marketPrice = 100;
     // PrintToConsole("________________________________________\n");
     // PrintToConsole("Checking the margin requirement and notional size\n");
     // PrintToConsole("Margin requirement: %d, Notional size: %d\n", marginRequirementContract, notionalSize);
@@ -441,12 +438,9 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             // Preconditions
             assert(pold->getProperty() == pnew->getProperty());
 
-<<<<<<< HEAD
-=======
             get_LiquidationPrice(pnew->getEffectivePrice(), pnew->getAddr(), pnew->getProperty()); // setting liquidation prices
             get_LiquidationPrice(pold->getEffectivePrice(), pold->getAddr(), pold->getProperty());
             //
->>>>>>> 6f8b814a8c45ebd1c519d17abda22568f434b91f
             // PrintToConsole("Checking effective prices and trading actions:\n");
             // PrintToConsole("Effective price pold: %d\n", pold->getEffectivePrice());
             // PrintToConsole("Effective price pnew: %d\n", pnew->getEffectivePrice());
@@ -570,20 +564,11 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 Status_b = "None";
                 countClosedBuyer = 0;
             }
-
-<<<<<<< HEAD
-            //////////////////////////////////////////
-
-            // PrintToConsole("________________________________________\n");
-            // PrintToConsole("Checking Status for Seller and Buyer:\n");
-            // PrintToConsole("Status seller: %s, Status buyer: %s\n", Status_s, Status_b);
             //////////////////////////////////////////////
-=======
             // PrintToConsole("Checking Status for Seller and Buyer:\n");
             // PrintToConsole("Status seller: %s, Status buyer: %s\n", Status_s, Status_b);
             // PrintToConsole("________________________________________\n");
             ////////////////////////////////////////////////
->>>>>>> 6f8b814a8c45ebd1c519d17abda22568f434b91f
             int64_t lives_maker = 0, lives_taker = 0;
 
             if( (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) > 0) && ( getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ) ) {
@@ -676,16 +661,10 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               pnew->getEffectivePrice()
                                               );
             ///////////////////////////////////////
-<<<<<<< HEAD
-            // PrintToConsole(" punto posterior a recordMatchedTrade");
-            marketPrice = pold->getEffectivePrice();
-     
-=======
             marketPrice = pold->getEffectivePrice();
             PrintToConsole("marketPrice: %d\n",marketPrice);
             t_tradelistdb->marginLogic(property_traded); //checking margin
 
->>>>>>> 6f8b814a8c45ebd1c519d17abda22568f434b91f
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());
                 pofferSet->erase(offerIt++);
 

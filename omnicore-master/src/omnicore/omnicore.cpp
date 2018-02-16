@@ -3849,19 +3849,11 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
 /** New things for contracts */
 int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
 {
-<<<<<<< HEAD
-    // PrintToConsole("Checking Extern Volatil Variable coming from x_Trade\n");
-    // extern volatile uint64_t marketPrice;
-    // PrintToConsole("Market Price in Omnicore: %d\n", marketPrice);
-    // PrintToConsole("________________________________________\n");
-    
-=======
     PrintToConsole("Checking Extern Volatil Variable coming from x_Trade\n");
     extern volatile uint64_t marketPrice;
     PrintToConsole("Market Price in Omnicore: %d\n", marketPrice);
     PrintToConsole("________________________________________\n");
 
->>>>>>> 6f8b814a8c45ebd1c519d17abda22568f434b91f
     if (!pdb) return false;
 
     int count = 0;
@@ -3983,9 +3975,9 @@ void CMPTradeList::marginLogic(uint32_t property) // vector of address matching 
            PrintToConsole("liquidation price: %s\n",nLiqPrice);
            int rc = marginCall(address,property, mPrice);
            assert(update_tally_map(address, property,-liqPrice, LIQUIDATION_PRICE));
-
+           PrintToConsole("Margin call rc %d\n", rc);
+           
         } else {
-
            PrintToConsole("Nothing...\n");
 
         }
@@ -4011,6 +4003,7 @@ int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketP
         trading_action=2; //SELL
     }
     PrintToConsole("shortBalance: %d\n",shortBalance);
+    PrintToConsole("LiqPrice: %d\n",liqPrice);
     PrintToConsole("longBalance: %d\n",longBalance);
     PrintToConsole("trading action: %d\n",trading_action);
 
