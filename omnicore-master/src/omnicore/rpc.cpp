@@ -108,7 +108,9 @@ void MetaDexObjectToJSON(const CMPMetaDEx& obj, UniValue& metadex_obj)
     metadex_obj.push_back(Pair("block", obj.getBlock()));
     metadex_obj.push_back(Pair("blocktime", obj.getBlockTime()));
 }
- //*New things for contracts *//
+
+///////////////////////////////////////////////
+/** New things for Contract */
 void ContractDexObjectToJSON(const CMPContractDex& obj, UniValue& contractdex_obj)
 {
 
@@ -122,7 +124,8 @@ void ContractDexObjectToJSON(const CMPContractDex& obj, UniValue& contractdex_ob
     contractdex_obj.push_back(Pair("block", obj.getBlock()));
     contractdex_obj.push_back(Pair("blocktime", obj.getBlockTime()));
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////
+
 void MetaDexObjectsToJSON(std::vector<CMPMetaDEx>& vMetaDexObjs, UniValue& response)
 {
     MetaDEx_compare compareByHeight;
@@ -137,7 +140,9 @@ void MetaDexObjectsToJSON(std::vector<CMPMetaDEx>& vMetaDexObjs, UniValue& respo
         response.push_back(metadex_obj);
     }
 }
- //*New things for contracts *//
+
+///////////////////////////////////////////////
+/** New things for Contract */
 void ContractDexObjectsToJSON(std::vector<CMPContractDex>& vContractDexObjs, UniValue& response)
 {
     ContractDex_compare compareByHeight;
@@ -152,8 +157,7 @@ void ContractDexObjectsToJSON(std::vector<CMPContractDex>& vContractDexObjs, Uni
         response.push_back(contractdex_obj);
     }
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////
 
 bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
 {
@@ -183,7 +187,9 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
         return true;
     }
 }
-//*New things for contracts *//
+
+///////////////////////////////////////////////
+/** New things for Contract */
 bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
 {
 
@@ -203,7 +209,9 @@ bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniVal
         return true;
     }
 }
-//*New things for contracts *//
+
+///////////////////////////////////////////////
+/** New things for Contract */
 bool PositionToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
 {
     // confirmed balance minus unconfirmed, spent amounts
@@ -1018,7 +1026,9 @@ UniValue omni_getbalance(const UniValue& params, bool fHelp)
 
     return balanceObj;
 }
-//*New things for contracts*//
+
+///////////////////////////////////////////////
+/** New things for Contract */
 UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
@@ -1048,8 +1058,9 @@ UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
 
     return balanceObj;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//*New things for contracts*//
+
+///////////////////////////////////////////////
+/** New things for Contract */
 UniValue omni_getposition(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
@@ -1079,7 +1090,6 @@ UniValue omni_getposition(const UniValue& params, bool fHelp)
 
     return balanceObj;
 }
-
 
 UniValue omni_getallbalancesforid(const UniValue& params, bool fHelp)
 {
@@ -2641,11 +2651,12 @@ static const CRPCCommand commands[] =
     { "omni layer (data retrieval)", "omni_getactivedexsells",         &omni_getactivedexsells,          false },
     { "omni layer (data retrieval)", "omni_getactivecrowdsales",       &omni_getactivecrowdsales,        false },
     { "omni layer (data retrieval)", "omni_getorderbook",              &omni_getorderbook,               false },
-    //*New things for contracts*//
+    ///////////////////////////////////////////////
+    /** New things for Contract */
     { "omni layer (data retrieval)", "omni_getcontract_orderbook",     &omni_getcontract_orderbook,      false },
     { "omni layer (data retrieval)", "omni_getposition",               &omni_getposition,                false },
     { "omni layer (data retrieval)", "omni_getcontract_balance",       &omni_getcontract_balance,        false },
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////
     { "omni layer (data retrieval)", "omni_gettrade",                  &omni_gettrade,                   false },
     { "omni layer (data retrieval)", "omni_getsto",                    &omni_getsto,                     false },
     { "omni layer (data retrieval)", "omni_listblocktransactions",     &omni_listblocktransactions,      false },

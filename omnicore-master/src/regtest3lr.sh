@@ -91,94 +91,35 @@ printf "Checking confirmation of transaction:\n"
 ./omnicore-cli -datadir=/home/lihki/.bitcoin --regrest omni_listproperties
 
 
-TRATradeSell=()
-for (( i=1; i<=${N}; i++ ))
-do
-	# printf "\n////////////////////////////////////////\n"
-	# printf "Amount for sale Seller #$i\n"	
-	# AMOUNT=$[ ( $RANDOM % 5 ) + 1 ]
-	# printf $AMOUNT
-	
-	# printf "\n________________________________________\n"
-	# printf "Price for sale Seller #$i\n"	
-	# PRICE=$[ ( $RANDOM % 2 )  + 1 ]
-	# printf $PRICE
-
+##############################################################	
 	printf "\n________________________________________\n"
-	printf "Selling orders with the address Selling #$i\n"
+	printf "Selling orders with the address Selling #1\n"
 	#Structure: "omni_tradecontract Adrress|PropertyId1|Amount1|PropertyId2|Amount2|Price|Action\n"
-	# TRATradeSell[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 ${AMOUNT} 1 1 ${PRICE} 2)
-	TRATradeSell[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 3 1 1 2 2)
+	TRATradeSell=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[1]} 2147483651 3 1 1 2 2)
 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest generate 1
 
 	printf "\n________________________________________\n"
-	printf "Checking confirmation of transaction Selling #$i: confirmation = 1 and valid = true\n"
-	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_gettransaction ${TRATradeSell[$i]}
+	printf "Checking confirmation of transaction Selling #1: confirmation = 1 and valid = true\n"
+	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_gettransaction $TRATradeSell
 
 	printf "\n________________________________________\n"
-	printf "Checking OMNI balances Seller address #$i:\n"
-	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance ${ADDRess[$i]} 2
-done
-
-
-TRATradeBuy=()
-for (( i=1; i<=${N}; i++ ))
-do
-	# printf "\n////////////////////////////////////////\n"
-	# printf "Amount for sale Buyer #$i\n"	
-	# AMOUNT=$[ ( $RANDOM % 5 ) + 1 ]
-	# printf $AMOUNT
-	
-	# printf "\n________________________________________\n"
-	# printf "Price for sale Buyer #$i\n"	
-	# PRICE=$[ ( $RANDOM % 2 )  + 1 ]
-	# printf $PRICE
+	printf "Checking OMNI balances Seller address #1:\n"
+	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance ${ADDRess[1]} 2
 
 	printf "\n________________________________________\n"
-	printf "Buying orders with the address #$i\n"
+	printf "Buying orders with the address #2\n"
 	#Structure: "omni_tradecontract Adrress|PropertyId1|Amount1|PropertyId2|Amount2|Price|Action\n"
-	# TRATradeBuy[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 ${AMOUNT} 1 1 ${PRICE} 1)
-	TRATradeBuy[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 1 1 1 2 1)
+	TRATradeBuy=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[2]} 2147483651 1 1 1 2 1)
 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest generate 1
 
 	printf "\n________________________________________\n"
-	printf "Checking confirmation of transaction Buying #$i: confirmation = 1 and valid = true\n"
-	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_gettransaction ${TRATradeBuy[$i]}
+	printf "Checking confirmation of transaction Buying #2: confirmation = 1 and valid = true\n"
+	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_gettransaction $TRATradeBuy
 
 	printf "\n________________________________________\n"
-	printf "Checking OMNI balances Buyer address #$i:\n"
-	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance ${ADDRess[$i]} 1
-
-done
-
-# TRATradeSell=()
-# for (( i=${N}+1; i<=${N}; i++ ))
-# do
-# 	# printf "\n////////////////////////////////////////\n"
-# 	# printf "Amount for sale Seller #$i\n"	
-# 	# AMOUNT=$[ ( $RANDOM % 5 ) + 1 ]
-# 	# printf $AMOUNT
-	
-# 	# printf "\n________________________________________\n"
-# 	# printf "Price for sale Seller #$i\n"	
-# 	# PRICE=$[ ( $RANDOM % 2 )  + 1 ]
-# 	# printf $PRICE
-
-# 	printf "\n________________________________________\n"
-# 	printf "Selling orders with the address Selling #$i\n"
-# 	#Structure: "omni_tradecontract Adrress|PropertyId1|Amount1|PropertyId2|Amount2|Price|Action\n"
-# 	# TRATradeSell[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 ${AMOUNT} 1 1 ${PRICE} 2)
-# 	TRATradeSell[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 3 1 1 2 2)
-# 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest generate 1
-
-# 	printf "\n________________________________________\n"
-# 	printf "Checking confirmation of transaction Selling #$i: confirmation = 1 and valid = true\n"
-# 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_gettransaction ${TRATradeSell[$i]}
-
-# 	printf "\n________________________________________\n"
-# 	printf "Checking OMNI balances Seller address #$i:\n"
-# 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance ${ADDRess[$i]} 1
-# done
+	printf "Checking OMNI balances Buyer address #2:\n"
+	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance ${ADDRess[2]} 1
+##############################################################
 
 printf "\n________________________________________\n"
 printf "   * Checking the orderbook for Future Contract 1 (selling side):\n"
@@ -187,6 +128,14 @@ printf "   * Checking the orderbook for Future Contract 1 (selling side):\n"
 printf "\n________________________________________\n"
 printf "   * Checking the orderbook for Future Contract 1 (buying side):\n"
 ./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getcontract_orderbook 2147483651 1
+
+printf "\n________________________________________\n"
+printf "   * Checking final balance (buying side):\n"
+./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance ${ADDRess[2]} 1
+
+printf "\n________________________________________\n"
+printf "   * Checking final balance (selling side):\n"
+./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance ${ADDRess[2]} 2
 
 printf "\n//////////////////////////////////////////\n"
 printf "Stoping omnicored and omnicore-cli:\n"

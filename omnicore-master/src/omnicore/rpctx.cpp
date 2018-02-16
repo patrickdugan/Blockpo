@@ -483,12 +483,12 @@ UniValue omni_createcontract(const UniValue& params, bool fHelp)
     uint8_t earlyBonus = ParseEarlyBirdBonus(params[12]);
     uint8_t issuerPercentage = ParseIssuerBonus(params[13]);
  
-    ////////////////////////////
+    //////////////////////////////////////////
     uint32_t blocks_until_expiration = ParseNewValues(params[14]);
     uint32_t notional_size = ParseNewValues(params[15]);
     uint32_t collateral_currency = ParseNewValues(params[16]);
     uint32_t margin_requirement = ParseNewValues(params[17]);
-    ////////////////////////////
+    //////////////////////////////////////////
 
     // create a payload for the transaction
     std::vector<unsigned char> payload = CreatePayload_CreateContract(ecosystem, type, previousId, category, subcategory, name, url, data, propertyIdDesired, numTokens, deadline, earlyBonus, issuerPercentage, blocks_until_expiration, notional_size, collateral_currency, margin_requirement);

@@ -1,0 +1,3902 @@
+Omni Core server starting
+Omni Core server starting
+2018-02-16 19:52:57 Initializing Omni Core v0.2.0 [regtest]
+2018-02-16 19:52:57 Loading trades database: OK
+2018-02-16 19:52:57 Loading send-to-owners database: OK
+2018-02-16 19:52:57 Loading tx meta-info database: OK
+2018-02-16 19:52:57 Loading smart property database: OK
+2018-02-16 19:52:57 Loading master transactions database: OK
+2018-02-16 19:52:57 Loading fee cache database: OK
+2018-02-16 19:52:57 Loading fee history database: OK
+2018-02-16 19:52:57 Loading persistent state: NONE (no usable previous state found)
+2018-02-16 19:52:57 Exodus balance: 0.00000000 OMNI
+2018-02-16 19:52:57 Omni Core initialization completed
+207fef6aa103b5e6c450c5a584c4c3323e88bfd406f17fe4d5ca55925954872e
+[
+  "568bf8ccfad2ace7c87a9d7798f22996c2aa82d7364e5d9737b1008586e45f50"
+]
+500f414a84b2524aab7c159c95fdfb9492c957b50dd5d932b130a2e0cadb0a22
+[
+  "173ffc009637ee73f9f0b8b5814facdce4e6e3717c17329334e2a70aa6691012"
+]
+59898ba42f4a77342e5532aa72d9ccf47e29e425248d99d986a03f795e5ad5bf
+2018-02-16 19:53:30 Transaction type: 0
+[
+  "59fed5450bd69a58d3c7624c3c9644e8fc37a727bc84c21f17cf779c6be27daf"
+]
+2d5a0d8dc9784c1e65156dcec3762fe3da45ef8fb2fa879f6813d282b5e0f747
+2018-02-16 19:53:30 Transaction type: 0
+[
+  "4783071b5df7f1a0a7cca36ae701db819b738985bd222f76ebfd14a44b2948da"
+]
+c0bdc969f7403943fc4c2c5624c2ff51c759f99e6156f1ed09e34dfa4bb208ec
+2018-02-16 19:53:30 Transaction type: 0
+[
+  "0fff969c053179c2154e704e6f6967bee3462317da5a65034e958387d10c4cbe"
+]
+36c8a8cc59405ab5fa783e09ccc283cb4eb23f1235ed66d40c06f7ab2f1fd197
+2018-02-16 19:53:31 Transaction type: 0
+[
+  "77565d92ec0e1ce0075534a0d9b356c9e8dfc7436028416759e49581df817216"
+]
+ef2da884c4144c5350e6ba0856e86572967b4d82fa7b3c2d2aa25f0fd19e8d98
+2018-02-16 19:53:31 Transaction type: 0
+[
+  "6aa72590d752a2f8999424c2aebb02447c70cd215f75d829057bb56602ff6f9b"
+]
+be52a3c4c3e40328a31f98fa9c10a0ee14bc6950bdfda989ec0f465871a1666e
+2018-02-16 19:53:31 Transaction type: 0
+[
+  "5c660510d0518beec56f25a7acd034c2c724c0c44b66d315de2b26cd3eb84c97"
+]
+86d0bd429744e6f3296f1551a9d84779467e50cb8c6bb99f6c2e9473f5df20c1
+2018-02-16 19:53:31 Transaction type: 0
+[
+  "267fbbf6acde3f4eaec9b763c07650abcba679b7d75bf770e6e04b08655bae53"
+]
+93f1dfdb012679e562e4e7bba5749a3437236c4edc7d837341b55291c093c8d7
+2018-02-16 19:53:32 Transaction type: 0
+[
+  "21c34fb0a98a39acd263c36d184b4398210e813910516451ec263a3686e1e71b"
+]
+188a70e6b61cc1a458553bb6da877f5865c96aeba3c23eb8eb4dc330dd503522
+2018-02-16 19:53:32 Transaction type: 0
+[
+  "53b4bd3aaa84745fd5e5bec685bf09abff8e0de7717c50e0d2fb1afc77ea49f8"
+]
+ff8ffc89db2230b1d3c5b374767e3783f21963c0f58057800e6728d0d23d6187
+2018-02-16 19:53:32 Transaction type: 0
+[
+  "488078ef3076e9d0b3baab29c59fb7ce7862d3e6afb99cd8a1ba52b7c67d767e"
+]
+b580ad1af9a2e487635e5804f27d9e60feaf3435e7c2479f73219b35f6f36da9
+2018-02-16 19:53:33 Transaction type: 0
+[
+  "25f64096e8f6b5fc134c03baaa90e7514227360d7f6a77c2536ae7a5dfdc40fd"
+]
+4d62f21b08e17a880b609d828b2873ab9cd75946a84fe55acf90061eaa072611
+2018-02-16 19:53:33 Transaction type: 0
+[
+  "3a90289744c025618e1987809deed07e45ed6d634d4d8c8ad49976397b57deae"
+]
+dad970dc1a3d687a8a2c235ecba950282604d3b91163278a7882e73dc20b6520
+2018-02-16 19:53:33 Transaction type: 0
+[
+  "5bb62d6e0fb543c3ff32f025dd195a230f38e71eab1fcbe50b4bc9fcfb29b137"
+]
+63f063441deedfd160df5b27db0869965da3c6b751a6664abbd80824b5f4756d
+2018-02-16 19:53:34 Transaction type: 0
+[
+  "47b58363f2473afd79552d8b90be5ea91b0c2d363807889c047b1eb7751bf271"
+]
+d87bd3fbd8240b680bad5a8e8aca071fe313dea07ec9c52fb95ea5f211ee64ef
+2018-02-16 19:53:34 Transaction type: 0
+[
+  "0f045a69c4ec3f2a58e5d19b26a939f1db2ba5405b54afeb447aeaf2dd56da84"
+]
+85a55e7ab143dfdf19e77fd15fbc499de18e98484e30a14c4aa5fd11fc5acbf5
+2018-02-16 19:53:34 Transaction type: 0
+[
+  "578b0477d5e748b52739ffc67b0d3d24cf73c48431608ac08e15966fe5807248"
+]
+4b84419cd0ffb7073786ea57b4e01d3afbba442a1c6c100a0674de20daa5d7c0
+2018-02-16 19:53:35 Transaction type: 0
+[
+  "2e4f236cc8e4d25b9cd9e2d274f1ec5445e49555e0bb1c65f674be9bbde035bc"
+]
+725d81506c222d3ab00750629d958329e4ce18549a49a629cd28bb9b9ee12c0f
+2018-02-16 19:53:35 Transaction type: 0
+[
+  "2a19be126a55ff9e6e9f486d319887ffd08ef15229defdc0ed93f6a684069107"
+]
+6e995ce7a702ea4238f6f2a722cbb0a68c7b48dc59b9c205ede5707e70eb9bf2
+2018-02-16 19:53:35 Transaction type: 0
+[
+  "6811b487683494e9afc6fe48c636eeb960daa9864a2d2d4592ce0d76085395b6"
+]
+54c60dd6269eeadff23c9a78402b34ad370c429f7a1c2811baf27cdd16e20aa3
+2018-02-16 19:53:35 Transaction type: 0
+[
+  "4988083d54883be454f93f85435078a4b43879839e45650e7f5ef54b5844e6f7"
+]
+2a926cc873d022dc4a2dc13968a18f3d00b443a9e0f401ff42141cda7af351ed
+2018-02-16 19:53:36 Transaction type: 0
+[
+  "6924b0011a16063f709466199874848ae6485b6f22c14eb23c0c4d2ad020325b"
+]
+b7bfab75e30d0e1225d3325b644174bcdc7dee2e1c58f27d4dbdbd86afe61367
+2018-02-16 19:53:36 Transaction type: 0
+[
+  "4b555ece9814e9401cfcf405056a93c9c28a6a73e085aa5e793b1b55983aad66"
+]
+70614e185d947d62cb00036dfcd6e0250caab3d64c4a4be0dda82c4e4e478e79
+2018-02-16 19:53:36 Transaction type: 0
+[
+  "7c0220ad0e51cb0b7d302b761f0db9638ad925db07ce84c057d0fb8af378e834"
+]
+2fb6da8ccd6262ee6e2ff966388cbd1929b108fc51a292a018f2df4bd61d2634
+2018-02-16 19:53:37 Transaction type: 0
+[
+  "1fc97d927bfc1adefd8057391d835170f663d258ebcb72ee4b03bf5b5538e3ec"
+]
+5b06068fa848a5966b8ff6798f684c942f6706717168efb0e9252e55d8788440
+2018-02-16 19:53:37 Transaction type: 0
+[
+  "5afcf841049abdd3752e6a1134e81b20127ab7ca086d4ca773d28a5764fa325c"
+]
+c33569d660db1e8bee80bd928ae73fbf1f4bb57122a96732192cfc9b59eff2c2
+2018-02-16 19:53:37 Transaction type: 0
+[
+  "1e0f0d872b5b06b4ea58477e4f627bc13107e94052f6a4bda6f805a5e3c9cf9d"
+]
+1cf022980c3876a724c9b3b6dad67c2f72e5a45d445598f229040b07a7e5d9f9
+2018-02-16 19:53:37 Transaction type: 0
+[
+  "37ad07a02ecdc48bccfa775b73675ed8b1f9e09f6b2a6bd82e4bcb7638d5cc15"
+]
+b635e066a88dde001e11c4a9245eacd7cfd958846dc6b4c1aa30e2177e1ae517
+2018-02-16 19:53:38 Transaction type: 0
+[
+  "6fc7c20be8e42001c747417a4ed6a2a682605b10b34967129c5d8a347432a640"
+]
+bc3a4dd332eac8c1995825b40560dc91d831181d5e132760eb4dbc8025e8e7d9
+2018-02-16 19:53:38 Transaction type: 0
+[
+  "1e1304b097144f451d3a431eb614df24255e73ef07b3183acbde2f8be50fefc9"
+]
+b9c47534cf5a1ad161f0a33c57e2c6d4c999a7e2ea11334b11b17d78d66e1fce
+2018-02-16 19:53:38 Transaction type: 0
+[
+  "43d8ea7f7efada66eae899fd3288786e1bc23630aeca0d25cd6db6ad4f1cc798"
+]
+60d4e615a15606aebaa341233f71dcb9fc9ebcb35250085c13598290233fdb51
+2018-02-16 19:53:39 Transaction type: 0
+[
+  "22367ada354b2c3582160156f2f36079e1a9ab2311b051396d4d8880877c2d5f"
+]
+e384bd41d7fbf7614e614f94837f24a37b9b05e077a1eb1e79ee7dddb2df8022
+2018-02-16 19:53:39 Transaction type: 0
+[
+  "457ce199853d5561f2d8af04b3f0f2d970e801a056c67fffffad0465a040b9f1"
+]
+e923ed8f4930e76b609443f14c2b87957596a69734953a5797b2630e4d11916e
+2018-02-16 19:53:39 Transaction type: 0
+[
+  "54ca4d78d75dcfc89cd9aba0b18d95c6a867a9348417be78ad9223fdabd62ef8"
+]
+f9983934d9e563828c097605707f85420c7ce4e6b5b5d930fe41a02f5eda26c5
+2018-02-16 19:53:39 Transaction type: 0
+[
+  "339fda01987cdcb895abdff49432e48fd6ac52afcb954b14fa5f61dca22f2525"
+]
+fa5ce986b1293a141bebb8079792192e3a770469ede7d901d94f3cce048effbf
+2018-02-16 19:53:40 Transaction type: 0
+[
+  "0af28c18a9eadb447fe67758ed88dd611c3c3958cd9a8469438aa8de2b5b0291"
+]
+0b84a81fa502ee6df0733c0b94ecc3ee690b4163bf4da80c6d02568050aafd11
+2018-02-16 19:53:40 Transaction type: 0
+[
+  "44176aefe8fc772a5ae97e7d5c6343eef2d866501968984bc66181d5f9940f1b"
+]
+78da896242d0e5123112eb596af4cba3ccb1439e0a110e1cd7ee8095eeeb8da7
+2018-02-16 19:53:40 Transaction type: 0
+[
+  "5c5af5fc605952eb62511e0ead562cdb5cdffeed61bb06b845750b3d1cfeb72a"
+]
+7bb75330150a808c6f1cfdf657d7b1de2b200259c6327058ab5ed890179918de
+2018-02-16 19:53:41 Transaction type: 0
+[
+  "49f818e3245f5fcd314185d7dd0f6a8cde2087462102f0676844396a8f946712"
+]
+613f5e97fcdb4ca03871c4f99a20eddddb87203273fb4056053011bac08a2ee9
+2018-02-16 19:53:41 Transaction type: 0
+[
+  "05316bc0e0a26593fb5156e1a7997f0481171e8fb03fc5dcd5a8913860b21b1c"
+]
+c6b059e95846bd3a33828794f6542dc74caef97c54111f14de560c64b1f53aaf
+2018-02-16 19:53:41 Transaction type: 0
+[
+  "447083698c88cbac963f0a18844b62507d2fc2a6a969f2cd090917cfe6ede998"
+]
+5c99469bd0b115ab8a307937cca587d3de7518509ef5608dd73afedbc5233016
+2018-02-16 19:53:41 Transaction type: 0
+[
+  "224d2a4eacfdc0f0ada79d37cfedb691d1d6471bf994202fc426b45c32aed245"
+]
+c409d81258e17d23d5cfe891e54b603e29ade2b09e7f517b201c27115f260e00
+2018-02-16 19:53:42 Transaction type: 0
+[
+  "696287d81585a39813ccc108ce71c908f3ff4a945ad00b2f2fe1bbc9ec52da17"
+]
+3cf863e59ffc4e89ad193a3b400c73e1c9b261edc37e1a886d8a02955686003d
+2018-02-16 19:53:42 Transaction type: 0
+[
+  "2e1d8d681d40e43c507c619bd69554552985accb07e00972dcbd3821aa548e40"
+]
+ef79a5b5637747f2a16a8e899c3373a819e4ea84a3c54d0887bf9c48cd796139
+2018-02-16 19:53:42 Transaction type: 0
+[
+  "1633fba588e06ffe60362158269b8bf47a466472c2f821e57903d2c747aae217"
+]
+606fda5679ebca2b8261035339cc876eabc4b416314708fdeff17996dbe3c6de
+2018-02-16 19:53:43 Transaction type: 0
+[
+  "72f2e7e6d8ad82eae94c879781c463cca29373390be83258cc671adeb98c1d0a"
+]
+6b0d1b41227ff515f5cab46c5b957d59513f71dc1ad20f51f8804034266f35a6
+2018-02-16 19:53:43 Transaction type: 0
+[
+  "75b0571e4e6e48d127421deab17522e3528c6c0c671675a24732b9c1b7223479"
+]
+761cbf35f77f6ee1522ddc13d2e04330295c6ba62c2617fdd111b2d0a5a04559
+2018-02-16 19:53:43 Transaction type: 0
+[
+  "72c49a9081f0d21fab5e764d491a202776024432e5a6f34f477b5aabaaf77f59"
+]
+00c7a877d37de06d8e34294a21a5e44542dd32c08a35ebf360c30df927a26cbe
+2018-02-16 19:53:43 Transaction type: 0
+[
+  "5a6450373d4ce2e789718e19a5b5bd504ab6cca8fbb7709c74a19f69409871d7"
+]
+383aaa429c617e9a4d0b85b08b817e683707c061ee0ae9f68f0608b13d78fd41
+2018-02-16 19:53:44 Transaction type: 0
+[
+  "5496c535f21dd617651641d1ca1a23496acfada72c704eb4d948e6fa5cb889d1"
+]
+f2061fe63f2212a2c4b10194bd9c72843aa8589f6a1225230e771cdb10705a9f
+2018-02-16 19:53:44 Transaction type: 0
+[
+  "7a30872ecbd517d4a90dc87e2508c97dd3fdf796523ebfad8fa3b7941e4bdb29"
+]
+2033b7fe913a27f11ee55b3b552dbbde178fd9c6951e3e31a425ec3f2e0848df
+2018-02-16 19:53:44 Transaction type: 0
+[
+  "484de2b836846d4614491b0b1b7460cf52fb4a61d2b71351ad9f21dec50960bb"
+]
+1f079e61f1d641558ce756eba02318cd9283a56e3238334510bf6c731eb5e35a
+2018-02-16 19:53:44 Transaction type: 0
+[
+  "3740915dfd1ccd6ab9c39ec12d1249ba271080ad5f735ccd22ee93dcdd97283c"
+]
+d3471f14443e102acf8c9bfb7230c61d21e67035d0c5815cdddc62e569086051
+2018-02-16 19:53:45 Transaction type: 0
+[
+  "34531d0d8085ee74c0cfa7395b9cb70eb2546548c63bc5e225a7c0d39436f28d"
+]
+eeeb6b911143617eb237cb3e27480db4ba7e24a218fb0fcfaf81a8ed36ca2023
+2018-02-16 19:53:45 Transaction type: 0
+[
+  "1d622f8f8ca375e635fa2f355db55eedcbd1c8f8a338ab599dae253a9bba83b5"
+]
+6251ae44c784a85c3197a261b392f791b8bf13fdac2b705283b353f98d07fd4a
+2018-02-16 19:53:45 Transaction type: 0
+[
+  "7fc9268c62e5eddc6934b540d607be8a2c55959d32f65b649382f118bacda8ef"
+]
+3a77259509201d208826180e378b977c7db5bc936a10ef2491486f70ba1e7648
+2018-02-16 19:53:46 Transaction type: 0
+[
+  "2f6b7c2e3ab7d05ca835c25cacabd57877d0abde3b281cba5a23dfcfff0ebf08"
+]
+77fd9d674f072eb554d3107ba98f7fbea0d4417db6f460f0ac85131e8241538e
+2018-02-16 19:53:46 Transaction type: 0
+[
+  "549a07c4f349ebebe2a148aa6e2400d42bcb6d1afc71430a61d38d864d9ac9a2"
+]
+2c1d57d8c129aff51efb1bc51fd36b7f8bd2eb397625c62930320822674e4feb
+2018-02-16 19:53:46 Transaction type: 0
+[
+  "7c17f289b466f91718e727dec00cb6d544a7f7ae9c3eb56c06a4ebf13e719915"
+]
+076a128265e986a0e737d6214cde9d9f9372cdbd3cbc6f5517ea10c38360060a
+2018-02-16 19:53:47 Transaction type: 0
+[
+  "3cfb11a87e01d14d8c18cdfe73e3fed2735759e4e845519570b9fd14a96bee14"
+]
+ad6c362ba8e14cba631eeeab096882a2b2c6360adf7176b9a8e9c380f20570da
+2018-02-16 19:53:47 Transaction type: 0
+[
+  "03a490b1ec9155021f55145e32b4ef7b710f66198ab9111d871bfae629d6175b"
+]
+d7dcc185bdff5d6f68d561c1fa22e6c948d08cf9b307bd2c3456aaa7dccee9af
+2018-02-16 19:53:47 Transaction type: 0
+[
+  "45aba05408cce98ac150ddff660211821085fbfad4008234a5a352139082fd96"
+]
+a9235d9466a29afa93822b12639eb3fb5148c03732549d1ffc8533544de6c495
+2018-02-16 19:53:47 Transaction type: 0
+[
+  "3297faf52c339ad42fa50487ab75f1969a3d09350ddf171e9e1a9936b2da32c8"
+]
+f7d88172102108d1a9e0fa036ec533808674a3537a35cd9aaf58cceafe6eb41b
+2018-02-16 19:53:48 Transaction type: 0
+[
+  "0a9a45b79b9700dcf1d140e98f27ddb9f65aec474078218352d779587fc1b657"
+]
+64e1b422798abf40c49c84fa5a8ad90683f3c12d954b971173923e36bb4badc1
+2018-02-16 19:53:48 Transaction type: 0
+[
+  "765b171aa5f93113c1dbccd6ca4574de550289da4cb2d7e4160c868e982ac621"
+]
+ad2d4114da5b8dbacafacabd46bbd2ebd8e5bfd9b7c3db893063faaa88a2855d
+2018-02-16 19:53:48 Transaction type: 0
+[
+  "7b79c689492c15a98ecbf7bd8e628a986d880c3c0fb8ba9c88eedf8d3b142dc8"
+]
+f96d5379124e81c80e14e2cc350d892e4b85e5c4c091b8e2777ed6241c6f8fb9
+2018-02-16 19:53:49 Transaction type: 0
+[
+  "776259b77ae46c71f2c1c0d41d3d9d57852f8580b61fbb441d91ea03b4774d98"
+]
+4036867a383e7e02479c46ff5cf8c82b8cbbb83beb19ad35cf05a8f515b015b2
+2018-02-16 19:53:49 Transaction type: 0
+[
+  "4fac3f1b964f46f2d9d3566680d425c3a0825a082b62a994724bc07ce1e83d12"
+]
+45d14415879a8a4871420ef696f74fd198ae9985b8f87baa6dc38ab6d5fa8d6d
+2018-02-16 19:53:49 Transaction type: 0
+[
+  "03c09168a19b65a31f55405e13df59e3d4f2bc686de5b824b611abcc34c74f11"
+]
+f2d56cf2cfb45bddaded94388cd90745570e44d47e40d523984c6157dc8cd149
+2018-02-16 19:53:49 Transaction type: 0
+[
+  "4a1ad4b57c85462314d1b339010458c1ca0a0133ed16b5a97ede0d4be54cc2b5"
+]
+ec7daae1b227591188bab0332bbf84c50b957f3d5e10909e55f5c9b2c2b4e7ee
+2018-02-16 19:53:50 Transaction type: 0
+[
+  "0b7e77776dc6e82eeecd0ad8646848266dbbf753415b311670aa285ef0576497"
+]
+a0fd9c9516609e91ade4c57394e31600371f9c4a4c3631013ea4591a06f5b4d3
+2018-02-16 19:53:50 Transaction type: 0
+[
+  "42385a1a35be5d0d8e32d3e9b48ece2c37e69b0f2a4805c63c9990edd4bc13ac"
+]
+8fe42b0580b5c8a90e0cb54a8f1a853851c8e76bef9f6d16bfd43934dfefef9f
+2018-02-16 19:53:50 Transaction type: 0
+[
+  "6d0c39facb97b282c7a9cc6813e3eaefd7943c9fcf5c0278550857145582a618"
+]
+ccc9ed6ec70095bdafbe20a4fcf7e0a439671433a3797c47612ef1c0de9ba37d
+2018-02-16 19:53:51 Transaction type: 0
+[
+  "2d53aece1a3f32ca13334aeaa7b3f6a15211f3e3ac8bd8844dc4f52f69a201bf"
+]
+02bf5c142145a618809de448164293b1b74ea47d1affdde5174579fa07b9a3f2
+2018-02-16 19:53:51 Transaction type: 0
+[
+  "7344ff80f3888d28c0d7d520fce6d82ebc620bbced675f32b4480c85ff9a3f1c"
+]
+e40f6a963bc53f8c548d7a432fe5a10287c47781137e633921f5ad065bd1ee6e
+2018-02-16 19:53:51 Transaction type: 0
+[
+  "69f3debe2b27b7eae7a568ab0fe1d571a0fef1515c63e56a679b611d4af365da"
+]
+f1a09aa68006b0adf96e0fd6e9227d3950366d6a3e412ccc01dff513699ea0b3
+2018-02-16 19:53:51 Transaction type: 0
+[
+  "55a417957702ec382eee3ad549f925cd2f4c2f091d8c35d43eaf58da672ab207"
+]
+ff498724f58e68ef02913c903d6617323bcd1867f3a3017210e1b6c6ced137eb
+2018-02-16 19:53:52 Transaction type: 0
+[
+  "5cfd60e83ead3d2f91a5107081e6af84e46dac30c07859bd046daae3a3da5bb2"
+]
+e1bd6487d7d8b864791d52190f2879f9999c2aa493c04e83646f65d49a88b4bd
+2018-02-16 19:53:52 Transaction type: 0
+[
+  "07d97bdc5a6f0c946b14699f33a1766266cf82bffd3e0605328afe7b4ab45fc7"
+]
+e5de02869b61f0ccdd594d5f0c2aba7dbd2246ef75f07da71ebe24452a340f88
+2018-02-16 19:53:52 Transaction type: 0
+[
+  "64042cb730cb8f3f5eea028231bdc9414b47d53b776077a7557c864169d1c217"
+]
+c32fe1347b41c88f0fc42ee6f070aeaeea2505dc778ba6eef9214b2b9c3684c9
+2018-02-16 19:53:53 Transaction type: 0
+[
+  "2a232e1cd67210620fc066dab9ccd2e38734c8fb59d4a161cbab4a518cb9ef32"
+]
+a0647c18eaf52706a4992960289565b77dedcd5178c38a1266ee0e99c02d0a66
+2018-02-16 19:53:53 Transaction type: 0
+[
+  "095e74e9471b10ad926aac631e2720e509ca621a8c7fdfb7717861384705695c"
+]
+97a9c6a837f01c8255faf81d7e91188f0f473b18ca33308b129ed6a7c9e03650
+2018-02-16 19:53:53 Transaction type: 0
+[
+  "56694fe0d72077a97dde9492c9250aefe3d047f41622f200f1e808e6e9ca68ef"
+]
+78f59b15753fa3d5537b76db32ed6cf6ffae384d7b0016042c724fd579490450
+2018-02-16 19:53:53 Transaction type: 0
+[
+  "58a2bafe9a33d6b84b947527e84243679a808044e66aec038514051abbc06c7b"
+]
+00e5675fa491c9c5c78f25ce03f2cfeff02b14a4589c35e267624e2e23e7666f
+2018-02-16 19:53:54 Transaction type: 0
+[
+  "4952d5ca4b31081300b289ec8589893d34ade0016d6a3a930ce0ddd68178f2f9"
+]
+ca956da5120547a46edd108e8a8ec945b279834d2056977d78511db075c8eec4
+2018-02-16 19:53:54 Transaction type: 0
+[
+  "417ee2045034cfab9ea205d13019e6c96c9ec8de2bd056929ff4ea32418b883c"
+]
+f49ea7fd250fb23975b4c834f8edf610a9810d83b59b23b5a76649f8480e613f
+2018-02-16 19:53:54 Transaction type: 0
+[
+  "535643e51091704d203a923847b334238c029cf39b53157c4944f82c2b0c2615"
+]
+b85d4e7bbbfc8e165496e9f6ea54c90063b69a93533d5463bda119aedada40fd
+2018-02-16 19:53:54 Transaction type: 0
+[
+  "33f1f96f2d8eadb0fd75f61b1306d2b7b88c900c21bf38e49828c1698fd2d4d2"
+]
+295ba722abdcea0ff38eade36455ea348feef37b3a99b8553e64cb306aa53b08
+2018-02-16 19:53:55 Transaction type: 0
+[
+  "170a04a01d76d258454d44fadc29618fcf71c6b707a9adfd17796843dbd431ea"
+]
+64d6b0b5553b26c00482b3162d55ac0b958be62a7e089179fd6dcbdaf112644e
+2018-02-16 19:53:55 Transaction type: 0
+[
+  "5959a8eef51aabddc1706f69ed71147e9941450b4985fae43ab4bf03264670b3"
+]
+b3cee1f5c5928c655f5b4433a0cea633a38d7f588766e4bae39f589cc1d2a4f0
+2018-02-16 19:53:55 Transaction type: 0
+[
+  "49c655bf5a8473c74ad5dcf7599d856da7da97f2facbb985fe5f2194fe807712"
+]
+b59b85f25a9ac1bb2102513beb7b4bde7d618fa22b8e5a5034b2599dbda78cd9
+2018-02-16 19:53:56 Transaction type: 0
+[
+  "4730ebbaae17119fdbcb8a6a085d33ca80c46b659d96c5740cf745c428cc9f22"
+]
+5f2953520209f90724557595c9b6fdb6ad01224b235f89448c29b7cc7cde2c5c
+2018-02-16 19:53:56 Transaction type: 0
+[
+  "04bd4602df821da114cdc0d1efd78d39d493d12ab16521dac3e5186eb545ec0f"
+]
+180b8fb509b14e47b327fa0ed8b830afdbd943248921341a7cc40e6cd5fb0a5c
+2018-02-16 19:53:56 Transaction type: 0
+[
+  "2faef05c151193be603ebce5d6177a5a61a8f4bb42879a2f37546da894ab4b01"
+]
+c8338231b393de35ea105e959f96ea34a14498190a29d94effc82581b5903d8e
+2018-02-16 19:53:57 Transaction type: 0
+[
+  "5a764ca37b09be28212c3fc9e51908c2acb919bf411f42f4c557d1e5f2686ac0"
+]
+0eca9f7db71d72bc2c042565cc16b7202907115f44fef21735e16622a88d3658
+2018-02-16 19:53:57 Transaction type: 0
+[
+  "069b0e49c4b571c96c6125c7d042bf627fecdf9782cb5b16d4a5dd44f59ffe4a"
+]
+4aca36db04dd0dfd3f108e5ce1c85d1b8eab7fa93a9cd0413c754e3794a4775d
+2018-02-16 19:53:57 Transaction type: 0
+[
+  "3ea6e660848d842b6b3795a805b56d7f0ef94dc9a3c425cff62a2e29ca746e18"
+]
+4a233037509d81775b98e6950b4179c8da76fd160df398731724556c441118d6
+2018-02-16 19:53:57 Transaction type: 0
+[
+  "6ee8a989988daa6e7326de3dd683f97b3608e8c372da38cca4b6e3307430764d"
+]
+bf836b9472df2a0a08652c853bcaa021b5ae2c6a39cee56cf9527aaa0b4961bb
+2018-02-16 19:53:58 Transaction type: 0
+[
+  "7546327714973ce6e883a3d26e8e0432fd359830da40754d642d2783a1cd5081"
+]
+11f66e1797f78868db2194e04f04d848ff503070a75d0aa3fe6f2fdbe34f9b93
+2018-02-16 19:53:58 Transaction type: 0
+[
+  "644fa4cd9c1030a529e04de9ac5dc04f1ecf7e34df28b92c3ada44d49b247925"
+]
+7775e983a5cde7d098a40c6a3f248e47fd1d513e41796f691da0456b5c242adb
+2018-02-16 19:53:58 Transaction type: 0
+[
+  "749a3794221e7bada39dac2a7289a433fac6606f884166512075668b513889ee"
+]
+2018-02-16 19:53:59 Transaction type: 40
+[
+  "305b0674eb504ea58fc824e79d39ebe8aad4dac95ae5d96c01c97f2202f94ca9"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #1
+1
+________________________________________
+Price for sale Buyer #1
+52018-02-16 19:53:59 Transaction type: 29
+[
+  "0363f5cb1da767e533334af79cecde0b074719f440ab686f70162ada4456e794"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #2
+2
+________________________________________
+Price for sale Buyer #2
+32018-02-16 19:53:59 Transaction type: 29
+[
+  "6fe93bed991c303318f19121fcb3d9e710aa2f5668abf9aa80f15cca639d2044"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #3
+3
+________________________________________
+Price for sale Buyer #3
+22018-02-16 19:53:59 Transaction type: 29
+[
+  "5691c7f27b78bb4d10b24d645bbc695ab440106c086c7cd2f9181a77888f3908"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #4
+5
+________________________________________
+Price for sale Buyer #4
+22018-02-16 19:54:00 Transaction type: 29
+[
+  "0cb8f8f48e3d162b5c37437fc49d12daf7eb425807081c065539a4bc4eaa0b22"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #5
+2
+________________________________________
+Price for sale Buyer #5
+32018-02-16 19:54:00 Transaction type: 29
+[
+  "5d987534502a0c84c488f15a65e1a09b9e166c1cf7cbfb3694519d210510da71"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #6
+5
+________________________________________
+Price for sale Buyer #6
+12018-02-16 19:54:00 Transaction type: 29
+[
+  "3f929983096431d1036197dfaa5eb1e9fe86624bda0de9a34437ef64e5e1ab22"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #7
+3
+________________________________________
+Price for sale Buyer #7
+12018-02-16 19:54:00 Transaction type: 29
+[
+  "3418edd077c707caab1b78d50f2105de109aa2a4ba6f3d335f436a09e493604b"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #8
+3
+________________________________________
+Price for sale Buyer #8
+32018-02-16 19:54:01 Transaction type: 29
+[
+  "515b8057bd3cc15b88564026cd74603d4272712179e7289b3495e6e0a7f31717"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #9
+5
+________________________________________
+Price for sale Buyer #9
+42018-02-16 19:54:01 Transaction type: 29
+[
+  "3fbe94e57eae6cd9a6de5b762984057927ddfeec3b3a354b25aae76e9758d936"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #10
+4
+________________________________________
+Price for sale Buyer #10
+42018-02-16 19:54:01 Transaction type: 29
+[
+  "193b8a11c55c9fd3c5d9712e5a7ec19d7c02c4388ed07cbe6d533db2b5f9bbe5"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #11
+5
+________________________________________
+Price for sale Buyer #11
+32018-02-16 19:54:02 Transaction type: 29
+[
+  "04e029820404014db24128d414b1ace667525684b1ff8dce57863613f3562b25"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #12
+3
+________________________________________
+Price for sale Buyer #12
+12018-02-16 19:54:02 Transaction type: 29
+[
+  "0506681e1caec3a75ecb96e436aa825954ef535adeb93616dd07032e08f0e2c4"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #13
+1
+________________________________________
+Price for sale Buyer #13
+32018-02-16 19:54:02 Transaction type: 29
+[
+  "100ebcd24a6fa3dbae9391975f8ad9126836ec48a4b9d64793bb9c451bb31838"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #14
+2
+________________________________________
+Price for sale Buyer #14
+22018-02-16 19:54:02 Transaction type: 29
+[
+  "021bc64fc3931a9199aff5fa19aa78cf77431830908737437b364066e5b49c08"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #15
+3
+________________________________________
+Price for sale Buyer #15
+12018-02-16 19:54:03 Transaction type: 29
+[
+  "77e7315e3146cab612a3e3fdc3397ed5b56eaae7c1e45e49c108bc3a14a71256"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #16
+2
+________________________________________
+Price for sale Buyer #16
+12018-02-16 19:54:03 Transaction type: 29
+[
+  "4b7f4265bb36de789489d550fdacee792e89279da230506ce630458a225140a3"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #17
+2
+________________________________________
+Price for sale Buyer #17
+52018-02-16 19:54:03 Transaction type: 29
+[
+  "0148208cc6517e54513930240059e8bd7d2183edb79d0aaad908734af07c28e7"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #18
+3
+________________________________________
+Price for sale Buyer #18
+22018-02-16 19:54:04 Transaction type: 29
+[
+  "53edd0980519ad990afeb82b4bea0b64d23cb18a5a310928f87588aaa2e84ab8"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #19
+4
+________________________________________
+Price for sale Buyer #19
+42018-02-16 19:54:04 Transaction type: 29
+[
+  "0cc6f102cbb5665bb60f337c5242dd929a035f060a73a93c91fd9eecfc1e586e"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #20
+3
+________________________________________
+Price for sale Buyer #20
+52018-02-16 19:54:04 Transaction type: 29
+[
+  "110e355a8f3dc94724452a4d2968cc557db82fa0e131a56acf824ef5fc8eea75"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #21
+5
+________________________________________
+Price for sale Buyer #21
+12018-02-16 19:54:04 Transaction type: 29
+[
+  "1864717d072390d39147bc90972dd12314c6f3b1bb37a6dab02d5c6cac10da9d"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #22
+3
+________________________________________
+Price for sale Buyer #22
+32018-02-16 19:54:05 Transaction type: 29
+[
+  "28d78255e2dc8aeb07cd64e74b31bd1162c8c5f89a09f8f276657991be8a4780"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #23
+3
+________________________________________
+Price for sale Buyer #23
+52018-02-16 19:54:05 Transaction type: 29
+[
+  "269cac0170d5ad841ae59694b5453ede4cbb169a50443ade9b8dfc36379f2ef0"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #24
+1
+________________________________________
+Price for sale Buyer #24
+52018-02-16 19:54:05 Transaction type: 29
+[
+  "70543d5bd3496e63ede9bee5fe924f49c4f31b06917eb5dcd2e8c22029387b63"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #25
+3
+________________________________________
+Price for sale Buyer #25
+52018-02-16 19:54:05 Transaction type: 29
+[
+  "550c2daa18a8465f0591dc64e38bca7fa81fec35fe70d3cf94a206216adae2e8"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #26
+3
+________________________________________
+Price for sale Buyer #26
+22018-02-16 19:54:06 Transaction type: 29
+[
+  "49c4dfe186934246e90dfda61185001c8aface4e1dc3504c31e49f98ab0ecedf"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #27
+3
+________________________________________
+Price for sale Buyer #27
+52018-02-16 19:54:06 Transaction type: 29
+[
+  "3e15e3bcc8f0b40222b3fb3fd5613bdfbcd8bc5049f17efd4d0e9ed17b0ef832"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #28
+2
+________________________________________
+Price for sale Buyer #28
+42018-02-16 19:54:06 Transaction type: 29
+[
+  "60f3691c220b2f79b3a123e502117f07add50a91668000ce137db0ff351a950e"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #29
+1
+________________________________________
+Price for sale Buyer #29
+42018-02-16 19:54:06 Transaction type: 29
+[
+  "565b198199d0c4a15287df14e0b94bdc8e49aa6a585b197c528e52a45886ef80"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #30
+1
+________________________________________
+Price for sale Buyer #30
+32018-02-16 19:54:07 Transaction type: 29
+[
+  "6782afef92b44bb8c91e6015673e25065a9e585931a11b27eb07b4585c2f59a0"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #31
+1
+________________________________________
+Price for sale Buyer #31
+52018-02-16 19:54:07 Transaction type: 29
+[
+  "4e2c706258a75a83a8c795caa35e7f9d1158a58e1ca666abee1792192b778197"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #32
+2
+________________________________________
+Price for sale Buyer #32
+42018-02-16 19:54:07 Transaction type: 29
+[
+  "6ebc9e4f2e12abd3235223b654b693a81dbd4fe6b44241b82a474d310939037d"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #33
+2
+________________________________________
+Price for sale Buyer #33
+52018-02-16 19:54:08 Transaction type: 29
+[
+  "430625038569a8c179e39c17d789afeb6b84d706a0b6637a2e1644d322d56db8"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #34
+1
+________________________________________
+Price for sale Buyer #34
+42018-02-16 19:54:08 Transaction type: 29
+[
+  "7695c3fcd7856b607fc0580a87c156bac92f0a5d0dfb87b282eef52c9c63f2c2"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #35
+3
+________________________________________
+Price for sale Buyer #35
+12018-02-16 19:54:08 Transaction type: 29
+[
+  "482e64e4c8288cbd1704ff0a23209978b32e8867e96e4843af278ef81473c73f"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #36
+2
+________________________________________
+Price for sale Buyer #36
+52018-02-16 19:54:08 Transaction type: 29
+[
+  "66d8f86177685fed4f98983cc40ab470cc51dd02fbb6d5527198385c16233745"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #37
+3
+________________________________________
+Price for sale Buyer #37
+52018-02-16 19:54:09 Transaction type: 29
+[
+  "6471f4ded376ce476fdd2601b5d30934cdaf9fcf978609781e4a9cb06a223937"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #38
+5
+________________________________________
+Price for sale Buyer #38
+52018-02-16 19:54:09 Transaction type: 29
+[
+  "59527e882e79a43d7892aa35bef23a6322f8de87e8123960bf6a1380e59b2caf"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #39
+3
+________________________________________
+Price for sale Buyer #39
+52018-02-16 19:54:09 Transaction type: 29
+[
+  "303745b6fe2dad59b0ac8fc4463b999a931b645f9ef580e3d4822d8845952ff8"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #40
+5
+________________________________________
+Price for sale Buyer #40
+52018-02-16 19:54:09 Transaction type: 29
+[
+  "19968b215656aed61062a73ca390768320ea881dc3ee882b3a8f948bcb1e2218"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #41
+4
+________________________________________
+Price for sale Buyer #41
+32018-02-16 19:54:10 Transaction type: 29
+[
+  "48309d79047a00545ed64774e5039f7c1c700cee74d24e0cca769c2ea3e20cc1"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #42
+3
+________________________________________
+Price for sale Buyer #42
+42018-02-16 19:54:10 Transaction type: 29
+[
+  "644b5d1682e45fc179c7c49b50250ebcb9776e5ec3730b30cfcc6cd7993dd84c"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #43
+3
+________________________________________
+Price for sale Buyer #43
+52018-02-16 19:54:10 Transaction type: 29
+[
+  "6dacf4efad2859eedf2dee2dd2ac980197004fb87f21231be031e1e143cc4ab3"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #44
+5
+________________________________________
+Price for sale Buyer #44
+22018-02-16 19:54:10 Transaction type: 29
+[
+  "1d98245ee89916a74c5988887a7ae136b20e94f6d423fc42b7f6b81a0e2072e1"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #45
+3
+________________________________________
+Price for sale Buyer #45
+42018-02-16 19:54:11 Transaction type: 29
+[
+  "3aa73c626256ac30694c580659236d787b472bef27f8b81207a2e58c663cfa19"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #46
+3
+________________________________________
+Price for sale Buyer #46
+42018-02-16 19:54:11 Transaction type: 29
+[
+  "519eada5105c8b40156f3dc945247790c7d2d56c00c055b89cab9fd8900ecdca"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #47
+3
+________________________________________
+Price for sale Buyer #47
+22018-02-16 19:54:11 Transaction type: 29
+[
+  "702a9fd6ce9910dac51ebe5fe1906085f3e70555dcccb848a83cce498b5d562f"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #48
+4
+________________________________________
+Price for sale Buyer #48
+32018-02-16 19:54:12 Transaction type: 29
+[
+  "15611619d36bb6194bd85a82bab2e16a5ff25eb329fa09027a73048f7e4ff7a0"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #49
+4
+________________________________________
+Price for sale Buyer #49
+42018-02-16 19:54:12 Transaction type: 29
+[
+  "2edbe2aa7aa20c81cc8e043cb1d86f8dc3c2cd9eb4e5d53f9936a6e090f06f5a"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #50
+3
+________________________________________
+Price for sale Buyer #50
+32018-02-16 19:54:12 Transaction type: 29
+[
+  "222473d43049a2e1f130eae574102b2642a33e0d4212bb927ca237b16fde694d"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #51
+3
+________________________________________
+Price for sale Buyer #51
+42018-02-16 19:54:13 Transaction type: 29
+[
+  "2bd9aabd75f92330d31f5ae05712136553f85e5da57f4163a59f2e796bcfd8e9"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #52
+2
+________________________________________
+Price for sale Buyer #52
+22018-02-16 19:54:13 Transaction type: 29
+[
+  "1bf95e2865319b5662cfd1cfaae7c43235059f3e4244d025dcd4dbfcc85919ac"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #53
+5
+________________________________________
+Price for sale Buyer #53
+32018-02-16 19:54:13 Transaction type: 29
+[
+  "078024141edc2bfeb17e9fe621169e75eb59096abc296342dbd74fab8e09c471"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #54
+1
+________________________________________
+Price for sale Buyer #54
+32018-02-16 19:54:13 Transaction type: 29
+[
+  "3385747faaec4cac8834f5b0d30d2fc6a37883541de97a3effef8130d8bf646e"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #55
+4
+________________________________________
+Price for sale Buyer #55
+32018-02-16 19:54:14 Transaction type: 29
+[
+  "21e1412f6e2ea9971963467a65a7264b9c449870e20b11bd6ef395dfd5f54f2a"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #56
+5
+________________________________________
+Price for sale Buyer #56
+22018-02-16 19:54:14 Transaction type: 29
+[
+  "380b2735fb21b65cf020f7963df4c04a00e86880a32061e6a0ee353854229c57"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #57
+5
+________________________________________
+Price for sale Buyer #57
+52018-02-16 19:54:14 Transaction type: 29
+[
+  "41d8ec5ffbc6713775fb7b376a7ff137a3232bc779689ec8e07b449909b4d5b2"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #58
+4
+________________________________________
+Price for sale Buyer #58
+22018-02-16 19:54:15 Transaction type: 29
+[
+  "53631a2fee08ee3a33b58ceb792c75ad4112563dbabc08f2fa7c4a8c329db594"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #59
+4
+________________________________________
+Price for sale Buyer #59
+12018-02-16 19:54:15 Transaction type: 29
+[
+  "36ad8a26ea1dfeb930043beb6ad51f86cf74dd79d11e55e0a83f0bd17a0c46f3"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #60
+3
+________________________________________
+Price for sale Buyer #60
+22018-02-16 19:54:15 Transaction type: 29
+[
+  "6147f23746aa4dfabb88a0efa9a40760389838e5235c09c8c73729976849cf5b"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #61
+3
+________________________________________
+Price for sale Buyer #61
+32018-02-16 19:54:15 Transaction type: 29
+[
+  "52e0577c002b55bd2b541f457f3eba9125435c5cce43777b7444c3dcc8373c38"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #62
+1
+________________________________________
+Price for sale Buyer #62
+42018-02-16 19:54:16 Transaction type: 29
+[
+  "4ee319642a77cf1c74277854d54fd0b8d35752c87cab2834372377a681925496"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #63
+3
+________________________________________
+Price for sale Buyer #63
+12018-02-16 19:54:16 Transaction type: 29
+[
+  "0ef781ee11fab496507da145ddf732cacaf392c21406f406acc076bb4dd76882"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #64
+4
+________________________________________
+Price for sale Buyer #64
+52018-02-16 19:54:16 Transaction type: 29
+[
+  "14f587b05c76c4109c3195d7063155937d041e0a81aa602dfa3a310769adb65b"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #65
+1
+________________________________________
+Price for sale Buyer #65
+52018-02-16 19:54:16 Transaction type: 29
+[
+  "154f0e1d9f39310f57e79c257a2576f3f8329af59803e1fe5836ca8263690114"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #66
+3
+________________________________________
+Price for sale Buyer #66
+12018-02-16 19:54:17 Transaction type: 29
+[
+  "2b5cc553d358092c065b2211b4bb0662e6f63f0fe276b8f1341022787c2bf891"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #67
+1
+________________________________________
+Price for sale Buyer #67
+42018-02-16 19:54:17 Transaction type: 29
+[
+  "3c7e428dd5f09caccc5c4fb8d7159cd8987afe7743aee0985eb544a999c0d7db"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #68
+1
+________________________________________
+Price for sale Buyer #68
+42018-02-16 19:54:18 Transaction type: 29
+[
+  "222a6865f55c4be53b7b06bee7ff3ab930e33639fdc40279fd8274bf160b411c"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #69
+3
+________________________________________
+Price for sale Buyer #69
+52018-02-16 19:54:18 Transaction type: 29
+[
+  "0d7bd1346b504b25989359b8e9446306456a087e816786f3fe19bf5fd6ac91ea"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #70
+3
+________________________________________
+Price for sale Buyer #70
+22018-02-16 19:54:18 Transaction type: 29
+[
+  "0d7554e57c047e5d0b555f062efe53d8c8cd2b52ba979b423be3cd8a2af64ded"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #71
+4
+________________________________________
+Price for sale Buyer #71
+52018-02-16 19:54:18 Transaction type: 29
+[
+  "4134540e5959055acd54e6f38bf5fc38332c87a84ec0b547f16de10b0610bf02"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #72
+2
+________________________________________
+Price for sale Buyer #72
+22018-02-16 19:54:19 Transaction type: 29
+[
+  "072d4d945d016ba7b7e687bbfff4befe032d33c8cf3fbb344efde81328dabe38"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #73
+4
+________________________________________
+Price for sale Buyer #73
+42018-02-16 19:54:19 Transaction type: 29
+[
+  "44b5ee09d5b353a8e865a95b3f656a8fd1efa8637c0038c57b575fbe367bad1d"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #74
+1
+________________________________________
+Price for sale Buyer #74
+12018-02-16 19:54:19 Transaction type: 29
+[
+  "37fe20e853224299a19cc7fee9d262367f71e30603e55852a807f141f4d44328"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #75
+2
+________________________________________
+Price for sale Buyer #75
+52018-02-16 19:54:19 Transaction type: 29
+[
+  "6c83926a94e46c18b754017a761b058af78fc2584aa387bce9a3df5eab0d071b"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #76
+5
+________________________________________
+Price for sale Buyer #76
+32018-02-16 19:54:20 Transaction type: 29
+[
+  "50cfe996cd396f43af9b7e25d424088f0151e4ca93921f8490cb9374667da6a4"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #77
+1
+________________________________________
+Price for sale Buyer #77
+32018-02-16 19:54:20 Transaction type: 29
+[
+  "26e4417f79161bb56597956918cb053327687de4a4564f313b73b61f359fdd0e"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #78
+4
+________________________________________
+Price for sale Buyer #78
+12018-02-16 19:54:20 Transaction type: 29
+[
+  "2516773a220f93509670f4ab245f801847c8dd62ca54fdda0fb28b7b05f66e28"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #79
+5
+________________________________________
+Price for sale Buyer #79
+42018-02-16 19:54:21 Transaction type: 29
+[
+  "4ae1823cbb1db7bb9c2c0f89d3dfc78ccbf5d0df344906f801ae6f4819a6643c"
+]
+
+////////////////////////////////////////
+Amount for sale Buyer #80
+4
+________________________________________
+Price for sale Buyer #80
+22018-02-16 19:54:21 Transaction type: 29
+[
+  "0900e280ad9e9b621ab727f682db621a42e1210b82e28928a0f50a7bc5888e55"
+]
+
+________________________________________
+   * Checking the orderbook for Future Contract 1 (buying side):
+[
+  {
+    "address": "mmBLkGYqGFegXQR74qeAhtErYB4YLZ3SQx",
+    "txid": "6b9fa59b414c9123fc32658c8238485171ef4d30498e8b2c97ff438f853243ef",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 205,
+    "blocktime": 1518810839
+  }, 
+  {
+    "address": "mfahN7588Dia32sYXeSzNeiwpqnNGFG9PR",
+    "txid": "8dae17bae5dd8e81d350d470b56978ebff2f06265a4c558afcb6ea0af223109e",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 206,
+    "blocktime": 1518810839
+  }, 
+  {
+    "address": "n4GPQ2QZ7yqMWsAG7RsqX8dn5CfURnhdo1",
+    "txid": "bb9258b9bf2804c2f0d917612504f7620f89c58b43c8e440e3ddd0141b55a86d",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 207,
+    "blocktime": 1518810839
+  }, 
+  {
+    "address": "n4UmAA9BY5YGdENwcwth6bsrC62RGyhnJL",
+    "txid": "453518832ef792ede4639e330ccee24df92600d203edcf1ab5925c03bfcaa4f0",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 208,
+    "blocktime": 1518810840
+  }, 
+  {
+    "address": "mnnUiq9TKFoPxRB7VSt9p8hWPgK7WmqnAJ",
+    "txid": "832ce4bd1540dc02e2c5b977e7d7130ac31ab79be37015ffc5b05654891f028a",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 209,
+    "blocktime": 1518810840
+  }, 
+  {
+    "address": "mvJzZH9Kp4eABJTT1uY3tR8u5bX91uUNd1",
+    "txid": "cc50b729232bbd6497b10f5267d822f0be95749a0add2d643c2178ceac82b15e",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 210,
+    "blocktime": 1518810840
+  }, 
+  {
+    "address": "mxk3Pw6rViKNCzs3Eit7wdGC78jyMBeAab",
+    "txid": "931004498a8354fc33c55903fe4203c47ef9121bcde7a6ec89164dc44b322ed6",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 211,
+    "blocktime": 1518810840
+  }, 
+  {
+    "address": "mgS8sQsdeJP6KaCPSmWqgcyrnetmYV6YbN",
+    "txid": "7611c48a83a2baaf74e7d27c8776b61e624104f08b065d051b34bb1ac961c9d9",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 212,
+    "blocktime": 1518810841
+  }, 
+  {
+    "address": "mtfjQFJfW1JPfcJCVpj44rmnMgK3s54GVB",
+    "txid": "fe40c5c6ae32130fa4e8f7b0f285bc5f89d5b9c2261bb567ff50fbe48507c034",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 213,
+    "blocktime": 1518810841
+  }, 
+  {
+    "address": "miZPXWB3QdaFvgVZZNKs8Zd6FXigQokdQc",
+    "txid": "f36c8dadb43c4a371089a19c8135d6fd1c30251f6db6533b8d20ed6d3a4c13b0",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 214,
+    "blocktime": 1518810841
+  }, 
+  {
+    "address": "mwpQ7QMixcEeAc3BTTsnkvzbkpaFQeFkfH",
+    "txid": "f53fb3ec06a09d05280b091d0342d3092b4f7789a446637617ecb5c50b9e4eab",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 215,
+    "blocktime": 1518810842
+  }, 
+  {
+    "address": "mjrx48RQzPL8kQQVdAP9kcFCsRN4F7WoYA",
+    "txid": "9697b4b1fefffde0161c48afc513874c03719968d6d5c906883cfa9d6dc3deea",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 216,
+    "blocktime": 1518810842
+  }, 
+  {
+    "address": "mmN8GYmgbX18zL2YRWTW1tzEjFGMse1Wx9",
+    "txid": "91a905d30ca29013bd5f614997a7da112283dec15126194b6e71f327306c2792",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 217,
+    "blocktime": 1518810842
+  }, 
+  {
+    "address": "mpScFbWV3C4CNceLbRLznmAp2BYiPGPjcf",
+    "txid": "9a2b75fb593f88b776ce6e7a704368f1288c65fdf0f7ee06d6218b3496b76a9e",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 218,
+    "blocktime": 1518810842
+  }, 
+  {
+    "address": "mtQQhfwjgFTmgk6tqs7PAvbJfVQ1tchEHN",
+    "txid": "cc8ea47310e1ea1b42d8683c53d1698639fd5d3b8388acf3deb2a2b48a869380",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 219,
+    "blocktime": 1518810843
+  }, 
+  {
+    "address": "mv1ZEwhmptKst98Xj4fUk9sLKgmVSfo2P9",
+    "txid": "ca7d141de05e45a92d50b9341e3acbb999d5d2287a8c2e2784329d84ef770a69",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 220,
+    "blocktime": 1518810843
+  }, 
+  {
+    "address": "mhyMVoXo9xSm4e9FZszoUswbjr38DNfhry",
+    "txid": "7bd797cdb7c1cb8c05a32a7b72684b4534cc87cbbcd404bca43607f6671ba75d",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 221,
+    "blocktime": 1518810843
+  }, 
+  {
+    "address": "mqjJkipcBEZhUGxBkSPsoqSCGvamKYwCdQ",
+    "txid": "2fa4334e2586aca46b63f86014d4ff3ad1635f2cabe6890a099b139b47d1334b",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 222,
+    "blocktime": 1518810844
+  }, 
+  {
+    "address": "mzPguHDQ8gpfFfctVcb22DyaDqvzxrJePz",
+    "txid": "1f8b4208f6dc9e76b3fb7b66f4c1483419057cbb494ca8b1fd3231a2a3a73bb5",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 223,
+    "blocktime": 1518810844
+  }, 
+  {
+    "address": "mkkDCvusnPmwi8CCwC9rAwwNc78DniwKu9",
+    "txid": "05a13d432abd04569f299984d1ebca7954604ca856bab17bfb9e2f81c6b96a3f",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 224,
+    "blocktime": 1518810844
+  }, 
+  {
+    "address": "mjNEi85gumfgpiK4FDAacMyKfrkeRSG2b5",
+    "txid": "aeda5d302ac712a330683f1f775f4b8adf3f2c316df064fcda97261e3dd5bd51",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 225,
+    "blocktime": 1518810844
+  }, 
+  {
+    "address": "mwWgmzYnLoab83QVxmWDjFsBVcnrPL5AXG",
+    "txid": "81449db7b9e586fcc1fe7929fba6b11d2de3d664983c21dd31cc6a6c1c8ab482",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 226,
+    "blocktime": 1518810845
+  }, 
+  {
+    "address": "mjcCTzXCgyHfQrA1j7193xXg2tiuQ45ZKN",
+    "txid": "eb4d5ebc0fc742aa3871a83108a03744c9a03d73d38d7233f27204ec9e5c002c",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 227,
+    "blocktime": 1518810845
+  }, 
+  {
+    "address": "mvg2vGKwhWCv3cah3j3WN4A5C8nNrMY2uJ",
+    "txid": "d3fe8565a4a4016cb9e4a7ba3e2971effcca3f29b4e5f6605c172afcaf486d2b",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 228,
+    "blocktime": 1518810845
+  }, 
+  {
+    "address": "myGDzavK2P5eQNcLa3cwemCBJhLWmvFvy3",
+    "txid": "5b7661539e3942f149d6f2fed496944fea62f89dd4fc857446d8a7ab0c9ad9e2",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 229,
+    "blocktime": 1518810845
+  }, 
+  {
+    "address": "monw81j5bbekxgdB6MbpvVudcXaeW3kpne",
+    "txid": "0408e6f008e6b2034716cf51f5bb528dc2ea33b0270d83e9c1a50b5a6bd898ba",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 230,
+    "blocktime": 1518810846
+  }, 
+  {
+    "address": "n3vu3uMGU6ZecTuWSLPgjd7p5jSJmrZPgT",
+    "txid": "0de10c721d9bbfff6d1b39ba709b71464ebe27f68719228f2a4ddfca0c690592",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 231,
+    "blocktime": 1518810846
+  }, 
+  {
+    "address": "mt4ZXJvbGA8KBQKmuMvRwZCtNqgQGK9PA8",
+    "txid": "b253ab8e34260e387a5b2c4d8df13a5c43f12c3d01628b52c43edc71c86ff23d",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 232,
+    "blocktime": 1518810846
+  }, 
+  {
+    "address": "mtQ158H3RoLtyRvM7noYPNuzPJ6aQkCfru",
+    "txid": "d393f0415f5b711ffc4419bfb2c65edc2d2a6410f4daa1a35296b808df78ea45",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 233,
+    "blocktime": 1518810846
+  }, 
+  {
+    "address": "mrJuFgPirQ9HnNVaQVTZe2fR7bXopAU7aF",
+    "txid": "1f0a45d49b97fc0857f7180217490a0d49fc137f6921ce23a8e104f36621d2d4",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 234,
+    "blocktime": 1518810847
+  }, 
+  {
+    "address": "mqaGK51TGcFyWYFafg4JbEDjSN54Rr3mbx",
+    "txid": "9520a2cdc6b3b7a0d7b937d828410d3529c74c56f5e30fb916985a65ddf61b81",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 235,
+    "blocktime": 1518810847
+  }, 
+  {
+    "address": "mrD6hwmighdjvdG5K4UBXTnNowsHMyRymh",
+    "txid": "9788561b3e8ac250fee4b60bad3440d28a86420e9de938fd7d4d0dfb0fc9741c",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 236,
+    "blocktime": 1518810847
+  }, 
+  {
+    "address": "mvyarkb38wk4xWicoWVZkkiCFXCiPNHHUn",
+    "txid": "97a7cc5162f15e14124541cde81e792a185e411a0ef30b19a0f889c67d36a475",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 237,
+    "blocktime": 1518810848
+  }, 
+  {
+    "address": "msj3ybkd1Nyc6dNaWYR8uLCdc7t3KDfYHt",
+    "txid": "eafcb418b2de7373262e47b8e8ee37bcb1e5a3a1bba885a3172d06c5b7f67636",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 238,
+    "blocktime": 1518810848
+  }, 
+  {
+    "address": "n3M8X9teEn5FkhqqsnEcHutQWPDcUVvjbS",
+    "txid": "9699801b52515847e181502a5ddd27f21d703c49ba86fa31bfe7e1c5757d9f12",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 239,
+    "blocktime": 1518810848
+  }, 
+  {
+    "address": "mnQHjgswRpzPePhNvTf7dtNpVQ8QVqUYPD",
+    "txid": "b2acf070df146a327e80b6a53f29f761795b1f186b1e0af1339ebb3313f96919",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 240,
+    "blocktime": 1518810848
+  }, 
+  {
+    "address": "mrkxXyW7gDGEm7GD4dnTYhuD6YC562acRQ",
+    "txid": "17f4cae86ef5ceb3b23af269f2ee6b2f010e4eb9309ce0e86dee944140914363",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 241,
+    "blocktime": 1518810849
+  }, 
+  {
+    "address": "n34pxHTRw7wCrQjLWasHu4XEFBULX3ej47",
+    "txid": "99d1be54f40b65f44154336b53ed50c563053459674cdf2726949b36e599ba55",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 242,
+    "blocktime": 1518810849
+  }, 
+  {
+    "address": "mzS8zfUsbJALUQEvYE6mzHFwU323em2ezY",
+    "txid": "5ad826e80e7851c44348aad5ffaade6eaf84a77110a3fa10296ea2fdcf0967b6",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 243,
+    "blocktime": 1518810849
+  }, 
+  {
+    "address": "mzJWmjmVZuseP4AhSP4WknCxRhZNSfJZKw",
+    "txid": "568e4b998fe364ab584d09971a3647099270f93c6fe840a6af8d6a39106d7a19",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 244,
+    "blocktime": 1518810849
+  }, 
+  {
+    "address": "mmMVPjAxdTsA6rYkzubFSiMjD7if17hFpy",
+    "txid": "44d0f48406ed01ed11348a2062d192caa4167a3dc78b18ac5e789774da5b8d28",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 245,
+    "blocktime": 1518810850
+  }, 
+  {
+    "address": "n1Z2TCrFBkj3x1QAC4ysDsr5MfSXpYdj5x",
+    "txid": "1ce70599e337824d88b70cbf49fe3db040a173a6733455c460c0501deafdc94b",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 246,
+    "blocktime": 1518810850
+  }, 
+  {
+    "address": "mn8saznriSo9BrZvPc9oS6RaUD2DPAfnZ9",
+    "txid": "233f245f75442695c36f5c3bdb5a687025c6a7e46497d7fd1f997435b4b87844",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 247,
+    "blocktime": 1518810850
+  }, 
+  {
+    "address": "n1hBSqz2RzTCBjuAt3HXPD2bEaKcnhyGnz",
+    "txid": "40cdb46e3b40450c8e2742ec9d0e1aa230dc1a27f4418ee8831515fa3a456beb",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 248,
+    "blocktime": 1518810850
+  }, 
+  {
+    "address": "mmNveaGdbReR5bz1FoZ2BLWdCFoxBMsjj3",
+    "txid": "5671373ec6d7312a67e49aee0b63e259eca981cb457d93793d994b9080bb585a",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 249,
+    "blocktime": 1518810851
+  }, 
+  {
+    "address": "mji7aot29dDXpKwhYmgkJLdDfFYauVgLPC",
+    "txid": "52be06306e9e4d9f0246a254d96ff6a95ce4fe0f4a9450d4f42ce3dc0159ae6d",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 250,
+    "blocktime": 1518810851
+  }, 
+  {
+    "address": "mpF8FVKBwffF6xQeeQmPRnXisL8AxAXe6K",
+    "txid": "0a5830e134961c222bbced19e0101241e4d7d55ba8ae9f8dda241b9afc1b6df2",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 251,
+    "blocktime": 1518810851
+  }, 
+  {
+    "address": "msTNrfEP1W5KCjCEVoKiQSoAPNcaLmQwmR",
+    "txid": "1ad7205895dd349478a3c505ad476df16a5734394991fed2a28a0898dbe6e59c",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 252,
+    "blocktime": 1518810852
+  }, 
+  {
+    "address": "mwQkuqUtJFD959PtTR22s9JisxSduDGDQz",
+    "txid": "85b7456d95871c63a6483333c833b1b0df76acc6767ffb0f83cf484a992c018a",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 253,
+    "blocktime": 1518810852
+  }, 
+  {
+    "address": "mnioSC3mWw1c6fCcpyDKQzFhc4GdM95Cei",
+    "txid": "0f667afef18a7bbe945808f15eabd137d176d5fcc7333805faef25f37d4f0e7b",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 254,
+    "blocktime": 1518810852
+  }, 
+  {
+    "address": "mqpn5FVpqJ1J6ZGd6wo9ub5oWsMCEiraRp",
+    "txid": "483f14553b405cb4bde132673b43197dd7cff13d49d4390b4c0c0431103d50b0",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 255,
+    "blocktime": 1518810853
+  }, 
+  {
+    "address": "msRwh6gECJBat4Wj13whaYX8wnDjmNPjgk",
+    "txid": "c8d19ec73bda5c65a6e82b9a2e8fe729b3486a845fca8f0b7b8e6166ee84c10e",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 256,
+    "blocktime": 1518810853
+  }, 
+  {
+    "address": "muV8DSq6xufcENuGHA5LbYHyiBTKLHKcp3",
+    "txid": "f9e2ff7cab9d96fd2e0cd4d75b083c13c0bc061d25055ac0c20e9e0968578c03",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 257,
+    "blocktime": 1518810853
+  }, 
+  {
+    "address": "mkfw9QeT61RepE5gty5gFDVyvewtxq8hQS",
+    "txid": "a46046f26e13e8dd8b989dde57a4609b3be1c1df55df609608a1da61aec42977",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 258,
+    "blocktime": 1518810853
+  }, 
+  {
+    "address": "mgniV6pa7tVxyXAL15RQjZaL8bMUNAa1nF",
+    "txid": "701953c998595cfce130ff66abf2708edccaebbebcfe794723bd7eaceab97db9",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 259,
+    "blocktime": 1518810854
+  }, 
+  {
+    "address": "mxsaeY3JNrWmKNiva8Rm8x1bDKf9FXvcFU",
+    "txid": "d8545038ab62b514a4f013ab6e98cfe3dd4463e806682e760fc8e8aa6e4cf79e",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 260,
+    "blocktime": 1518810854
+  }, 
+  {
+    "address": "n21y8eY6tu68A9wgdSJoNNAnhKG6gkCBnj",
+    "txid": "c80c83e88e6c90589d01107e0c49b109ac320afe6da92ff37e94e1ebb68f8639",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 261,
+    "blocktime": 1518810854
+  }, 
+  {
+    "address": "mqRQr5gNd7eeLcq2AsBvaLEaYhaMSqBye1",
+    "txid": "d24ff15821833c169611895c93f2c18c44b673f648165c5aeb4cf3b337fddc48",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 262,
+    "blocktime": 1518810855
+  }, 
+  {
+    "address": "myEkPPNb7tLgFKtCXvEy8Q3NyziZqG8TXB",
+    "txid": "1251757d4bafe1a9db974ce5ade5ef9c3026da26b9fbe2c0042a030691d4230c",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 263,
+    "blocktime": 1518810855
+  }, 
+  {
+    "address": "mstPAXTzQfESech2rpKdEbQFEFAVV7XeEL",
+    "txid": "ae637c2db070fd24e157cd017eb53752a1e4f98b2570341175caab263deb7877",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 264,
+    "blocktime": 1518810855
+  }, 
+  {
+    "address": "n2jeBrnPnFpoawYjgYVq67hhHDgZCk4Bik",
+    "txid": "c736ce53cbf68c704b7ea3175cd8986dd9e3715681dd374028245cdb7e48e2f8",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 265,
+    "blocktime": 1518810855
+  }, 
+  {
+    "address": "mkBZPYs8wBn7aQdZ41MyguR65CLSLjVWRZ",
+    "txid": "7c741b268147c855e4f01c69c8ed469c675958fc33465fb1810f97b806a3b62f",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 266,
+    "blocktime": 1518810856
+  }, 
+  {
+    "address": "n3fGZLyPdx7PKXoBK8oecDa3ewG4hHq17t",
+    "txid": "2dbddaa25d9737d7d33f4461a8509e9328b1e64f38638d96915f536676ecbdaf",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 267,
+    "blocktime": 1518810856
+  }, 
+  {
+    "address": "myLTtft9NhTirKD4QSRxc2w37B3RcyQMXP",
+    "txid": "5aa7c1407d30e7230a3a7b5bc2230a0e548d3f8188c361e288c3c224ffa16431",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 268,
+    "blocktime": 1518810856
+  }, 
+  {
+    "address": "n2RKrGLKCkDHcxrD1WX4YhU8wLznPyGBC5",
+    "txid": "9e13cfb391a1a24b8cf0ae3935c737be633c8d24b8ba6ffcb2e34cab919289b6",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 269,
+    "blocktime": 1518810856
+  }, 
+  {
+    "address": "mzDYAEERju76NJYhBSokcHZHEGbGDrhE6H",
+    "txid": "0295b04d5c13bcb7f51c1f80cf0c5ba13c7b9bbc1e73f90e315091e141049958",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 270,
+    "blocktime": 1518810857
+  }, 
+  {
+    "address": "mfeLku4aPw9ZfaQEyBA6uc82vfGwbCtWBz",
+    "txid": "8fb51bead63446c1367a21568242ee795d5bcf71ae6e155af825a80e52c7d201",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 271,
+    "blocktime": 1518810857
+  }, 
+  {
+    "address": "mwkJUNZYsuRA3HBb4AmwNgvxmbufPQYPWs",
+    "txid": "cfe114c5132fefadb88eea1a2eda863e5981271b335f853c4972324dd2eb9189",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 272,
+    "blocktime": 1518810858
+  }, 
+  {
+    "address": "mkeTZ4faD7bat6bCYLe8MxvY4VFNpinN8t",
+    "txid": "8b275f77ecb0f05db56755d718e39c1ca3578013099e00619032a9aca8fc4504",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 273,
+    "blocktime": 1518810858
+  }, 
+  {
+    "address": "n4r8ejy3AumGbvUNSsDhjzCRf6RLRGECDV",
+    "txid": "21461efcdd9f42c47d2bd9367d1d55ddc3553ea7be17b4a3492efc5bd02ace1a",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 274,
+    "blocktime": 1518810858
+  }, 
+  {
+    "address": "mpdAUp8cdUJQR87TMgUyY4mtFkGcHPLb9X",
+    "txid": "4d2badde8e931a08e833898f7fb3e67ee82fc3ef6cd5ebd0a424eaa3b5f1e666",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 275,
+    "blocktime": 1518810858
+  }, 
+  {
+    "address": "mo2sZxbjMTwg2VDfDoZmTCZC7yMQPZtCtT",
+    "txid": "c26a5e38b55a2df96d62dd44e5c397773235483dfb570de4a033ba1e930496ac",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 276,
+    "blocktime": 1518810859
+  }, 
+  {
+    "address": "mrEVUQYMHh227YJicAULz3aBHYZ9YTuaat",
+    "txid": "3207b9909eaa729f2988c36ae9d69e42f66e68ccee04df5cb59139496d90d99c",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 277,
+    "blocktime": 1518810859
+  }, 
+  {
+    "address": "mh6Ub9fsqWaLCYfuAyLyUL4ERoFSLtwgxH",
+    "txid": "eda00d6fd5594dd77749c2c2da1e9ee67eabb88a703731965068510dbfca4c0a",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 278,
+    "blocktime": 1518810859
+  }, 
+  {
+    "address": "muDxKqDWanZyG4XRfJ1PA6awEvupYDYnMz",
+    "txid": "89782c7a2471032d950e03392a62b9e21f2c0c7a44402e35a03b1637d2821d8d",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "5.00000000",
+    "block": 279,
+    "blocktime": 1518810859
+  }, 
+  {
+    "address": "mjbnNGEKqHW6HL2dGMMNQGfJK9wbEkL84m",
+    "txid": "e70925b95d23facd92e355033eb6785acaca80ff05cded7c13562a6f794682b9",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 280,
+    "blocktime": 1518810860
+  }, 
+  {
+    "address": "mzwRgHPFjMAF3WBTt57Upucywx2NDMKxui",
+    "txid": "c4d36b74166f1edafd10874882031a69ef5b7ae9ef59527665d9f8152705cc8c",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "3.00000000",
+    "block": 281,
+    "blocktime": 1518810860
+  }, 
+  {
+    "address": "mwsJ4djurmrhbdfJ33DF8dkyrath86EQk7",
+    "txid": "9b21ff62d2631b9932d8428d5e68773c12a977fa5d3c4c0b8801537de4e00cd6",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "1.00000000",
+    "block": 282,
+    "blocktime": 1518810860
+  }, 
+  {
+    "address": "mjMa5TVk9qJuEu4twYvjARD9zBRXB4RVk1",
+    "txid": "4fcbcd03001c575d02ea6f90c3338c4421e1fccd9885309590c8a89732a5765b",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "4.00000000",
+    "block": 283,
+    "blocktime": 1518810861
+  }, 
+  {
+    "address": "mgyitmsu2dttYXYytMDfmWF9XyHWH31KBu",
+    "txid": "cebacc2593397dff0457b72aefb18f3f310cca9a2910cca866ae901400d1225b",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 1,
+    "effectiveprice": "2.00000000",
+    "block": 284,
+    "blocktime": 1518810861
+  }
+]
+
+////////////////////////////////////////
+Amount for sale Seller #1
+3
+________________________________________
+Price for sale Seller #1
+72018-02-16 19:54:21 Transaction type: 29
+[
+  "360c85848502a7afd4833ee891d71c42d306b22ab37fd608b198834b521aed38"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #2
+4
+________________________________________
+Price for sale Seller #2
+32018-02-16 19:54:22 Transaction type: 29
+2018-02-16 19:54:22 ________________________________________
+2018-02-16 19:54:22 Addr1: mfahN7588Dia32sYXeSzNeiwpqnNGFG9PR, LivesMaker: 0, Amount1: 200000000, Status1: None Txid: 8dae17bae5dd8e81d350d470b56978ebff2f06265a4c558afcb6ea0af223109e+5cd684f1d124aa5ddcff1258bb68dfe7510bf268fa8fe98640525554c6d13b6c
+2018-02-16 19:54:22 Addr2: mfahN7588Dia32sYXeSzNeiwpqnNGFG9PR, LivesTaker: 0, Amount2: 200000000, Status2: None Txid: 8dae17bae5dd8e81d350d470b56978ebff2f06265a4c558afcb6ea0af223109e+5cd684f1d124aa5ddcff1258bb68dfe7510bf268fa8fe98640525554c6d13b6c
+2018-02-16 19:54:22 ________________________________________
+2018-02-16 19:54:22 Addr1: mnnUiq9TKFoPxRB7VSt9p8hWPgK7WmqnAJ, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 832ce4bd1540dc02e2c5b977e7d7130ac31ab79be37015ffc5b05654891f028a+5cd684f1d124aa5ddcff1258bb68dfe7510bf268fa8fe98640525554c6d13b6c
+2018-02-16 19:54:22 Addr2: mfahN7588Dia32sYXeSzNeiwpqnNGFG9PR, LivesTaker: 200000000, Amount2: 0, Status2: Netted Txid: 832ce4bd1540dc02e2c5b977e7d7130ac31ab79be37015ffc5b05654891f028a+5cd684f1d124aa5ddcff1258bb68dfe7510bf268fa8fe98640525554c6d13b6c
+[
+  "48a0561572bff02bed47571b5b1c4a12dcff71389f407690a13a976173394eed"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #3
+5
+________________________________________
+Price for sale Seller #3
+52018-02-16 19:54:22 Transaction type: 29
+2018-02-16 19:54:22 ________________________________________
+2018-02-16 19:54:22 Addr1: mmBLkGYqGFegXQR74qeAhtErYB4YLZ3SQx, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 6b9fa59b414c9123fc32658c8238485171ef4d30498e8b2c97ff438f853243ef+51dcbf48ac520c43c3dd8dd622076815dc9cd252521a22c411f818a10694620b
+2018-02-16 19:54:22 Addr2: n4GPQ2QZ7yqMWsAG7RsqX8dn5CfURnhdo1, LivesTaker: 100000000, Amount2: 400000000, Status2: None Txid: 6b9fa59b414c9123fc32658c8238485171ef4d30498e8b2c97ff438f853243ef+51dcbf48ac520c43c3dd8dd622076815dc9cd252521a22c411f818a10694620b
+2018-02-16 19:54:22 ________________________________________
+2018-02-16 19:54:22 Addr1: mhyMVoXo9xSm4e9FZszoUswbjr38DNfhry, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 7bd797cdb7c1cb8c05a32a7b72684b4534cc87cbbcd404bca43607f6671ba75d+51dcbf48ac520c43c3dd8dd622076815dc9cd252521a22c411f818a10694620b
+2018-02-16 19:54:22 Addr2: n4GPQ2QZ7yqMWsAG7RsqX8dn5CfURnhdo1, LivesTaker: 300000000, Amount2: 200000000, Status2: None Txid: 7bd797cdb7c1cb8c05a32a7b72684b4534cc87cbbcd404bca43607f6671ba75d+51dcbf48ac520c43c3dd8dd622076815dc9cd252521a22c411f818a10694620b
+2018-02-16 19:54:22 ________________________________________
+2018-02-16 19:54:22 Addr1: mkkDCvusnPmwi8CCwC9rAwwNc78DniwKu9, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 05a13d432abd04569f299984d1ebca7954604ca856bab17bfb9e2f81c6b96a3f+51dcbf48ac520c43c3dd8dd622076815dc9cd252521a22c411f818a10694620b
+2018-02-16 19:54:22 Addr2: n4GPQ2QZ7yqMWsAG7RsqX8dn5CfURnhdo1, LivesTaker: 500000000, Amount2: 0, Status2: None Txid: 05a13d432abd04569f299984d1ebca7954604ca856bab17bfb9e2f81c6b96a3f+51dcbf48ac520c43c3dd8dd622076815dc9cd252521a22c411f818a10694620b
+[
+  "5544c7e0bafb1afe737e9c47be8a9467a0af4f2c803e6cbcfdd4abb33febde8a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #4
+2
+________________________________________
+Price for sale Seller #4
+32018-02-16 19:54:22 Transaction type: 29
+2018-02-16 19:54:22 ________________________________________
+2018-02-16 19:54:22 Addr1: mgS8sQsdeJP6KaCPSmWqgcyrnetmYV6YbN, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 7611c48a83a2baaf74e7d27c8776b61e624104f08b065d051b34bb1ac961c9d9+baaa6e97602296f2ff42fea5dca9d66579e44fd33d0bda0d8741782a40ad8364
+2018-02-16 19:54:22 Addr2: n4UmAA9BY5YGdENwcwth6bsrC62RGyhnJL, LivesTaker: 200000000, Amount2: 0, Status2: None Txid: 7611c48a83a2baaf74e7d27c8776b61e624104f08b065d051b34bb1ac961c9d9+baaa6e97602296f2ff42fea5dca9d66579e44fd33d0bda0d8741782a40ad8364
+[
+  "1774b223bffa81b0e242a1c409ffe666bf788635d5e54bbbdcb62feea3b79f76"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #5
+2
+________________________________________
+Price for sale Seller #5
+72018-02-16 19:54:23 Transaction type: 29
+[
+  "051ac768efa54d489ae08848796476d2051bffde7d0d2be64f3db026fd25b84a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #6
+5
+________________________________________
+Price for sale Seller #6
+42018-02-16 19:54:23 Transaction type: 29
+2018-02-16 19:54:23 ________________________________________
+2018-02-16 19:54:23 Addr1: mtfjQFJfW1JPfcJCVpj44rmnMgK3s54GVB, LivesMaker: 500000000, Amount1: 500000000, Status1: None Txid: fe40c5c6ae32130fa4e8f7b0f285bc5f89d5b9c2261bb567ff50fbe48507c034+a0012d59ab1776ee739afdf3172c1972f8b30aa0c3ed6dfbed80ccd68068ee96
+2018-02-16 19:54:23 Addr2: mvJzZH9Kp4eABJTT1uY3tR8u5bX91uUNd1, LivesTaker: 500000000, Amount2: 0, Status2: None Txid: fe40c5c6ae32130fa4e8f7b0f285bc5f89d5b9c2261bb567ff50fbe48507c034+a0012d59ab1776ee739afdf3172c1972f8b30aa0c3ed6dfbed80ccd68068ee96
+[
+  "7d323ca395bb1bb72b298726873b2893c10a0408f436becfcf1664eb5447ab2a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #7
+1
+________________________________________
+Price for sale Seller #7
+32018-02-16 19:54:23 Transaction type: 29
+2018-02-16 19:54:23 ________________________________________
+2018-02-16 19:54:23 Addr1: mgS8sQsdeJP6KaCPSmWqgcyrnetmYV6YbN, LivesMaker: 300000000, Amount1: 100000000, Status1: None Txid: 7611c48a83a2baaf74e7d27c8776b61e624104f08b065d051b34bb1ac961c9d9+4965c2b1959901c1503bdb1225255871c2a456cbd7dedbc80bdad45ced49dad3
+2018-02-16 19:54:23 Addr2: mxk3Pw6rViKNCzs3Eit7wdGC78jyMBeAab, LivesTaker: 100000000, Amount2: 0, Status2: None Txid: 7611c48a83a2baaf74e7d27c8776b61e624104f08b065d051b34bb1ac961c9d9+4965c2b1959901c1503bdb1225255871c2a456cbd7dedbc80bdad45ced49dad3
+[
+  "7343d9c69fe3d7e58324ea990a81a3642d7d94676141cbe09736391360e3c281"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #8
+1
+________________________________________
+Price for sale Seller #8
+82018-02-16 19:54:23 Transaction type: 29
+[
+  "4a1468346be88e73d20f2953b437c402e38a94d63018416aef7ebc9d1a5b83a1"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #9
+4
+________________________________________
+Price for sale Seller #9
+32018-02-16 19:54:24 Transaction type: 29
+2018-02-16 19:54:24 ________________________________________
+2018-02-16 19:54:24 Addr1: mwpQ7QMixcEeAc3BTTsnkvzbkpaFQeFkfH, LivesMaker: 400000000, Amount1: 400000000, Status1: None Txid: f53fb3ec06a09d05280b091d0342d3092b4f7789a446637617ecb5c50b9e4eab+a6d229f86295bed27a070225e729d1016493c2c0040aa1b7e126f8053826136d
+2018-02-16 19:54:24 Addr2: mtfjQFJfW1JPfcJCVpj44rmnMgK3s54GVB, LivesTaker: 100000000, Amount2: 0, Status2: Long Netted Txid: f53fb3ec06a09d05280b091d0342d3092b4f7789a446637617ecb5c50b9e4eab+a6d229f86295bed27a070225e729d1016493c2c0040aa1b7e126f8053826136d
+[
+  "237521f2ffb1ba31a0e08eb2f246f5e0f21db431c182787c1df9a2cd66ea6edd"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #10
+4
+________________________________________
+Price for sale Seller #10
+92018-02-16 19:54:24 Transaction type: 29
+[
+  "536abc311460ebbe238b59e81846ce7217be1013c66d7df90f87090b2f41713d"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #11
+3
+________________________________________
+Price for sale Seller #11
+92018-02-16 19:54:24 Transaction type: 29
+[
+  "7788e36a7255902aa73053c8f78d99e42da4212fae8b8b5c548662dc12b00553"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #12
+2
+________________________________________
+Price for sale Seller #12
+82018-02-16 19:54:24 Transaction type: 29
+[
+  "382f3e27b7919e40812fb15d28d5f1ebed214309d377ec7fa02857c4ae8fccc0"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #13
+5
+________________________________________
+Price for sale Seller #13
+32018-02-16 19:54:25 Transaction type: 29
+2018-02-16 19:54:25 ________________________________________
+2018-02-16 19:54:25 Addr1: mwpQ7QMixcEeAc3BTTsnkvzbkpaFQeFkfH, LivesMaker: 500000000, Amount1: 100000000, Status1: None Txid: f53fb3ec06a09d05280b091d0342d3092b4f7789a446637617ecb5c50b9e4eab+5b4c5aac1eb8a42015b79a789975b149f65e669dc29cb3427375e4342b0686bd
+2018-02-16 19:54:25 Addr2: mmN8GYmgbX18zL2YRWTW1tzEjFGMse1Wx9, LivesTaker: 100000000, Amount2: 400000000, Status2: None Txid: f53fb3ec06a09d05280b091d0342d3092b4f7789a446637617ecb5c50b9e4eab+5b4c5aac1eb8a42015b79a789975b149f65e669dc29cb3427375e4342b0686bd
+2018-02-16 19:54:25 ________________________________________
+2018-02-16 19:54:25 Addr1: mmN8GYmgbX18zL2YRWTW1tzEjFGMse1Wx9, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 91a905d30ca29013bd5f614997a7da112283dec15126194b6e71f327306c2792+5b4c5aac1eb8a42015b79a789975b149f65e669dc29cb3427375e4342b0686bd
+2018-02-16 19:54:25 Addr2: mmN8GYmgbX18zL2YRWTW1tzEjFGMse1Wx9, LivesTaker: 100000000, Amount2: 300000000, Status2: Netted Txid: 91a905d30ca29013bd5f614997a7da112283dec15126194b6e71f327306c2792+5b4c5aac1eb8a42015b79a789975b149f65e669dc29cb3427375e4342b0686bd
+2018-02-16 19:54:25 ________________________________________
+2018-02-16 19:54:25 Addr1: mwWgmzYnLoab83QVxmWDjFsBVcnrPL5AXG, LivesMaker: 300000000, Amount1: 300000000, Status1: None Txid: 81449db7b9e586fcc1fe7929fba6b11d2de3d664983c21dd31cc6a6c1c8ab482+5b4c5aac1eb8a42015b79a789975b149f65e669dc29cb3427375e4342b0686bd
+2018-02-16 19:54:25 Addr2: mmN8GYmgbX18zL2YRWTW1tzEjFGMse1Wx9, LivesTaker: 400000000, Amount2: 0, Status2: None Txid: 81449db7b9e586fcc1fe7929fba6b11d2de3d664983c21dd31cc6a6c1c8ab482+5b4c5aac1eb8a42015b79a789975b149f65e669dc29cb3427375e4342b0686bd
+[
+  "52a591f50f1b0dcff54ed63174d2d8a21711910529f13549967626e18698c4e0"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #14
+2
+________________________________________
+Price for sale Seller #14
+72018-02-16 19:54:25 Transaction type: 29
+[
+  "08256ea6efddd1b4f5d7a90f074a9dfde699ffc88b0ad54ad0e7d7b8fd458287"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #15
+5
+________________________________________
+Price for sale Seller #15
+82018-02-16 19:54:25 Transaction type: 29
+[
+  "0248269edc53ece50857c4af204fe94cb402344b5a37b22d0f597192b3b59d06"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #16
+3
+________________________________________
+Price for sale Seller #16
+42018-02-16 19:54:26 Transaction type: 29
+2018-02-16 19:54:26 ________________________________________
+2018-02-16 19:54:26 Addr1: miZPXWB3QdaFvgVZZNKs8Zd6FXigQokdQc, LivesMaker: 300000000, Amount1: 300000000, Status1: None Txid: f36c8dadb43c4a371089a19c8135d6fd1c30251f6db6533b8d20ed6d3a4c13b0+b338093357db1ddb998068e7732006c27208c2ed92959e942c760e757efd91a3
+2018-02-16 19:54:26 Addr2: mv1ZEwhmptKst98Xj4fUk9sLKgmVSfo2P9, LivesTaker: 300000000, Amount2: 0, Status2: None Txid: f36c8dadb43c4a371089a19c8135d6fd1c30251f6db6533b8d20ed6d3a4c13b0+b338093357db1ddb998068e7732006c27208c2ed92959e942c760e757efd91a3
+[
+  "528fa1318c180c8279b81664d6ba2036f30c254244679f3fcd0c41ffef93efd3"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #17
+3
+________________________________________
+Price for sale Seller #17
+32018-02-16 19:54:26 Transaction type: 29
+2018-02-16 19:54:26 ________________________________________
+2018-02-16 19:54:26 Addr1: mrJuFgPirQ9HnNVaQVTZe2fR7bXopAU7aF, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 1f0a45d49b97fc0857f7180217490a0d49fc137f6921ce23a8e104f36621d2d4+94e69bb0d7e29680f207c55d6b927ce8fe262f411ec16ea904a1e7c518457279
+2018-02-16 19:54:26 Addr2: mhyMVoXo9xSm4e9FZszoUswbjr38DNfhry, LivesTaker: 100000000, Amount2: 200000000, Status2: Long Netted Txid: 1f0a45d49b97fc0857f7180217490a0d49fc137f6921ce23a8e104f36621d2d4+94e69bb0d7e29680f207c55d6b927ce8fe262f411ec16ea904a1e7c518457279
+2018-02-16 19:54:26 ________________________________________
+2018-02-16 19:54:26 Addr1: mmMVPjAxdTsA6rYkzubFSiMjD7if17hFpy, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 44d0f48406ed01ed11348a2062d192caa4167a3dc78b18ac5e789774da5b8d28+94e69bb0d7e29680f207c55d6b927ce8fe262f411ec16ea904a1e7c518457279
+2018-02-16 19:54:26 Addr2: mhyMVoXo9xSm4e9FZszoUswbjr38DNfhry, LivesTaker: 100000000, Amount2: 0, Status2: Long Netted Txid: 44d0f48406ed01ed11348a2062d192caa4167a3dc78b18ac5e789774da5b8d28+94e69bb0d7e29680f207c55d6b927ce8fe262f411ec16ea904a1e7c518457279
+[
+  "6f7d3444891c2a5a777617a06004d35ba6959930db38dc0e9ecbd631189173fb"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #18
+5
+________________________________________
+Price for sale Seller #18
+82018-02-16 19:54:26 Transaction type: 29
+[
+  "653018162e7f05c1140f53db797a46744805340094c60c6dd799bb95f75e8aa6"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #19
+3
+________________________________________
+Price for sale Seller #19
+42018-02-16 19:54:26 Transaction type: 29
+2018-02-16 19:54:26 ________________________________________
+2018-02-16 19:54:26 Addr1: miZPXWB3QdaFvgVZZNKs8Zd6FXigQokdQc, LivesMaker: 400000000, Amount1: 100000000, Status1: None Txid: f36c8dadb43c4a371089a19c8135d6fd1c30251f6db6533b8d20ed6d3a4c13b0+b75f9654dbbc679b57268442b2dc96e27249c9fcc0b8d56f390082080d96ac57
+2018-02-16 19:54:26 Addr2: mzPguHDQ8gpfFfctVcb22DyaDqvzxrJePz, LivesTaker: 100000000, Amount2: 200000000, Status2: None Txid: f36c8dadb43c4a371089a19c8135d6fd1c30251f6db6533b8d20ed6d3a4c13b0+b75f9654dbbc679b57268442b2dc96e27249c9fcc0b8d56f390082080d96ac57
+2018-02-16 19:54:26 ________________________________________
+2018-02-16 19:54:26 Addr1: mzPguHDQ8gpfFfctVcb22DyaDqvzxrJePz, LivesMaker: 0, Amount1: 200000000, Status1: None Txid: 1f8b4208f6dc9e76b3fb7b66f4c1483419057cbb494ca8b1fd3231a2a3a73bb5+b75f9654dbbc679b57268442b2dc96e27249c9fcc0b8d56f390082080d96ac57
+2018-02-16 19:54:26 Addr2: mzPguHDQ8gpfFfctVcb22DyaDqvzxrJePz, LivesTaker: 0, Amount2: 0, Status2: Netted Txid: 1f8b4208f6dc9e76b3fb7b66f4c1483419057cbb494ca8b1fd3231a2a3a73bb5+b75f9654dbbc679b57268442b2dc96e27249c9fcc0b8d56f390082080d96ac57
+[
+  "6ab226f195d0702fa103ee5889b6924538e17a05703693af189abe905a12b817"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #20
+2
+________________________________________
+Price for sale Seller #20
+42018-02-16 19:54:27 Transaction type: 29
+2018-02-16 19:54:27 ________________________________________
+2018-02-16 19:54:27 Addr1: mzPguHDQ8gpfFfctVcb22DyaDqvzxrJePz, LivesMaker: 0, Amount1: 200000000, Status1: Netted Txid: 1f8b4208f6dc9e76b3fb7b66f4c1483419057cbb494ca8b1fd3231a2a3a73bb5+2cdbf8d45e714b939323c4911246f643bcb3a7b1bc589c5c58cfd48366052c9b
+2018-02-16 19:54:27 Addr2: mkkDCvusnPmwi8CCwC9rAwwNc78DniwKu9, LivesTaker: 0, Amount2: 0, Status2: Long Netted Txid: 1f8b4208f6dc9e76b3fb7b66f4c1483419057cbb494ca8b1fd3231a2a3a73bb5+2cdbf8d45e714b939323c4911246f643bcb3a7b1bc589c5c58cfd48366052c9b
+[
+  "5d2b13cb91adebb447b2c1a8d2663dcf77a6540e6c43e8ffa7e3c800e19d00c8"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #21
+2
+________________________________________
+Price for sale Seller #21
+32018-02-16 19:54:27 Transaction type: 29
+2018-02-16 19:54:27 ________________________________________
+2018-02-16 19:54:27 Addr1: mmMVPjAxdTsA6rYkzubFSiMjD7if17hFpy, LivesMaker: 400000000, Amount1: 200000000, Status1: None Txid: 44d0f48406ed01ed11348a2062d192caa4167a3dc78b18ac5e789774da5b8d28+b016da701b00903e92e3313cf4baed11a610c3614195ad82bd2bb0a04b249500
+2018-02-16 19:54:27 Addr2: mjNEi85gumfgpiK4FDAacMyKfrkeRSG2b5, LivesTaker: 200000000, Amount2: 0, Status2: None Txid: 44d0f48406ed01ed11348a2062d192caa4167a3dc78b18ac5e789774da5b8d28+b016da701b00903e92e3313cf4baed11a610c3614195ad82bd2bb0a04b249500
+[
+  "47611a83737d3e02ad339b684ef220ad41b2a7b4b999185984b7ef93171a38ee"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #22
+4
+________________________________________
+Price for sale Seller #22
+72018-02-16 19:54:27 Transaction type: 29
+[
+  "35c725dfd62cae8b20a9bd8c8296ec8ded9511aa18b6745eddad733c80c691d4"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #23
+5
+________________________________________
+Price for sale Seller #23
+82018-02-16 19:54:27 Transaction type: 29
+[
+  "33abbf44c148134408014171e9079ea7cd461a908b3948393f7c86aefab4c44b"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #24
+3
+________________________________________
+Price for sale Seller #24
+92018-02-16 19:54:28 Transaction type: 29
+[
+  "5a901096bd720cdcb04675247a8656d297cfa57895e935baf162e0dba40c54fd"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #25
+4
+________________________________________
+Price for sale Seller #25
+62018-02-16 19:54:28 Transaction type: 29
+[
+  "0428e504963a240edbd14f323c11334d2dfc2c71737e3568f0584e7768555ea4"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #26
+3
+________________________________________
+Price for sale Seller #26
+72018-02-16 19:54:28 Transaction type: 29
+[
+  "79277dd2db6785f5ac2345131e73ff5ab895359fc39e4821c4518a9bed0e1cb3"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #27
+2
+________________________________________
+Price for sale Seller #27
+62018-02-16 19:54:29 Transaction type: 29
+[
+  "3978776802abf2473811d9ea17764c723e1eb2a947da109dc960694038094646"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #28
+5
+________________________________________
+Price for sale Seller #28
+92018-02-16 19:54:29 Transaction type: 29
+[
+  "4187af6de6a367f175cf3c5b3c87788d24cc19fc4f9e72003b346bb7e6fc4d97"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #29
+5
+________________________________________
+Price for sale Seller #29
+92018-02-16 19:54:29 Transaction type: 29
+[
+  "686596213f4b7c1db232bec86b4f0b6c15f7da6404b8a119108419d69e3b071c"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #30
+1
+________________________________________
+Price for sale Seller #30
+42018-02-16 19:54:29 Transaction type: 29
+2018-02-16 19:54:29 ________________________________________
+2018-02-16 19:54:29 Addr1: mt4ZXJvbGA8KBQKmuMvRwZCtNqgQGK9PA8, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: b253ab8e34260e387a5b2c4d8df13a5c43f12c3d01628b52c43edc71c86ff23d+735ee84c15a200501704ad472b7527c3cb660d975a2e19aadca11e020079a4f1
+2018-02-16 19:54:29 Addr2: mrJuFgPirQ9HnNVaQVTZe2fR7bXopAU7aF, LivesTaker: 0, Amount2: 0, Status2: Long Netted Txid: b253ab8e34260e387a5b2c4d8df13a5c43f12c3d01628b52c43edc71c86ff23d+735ee84c15a200501704ad472b7527c3cb660d975a2e19aadca11e020079a4f1
+[
+  "361fd93db015cc956738f0b9c497e0feb0a50d22d74c1924530be48ca05152f3"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #31
+1
+________________________________________
+Price for sale Seller #31
+52018-02-16 19:54:30 Transaction type: 29
+2018-02-16 19:54:30 ________________________________________
+2018-02-16 19:54:30 Addr1: mkkDCvusnPmwi8CCwC9rAwwNc78DniwKu9, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 05a13d432abd04569f299984d1ebca7954604ca856bab17bfb9e2f81c6b96a3f+572566b9ef80035bfe9c9ed5798818bfb168ae0fae840ac9fcf8d31b7779e896
+2018-02-16 19:54:30 Addr2: mqaGK51TGcFyWYFafg4JbEDjSN54Rr3mbx, LivesTaker: 100000000, Amount2: 0, Status2: None Txid: 05a13d432abd04569f299984d1ebca7954604ca856bab17bfb9e2f81c6b96a3f+572566b9ef80035bfe9c9ed5798818bfb168ae0fae840ac9fcf8d31b7779e896
+[
+  "10ff3cc390c5bdb0811ed905130767cf6e57f0444ee1009446ee048e9b8ded49"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #32
+5
+________________________________________
+Price for sale Seller #32
+32018-02-16 19:54:30 Transaction type: 29
+2018-02-16 19:54:30 ________________________________________
+2018-02-16 19:54:30 Addr1: msTNrfEP1W5KCjCEVoKiQSoAPNcaLmQwmR, LivesMaker: 400000000, Amount1: 400000000, Status1: None Txid: 1ad7205895dd349478a3c505ad476df16a5734394991fed2a28a0898dbe6e59c+c9a5089b0c46a3135c49f329b79a7a9ec6adf88d419ce9b95d935d23d4de2eba
+2018-02-16 19:54:30 Addr2: mrD6hwmighdjvdG5K4UBXTnNowsHMyRymh, LivesTaker: 400000000, Amount2: 100000000, Status2: None Txid: 1ad7205895dd349478a3c505ad476df16a5734394991fed2a28a0898dbe6e59c+c9a5089b0c46a3135c49f329b79a7a9ec6adf88d419ce9b95d935d23d4de2eba
+2018-02-16 19:54:30 ________________________________________
+2018-02-16 19:54:30 Addr1: mnioSC3mWw1c6fCcpyDKQzFhc4GdM95Cei, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 0f667afef18a7bbe945808f15eabd137d176d5fcc7333805faef25f37d4f0e7b+c9a5089b0c46a3135c49f329b79a7a9ec6adf88d419ce9b95d935d23d4de2eba
+2018-02-16 19:54:30 Addr2: mrD6hwmighdjvdG5K4UBXTnNowsHMyRymh, LivesTaker: 500000000, Amount2: 0, Status2: None Txid: 0f667afef18a7bbe945808f15eabd137d176d5fcc7333805faef25f37d4f0e7b+c9a5089b0c46a3135c49f329b79a7a9ec6adf88d419ce9b95d935d23d4de2eba
+[
+  "5fbafa200d9ee3a1da9d1a140af4c6e2d6e8ae677d69cfb6b57cd9b17d2c24f2"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #33
+3
+________________________________________
+Price for sale Seller #33
+42018-02-16 19:54:30 Transaction type: 29
+2018-02-16 19:54:30 ________________________________________
+2018-02-16 19:54:30 Addr1: mt4ZXJvbGA8KBQKmuMvRwZCtNqgQGK9PA8, LivesMaker: 200000000, Amount1: 100000000, Status1: None Txid: b253ab8e34260e387a5b2c4d8df13a5c43f12c3d01628b52c43edc71c86ff23d+97abc3b1b12f77b236034fe0d98292fad43bbbe05013cb777880af25bf73351f
+2018-02-16 19:54:30 Addr2: mvyarkb38wk4xWicoWVZkkiCFXCiPNHHUn, LivesTaker: 100000000, Amount2: 200000000, Status2: None Txid: b253ab8e34260e387a5b2c4d8df13a5c43f12c3d01628b52c43edc71c86ff23d+97abc3b1b12f77b236034fe0d98292fad43bbbe05013cb777880af25bf73351f
+2018-02-16 19:54:30 ________________________________________
+2018-02-16 19:54:30 Addr1: mtQ158H3RoLtyRvM7noYPNuzPJ6aQkCfru, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: d393f0415f5b711ffc4419bfb2c65edc2d2a6410f4daa1a35296b808df78ea45+97abc3b1b12f77b236034fe0d98292fad43bbbe05013cb777880af25bf73351f
+2018-02-16 19:54:30 Addr2: mvyarkb38wk4xWicoWVZkkiCFXCiPNHHUn, LivesTaker: 200000000, Amount2: 100000000, Status2: None Txid: d393f0415f5b711ffc4419bfb2c65edc2d2a6410f4daa1a35296b808df78ea45+97abc3b1b12f77b236034fe0d98292fad43bbbe05013cb777880af25bf73351f
+2018-02-16 19:54:30 ________________________________________
+2018-02-16 19:54:30 Addr1: mrD6hwmighdjvdG5K4UBXTnNowsHMyRymh, LivesMaker: 400000000, Amount1: 100000000, Status1: Netted Txid: 9788561b3e8ac250fee4b60bad3440d28a86420e9de938fd7d4d0dfb0fc9741c+97abc3b1b12f77b236034fe0d98292fad43bbbe05013cb777880af25bf73351f
+2018-02-16 19:54:30 Addr2: mvyarkb38wk4xWicoWVZkkiCFXCiPNHHUn, LivesTaker: 300000000, Amount2: 0, Status2: None Txid: 9788561b3e8ac250fee4b60bad3440d28a86420e9de938fd7d4d0dfb0fc9741c+97abc3b1b12f77b236034fe0d98292fad43bbbe05013cb777880af25bf73351f
+[
+  "3b84373c57c082e3cc14d75e8cc489a8637a2cf516b7d3330752a681e0f17de8"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #34
+1
+________________________________________
+Price for sale Seller #34
+92018-02-16 19:54:31 Transaction type: 29
+[
+  "7e3423256dad97f1ed2dc26cc1c9a4b359e64c6b410b3d6f1b8229b4394c76c2"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #35
+5
+________________________________________
+Price for sale Seller #35
+42018-02-16 19:54:31 Transaction type: 29
+2018-02-16 19:54:31 ________________________________________
+2018-02-16 19:54:31 Addr1: mrD6hwmighdjvdG5K4UBXTnNowsHMyRymh, LivesMaker: 300000000, Amount1: 100000000, Status1: Netted Txid: 9788561b3e8ac250fee4b60bad3440d28a86420e9de938fd7d4d0dfb0fc9741c+41d42c14383468fce52a00d4d4db1c38a803717dd98fbdb3026da1bb60b16f61
+2018-02-16 19:54:31 Addr2: n3M8X9teEn5FkhqqsnEcHutQWPDcUVvjbS, LivesTaker: 100000000, Amount2: 400000000, Status2: None Txid: 9788561b3e8ac250fee4b60bad3440d28a86420e9de938fd7d4d0dfb0fc9741c+41d42c14383468fce52a00d4d4db1c38a803717dd98fbdb3026da1bb60b16f61
+2018-02-16 19:54:31 ________________________________________
+2018-02-16 19:54:31 Addr1: msj3ybkd1Nyc6dNaWYR8uLCdc7t3KDfYHt, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: eafcb418b2de7373262e47b8e8ee37bcb1e5a3a1bba885a3172d06c5b7f67636+41d42c14383468fce52a00d4d4db1c38a803717dd98fbdb3026da1bb60b16f61
+2018-02-16 19:54:31 Addr2: n3M8X9teEn5FkhqqsnEcHutQWPDcUVvjbS, LivesTaker: 200000000, Amount2: 300000000, Status2: None Txid: eafcb418b2de7373262e47b8e8ee37bcb1e5a3a1bba885a3172d06c5b7f67636+41d42c14383468fce52a00d4d4db1c38a803717dd98fbdb3026da1bb60b16f61
+2018-02-16 19:54:31 ________________________________________
+2018-02-16 19:54:31 Addr1: n1Z2TCrFBkj3x1QAC4ysDsr5MfSXpYdj5x, LivesMaker: 300000000, Amount1: 300000000, Status1: None Txid: 1ce70599e337824d88b70cbf49fe3db040a173a6733455c460c0501deafdc94b+41d42c14383468fce52a00d4d4db1c38a803717dd98fbdb3026da1bb60b16f61
+2018-02-16 19:54:31 Addr2: n3M8X9teEn5FkhqqsnEcHutQWPDcUVvjbS, LivesTaker: 500000000, Amount2: 0, Status2: None Txid: 1ce70599e337824d88b70cbf49fe3db040a173a6733455c460c0501deafdc94b+41d42c14383468fce52a00d4d4db1c38a803717dd98fbdb3026da1bb60b16f61
+[
+  "1eb6de94a922d9cfa6b13b05717067f717341c70b21f0eb0e4da3afd851fc972"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #36
+5
+________________________________________
+Price for sale Seller #36
+52018-02-16 19:54:31 Transaction type: 29
+2018-02-16 19:54:31 ________________________________________
+2018-02-16 19:54:31 Addr1: mjcCTzXCgyHfQrA1j7193xXg2tiuQ45ZKN, LivesMaker: 300000000, Amount1: 300000000, Status1: None Txid: eb4d5ebc0fc742aa3871a83108a03744c9a03d73d38d7233f27204ec9e5c002c+7f692596919ca872121c37ffde779a3544a8e5abccc99a35f64562c33cb4fd53
+2018-02-16 19:54:31 Addr2: mnQHjgswRpzPePhNvTf7dtNpVQ8QVqUYPD, LivesTaker: 300000000, Amount2: 200000000, Status2: None Txid: eb4d5ebc0fc742aa3871a83108a03744c9a03d73d38d7233f27204ec9e5c002c+7f692596919ca872121c37ffde779a3544a8e5abccc99a35f64562c33cb4fd53
+2018-02-16 19:54:31 ________________________________________
+2018-02-16 19:54:31 Addr1: mvg2vGKwhWCv3cah3j3WN4A5C8nNrMY2uJ, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: d3fe8565a4a4016cb9e4a7ba3e2971effcca3f29b4e5f6605c172afcaf486d2b+7f692596919ca872121c37ffde779a3544a8e5abccc99a35f64562c33cb4fd53
+2018-02-16 19:54:31 Addr2: mnQHjgswRpzPePhNvTf7dtNpVQ8QVqUYPD, LivesTaker: 400000000, Amount2: 100000000, Status2: None Txid: d3fe8565a4a4016cb9e4a7ba3e2971effcca3f29b4e5f6605c172afcaf486d2b+7f692596919ca872121c37ffde779a3544a8e5abccc99a35f64562c33cb4fd53
+2018-02-16 19:54:31 ________________________________________
+2018-02-16 19:54:31 Addr1: myGDzavK2P5eQNcLa3cwemCBJhLWmvFvy3, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 5b7661539e3942f149d6f2fed496944fea62f89dd4fc857446d8a7ab0c9ad9e2+7f692596919ca872121c37ffde779a3544a8e5abccc99a35f64562c33cb4fd53
+2018-02-16 19:54:31 Addr2: mnQHjgswRpzPePhNvTf7dtNpVQ8QVqUYPD, LivesTaker: 500000000, Amount2: 0, Status2: None Txid: 5b7661539e3942f149d6f2fed496944fea62f89dd4fc857446d8a7ab0c9ad9e2+7f692596919ca872121c37ffde779a3544a8e5abccc99a35f64562c33cb4fd53
+[
+  "5e2a5ca6a6d1f0e4ac1afed66401b31b1ff2fa7123e6d8e8b26821bf6b20c222"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #37
+3
+________________________________________
+Price for sale Seller #37
+92018-02-16 19:54:32 Transaction type: 29
+[
+  "2b77bcae0f82ff02b802117a9c4e0c6eab82e99d66bd9285938a28fe457c37d2"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #38
+4
+________________________________________
+Price for sale Seller #38
+32018-02-16 19:54:32 Transaction type: 29
+2018-02-16 19:54:32 ________________________________________
+2018-02-16 19:54:32 Addr1: mnioSC3mWw1c6fCcpyDKQzFhc4GdM95Cei, LivesMaker: 300000000, Amount1: 200000000, Status1: None Txid: 0f667afef18a7bbe945808f15eabd137d176d5fcc7333805faef25f37d4f0e7b+adcf25ac84fef4991daeaa3e3675323d6dba5c18a49c74e3cbaa210e289b5bdd
+2018-02-16 19:54:32 Addr2: n34pxHTRw7wCrQjLWasHu4XEFBULX3ej47, LivesTaker: 200000000, Amount2: 200000000, Status2: None Txid: 0f667afef18a7bbe945808f15eabd137d176d5fcc7333805faef25f37d4f0e7b+adcf25ac84fef4991daeaa3e3675323d6dba5c18a49c74e3cbaa210e289b5bdd
+2018-02-16 19:54:32 ________________________________________
+2018-02-16 19:54:32 Addr1: muV8DSq6xufcENuGHA5LbYHyiBTKLHKcp3, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: f9e2ff7cab9d96fd2e0cd4d75b083c13c0bc061d25055ac0c20e9e0968578c03+adcf25ac84fef4991daeaa3e3675323d6dba5c18a49c74e3cbaa210e289b5bdd
+2018-02-16 19:54:32 Addr2: n34pxHTRw7wCrQjLWasHu4XEFBULX3ej47, LivesTaker: 400000000, Amount2: 0, Status2: None Txid: f9e2ff7cab9d96fd2e0cd4d75b083c13c0bc061d25055ac0c20e9e0968578c03+adcf25ac84fef4991daeaa3e3675323d6dba5c18a49c74e3cbaa210e289b5bdd
+[
+  "22911c0ae1468f59dd12a0055e902cd76578995cd374fd60e94e5e2e6557f1cc"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #39
+2
+________________________________________
+Price for sale Seller #39
+82018-02-16 19:54:32 Transaction type: 29
+[
+  "248f9929dfc2f2611b81ead49ad2302b764a8f06f97eec52103ee3adc97fd9e7"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #40
+1
+________________________________________
+Price for sale Seller #40
+42018-02-16 19:54:32 Transaction type: 29
+2018-02-16 19:54:32 ________________________________________
+2018-02-16 19:54:32 Addr1: mmNveaGdbReR5bz1FoZ2BLWdCFoxBMsjj3, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 5671373ec6d7312a67e49aee0b63e259eca981cb457d93793d994b9080bb585a+7df7d9744486c2d5964319224444a5098ad6c357921607427ce474d249f56236
+2018-02-16 19:54:32 Addr2: mzJWmjmVZuseP4AhSP4WknCxRhZNSfJZKw, LivesTaker: 100000000, Amount2: 0, Status2: None Txid: 5671373ec6d7312a67e49aee0b63e259eca981cb457d93793d994b9080bb585a+7df7d9744486c2d5964319224444a5098ad6c357921607427ce474d249f56236
+[
+  "0d90233ef4366d7e058143daa7a3c875c8d913a43927774043c513a8a8328d58"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #41
+4
+________________________________________
+Price for sale Seller #41
+42018-02-16 19:54:33 Transaction type: 29
+2018-02-16 19:54:33 ________________________________________
+2018-02-16 19:54:33 Addr1: mmNveaGdbReR5bz1FoZ2BLWdCFoxBMsjj3, LivesMaker: 300000000, Amount1: 200000000, Status1: None Txid: 5671373ec6d7312a67e49aee0b63e259eca981cb457d93793d994b9080bb585a+1ad68f688a217e9c828979c0349f7bb89732bba2bd76faa18fd3f169ae8a3e8b
+2018-02-16 19:54:33 Addr2: mmMVPjAxdTsA6rYkzubFSiMjD7if17hFpy, LivesTaker: 200000000, Amount2: 200000000, Status2: Long Netted Txid: 5671373ec6d7312a67e49aee0b63e259eca981cb457d93793d994b9080bb585a+1ad68f688a217e9c828979c0349f7bb89732bba2bd76faa18fd3f169ae8a3e8b
+2018-02-16 19:54:33 ________________________________________
+2018-02-16 19:54:33 Addr1: mji7aot29dDXpKwhYmgkJLdDfFYauVgLPC, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 52be06306e9e4d9f0246a254d96ff6a95ce4fe0f4a9450d4f42ce3dc0159ae6d+1ad68f688a217e9c828979c0349f7bb89732bba2bd76faa18fd3f169ae8a3e8b
+2018-02-16 19:54:33 Addr2: mmMVPjAxdTsA6rYkzubFSiMjD7if17hFpy, LivesTaker: 0, Amount2: 0, Status2: Long Netted Txid: 52be06306e9e4d9f0246a254d96ff6a95ce4fe0f4a9450d4f42ce3dc0159ae6d+1ad68f688a217e9c828979c0349f7bb89732bba2bd76faa18fd3f169ae8a3e8b
+[
+  "10b633c76623571fb2f34ee7cd2f5f063739fc0854190fafd842ec701759b38f"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #42
+4
+________________________________________
+Price for sale Seller #42
+42018-02-16 19:54:33 Transaction type: 29
+2018-02-16 19:54:33 ________________________________________
+2018-02-16 19:54:33 Addr1: mji7aot29dDXpKwhYmgkJLdDfFYauVgLPC, LivesMaker: 300000000, Amount1: 100000000, Status1: None Txid: 52be06306e9e4d9f0246a254d96ff6a95ce4fe0f4a9450d4f42ce3dc0159ae6d+b422eebca8da5d62797e835805feb8b26a7dfa7ddad41f886c8d6aea38dd4225
+2018-02-16 19:54:33 Addr2: n1Z2TCrFBkj3x1QAC4ysDsr5MfSXpYdj5x, LivesTaker: 200000000, Amount2: 300000000, Status2: Long Netted Txid: 52be06306e9e4d9f0246a254d96ff6a95ce4fe0f4a9450d4f42ce3dc0159ae6d+b422eebca8da5d62797e835805feb8b26a7dfa7ddad41f886c8d6aea38dd4225
+2018-02-16 19:54:33 ________________________________________
+2018-02-16 19:54:33 Addr1: mwQkuqUtJFD959PtTR22s9JisxSduDGDQz, LivesMaker: 300000000, Amount1: 300000000, Status1: None Txid: 85b7456d95871c63a6483333c833b1b0df76acc6767ffb0f83cf484a992c018a+b422eebca8da5d62797e835805feb8b26a7dfa7ddad41f886c8d6aea38dd4225
+2018-02-16 19:54:33 Addr2: n1Z2TCrFBkj3x1QAC4ysDsr5MfSXpYdj5x, LivesTaker: 100000000, Amount2: 0, Status2: Long Netted Txid: 85b7456d95871c63a6483333c833b1b0df76acc6767ffb0f83cf484a992c018a+b422eebca8da5d62797e835805feb8b26a7dfa7ddad41f886c8d6aea38dd4225
+[
+  "5ab0f3bf7928aea0b90877b6e0903f90f5fd119c360b86a2a0f261d0bd888bc4"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #43
+1
+________________________________________
+Price for sale Seller #43
+42018-02-16 19:54:33 Transaction type: 29
+2018-02-16 19:54:33 ________________________________________
+2018-02-16 19:54:33 Addr1: mwQkuqUtJFD959PtTR22s9JisxSduDGDQz, LivesMaker: 400000000, Amount1: 100000000, Status1: None Txid: 85b7456d95871c63a6483333c833b1b0df76acc6767ffb0f83cf484a992c018a+5123956dd07d37d3c16a01bb1b1a282de59e1585da759992448c03ee00de3bd9
+2018-02-16 19:54:33 Addr2: mn8saznriSo9BrZvPc9oS6RaUD2DPAfnZ9, LivesTaker: 100000000, Amount2: 0, Status2: None Txid: 85b7456d95871c63a6483333c833b1b0df76acc6767ffb0f83cf484a992c018a+5123956dd07d37d3c16a01bb1b1a282de59e1585da759992448c03ee00de3bd9
+[
+  "0391a494158c50786882ab203c57835df54ceac89ccb5d10a5067f414307792b"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #44
+5
+________________________________________
+Price for sale Seller #44
+52018-02-16 19:54:34 Transaction type: 29
+2018-02-16 19:54:34 ________________________________________
+2018-02-16 19:54:34 Addr1: myGDzavK2P5eQNcLa3cwemCBJhLWmvFvy3, LivesMaker: 300000000, Amount1: 200000000, Status1: None Txid: 5b7661539e3942f149d6f2fed496944fea62f89dd4fc857446d8a7ab0c9ad9e2+608eb3c1fdaf0739121fc186c0a286892ca785bdc2869759ef62f2b01d62eb13
+2018-02-16 19:54:34 Addr2: n1hBSqz2RzTCBjuAt3HXPD2bEaKcnhyGnz, LivesTaker: 200000000, Amount2: 300000000, Status2: None Txid: 5b7661539e3942f149d6f2fed496944fea62f89dd4fc857446d8a7ab0c9ad9e2+608eb3c1fdaf0739121fc186c0a286892ca785bdc2869759ef62f2b01d62eb13
+2018-02-16 19:54:34 ________________________________________
+2018-02-16 19:54:34 Addr1: n3vu3uMGU6ZecTuWSLPgjd7p5jSJmrZPgT, LivesMaker: 300000000, Amount1: 300000000, Status1: None Txid: 0de10c721d9bbfff6d1b39ba709b71464ebe27f68719228f2a4ddfca0c690592+608eb3c1fdaf0739121fc186c0a286892ca785bdc2869759ef62f2b01d62eb13
+2018-02-16 19:54:34 Addr2: n1hBSqz2RzTCBjuAt3HXPD2bEaKcnhyGnz, LivesTaker: 500000000, Amount2: 0, Status2: None Txid: 0de10c721d9bbfff6d1b39ba709b71464ebe27f68719228f2a4ddfca0c690592+608eb3c1fdaf0739121fc186c0a286892ca785bdc2869759ef62f2b01d62eb13
+[
+  "66c5a7e3430e96d15b54073350bda8f125ced557073062827f13e2fdb8d8f5a0"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #45
+2
+________________________________________
+Price for sale Seller #45
+82018-02-16 19:54:34 Transaction type: 29
+[
+  "5095f675de2d15ffe8abc14142217dbfbd32978605e78e497f856d188053debd"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #46
+1
+________________________________________
+Price for sale Seller #46
+52018-02-16 19:54:34 Transaction type: 29
+2018-02-16 19:54:34 ________________________________________
+2018-02-16 19:54:34 Addr1: mqaGK51TGcFyWYFafg4JbEDjSN54Rr3mbx, LivesMaker: 0, Amount1: 100000000, Status1: Netted Txid: 9520a2cdc6b3b7a0d7b937d828410d3529c74c56f5e30fb916985a65ddf61b81+61e11f71cd23e204d954a7de34b2802e335951cc2508cb727371861f434fe79a
+2018-02-16 19:54:34 Addr2: mji7aot29dDXpKwhYmgkJLdDfFYauVgLPC, LivesTaker: 200000000, Amount2: 0, Status2: Long Netted Txid: 9520a2cdc6b3b7a0d7b937d828410d3529c74c56f5e30fb916985a65ddf61b81+61e11f71cd23e204d954a7de34b2802e335951cc2508cb727371861f434fe79a
+[
+  "7065d3794eb87802a8bc90f67ec44959a6b8a64665b78d410a493d229439c90e"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #47
+5
+________________________________________
+Price for sale Seller #47
+72018-02-16 19:54:34 Transaction type: 29
+[
+  "3bca5cc40b4fba8e08a5819ce18f8236605555d711bd0d1eb70f21db7c54f159"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #48
+4
+________________________________________
+Price for sale Seller #48
+32018-02-16 19:54:35 Transaction type: 29
+2018-02-16 19:54:35 ________________________________________
+2018-02-16 19:54:35 Addr1: muV8DSq6xufcENuGHA5LbYHyiBTKLHKcp3, LivesMaker: 500000000, Amount1: 300000000, Status1: None Txid: f9e2ff7cab9d96fd2e0cd4d75b083c13c0bc061d25055ac0c20e9e0968578c03+5038199199a1cbf242946a1124ed58d81d1b7d5beaa2fdb3eef26da331882486
+2018-02-16 19:54:35 Addr2: msTNrfEP1W5KCjCEVoKiQSoAPNcaLmQwmR, LivesTaker: 100000000, Amount2: 100000000, Status2: Long Netted Txid: f9e2ff7cab9d96fd2e0cd4d75b083c13c0bc061d25055ac0c20e9e0968578c03+5038199199a1cbf242946a1124ed58d81d1b7d5beaa2fdb3eef26da331882486
+2018-02-16 19:54:35 ________________________________________
+2018-02-16 19:54:35 Addr1: mkfw9QeT61RepE5gty5gFDVyvewtxq8hQS, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: a46046f26e13e8dd8b989dde57a4609b3be1c1df55df609608a1da61aec42977+5038199199a1cbf242946a1124ed58d81d1b7d5beaa2fdb3eef26da331882486
+2018-02-16 19:54:35 Addr2: msTNrfEP1W5KCjCEVoKiQSoAPNcaLmQwmR, LivesTaker: 0, Amount2: 0, Status2: Long Netted Txid: a46046f26e13e8dd8b989dde57a4609b3be1c1df55df609608a1da61aec42977+5038199199a1cbf242946a1124ed58d81d1b7d5beaa2fdb3eef26da331882486
+[
+  "53a09b35cf472e266f1e09898a0eb417c512acb473a3fe07921f2af06df96ff9"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #49
+2
+________________________________________
+Price for sale Seller #49
+32018-02-16 19:54:35 Transaction type: 29
+2018-02-16 19:54:35 ________________________________________
+2018-02-16 19:54:35 Addr1: mgniV6pa7tVxyXAL15RQjZaL8bMUNAa1nF, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 701953c998595cfce130ff66abf2708edccaebbebcfe794723bd7eaceab97db9+3c410e1b7a973bccb02a075f721514bebf6702a91928770089e1d5dd556c94f7
+2018-02-16 19:54:35 Addr2: mwQkuqUtJFD959PtTR22s9JisxSduDGDQz, LivesTaker: 200000000, Amount2: 0, Status2: Long Netted Txid: 701953c998595cfce130ff66abf2708edccaebbebcfe794723bd7eaceab97db9+3c410e1b7a973bccb02a075f721514bebf6702a91928770089e1d5dd556c94f7
+[
+  "46119dc7ff833f59a7e2660d0800f54c207425d519984b5e9b7a03ce67784e01"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #50
+5
+________________________________________
+Price for sale Seller #50
+92018-02-16 19:54:35 Transaction type: 29
+[
+  "1e9285f46b403cbfe533ff1a6b63f213bfc4d4cf0f259b61f3bbf98f52a468c7"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #51
+1
+________________________________________
+Price for sale Seller #51
+72018-02-16 19:54:35 Transaction type: 29
+[
+  "6a0a7072505f725e4ea29843960504248b9761f20c371ef1333631f232b33899"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #52
+2
+________________________________________
+Price for sale Seller #52
+72018-02-16 19:54:36 Transaction type: 29
+[
+  "16c720647c39055ad1500e6e6a0e24202af8585bcf4677016e6be71f5bd1c9be"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #53
+4
+________________________________________
+Price for sale Seller #53
+92018-02-16 19:54:36 Transaction type: 29
+[
+  "76ba5a5976a6c4d5d35d25a9f41877b2d25526296dc5d40e46f469aec2758a7d"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #54
+2
+________________________________________
+Price for sale Seller #54
+92018-02-16 19:54:36 Transaction type: 29
+[
+  "6894579e059c4400553899979cdea2b1a3ae0a88f5c5d89fa443e59cb4b7d109"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #55
+2
+________________________________________
+Price for sale Seller #55
+72018-02-16 19:54:37 Transaction type: 29
+[
+  "50e10d2b9687c4b8888eb6182809e90ece568801c18f6770d0b55d3cb81bbd8b"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #56
+5
+________________________________________
+Price for sale Seller #56
+92018-02-16 19:54:37 Transaction type: 29
+[
+  "196e01be1151836eb93a642e9ce5f1dc3f0aacdebbc9c4f26804cc9165f2edce"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #57
+1
+________________________________________
+Price for sale Seller #57
+52018-02-16 19:54:37 Transaction type: 29
+2018-02-16 19:54:37 ________________________________________
+2018-02-16 19:54:37 Addr1: mvyarkb38wk4xWicoWVZkkiCFXCiPNHHUn, LivesMaker: 200000000, Amount1: 100000000, Status1: Netted Txid: 97a7cc5162f15e14124541cde81e792a185e411a0ef30b19a0f889c67d36a475+009063c3fe1f636e221180b651dbe688f1595af9c70f2b52207c4b8e5b6a2e32
+2018-02-16 19:54:37 Addr2: n21y8eY6tu68A9wgdSJoNNAnhKG6gkCBnj, LivesTaker: 100000000, Amount2: 0, Status2: None Txid: 97a7cc5162f15e14124541cde81e792a185e411a0ef30b19a0f889c67d36a475+009063c3fe1f636e221180b651dbe688f1595af9c70f2b52207c4b8e5b6a2e32
+[
+  "751886b29fdff88f7c957f66030c45979803691636bde9e31f8e60f425da5882"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #58
+5
+________________________________________
+Price for sale Seller #58
+42018-02-16 19:54:38 Transaction type: 29
+2018-02-16 19:54:38 ________________________________________
+2018-02-16 19:54:38 Addr1: mqpn5FVpqJ1J6ZGd6wo9ub5oWsMCEiraRp, LivesMaker: 300000000, Amount1: 300000000, Status1: None Txid: 483f14553b405cb4bde132673b43197dd7cff13d49d4390b4c0c0431103d50b0+76dc1900a01f1691cd4b5da11d60d8934a2b53827f0f809582dd40331ef14781
+2018-02-16 19:54:38 Addr2: mqRQr5gNd7eeLcq2AsBvaLEaYhaMSqBye1, LivesTaker: 300000000, Amount2: 200000000, Status2: None Txid: 483f14553b405cb4bde132673b43197dd7cff13d49d4390b4c0c0431103d50b0+76dc1900a01f1691cd4b5da11d60d8934a2b53827f0f809582dd40331ef14781
+2018-02-16 19:54:38 ________________________________________
+2018-02-16 19:54:38 Addr1: mkBZPYs8wBn7aQdZ41MyguR65CLSLjVWRZ, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 7c741b268147c855e4f01c69c8ed469c675958fc33465fb1810f97b806a3b62f+76dc1900a01f1691cd4b5da11d60d8934a2b53827f0f809582dd40331ef14781
+2018-02-16 19:54:38 Addr2: mqRQr5gNd7eeLcq2AsBvaLEaYhaMSqBye1, LivesTaker: 400000000, Amount2: 100000000, Status2: None Txid: 7c741b268147c855e4f01c69c8ed469c675958fc33465fb1810f97b806a3b62f+76dc1900a01f1691cd4b5da11d60d8934a2b53827f0f809582dd40331ef14781
+2018-02-16 19:54:38 ________________________________________
+2018-02-16 19:54:38 Addr1: mfeLku4aPw9ZfaQEyBA6uc82vfGwbCtWBz, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 8fb51bead63446c1367a21568242ee795d5bcf71ae6e155af825a80e52c7d201+76dc1900a01f1691cd4b5da11d60d8934a2b53827f0f809582dd40331ef14781
+2018-02-16 19:54:38 Addr2: mqRQr5gNd7eeLcq2AsBvaLEaYhaMSqBye1, LivesTaker: 500000000, Amount2: 0, Status2: None Txid: 8fb51bead63446c1367a21568242ee795d5bcf71ae6e155af825a80e52c7d201+76dc1900a01f1691cd4b5da11d60d8934a2b53827f0f809582dd40331ef14781
+[
+  "3e91ffcae9e72d51af7e0ff79f2691ff5b889985bafb5caf0b554e2a476ef4e4"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #59
+2
+________________________________________
+Price for sale Seller #59
+52018-02-16 19:54:38 Transaction type: 29
+2018-02-16 19:54:38 ________________________________________
+2018-02-16 19:54:38 Addr1: mvyarkb38wk4xWicoWVZkkiCFXCiPNHHUn, LivesMaker: 100000000, Amount1: 100000000, Status1: Netted Txid: 97a7cc5162f15e14124541cde81e792a185e411a0ef30b19a0f889c67d36a475+189fb8693d4e19c7d21717ddba5e471096352a88eac2cd81ba61c6f53eb9a7c9
+2018-02-16 19:54:38 Addr2: myEkPPNb7tLgFKtCXvEy8Q3NyziZqG8TXB, LivesTaker: 100000000, Amount2: 100000000, Status2: None Txid: 97a7cc5162f15e14124541cde81e792a185e411a0ef30b19a0f889c67d36a475+189fb8693d4e19c7d21717ddba5e471096352a88eac2cd81ba61c6f53eb9a7c9
+2018-02-16 19:54:38 ________________________________________
+2018-02-16 19:54:38 Addr1: mnQHjgswRpzPePhNvTf7dtNpVQ8QVqUYPD, LivesMaker: 400000000, Amount1: 100000000, Status1: Netted Txid: b2acf070df146a327e80b6a53f29f761795b1f186b1e0af1339ebb3313f96919+189fb8693d4e19c7d21717ddba5e471096352a88eac2cd81ba61c6f53eb9a7c9
+2018-02-16 19:54:38 Addr2: myEkPPNb7tLgFKtCXvEy8Q3NyziZqG8TXB, LivesTaker: 200000000, Amount2: 0, Status2: None Txid: b2acf070df146a327e80b6a53f29f761795b1f186b1e0af1339ebb3313f96919+189fb8693d4e19c7d21717ddba5e471096352a88eac2cd81ba61c6f53eb9a7c9
+[
+  "464fb6198cf899ea212dbc9a8df1f001ff9b3eb69dba501cd9fc594a99d4c8d4"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #60
+4
+________________________________________
+Price for sale Seller #60
+32018-02-16 19:54:38 Transaction type: 29
+2018-02-16 19:54:38 ________________________________________
+2018-02-16 19:54:38 Addr1: mgniV6pa7tVxyXAL15RQjZaL8bMUNAa1nF, LivesMaker: 400000000, Amount1: 200000000, Status1: None Txid: 701953c998595cfce130ff66abf2708edccaebbebcfe794723bd7eaceab97db9+270d996205aa052f075a2997f5da8cbac021e7a37c1a9bc8142ce7e532b84c4c
+2018-02-16 19:54:38 Addr2: mstPAXTzQfESech2rpKdEbQFEFAVV7XeEL, LivesTaker: 200000000, Amount2: 200000000, Status2: None Txid: 701953c998595cfce130ff66abf2708edccaebbebcfe794723bd7eaceab97db9+270d996205aa052f075a2997f5da8cbac021e7a37c1a9bc8142ce7e532b84c4c
+2018-02-16 19:54:38 ________________________________________
+2018-02-16 19:54:38 Addr1: n2jeBrnPnFpoawYjgYVq67hhHDgZCk4Bik, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: c736ce53cbf68c704b7ea3175cd8986dd9e3715681dd374028245cdb7e48e2f8+270d996205aa052f075a2997f5da8cbac021e7a37c1a9bc8142ce7e532b84c4c
+2018-02-16 19:54:38 Addr2: mstPAXTzQfESech2rpKdEbQFEFAVV7XeEL, LivesTaker: 400000000, Amount2: 0, Status2: None Txid: c736ce53cbf68c704b7ea3175cd8986dd9e3715681dd374028245cdb7e48e2f8+270d996205aa052f075a2997f5da8cbac021e7a37c1a9bc8142ce7e532b84c4c
+[
+  "16544eb159fc37ebf0eac830ca2c262ba5a1271fda2abaca81b7274ba5983aed"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #61
+5
+________________________________________
+Price for sale Seller #61
+92018-02-16 19:54:38 Transaction type: 29
+[
+  "1dd282f9d7ec350c4282df6ab0a42c4a53621142818fd287782bb4161abafcd4"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #62
+3
+________________________________________
+Price for sale Seller #62
+52018-02-16 19:54:39 Transaction type: 29
+2018-02-16 19:54:39 ________________________________________
+2018-02-16 19:54:39 Addr1: mnQHjgswRpzPePhNvTf7dtNpVQ8QVqUYPD, LivesMaker: 300000000, Amount1: 100000000, Status1: Netted Txid: b2acf070df146a327e80b6a53f29f761795b1f186b1e0af1339ebb3313f96919+2f57a4a3604efa4c72a4e72dd48c5177bc6f56963617709ae6f0e5a82f00da46
+2018-02-16 19:54:39 Addr2: mkBZPYs8wBn7aQdZ41MyguR65CLSLjVWRZ, LivesTaker: 0, Amount2: 200000000, Status2: Long Netted Txid: b2acf070df146a327e80b6a53f29f761795b1f186b1e0af1339ebb3313f96919+2f57a4a3604efa4c72a4e72dd48c5177bc6f56963617709ae6f0e5a82f00da46
+2018-02-16 19:54:39 ________________________________________
+2018-02-16 19:54:39 Addr1: mrkxXyW7gDGEm7GD4dnTYhuD6YC562acRQ, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 17f4cae86ef5ceb3b23af269f2ee6b2f010e4eb9309ce0e86dee944140914363+2f57a4a3604efa4c72a4e72dd48c5177bc6f56963617709ae6f0e5a82f00da46
+2018-02-16 19:54:39 Addr2: mkBZPYs8wBn7aQdZ41MyguR65CLSLjVWRZ, LivesTaker: 200000000, Amount2: 0, Status2: None Txid: 17f4cae86ef5ceb3b23af269f2ee6b2f010e4eb9309ce0e86dee944140914363+2f57a4a3604efa4c72a4e72dd48c5177bc6f56963617709ae6f0e5a82f00da46
+[
+  "215efdd290ef8595ec4cc8625286539084a751d68a76a133d2fd1ed40c4e2096"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #63
+1
+________________________________________
+Price for sale Seller #63
+72018-02-16 19:54:39 Transaction type: 29
+[
+  "18dde284d56a5437844a600403d2a079d87996103ddb0e4733b95b850da707b8"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #64
+3
+________________________________________
+Price for sale Seller #64
+32018-02-16 19:54:39 Transaction type: 29
+2018-02-16 19:54:39 ________________________________________
+2018-02-16 19:54:39 Addr1: n2jeBrnPnFpoawYjgYVq67hhHDgZCk4Bik, LivesMaker: 300000000, Amount1: 100000000, Status1: None Txid: c736ce53cbf68c704b7ea3175cd8986dd9e3715681dd374028245cdb7e48e2f8+5a07d27d64ea9650648c89c889f321e3d15cf45792d82b9caf8ac291c94f46d4
+2018-02-16 19:54:39 Addr2: myLTtft9NhTirKD4QSRxc2w37B3RcyQMXP, LivesTaker: 100000000, Amount2: 200000000, Status2: None Txid: c736ce53cbf68c704b7ea3175cd8986dd9e3715681dd374028245cdb7e48e2f8+5a07d27d64ea9650648c89c889f321e3d15cf45792d82b9caf8ac291c94f46d4
+2018-02-16 19:54:39 ________________________________________
+2018-02-16 19:54:39 Addr1: mjbnNGEKqHW6HL2dGMMNQGfJK9wbEkL84m, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: e70925b95d23facd92e355033eb6785acaca80ff05cded7c13562a6f794682b9+5a07d27d64ea9650648c89c889f321e3d15cf45792d82b9caf8ac291c94f46d4
+2018-02-16 19:54:39 Addr2: myLTtft9NhTirKD4QSRxc2w37B3RcyQMXP, LivesTaker: 300000000, Amount2: 0, Status2: None Txid: e70925b95d23facd92e355033eb6785acaca80ff05cded7c13562a6f794682b9+5a07d27d64ea9650648c89c889f321e3d15cf45792d82b9caf8ac291c94f46d4
+[
+  "324e85f1798e3c35e0df76fab22d61f01633a26c6c85ad47e37fbedddbea19f4"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #65
+4
+________________________________________
+Price for sale Seller #65
+72018-02-16 19:54:39 Transaction type: 29
+[
+  "5c367659131d247143f8f4d1dfd75c3b5f9b3b9166d0e3d3f23f8ee0cd115c2a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #66
+5
+________________________________________
+Price for sale Seller #66
+72018-02-16 19:54:40 Transaction type: 29
+[
+  "6b04e977540a6ba6e22d7e1b108239842baf7d033e26cc1bb7fd9c5f7f6061b5"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #67
+1
+________________________________________
+Price for sale Seller #67
+52018-02-16 19:54:40 Transaction type: 29
+2018-02-16 19:54:40 ________________________________________
+2018-02-16 19:54:40 Addr1: mrkxXyW7gDGEm7GD4dnTYhuD6YC562acRQ, LivesMaker: 300000000, Amount1: 100000000, Status1: None Txid: 17f4cae86ef5ceb3b23af269f2ee6b2f010e4eb9309ce0e86dee944140914363+953a248d2fae1ae084699abe75331d851e92c8bf6dd74c1238a42dd79ff3d6c4
+2018-02-16 19:54:40 Addr2: mfeLku4aPw9ZfaQEyBA6uc82vfGwbCtWBz, LivesTaker: 0, Amount2: 0, Status2: Long Netted Txid: 17f4cae86ef5ceb3b23af269f2ee6b2f010e4eb9309ce0e86dee944140914363+953a248d2fae1ae084699abe75331d851e92c8bf6dd74c1238a42dd79ff3d6c4
+[
+  "2ed7e2dd2c51e069d62f8e801550cb0a10d6674ad10715141077f0be20a605e8"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #68
+2
+________________________________________
+Price for sale Seller #68
+92018-02-16 19:54:40 Transaction type: 29
+[
+  "5a654b183076934626653f46f12ffd925a462c4fdd862e5f897820b48c886400"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #69
+3
+________________________________________
+Price for sale Seller #69
+92018-02-16 19:54:41 Transaction type: 29
+[
+  "7bf52b06a976b732f7dc822b33d6f81a9fef49fe1ba54729681e96947357b861"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #70
+2
+________________________________________
+Price for sale Seller #70
+72018-02-16 19:54:41 Transaction type: 29
+[
+  "2fa94974716a613811f24a9249045f3b846736c486dd891eae28b6a10c2bec1d"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #71
+2
+________________________________________
+Price for sale Seller #71
+62018-02-16 19:54:41 Transaction type: 29
+[
+  "58216f33cdc0cbae82584851b88ebf0fd6faad6aedf6ee11b27b0ebc4e61c2ac"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #72
+3
+________________________________________
+Price for sale Seller #72
+52018-02-16 19:54:41 Transaction type: 29
+2018-02-16 19:54:41 ________________________________________
+2018-02-16 19:54:41 Addr1: n34pxHTRw7wCrQjLWasHu4XEFBULX3ej47, LivesMaker: 100000000, Amount1: 300000000, Status1: Netted Txid: 99d1be54f40b65f44154336b53ed50c563053459674cdf2726949b36e599ba55+6a97d782ca9b3cba2c6743c73e89e423da7554d91bf38c5cd141cd9077e43279
+2018-02-16 19:54:41 Addr2: mo2sZxbjMTwg2VDfDoZmTCZC7yMQPZtCtT, LivesTaker: 300000000, Amount2: 0, Status2: None Txid: 99d1be54f40b65f44154336b53ed50c563053459674cdf2726949b36e599ba55+6a97d782ca9b3cba2c6743c73e89e423da7554d91bf38c5cd141cd9077e43279
+[
+  "6fc47974a4c44040ba9864a08f29758bfcc8ec58abde4720ec0b1f9ae47f738b"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #73
+5
+________________________________________
+Price for sale Seller #73
+32018-02-16 19:54:42 Transaction type: 29
+2018-02-16 19:54:42 ________________________________________
+2018-02-16 19:54:42 Addr1: mjbnNGEKqHW6HL2dGMMNQGfJK9wbEkL84m, LivesMaker: 500000000, Amount1: 300000000, Status1: None Txid: e70925b95d23facd92e355033eb6785acaca80ff05cded7c13562a6f794682b9+3ba78ecdcb06e25eca5fa99bbc209ec0c616951dd96abd1b0688ee52fe8eb449
+2018-02-16 19:54:42 Addr2: mrEVUQYMHh227YJicAULz3aBHYZ9YTuaat, LivesTaker: 300000000, Amount2: 200000000, Status2: None Txid: e70925b95d23facd92e355033eb6785acaca80ff05cded7c13562a6f794682b9+3ba78ecdcb06e25eca5fa99bbc209ec0c616951dd96abd1b0688ee52fe8eb449
+2018-02-16 19:54:42 ________________________________________
+2018-02-16 19:54:42 Addr1: mzwRgHPFjMAF3WBTt57Upucywx2NDMKxui, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: c4d36b74166f1edafd10874882031a69ef5b7ae9ef59527665d9f8152705cc8c+3ba78ecdcb06e25eca5fa99bbc209ec0c616951dd96abd1b0688ee52fe8eb449
+2018-02-16 19:54:42 Addr2: mrEVUQYMHh227YJicAULz3aBHYZ9YTuaat, LivesTaker: 400000000, Amount2: 100000000, Status2: None Txid: c4d36b74166f1edafd10874882031a69ef5b7ae9ef59527665d9f8152705cc8c+3ba78ecdcb06e25eca5fa99bbc209ec0c616951dd96abd1b0688ee52fe8eb449
+2018-02-16 19:54:42 ________________________________________
+2018-02-16 19:54:42 Addr1: mwkJUNZYsuRA3HBb4AmwNgvxmbufPQYPWs, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: cfe114c5132fefadb88eea1a2eda863e5981271b335f853c4972324dd2eb9189+3ba78ecdcb06e25eca5fa99bbc209ec0c616951dd96abd1b0688ee52fe8eb449
+2018-02-16 19:54:42 Addr2: mrEVUQYMHh227YJicAULz3aBHYZ9YTuaat, LivesTaker: 500000000, Amount2: 0, Status2: None Txid: cfe114c5132fefadb88eea1a2eda863e5981271b335f853c4972324dd2eb9189+3ba78ecdcb06e25eca5fa99bbc209ec0c616951dd96abd1b0688ee52fe8eb449
+[
+  "5e4e634dfbcf1cbb5315a96333b7e3adef43869b063a8e87b85d71df52f1315a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #74
+4
+________________________________________
+Price for sale Seller #74
+92018-02-16 19:54:42 Transaction type: 29
+[
+  "374f732afa697c618910a4b6e24c8780a1e8d5351052be49ce311ffb9fe4b33b"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #75
+3
+________________________________________
+Price for sale Seller #75
+62018-02-16 19:54:42 Transaction type: 29
+[
+  "0ee3e6629f09359ec6fefda9987afc356f7fc2354c2c6c989557df98eea1ad95"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #76
+2
+________________________________________
+Price for sale Seller #76
+62018-02-16 19:54:43 Transaction type: 29
+[
+  "103ca85208140e9d7558ebe6cb6328e1d52de39e8a2e704bdf5973624e953cdb"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #77
+2
+________________________________________
+Price for sale Seller #77
+82018-02-16 19:54:43 Transaction type: 29
+[
+  "6ccdf7e5be90cab7fff9b2701ce70f1b63b0a007c1a84fc205d5063abce98b02"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #78
+1
+________________________________________
+Price for sale Seller #78
+42018-02-16 19:54:43 Transaction type: 29
+2018-02-16 19:54:43 ________________________________________
+2018-02-16 19:54:43 Addr1: mrEVUQYMHh227YJicAULz3aBHYZ9YTuaat, LivesMaker: 400000000, Amount1: 100000000, Status1: Netted Txid: 3207b9909eaa729f2988c36ae9d69e42f66e68ccee04df5cb59139496d90d99c+8d50440da94b9709552b7dd6a866910d63c253ec3cb4ccfaf1b96c883b55ff74
+2018-02-16 19:54:43 Addr2: mwsJ4djurmrhbdfJ33DF8dkyrath86EQk7, LivesTaker: 100000000, Amount2: 0, Status2: None Txid: 3207b9909eaa729f2988c36ae9d69e42f66e68ccee04df5cb59139496d90d99c+8d50440da94b9709552b7dd6a866910d63c253ec3cb4ccfaf1b96c883b55ff74
+[
+  "275832b13ab9b9d0ddfde9f04f35c9948850c083333bdee6b5adc715d2bb72af"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #79
+5
+________________________________________
+Price for sale Seller #79
+42018-02-16 19:54:43 Transaction type: 29
+2018-02-16 19:54:43 ________________________________________
+2018-02-16 19:54:43 Addr1: mrEVUQYMHh227YJicAULz3aBHYZ9YTuaat, LivesMaker: 100000000, Amount1: 300000000, Status1: Netted Txid: 3207b9909eaa729f2988c36ae9d69e42f66e68ccee04df5cb59139496d90d99c+438b85b6148abd69f9f111360d58c93a3501d6d6c9f12ebf2f2ff453cb8cc692
+2018-02-16 19:54:43 Addr2: mjMa5TVk9qJuEu4twYvjARD9zBRXB4RVk1, LivesTaker: 300000000, Amount2: 200000000, Status2: None Txid: 3207b9909eaa729f2988c36ae9d69e42f66e68ccee04df5cb59139496d90d99c+438b85b6148abd69f9f111360d58c93a3501d6d6c9f12ebf2f2ff453cb8cc692
+2018-02-16 19:54:43 ________________________________________
+2018-02-16 19:54:43 Addr1: mjMa5TVk9qJuEu4twYvjARD9zBRXB4RVk1, LivesMaker: 300000000, Amount1: 200000000, Status1: None Txid: 4fcbcd03001c575d02ea6f90c3338c4421e1fccd9885309590c8a89732a5765b+438b85b6148abd69f9f111360d58c93a3501d6d6c9f12ebf2f2ff453cb8cc692
+2018-02-16 19:54:43 Addr2: mjMa5TVk9qJuEu4twYvjARD9zBRXB4RVk1, LivesTaker: 300000000, Amount2: 0, Status2: Netted Txid: 4fcbcd03001c575d02ea6f90c3338c4421e1fccd9885309590c8a89732a5765b+438b85b6148abd69f9f111360d58c93a3501d6d6c9f12ebf2f2ff453cb8cc692
+[
+  "1959152b35ae8ac316b63e2ed0779c7661cf94615e33e395b3acae17af07124b"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #80
+2
+________________________________________
+Price for sale Seller #80
+92018-02-16 19:54:44 Transaction type: 29
+[
+  "69403e888e575315ae60a1146a2994343e220e190bb3e8902510f48c3b238738"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #81
+1
+________________________________________
+Price for sale Seller #81
+62018-02-16 19:54:44 Transaction type: 29
+[
+  "2a0e6394e71dab9d8feda6dea03e0f2005867b1e1519d76178215478aec61b5c"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #82
+2
+________________________________________
+Price for sale Seller #82
+32018-02-16 19:54:44 Transaction type: 29
+2018-02-16 19:54:44 ________________________________________
+2018-02-16 19:54:44 Addr1: mjMa5TVk9qJuEu4twYvjARD9zBRXB4RVk1, LivesMaker: 100000000, Amount1: 200000000, Status1: Netted Txid: 4fcbcd03001c575d02ea6f90c3338c4421e1fccd9885309590c8a89732a5765b+45063799e48c61ca4b412fa75bf821908e16e573393d7977f827c7db370ebf98
+2018-02-16 19:54:44 Addr2: mmCCwpjeqfMLcU6L9QHH3duCyvLvEkP1So, LivesTaker: 200000000, Amount2: 0, Status2: None Txid: 4fcbcd03001c575d02ea6f90c3338c4421e1fccd9885309590c8a89732a5765b+45063799e48c61ca4b412fa75bf821908e16e573393d7977f827c7db370ebf98
+[
+  "10bde724c2e7d18ae9453381b59ca52f23ac55a44a17422bb8dd52b1724dcd3c"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #83
+5
+________________________________________
+Price for sale Seller #83
+52018-02-16 19:54:45 Transaction type: 29
+2018-02-16 19:54:45 ________________________________________
+2018-02-16 19:54:45 Addr1: n34pxHTRw7wCrQjLWasHu4XEFBULX3ej47, LivesMaker: 100000000, Amount1: 200000000, Status1: Netted Txid: 99d1be54f40b65f44154336b53ed50c563053459674cdf2726949b36e599ba55+5d5ff3be3fa7da854d22e2f6ff14f3b72bfbb71447e3fbb39f626667d9a87c8c
+2018-02-16 19:54:45 Addr2: mqftaoykb8W8jm7Kg1xTLAdUGNhaRimRD2, LivesTaker: 200000000, Amount2: 300000000, Status2: None Txid: 99d1be54f40b65f44154336b53ed50c563053459674cdf2726949b36e599ba55+5d5ff3be3fa7da854d22e2f6ff14f3b72bfbb71447e3fbb39f626667d9a87c8c
+2018-02-16 19:54:45 ________________________________________
+2018-02-16 19:54:45 Addr1: mzS8zfUsbJALUQEvYE6mzHFwU323em2ezY, LivesMaker: 300000000, Amount1: 300000000, Status1: None Txid: 5ad826e80e7851c44348aad5ffaade6eaf84a77110a3fa10296ea2fdcf0967b6+5d5ff3be3fa7da854d22e2f6ff14f3b72bfbb71447e3fbb39f626667d9a87c8c
+2018-02-16 19:54:45 Addr2: mqftaoykb8W8jm7Kg1xTLAdUGNhaRimRD2, LivesTaker: 500000000, Amount2: 0, Status2: None Txid: 5ad826e80e7851c44348aad5ffaade6eaf84a77110a3fa10296ea2fdcf0967b6+5d5ff3be3fa7da854d22e2f6ff14f3b72bfbb71447e3fbb39f626667d9a87c8c
+[
+  "1917f78782570005d9d7fe951052df85ec0e251bf87525e602e712ce8c82442a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #84
+3
+________________________________________
+Price for sale Seller #84
+42018-02-16 19:54:45 Transaction type: 29
+2018-02-16 19:54:45 ________________________________________
+2018-02-16 19:54:45 Addr1: mjMa5TVk9qJuEu4twYvjARD9zBRXB4RVk1, LivesMaker: 0, Amount1: 100000000, Status1: Netted Txid: 4fcbcd03001c575d02ea6f90c3338c4421e1fccd9885309590c8a89732a5765b+6b24a548a1f04dcc8f5b1a53ab4b6d21288725d98efbdc9b0da5cd44aa66923b
+2018-02-16 19:54:45 Addr2: mwbqPM8CKAEFnWT1zcMpCZfJ37B4N74VYi, LivesTaker: 100000000, Amount2: 200000000, Status2: None Txid: 4fcbcd03001c575d02ea6f90c3338c4421e1fccd9885309590c8a89732a5765b+6b24a548a1f04dcc8f5b1a53ab4b6d21288725d98efbdc9b0da5cd44aa66923b
+2018-02-16 19:54:45 ________________________________________
+2018-02-16 19:54:45 Addr1: mzJWmjmVZuseP4AhSP4WknCxRhZNSfJZKw, LivesMaker: 100000000, Amount1: 200000000, Status1: Netted Txid: 568e4b998fe364ab584d09971a3647099270f93c6fe840a6af8d6a39106d7a19+6b24a548a1f04dcc8f5b1a53ab4b6d21288725d98efbdc9b0da5cd44aa66923b
+2018-02-16 19:54:45 Addr2: mwbqPM8CKAEFnWT1zcMpCZfJ37B4N74VYi, LivesTaker: 300000000, Amount2: 0, Status2: None Txid: 568e4b998fe364ab584d09971a3647099270f93c6fe840a6af8d6a39106d7a19+6b24a548a1f04dcc8f5b1a53ab4b6d21288725d98efbdc9b0da5cd44aa66923b
+[
+  "6a998182450196c31c5804bde414e7866e707c97a0948fdd995f85789b0b1f6a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #85
+4
+________________________________________
+Price for sale Seller #85
+32018-02-16 19:54:45 Transaction type: 29
+2018-02-16 19:54:45 ________________________________________
+2018-02-16 19:54:45 Addr1: mzJWmjmVZuseP4AhSP4WknCxRhZNSfJZKw, LivesMaker: 400000000, Amount1: 300000000, Status1: None Txid: 568e4b998fe364ab584d09971a3647099270f93c6fe840a6af8d6a39106d7a19+ca5afcfcc7cbc0b68eb088abc7d7290bb6f0f1de3daa65fd857c4de00261a087
+2018-02-16 19:54:45 Addr2: mvF1aJUGB2Tegzr5n4kZGeWXBaAJox3e1D, LivesTaker: 300000000, Amount2: 100000000, Status2: None Txid: 568e4b998fe364ab584d09971a3647099270f93c6fe840a6af8d6a39106d7a19+ca5afcfcc7cbc0b68eb088abc7d7290bb6f0f1de3daa65fd857c4de00261a087
+2018-02-16 19:54:45 ________________________________________
+2018-02-16 19:54:45 Addr1: mn8saznriSo9BrZvPc9oS6RaUD2DPAfnZ9, LivesMaker: 0, Amount1: 100000000, Status1: Netted Txid: 233f245f75442695c36f5c3bdb5a687025c6a7e46497d7fd1f997435b4b87844+ca5afcfcc7cbc0b68eb088abc7d7290bb6f0f1de3daa65fd857c4de00261a087
+2018-02-16 19:54:45 Addr2: mvF1aJUGB2Tegzr5n4kZGeWXBaAJox3e1D, LivesTaker: 400000000, Amount2: 0, Status2: None Txid: 233f245f75442695c36f5c3bdb5a687025c6a7e46497d7fd1f997435b4b87844+ca5afcfcc7cbc0b68eb088abc7d7290bb6f0f1de3daa65fd857c4de00261a087
+[
+  "0fffd0f53086f43b58a671e4aebb5198d94be41b0bf058e76faaeb9d9da681b0"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #86
+1
+________________________________________
+Price for sale Seller #86
+32018-02-16 19:54:45 Transaction type: 29
+2018-02-16 19:54:45 ________________________________________
+2018-02-16 19:54:45 Addr1: mn8saznriSo9BrZvPc9oS6RaUD2DPAfnZ9, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 233f245f75442695c36f5c3bdb5a687025c6a7e46497d7fd1f997435b4b87844+b9817e21e840ce9483bf5add8e79d297c0fcc4284a187bacfff78f3fd117c102
+2018-02-16 19:54:45 Addr2: mhGxMbvdkDMjcnVMFbGtakSPsCVeuj8nv2, LivesTaker: 100000000, Amount2: 0, Status2: None Txid: 233f245f75442695c36f5c3bdb5a687025c6a7e46497d7fd1f997435b4b87844+b9817e21e840ce9483bf5add8e79d297c0fcc4284a187bacfff78f3fd117c102
+[
+  "1660ab80614be4155c1faff31a287d571c4a242f6d1913af7e255583404afa2e"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #87
+3
+________________________________________
+Price for sale Seller #87
+52018-02-16 19:54:46 Transaction type: 29
+2018-02-16 19:54:46 ________________________________________
+2018-02-16 19:54:46 Addr1: mn8saznriSo9BrZvPc9oS6RaUD2DPAfnZ9, LivesMaker: 200000000, Amount1: 100000000, Status1: None Txid: 233f245f75442695c36f5c3bdb5a687025c6a7e46497d7fd1f997435b4b87844+736a611a7cf5ea815466854c945ad727d0cd81c4e38cf46dd4ea80d04a6a61ea
+2018-02-16 19:54:46 Addr2: myteUbLoHkqisgLdetkbk72CLwwQC5mKVn, LivesTaker: 100000000, Amount2: 200000000, Status2: None Txid: 233f245f75442695c36f5c3bdb5a687025c6a7e46497d7fd1f997435b4b87844+736a611a7cf5ea815466854c945ad727d0cd81c4e38cf46dd4ea80d04a6a61ea
+2018-02-16 19:54:46 ________________________________________
+2018-02-16 19:54:46 Addr1: n21y8eY6tu68A9wgdSJoNNAnhKG6gkCBnj, LivesMaker: 100000000, Amount1: 200000000, Status1: Netted Txid: c80c83e88e6c90589d01107e0c49b109ac320afe6da92ff37e94e1ebb68f8639+736a611a7cf5ea815466854c945ad727d0cd81c4e38cf46dd4ea80d04a6a61ea
+2018-02-16 19:54:46 Addr2: myteUbLoHkqisgLdetkbk72CLwwQC5mKVn, LivesTaker: 300000000, Amount2: 0, Status2: None Txid: c80c83e88e6c90589d01107e0c49b109ac320afe6da92ff37e94e1ebb68f8639+736a611a7cf5ea815466854c945ad727d0cd81c4e38cf46dd4ea80d04a6a61ea
+[
+  "4c7beb13fb4ad3c96e792d24ddae97cd2a4cdb60f6ea1e2121a22b3b765ce4e6"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #88
+5
+________________________________________
+Price for sale Seller #88
+72018-02-16 19:54:46 Transaction type: 29
+[
+  "7b6a89db11c43db862de629c0b9ed0eff014698709eefaf848d7bdd15b9df39a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #89
+3
+________________________________________
+Price for sale Seller #89
+32018-02-16 19:54:46 Transaction type: 29
+2018-02-16 19:54:46 ________________________________________
+2018-02-16 19:54:46 Addr1: n21y8eY6tu68A9wgdSJoNNAnhKG6gkCBnj, LivesMaker: 400000000, Amount1: 300000000, Status1: None Txid: c80c83e88e6c90589d01107e0c49b109ac320afe6da92ff37e94e1ebb68f8639+51a433691c103e6cd8552327c06b4cd0a33e1d5eb199363519cf9c69c1484876
+2018-02-16 19:54:46 Addr2: mw7oXXhanFdYFSRKfdxTobCwH8YZfBxzjv, LivesTaker: 300000000, Amount2: 0, Status2: None Txid: c80c83e88e6c90589d01107e0c49b109ac320afe6da92ff37e94e1ebb68f8639+51a433691c103e6cd8552327c06b4cd0a33e1d5eb199363519cf9c69c1484876
+[
+  "0e677426dea06041950ffec3dd1faa69d47c92c0a37e939597072a90559a29eb"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #90
+4
+________________________________________
+Price for sale Seller #90
+52018-02-16 19:54:47 Transaction type: 29
+2018-02-16 19:54:47 ________________________________________
+2018-02-16 19:54:47 Addr1: myLTtft9NhTirKD4QSRxc2w37B3RcyQMXP, LivesMaker: 100000000, Amount1: 400000000, Status1: Netted Txid: 5aa7c1407d30e7230a3a7b5bc2230a0e548d3f8188c361e288c3c224ffa16431+1f0ecc634b581e425dab4586550ebe0801eee505047d9a827d8fe8d312080873
+2018-02-16 19:54:47 Addr2: mt73EyvXtd9Wrp1iRaQWoZNzNoWRQdekjy, LivesTaker: 400000000, Amount2: 0, Status2: None Txid: 5aa7c1407d30e7230a3a7b5bc2230a0e548d3f8188c361e288c3c224ffa16431+1f0ecc634b581e425dab4586550ebe0801eee505047d9a827d8fe8d312080873
+[
+  "539834b652f961b308fa4f59d0849f992ee423bcb88fcdba2210b4c64814f919"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #91
+3
+________________________________________
+Price for sale Seller #91
+52018-02-16 19:54:47 Transaction type: 29
+2018-02-16 19:54:47 ________________________________________
+2018-02-16 19:54:47 Addr1: n2RKrGLKCkDHcxrD1WX4YhU8wLznPyGBC5, LivesMaker: 100000000, Amount1: 100000000, Status1: None Txid: 9e13cfb391a1a24b8cf0ae3935c737be633c8d24b8ba6ffcb2e34cab919289b6+fc01f8d76d9e070ab0d0baa9fd41f97729b9031326bd3e860e3a2da9d2717cd8
+2018-02-16 19:54:47 Addr2: mrPXF2VN4N7ezod31M3C5th2TxJcimhq4t, LivesTaker: 100000000, Amount2: 200000000, Status2: None Txid: 9e13cfb391a1a24b8cf0ae3935c737be633c8d24b8ba6ffcb2e34cab919289b6+fc01f8d76d9e070ab0d0baa9fd41f97729b9031326bd3e860e3a2da9d2717cd8
+2018-02-16 19:54:47 ________________________________________
+2018-02-16 19:54:47 Addr1: mkeTZ4faD7bat6bCYLe8MxvY4VFNpinN8t, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 8b275f77ecb0f05db56755d718e39c1ca3578013099e00619032a9aca8fc4504+fc01f8d76d9e070ab0d0baa9fd41f97729b9031326bd3e860e3a2da9d2717cd8
+2018-02-16 19:54:47 Addr2: mrPXF2VN4N7ezod31M3C5th2TxJcimhq4t, LivesTaker: 300000000, Amount2: 0, Status2: None Txid: 8b275f77ecb0f05db56755d718e39c1ca3578013099e00619032a9aca8fc4504+fc01f8d76d9e070ab0d0baa9fd41f97729b9031326bd3e860e3a2da9d2717cd8
+[
+  "343973eea0d071076521c6e82615895c5430b203a09c3662e6808b6946427cbf"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #92
+2
+________________________________________
+Price for sale Seller #92
+82018-02-16 19:54:47 Transaction type: 29
+[
+  "50039c6706403d857c24cd2e9b68136cf5d910ec83fa7b529c555179f3074545"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #93
+3
+________________________________________
+Price for sale Seller #93
+42018-02-16 19:54:47 Transaction type: 29
+2018-02-16 19:54:47 ________________________________________
+2018-02-16 19:54:47 Addr1: mkeTZ4faD7bat6bCYLe8MxvY4VFNpinN8t, LivesMaker: 300000000, Amount1: 100000000, Status1: None Txid: 8b275f77ecb0f05db56755d718e39c1ca3578013099e00619032a9aca8fc4504+ac191d3e8c576eed73ad54b45cf4b882fb8ce5a862e95a76d562862a40ddcc00
+2018-02-16 19:54:47 Addr2: mpuec7V2PBWKxnxavQK7v51UB9t5u5DukF, LivesTaker: 100000000, Amount2: 200000000, Status2: None Txid: 8b275f77ecb0f05db56755d718e39c1ca3578013099e00619032a9aca8fc4504+ac191d3e8c576eed73ad54b45cf4b882fb8ce5a862e95a76d562862a40ddcc00
+2018-02-16 19:54:47 ________________________________________
+2018-02-16 19:54:47 Addr1: mpdAUp8cdUJQR87TMgUyY4mtFkGcHPLb9X, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 4d2badde8e931a08e833898f7fb3e67ee82fc3ef6cd5ebd0a424eaa3b5f1e666+ac191d3e8c576eed73ad54b45cf4b882fb8ce5a862e95a76d562862a40ddcc00
+2018-02-16 19:54:47 Addr2: mpuec7V2PBWKxnxavQK7v51UB9t5u5DukF, LivesTaker: 300000000, Amount2: 0, Status2: None Txid: 4d2badde8e931a08e833898f7fb3e67ee82fc3ef6cd5ebd0a424eaa3b5f1e666+ac191d3e8c576eed73ad54b45cf4b882fb8ce5a862e95a76d562862a40ddcc00
+[
+  "0a46e86eba9d3f1a9e943ce7caf17dac9e96b5cfc42e01896a4a1c333aeb213a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #94
+3
+________________________________________
+Price for sale Seller #94
+82018-02-16 19:54:48 Transaction type: 29
+[
+  "098064a2a86dd4992fee5200781c521bb12b0759535efd7c10b7ed154964b99a"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #95
+4
+________________________________________
+Price for sale Seller #95
+42018-02-16 19:54:48 Transaction type: 29
+2018-02-16 19:54:48 ________________________________________
+2018-02-16 19:54:48 Addr1: mpdAUp8cdUJQR87TMgUyY4mtFkGcHPLb9X, LivesMaker: 400000000, Amount1: 200000000, Status1: None Txid: 4d2badde8e931a08e833898f7fb3e67ee82fc3ef6cd5ebd0a424eaa3b5f1e666+93da41c3c1f7cbc7c58052891beb21c2b619cca9a6721ad6d736c37231ad1f1a
+2018-02-16 19:54:48 Addr2: n4nb4QbNTsMhRutszNZS37xjxQ4GNajQCw, LivesTaker: 200000000, Amount2: 200000000, Status2: None Txid: 4d2badde8e931a08e833898f7fb3e67ee82fc3ef6cd5ebd0a424eaa3b5f1e666+93da41c3c1f7cbc7c58052891beb21c2b619cca9a6721ad6d736c37231ad1f1a
+2018-02-16 19:54:48 ________________________________________
+2018-02-16 19:54:48 Addr1: muDxKqDWanZyG4XRfJ1PA6awEvupYDYnMz, LivesMaker: 200000000, Amount1: 200000000, Status1: None Txid: 89782c7a2471032d950e03392a62b9e21f2c0c7a44402e35a03b1637d2821d8d+93da41c3c1f7cbc7c58052891beb21c2b619cca9a6721ad6d736c37231ad1f1a
+2018-02-16 19:54:48 Addr2: n4nb4QbNTsMhRutszNZS37xjxQ4GNajQCw, LivesTaker: 400000000, Amount2: 0, Status2: None Txid: 89782c7a2471032d950e03392a62b9e21f2c0c7a44402e35a03b1637d2821d8d+93da41c3c1f7cbc7c58052891beb21c2b619cca9a6721ad6d736c37231ad1f1a
+[
+  "7a06c16393c0fbc2711046f2483ff8487211f7c0fc9e692e2241ad0942bfde32"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #96
+2
+________________________________________
+Price for sale Seller #96
+32018-02-16 19:54:48 Transaction type: 29
+[
+  "21eb3b96458a47a93062dd1c41257d301de87d54bbbadf3f50a699449b9c2e30"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #97
+5
+________________________________________
+Price for sale Seller #97
+72018-02-16 19:54:49 Transaction type: 29
+[
+  "1e529c42ee416a527344cbed293a66f914b7643149788c391ef2064ab9556c14"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #98
+2
+________________________________________
+Price for sale Seller #98
+82018-02-16 19:54:49 Transaction type: 29
+[
+  "20698af897da96e04912e81a2a171a2709e5c263b48d3daf2637216e4e8dce63"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #99
+3
+________________________________________
+Price for sale Seller #99
+92018-02-16 19:54:49 Transaction type: 29
+[
+  "50edf5f9f4a54d765ff06e08933ee51cd8327f37ed0a9290d7e6a65f6cc7fc8e"
+]
+
+////////////////////////////////////////
+Amount for sale Seller #100
+2
+________________________________________
+Price for sale Seller #100
+42018-02-16 19:54:49 Transaction type: 29
+[
+  "64cc748cbe68534be31628a9fc1329a4db8551a555f239aaf370c1d5ce529e95"
+]
+
+________________________________________
+   * Checking the orderbook for Future Contract 1 (selling side):
+[
+  {
+    "address": "mmBLkGYqGFegXQR74qeAhtErYB4YLZ3SQx",
+    "txid": "ed7fafe6e28ef7679fa58b010daf21f4106f2d6bd435e3cd62bf65d44f4cb744",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 285,
+    "blocktime": 1518810861
+  }, 
+  {
+    "address": "mnnUiq9TKFoPxRB7VSt9p8hWPgK7WmqnAJ",
+    "txid": "38bc7de7618b74a27836c3a83c34f7dff69681b4da746ea998b73f83262de926",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 289,
+    "blocktime": 1518810863
+  }, 
+  {
+    "address": "mgS8sQsdeJP6KaCPSmWqgcyrnetmYV6YbN",
+    "txid": "06269347b1c7f012356440ea1c84044b25d8b42a46555aef8c16fcb2a9844d9c",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 292,
+    "blocktime": 1518810863
+  }, 
+  {
+    "address": "miZPXWB3QdaFvgVZZNKs8Zd6FXigQokdQc",
+    "txid": "053891350f56482bb74b63d9074ed73f837c07eecbd9ba5cc96999047aeea7da",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 294,
+    "blocktime": 1518810864
+  }, 
+  {
+    "address": "mwpQ7QMixcEeAc3BTTsnkvzbkpaFQeFkfH",
+    "txid": "4495fd7f8754c98e1e54f2e05f2b89786c752bb1cdec975dc0fb0be8a89dc416",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 295,
+    "blocktime": 1518810864
+  }, 
+  {
+    "address": "mjrx48RQzPL8kQQVdAP9kcFCsRN4F7WoYA",
+    "txid": "43ef114a94865429d46e9e47f2a26d0e615350f83e592276df1b5f40a1974d5b",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 296,
+    "blocktime": 1518810864
+  }, 
+  {
+    "address": "mpScFbWV3C4CNceLbRLznmAp2BYiPGPjcf",
+    "txid": "91cbb8be3884460b0c5cac8ec18460d976b6c656264478838da00d5c20cd5042",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 298,
+    "blocktime": 1518810865
+  }, 
+  {
+    "address": "mtQQhfwjgFTmgk6tqs7PAvbJfVQ1tchEHN",
+    "txid": "e0d79049b4b3ac4d769a5e5938224af4b13198c7016bc2a435186372dffc52de",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 299,
+    "blocktime": 1518810865
+  }, 
+  {
+    "address": "mqjJkipcBEZhUGxBkSPsoqSCGvamKYwCdQ",
+    "txid": "d2a6ce36a8df04f970c51ba220aa366062bf788c01d65b8754a9e7501b3175fd",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 302,
+    "blocktime": 1518810866
+  }, 
+  {
+    "address": "mwWgmzYnLoab83QVxmWDjFsBVcnrPL5AXG",
+    "txid": "c3a71673cf6d4b8fefbe23a631771b66b3217f558bc664685b849d64ae392f7d",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 306,
+    "blocktime": 1518810867
+  }, 
+  {
+    "address": "mjcCTzXCgyHfQrA1j7193xXg2tiuQ45ZKN",
+    "txid": "6de3314aa1c4b410d8c1e0eadfa0c9e9c85d76c65d46eb503b2fe121b06e5b18",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 307,
+    "blocktime": 1518810867
+  }, 
+  {
+    "address": "mvg2vGKwhWCv3cah3j3WN4A5C8nNrMY2uJ",
+    "txid": "d8c1df2509806984e12784d2ccea9acbb536b73c945b272983263cb4f0573624",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 308,
+    "blocktime": 1518810868
+  }, 
+  {
+    "address": "myGDzavK2P5eQNcLa3cwemCBJhLWmvFvy3",
+    "txid": "9678cc094b1aa1f6063ee4c340631304f44dc296830277073c0c87484d36a44a",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "6.00000000",
+    "block": 309,
+    "blocktime": 1518810868
+  }, 
+  {
+    "address": "monw81j5bbekxgdB6MbpvVudcXaeW3kpne",
+    "txid": "01e405f8562e4f662966dfc15ef214e495aab7079e8ba79dad32c1dff3cbaee9",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 310,
+    "blocktime": 1518810868
+  }, 
+  {
+    "address": "n3vu3uMGU6ZecTuWSLPgjd7p5jSJmrZPgT",
+    "txid": "2c848b813bea2b47b4e1719fc4f16288fd7b55cdd9d1f2c2c20ee3f65ad2880a",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "6.00000000",
+    "block": 311,
+    "blocktime": 1518810869
+  }, 
+  {
+    "address": "mt4ZXJvbGA8KBQKmuMvRwZCtNqgQGK9PA8",
+    "txid": "d0aae9da76cb68ee806cbb02e5b4897fa0e8b2de0cecfc5ef88163a38e80f2d8",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 312,
+    "blocktime": 1518810869
+  }, 
+  {
+    "address": "mtQ158H3RoLtyRvM7noYPNuzPJ6aQkCfru",
+    "txid": "69a58f3247f5632fc968a0824ec0c874d087d625aaa5a603a64ba7b3c4de8309",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 313,
+    "blocktime": 1518810869
+  }, 
+  {
+    "address": "msj3ybkd1Nyc6dNaWYR8uLCdc7t3KDfYHt",
+    "txid": "d2a57f1e23dc02500184632ddc5d0696832595f52e9ae508ced86cc7fc199321",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 318,
+    "blocktime": 1518810871
+  }, 
+  {
+    "address": "mrkxXyW7gDGEm7GD4dnTYhuD6YC562acRQ",
+    "txid": "ac8abf1116db8ff2cce9ce4c9295add06a2ad2806e002fe391eb01f0b1f46db9",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 321,
+    "blocktime": 1518810872
+  }, 
+  {
+    "address": "mzS8zfUsbJALUQEvYE6mzHFwU323em2ezY",
+    "txid": "7db77e1776e1aa2939c65387ef8fb186074deac0b722dd5891fb02ccdbdc6a9d",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 323,
+    "blocktime": 1518810872
+  }, 
+  {
+    "address": "mmNveaGdbReR5bz1FoZ2BLWdCFoxBMsjj3",
+    "txid": "fca0c37525737f0fa3e119271baf75cb02f9c271cc308bbbad1b7717a5a79ba4",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 329,
+    "blocktime": 1518810874
+  }, 
+  {
+    "address": "mpF8FVKBwffF6xQeeQmPRnXisL8AxAXe6K",
+    "txid": "8657eb219e16d444232a8d58331086abebeef30a7172c9d204de2c3146fc5b5f",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 331,
+    "blocktime": 1518810874
+  }, 
+  {
+    "address": "mnioSC3mWw1c6fCcpyDKQzFhc4GdM95Cei",
+    "txid": "a09ba2b59f1a872df52479f97d5b3a7547398c0eca09d499e869a65bcd6f44dc",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 334,
+    "blocktime": 1518810875
+  }, 
+  {
+    "address": "mqpn5FVpqJ1J6ZGd6wo9ub5oWsMCEiraRp",
+    "txid": "6e715e00cb8f8c7c103dd5446f99fc28fa996e7a9ca1e335575edff13db38eae",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 335,
+    "blocktime": 1518810875
+  }, 
+  {
+    "address": "msRwh6gECJBat4Wj13whaYX8wnDjmNPjgk",
+    "txid": "b7408dfa8c6fc79c259b000ad09c1ab04315dc3e9896d9a0617bf0a5972509ac",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 336,
+    "blocktime": 1518810876
+  }, 
+  {
+    "address": "muV8DSq6xufcENuGHA5LbYHyiBTKLHKcp3",
+    "txid": "f87843624fc28533206a8f5e1d041a94a0249d9554338a0cdb2508a0a7137125",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 337,
+    "blocktime": 1518810876
+  }, 
+  {
+    "address": "mkfw9QeT61RepE5gty5gFDVyvewtxq8hQS",
+    "txid": "b329ab733d5afcb469a50f01d6784a60f2c3fa54eaa45f84a6bac46cb7baab8f",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 338,
+    "blocktime": 1518810876
+  }, 
+  {
+    "address": "mgniV6pa7tVxyXAL15RQjZaL8bMUNAa1nF",
+    "txid": "b2d24ea7c9f7af333eb61dfd595d6a97daa57d221afc6a84e77681629c267c09",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 339,
+    "blocktime": 1518810877
+  }, 
+  {
+    "address": "mxsaeY3JNrWmKNiva8Rm8x1bDKf9FXvcFU",
+    "txid": "f822774f12cf4e49e3677c5e9d9caabe75f768a99946eefd83ba586f22f81df5",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 340,
+    "blocktime": 1518810877
+  }, 
+  {
+    "address": "n2jeBrnPnFpoawYjgYVq67hhHDgZCk4Bik",
+    "txid": "c83393aea11dd546641b7069aa047e93228369b76f43039e71d519923e7ae4ac",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 345,
+    "blocktime": 1518810878
+  }, 
+  {
+    "address": "n3fGZLyPdx7PKXoBK8oecDa3ewG4hHq17t",
+    "txid": "60abfdc4363db9d8861dcbd9fe473d47999a6c3a2a8fe7b55e422a747f3bcbd9",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 347,
+    "blocktime": 1518810879
+  }, 
+  {
+    "address": "n2RKrGLKCkDHcxrD1WX4YhU8wLznPyGBC5",
+    "txid": "0e2476b912d7bafeebf4e75f939a2fde0f153a55b925465b09457187fe43d549",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 349,
+    "blocktime": 1518810879
+  }, 
+  {
+    "address": "mzDYAEERju76NJYhBSokcHZHEGbGDrhE6H",
+    "txid": "6ad87336392d8f9951191d4e59f29c73591bc053ff6fb1f796ab084b0c85f171",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 350,
+    "blocktime": 1518810880
+  }, 
+  {
+    "address": "mwkJUNZYsuRA3HBb4AmwNgvxmbufPQYPWs",
+    "txid": "c614ed1547f68ccff2fc81a3dfdf440f14dfc7a8c9702c6ff4a2aff831cf3e62",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 352,
+    "blocktime": 1518810880
+  }, 
+  {
+    "address": "mkeTZ4faD7bat6bCYLe8MxvY4VFNpinN8t",
+    "txid": "b221e4a7ca260574cbbbba9cbf4299cfc81cbf498207d883bfad918cce670016",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 353,
+    "blocktime": 1518810881
+  }, 
+  {
+    "address": "n4r8ejy3AumGbvUNSsDhjzCRf6RLRGECDV",
+    "txid": "9d426f9a733a8ac6edfe07bfde86b245d533a74ab455fb9698866f252a71fc08",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 354,
+    "blocktime": 1518810881
+  }, 
+  {
+    "address": "mpdAUp8cdUJQR87TMgUyY4mtFkGcHPLb9X",
+    "txid": "d095a02d65bbce0980e77c50a29abf254fe080942f2316e44ae41d08a90203da",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "6.00000000",
+    "block": 355,
+    "blocktime": 1518810881
+  }, 
+  {
+    "address": "mh6Ub9fsqWaLCYfuAyLyUL4ERoFSLtwgxH",
+    "txid": "97fac84bd89858c8a55146ab8cf8028355c5ac49730867726a1d71a2a8e714b2",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "4.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 358,
+    "blocktime": 1518810882
+  }, 
+  {
+    "address": "muDxKqDWanZyG4XRfJ1PA6awEvupYDYnMz",
+    "txid": "9a4ec0ed8eec876b68da85138bacb7ae8620c8eda34462eb98f270544ee721d1",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "6.00000000",
+    "block": 359,
+    "blocktime": 1518810882
+  }, 
+  {
+    "address": "mjbnNGEKqHW6HL2dGMMNQGfJK9wbEkL84m",
+    "txid": "95a89e14098506b63ae6c3791a0fffdbbc6fa54fbb4693ad639624aec943e793",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "6.00000000",
+    "block": 360,
+    "blocktime": 1518810883
+  }, 
+  {
+    "address": "mzwRgHPFjMAF3WBTt57Upucywx2NDMKxui",
+    "txid": "43f787f68c1003918755e42e27c07e560fbc590161c901423cca1cfe277a4a59",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 361,
+    "blocktime": 1518810883
+  }, 
+  {
+    "address": "mgyitmsu2dttYXYytMDfmWF9XyHWH31KBu",
+    "txid": "40ca77358b58a1b13eaec54c661dc743f6a65e165e00159c6ad94126d57556a8",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 364,
+    "blocktime": 1518810884
+  }, 
+  {
+    "address": "mow89TW93XsNGGtEJw7ihAgzVWZ96x3xzp",
+    "txid": "aab91e3a89663dfbb8b1b7381fa567bd940ae3773dc2946955977dc0b80d8ece",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "1.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "6.00000000",
+    "block": 365,
+    "blocktime": 1518810884
+  }, 
+  {
+    "address": "mm5N17i2sajB4t3MTSdgUBxy3tVSNanz5A",
+    "txid": "5e5ca0862ea00c31bb35756cf72273a337bd4aa81398ce1d0fc8e3c050d1c31a",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 372,
+    "blocktime": 1518810886
+  }, 
+  {
+    "address": "mtBagufwbsJHHAQQFFWWHpzKZuGKwBmwh2",
+    "txid": "10eb6ae73f2a781c83926d02cdd3718f540de7141b35d7a25a8f774e44a4ab35",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 376,
+    "blocktime": 1518810887
+  }, 
+  {
+    "address": "myjCq75MzrjWbNKtT5uyP7td8unFDGJpF4",
+    "txid": "612ce296b78ea66efccd6d7a7b4150259724677c3b706756e005e58bac7ce6c2",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 378,
+    "blocktime": 1518810888
+  }, 
+  {
+    "address": "mp5HDBpdirCqiHnsf25BRPDGMuJnXmHDYw",
+    "txid": "0e4acaa8d72a38c92c35b66eeccbdb06b6cb65971f274306c8910034c42c612e",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "3.00000000",
+    "block": 380,
+    "blocktime": 1518810888
+  }, 
+  {
+    "address": "mva6LK7RNG2aNRgRLWBnmsgBVvSTDD4q7x",
+    "txid": "b4dd742cf16eba6510cb101d9a5aa223da6674d340510041c4d4fc9116228998",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "5.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "7.00000000",
+    "block": 381,
+    "blocktime": 1518810889
+  }, 
+  {
+    "address": "mrAnDY9ycsrNaSNkPRfWZNh9P1a8qQ3KL8",
+    "txid": "3d2f1fc76cc12bd33ca114ca6fcf6e0083b6ae120528dae889352ff25e3d4f4f",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "8.00000000",
+    "block": 382,
+    "blocktime": 1518810889
+  }, 
+  {
+    "address": "mfqh6ZhpkhBvy1fxAmKbWbeN1f9thHQXQN",
+    "txid": "2a587a5bf0042fb69187e85e1d00cd24315d67efd2d667d74bde7706271d5ef6",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "3.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "9.00000000",
+    "block": 383,
+    "blocktime": 1518810889
+  }, 
+  {
+    "address": "mqq6UTWums8CbP2fWkuY9mnmBacuH5DTrN",
+    "txid": "659ac5bff09d8d3c6fcdc65c7a8dcc8d9a762262d98c6cb98febc4938f478d24",
+    "propertyidforsale": 2147483651,
+    "amountforsale": "2.00000000",
+    "tradingaction": 2,
+    "effectiveprice": "4.00000000",
+    "block": 384,
+    "blocktime": 1518810889
+  }
+]
+
+//////////////////////////////////////////
+Stoping omnicored and omnicore-cli:
+Omni Core server stopping
+2018-02-16 19:54:50 Omni Core shutdown completed

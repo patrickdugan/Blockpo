@@ -26,6 +26,7 @@
 #include <assert.h>
 #include <stdint.h>
 
+#include <iostream>
 #include <fstream>
 #include <limits>
 #include <map>
@@ -380,10 +381,10 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
     extern volatile uint64_t marketPrice;
     ///////////////////////////////
  	marketPrice = 100;
-    PrintToConsole("________________________________________\n");
-    PrintToConsole("Checking the margin requirement and notional size\n");
-    PrintToConsole("Margin requirement: %d, Notional size: %d\n", marginRequirementContract, notionalSize);
-    PrintToConsole("________________________________________\n");
+    // PrintToConsole("________________________________________\n");
+    // PrintToConsole("Checking the margin requirement and notional size\n");
+    // PrintToConsole("Margin requirement: %d, Notional size: %d\n", marginRequirementContract, notionalSize);
+    // PrintToConsole("________________________________________\n");
 
     const uint32_t propertyForSale = pnew->getProperty();
     MatchReturnType NewReturn = NOTHING;
@@ -399,7 +400,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
         PrintToLog("%s()=%d:%s NOT FOUND ON THE MARKET\n", __FUNCTION__, NewReturn, getTradeReturnType(NewReturn));
         return NewReturn;
     }
-
+    
     // within the desired property map (given one property) iterate over the items looking at prices
     for (cd_PricesMap::iterator priceIt = ppriceMap->begin(); priceIt != ppriceMap->end(); ++priceIt) { // check all prices
 
@@ -417,16 +418,14 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
         }
 
         cd_Set* const pofferSet = &(priceIt->second);
-
         // At good (single) price level and property iterate over offers looking at all parameters to find the match
-        cd_Set::iterator offerIt = pofferSet->begin();
+        cd_Set::iterator offerIt = pofferSet->begin();        
         while (offerIt != pofferSet->end()) { // Specific price, check all properties
 
             const CMPContractDex* const pold = &(*offerIt);
             assert(pold->getEffectivePrice() == sellersPrice);
 
-            if (msc_debug_metadex1) PrintToLog("Looking at existing: %s (its prop= %d) = %s\n",
-                xToString(sellersPrice), pold->getProperty(), pold->ToString());
+            std::string tradeStatus = pold->getEffectivePrice() == sellersPrice ? "Matched" : "NoMatched"; 
 
             // Does the desired property match? Does the tradingaction match?
             if ((pold->getProperty() != propertyForSale) || (pold->getTradingAction() == pnew->getTradingAction())) {
@@ -434,25 +433,16 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 continue;
             }
 
-            if (msc_debug_metadex1) PrintToLog("MATCH FOUND, Trade: %s = %s\n", xToString(sellersPrice), pold->ToString());
-
-            // Match found, execute trade now!
-            if (msc_debug_metadex1) PrintToLog("$$ trading using price: %s; seller: amount forsale=%d, buyer amount=%d\n",
-                                        xToString(sellersPrice), pold->getAmountForSale(), pnew->getAmountForSale());
-
-            if (msc_debug_metadex1) PrintToLog("$$ old: %s\n", pold->ToString());
-            if (msc_debug_metadex1) PrintToLog("$$ new: %s\n", pnew->ToString());
-
-            ///////////////////////////
+            //////////////////////////////////////
             // Preconditions
             assert(pold->getProperty() == pnew->getProperty());
 
-            PrintToConsole("Checking effective prices and trading actions:\n");
-            PrintToConsole("Effective price pold: %d\n", pold->getEffectivePrice());
-            PrintToConsole("Effective price pnew: %d\n", pnew->getEffectivePrice());
-            PrintToConsole("Trading action pold: %d\n", pold->getTradingAction());
-            PrintToConsole("Trading action pnew: %d\n", pnew->getTradingAction());
-            PrintToConsole("________________________________________\n");
+            // PrintToConsole("Checking effective prices and trading actions:\n");
+            // PrintToConsole("Effective price pold: %d\n", pold->getEffectivePrice());
+            // PrintToConsole("Effective price pnew: %d\n", pnew->getEffectivePrice());
+            // PrintToConsole("Trading action pold: %d\n", pold->getTradingAction());
+            // PrintToConsole("Trading action pnew: %d\n", pnew->getTradingAction());
+            // PrintToConsole("________________________________________\n");
             ///////////////////////////
             int64_t possitive_sell = 0, difference_s = 0, seller_amount = 0, negative_sell = 0;
             int64_t possitive_buy  = 0, difference_b = 0, buyer_amount  = 0, negative_buy  = 0;
@@ -510,8 +500,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                  }
             }
             ///////////////////////////
-            std::string Status_s = "";
-            std::string Status_b = "";
+            std::string Status_s = "Netted";
+            std::string Status_b = "Netted";
 
             NewReturn = TRADED;
             CMPContractDex contract_replacement = *pold;
@@ -571,10 +561,12 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 countClosedBuyer = 0;
             }
 
-            PrintToConsole("Checking Status for Seller and Buyer:\n");
-            PrintToConsole("Status seller: %s, Status buyer: %s\n", Status_s, Status_b);
-            PrintToConsole("________________________________________\n");
-            ////////////////////////////////////////////////
+            //////////////////////////////////////////
+
+            // PrintToConsole("________________________________________\n");
+            // PrintToConsole("Checking Status for Seller and Buyer:\n");
+            // PrintToConsole("Status seller: %s, Status buyer: %s\n", Status_s, Status_b);
+            //////////////////////////////////////////////
             int64_t lives_maker = 0, lives_taker = 0;
 
             if( (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) > 0) && ( getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ) ) {
@@ -598,9 +590,9 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                countClosedBuyer = 0;
             }
             ///////////////////////////////////////
-            PrintToConsole("Checking Market Price and Match Price:\n");
-            PrintToConsole("Market Price in Mdex: %d, countClosedBuyer: %d, Match Price: %d\n", marketPrice, countClosedBuyer, pold->getEffectivePrice());
-            PrintToConsole("________________________________________\n");
+            // PrintToConsole("Checking Market Price and Match Price:\n");
+            // PrintToConsole("Market Price in Mdex: %d, countClosedBuyer: %d, Match Price: %d\n", marketPrice, countClosedBuyer, pold->getEffectivePrice());
+            // PrintToConsole("________________________________________\n");
 
             if ( Status_s != "None") {
 
@@ -617,7 +609,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                 if ( PNL_s != 0 ) {
                     assert(update_tally_map(seller_address, collateralCurrency, PNL_s, CONTRACTDEX_RESERVE));
                 }
-                PrintToConsole("PNL_s: %d, Basis: %d\n", PNL_s, basis_s);
+                // PrintToConsole("PNL_s: %d, Basis: %d\n", PNL_s, basis_s);
             }
 
             if ( Status_b != "None" ) {
@@ -661,11 +653,15 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               Status_taker,
                                               lives_maker,
                                               lives_taker,
-                                              property_traded);
+                                              property_traded, 
+                                              tradeStatus, 
+                                              pold->getEffectivePrice(),
+                                              pnew->getEffectivePrice()
+                                              );
             ///////////////////////////////////////
-            PrintToConsole(" punto posterior a recordMatchedTrade");
+            // PrintToConsole(" punto posterior a recordMatchedTrade");
             marketPrice = pold->getEffectivePrice();
-
+     
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());
                 pofferSet->erase(offerIt++);
 
@@ -676,9 +672,9 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             if (bBuyerSatisfied) {
                 break;
             }
-      }
-      if (bBuyerSatisfied) break;
-    }
+        }
+        if (bBuyerSatisfied) break;
+    }    
     return NewReturn;
 }
 
@@ -852,6 +848,14 @@ void CMPContractDex::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
 
     // write the line
     file << lineOut << std::endl;
+}
+
+////////////////////////////////////
+/** New things for Contract */
+void saveDataGraphs(std::ofstream& file, std::string lineOut)
+{
+    std::string line = lineOut;
+    file << line << std::endl;
 }
 ////////////////////////////////////
 
