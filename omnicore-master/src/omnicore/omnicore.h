@@ -277,10 +277,11 @@ public:
     void printAll();
     bool getMatchingTrades(const uint256& txid, uint32_t propertyId, UniValue& tradeArray, int64_t& totalSold, int64_t& totalBought);
 
-    /////////////////////////////////
+    ///////////////////////////////////////
     /** New things for Contract */
     int64_t getTradeBasis(string address, int64_t contractsClosed, uint32_t property);
-    /////////////////////////////////
+    void marginLogic(uint32_t property);
+    //////////////////////////////////////
 
     bool getMatchingTrades(const uint256& txid);
     void getTradesForAddress(std::string address, std::vector<uint256>& vecTransactions, uint32_t propertyIdFilter = 0);
@@ -361,6 +362,10 @@ extern std::set<uint32_t> global_wallet_property_list;
 int64_t getMPbalance(const std::string& address, uint32_t propertyId, TallyType ttype);
 int64_t getUserAvailableMPbalance(const std::string& address, uint32_t propertyId);
 int64_t getUserFrozenMPbalance(const std::string& address, uint32_t propertyId);
+///////////////////////////////////////
+/** New things for Contract */
+int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice);
+//////////////////////////////////////
 
 /** Global handler to initialize Omni Core. */
 int mastercore_init();
