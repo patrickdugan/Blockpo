@@ -126,6 +126,7 @@ enum TransactionType {
 /** New things for Contracts */
 #define BUY   1
 #define SELL  2
+#define ACTIONINVALID  3
 //////////////////////////////////////
 
 enum FILETYPES {
@@ -167,10 +168,12 @@ enum FILETYPES {
 #define OMNI_PROPERTY_BTC   0
 #define OMNI_PROPERTY_MSC   1
 #define OMNI_PROPERTY_TMSC  2
+#define OMNI_PROPERTY_SPC   3
 
 // forward declarations
 std::string FormatDivisibleMP(int64_t amount, bool fSign = false);
 std::string FormatDivisibleShortMP(int64_t amount);
+double FormatContractShortMP(int64_t n);
 std::string FormatMP(uint32_t propertyId, int64_t amount, bool fSign = false);
 std::string FormatShortMP(uint32_t propertyId, int64_t amount);
 std::string FormatByType(int64_t amount, uint16_t propertyType);

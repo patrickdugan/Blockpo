@@ -222,6 +222,24 @@ std::string mastercore::FormatContractMP(int64_t n)
     return strprintf("%d", n);
 }
 /////////////////////////////////////////
+double FormatContractShortMP(int64_t n)
+{
+    int64_t n_abs = (n > 0 ? n : -n);
+    int64_t quotient = n_abs / COIN;
+    int64_t remainder = n_abs % COIN;
+    std::string str = strprintf("%d.%08d", quotient, remainder);
+    // clean up trailing zeros - good for RPC not so much for UI
+    str.erase(str.find_last_not_of('0') + 1, std::string::npos);
+    if (str.length() > 0) {
+        std::string::iterator it = str.end() - 1;
+        if (*it == '.') {
+            str.erase(it);
+        }
+    } //get rid of trailing dot if non decimal
+    double q = atof(str.c_str());
+    return q;
+}
+/////////////////////////////////////////
 
 std::string FormatShortMP(uint32_t property, int64_t n)
 {
@@ -1631,18 +1649,19 @@ int input_mp_accepts_string(const string &s)
 int input_globals_state_string(const string &s)
 {
   uint64_t exodusPrev;
-  unsigned int nextSPID, nextTestSPID;
+  unsigned int nextSPID, nextTestSPID, nextSPC;
   std::vector<std::string> vstr;
   boost::split(vstr, s, boost::is_any_of(" ,="), token_compress_on);
-  if (3 != vstr.size()) return -1;
+  if (4 != vstr.size()) return -1;
 
-  int i = 0;
-  exodusPrev = boost::lexical_cast<uint64_t>(vstr[i++]);
-  nextSPID = boost::lexical_cast<unsigned int>(vstr[i++]);
-  nextTestSPID = boost::lexical_cast<unsigned int>(vstr[i++]);
+    int i = 0;
+    exodusPrev = boost::lexical_cast<uint64_t>(vstr[i++]);
+    nextSPID = boost::lexical_cast<unsigned int>(vstr[i++]);
+    nextTestSPID = boost::lexical_cast<unsigned int>(vstr[i++]);
+    nextSPC = boost::lexical_cast<unsigned int>(vstr[i++]);
 
   exodus_prev = exodusPrev;
-  _my_sps->init(nextSPID, nextTestSPID);
+  _my_sps->init(nextSPID, nextTestSPID, nextSPC);
   return 0;
 }
 
@@ -3862,7 +3881,7 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
     int64_t totalAux = 0;
     // int64_t newAux = 0;
     int64_t pCouldBuy = 0;
-    int64_t aux = getMPbalance(address,property,REMAINING);
+    int64_t aux = getMPbalance(address, property, REMAINING);
     std::vector<std::string> vstr;
 
     leveldb::Iterator* it = NewIterator();
@@ -3923,15 +3942,16 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
     delete it;
     return totalAmount;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////
-/** New things for contracts */
-void CMPTradeList::marginLogic(uint32_t property) // vector of address matching for a given contract traded
+
+////////////////////////////////////////
+/** New things for Contracts */
+void CMPTradeList::marginLogic(uint32_t property) // Vector of matching address for a given contract traded
 {
     PrintToConsole("Looking for Address in getAddressMatched function\n");
     std::vector<std::string> vstr;
-    std::vector<std::string> addr;   // vector for the address
+    std::vector<std::string> addr;   // Address vector
+
     extern volatile uint64_t marketPrice;
-    uint64_t mPrice = marketPrice;
     leveldb::Iterator* it = NewIterator();
 
     for(it->SeekToFirst(); it->Valid(); it->Next()) {
@@ -3945,11 +3965,9 @@ void CMPTradeList::marginLogic(uint32_t property) // vector of address matching 
             PrintToLog("TRADEDB error - unexpected size of vector (%s)\n", strValue);
             continue;
         }
-        // Decode the details from the value string
         std::string address1 = vstr[0];
         std::string address2 = vstr[1];
 
-        // see if the address are inside of Vector
         if (std::find(addr.begin(), addr.end(), address1) == addr.end() ) {
             addr.push_back(address1);
         }
@@ -3960,69 +3978,63 @@ void CMPTradeList::marginLogic(uint32_t property) // vector of address matching 
 
       for(std::vector<std::string>::iterator it = addr.begin() ; it != addr.end(); ++it){
 
-        std::string address = *it;
-        PrintToConsole("address: %s\n",address);
-        int64_t liqPrice = getMPbalance(address,property,LIQUIDATION_PRICE);
-        //std:string sLiqPrice= xToString(liqPrice);
-        //uint64_t nLiqPrice = (uint64_t) StrToInt64(sLiqPrice, true);
-        uint64_t nLiqPrice = (uint64_t) liqPrice;
-        PrintToConsole("marketPrice in function: %d\n",marketPrice);
-        PrintToConsole("String LiqPrice: %d\n",nLiqPrice);
+        PrintToConsole("Address in vector addr: %s\n", *it);
+        int64_t liqPrice = getMPbalance(*it,property, LIQUIDATION_PRICE);
 
-        if(marketPrice <= nLiqPrice){
+        uint64_t nLiqPrice = (uint64_t) liqPrice;
+        PrintToConsole("marketPrice in marginLogic function : %d\n", FormatContractShortMP(marketPrice));
+        PrintToConsole("String LiqPrice in marginLogic function: %d\n", FormatContractShortMP(nLiqPrice));
+
+        if( FormatContractShortMP(marketPrice) <= FormatContractShortMP(nLiqPrice) ){
 
            PrintToConsole("//////////////////////////////////////MARGIN CALL !!!!!!!!!!!\n");
-           PrintToConsole("liquidation price: %s\n",nLiqPrice);
-           int rc = marginCall(address,property, mPrice);
-           assert(update_tally_map(address, property,-liqPrice, LIQUIDATION_PRICE));
-           PrintToConsole("Margin call rc %d\n", rc);
+           PrintToConsole("Liquidation price in marginLogic function: %s\n",nLiqPrice);
+           int rc = marginCall(*it, property, marketPrice);
+           
+           assert(update_tally_map(*it, property,-liqPrice, LIQUIDATION_PRICE));
+           PrintToConsole("Margin call number rc %d\n", rc);
            
         } else {
-           PrintToConsole("Nothing...\n");
+           PrintToConsole("No margin call!: marketPrice > nLiqPrice\n");
 
         }
 
       }
-      delete it;  // Always you must clean this!!!
- //return addr;
+      delete it; 
 }
-// ///////////////////////////////////////////// Future solution
-/** New things for contracts */
+
+////////////////////////////////////////
+/** New things for Contracts */
 int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice)
 {
     PrintToConsole("Into the marginCall function\n");
+
     const int64_t liqPrice = getMPbalance(address, propertyId, LIQUIDATION_PRICE);
     const int64_t shortBalance = getMPbalance(address, propertyId, NEGATIVE_BALANCE);
     const int64_t longBalance = getMPbalance(address, propertyId, POSSITIVE_BALANCE);
 
-    //ContractDex_ADD
-    int trading_action=0;
-    if (shortBalance > 0){
-        trading_action=1; //BUY
-    } else if( longBalance > 0) {
-        trading_action=2; //SELL
-    }
+    int trading_action = shortBalance > 0 ? BUY : ( longBalance > 0 ? SELL : ACTIONINVALID ); 
+    
     PrintToConsole("shortBalance: %d\n",shortBalance);
     PrintToConsole("LiqPrice: %d\n",liqPrice);
     PrintToConsole("longBalance: %d\n",longBalance);
     PrintToConsole("trading action: %d\n",trading_action);
 
     const uint256 tx;
-    int rc = ContractDex_ADD(address, propertyId, 0, 1, 1, 0, tx, 1, marketPrice, trading_action,0);
+    int rc = ContractDex_ADD(address, propertyId, 0, 1, 1, 0, tx, 1, marketPrice, trading_action, 0);
     if (rc == 0) {
         PrintToConsole("return of ContractDex_ADD: %d\n",rc);
     }
 
-
-    if (trading_action == 1){
+    if ( trading_action == BUY ){
         assert(update_tally_map(address, propertyId, -shortBalance, NEGATIVE_BALANCE));
-    } else if( trading_action == 2) {
+    } else if( trading_action == SELL ) {
         assert(update_tally_map(address, propertyId, -longBalance, POSSITIVE_BALANCE));
     }
 
     return rc;
-   }
-/////////////////////////////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////
 // /** New things for contracts */
 // bool CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uint32_t property)
 // {

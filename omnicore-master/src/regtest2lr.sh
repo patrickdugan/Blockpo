@@ -108,7 +108,7 @@ do
 	printf "Selling orders with the address Selling #$i\n"
 	#Structure: "omni_tradecontract Adrress|PropertyId1|Amount1|PropertyId2|Amount2|Price|Action\n"
 	# TRATradeSell[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 ${AMOUNT} 1 1 ${PRICE} 2)
-	TRATradeSell[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 3 1 1 2 2)
+	TRATradeSell[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 3 1 1 20 2)
 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest generate 1
 
 	printf "\n________________________________________\n"
@@ -138,7 +138,7 @@ do
 	printf "Buying orders with the address #$i\n"
 	#Structure: "omni_tradecontract Adrress|PropertyId1|Amount1|PropertyId2|Amount2|Price|Action\n"
 	# TRATradeBuy[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 ${AMOUNT} 1 1 ${PRICE} 1)
-	TRATradeBuy[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 1 1 1 2 1)
+	TRATradeBuy[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 1 1 1 20 1)
 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest generate 1
 
 	printf "\n________________________________________\n"
@@ -182,11 +182,11 @@ done
 
 printf "\n________________________________________\n"
 printf "   * Checking the orderbook for Future Contract 1 (selling side):\n"
-./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getcontract_orderbook 2147483651 2
+./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getcontract_orderbook 2 2
 
 printf "\n________________________________________\n"
 printf "   * Checking the orderbook for Future Contract 1 (buying side):\n"
-./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getcontract_orderbook 2147483651 1
+./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getcontract_orderbook 2 1
 
 printf "\n//////////////////////////////////////////\n"
 printf "Stoping omnicored and omnicore-cli:\n"

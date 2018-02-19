@@ -1899,11 +1899,15 @@ int CMPTransaction::logicMath_ContractDexCancelEcosystem()
 /** Tx 29 */
 int CMPTransaction::logicMath_ContractDexTrade()
 {
-    ///////////////////////////////
-    /*New things for Contracts*/
+    ////////////////////////////////////
+    /** New things for Contracts */
     extern uint32_t marginRequirementContract;
     extern uint32_t collateralCurrency;
     ///////////////////////////////
+    /** Remember: This has to be calculate in some way */
+    extern double percentLiqPrice;
+    percentLiqPrice = 0.85;
+    ////////////////////////////////////
     
     // if (!IsTransactionTypeAllowed(block, property, type, version)) {
     //     PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
@@ -1915,40 +1919,14 @@ int CMPTransaction::logicMath_ContractDexTrade()
     //     return (PKT_ERROR_METADEX -22);
     // }
 
-    // if (property == desired_property) {
-    //     PrintToLog("%s(): rejected: property for sale %d and desired property %d must not be equal\n",
-    //             __func__,
-    //             property,
-    //             desired_property);
-    //     return (PKT_ERROR_METADEX -29);
-    // }
-
-    // if (isTestEcosystemProperty(property) != isTestEcosystemProperty(desired_property)) {
-    //     PrintToLog("%s(): rejected: property for sale %d and desired property %d not in same ecosystem\n",
-    //             __func__,
-    //             property,
-    //             desired_property);
-    //     return (PKT_ERROR_METADEX -30);
-    // }
-
     // if (!IsPropertyIdValid(property)) {
     //     PrintToLog("%s(): rejected: property for sale %d does not exist\n", __func__, property);
     //     return (PKT_ERROR_METADEX -31);
     // }
 
-    // if (!IsPropertyIdValid(desired_property)) {
-    //     PrintToLog("%s(): rejected: desired property %d does not exist\n", __func__, desired_property);
-    //     return (PKT_ERROR_METADEX -32);
-    // }
-
     // if (nNewValue <= 0 || MAX_INT_8_BYTES < nNewValue) {
     //     PrintToLog("%s(): rejected: amount for sale out of range or zero: %d\n", __func__, nNewValue);
     //     return (PKT_ERROR_METADEX -33);
-    // }
-
-    // if (desired_value <= 0 || MAX_INT_8_BYTES < desired_value) {
-    //     PrintToLog("%s(): rejected: desired amount out of range or zero: %d\n", __func__, desired_value);
-    //     return (PKT_ERROR_METADEX -34);
     // }
 
     // if (!IsFeatureActivated(FEATURE_TRADEALLPAIRS, block)) {
@@ -2050,7 +2028,7 @@ int CMPTransaction::logicMath_CreateContractDex()
     //     return (PKT_ERROR_SP -24);
     // }
 
-    // if (MSC_PROPERTY_TYPE_INDIVISIBLE == prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
+    // if (MSC_PROPERTY_TYPE_CONTRACT != prop_type) {
     //     PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
     //     return (PKT_ERROR_SP -36);
     // }

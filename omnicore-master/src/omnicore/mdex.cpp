@@ -381,7 +381,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
     extern volatile uint64_t marketPrice;
     ///////////////////////////////
 
- 	// marketPrice = 100;
     // PrintToConsole("________________________________________\n");
     // PrintToConsole("Checking the margin requirement and notional size\n");
     // PrintToConsole("Margin requirement: %d, Notional size: %d\n", marginRequirementContract, notionalSize);
@@ -662,7 +661,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               );
             ///////////////////////////////////////
             marketPrice = pold->getEffectivePrice();
-            PrintToConsole("marketPrice: %d\n",marketPrice);
+            PrintToConsole("marketPrice: %d\n", FormatContractShortMP(marketPrice));
+
             t_tradelistdb->marginLogic(property_traded); //checking margin
 
             if (msc_debug_metadex1) PrintToLog("++ erased old: %s\n", offerIt->ToString());
@@ -685,10 +685,15 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 /*New things for contracts */
 void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property)
 {
-    double liqPrice = effectivePrice* 0.85;
+    /** Remember: percentLiqPrice is defined in tx.cpp ContractDexTrade */
+    extern double percentLiqPrice;
+    double liqPrice = effectivePrice*percentLiqPrice;
+    PrintToConsole ("Effective price x0.85: %g\n", liqPrice);
+    
     int64_t liq64 = static_cast<int64_t>(liqPrice);
     assert(update_tally_map(address, property, liq64, LIQUIDATION_PRICE));
-    PrintToConsole ("precio de liquidación: %d\n",liq64);
+
+    PrintToConsole ("Precio de liquidación: %d\n", FormatContractShortMP(liq64));
 }
 ////////////////////////////////////////
 /**
