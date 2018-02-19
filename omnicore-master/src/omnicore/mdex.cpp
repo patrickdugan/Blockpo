@@ -437,8 +437,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             // Preconditions
             assert(pold->getProperty() == pnew->getProperty());
 
-            get_LiquidationPrice(pnew->getEffectivePrice(), pnew->getAddr(), pnew->getProperty()); // setting liquidation prices
-            get_LiquidationPrice(pold->getEffectivePrice(), pold->getAddr(), pold->getProperty());
+            get_LiquidationPrice(pnew->getEffectivePrice(), pnew->getAddr(), pnew->getProperty(), pnew->getTradingAction()); // setting liquidation prices
+            get_LiquidationPrice(pold->getEffectivePrice(), pold->getAddr(), pold->getProperty(), pold->getTradingAction());
             //
             // PrintToConsole("Checking effective prices and trading actions:\n");
             // PrintToConsole("Effective price pold: %d\n", pold->getEffectivePrice());
@@ -683,12 +683,14 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
 /////////////////////////////////////
 /*New things for contracts */
-void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property)
+void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property, uint8_t trading_action)
 {
     /** Remember: percentLiqPrice is defined in tx.cpp ContractDexTrade */
-    extern double percentLiqPrice;
-    double liqPrice = effectivePrice*percentLiqPrice;
-    PrintToConsole ("Effective price x0.85: %g\n", liqPrice);
+    extern double percentLiqPrice;    
+    double liqFactor = (trading_action == BUY) ? (1 - percentLiqPrice) : (1 + percentLiqPrice);
+    double liqPrice = effectivePrice*liqFactor;
+
+    PrintToConsole ("Effective price : %g\n", liqPrice);
     
     int64_t liq64 = static_cast<int64_t>(liqPrice);
     assert(update_tally_map(address, property, liq64, LIQUIDATION_PRICE));
