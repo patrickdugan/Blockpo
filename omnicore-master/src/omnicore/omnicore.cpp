@@ -3799,7 +3799,7 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
 
   std::vector<std::string> vstr;
   string txidStr = txid.ToString();
-  leveldb::Iterator* it = NewIterator(); // Allocation proccess 
+  leveldb::Iterator* it = NewIterator(); // Allocation proccess
 
   for(it->SeekToFirst(); it->Valid(); it->Next()) {
       // search key to see if this is a matching trade
@@ -3990,17 +3990,17 @@ void CMPTradeList::marginLogic(uint32_t property) // Vector of matching address 
            PrintToConsole("//////////////////////////////////////MARGIN CALL !!!!!!!!!!!\n");
            PrintToConsole("Liquidation price in marginLogic function: %s\n",nLiqPrice);
            int rc = marginCall(*it, property, marketPrice);
-           
            assert(update_tally_map(*it, property,-liqPrice, LIQUIDATION_PRICE));
            PrintToConsole("Margin call number rc %d\n", rc);
-           
+           addr.erase(it);  //deleting the address from vector
+
         } else {
            PrintToConsole("No margin call!: marketPrice > nLiqPrice\n");
 
         }
 
       }
-      delete it; 
+      delete it;
 }
 
 ////////////////////////////////////////
@@ -4009,29 +4009,25 @@ int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketP
 {
     PrintToConsole("Into the marginCall function\n");
 
-    const int64_t liqPrice = getMPbalance(address, propertyId, LIQUIDATION_PRICE);
-    const int64_t shortBalance = getMPbalance(address, propertyId, NEGATIVE_BALANCE);
-    const int64_t longBalance = getMPbalance(address, propertyId, POSSITIVE_BALANCE);
+    int64_t liqPrice = getMPbalance(address, propertyId, LIQUIDATION_PRICE);
+    int64_t shortBalance = getMPbalance(address, propertyId, NEGATIVE_BALANCE);
+    int64_t longBalance = getMPbalance(address, propertyId, POSSITIVE_BALANCE);
+    int64_t amountInOrder = 0;
+    uint8_t inverseAction = 0;
 
-    int trading_action = shortBalance > 0 ? BUY : ( longBalance > 0 ? SELL : ACTIONINVALID ); 
-    
+    int trading_action = shortBalance > 0 ? BUY : ( longBalance > 0 ? SELL : ACTIONINVALID );
+    amountInOrder = trading_action == BUY ? shortBalance : longBalance;
+
     PrintToConsole("shortBalance: %d\n",shortBalance);
     PrintToConsole("LiqPrice: %d\n",liqPrice);
     PrintToConsole("longBalance: %d\n",longBalance);
     PrintToConsole("trading action: %d\n",trading_action);
 
     const uint256 tx;
-    int rc = ContractDex_ADD(address, propertyId, 0, 1, 1, 0, tx, 1, marketPrice, trading_action, 0);
+    int rc = ContractDex_ADD(address, propertyId, amountInOrder, 1, 1, 0, tx, 1, marketPrice, trading_action,0);
     if (rc == 0) {
         PrintToConsole("return of ContractDex_ADD: %d\n",rc);
     }
-
-    if ( trading_action == BUY ){
-        assert(update_tally_map(address, propertyId, -shortBalance, NEGATIVE_BALANCE));
-    } else if( trading_action == SELL ) {
-        assert(update_tally_map(address, propertyId, -longBalance, POSSITIVE_BALANCE));
-    }
-
     return rc;
 }
 ////////////////////////////////////////
@@ -4296,13 +4292,13 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
     const string key = txid1.ToString() + "+" + txid2.ToString();
     const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded);
-    
+
     PrintToConsole("________________________________________\n");
     const string lineOutMaker = strprintf("Addr1: %s, LivesMaker: %d, Amount1: %lu, Status1: %s Txid: %s", address1, lives_maker, amountForsale, s_status1, key);
     PrintToConsole("%s\n", lineOutMaker);
     const string lineOutTaker = strprintf("Addr2: %s, LivesTaker: %d, Amount2: %lu, Status2: %s Txid: %s", address2, lives_taker, amountStillForsale, s_status2, key);
-    PrintToConsole("%s\n", lineOutTaker);        
-    
+    PrintToConsole("%s\n", lineOutTaker);
+
     Status status;
     if (pdb)
     {

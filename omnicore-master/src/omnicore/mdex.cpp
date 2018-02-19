@@ -400,7 +400,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
         PrintToLog("%s()=%d:%s NOT FOUND ON THE MARKET\n", __FUNCTION__, NewReturn, getTradeReturnType(NewReturn));
         return NewReturn;
     }
-    
+
     // within the desired property map (given one property) iterate over the items looking at prices
     for (cd_PricesMap::iterator priceIt = ppriceMap->begin(); priceIt != ppriceMap->end(); ++priceIt) { // check all prices
 
@@ -419,13 +419,13 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
         cd_Set* const pofferSet = &(priceIt->second);
         // At good (single) price level and property iterate over offers looking at all parameters to find the match
-        cd_Set::iterator offerIt = pofferSet->begin();        
+        cd_Set::iterator offerIt = pofferSet->begin();
         while (offerIt != pofferSet->end()) { // Specific price, check all properties
 
             const CMPContractDex* const pold = &(*offerIt);
             assert(pold->getEffectivePrice() == sellersPrice);
 
-            std::string tradeStatus = pold->getEffectivePrice() == sellersPrice ? "Matched" : "NoMatched"; 
+            std::string tradeStatus = pold->getEffectivePrice() == sellersPrice ? "Matched" : "NoMatched";
 
             // Does the desired property match? Does the tradingaction match?
             if ((pold->getProperty() != propertyForSale) || (pold->getTradingAction() == pnew->getTradingAction())) {
@@ -654,8 +654,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               Status_taker,
                                               lives_maker,
                                               lives_taker,
-                                              property_traded, 
-                                              tradeStatus, 
+                                              property_traded,
+                                              tradeStatus,
                                               pold->getEffectivePrice(),
                                               pnew->getEffectivePrice()
                                               );
@@ -677,7 +677,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             }
         }
         if (bBuyerSatisfied) break;
-    }    
+    }
     return NewReturn;
 }
 
@@ -686,12 +686,12 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property, uint8_t trading_action)
 {
     /** Remember: percentLiqPrice is defined in tx.cpp ContractDexTrade */
-    extern double percentLiqPrice;    
+    extern double percentLiqPrice;
     double liqFactor = (trading_action == BUY) ? (1 - percentLiqPrice) : (1 + percentLiqPrice);
     double liqPrice = effectivePrice*liqFactor;
 
     PrintToConsole ("Effective price : %g\n", liqPrice);
-    
+
     int64_t liq64 = static_cast<int64_t>(liqPrice);
     assert(update_tally_map(address, property, liq64, LIQUIDATION_PRICE));
 
@@ -1016,7 +1016,13 @@ int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, i
     if (msc_debug_metadex1) PrintToLog("%s(); buyer obj: %s\n", __FUNCTION__, new_cdex.ToString());
     // Ensure this is not a badly priced trade (for example due to zero amounts)
     if (0 >= new_cdex.getEffectivePrice()) return METADEX_ERROR -66;
-
+    
+    if (new_cdex.getBlock() == 1){
+      PrintToConsole("AmountForSale: %d\n",new_cdex.getAmountForSale());
+      PrintToConsole("Address: %d \n",new_cdex.getAddr());
+      PrintToConsole("Effective Price: %d \n",new_cdex.getEffectivePrice());
+      PrintToConsole("Trading Action: %d \n",new_cdex.getTradingAction());
+    }
     // Match against existing trades, remainder of the order will be put into the order book
     if (msc_debug_metadex3) MetaDEx_debug_print();
     x_Trade(&new_cdex);
