@@ -8,3 +8,4 @@ uint32_t blocksUntilExpiration;
 uint32_t notionalSize;
 uint32_t collateralCurrency;
 uint32_t marginRequirementContract;
+double percentLiqPrice;

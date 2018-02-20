@@ -118,9 +118,6 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_getcrowdsale", 1 },
     { "omni_getgrants", 0 },
     { "omni_getbalance", 1 },
-    //* New things for contracts
-    { "omni_getposition", 1 },
-    //////////////////////////////////////////////////////////////////////////////
     { "omni_getproperty", 0 },
     { "omni_listtransactions", 1 },
     { "omni_listtransactions", 2 },
@@ -130,10 +127,15 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_listblocktransactions", 0 },
     { "omni_getorderbook", 0 },
     { "omni_getorderbook", 1 },
-    //*New things for contracts *//
+
+    ///////////////////////////////////////////
+    /** New things for Contracts */
     { "omni_getcontract_orderbook", 0 },
     { "omni_getcontract_orderbook", 1 },
-    //////////////////////////////////
+    ///////////////////////////////////////////
+    { "omni_getposition", 1 },
+    ///////////////////////////////////////////
+
     { "omni_getseedblocks", 0 },
     { "omni_getseedblocks", 1 },
     { "omni_getmetadexhash", 0 },

@@ -37,6 +37,7 @@ std::string xToString(const rational_t& value);
 std::string xToString(const uint64_t &value);
 std::string xToString(const int64_t  &price);
 std::string xToString(const uint32_t &value);
+void saveDataGraphs(std::ofstream& file, std::string lineOut);
 ///////////////////////////////
 
 enum MatchReturnType
@@ -51,6 +52,9 @@ enum MatchReturnType
 
 MatchReturnType x_Trade(CMPMetaDEx* const pnew);
 ///////////////////////////////
+/*New things for contracts*/
+void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property, uint8_t trading_action);
+////////////////////////////////
 
 /** A trade on the distributed exchange.
  */
@@ -177,7 +181,6 @@ namespace mastercore
 	{
     	bool operator()(const CMPMetaDEx& lhs, const CMPMetaDEx& rhs) const;
 	};
-
 
 	// ---------------
 	//! Set of objects sorted by block+idx

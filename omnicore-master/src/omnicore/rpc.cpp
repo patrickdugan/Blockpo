@@ -108,22 +108,24 @@ void MetaDexObjectToJSON(const CMPMetaDEx& obj, UniValue& metadex_obj)
     metadex_obj.push_back(Pair("block", obj.getBlock()));
     metadex_obj.push_back(Pair("blocktime", obj.getBlockTime()));
 }
- //*New things for contracts *//
+
+///////////////////////////////////////////////
+/** New things for Contract */
 void ContractDexObjectToJSON(const CMPContractDex& obj, UniValue& contractdex_obj)
 {
-    bool propertyIdForSaleIsDivisible = isPropertyDivisible(obj.getProperty());
-    bool propertyIdDesiredIsDivisible = isPropertyDivisible(obj.getDesProperty());
+
     // add data to JSON object
     contractdex_obj.push_back(Pair("address", obj.getAddr()));
     contractdex_obj.push_back(Pair("txid", obj.getHash().GetHex()));
     contractdex_obj.push_back(Pair("propertyidforsale", (uint64_t) obj.getProperty()));
-    contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1,obj.getAmountForSale())));
+    contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1, obj.getAmountForSale())));
     contractdex_obj.push_back(Pair("tradingaction", obj.getTradingAction()));
     contractdex_obj.push_back(Pair("effectiveprice",  FormatMP(1,obj.getEffectivePrice())));
     contractdex_obj.push_back(Pair("block", obj.getBlock()));
     contractdex_obj.push_back(Pair("blocktime", obj.getBlockTime()));
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////
+
 void MetaDexObjectsToJSON(std::vector<CMPMetaDEx>& vMetaDexObjs, UniValue& response)
 {
     MetaDEx_compare compareByHeight;
@@ -138,7 +140,9 @@ void MetaDexObjectsToJSON(std::vector<CMPMetaDEx>& vMetaDexObjs, UniValue& respo
         response.push_back(metadex_obj);
     }
 }
- //*New things for contracts *//
+
+///////////////////////////////////////////////
+/** New things for Contract */
 void ContractDexObjectsToJSON(std::vector<CMPContractDex>& vContractDexObjs, UniValue& response)
 {
     ContractDex_compare compareByHeight;
@@ -153,8 +157,7 @@ void ContractDexObjectsToJSON(std::vector<CMPContractDex>& vContractDexObjs, Uni
         response.push_back(contractdex_obj);
     }
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////
 
 bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
 {
@@ -184,22 +187,39 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
         return true;
     }
 }
-//*New things for contracts *//
+
+///////////////////////////////////////////////
+/** New things for Contract */
+bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool dContract)
+{
+    int64_t contractReserved = getMPbalance(address, property, CONTRACTDEX_RESERVE);
+    int64_t balance = getMPbalance(address, property, BALANCE);
+    int64_t negativeBalance = getMPbalance(address, property, NEGATIVE_BALANCE);
+    int64_t positiveBalance = getMPbalance(address, property, POSSITIVE_BALANCE);
+
+    if (dContract) {
+        balance_obj.push_back(Pair("balance", FormatDivisibleMP(balance)));
+        balance_obj.push_back(Pair("reserved", FormatDivisibleMP(contractReserved)));
+        balance_obj.push_back(Pair("positive balance", FormatDivisibleMP(positiveBalance)));
+        balance_obj.push_back(Pair("negative balance", FormatDivisibleMP(negativeBalance)));
+    }
+
+    return true;
+}
+
+///////////////////////////////////////////////
+/** New things for Contract */
 bool PositionToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
 {
-    // confirmed balance minus unconfirmed, spent amounts
-    // int64_t nAvailable = getUserAvailableMPbalance(address, property);
-
-    int64_t longPosition = 0;
-    int64_t shortPosition = 0;
-    longPosition = getMPbalance(address, property, POSSITIVE_BALANCE);
-    shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
+    int64_t longPosition  = getMPbalance(address, property, POSSITIVE_BALANCE);
+    int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
+    
     balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(longPosition)));
     balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(shortPosition)));
 
     if (shortPosition == 0 && longPosition == 0) {
-      balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(0)));
-      balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(0)));
+        balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(0)));
+        balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(0)));
         return false;
     } else {
         return true;
@@ -833,9 +853,9 @@ UniValue mscrpc_contractdex(const UniValue& params, bool fHelp)
             LOCK(cs_tally);
             int64_t total = 0;
             // display all balances
-            for (std::unordered_map<std::string, CMPTally>::iterator my_it = mp_tally_map.begin(); my_it != mp_tally_map.end(); ++my_it) {
+            for (std::unordered_map<std::string, CDexTally>::iterator my_it = cd_tally_map.begin(); my_it != cd_tally_map.end(); ++my_it) {
                 PrintToConsole("%34s => ", my_it->first);
-                total += (my_it->second).printcd(extra2, bContract);
+                total += (my_it->second).print(extra2, bContract);
             }
             PrintToConsole("total for property %d  = %X is %s\n", extra2, extra2, FormatContractMP(total));
             break;
@@ -860,7 +880,7 @@ UniValue mscrpc_contractdex(const UniValue& params, bool fHelp)
             LOCK(cs_tally);
             uint32_t id = 0;
             // for each address display all currencies it holds
-            for (std::unordered_map<std::string, CMPTally>::iterator my_it = mp_tally_map.begin(); my_it != mp_tally_map.end(); ++my_it) {
+            for (std::unordered_map<std::string, CDexTally>::iterator my_it = cd_tally_map.begin(); my_it != cd_tally_map.end(); ++my_it) {
                 PrintToConsole("%34s => ", my_it->first);
                 (my_it->second).print(extra2);
                 (my_it->second).init();
@@ -999,7 +1019,41 @@ UniValue omni_getbalance(const UniValue& params, bool fHelp)
 
     return balanceObj;
 }
-//*New things for contracts*//
+
+///////////////////////////////////////////////
+/** New things for Contract */
+UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 2)
+        throw runtime_error(
+            "omni_getbalance \"address\" propertyid\n"
+            "\nReturns the collateral token balance for a given future contract.\n"
+            "\nArguments:\n"
+            "1. address              (string, required) the address\n"
+            "2. propertyid           (number, required) the future contract identifier\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"balance\" : \"n.nnnnnnnn\",   (string) the available balance of the address\n"
+            "  \"reserved\" : \"n.nnnnnnnn\"   (string) the amount reserved for the contract\n"
+            "}\n"
+            "\nExamples:\n"
+            + HelpExampleCli("omni_getcontract_balance", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
+            + HelpExampleRpc("omni_getcontract_balance", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", 1")
+        );
+
+    std::string address = ParseAddress(params[0]);
+    uint32_t propertyId = ParsePropertyId(params[1]);
+
+    RequireExistingProperty(propertyId);
+
+    UniValue balanceObj(UniValue::VOBJ);
+    ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyContract(propertyId));
+
+    return balanceObj;
+}
+
+///////////////////////////////////////////////
+/** New things for Contract */
 UniValue omni_getposition(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
@@ -1029,7 +1083,6 @@ UniValue omni_getposition(const UniValue& params, bool fHelp)
 
     return balanceObj;
 }
-
 
 UniValue omni_getallbalancesforid(const UniValue& params, bool fHelp)
 {
@@ -1240,6 +1293,18 @@ UniValue omni_listproperties(const UniValue& params, bool fHelp)
 
     uint32_t nextTestSPID = _my_sps->peekNextSPID(2);
     for (uint32_t propertyId = TEST_ECO_PROPERTY_1; propertyId < nextTestSPID; propertyId++) {
+        CMPSPInfo::Entry sp;
+        if (_my_sps->getSP(propertyId, sp)) {
+            UniValue propertyObj(UniValue::VOBJ);
+            propertyObj.push_back(Pair("propertyid", (uint64_t) propertyId));
+            PropertyToJSON(sp, propertyObj); // name, category, subcategory, data, url, divisible
+
+            response.push_back(propertyObj);
+        }
+    }
+
+    uint32_t nextSPC = _my_sps->peekNextSPID(3);
+    if (uint32_t propertyId = nextSPC ) {
         CMPSPInfo::Entry sp;
         if (_my_sps->getSP(propertyId, sp)) {
             UniValue propertyObj(UniValue::VOBJ);
@@ -1615,7 +1680,9 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
     MetaDexObjectsToJSON(vecMetaDexObjects, response);
     return response;
 }
-//* New things for contracts *//
+
+//////////////////////////////////////
+/** New things for Contracts */
 UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 2)
@@ -1651,14 +1718,8 @@ UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
         );
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
-    uint32_t propertyIdDesired = 0;
-
-    RequireExistingProperty(propertyIdForSale);
+    // RequireExistingProperty(propertyIdForSale);
     uint8_t tradingaction = ParseContractDexAction(params[1]);
-
-        // RequireExistingProperty(propertyIdDesired);
-        // RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
-
 
     std::vector<CMPContractDex> vecContractDexObjects;
     {
@@ -1671,6 +1732,7 @@ UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
                     const CMPContractDex& obj = *it;
                     if (obj.getProperty() != propertyIdForSale) continue;
                     if (obj.getTradingAction() != tradingaction) continue;
+                    if (obj.getAmountForSale() <= 0) continue;
                     vecContractDexObjects.push_back(obj);
                 }
             }
@@ -1681,7 +1743,8 @@ UniValue omni_getcontract_orderbook(const UniValue& params, bool fHelp)
     ContractDexObjectsToJSON(vecContractDexObjects, response);
     return response;
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////
+
 UniValue omni_gettradehistoryforaddress(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 3)
@@ -2593,10 +2656,12 @@ static const CRPCCommand commands[] =
     { "omni layer (data retrieval)", "omni_getactivedexsells",         &omni_getactivedexsells,          false },
     { "omni layer (data retrieval)", "omni_getactivecrowdsales",       &omni_getactivecrowdsales,        false },
     { "omni layer (data retrieval)", "omni_getorderbook",              &omni_getorderbook,               false },
-    //*New things for contracts*//
+    ///////////////////////////////////////////////
+    /** New things for Contract */
     { "omni layer (data retrieval)", "omni_getcontract_orderbook",     &omni_getcontract_orderbook,      false },
     { "omni layer (data retrieval)", "omni_getposition",               &omni_getposition,                false },
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    { "omni layer (data retrieval)", "omni_getcontract_balance",       &omni_getcontract_balance,        false },
+    ///////////////////////////////////////////////
     { "omni layer (data retrieval)", "omni_gettrade",                  &omni_gettrade,                   false },
     { "omni layer (data retrieval)", "omni_getsto",                    &omni_getsto,                     false },
     { "omni layer (data retrieval)", "omni_listblocktransactions",     &omni_listblocktransactions,      false },

@@ -482,13 +482,13 @@ UniValue omni_createcontract(const UniValue& params, bool fHelp)
     int64_t deadline = ParseDeadline(params[11]);
     uint8_t earlyBonus = ParseEarlyBirdBonus(params[12]);
     uint8_t issuerPercentage = ParseIssuerBonus(params[13]);
-
-    ////////////////////////////
+ 
+    //////////////////////////////////////////
     uint32_t blocks_until_expiration = ParseNewValues(params[14]);
     uint32_t notional_size = ParseNewValues(params[15]);
     uint32_t collateral_currency = ParseNewValues(params[16]);
     uint32_t margin_requirement = ParseNewValues(params[17]);
-    ////////////////////////////
+    //////////////////////////////////////////
 
     // create a payload for the transaction
     std::vector<unsigned char> payload = CreatePayload_CreateContract(ecosystem, type, previousId, category, subcategory, name, url, data, propertyIdDesired, numTokens, deadline, earlyBonus, issuerPercentage, blocks_until_expiration, notional_size, collateral_currency, margin_requirement);
@@ -497,6 +497,7 @@ UniValue omni_createcontract(const UniValue& params, bool fHelp)
     uint256 txid;
     std::string rawHex;
     int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
+
     // check error and return the txid (or raw hex depending on autocommit)
     if (result != 0) {
         throw JSONRPCError(result, error_str(result));
@@ -985,7 +986,7 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
             "5. amountdesired        (string, required) the amount of tokens desired in exchange\n"
             "6. effective_price      (string, required) the price of contract desired in exchange\n"
             "7. trading_action       (string, required) the price of contract desired in exchange\n"
-
+            
             "\nResult:\n"
             "\"payload\"             (string) the hex-encoded payload\n"
 
@@ -1010,7 +1011,8 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
     uint256 txid;
     std::string rawHex;
     int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
-    //check error and return the txid (or raw hex depending on autocommit)
+
+    // check error and return the txid (or raw hex depending on autocommit)
     if (result != 0) {
         throw JSONRPCError(result, error_str(result));
     } else {
