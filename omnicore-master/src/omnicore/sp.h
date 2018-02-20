@@ -138,10 +138,12 @@ public:
             READWRITE(margin_requirement);
             ////////////////////////////
         }
+ 
         ////////////////////////////
         /** New things for Contracts */
-        bool isUndivisible() const;
+        bool isContract() const;
         ////////////////////////////
+ 
         bool isDivisible() const;
         void print() const;
     };
@@ -236,10 +238,12 @@ std::string strEcosystem(uint8_t ecosystem);
 
 std::string getPropertyName(uint32_t propertyId);
 bool isPropertyDivisible(uint32_t propertyId);
+
 //////////////////////////////////////
 /** New things for Contracts */
-bool isPropertyUndivisible(uint32_t propertyId);
+bool isPropertyContract(uint32_t propertyId);
 //////////////////////////////////////
+
 bool IsPropertyIdValid(uint32_t propertyId);
 
 CMPCrowd* getCrowd(const std::string& address);

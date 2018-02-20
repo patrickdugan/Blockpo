@@ -52,7 +52,7 @@ bool CMPSPInfo::Entry::isDivisible() const
 
 ///////////////////////////////////////
 /** New things for Contracts */
-bool CMPSPInfo::Entry::isUndivisible() const
+bool CMPSPInfo::Entry::isContract() const
 {
     switch (prop_type) {
         case MSC_PROPERTY_TYPE_CONTRACT:
@@ -64,11 +64,12 @@ bool CMPSPInfo::Entry::isUndivisible() const
 
 void CMPSPInfo::Entry::print() const
 {
-    PrintToConsole("%s:%s(Fixed=%s,Divisible=%s):%d:%s/%s, %s %s, blocks until expiration:%d, notional size:%d, collateral currency:%d, margin requirement:%d\n",
+    PrintToConsole("%s:%s(Fixed=%s,Divisible=%s, Contract=%s):%d:%s/%s, %s %s, blocks until expiration:%d, notional size:%d, collateral currency:%d, margin requirement:%d\n",
             issuer,
             name,
             fixed ? "Yes" : "No",
             isDivisible() ? "Yes" : "No",
+            isContract() ? "Yes" : "No",
             num_tokens,
             category, subcategory, url, data,
             blocks_until_expiration,
@@ -134,6 +135,7 @@ uint32_t CMPSPInfo::peekNextSPID(uint8_t ecosystem) const
         case OMNI_PROPERTY_TMSC: // Test ecosystem, same as above with high bit set
             nextId = next_test_spid;
             break;
+
         default: // Non-standard ecosystem, ID's start at 0
             nextId = 0;
     }
@@ -285,7 +287,7 @@ bool CMPSPInfo::getSP(uint32_t propertyId, Entry& info) const
 bool CMPSPInfo::hasSP(uint32_t propertyId) const
 {
     // Special cases for constant SPs MSC and TMSC
-    if (OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId) {
+    if ( OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId ) {
         return true;
     }
 
@@ -600,14 +602,13 @@ bool mastercore::IsPropertyIdValid(uint32_t propertyId)
     return false;
 }
 
-//////////////////////////////////////
+///////////////////////////////////////////////
 /** New things for Contracts */
-bool mastercore::isPropertyUndivisible(uint32_t propertyId)
+bool mastercore::isPropertyContract(uint32_t propertyId)
 {
-    // TODO: is a lock here needed
     CMPSPInfo::Entry sp;
 
-    if (_my_sps->getSP(propertyId, sp)) return sp.isUndivisible();
+    if (_my_sps->getSP(propertyId, sp)) return sp.isContract();
 
     return true;
 }

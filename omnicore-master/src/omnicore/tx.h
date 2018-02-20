@@ -87,8 +87,8 @@ private:
 
     ////////////////////////////////////
     /** New things Contract */
-    uint64_t desired_price;
-    uint64_t forsale_price;
+    uint64_t effective_price;
+    uint8_t trading_action;
     ////////////////////////////////////
 
     /** New things for Contracts */
@@ -136,6 +136,8 @@ private:
     /** New things for Contract */
     bool interpret_ContractDexTrade();
     bool interpret_CreateContractDex();
+    bool interpret_ContractDexCancelPrice();
+    bool interpret_ContractDexCancelEcosystem();
     ///////////////////////////////////////////////
     bool interpret_AcceptOfferBTC();
     bool interpret_CreatePropertyFixed();
@@ -169,6 +171,8 @@ private:
     /** New things for Contract */
     int logicMath_ContractDexTrade();
     int logicMath_CreateContractDex();
+    int logicMath_ContractDexCancelPrice();
+    int logicMath_ContractDexCancelEcosystem();
     ///////////////////////////////////////////////
     int logicMath_CreatePropertyFixed();
     int logicMath_CreatePropertyVariable();
@@ -222,6 +226,13 @@ public:
     uint64_t getNewAmount() const { return nNewValue; }
     uint8_t getEcosystem() const { return ecosystem; }
     uint32_t getPreviousId() const { return prev_prop_id; }
+
+    ////////////////////////////////
+    /** New things for Contracts */
+    uint32_t getMarginRequirement() const { return margin_requirement; }
+    uint32_t getNotionalSize() const { return notional_size; }
+    ////////////////////////////////
+
     std::string getSPCategory() const { return category; }
     std::string getSPSubCategory() const { return subcategory; }
     std::string getSPName() const { return name; }
@@ -241,6 +252,12 @@ public:
     uint32_t getMinClientVersion() const { return min_client_version; }
     unsigned int getIndexInBlock() const { return tx_idx; }
     uint32_t getDistributionProperty() const { return distribution_property; }
+
+    ///////////////////////////////////////////////
+    /** New things for Contract */
+    int getLogicMath_ContractDexTrade() { return logicMath_ContractDexTrade(); } 
+    int getLogicMath_CreateContractDex() { return logicMath_CreateContractDex(); } 
+    ///////////////////////////////////////////////
 
     /** Creates a new CMPTransaction object. */
     CMPTransaction()
@@ -295,8 +312,8 @@ public:
 
         ////////////////////////////////////
         /** New things for Contracts */
-        forsale_price = 0;
-        desired_price = 0;
+        effective_price = 0;
+        trading_action = 0;
         ////////////////////////////////////
     }
 
@@ -342,6 +359,12 @@ public:
         return tx_idx > other.tx_idx;
     }
 };
+
+///////////////////////////////////
+/** New things for Contracts */
+// int CMPTransaction::logicMath_ContractDexTrade() {};
+///////////////////////////////////
+
 
 /** Parses a transaction and populates the CMPTransaction object. */
 int ParseTransaction(const CTransaction& tx, int nBlock, unsigned int idx, CMPTransaction& mptx, unsigned int nTime=0);

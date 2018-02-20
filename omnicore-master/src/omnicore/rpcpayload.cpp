@@ -278,7 +278,7 @@ UniValue omni_createpayload_createcontract(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 17)
         throw runtime_error(
-            "omni_createpayload_issuancecrowdsale ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline earlybonus issuerpercentage\n"
+            "omni_createpayload_createcontract ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline earlybonus issuerpercentage\n"
 
             "\nCreates the payload for a new tokens issuance with crowdsale.\n"
 
@@ -304,8 +304,8 @@ UniValue omni_createpayload_createcontract(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_issuancecrowdsale", "2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2 4461 100 1 25")
-            + HelpExampleRpc("omni_createpayload_issuancecrowdsale", "2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2, 4461, 100, 1, 25")
+            + HelpExampleCli("omni_createpayload_createcontract", "2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2 4461 100 1 25")
+            + HelpExampleRpc("omni_createpayload_createcontract", "2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2, 4461, 100, 1, 25")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);
@@ -317,17 +317,17 @@ UniValue omni_createpayload_createcontract(const UniValue& params, bool fHelp)
     std::string url = ParseText(params[6]);
     std::string data = ParseText(params[7]);
     uint32_t propertyIdDesired = ParsePropertyId(params[8]);
-    int64_t numTokens = ParseAmount(params[9], type);
+    int64_t numTokens = ParseAmountContract(params[9], type);
     int64_t deadline = ParseDeadline(params[10]);
     uint8_t earlyBonus = ParseEarlyBirdBonus(params[11]);
     uint8_t issuerPercentage = ParseIssuerBonus(params[12]);
-    ////////////////////////////
+    ////////////////////////////////////
     /** New things for Contracts */
     uint32_t blocks_until_expiration = ParseNewValues(params[13]);
     uint32_t notional_size = ParseNewValues(params[14]);
     uint32_t collateral_currency = ParseNewValues(params[15]);
     uint32_t margin_requirement = ParseNewValues(params[16]);
-    ////////////////////////////
+    ////////////////////////////////////
     
     RequirePropertyName(name);
     RequireExistingProperty(propertyIdDesired);
@@ -543,42 +543,32 @@ UniValue omni_createpayload_contract_trade(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 6)
         throw runtime_error(
-            "omni_createpayload_trade propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+            "omni_createpayload_contract_trade propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
             "\nCreates the payload to place a trade offer on the distributed token exchange.\n"
 
             "\nArguments:\n"
-            "1. propertyidforsale    (number, required) the identifier of the contracts to list for sale\n"
-            "2. amountforsale        (string, required) the amount of contracts to list for sale\n"
-            "3. propertiddesired     (number, required) the identifier of the contract desired in exchange\n"
-            "4. amountdesired        (string, required) the amount of contract desired in exchange\n"
-            "5. desired_price        (string, required) the price of contract desired in exchange\n"
-            "6. forsale_price        (string, required) the price of contract desired in exchange\n"
-            
+            "1. propertyidforsale    (number, required) the identifier of the tokens to list for sale\n"
+            "2. amountforsale        (string, required) the amount of tokens to list for sale\n"
+            "3. propertiddesired     (number, required) the identifier of the tokens desired in exchange\n"
+            "4. amountdesired        (string, required) the amount of tokens desired in exchange\n"
+
             "\nResult:\n"
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_contract_trade", "31\"250.0\"1\"10.0\"70.0\"80.0\"")
-            + HelpExampleRpc("omni_createpayload_contract_trade", "31,\"250.0\",1,\"10.0,\"70.0,\"80.0\"")
+            + HelpExampleCli("omni_createpayload_contract_trade", "31 \"250.0\" 1 \"10.0\"")
+            + HelpExampleRpc("omni_createpayload_contract_trade", "31, \"250.0\", 1, \"10.0\"")
         );
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
-    RequireExistingProperty(propertyIdForSale);
-    int64_t amountForSale = ParseAmount(params[1], isPropertyDivisible(propertyIdForSale));
-
+    int64_t amountForSale = ParseAmountContract(params[1], isPropertyContract(propertyIdForSale));
     uint32_t propertyIdDesired = ParsePropertyId(params[2]);
-    RequireExistingProperty(propertyIdDesired);
-    int64_t amountDesired = ParseAmount(params[3], isPropertyDivisible(propertyIdDesired));
+    int64_t amountDesired = ParseAmountContract(params[3], isPropertyContract(propertyIdDesired));
+    uint64_t effective_price = ParseEffectivePrice(params[4]);
+    uint8_t trading_action = ParseContractDexAction(params[5]);
 
-    uint64_t desired_price = ParseAmount(params[4], isPropertyDivisible(propertyIdDesired));
-    uint64_t forsale_price = ParseAmount(params[5], isPropertyDivisible(propertyIdForSale));
-
-    RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
-    RequireDifferentIds(propertyIdForSale, propertyIdDesired);
-    RequireDifferentIds(propertyIdForSale, propertyIdDesired);
-
-    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, desired_price, forsale_price);
+    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, effective_price, trading_action);
     return HexStr(payload.begin(), payload.end());
 }
 //////////////////////////////////
@@ -618,6 +608,43 @@ UniValue omni_createpayload_canceltradesbyprice(const UniValue& params, bool fHe
 
     return HexStr(payload.begin(), payload.end());
 }
+
+/////////////////////////////////
+/** New things for Contracts */
+UniValue omni_createpayload_cancelcontracttradesbyprice(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 6)
+        throw runtime_error(
+            "omni_createpayload_cancelcontracttradesbyprice propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+
+            "\nCreates the payload to cancel offers on the distributed token exchange with the specified price.\n"
+
+            "\nArguments:\n"
+            "1. propertyidforsale    (number, required) the identifier of the tokens listed for sale\n"
+            "2. amountforsale        (string, required) the amount of tokens to listed for sale\n"
+            "3. propertiddesired     (number, required) the identifier of the tokens desired in exchange\n"
+            "4. amountdesired        (string, required) the amount of tokens desired in exchange\n"
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_cancelcontracttradesbyprice", "31 \"100.0\" 1 \"5.0\" 100 1")
+            + HelpExampleRpc("omni_createpayload_cancelcontracttradesbyprice", "31 \"100.0\" 1 \"5.0\" 100 1")
+        );
+
+    uint32_t propertyIdForSale = ParsePropertyId(params[0]);
+    int64_t amountForSale = ParseAmountContract(params[1], isPropertyContract(propertyIdForSale));
+    uint32_t propertyIdDesired = ParsePropertyId(params[2]);
+    int64_t amountDesired = ParseAmountContract(params[3], isPropertyContract(propertyIdDesired));
+    uint64_t effective_price = ParseEffectivePrice(params[4]);
+    uint8_t trading_action = ParseContractDexAction(params[5]);
+    
+    std::vector<unsigned char> payload = CreatePayload_ContractDexCancelPrice(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, effective_price, trading_action);
+
+    return HexStr(payload.begin(), payload.end());
+}
+/////////////////////////////////
 
 UniValue omni_createpayload_canceltradesbypair(const UniValue& params, bool fHelp)
 {
@@ -676,6 +703,35 @@ UniValue omni_createpayload_cancelalltrades(const UniValue& params, bool fHelp)
 
     return HexStr(payload.begin(), payload.end());
 }
+
+//////////////////////////////////
+/** New things for Contracts */
+UniValue omni_createpayload_cancelalltradescontract(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "omni_createpayload_cancelalltrades ecosystem\n"
+
+            "\nCreates the payload to cancel all offers on the distributed token exchange.\n"
+
+            "\nArguments:\n"
+            "1. ecosystem            (number, required) the ecosystem of the offers to cancel (1 for main ecosystem, 2 for test ecosystem)\n"
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_cancelalltrades", "1")
+            + HelpExampleRpc("omni_createpayload_cancelalltrades", "1")
+        );
+
+    uint8_t ecosystem = ParseEcosystem(params[0]);
+
+    std::vector<unsigned char> payload = CreatePayload_ContractDexCancelEcosystem(ecosystem);
+
+    return HexStr(payload.begin(), payload.end());
+}
+//////////////////////////////////
 
 UniValue omni_createpayload_enablefreezing(const UniValue& params, bool fHelp)
 {
@@ -803,29 +859,32 @@ UniValue omni_createpayload_unfreeze(const UniValue& params, bool fHelp)
 static const CRPCCommand commands[] =
 { //  category                         name                                      actor (function)                         okSafeMode
   //  -------------------------------- ----------------------------------------- ---------------------------------------- ----------
-    { "omni layer (payload creation)", "omni_createpayload_simplesend",          &omni_createpayload_simplesend,          true },
-    { "omni layer (payload creation)", "omni_createpayload_sendall",             &omni_createpayload_sendall,             true },
-    { "omni layer (payload creation)", "omni_createpayload_dexsell",             &omni_createpayload_dexsell,             true },
-    { "omni layer (payload creation)", "omni_createpayload_dexaccept",           &omni_createpayload_dexaccept,           true },
-    { "omni layer (payload creation)", "omni_createpayload_sto",                 &omni_createpayload_sto,                 true },
-    { "omni layer (payload creation)", "omni_createpayload_grant",               &omni_createpayload_grant,               true },
-    { "omni layer (payload creation)", "omni_createpayload_revoke",              &omni_createpayload_revoke,              true },
-    { "omni layer (payload creation)", "omni_createpayload_changeissuer",        &omni_createpayload_changeissuer,        true },
-    { "omni layer (payload creation)", "omni_createpayload_trade",               &omni_createpayload_trade,               true },
-    { "omni layer (payload creation)", "omni_createpayload_issuancefixed",       &omni_createpayload_issuancefixed,       true },
-    { "omni layer (payload creation)", "omni_createpayload_issuancecrowdsale",   &omni_createpayload_issuancecrowdsale,   true },
-    { "omni layer (payload creation)", "omni_createpayload_issuancemanaged",     &omni_createpayload_issuancemanaged,     true },
-    { "omni layer (payload creation)", "omni_createpayload_closecrowdsale",      &omni_createpayload_closecrowdsale,      true },
-    { "omni layer (payload creation)", "omni_createpayload_canceltradesbyprice", &omni_createpayload_canceltradesbyprice, true },
-    { "omni layer (payload creation)", "omni_createpayload_canceltradesbypair",  &omni_createpayload_canceltradesbypair,  true },
-    { "omni layer (payload creation)", "omni_createpayload_cancelalltrades",     &omni_createpayload_cancelalltrades,     true },
-    { "omni layer (payload creation)", "omni_createpayload_enablefreezing",      &omni_createpayload_enablefreezing,      true },
-    { "omni layer (payload creation)", "omni_createpayload_disablefreezing",     &omni_createpayload_disablefreezing,     true },
-    { "omni layer (payload creation)", "omni_createpayload_freeze",              &omni_createpayload_freeze,              true },
-    { "omni layer (payload creation)", "omni_createpayload_unfreeze",            &omni_createpayload_unfreeze,            true },
+    { "omni layer (payload creation)", "omni_createpayload_simplesend",                 &omni_createpayload_simplesend,          true },
+    { "omni layer (payload creation)", "omni_createpayload_sendall",                    &omni_createpayload_sendall,             true },
+    { "omni layer (payload creation)", "omni_createpayload_dexsell",                    &omni_createpayload_dexsell,             true },
+    { "omni layer (payload creation)", "omni_createpayload_dexaccept",                  &omni_createpayload_dexaccept,           true },
+    { "omni layer (payload creation)", "omni_createpayload_sto",                        &omni_createpayload_sto,                 true },
+    { "omni layer (payload creation)", "omni_createpayload_grant",                      &omni_createpayload_grant,               true },
+    { "omni layer (payload creation)", "omni_createpayload_revoke",                     &omni_createpayload_revoke,              true },
+    { "omni layer (payload creation)", "omni_createpayload_changeissuer",               &omni_createpayload_changeissuer,        true },
+    { "omni layer (payload creation)", "omni_createpayload_trade",                      &omni_createpayload_trade,               true },
+    { "omni layer (payload creation)", "omni_createpayload_issuancefixed",              &omni_createpayload_issuancefixed,       true },
+    { "omni layer (payload creation)", "omni_createpayload_issuancecrowdsale",          &omni_createpayload_issuancecrowdsale,   true },
+    { "omni layer (payload creation)", "omni_createpayload_issuancemanaged",            &omni_createpayload_issuancemanaged,     true },
+    { "omni layer (payload creation)", "omni_createpayload_closecrowdsale",             &omni_createpayload_closecrowdsale,      true },
+    { "omni layer (payload creation)", "omni_createpayload_canceltradesbyprice",        &omni_createpayload_canceltradesbyprice, true },
+    { "omni layer (payload creation)", "omni_createpayload_canceltradesbypair",         &omni_createpayload_canceltradesbypair,  true },
+    { "omni layer (payload creation)", "omni_createpayload_cancelalltrades",            &omni_createpayload_cancelalltrades,     true },
+    { "omni layer (payload creation)", "omni_createpayload_enablefreezing",             &omni_createpayload_enablefreezing,      true },
+    { "omni layer (payload creation)", "omni_createpayload_disablefreezing",            &omni_createpayload_disablefreezing,     true },
+    { "omni layer (payload creation)", "omni_createpayload_freeze",                     &omni_createpayload_freeze,              true },
+    { "omni layer (payload creation)", "omni_createpayload_unfreeze",                   &omni_createpayload_unfreeze,            true },
     ////////////////////////////////////////
     /** New things for Contracts */
-    { "omni layer (payload creation)", "omni_createpayload_contract_trade",      &omni_createpayload_contract_trade,            true },
+    { "omni layer (payload creation)", "omni_createpayload_contract_trade",             &omni_createpayload_contract_trade,      true },
+    { "omni layer (payload creation)", "omni_createpayload_cancelcontracttradesbyprice",&omni_createpayload_cancelcontracttradesbyprice,      true },
+    { "omni layer (payload creation)", "omni_createpayload_createcontract",             &omni_createpayload_createcontract,      true },
+    { "omni layer (payload creation)", "omni_createpayload_cancelalltradescontract",    &omni_createpayload_cancelalltradescontract,     true },
     ////////////////////////////////////////
 };
 

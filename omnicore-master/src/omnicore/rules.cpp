@@ -32,6 +32,7 @@ namespace mastercore
 /**
  * Returns a mapping of transaction types, and the blocks at which they are enabled.
  */
+    
 std::vector<TransactionRestriction> CConsensusParams::GetRestrictions() const
 {
     const TransactionRestriction vTxRestrictions[] =
@@ -70,6 +71,14 @@ std::vector<TransactionRestriction> CConsensusParams::GetRestrictions() const
         { MSC_TYPE_METADEX_CANCEL_ECOSYSTEM,  MP_TX_PKT_V0,  false,   MSC_METADEX_BLOCK  },
 
         { MSC_TYPE_SEND_ALL,                  MP_TX_PKT_V0,  false,   MSC_SEND_ALL_BLOCK },
+        ////////////////////////////////////
+        /** New things for Contract: To solve the Testnet Bug */ 
+        { MSC_TYPE_CONTRACTDEX_TRADE,             MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
+        { MSC_TYPE_CONTRACTDEX_CANCEL_PRICE,      MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
+        { MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM,  MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
+        { MSC_TYPE_CREATE_CONTRACT,               MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
+        ////////////////////////////////////
+
         // { MSC_TYPE_OFFER_ACCEPT_A_BET,        MP_TX_PKT_V0,  false,   MSC_BET_BLOCK      },
     };
 
@@ -181,6 +190,10 @@ CMainConsensusParams::CMainConsensusParams()
     MSC_MANUALSP_BLOCK = 323230;
     MSC_STO_BLOCK = 342650;
     MSC_METADEX_BLOCK = 400000;
+    ///////////////////////////////
+    /** New things for Contract */
+    MSC_CONTRACTDEX_BLOCK = 999999;
+    ///////////////////////////////
     MSC_SEND_ALL_BLOCK = 395000;
     MSC_BET_BLOCK = 999999;
     MSC_STOV1_BLOCK = 999999;
@@ -222,6 +235,10 @@ CTestNetConsensusParams::CTestNetConsensusParams()
     MSC_MANUALSP_BLOCK = 0;
     MSC_STO_BLOCK = 0;
     MSC_METADEX_BLOCK = 0;
+    ///////////////////////////////
+    /** New things for Contract */
+    MSC_CONTRACTDEX_BLOCK = 0;
+    ///////////////////////////////
     MSC_SEND_ALL_BLOCK = 0;
     MSC_BET_BLOCK = 999999;
     MSC_STOV1_BLOCK = 0;
@@ -263,6 +280,10 @@ CRegTestConsensusParams::CRegTestConsensusParams()
     MSC_MANUALSP_BLOCK = 0;
     MSC_STO_BLOCK = 0;
     MSC_METADEX_BLOCK = 0;
+    ///////////////////////////////
+    /** New things for Contract */
+    MSC_CONTRACTDEX_BLOCK = 0;
+    ///////////////////////////////
     MSC_SEND_ALL_BLOCK = 0;
     MSC_BET_BLOCK = 999999;
     MSC_STOV1_BLOCK = 999999;
@@ -408,36 +429,52 @@ bool ActivateFeature(uint16_t featureId, int activationBlock, uint32_t minClient
         case FEATURE_CLASS_C:
             MutableConsensusParams().NULLDATA_BLOCK = activationBlock;
         break;
+
         case FEATURE_METADEX:
             MutableConsensusParams().MSC_METADEX_BLOCK = activationBlock;
         break;
+        ////////////////////////////////////
+        /** New things for Contract */
+        case FEATURE_CONTRACTDEX:
+            MutableConsensusParams().MSC_CONTRACTDEX_BLOCK = activationBlock;
+        break;
+        ////////////////////////////////////
         case FEATURE_BETTING:
             MutableConsensusParams().MSC_BET_BLOCK = activationBlock;
         break;
+
         case FEATURE_GRANTEFFECTS:
             MutableConsensusParams().GRANTEFFECTS_FEATURE_BLOCK = activationBlock;
         break;
+
         case FEATURE_DEXMATH:
             MutableConsensusParams().DEXMATH_FEATURE_BLOCK = activationBlock;
         break;
+
         case FEATURE_SENDALL:
             MutableConsensusParams().MSC_SEND_ALL_BLOCK = activationBlock;
         break;
+
         case FEATURE_SPCROWDCROSSOVER:
             MutableConsensusParams().SPCROWDCROSSOVER_FEATURE_BLOCK = activationBlock;
         break;
+
         case FEATURE_TRADEALLPAIRS:
             MutableConsensusParams().TRADEALLPAIRS_FEATURE_BLOCK = activationBlock;
         break;
+
         case FEATURE_FEES:
             MutableConsensusParams().FEES_FEATURE_BLOCK = activationBlock;
         break;
+
         case FEATURE_STOV1:
             MutableConsensusParams().MSC_STOV1_BLOCK = activationBlock;
         break;
+
         case FEATURE_FREEZENOTICE:
             MutableConsensusParams().FREEZENOTICE_FEATURE_BLOCK = activationBlock;
         break;
+
         default:
             supported = false;
         break;
@@ -482,6 +519,12 @@ bool DeactivateFeature(uint16_t featureId, int transactionBlock)
         case FEATURE_METADEX:
             MutableConsensusParams().MSC_METADEX_BLOCK = 999999;
         break;
+        ////////////////////////////////////
+        /** New things for Contract */
+        case FEATURE_CONTRACTDEX:
+            MutableConsensusParams().MSC_CONTRACTDEX_BLOCK = 999999;
+        break;
+        ////////////////////////////////////
         case FEATURE_BETTING:
             MutableConsensusParams().MSC_BET_BLOCK = 999999;
         break;
@@ -531,6 +574,10 @@ std::string GetFeatureName(uint16_t featureId)
     switch (featureId) {
         case FEATURE_CLASS_C: return "Class C transaction encoding";
         case FEATURE_METADEX: return "Distributed Meta Token Exchange";
+        ////////////////////////////////////
+        /** New things for Contract */
+        case FEATURE_CONTRACTDEX: return "Distributed Future Contract";
+        ////////////////////////////////////
         case FEATURE_BETTING: return "Bet transactions";
         case FEATURE_GRANTEFFECTS: return "Remove grant side effects";
         case FEATURE_DEXMATH: return "DEx integer math update";
@@ -560,6 +607,12 @@ bool IsFeatureActivated(uint16_t featureId, int transactionBlock)
         case FEATURE_METADEX:
             activationBlock = params.MSC_METADEX_BLOCK;
             break;
+    ////////////////////////////////////
+    /** New things for Contract */
+        case FEATURE_CONTRACTDEX:
+            activationBlock = params.MSC_CONTRACTDEX_BLOCK;
+            break;
+    ////////////////////////////////////
         case FEATURE_BETTING:
             activationBlock = params.MSC_BET_BLOCK;
             break;

@@ -106,4 +106,3 @@ void CMPPending::print(const uint256& txid) const
 {
     PrintToConsole("%s : %s %d %d %d %s\n", txid.GetHex(), src, prop, amount, type);
 }
-

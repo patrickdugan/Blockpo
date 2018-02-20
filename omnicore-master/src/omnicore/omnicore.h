@@ -77,15 +77,22 @@ enum TransactionType {
   MSC_TYPE_METADEX_CANCEL_PRICE       = 26,
   MSC_TYPE_METADEX_CANCEL_PAIR        = 27,
   MSC_TYPE_METADEX_CANCEL_ECOSYSTEM   = 28,
+
   ////////////////////////////////////
-  /** New things for Contract */ 
+  /** New things for Contract */
   MSC_TYPE_CONTRACTDEX_TRADE          = 29,
+  MSC_TYPE_CONTRACTDEX_CANCEL_PRICE   = 30,
   ////////////////////////////////////
+
   MSC_TYPE_NOTIFICATION               = 31,
+
   ////////////////////////////////////
-  /** New things for Contract: Here we changed "MSC_TYPE_OFFER_ACCEPT_A_BET = 40" */ 
+  /** New things for Contract */
+  MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM   = 32,
+  /** !Here we changed "MSC_TYPE_OFFER_ACCEPT_A_BET = 40" */
   MSC_TYPE_CREATE_CONTRACT            = 40,
   ////////////////////////////////////
+
   MSC_TYPE_CREATE_PROPERTY_FIXED      = 50,
   MSC_TYPE_CREATE_PROPERTY_VARIABLE   = 51,
   MSC_TYPE_PROMOTE_PROPERTY           = 52,
@@ -114,6 +121,13 @@ enum TransactionType {
 #define MSC_PROPERTY_TYPE_DIVISIBLE_REPLACING     66
 #define MSC_PROPERTY_TYPE_INDIVISIBLE_APPENDING   129
 #define MSC_PROPERTY_TYPE_DIVISIBLE_APPENDING     130
+
+//////////////////////////////////////
+/** New things for Contracts */
+#define BUY   1
+#define SELL  2
+#define ACTIONINVALID  3
+//////////////////////////////////////
 
 enum FILETYPES {
   FILETYPE_BALANCES = 0,
@@ -154,10 +168,12 @@ enum FILETYPES {
 #define OMNI_PROPERTY_BTC   0
 #define OMNI_PROPERTY_MSC   1
 #define OMNI_PROPERTY_TMSC  2
+#define OMNI_PROPERTY_SPC   3
 
 // forward declarations
 std::string FormatDivisibleMP(int64_t amount, bool fSign = false);
 std::string FormatDivisibleShortMP(int64_t amount);
+double FormatContractShortMP(int64_t n);
 std::string FormatMP(uint32_t propertyId, int64_t amount, bool fSign = false);
 std::string FormatShortMP(uint32_t propertyId, int64_t amount);
 std::string FormatByType(int64_t amount, uint16_t propertyType);
@@ -250,16 +266,27 @@ public:
     }
 
     void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee);
+
     /////////////////////////////////
     /** New things for Contract */
-    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status);
+    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew);
+    // void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid);
     /////////////////////////////////
+
     void recordNewTrade(const uint256& txid, const std::string& address, uint32_t propertyIdForSale, uint32_t propertyIdDesired, int blockNum, int blockIndex);
     int deleteAboveBlock(int blockNum);
     bool exists(const uint256 &txid);
     void printStats();
     void printAll();
     bool getMatchingTrades(const uint256& txid, uint32_t propertyId, UniValue& tradeArray, int64_t& totalSold, int64_t& totalBought);
+
+    ///////////////////////////////////////
+    /** New things for Contract */
+    int64_t getTradeBasis(string address, int64_t contractsClosed, uint32_t property);
+    void marginLogic(uint32_t property);
+    //////////////////////////////////////
+
+    bool getMatchingTrades(const uint256& txid);
     void getTradesForAddress(std::string address, std::vector<uint256>& vecTransactions, uint32_t propertyIdFilter = 0);
     void getTradesForPair(uint32_t propertyIdSideA, uint32_t propertyIdSideB, UniValue& response, uint64_t count);
     int getMPTradeCountTotal();
@@ -298,6 +325,12 @@ public:
     /** Returns the number of sub records. */
     int getNumberOfSubRecords(const uint256& txid);
     int getNumberOfMetaDExCancels(const uint256 txid);
+
+    //////////////////////////////////////
+    /** New things for Contracts */
+    int getNumberOfContractDexCancels(const uint256 txid);
+    //////////////////////////////////////
+
     bool getPurchaseDetails(const uint256 txid, int purchaseNumber, string *buyer, string *seller, uint64_t *vout, uint64_t *propertyId, uint64_t *nValue);
     /** Retrieves details about a "send all" record. */
     bool getSendAllDetails(const uint256& txid, int subSend, uint32_t& propertyId, int64_t& amount);
@@ -332,6 +365,10 @@ extern std::set<uint32_t> global_wallet_property_list;
 int64_t getMPbalance(const std::string& address, uint32_t propertyId, TallyType ttype);
 int64_t getUserAvailableMPbalance(const std::string& address, uint32_t propertyId);
 int64_t getUserFrozenMPbalance(const std::string& address, uint32_t propertyId);
+///////////////////////////////////////
+/** New things for Contract */
+int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice);
+//////////////////////////////////////
 
 /** Global handler to initialize Omni Core. */
 int mastercore_init();
@@ -359,21 +396,31 @@ int mastercore_save_state( CBlockIndex const *pBlockIndex );
 
 namespace mastercore
 {
-extern std::unordered_map<std::string, CMPTally> mp_tally_map;
-extern CMPTxList *p_txlistdb;
-extern CMPTradeList *t_tradelistdb;
-extern CMPSTOList *s_stolistdb;
-extern COmniTransactionDB *p_OmniTXDB;
+  extern std::unordered_map<std::string, CMPTally> mp_tally_map;
+  /////////////////////////////////////////
+  /*New property type No 3 Contract*/
+  extern std::unordered_map<std::string, CDexTally> cd_tally_map;
+  /////////////////////////////////////////
+
+  extern CMPTxList *p_txlistdb;
+  extern CMPTradeList *t_tradelistdb;
+  extern CMPSTOList *s_stolistdb;
+  extern COmniTransactionDB *p_OmniTXDB;
 
 // TODO: move, rename
-extern CCoinsView viewDummy;
-extern CCoinsViewCache view;
+  extern CCoinsView viewDummy;
+  extern CCoinsViewCache view;
 //! Guards coins view cache
-extern CCriticalSection cs_tx_cache;
+  extern CCriticalSection cs_tx_cache;
 
 std::string strMPProperty(uint32_t propertyId);
 
 bool isMPinBlockRange(int starting_block, int ending_block, bool bDeleteFound);
+
+/////////////////////////////////////////
+/*New property type No 3 Contract*/
+std::string FormatContractMP(int64_t n);
+/////////////////////////////////////////
 
 std::string FormatIndivisibleMP(int64_t n);
 

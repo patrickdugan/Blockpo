@@ -437,7 +437,7 @@ UniValue omni_createcontract(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 18)
         throw runtime_error(
-            "omni_sendissuancecrowdsale \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline ( earlybonus issuerpercentage )\n"
+            "omni_createcontract \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline ( earlybonus issuerpercentage )\n"
 
             "Create new tokens as crowdsale."
 
@@ -471,29 +471,24 @@ UniValue omni_createcontract(const UniValue& params, bool fHelp)
     std::string fromAddress = ParseAddress(params[0]);
     uint8_t ecosystem = ParseEcosystem(params[1]);
     uint16_t type = ParsePropertyType(params[2]);
-    uint32_t previousId = ParsePreviousPropertyId(params[3]);
+    uint32_t previousId = ParsePropertyId(params[3]);
     std::string category = ParseText(params[4]);
     std::string subcategory = ParseText(params[5]);
     std::string name = ParseText(params[6]);
     std::string url = ParseText(params[7]);
     std::string data = ParseText(params[8]);
     uint32_t propertyIdDesired = ParsePropertyId(params[9]);
-    int64_t numTokens = ParseAmount(params[10], type);
+    int64_t numTokens = ParseAmountContract(params[10], type);
     int64_t deadline = ParseDeadline(params[11]);
     uint8_t earlyBonus = ParseEarlyBirdBonus(params[12]);
     uint8_t issuerPercentage = ParseIssuerBonus(params[13]);
-    ////////////////////////////
-    /** New things for Contracts */
+ 
+    //////////////////////////////////////////
     uint32_t blocks_until_expiration = ParseNewValues(params[14]);
     uint32_t notional_size = ParseNewValues(params[15]);
     uint32_t collateral_currency = ParseNewValues(params[16]);
     uint32_t margin_requirement = ParseNewValues(params[17]);
-    ////////////////////////////
-
-    // perform checks
-    RequirePropertyName(name);
-    RequireExistingProperty(propertyIdDesired);
-    RequireSameEcosystem(ecosystem, propertyIdDesired);
+    //////////////////////////////////////////
 
     // create a payload for the transaction
     std::vector<unsigned char> payload = CreatePayload_CreateContract(ecosystem, type, previousId, category, subcategory, name, url, data, propertyIdDesired, numTokens, deadline, earlyBonus, issuerPercentage, blocks_until_expiration, notional_size, collateral_currency, margin_requirement);
@@ -979,7 +974,7 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 7)
         throw runtime_error(
-            "omni_sendtrade \"fromaddress\" propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+            "omni_tradecontract \"fromaddress\" propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
             "\nPlace a trade offer on the distributed token exchange.\n"
 
@@ -989,8 +984,8 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
             "3. amountforsale        (string, required) the amount of tokens to list for sale\n"
             "4. propertiddesired     (number, required) the identifier of the tokens desired in exchange\n"
             "5. amountdesired        (string, required) the amount of tokens desired in exchange\n"
-            "6. desired_price        (string, required) the price of contract desired in exchange\n"
-            "7. forsale_price        (string, required) the price of contract desired in exchange\n"
+            "6. effective_price      (string, required) the price of contract desired in exchange\n"
+            "7. trading_action       (string, required) the price of contract desired in exchange\n"
             
             "\nResult:\n"
             "\"payload\"             (string) the hex-encoded payload\n"
@@ -1003,25 +998,14 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
     // obtain parameters & info
     std::string fromAddress = ParseAddress(params[0]);
     uint32_t propertyIdForSale = ParsePropertyId(params[1]);
-    int64_t amountForSale = ParseAmount(params[2], isPropertyDivisible(propertyIdForSale));
+    int64_t amountForSale = ParseAmountContract(params[2], isPropertyContract(propertyIdForSale));
     uint32_t propertyIdDesired = ParsePropertyId(params[3]);
-    int64_t amountDesired = ParseAmount(params[4], isPropertyDivisible(propertyIdDesired));
-
-    /////////////////////////////////////////
-    /** New things for Contract */
-    int64_t desired_price = ParseAmount(params[5], isPropertyDivisible(propertyIdDesired));
-    int64_t forsale_price = ParseAmount(params[6], isPropertyDivisible(propertyIdForSale));
-    /////////////////////////////////////////
-
-    // perform checks
-    RequireExistingProperty(propertyIdForSale);
-    RequireExistingProperty(propertyIdDesired);
-    RequireBalance(fromAddress, propertyIdForSale, amountForSale);
-    RequireSameEcosystem(propertyIdForSale, propertyIdDesired);
-    RequireDifferentIds(propertyIdForSale, propertyIdDesired);
+    int64_t amountDesired = ParseAmountContract(params[4], isPropertyContract(propertyIdDesired));
+    uint64_t effective_price = ParseEffectivePrice(params[5]);
+    uint8_t trading_action = ParseContractDexAction(params[6]);
 
     // create a payload for the transaction
-    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, desired_price, forsale_price);
+    std::vector<unsigned char> payload = CreatePayload_ContractDexTrade(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, effective_price, trading_action);
 
     // request the wallet build the transaction (and if needed commit it)
     uint256 txid;
@@ -1617,6 +1601,11 @@ static const CRPCCommand commands[] =
     { "omni layer (transaction creation)", "omni_senddisablefreezing",     &omni_senddisablefreezing,     false },
     { "omni layer (transaction creation)", "omni_sendfreeze",              &omni_sendfreeze,              false },
     { "omni layer (transaction creation)", "omni_sendunfreeze",            &omni_sendunfreeze,            false },
+    ///////////////////////////////////
+    /** New things for Contracts */
+    { "omni layer (transaction creation)", "omni_createcontract",          &omni_createcontract,          false },
+    { "omni layer (transaction creation)", "omni_tradecontract",           &omni_tradecontract,           false },
+    ///////////////////////////////////
     { "hidden",                            "omni_senddeactivation",        &omni_senddeactivation,        true  },
     { "hidden",                            "omni_sendactivation",          &omni_sendactivation,          false },
     { "hidden",                            "omni_sendalert",               &omni_sendalert,               true  },

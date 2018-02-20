@@ -227,6 +227,12 @@ std::vector<unsigned char> CreatePayload_CreateContract(uint8_t ecosystem, uint1
     mastercore::swapByteOrder32(propertyIdDesired);
     mastercore::swapByteOrder64(amountPerUnit);
     mastercore::swapByteOrder64(deadline);
+    ////////////////////////////////////
+    mastercore::swapByteOrder32(blocks_until_expiration);
+    mastercore::swapByteOrder32(notional_size);
+    mastercore::swapByteOrder32(collateral_currency);
+    mastercore::swapByteOrder32(margin_requirement);
+    ////////////////////////////////////
 
     if (category.size() > 255) category = category.substr(0,255);
     if (subcategory.size() > 255) subcategory = subcategory.substr(0,255);
@@ -249,18 +255,18 @@ std::vector<unsigned char> CreatePayload_CreateContract(uint8_t ecosystem, uint1
     payload.push_back('\0');
     payload.insert(payload.end(), data.begin(), data.end());
     payload.push_back('\0');
+    
     PUSH_BACK_BYTES(payload, propertyIdDesired);
     PUSH_BACK_BYTES(payload, amountPerUnit);
     PUSH_BACK_BYTES(payload, deadline);
     PUSH_BACK_BYTES(payload, earlyBonus);
     PUSH_BACK_BYTES(payload, issuerPercentage);
-    ////////////////////////////
-    /** New things for Contracts */
+    ////////////////////////////////////
     PUSH_BACK_BYTES(payload, blocks_until_expiration);
     PUSH_BACK_BYTES(payload, notional_size);
     PUSH_BACK_BYTES(payload, collateral_currency);
     PUSH_BACK_BYTES(payload, margin_requirement);
-    ////////////////////////////
+    ////////////////////////////////////
     return payload;
 }
 ///////////////////////////////////////
@@ -495,6 +501,36 @@ std::vector<unsigned char> CreatePayload_MetaDExCancelPrice(uint32_t propertyIdF
     return payload;
 }
 
+/////////////////////////////////////
+/** New things for Contracts */
+std::vector<unsigned char> CreatePayload_ContractDexCancelPrice(uint32_t propertyIdForSale, uint64_t amountForSale, uint32_t propertyIdDesired, uint64_t amountDesired, uint64_t effective_price, uint8_t trading_action)
+{
+    std::vector<unsigned char> payload;
+
+    uint16_t messageType = 30;
+    uint16_t messageVer = 0;
+
+    mastercore::swapByteOrder16(messageVer);
+    mastercore::swapByteOrder16(messageType);
+    mastercore::swapByteOrder32(propertyIdForSale);
+    mastercore::swapByteOrder64(amountForSale);
+    mastercore::swapByteOrder32(propertyIdDesired);
+    mastercore::swapByteOrder64(amountDesired);
+    mastercore::swapByteOrder64(effective_price);
+
+    PUSH_BACK_BYTES(payload, messageVer);
+    PUSH_BACK_BYTES(payload, messageType);
+    PUSH_BACK_BYTES(payload, propertyIdForSale);
+    PUSH_BACK_BYTES(payload, amountForSale);
+    PUSH_BACK_BYTES(payload, propertyIdDesired);
+    PUSH_BACK_BYTES(payload, amountDesired);
+    PUSH_BACK_BYTES(payload, effective_price);        
+    PUSH_BACK_BYTES(payload, trading_action);
+
+    return payload;
+}
+/////////////////////////////////////
+
 std::vector<unsigned char> CreatePayload_MetaDExCancelPair(uint32_t propertyIdForSale, uint32_t propertyIdDesired)
 {
     std::vector<unsigned char> payload;
@@ -532,9 +568,28 @@ std::vector<unsigned char> CreatePayload_MetaDExCancelEcosystem(uint8_t ecosyste
     return payload;
 }
 
-///////////////////////////
+///////////////////////////////
 /** New things for Contracts */
-std::vector<unsigned char> CreatePayload_ContractDexTrade(uint32_t propertyIdForSale, uint64_t amountForSale, uint32_t propertyIdDesired, uint64_t amountDesired, uint64_t desired_price, uint64_t forsale_price)
+std::vector<unsigned char> CreatePayload_ContractDexCancelEcosystem(uint8_t ecosystem)
+{
+    std::vector<unsigned char> payload;
+
+    uint16_t messageType = 32;
+    uint16_t messageVer = 0;
+
+    mastercore::swapByteOrder16(messageVer);
+    mastercore::swapByteOrder16(messageType);
+
+    PUSH_BACK_BYTES(payload, messageVer);
+    PUSH_BACK_BYTES(payload, messageType);
+    PUSH_BACK_BYTES(payload, ecosystem);
+
+    return payload;
+}
+
+///////////////////////////////
+/** New things for Contracts */
+std::vector<unsigned char> CreatePayload_ContractDexTrade(uint32_t propertyIdForSale, uint64_t amountForSale, uint32_t propertyIdDesired, uint64_t amountDesired, uint64_t effective_price, uint8_t trading_action)
 {
     std::vector<unsigned char> payload;
 
@@ -547,8 +602,7 @@ std::vector<unsigned char> CreatePayload_ContractDexTrade(uint32_t propertyIdFor
     mastercore::swapByteOrder64(amountForSale);     /*pkt[8]*/
     mastercore::swapByteOrder32(propertyIdDesired); /*pkt[16]*/
     mastercore::swapByteOrder64(amountDesired);     /*pkt[20]*/
-    mastercore::swapByteOrder64(desired_price);     /*pkt[28]*/
-    mastercore::swapByteOrder64(forsale_price);     /*pkt[36]*/
+    mastercore::swapByteOrder64(effective_price);   /*pkt[28]*/
 
     PUSH_BACK_BYTES(payload, messageVer);           /*vch[0]: 2 = 2 bytes*/
     PUSH_BACK_BYTES(payload, messageType);          /*vch[1]: 2+2 = 4 bytes*/
@@ -556,12 +610,13 @@ std::vector<unsigned char> CreatePayload_ContractDexTrade(uint32_t propertyIdFor
     PUSH_BACK_BYTES(payload, amountForSale);        /*vch[3]: 2+2+4+ 8 = 16 bytes*/
     PUSH_BACK_BYTES(payload, propertyIdDesired);    /*vch[4]: 2+2+4+8+ 4 = 20 bytes*/
     PUSH_BACK_BYTES(payload, amountDesired);        /*vch[5]: 2+2+4+8+4+ 8 = 28 bytes*/
-    PUSH_BACK_BYTES(payload, desired_price);        /*vch[6]: 2+2+4+8+4+8+ 8 = 36 bytes*/
-    PUSH_BACK_BYTES(payload, forsale_price);        /*vch[7]: 2+2+4+8+4+8+8 +8 = 44 bytes*/
+    PUSH_BACK_BYTES(payload, effective_price);      /*vch[6]: 2+2+4+8+4+8+ 8 = 36 bytes*/
+    PUSH_BACK_BYTES(payload, trading_action);       /*vch[7]: 2+2+4+8+4+8+8 +1 = 37 bytes*/
     
     return payload;
 }
-///////////////////////////
+/////////////////////////////////
+
 std::vector<unsigned char> CreatePayload_DeactivateFeature(uint16_t featureId)
 {
     std::vector<unsigned char> payload;

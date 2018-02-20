@@ -29,6 +29,19 @@ uint32_t CMPTally::init()
     return propertyId;
 }
 
+//////////////////////////////////////
+/** New things for Contracts */
+uint32_t CDexTally::init()
+{
+    uint32_t propertyId = 0;
+    cd_it = cd_token.begin();
+    if (cd_it != cd_token.end()) {
+        propertyId = cd_it->first;
+    }
+    return propertyId;
+}
+//////////////////////////////////////
+
 /**
  * Advances the internal iterator.
  *
@@ -43,6 +56,19 @@ uint32_t CMPTally::next()
     }
     return ret;
 }
+
+//////////////////////////////////////
+/** New things for Contracts */
+uint32_t CDexTally::next()
+{
+    uint32_t ret = 0;
+    if (cd_it != cd_token.end()) {
+        ret = cd_it->first;
+        ++cd_it;
+    }
+    return ret;
+}
+//////////////////////////////////////
 
 /**
  * Checks whether the addition of a + b overflows.
@@ -72,6 +98,7 @@ bool CMPTally::updateMoney(uint32_t propertyId, int64_t amount, TallyType ttype)
     if (TALLY_TYPE_COUNT <= ttype || amount == 0) {
         return false;
     }
+
     bool fUpdated = false;
     int64_t now64 = mp_token[propertyId].balance[ttype];
 
@@ -84,15 +111,42 @@ bool CMPTally::updateMoney(uint32_t propertyId, int64_t amount, TallyType ttype)
         // NOTE:
         // Negative balances are only permitted for pending balances
     } else {
-
         now64 += amount;
         mp_token[propertyId].balance[ttype] = now64;
 
         fUpdated = true;
     }
-
     return fUpdated;
 }
+
+///////////////////////////////////////
+/** New things for Contracts */
+bool CDexTally::updateMoney(uint32_t propertyId, double amount, TallyType ttype)
+{
+    if (TALLY_TYPE_COUNT <= ttype || amount == 0) {
+        return false;
+    }
+
+    bool fUpdated = false;
+    double now64 = cd_token[propertyId].balance_cd[ttype];
+
+    // if (isOverflow(now64, amount)) {
+    //     PrintToLog("%s(): ERROR: arithmetic overflow [%d + %d]\n", __func__, now64, amount);
+    //     return false;
+    // }
+
+    if (PENDING != ttype && (now64 + amount) < 0) {
+        // NOTE:
+        // Negative balances are only permitted for pending balances
+    } else {
+        now64 += amount;
+        cd_token[propertyId].balance_cd[ttype] = now64;
+
+        fUpdated = true;
+    }
+    return fUpdated;
+}
+///////////////////////////////////////
 
 /**
  * Returns the number of tokens for the given tally type.
@@ -116,6 +170,24 @@ int64_t CMPTally::getMoney(uint32_t propertyId, TallyType ttype) const
 
     return money;
 }
+
+////////////////////////////////////
+/** New things for Contracts */
+double CDexTally::getMoney(uint32_t propertyId, TallyType ttype) const
+{
+    if (TALLY_TYPE_COUNT <= ttype) {
+        return 0;
+    }
+    double money = 0;
+    cdTokenMap::const_iterator it = cd_token.find(propertyId);
+
+    if (it != cd_token.end()) {
+        const cdBalanceRecord& record = it->second;
+        money = record.balance_cd[ttype];
+    }
+    return money;
+}
+////////////////////////////////////
 
 /**
  * Returns the number of available tokens.
@@ -142,6 +214,24 @@ int64_t CMPTally::getMoneyAvailable(uint32_t propertyId) const
     return 0;
 }
 
+////////////////////////////////////
+/** New things for Contracts */
+double CDexTally::getMoneyAvailable(uint32_t propertyId) const
+{
+    cdTokenMap::const_iterator it = cd_token.find(propertyId);
+
+    if (it != cd_token.end()) {
+        const cdBalanceRecord& record = it->second;
+        if (record.balance_cd[PENDING] < 0) {
+            return record.balance_cd[BALANCE] + record.balance_cd[PENDING];
+        } else {
+            return record.balance_cd[BALANCE];
+        }
+    }
+    return 0;
+}
+////////////////////////////////////
+
 /**
  * Returns the number of reserved tokens.
  *
@@ -161,10 +251,39 @@ int64_t CMPTally::getMoneyReserved(uint32_t propertyId) const
         money += record.balance[SELLOFFER_RESERVE];
         money += record.balance[ACCEPT_RESERVE];
         money += record.balance[METADEX_RESERVE];
+        //////////////////////////////////////
+        /** New things for Contracts */
+        money += record.balance[CONTRACTDEX_RESERVE];
+        money += record.balance[POSSITIVE_BALANCE];
+        money += record.balance[NEGATIVE_BALANCE];
+        money += record.balance[REALIZED_PROFIT];
+        money += record.balance[REALIZED_LOSSES];
+        //////////////////////////////////////
     }
-
     return money;
 }
+
+////////////////////////////////////
+/** New things for Contracts */
+double CDexTally::getMoneyReserved(uint32_t propertyId) const
+{
+    double money = 0;
+    cdTokenMap::const_iterator it = cd_token.find(propertyId);
+
+    if (it != cd_token.end()) {
+        const cdBalanceRecord& record = it->second;
+        money += record.balance_cd[SELLOFFER_RESERVE];
+        money += record.balance_cd[ACCEPT_RESERVE];
+        money += record.balance_cd[METADEX_RESERVE];
+        money += record.balance_cd[CONTRACTDEX_RESERVE];
+        money += record.balance_cd[POSSITIVE_BALANCE];
+        money += record.balance_cd[NEGATIVE_BALANCE];
+        money += record.balance_cd[REALIZED_PROFIT];
+        money += record.balance_cd[REALIZED_LOSSES];
+    }
+    return money;
+}
+////////////////////////////////////
 
 /**
  * Compares the tally with another tally and returns true, if they are equal.
@@ -202,6 +321,39 @@ bool CMPTally::operator==(const CMPTally& rhs) const
     return true;
 }
 
+////////////////////////////////////
+/** New things for Contracts */
+bool CDexTally::operator==(const CDexTally& rhs) const
+{
+    if (cd_token.size() != rhs.cd_token.size()) {
+        return false;
+    }
+    cdTokenMap::const_iterator pc1 = cd_token.begin();
+    cdTokenMap::const_iterator pc2 = rhs.cd_token.begin();
+
+    for (unsigned int i = 0; i < cd_token.size(); ++i) {
+        if (pc1->first != pc2->first) {
+            return false;
+        }
+        const cdBalanceRecord& record1 = pc1->second;
+        const cdBalanceRecord& record2 = pc2->second;
+
+        for (int ttype = 0; ttype < TALLY_TYPE_COUNT; ++ttype) {
+            if (record1.balance_cd[ttype] != record2.balance_cd[ttype]) {
+                return false;
+            }
+        }
+        ++pc1;
+        ++pc2;
+    }
+
+    assert(pc1 == cd_token.end());
+    assert(pc2 == rhs.cd_token.end());
+
+    return true;
+}
+////////////////////////////////////
+
 /**
  * Compares the tally with another tally and returns true, if they are not equal.
  *
@@ -213,6 +365,14 @@ bool CMPTally::operator!=(const CMPTally& rhs) const
     return !operator==(rhs);
 }
 
+////////////////////////////////////
+/** New things for Contracts */
+bool CDexTally::operator!=(const CDexTally& rhs) const
+{
+    return !operator==(rhs);
+}
+////////////////////////////////////
+
 /**
  * Prints a balance record to the console.
  *
@@ -220,6 +380,7 @@ bool CMPTally::operator!=(const CMPTally& rhs) const
  * @param bDivisible  Whether the token is divisible or indivisible
  * @return The total number of tokens of the tally
  */
+
 int64_t CMPTally::print(uint32_t propertyId, bool bDivisible) const
 {
     int64_t balance = 0;
@@ -231,7 +392,7 @@ int64_t CMPTally::print(uint32_t propertyId, bool bDivisible) const
     TokenMap::const_iterator it = mp_token.find(propertyId);
 
     if (it != mp_token.end()) {
-        const BalanceRecord& record = it->second;
+        const BalanceRecord &record = it->second;
         balance = record.balance[BALANCE];
         selloffer_reserve = record.balance[SELLOFFER_RESERVE];
         accept_reserve = record.balance[ACCEPT_RESERVE];
@@ -251,3 +412,26 @@ int64_t CMPTally::print(uint32_t propertyId, bool bDivisible) const
 
     return (balance + selloffer_reserve + accept_reserve + metadex_reserve);
 }
+
+////////////////////////////////////
+/** New things for Contracts */
+double CDexTally::print(uint32_t propertyId, bool bContract) const
+{
+    double balance = 0;
+    double selloffer_reserve = 0;
+    double accept_reserve = 0;
+    double contractdex_reserve = 0;
+
+    cdTokenMap::const_iterator it = cd_token.find(propertyId);
+
+    if (it != cd_token.end()) {
+        const cdBalanceRecord &record = it->second;
+        balance = record.balance_cd[BALANCE];
+        selloffer_reserve = record.balance_cd[SELLOFFER_RESERVE];
+        accept_reserve = record.balance_cd[ACCEPT_RESERVE];
+        contractdex_reserve = record.balance_cd[CONTRACTDEX_RESERVE];
+    }
+
+    return (balance + selloffer_reserve + accept_reserve + contractdex_reserve);
+}
+////////////////////////////////////

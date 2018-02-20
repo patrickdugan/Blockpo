@@ -88,10 +88,9 @@ std::string GenerateConsensusString(const CMPMetaDEx& tradeObj)
 /** New things for Contracts */
 std::string GenerateConsensusString(const CMPContractDex &tradeObj)
 {
-    return strprintf("%s|%s|%d|%d|%d|%d|%d|%d|%d",
+    return strprintf("%s|%s|%d|%d|%d|%d|%d",
             tradeObj.getHash().GetHex(), tradeObj.getAddr(), tradeObj.getProperty(), tradeObj.getAmountForSale(),
-            tradeObj.getDesProperty(), tradeObj.getAmountDesired(), tradeObj.getAmountRemaining(), 
-            tradeObj.getDesiredPrice(), tradeObj.getForsalePrice());
+            tradeObj.getDesProperty(), tradeObj.getAmountRemaining(), tradeObj.getEffectivePrice());
 }
 ///////////////////////////////////
 
