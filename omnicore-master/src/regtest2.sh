@@ -33,14 +33,19 @@ printf "   * Checking confirmation of transaction:\n"
 ./omnicore-cli --regtest omni_gettransaction $TRA
 ./omnicore-cli --regrest omni_listproperties
 printf "* Putting some orders in orderbook :\n"
-TRA2=$(./omnicore-cli --regtest omni_tradecontract $ADDR 2147483651 5 1 1 10 1)
+TRA2=$(./omnicore-cli --regtest omni_tradecontract $ADDR 2147483651 3 1 1 10 1)
 ./omnicore-cli --regtest generate 1
-TRA3=$(./omnicore-cli --regtest omni_tradecontract $ADDR2 2147483651 5 1 1 10 2)
+TRA3=$(./omnicore-cli --regtest omni_tradecontract $ADDR 2147483651 3 1 1 10 2)
 ./omnicore-cli --regtest generate 1
-TRA4=$(./omnicore-cli --regtest omni_tradecontract $ADDR3 2147483651 4 1 1 12 1)
-./omnicore-cli --regtest generate 1
-TRA5=$(./omnicore-cli --regtest omni_tradecontract $ADDR4 2147483651 4 1 1 12 2)
-./omnicore-cli --regtest generate 1
+# TRA2=$(./omnicore-cli --regtest omni_tradecontract $ADDR 2147483651 5 1 1 10 1)
+# ./omnicore-cli --regtest generate 1
+# TRA3=$(./omnicore-cli --regtest omni_tradecontract $ADDR 2147483651 5 1 1 10 2)
+# ./omnicore-cli --regtest generate 1
+./omnicore-cli --regtest omni_getposition $ADDR 2147483651
+# TRA4=$(./omnicore-cli --regtest omni_tradecontract $ADDR3 2147483651 4 1 1 12 1)
+# ./omnicore-cli --regtest generate 1
+# TRA5=$(./omnicore-cli --regtest omni_tradecontract $ADDR4 2147483651 4 1 1 12 2)
+# ./omnicore-cli --regtest generate 1
 # TRA6=$(./omnicore-cli --regtest omni_tradecontract $ADDR 2147483651 1 1 1 7 1)
 # ./omnicore-cli --regtest generate 1
 # TRA7=$(./omnicore-cli --regtest omni_tradecontract $ADDR2 2147483651 1 1 1 7 2)

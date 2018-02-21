@@ -408,7 +408,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
         if (msc_debug_metadex2) PrintToLog("comparing prices: desprice %s needs to be GREATER THAN OR EQUAL TO %s\n",
             xToString(pnew->getEffectivePrice()), xToString(sellersPrice));
-
         // Is the desired price check satisfied? The buyer's inverse price must be larger than that of the seller.
         if ((pnew->getTradingAction() == BUY) && (pnew->getEffectivePrice() < sellersPrice)) {
             continue;
@@ -427,6 +426,13 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             std::string tradeStatus = pold->getEffectivePrice() == sellersPrice ? "Matched" : "NoMatched";
 
+            // If someone is matching with himself
+            if (pold->getAddr() == pnew->getAddr())
+            {
+              PrintToConsole("Mathching with yourself!, Please choose another order\n");
+              ++offerIt;
+              return CANCELLED; // the new order must be cancelled
+            }
             // Does the desired property match? Does the tradingaction match?
             if ((pold->getProperty() != propertyForSale) || (pold->getTradingAction() == pnew->getTradingAction())) {
                 ++offerIt;
@@ -1009,7 +1015,7 @@ int mastercore::MetaDEx_ADD(const std::string& sender_addr, uint32_t prop, int64
 int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t effective_price, uint8_t trading_action, int64_t amount_to_reserve)
 {
     int rc = METADEX_ERROR -1;
-
+    enum MatchReturnType result;
     // Create a MetaDEx object from paremeters
     /*Remember: Here CMPTransaction::ADD is the subaction coming from CMPMetaDEx*/
     CMPContractDex new_cdex(sender_addr, block, prop, amount, property_desired, amount_desired, txid, idx, CMPTransaction::ADD, effective_price, trading_action);
@@ -1027,11 +1033,11 @@ int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, i
     }
     // Match against existing trades, remainder of the order will be put into the order book
     if (msc_debug_metadex3) MetaDEx_debug_print();
-    x_Trade(&new_cdex);
+    result = x_Trade(&new_cdex);
     if (msc_debug_metadex3) MetaDEx_debug_print();
 
     // Insert the remaining order into the ContractDex maps
-    if (0 < new_cdex.getAmountForSale()) { //switch to getAmounForSale() when ready
+    if ((0 < new_cdex.getAmountForSale()) && (result != CANCELLED)) { //switch to getAmounForSale() when ready
         if (!ContractDex_INSERT(new_cdex)) {
             PrintToLog("%s() ERROR: ALREADY EXISTS, line %d, file: %s\n", __FUNCTION__, __LINE__, __FILE__);
             return METADEX_ERROR -70;
