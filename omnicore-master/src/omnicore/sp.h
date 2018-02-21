@@ -152,9 +152,17 @@ private:
     // implied version of OMNI and TOMNI so they don't hit the leveldb
     Entry implied_omni;
     Entry implied_tomni;
+<<<<<<< HEAD
 
     uint32_t next_spid;
     uint32_t next_test_spid;
+=======
+    Entry implied_spc;
+
+    uint32_t next_spid;
+    uint32_t next_test_spid;
+    uint32_t next_spc;
+>>>>>>> vps
 
 public:
 
@@ -164,7 +172,12 @@ public:
     /** Extends clearing of CDBBase. */
     void Clear();
 
+<<<<<<< HEAD
     void init(uint32_t nextSPID = 0x3UL, uint32_t nextTestSPID = TEST_ECO_PROPERTY_1);
+=======
+    // void init(uint32_t nextSPID = 0x3UL, uint32_t nextTestSPID = TEST_ECO_PROPERTY_1);
+    void init(uint32_t nextSPID = 0x3UL, uint32_t nextTestSPID = TEST_ECO_PROPERTY_1, uint32_t nextSPC = 0x3UL);
+>>>>>>> vps
 
     uint32_t peekNextSPID(uint8_t ecosystem) const;
     bool updateSP(uint32_t propertyId, const Entry& info);
@@ -265,4 +278,8 @@ unsigned int eraseExpiredCrowdsale(const CBlockIndex* pBlockIndex);
 }
 
 
+<<<<<<< HEAD
 #endif // OMNICORE_SP_H
+=======
+#endif // OMNICORE_SP_H
+>>>>>>> vps

@@ -53,7 +53,11 @@ enum MatchReturnType
 MatchReturnType x_Trade(CMPMetaDEx* const pnew);
 ///////////////////////////////
 /*New things for contracts*/
+<<<<<<< HEAD
 void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property);
+=======
+void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property, uint8_t trading_action);
+>>>>>>> vps
 ////////////////////////////////
 
 /** A trade on the distributed exchange.

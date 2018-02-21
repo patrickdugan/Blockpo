@@ -3,7 +3,10 @@
 #include "omnicore/createtx.h"
 #include "omnicore/parse_string.h"
 #include "omnicore/wallettxs.h"
+<<<<<<< HEAD
 #include "omnicore/log.h"
+=======
+>>>>>>> vps
 
 #include "base58.h"
 #include "core_io.h"
@@ -26,7 +29,11 @@ using mastercore::StrToInt64;
 
 std::string ParseAddress(const UniValue& value)
 {
+<<<<<<< HEAD
     CBitcoinAddress address(value.get_str());    
+=======
+    CBitcoinAddress address(value.get_str());
+>>>>>>> vps
     if (!address.IsValid()) {
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid address");
     }

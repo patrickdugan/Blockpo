@@ -165,7 +165,10 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
     int64_t nAvailable = getUserAvailableMPbalance(address, property);
 
     int64_t nReserved = 0;
+<<<<<<< HEAD
   
+=======
+>>>>>>> vps
     nReserved += getMPbalance(address, property, ACCEPT_RESERVE);
     nReserved += getMPbalance(address, property, METADEX_RESERVE);
     nReserved += getMPbalance(address, property, SELLOFFER_RESERVE);
@@ -175,12 +178,18 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
     if (divisible) {
         balance_obj.push_back(Pair("balance", FormatDivisibleMP(nAvailable)));
         balance_obj.push_back(Pair("reserved", FormatDivisibleMP(nReserved)));
+<<<<<<< HEAD
 
+=======
+>>>>>>> vps
         if (nFrozen != 0) balance_obj.push_back(Pair("frozen", FormatDivisibleMP(nFrozen)));
     } else {
         balance_obj.push_back(Pair("balance", FormatIndivisibleMP(nAvailable)));
         balance_obj.push_back(Pair("reserved", FormatIndivisibleMP(nReserved)));
+<<<<<<< HEAD
 
+=======
+>>>>>>> vps
         if (nFrozen != 0) balance_obj.push_back(Pair("frozen", FormatIndivisibleMP(nFrozen)));
     }
 
@@ -195,6 +204,7 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
 /** New things for Contract */
 bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool dContract)
 {
+<<<<<<< HEAD
     int64_t negativeBalance = 0, positiveBalance = 0;
     negativeBalance += getMPbalance(address, property, NEGATIVE_BALANCE);
     positiveBalance += getMPbalance(address, property, POSSITIVE_BALANCE);
@@ -208,11 +218,30 @@ bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniVal
 }
 
 ///////////////////////////////////////////
+=======
+    int64_t contractReserved = getMPbalance(address, property, CONTRACTDEX_RESERVE);
+    int64_t balance = getMPbalance(address, property, BALANCE);
+    int64_t negativeBalance = getMPbalance(address, property, NEGATIVE_BALANCE);
+    int64_t positiveBalance = getMPbalance(address, property, POSSITIVE_BALANCE);
+
+    if (dContract) {
+        balance_obj.push_back(Pair("balance", FormatDivisibleMP(balance)));
+        balance_obj.push_back(Pair("reserved", FormatDivisibleMP(contractReserved)));
+        balance_obj.push_back(Pair("positive balance", FormatDivisibleMP(positiveBalance)));
+        balance_obj.push_back(Pair("negative balance", FormatDivisibleMP(negativeBalance)));
+    }
+
+    return true;
+}
+
+///////////////////////////////////////////////
+>>>>>>> vps
 /** New things for Contract */
 bool PositionToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
 {
     int64_t longPosition  = getMPbalance(address, property, POSSITIVE_BALANCE);
     int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
+<<<<<<< HEAD
     
     balance_obj.push_back(Pair("longPosition", FormatContractShortMP(longPosition)));
     balance_obj.push_back(Pair("shortPosition", FormatContractShortMP(shortPosition)));
@@ -227,6 +256,16 @@ bool PositionToJSON(const std::string& address, uint32_t property, UniValue& bal
 }
 
 /////////////////////////////////////////
+=======
+
+    balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(longPosition)));
+    balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(shortPosition)));
+    return true;
+  
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+>>>>>>> vps
 // Obtains details of a fee distribution
 UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
 {
@@ -1044,6 +1083,11 @@ UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
     std::string address = ParseAddress(params[0]);
     uint32_t propertyId = ParsePropertyId(params[1]);
 
+<<<<<<< HEAD
+=======
+    RequireExistingProperty(propertyId);
+
+>>>>>>> vps
     UniValue balanceObj(UniValue::VOBJ);
     ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyContract(propertyId));
 
@@ -1074,10 +1118,17 @@ UniValue omni_getposition(const UniValue& params, bool fHelp)
     std::string address = ParseAddress(params[0]);
     uint32_t propertyId = ParsePropertyId(params[1]);
 
+<<<<<<< HEAD
     // RequireExistingProperty(propertyId);
 
     UniValue balanceObj(UniValue::VOBJ);
     PositionToJSON(address, propertyId, balanceObj, isPropertyContract(propertyId));
+=======
+    //RequireExistingProperty(propertyId);
+
+    UniValue balanceObj(UniValue::VOBJ);
+    PositionToJSON(address, propertyId, balanceObj,isPropertyContract(propertyId));
+>>>>>>> vps
 
     return balanceObj;
 }
