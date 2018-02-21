@@ -203,7 +203,7 @@ bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniVal
         balance_obj.push_back(Pair("positive balance", FormatContractMP(positiveBalance)));
         balance_obj.push_back(Pair("negative balance", FormatContractMP(negativeBalance)));
     }
-    
+
     return true;
 }
 
@@ -213,17 +213,11 @@ bool PositionToJSON(const std::string& address, uint32_t property, UniValue& bal
 {
     int64_t longPosition  = getMPbalance(address, property, POSSITIVE_BALANCE);
     int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
-    
+
     balance_obj.push_back(Pair("longPosition", FormatContractShortMP(longPosition)));
     balance_obj.push_back(Pair("shortPosition", FormatContractShortMP(shortPosition)));
 
-    if (shortPosition == 0 && longPosition == 0) {
-        balance_obj.push_back(Pair("longPosition", FormatContractShortMP(0)));
-        balance_obj.push_back(Pair("shortPosition", FormatContractShortMP(0)));
-        return false;
-    } else {
-        return true;
-    }
+    return true;
 }
 // Obtains details of a fee distribution
 UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
