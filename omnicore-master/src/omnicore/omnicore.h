@@ -367,11 +367,7 @@ int64_t getUserAvailableMPbalance(const std::string& address, uint32_t propertyI
 int64_t getUserFrozenMPbalance(const std::string& address, uint32_t propertyId);
 ///////////////////////////////////////
 /** New things for Contract */
-<<<<<<< HEAD
-int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice);
-=======
 int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice, uint8_t trading_action, int64_t amountInOrder);
->>>>>>> vps
 //////////////////////////////////////
 
 /** Global handler to initialize Omni Core. */

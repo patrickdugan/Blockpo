@@ -1906,11 +1906,7 @@ int CMPTransaction::logicMath_ContractDexTrade()
     ///////////////////////////////
     /** Remember: This has to be calculate in some way */
     extern double percentLiqPrice;
-<<<<<<< HEAD
-    percentLiqPrice = 0.85;
-=======
     percentLiqPrice = 0.15;
->>>>>>> vps
     ////////////////////////////////////
     
     // if (!IsTransactionTypeAllowed(block, property, type, version)) {

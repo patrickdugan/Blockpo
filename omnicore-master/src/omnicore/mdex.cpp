@@ -400,11 +400,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
         PrintToLog("%s()=%d:%s NOT FOUND ON THE MARKET\n", __FUNCTION__, NewReturn, getTradeReturnType(NewReturn));
         return NewReturn;
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> vps
     // within the desired property map (given one property) iterate over the items looking at prices
     for (cd_PricesMap::iterator priceIt = ppriceMap->begin(); priceIt != ppriceMap->end(); ++priceIt) { // check all prices
 
@@ -412,10 +408,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
         if (msc_debug_metadex2) PrintToLog("comparing prices: desprice %s needs to be GREATER THAN OR EQUAL TO %s\n",
             xToString(pnew->getEffectivePrice()), xToString(sellersPrice));
-<<<<<<< HEAD
 
-=======
->>>>>>> vps
         // Is the desired price check satisfied? The buyer's inverse price must be larger than that of the seller.
         if ((pnew->getTradingAction() == BUY) && (pnew->getEffectivePrice() < sellersPrice)) {
             continue;
@@ -426,20 +419,13 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
         cd_Set* const pofferSet = &(priceIt->second);
         // At good (single) price level and property iterate over offers looking at all parameters to find the match
-<<<<<<< HEAD
-        cd_Set::iterator offerIt = pofferSet->begin();        
-=======
         cd_Set::iterator offerIt = pofferSet->begin();
->>>>>>> vps
+
         while (offerIt != pofferSet->end()) { // Specific price, check all properties
 
             const CMPContractDex* const pold = &(*offerIt);
             assert(pold->getEffectivePrice() == sellersPrice);
 
-<<<<<<< HEAD
-            std::string tradeStatus = pold->getEffectivePrice() == sellersPrice ? "Matched" : "NoMatched"; 
-
-=======
             std::string tradeStatus = pold->getEffectivePrice() == sellersPrice ? "Matched" : "NoMatched";
 
             // If someone is matching with himself
@@ -449,7 +435,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
               ++offerIt;
               return CANCELLED; // the new order must be cancelled
             }
->>>>>>> vps
+
             // Does the desired property match? Does the tradingaction match?
             if ((pold->getProperty() != propertyForSale) || (pold->getTradingAction() == pnew->getTradingAction())) {
                 ++offerIt;
@@ -459,18 +445,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             //////////////////////////////////////
             // Preconditions
             assert(pold->getProperty() == pnew->getProperty());
-<<<<<<< HEAD
 
-            get_LiquidationPrice(pnew->getEffectivePrice(), pnew->getAddr(), pnew->getProperty()); // setting liquidation prices
-            get_LiquidationPrice(pold->getEffectivePrice(), pold->getAddr(), pold->getProperty());
-            //
-            // PrintToConsole("Checking effective prices and trading actions:\n");
-            // PrintToConsole("Effective price pold: %d\n", pold->getEffectivePrice());
-            // PrintToConsole("Effective price pnew: %d\n", pnew->getEffectivePrice());
-            // PrintToConsole("Trading action pold: %d\n", pold->getTradingAction());
-            // PrintToConsole("Trading action pnew: %d\n", pnew->getTradingAction());
-            // PrintToConsole("________________________________________\n");
-=======
             if (pnew->getHash() != uint256S("")) get_LiquidationPrice(pnew->getEffectivePrice(), pnew->getAddr(), pnew->getProperty(), pnew->getTradingAction()); // setting liquidation prices
             if (pold->getHash() != uint256S(""))get_LiquidationPrice(pold->getEffectivePrice(), pold->getAddr(), pold->getProperty(), pold->getTradingAction());
             PrintToConsole("________________________________________________________\n");
@@ -480,7 +455,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             PrintToConsole("Trading action pold: %d\n", pold->getTradingAction());
             PrintToConsole("Trading action pnew: %d\n", pnew->getTradingAction());
             PrintToConsole("________________________________________\n");
->>>>>>> vps
             ///////////////////////////
             int64_t possitive_sell = 0, difference_s = 0, seller_amount = 0, negative_sell = 0;
             int64_t possitive_buy  = 0, difference_b = 0, buyer_amount  = 0, negative_buy  = 0;
@@ -641,11 +615,9 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
                 int64_t basis_s = t_tradelistdb->getTradeBasis(seller_address, countClosedSeller, property_traded);
                 int64_t PNL_s = (marketPrice*countClosedSeller - basis_s)*notionalSize;
-<<<<<<< HEAD
 
-=======
                 PrintToConsole("PNL_s : %s",PNL_s);
->>>>>>> vps
+
                 if ( PNL_s != 0 ) {
                     assert(update_tally_map(seller_address, collateralCurrency, PNL_s, CONTRACTDEX_RESERVE));
                 }
@@ -663,11 +635,9 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
                 int64_t basis_b = t_tradelistdb->getTradeBasis(buyer_address, countClosedBuyer, property_traded);
                 int64_t PNL_b = (marketPrice*countClosedBuyer - basis_b)*notionalSize;
-<<<<<<< HEAD
 
-=======
                 PrintToConsole("PNL_b : %s",PNL_b);
->>>>>>> vps
+
                 if ( PNL_b != 0 ) {
                     assert(update_tally_map(buyer_address, collateralCurrency, PNL_b, CONTRACTDEX_RESERVE));
                 }
@@ -697,13 +667,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               Status_taker,
                                               lives_maker,
                                               lives_taker,
-<<<<<<< HEAD
-                                              property_traded, 
-                                              tradeStatus, 
-=======
                                               property_traded,
                                               tradeStatus,
->>>>>>> vps
                                               pold->getEffectivePrice(),
                                               pnew->getEffectivePrice()
                                               );
@@ -725,25 +690,12 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             }
         }
         if (bBuyerSatisfied) break;
-<<<<<<< HEAD
-    }    
-=======
     }
->>>>>>> vps
     return NewReturn;
 }
 
 /////////////////////////////////////
 /*New things for contracts */
-<<<<<<< HEAD
-void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property)
-{
-    /** Remember: percentLiqPrice is defined in tx.cpp ContractDexTrade */
-    extern double percentLiqPrice;
-    double liqPrice = effectivePrice*percentLiqPrice;
-    PrintToConsole ("Effective price x0.85: %g\n", liqPrice);
-    
-=======
 void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t property, uint8_t trading_action)
 {
     /** Remember: percentLiqPrice is defined in tx.cpp ContractDexTrade */
@@ -754,7 +706,6 @@ void get_LiquidationPrice(int64_t effectivePrice, string address, uint32_t prope
     PrintToConsole ("Into get_LiquidationPrice function\n");
     PrintToConsole ("Effective price : %g\n", liqPrice);
 
->>>>>>> vps
     int64_t liq64 = static_cast<int64_t>(liqPrice);
     assert(update_tally_map(address, property, liq64, LIQUIDATION_PRICE));
 
@@ -1072,11 +1023,9 @@ int mastercore::MetaDEx_ADD(const std::string& sender_addr, uint32_t prop, int64
 int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, int64_t amount, int block, uint32_t property_desired, int64_t amount_desired, const uint256& txid, unsigned int idx, uint64_t effective_price, uint8_t trading_action, int64_t amount_to_reserve)
 {
     int rc = METADEX_ERROR -1;
-<<<<<<< HEAD
 
-=======
     enum MatchReturnType result;
->>>>>>> vps
+
     // Create a MetaDEx object from paremeters
     /*Remember: Here CMPTransaction::ADD is the subaction coming from CMPMetaDEx*/
     CMPContractDex new_cdex(sender_addr, block, prop, amount, property_desired, amount_desired, txid, idx, CMPTransaction::ADD, effective_price, trading_action);
@@ -1084,15 +1033,6 @@ int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, i
     // Ensure this is not a badly priced trade (for example due to zero amounts)
     if (0 >= new_cdex.getEffectivePrice()) return METADEX_ERROR -66;
 
-<<<<<<< HEAD
-    // Match against existing trades, remainder of the order will be put into the order book
-    if (msc_debug_metadex3) MetaDEx_debug_print();
-    x_Trade(&new_cdex);
-    if (msc_debug_metadex3) MetaDEx_debug_print();
-
-    // Insert the remaining order into the ContractDex maps
-    if (0 < new_cdex.getAmountForSale()) { //switch to getAmounForSale() when ready
-=======
     if (new_cdex.getBlock() == 1){
       PrintToConsole("__________________________________________________________\n");
       PrintToConsole("Into ContractDex_ADD\n");
@@ -1108,7 +1048,7 @@ int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, i
 
     // Insert the remaining order into the ContractDex maps
     if ((0 < new_cdex.getAmountForSale()) && (result != CANCELLED)) { //switch to getAmounForSale() when ready
->>>>>>> vps
+
         if (!ContractDex_INSERT(new_cdex)) {
             PrintToLog("%s() ERROR: ALREADY EXISTS, line %d, file: %s\n", __FUNCTION__, __LINE__, __FILE__);
             return METADEX_ERROR -70;

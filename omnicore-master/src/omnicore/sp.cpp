@@ -102,18 +102,6 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
     implied_tomni.url = "http://www.omnilayer.org";
     implied_tomni.data = "Test Omni serve as the binding between Bitcoin, smart properties and contracts created on the Omni Layer.";
 
-<<<<<<< HEAD
-=======
-    implied_spc.issuer = ExodusAddress().ToString();
-    implied_spc.prop_type = MSC_PROPERTY_TYPE_CONTRACT;
-    implied_spc.num_tokens = 700000;
-    implied_spc.category = "Derivaties";
-    implied_spc.subcategory = "Futures Contracts";
-    implied_spc.name = "SPC";
-    implied_spc.url = "www.tradelayer.org";
-    implied_spc.data = "Futures Contracts Exchange on OmniLayer.";
-
->>>>>>> vps
     init();
 }
 
@@ -130,29 +118,12 @@ void CMPSPInfo::Clear()
     init();
 }
 
-<<<<<<< HEAD
 void CMPSPInfo::init(uint32_t nextSPID, uint32_t nextTestSPID)
 {
     next_spid = nextSPID;
     next_test_spid = nextTestSPID;
 }
 
-=======
-// void CMPSPInfo::init(uint32_t nextSPID, uint32_t nextTestSPID)
-// {
-//     next_spid = nextSPID;
-//     next_test_spid = nextTestSPID;
-// }
-
-void CMPSPInfo::init(uint32_t nextSPID, uint32_t nextTestSPID, uint32_t nextSPC)
-{
-    next_spid = nextSPID;
-    next_test_spid = nextTestSPID;
-    next_spc = nextSPC;
-}
-
-
->>>>>>> vps
 uint32_t CMPSPInfo::peekNextSPID(uint8_t ecosystem) const
 {
     uint32_t nextId = 0;
@@ -164,12 +135,6 @@ uint32_t CMPSPInfo::peekNextSPID(uint8_t ecosystem) const
         case OMNI_PROPERTY_TMSC: // Test ecosystem, same as above with high bit set
             nextId = next_test_spid;
             break;
-<<<<<<< HEAD
-=======
-        case OMNI_PROPERTY_SPC: 
-            nextId = next_spc;
-            break;
->>>>>>> vps
 
         default: // Non-standard ecosystem, ID's start at 0
             nextId = 0;
@@ -181,11 +146,8 @@ uint32_t CMPSPInfo::peekNextSPID(uint8_t ecosystem) const
 bool CMPSPInfo::updateSP(uint32_t propertyId, const Entry& info)
 {
     // cannot update implied SP
-<<<<<<< HEAD
     if (OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId) {
-=======
-    if (OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId || OMNI_PROPERTY_SPC == propertyId) {
->>>>>>> vps
+
         return false;
     }
 
@@ -236,12 +198,7 @@ uint32_t CMPSPInfo::putSP(uint8_t ecosystem, const Entry& info)
         case OMNI_PROPERTY_TMSC: // Test ecosystem, same as above with high bit set
             propertyId = next_test_spid++;
             break;
-<<<<<<< HEAD
-=======
-        case OMNI_PROPERTY_SPC: // Test ecosystem, same as above with high bit set
-            propertyId = next_spc++;
-            break;
->>>>>>> vps
+
         default: // Non-standard ecosystem, ID's start at 0
             propertyId = 0;
     }
@@ -301,12 +258,6 @@ bool CMPSPInfo::getSP(uint32_t propertyId, Entry& info) const
     } else if (OMNI_PROPERTY_TMSC == propertyId) {
         info = implied_tomni;
         return true;
-<<<<<<< HEAD
-=======
-    } else if (OMNI_PROPERTY_SPC == propertyId) {
-        info = implied_spc;
-        return true;
->>>>>>> vps
     }
 
     // DB key for property entry
@@ -338,11 +289,7 @@ bool CMPSPInfo::getSP(uint32_t propertyId, Entry& info) const
 bool CMPSPInfo::hasSP(uint32_t propertyId) const
 {
     // Special cases for constant SPs MSC and TMSC
-<<<<<<< HEAD
     if ( OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId ) {
-=======
-    if ( OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId || OMNI_PROPERTY_SPC == propertyId ) {
->>>>>>> vps
         return true;
     }
 
@@ -516,11 +463,8 @@ bool CMPSPInfo::getWatermark(uint256& watermark) const
 void CMPSPInfo::printAll() const
 {
     // print off the hard coded MSC and TMSC entries
-<<<<<<< HEAD
     for (uint32_t idx = OMNI_PROPERTY_MSC; idx <= OMNI_PROPERTY_TMSC; idx++) {
-=======
-    for (uint32_t idx = OMNI_PROPERTY_MSC; idx <= OMNI_PROPERTY_SPC; idx++) {
->>>>>>> vps
+
         Entry info;
         PrintToConsole("%10d => ", idx);
         if (getSP(idx, info)) {
@@ -654,13 +598,6 @@ bool mastercore::IsPropertyIdValid(uint32_t propertyId)
         nextId = _my_sps->peekNextSPID(2);
     }
 
-<<<<<<< HEAD
-=======
-    if ( propertyId == OMNI_PROPERTY_SPC ) {
-        nextId = _my_sps->peekNextSPID(3);
-    }
-
->>>>>>> vps
     if (propertyId < nextId) {
         return true;
     }
@@ -668,11 +605,7 @@ bool mastercore::IsPropertyIdValid(uint32_t propertyId)
     return false;
 }
 
-<<<<<<< HEAD
-///////////////////////////////////////////////
-=======
 //////////////////////////////////////
->>>>>>> vps
 /** New things for Contracts */
 bool mastercore::isPropertyContract(uint32_t propertyId)
 {
@@ -999,10 +932,6 @@ std::string mastercore::strEcosystem(uint8_t ecosystem)
     switch (ecosystem) {
         case OMNI_PROPERTY_MSC: return "main";
         case OMNI_PROPERTY_TMSC: return "test";
-<<<<<<< HEAD
-=======
-        case OMNI_PROPERTY_SPC: return "spc";
->>>>>>> vps
     }
 
     return "unknown";
