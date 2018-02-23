@@ -1045,7 +1045,7 @@ UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
     // RequireExistingProperty(propertyId);
 
     UniValue balanceObj(UniValue::VOBJ);
-    ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyContract(propertyId));
+    ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyDivisible(propertyId));
 
     return balanceObj;
 }
