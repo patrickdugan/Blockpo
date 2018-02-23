@@ -647,9 +647,11 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
                 PrintToConsole("PNL_s : %d\n", FormatContractShortMP(PNL_s) );
 
-                if ( PNL_s != 0 ) {
-                    assert(update_tally_map(seller_address, collateralCurrency, PNL_s, CONTRACTDEX_RESERVE));
-                }
+                ///////////////////////////////////////
+                /** Remember: We have to  check how to add this later without any problem*/
+                // if ( PNL_s != 0 ) {
+                //     assert(update_tally_map(seller_address, collateralCurrency, PNL_s, CONTRACTDEX_RESERVE));
+                // }
                 // PrintToConsole("PNL_s: %d, Basis: %d\n", PNL_s, basis_s);
             }
 
@@ -667,9 +669,11 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
                 PrintToConsole("PNL_b : %d\n", FormatContractShortMP(PNL_b) );
 
-                if ( PNL_b != 0 ) {
-                    assert(update_tally_map(buyer_address, collateralCurrency, PNL_b, CONTRACTDEX_RESERVE));
-                }
+                ///////////////////////////////////////
+                /** Remember: We have to  check how to add this later without any problem*/
+                // if ( PNL_b != 0 ) {
+                //     assert(update_tally_map(buyer_address, collateralCurrency, PNL_b, CONTRACTDEX_RESERVE));
+                // }
             }
             ///////////////////////////////////////
             std::string Status_maker = "";
@@ -913,10 +917,13 @@ void CMPContractDex::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
 
 ////////////////////////////////////
 /** New things for Contract */
-void saveDataGraphs(std::ofstream& file, std::string lineOut)
+void saveDataGraphs(std::fstream &file, std::string lineOutMaker, std::string lineOutTaker)
 {
-    std::string line = lineOut;
-    file << line << std::endl;
+    std::string lineMaker = lineOutMaker;
+    std::string lineTaker = lineOutTaker;
+
+    file << lineMaker << "\n";
+    file << lineTaker << std::endl;
 }
 ////////////////////////////////////
 

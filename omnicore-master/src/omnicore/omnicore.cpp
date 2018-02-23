@@ -4310,6 +4310,11 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     const string lineOutTaker = strprintf("addr2: %s, lives: %d, amount2: %lu, status2: %s, txid2: %s", address2, FormatContractShortMP(lives_taker) , FormatContractShortMP(amountStillForsale), s_status2, txid2.ToString());
     PrintToConsole("%s\n", lineOutTaker);
 
+    std::fstream file;
+  	file.open ("graphInfo.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+  	saveDataGraphs(file, lineOutMaker, lineOutTaker);
+    file.close();
+
     Status status;
     if (pdb)
     {
