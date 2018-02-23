@@ -134,6 +134,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_getcontract_orderbook", 1 },
     ///////////////////////////////////////////
     { "omni_getposition", 1 },
+    { "omni_getcontract_balance", 1 },
     ///////////////////////////////////////////
 
     { "omni_getseedblocks", 0 },
