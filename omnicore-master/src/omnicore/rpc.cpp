@@ -195,16 +195,22 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
 /** New things for Contract */
 bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool dContract)
 {
-    int64_t negativeBalance = 0, positiveBalance = 0;
-    negativeBalance += getMPbalance(address, property, NEGATIVE_BALANCE);
-    positiveBalance += getMPbalance(address, property, POSSITIVE_BALANCE);
+  int64_t contractReserved = getMPbalance(address, property, CONTRACTDEX_RESERVE);
+  int64_t balance = getMPbalance(address, property, BALANCE);
 
-    if (dContract) {
-        balance_obj.push_back(Pair("positive balance", FormatContractMP(positiveBalance)));
-        balance_obj.push_back(Pair("negative balance", FormatContractMP(negativeBalance)));
-    }
+  if (dContract) {
+      balance_obj.push_back(Pair("balance", FormatDivisibleMP(balance)));
+      balance_obj.push_back(Pair("reserved", FormatDivisibleMP(contractReserved)));
+  } else {
+      balance_obj.push_back(Pair("balance", FormatIndivisibleMP(balance)));
+      balance_obj.push_back(Pair("reserved", FormatIndivisibleMP(contractReserved)));
+  }
 
-    return true;
+  if ((balance == 0) && (contractReserved == 0)) {
+     return false;
+  } else {
+     return true;
+  }
 }
 
 ///////////////////////////////////////////////
