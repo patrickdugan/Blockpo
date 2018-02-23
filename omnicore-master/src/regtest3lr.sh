@@ -214,24 +214,6 @@ printf "Checking properties of transaction create  before:\n"
 
 ##############################################################
 
-# 	printf "\n________________________________________\n"
-# 	printf "Checking position Seller address #1:\n"
-# 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getposition ${ADDRess[1]} 3
-
-# 	printf "\n________________________________________\n"
-# 	printf "   * Checking the orderbook for Future Contract 1 (selling side):\n"
-# 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getcontract_orderbook 3 1	
-
-##############################################################	
-
-	# printf "\n________________________________________\n"
-	# printf "   * Checking final balance (buying side):\n"
-	# ./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance ${ADDRess[2]} 1
-
-	# printf "\n________________________________________\n"
-	# printf "   * Checking final balance (selling side):\n"
-	# ./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest omni_getbalance ${ADDRess[2]} 2
-
 	printf "\n//////////////////////////////////////////\n"
 	printf "Stoping omnicored and omnicore-cli:\n"
 	./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest stop
