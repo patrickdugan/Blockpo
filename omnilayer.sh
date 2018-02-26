@@ -33,13 +33,8 @@ $SRC/omnicore-cli -datadir=$DATADIR --regtest  -rpcwait generate 101 > $NUL # Es
 ADDR=$($SRC/omnicore-cli -datadir=$DATADIR --regtest  getnewaddress OMNIAccount) > /dev/null
 
 #Funding the address with some testnet BTC for fees
-$SRC/omnicore-cli -datadir=$DATADIR --regtest  sendtoaddress ${ADDR} ${amountbitcoin_baseaddr} > /dev/null  # enviamos 10 BTC a ADDR
-$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null
-
-# Dvisible token ( Synthetic USD)
-printf "   * Creating an Divisible Token:\n"   # TODO: see the indivisible/divisible troubles (amountToReserve < nBalance) in logicMath_ContractDexTrade function on tx
-$SRC/omnicore-cli --regtest omni_sendissuancemanaged $ADDR 2 2 0 "Tether" "Tether" "Tether" "" "")
-$SRC./omnicore-cli --regtest generate 1
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  sendtoaddress ${ADDR} ${amountbitcoin_baseaddr} >/dev/null  # enviamos 10 BTC a ADDR
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null 
 
 #Getting some address
 ADDRess=()
@@ -63,26 +58,6 @@ JSON="{\"moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP\":${amountbitcoin_moneyaddr},\""${AD
 #Sending bitcoins to all
 $SRC/omnicore-cli -datadir=$DATADIR --regtest sendmany "" $JSON > /dev/null
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null
-
-#Sending synthetic USDs to all
-
-$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant ${ADDR} ${ADDR} ${COL} "${amountusds_manyaddr}" > /dev/null
-$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null
-
-for (( i=1; i<=${N}; i++ ))
-do
-	#printf "\n////////////////////////////////////////\n"
-	#printf "Sending OMNIs from base address to the addresses #$i\n"
-	$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_send ${ADDR} ${ADDRess[$i]} ${COL} "${amountusds_manyaddr}" > /dev/null
-	$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null # Generating one block
-
-	#printf "\n________________________________________\n"
-	#printf "Checking OMNI balances for the address #$i:\n"
-	$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getbalance ${ADDRess[$i]} ${COL} > /dev/null
-done
-
-$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getbalance ${ADDR} ${COL} > /dev/null
-
 
 echo "Your new address is $ADDR with 1000000 Synthetic USDs available"
 echo ""
@@ -130,10 +105,35 @@ read par5
 #Creo el futuro
 TRA=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_createcontract $ADDR 2 3 1 "Derivaties" "Futures Contracts" "$par1" "www.tradelayer.org" "Futures Contracts Exchange on OmniLayer" 3 "1" 120 30 2 $par2 $par3 $par4 $par5)
 $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
+
+# Creating Divisible tokens ( Synthetic USD)
+#printf "Creating an Divisible Token:\n"   # TODO: see the indivisible/divisible troubles (amountToReserve < nBalance) in logicMath_Contra$
+$SRC/omnicore-cli --regtest omni_sendissuancemanaged ${ADDR} 2 2 0 "Tether" "Tether" "Tether" "" "" >/dev/null
+$SRC/omnicore-cli --regtest generate 1 >/dev/null
+#$SRC/omnicore-cli --regtest omni_gettransaction $TRA9 
+
+#Sending synthetic USDs to all
+$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant ${ADDR} ${ADDR} ${COL} "${amountusds_manyaddr}" > /dev/null
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 >/dev/null
+
+for (( i=1; i<=${N}; i++ ))
+do
+        #printf "\n////////////////////////////////////////\n"
+        #printf "Sending USDs from base address to the addresses #$i\n"
+        $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant ${ADDR} ${ADDRess[$i]} ${COL} "${amountusds_manyaddr}" > /dev/null
+        $SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null # Generating one block
+
+        #printf "\n________________________________________\n"
+        #printf "Checking USDs balances for the address #$i:\n"
+        #$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getbalance ${ADDRess[$i]} ${COL} 
+done
+
+#$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getbalance ${ADDR} ${COL} > /dev/null
+
+#Generando ordenes!
 echo ""
 echo -n "Putting some orders in Orderbook..."
 
-#Generando ordenes!
 for (( i=1; i<=${N}; i++ ))
 do
         NUMBER=$[ 20 - i ]
@@ -159,14 +159,16 @@ while true; do
 	echo "3 - Get Positions"
 	echo "4 - Get Order Book"
 	echo "5 - Deposit on Balance"
-	echo "5 - Exit"
-	echo -n "Choose the operation : "
+	echo "6 - Exit"
+	echo "*********"
+        echo ""
+        echo -n "Choose the operation : "
 	read opt
 
 
 	    if [ "$opt" == "2" ]
 	    then
-		balance=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_balance ${ADDR} ${part4})
+		balance=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_balance ${ADDR} ${par4})
 		amountbalance=`echo "$balance" | jq ."balance"`
 		amountreserve=`echo "$balance" | jq ."reserved"`
 		amountbalance=${amountbalance%.*}
@@ -274,32 +276,36 @@ while true; do
 
 	    fi
 
-			if [ "$opt" == "5" ]
+	    if [ "$opt" == "5" ]
 	    then
-			echo " Please enter amount of USD that you want"
-			echo "Sending Tokens!!!:\n"
-			$SRC/omnicore-cli --regtest omni_sendgrant $ADDR $ADDR 2147483652 ${amount}
-			$SRC/omnicore-cli --regtest generate 1
+	    echo "Please enter amount of USD that you want:"
+            read amount
+            $SRC/omnicore-cli --regtest omni_sendgrant $ADDR $ADDR 2147483652 ${amount} >/dev/null
+	    $SRC/omnicore-cli --regtest generate 1 >/dev/null
+            echo "Your new balance is:"
+            $SRC/omnicore-cli --regtest omni_getcontract_balance $ADDR 2147483652
+            amountbalance=`echo "$balance" | jq ."balance"`
+            amountreserve=`echo "$balance" | jq ."reserved"`
+            amountbalance=${amountbalance%.*}
+            amountbalance="${amountbalance#\"}"
+            amountreserve=${amountreserve%.*}
+            amountreserve="${amountreserve#\"}"
+            echo -e "\n"
+            echo "Balance :"           $amountbalance
+            echo "Contract Reserved :" $amountreserve
+            continue
 	    fi
 
-
-	    while [[ ! ${opt} =~ ^[1-2]+$ ]]; do
-		  echo "Please enter a correct option:"
-		  read opt
-	    done
 	    if [ "$opt" == "6" ]
 	    then
  		     $SRC/omnicore-cli --regtest stop
 		     exit 1
 	    fi
 
-
-	    while [[ ! ${opt} =~ ^[1-2]+$ ]]; do
-		     echo "Please enter a correct option:"
-		     read opt
-	    done
-
-
+            while [ [ ! ${opt} -gt 6 ] || [ ! ${opt} -lt 1 ] ]; do
+                  echo "Please enter a correct option:"
+                  read opt
+            done
 
 		echo "TRADE : "
 		echo "1 - BUY"
