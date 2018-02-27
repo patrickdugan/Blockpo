@@ -65,6 +65,8 @@ echo "Your new address is $ADDR with 1000000 Synthetic USDs available"
 echo ""
 echo "Creating the Contract:"
 echo ""
+echo "(Just ENTER for default options)"
+echo ""
 echo -n "Enter contract name [Default : Future Contract 1]: "
 read par1
 : ${par1:="Future Contract 1"}
@@ -77,8 +79,8 @@ read par2
 		echo "Please enter a number:"
 		read par2
 	    done
-echo -n "Enter the notional size [Default : 1]: "
-read par3
+            echo -n "Enter the notional size [Default : 1]: "
+            read par3
 : ${par3:=1}
 
             while [[ ! ${par3} =~ ^[0-9]+$ ]]; do
@@ -138,7 +140,7 @@ echo -n "Putting some orders in Orderbook..."
 
 for (( i=1; i<=${N}; i++ ))
 do
-        NUMBER=$[ 20 - i ]
+        NUMBER=$[ 10539 - i ]
         SUM=$[ SUM + NUMBER ]
         #echo "NUMBER : ${NUMBER}"
         #echo "SUM : ${SUM}"
@@ -169,7 +171,15 @@ while true; do
         echo ""
         echo -n "Choose the operation : "
 	read opt
+            while [[ ! ${opt} =~ ^[0-9]+$ ]]; do
+               echo "Please enter a correct option:"
+            read opt
+            done
 
+            while [ ${opt} -gt 6 ] || [ ${opt} -lt 1 ]; do
+               echo "Please enter a correct option:"
+            read opt
+            done
 
 	    if [ "$opt" == "2" ]
 	    then
@@ -332,79 +342,81 @@ while true; do
  		     $SRC/omnicore-cli -datadir=$DATADIR --regtest stop
 		     exit 1
 	    fi
+            if [ "$opt" == "1" ] 
+            then
+		   echo "TRADE : "
+		   echo "1 - BUY"
+		   echo "2 - SELL"
+		   echo -n "Select Operation : "
+		   read tipop
 
-            while [ ${opt} -gt 6 ] || [ ${opt} -lt 1 ]; do
-                  echo "Please enter a correct option:"
-                  read opt
-            done
+		   while [[ ! ${tipop} =~ ^[1-2]+$ ]]; do
+		       echo "Please enter a valid operation:"
+		       read tipop
+		   done
 
-		echo "TRADE : "
-		echo "1 - BUY"
-		echo "2 - SELL"
-		echo -n "Select Operation : "
-		read tipop
+		   echo -n "Insert Price : "
+		   read price
 
-		    while [[ ! ${tipop} =~ ^[1-2]+$ ]]; do
-			echo "Please enter a valid operation:"
-			read tipop
-		    done
+		   while [[ ! ${price} =~ ^[0-9]+$ ]]; do
+	               echo "Please enter a number:"
+		       read price
+		   done
 
-		echo -n "Insert Price : "
-		read price
+		   echo -n "Insert Volume : "
+		   read volumen
 
-		    while [[ ! ${price} =~ ^[0-9]+$ ]]; do
-			echo "Please enter a number:"
-			read price
-		    done
-
-		echo -n "Insert Volume : "
-		read volumen
-
-		    while [[ ! ${volumen} =~ ^[0-9]+$ ]]; do
-			echo "Please enter a number:"
-			read volumen
-		    done
+		   while [[ ! ${volumen} =~ ^[0-9]+$ ]]; do
+		      echo "Please enter a number:"
+	              read volumen
+		   done
 
 
-		#Hacer el trade
-		TRA2=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract $ADDR 2147483651 $volumen 1 1 $price $tipop)
-		$SRC/omnicore-cli -datadir=$DATADIR  --regtest generate 1 >/dev/null
-		$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction $TRA2 >/dev/null
+		   #Hacer el trade
+		   TRA2=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract $ADDR 2147483651 $volumen 1 1 $price $tipop)
+		   $SRC/omnicore-cli -datadir=$DATADIR  --regtest generate 1 >/dev/null
+		   $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction $TRA2 >/dev/null
 
-                SUM=$[ SUM + price ]
-                N=$[ N + 1 ]
-                PROM=$[ $SUM/$N ]
-                RAN=$[ RANDOM%3 + 1 ]
-                RAN2=$[ RANDOM%2 ]
-                nprice=$[ price + RAN ]
-                s=1
-                echo "SUM : ${SUM}"
-                echo "N : ${N}"
-                echo "PROM: ${PROM}"
-                echo "RAN : ${RAN}"
-                echo "RAN2 : ${RAN2}"
-                echo "nprice : ${nprice}"
-                if [ "$RAN" == "0" ]
-                then 
-                   TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$s]} 2147483651 4 1 1 ${nprice} 1)
-                elif [ "$RAN" == "1" ]
-                then
-                   TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$s]} 2147483651 4 1 1 ${nprice} 2)
-                fi
-                $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR ${ADDRess[$s]} 2147483652 4 "" >/dev/null
-                $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
+                   SUM=$[ SUM + price ]
+                   N=$[ N + 1 ]
+                   PROM=$[ $SUM/$N ]
+                   echo "SUM : ${SUM}"
+                   echo "N : ${N}"
+                   echo "PROM: ${PROM}"
 
-		#Obtengo el libro de ordenes de compra y venta
+                   for i in {1..10}
+                   do
+                   RAN=$[ RANDOM%3 + 1 ]
+                   RAN2=$[ RANDOM%2 ]
+                   nprice=$[ price + RAN ]
+                   nprice1=$[price - RAN ]
+                   echo "RAN : ${RAN}"
+                   echo "RAN2 : ${RAN2}"
+                   echo "nprice : ${nprice}"
+                   echo "nprice1 : ${nprice1}"
+                   if [ "$RAN2" == "0" ]
+                   then 
+                      TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 2 1 1 ${nprice1} 1)
+                      #echo "Direccion : ${ADDRess[$i]}"
+                   elif [ "$RAN2" == "1" ]
+                   then
+                      TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 1 1 1 ${nprice} 2)
+                      #echo "Direccion : ${ADDRess[$i]}"
+                   fi
+                   $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR ${ADDRess[$i]} 2147483652 2 "" >/dev/null
+                   $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
+                   done
 
-		echo -e "\n"
-		printf "\x1b[31m    SELL ORDER BOOK\x1b[0m\n"
-		vendebook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 2)
-		total_rows_venta=`echo "$vendebook" | jq '. | length'`
+		   #Obtengo el libro de ordenes de compra y venta
+		   echo -e "\n"
+		   printf "\x1b[31m    SELL ORDER BOOK\x1b[0m\n"
+		   vendebook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 2)
+		   total_rows_venta=`echo "$vendebook" | jq '. | length'`
 
 
-		printf "\x1b[31m Price         Volumen\x1b[0m\n"
-		idx2=0
-		while true; do
+		   printf "\x1b[31m Price         Volumen\x1b[0m\n"
+		   idx2=0
+		   while true; do
 
 			if [ "$idx2" == "$total_rows_venta" ]
 			then
@@ -435,18 +447,18 @@ while true; do
 		        idx2=$((idx2+1))
 
 
-		done
+		  done
 
-		echo -e "\n"
-		printf "\x1b[32m    BUY ORDER BOOK\x1b[0m\n"
-                comprabook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 1)
-		total_rows_compra=`echo "$comprabook" | jq '. | length'`
+		  echo -e "\n"
+		  printf "\x1b[32m    BUY ORDER BOOK\x1b[0m\n"
+                  comprabook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 1)
+		  total_rows_compra=`echo "$comprabook" | jq '. | length'`
 
-		#total_rows_compra=$((total_rows_compra+1))
+		  #total_rows_compra=$((total_rows_compra+1))
 
-                printf "\x1b[32m Price         Volumen\x1b[0m\n"
-		idx=0
-		while true; do
+                  printf "\x1b[32m Price         Volumen\x1b[0m\n"
+		  idx=0
+		  while true; do
 
 			if [ "$idx" == "$total_rows_compra" ]
 			then
@@ -474,5 +486,6 @@ while true; do
                         fi
 		        idx=$((idx+1))
                  done
+             fi
 
 done
