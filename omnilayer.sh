@@ -12,10 +12,12 @@ echo ''
 echo 'Starting ...'
 echo ''
 
+SUM=0
+PROM=0
 N=10
-amountbitcoin_baseaddr=40
-amountbitcoin_manyaddr=0.2
-amountbitcoin_moneyaddr=40
+amountbitcoin_baseaddr=10
+amountbitcoin_manyaddr=2
+amountbitcoin_moneyaddr=1
 amountusds_manyaddr=1000000
 NUL=/dev/null
 COL=2147483652
@@ -137,8 +139,9 @@ echo -n "Putting some orders in Orderbook..."
 for (( i=1; i<=${N}; i++ ))
 do
         NUMBER=$[ 20 - i ]
-        NUMBER2=$[ RANDOM%10 + 1 ]
+        SUM=$[ SUM + NUMBER ]
         #echo "NUMBER : ${NUMBER}"
+        #echo "SUM : ${SUM}"
         #printf "\n________________________________________\n"
         #printf "Buying orders with the address #$i\n"
         if [ ${i} -lt 6 ]
@@ -149,6 +152,8 @@ do
         fi
         $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
 done
+PROM=$[ $SUM/$N ]
+#echo "promedio: $PROM"
 
 while true; do
 
@@ -230,8 +235,24 @@ while true; do
 			amountforsale="${amountforsale#\"}"
 			effectiveprice=${effectiveprice%.*}
 			effectiveprice="${effectiveprice#\"}"
-
-			printf "\x1b[31m\" $effectiveprice             $amountforsale\x1b[0m\n"
+                        address=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."address"`
+                        amountforsale=${amountforsale%.*}
+                        amountforsale="${amountforsale#\"}"
+                        effectiveprice=${effectiveprice%.*}
+                        effectiveprice="${effectiveprice#\"}"
+                        address=${address%.*}
+                        address="${address#\"}"
+                        message="<--your order"
+                        con='"'
+                        AD=$ADDR$con
+                        #echo "${AD}"
+                        #echo "${address}"
+                        if [ "${AD}" == "${address}" ]
+                        then
+                           printf "\x1b[31m\" $effectiveprice                 $amountforsale \" $message \x1b[0m\n"
+                        else
+                           printf "\x1b[31m\" $effectiveprice                 $amountforsale \"\x1b[0m\n"
+                        fi
 
 		        idx2=$((idx2+1))
 
@@ -261,10 +282,20 @@ while true; do
 			amountforsalec="${amountforsalec#\"}"
 			effectivepricec=${effectivepricec%.*}
 			effectivepricec="${effectivepricec#\"}"
-
-		        printf "\x1b[32m\" $effectivepricec                $amountforsalec\x1b[0m\n"
-
-
+                        addressc=`echo "$comprabook" | jq '.['"$idx"']' | jq ."address"`
+                        addressc=${addressc%.*}
+                        addressc="${addressc#\"}"
+                        message="<--your order"
+                        conc='"'
+                        ADc=$ADDR$conc
+                        #echo "${ADc}"
+                        #echo "${addressc}"
+                        if [ "${ADc}" == "${addressc}" ]
+                        then
+                           printf "\x1b[32m\" $effectivepricec                 $amountforsalec \" $message \x1b[0m\n"
+                        else
+                           printf "\x1b[32m\" $effectivepricec                 $amountforsalec \"\x1b[0m\n"
+                        fi
 		        idx=$((idx+1))
 
 
@@ -280,10 +311,10 @@ while true; do
 	    then
 	    echo "Please enter amount of USD that you want:"
             read amount
-            $SRC/omnicore-cli --regtest omni_sendgrant $ADDR $ADDR 2147483652 ${amount} >/dev/null
-	    $SRC/omnicore-cli --regtest generate 1 >/dev/null
+            $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR $ADDR 2147483652 ${amount} >/dev/null
+	    $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
             echo "Your new balance is:"
-            $SRC/omnicore-cli --regtest omni_getcontract_balance $ADDR 2147483652
+            balance=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_balance $ADDR 2147483652)
             amountbalance=`echo "$balance" | jq ."balance"`
             amountreserve=`echo "$balance" | jq ."reserved"`
             amountbalance=${amountbalance%.*}
@@ -298,11 +329,11 @@ while true; do
 
 	    if [ "$opt" == "6" ]
 	    then
- 		     $SRC/omnicore-cli --regtest stop
+ 		     $SRC/omnicore-cli -datadir=$DATADIR --regtest stop
 		     exit 1
 	    fi
 
-            while [ [ ! ${opt} -gt 6 ] || [ ! ${opt} -lt 1 ] ]; do
+            while [ ${opt} -gt 6 ] || [ ${opt} -lt 1 ]; do
                   echo "Please enter a correct option:"
                   read opt
             done
@@ -336,10 +367,32 @@ while true; do
 
 
 		#Hacer el trade
-
 		TRA2=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract $ADDR 2147483651 $volumen 1 1 $price $tipop)
 		$SRC/omnicore-cli -datadir=$DATADIR  --regtest generate 1 >/dev/null
 		$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction $TRA2 >/dev/null
+
+                SUM=$[ SUM + price ]
+                N=$[ N + 1 ]
+                PROM=$[ $SUM/$N ]
+                RAN=$[ RANDOM%3 + 1 ]
+                RAN2=$[ RANDOM%2 ]
+                nprice=$[ price + RAN ]
+                s=1
+                echo "SUM : ${SUM}"
+                echo "N : ${N}"
+                echo "PROM: ${PROM}"
+                echo "RAN : ${RAN}"
+                echo "RAN2 : ${RAN2}"
+                echo "nprice : ${nprice}"
+                if [ "$RAN" == "0" ]
+                then 
+                   TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$s]} 2147483651 4 1 1 ${nprice} 1)
+                elif [ "$RAN" == "1" ]
+                then
+                   TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$s]} 2147483651 4 1 1 ${nprice} 2)
+                fi
+                $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR ${ADDRess[$s]} 2147483652 4 "" >/dev/null
+                $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
 
 		#Obtengo el libro de ordenes de compra y venta
 
@@ -361,13 +414,24 @@ while true; do
 
                         amountforsale=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."amountforsale"`
 			effectiveprice=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."effectiveprice"`
+                        address=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."address"`
 			amountforsale=${amountforsale%.*}
 			amountforsale="${amountforsale#\"}"
 			effectiveprice=${effectiveprice%.*}
 			effectiveprice="${effectiveprice#\"}"
-
-			printf "\x1b[31m\" $effectiveprice                 $amountforsale \"\x1b[0m\n"
-
+                        address=${address%.*}
+                        address="${address#\"}"
+                        message="<--your order"
+                        con='"'
+                        AD=$ADDR$con
+                        #echo "${AD}"
+                        #echo "${address}"
+                        if [ "${AD}" == "${address}" ]
+                        then
+                           printf "\x1b[31m\" $effectiveprice                 $amountforsale \" $message \x1b[0m\n"
+                        else
+			   printf "\x1b[31m\" $effectiveprice                 $amountforsale \"\x1b[0m\n"
+                        fi
 		        idx2=$((idx2+1))
 
 
@@ -388,24 +452,27 @@ while true; do
 			then
 			    break
 			fi
-
-                        amountforsalec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."amountforsale"`
-			effectivepricec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."effectiveprice"`
-			amountforsalec=${amountforsalec%.*}
-			amountforsalec="${amountforsalec#\"}"
-			effectivepricec=${effectivepricec%.*}
-			effectivepricec="${effectivepricec#\"}"
-
-			printf "\x1b[32m\" $effectivepricec                $amountforsalec\"\x1b[0m\n"
-
-
+		        amountforsalec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."amountforsale"`
+                        effectivepricec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."effectiveprice"`
+                        address1=`echo "$comprabook" | jq '.['"$idx"']' | jq ."address"`
+                        amountforsalec=${amountforsalec%.*}
+                        amountforsalec="${amountforsalec#\"}"
+                        effectivepricec=${effectivepricec%.*}
+                        effectivepricec="${effectivepricec#\"}"
+                        address1=${address1%.*}
+                        address1="${address1#\"}"
+                        message="<--your order"
+                        conc='"'
+                        ADc=$ADDR$conc
+                        #echo "${ADc}"
+                        #echo "${address1}"
+                        if [ "${ADc}" == "${address1}" ]
+                        then
+                           printf "\x1b[32m\" $effectivepricec                 $amountforsalec $message \x1b[0m\n"
+                        else
+                           printf "\x1b[32m\" $effectivepricec                 $amountforsalec \"\x1b[0m\n"
+                        fi
 		        idx=$((idx+1))
+                 done
 
-
-		done
-
-
-
-
-
-    done
+done
