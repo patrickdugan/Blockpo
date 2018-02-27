@@ -926,6 +926,13 @@ void saveDataGraphs(std::fstream &file, std::string lineOutMaker, std::string li
     file << lineTaker << std::endl;
 }
 ////////////////////////////////////
+/** New things for Contract */
+void saveDataGraphs(std::fstream &file, std::string lineOut)
+{
+    std::string line = lineOut;
+    file << line << std::endl;
+}
+////////////////////////////////////
 
 bool MetaDEx_compare::operator()(const CMPMetaDEx &lhs, const CMPMetaDEx &rhs) const
 {

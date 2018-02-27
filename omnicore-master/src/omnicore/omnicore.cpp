@@ -4305,15 +4305,28 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded);
     
     PrintToConsole("________________________________________\n");
-    const string lineOutMaker = strprintf("addr1: %s, lives: %d, amount1: %lu, status1: %s, txid1: %s", address1, FormatContractShortMP(lives_maker) , FormatContractShortMP(amountForsale), s_status1, txid1.ToString());
+    const string lineOutMaker = strprintf("%s %d %lu %s %s %s", address1, FormatContractShortMP(lives_maker) , FormatContractShortMP(amountForsale), s_status1, txid1.ToString(), key);
     PrintToConsole("%s\n", lineOutMaker);
-    const string lineOutTaker = strprintf("addr2: %s, lives: %d, amount2: %lu, status2: %s, txid2: %s", address2, FormatContractShortMP(lives_taker) , FormatContractShortMP(amountStillForsale), s_status2, txid2.ToString());
+    const string lineOutTaker = strprintf("%s %d %lu %s %s %s", address2, FormatContractShortMP(lives_taker) , FormatContractShortMP(amountStillForsale), s_status2, txid2.ToString(), key);
     PrintToConsole("%s\n", lineOutTaker);
 
-    std::fstream file;
-  	file.open ("graphInfo.txt", std::fstream::in | std::fstream::out | std::fstream::app);
-  	saveDataGraphs(file, lineOutMaker, lineOutTaker);
-    file.close();
+    std::fstream fileFirst;
+  	fileFirst.open ("graphInfoFirst.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+  	saveDataGraphs(fileFirst, lineOutMaker, lineOutTaker);
+    fileFirst.close();
+
+    const string lineOutFileSecond = strprintf("%s\t %s", address1, address2);
+    const string lineOutFileThird  = strprintf("%s\t %s\t %s", address1, key, address2);
+
+    std::fstream fileSecond;
+  	fileSecond.open ("graphInfoSecond.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+  	saveDataGraphs(fileSecond, lineOutFileSecond);
+    fileSecond.close();
+
+    std::fstream fileThird;
+  	fileThird.open ("graphInfoThird.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+  	saveDataGraphs(fileThird, lineOutFileThird);
+    fileThird.close();
 
     Status status;
     if (pdb)
