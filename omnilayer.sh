@@ -26,8 +26,10 @@ COL=2147483652
 #DATADIR=$HOME/.bitcoin
 rm -r -f $DATADIR/regtest
 
-$SRC/omnicored --regtest --datadir=$DATADIR --cleancache --startclear --daemon > /dev/null
+#If the omnicored is already on
+$SRC/omnicore-cli --regtest --datadit=$DATADIR stop &>/dev/null
 sleep 3
+$SRC/omnicored --regtest --datadir=$DATADIR --cleancache --startclear --daemon > /dev/null
 #Preparing some mature regtest BTC\n"
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  -rpcwait generate 101 > $NUL # Es importante agregar el rpcwait que espera que el nodo e$
 
@@ -79,9 +81,9 @@ read par2
 		echo "Please enter a number:"
 		read par2
 	    done
-            echo -n "Enter the notional size [Default : 1]: "
+            echo -n "Enter the notional size [Default : 10]: "
             read par3
-: ${par3:=1}
+: ${par3:=10}
 
             while [[ ! ${par3} =~ ^[0-9]+$ ]]; do
                 echo "Please enter a number:"
@@ -96,9 +98,9 @@ read par4
 		echo "Please enter a number:"
 		read par4
 	    done
-echo -n "Enter margin requirement for one contract  [Default : 1 (USD)]: "
+echo -n "Enter margin requirement for one contract  [Default : 2 (USD)]: "
 read par5
-: ${par5:=1}
+: ${par5:=2}
 
             while [[ ! ${par5} =~ ^[0-9]+$ ]]; do
                 echo "Please enter a number:"
