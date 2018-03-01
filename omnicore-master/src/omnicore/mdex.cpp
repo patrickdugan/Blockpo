@@ -1083,7 +1083,6 @@ int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, i
 {
     int rc = METADEX_ERROR -1;
 
-    enum MatchReturnType result;
 
     // Create a MetaDEx object from paremeters
     /*Remember: Here CMPTransaction::ADD is the subaction coming from CMPMetaDEx*/
@@ -1102,11 +1101,11 @@ int mastercore::ContractDex_ADD(const std::string& sender_addr, uint32_t prop, i
     }
     // Match against existing trades, remainder of the order will be put into the order book
     if (msc_debug_metadex3) MetaDEx_debug_print();
-    result = x_Trade(&new_cdex);
+    x_Trade(&new_cdex);
     if (msc_debug_metadex3) MetaDEx_debug_print();
 
     // Insert the remaining order into the ContractDex maps
-    if ((0 < new_cdex.getAmountForSale()) && (result != CANCELLED)) { //switch to getAmounForSale() when ready
+    if (0 < new_cdex.getAmountForSale()) { //switch to getAmounForSale() when ready
 
         if (!ContractDex_INSERT(new_cdex)) {
             PrintToLog("%s() ERROR: ALREADY EXISTS, line %d, file: %s\n", __FUNCTION__, __LINE__, __FILE__);
