@@ -479,7 +479,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             ///////////////////////////
             int64_t nCouldBuy = 0;
             nCouldBuy = ( buyer_amount < seller_amount ) ? buyer_amount : seller_amount;
-            PrintToConsole("This is the nCouldBuy %d\n", FormatContractShortMP(nCouldBuy));
+            PrintToConsole("This is the nCouldBuy %d\n", nCouldBuy);
 
             if (nCouldBuy == 0) {
                 if (msc_debug_metadex1) PrintToLog(
@@ -526,14 +526,11 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             CMPContractDex contract_replacement = *pold;
             PrintToConsole("__________________________________________________\n");
             PrintToConsole("IMPORTANT!!! :\n");
-            PrintToConsole("Seller amount with format: %d\n",FormatContractShortMP(seller_amount));
-            PrintToConsole("Buyer amount with format: %d\n",FormatContractShortMP(buyer_amount));
-            int64_t remaining = 0;
-            if (seller_amount >= buyer_amount) {
-               remaining = seller_amount - buyer_amount;
-            } else {
-               remaining = buyer_amount - seller_amount;
-            }
+            PrintToConsole("Seller amount with format: %d\n", seller_amount);
+            PrintToConsole("Buyer amount with format: %d\n", buyer_amount);
+            
+            int64_t remaining = seller_amount >= buyer_amount ? seller_amount - buyer_amount : buyer_amount - seller_amount;
+
             PrintToConsole("Remaining : %d\n",remaining);
             PrintToConsole("Seller amount : %d\n",seller_amount);
             PrintToConsole("Buyer amount : %d\n",buyer_amount);
