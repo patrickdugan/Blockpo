@@ -42,9 +42,9 @@ ADDRess=()
 for (( i=1; i<=${N}; i++ ))
 do
 	ADDRess[$i]=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest  getnewaddress OMNIAccount)
-	printf "\n________________________________\n"
-	printf "Printing the address #$i to work with\n"
-	printf ${ADDRess[$i]}
+	# printf "\n________________________________\n"
+	# printf "Printing the address #$i to work with\n"
+	printf "\n${ADDRess[$i]}"
 done
 ##################################################################
 

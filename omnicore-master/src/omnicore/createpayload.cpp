@@ -568,7 +568,7 @@ std::vector<unsigned char> CreatePayload_MetaDExCancelEcosystem(uint8_t ecosyste
     return payload;
 }
 
-///////////////////////////////
+//////////////////////////////////////
 /** New things for Contracts */
 std::vector<unsigned char> CreatePayload_ContractDexCancelEcosystem(uint8_t ecosystem)
 {
@@ -587,7 +587,7 @@ std::vector<unsigned char> CreatePayload_ContractDexCancelEcosystem(uint8_t ecos
     return payload;
 }
 
-///////////////////////////////
+/////////////////////////////////////
 /** New things for Contracts */
 std::vector<unsigned char> CreatePayload_ContractDexTrade(uint32_t propertyIdForSale, uint64_t amountForSale, uint32_t propertyIdDesired, uint64_t amountDesired, uint64_t effective_price, uint8_t trading_action)
 {

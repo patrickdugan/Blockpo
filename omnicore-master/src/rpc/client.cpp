@@ -159,6 +159,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_sendcanceltradesbypair", 1 },
     { "omni_sendcanceltradesbypair", 2 },
     { "omni_sendcancelalltrades", 1 },
+    { "omni_cancelallcontractsbyaddress", 1 },
     { "omni_sendissuancefixed", 1 },
     { "omni_sendissuancefixed", 2 },
     { "omni_sendissuancefixed", 3 },

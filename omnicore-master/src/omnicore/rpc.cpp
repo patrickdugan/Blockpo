@@ -118,7 +118,7 @@ void ContractDexObjectToJSON(const CMPContractDex& obj, UniValue& contractdex_ob
     contractdex_obj.push_back(Pair("address", obj.getAddr()));
     contractdex_obj.push_back(Pair("txid", obj.getHash().GetHex()));
     contractdex_obj.push_back(Pair("propertyidforsale", (uint64_t) obj.getProperty()));
-    contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1, obj.getAmountForSale())));
+    contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1,obj.getAmountForSale())));
     contractdex_obj.push_back(Pair("tradingaction", obj.getTradingAction()));
     contractdex_obj.push_back(Pair("effectiveprice",  FormatMP(1,obj.getEffectivePrice())));
     contractdex_obj.push_back(Pair("block", obj.getBlock()));
@@ -220,8 +220,8 @@ bool PositionToJSON(const std::string& address, uint32_t property, UniValue& bal
     int64_t longPosition  = getMPbalance(address, property, POSSITIVE_BALANCE);
     int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
 
-    balance_obj.push_back(Pair("longPosition", FormatContractShortMP(longPosition)));
-    balance_obj.push_back(Pair("shortPosition", FormatContractShortMP(shortPosition)));
+    balance_obj.push_back(Pair("longPosition", FormatIndivisibleMP(longPosition)));
+    balance_obj.push_back(Pair("shortPosition", FormatIndivisibleMP(shortPosition)));
 
     return true;
 }
@@ -1042,8 +1042,6 @@ UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
     std::string address = ParseAddress(params[0]);
     uint32_t propertyId = ParsePropertyId(params[1]);
 
-    // RequireExistingProperty(propertyId);
-
     UniValue balanceObj(UniValue::VOBJ);
     ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyDivisible(propertyId));
 
@@ -1074,10 +1072,8 @@ UniValue omni_getposition(const UniValue& params, bool fHelp)
     std::string address = ParseAddress(params[0]);
     uint32_t propertyId = ParsePropertyId(params[1]);
 
-    //RequireExistingProperty(propertyId);
-
     UniValue balanceObj(UniValue::VOBJ);
-    PositionToJSON(address, propertyId, balanceObj,isPropertyContract(propertyId));
+    PositionToJSON(address, propertyId, balanceObj, isPropertyDivisible(propertyId));
 
     return balanceObj;
 }

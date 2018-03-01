@@ -491,7 +491,7 @@ bool CMPTransaction::interpret_MetaDExCancelEcosystem()
     return true;
 }
 
-//////////////////////////////
+/////////////////////////////////////////
 /** New things for Contracts */
 /** Tx 32 */
 bool CMPTransaction::interpret_ContractDexCancelEcosystem()
@@ -515,7 +515,7 @@ bool CMPTransaction::interpret_ContractDexCancelEcosystem()
     return true;
 }
 
-//////////////////////////////
+/////////////////////////////////////////
 /** New things for Contracts */
 /** Tx 29 */
 bool CMPTransaction::interpret_ContractDexTrade()

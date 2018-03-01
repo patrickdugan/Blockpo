@@ -1173,6 +1173,10 @@ UniValue omni_sendcancelalltrades(const UniValue& params, bool fHelp)
     std::string rawHex;
     int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
 
+
+    PrintToConsole("WalletTxBuilder result: %d\n", result);
+    PrintToConsole("rawHex: %s\n", rawHex);
+    PrintToConsole("txid: %s\n", txid.GetHex());
     // check error and return the txid (or raw hex depending on autocommit)
     if (result != 0) {
         throw JSONRPCError(result, error_str(result));
@@ -1185,6 +1189,60 @@ UniValue omni_sendcancelalltrades(const UniValue& params, bool fHelp)
         }
     }
 }
+
+////////////////////////////////////////////////
+/** New things for Contracts */
+UniValue omni_cancelallcontractsbyaddress(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 2)
+        throw runtime_error(
+            "omni_cancelallcontractsbyaddress \"fromaddress\" ecosystem\n"
+
+            "\nCancel all offers on the distributed token exchange.\n"
+
+            "\nArguments:\n"
+            "1. fromaddress          (string, required) the address to trade with\n"
+            "2. ecosystem            (number, required) the ecosystem of the offers to cancel (1 for main ecosystem, 2 for test ecosystem)\n"
+
+            "\nResult:\n"
+            "\"hash\"                  (string) the hex-encoded transaction hash\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_cancelallcontractsbyaddress", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\" 1")
+            + HelpExampleRpc("omni_cancelallcontractsbyaddress", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\", 1")
+        );
+
+    // obtain parameters & info
+    std::string fromAddress = ParseAddress(params[0]);
+    uint8_t ecosystem = ParseEcosystem(params[1]);
+
+    // perform checks
+    // TODO: check, if there are matching offers to cancel
+
+    // create a payload for the transaction
+    std::vector<unsigned char> payload = CreatePayload_ContractDexCancelEcosystem(ecosystem);
+
+    // request the wallet build the transaction (and if needed commit it)
+    uint256 txid;
+    std::string rawHex;
+    int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
+
+    // PrintToConsole("WalletTxBuilder result: %d\n", result);
+    // PrintToConsole("rawHex: %s\n", rawHex);
+    // PrintToConsole("txid: %s\n", txid.GetHex());
+    // check error and return the txid (or raw hex depending on autocommit)
+    if (result != 0) {
+        throw JSONRPCError(result, error_str(result));
+    } else {
+        if (!autoCommit) {
+            return rawHex;
+        } else {
+            PendingAdd(txid, fromAddress, MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM, ecosystem, 0, false);
+            return txid.GetHex();
+        }
+    }
+}
+////////////////////////////////////////////////
 
 UniValue omni_sendchangeissuer(const UniValue& params, bool fHelp)
 {
@@ -1591,6 +1649,7 @@ static const CRPCCommand commands[] =
     { "omni layer (transaction creation)", "omni_sendcanceltradesbyprice", &omni_sendcanceltradesbyprice, false },
     { "omni layer (transaction creation)", "omni_sendcanceltradesbypair",  &omni_sendcanceltradesbypair,  false },
     { "omni layer (transaction creation)", "omni_sendcancelalltrades",     &omni_sendcancelalltrades,     false },
+    { "omni layer (transaction creation)", "omni_cancelallcontractsbyaddress",     &omni_cancelallcontractsbyaddress,     false },
     { "omni layer (transaction creation)", "omni_sendsto",                 &omni_sendsto,                 false },
     { "omni layer (transaction creation)", "omni_sendgrant",               &omni_sendgrant,               false },
     { "omni layer (transaction creation)", "omni_sendrevoke",              &omni_sendrevoke,              false },
