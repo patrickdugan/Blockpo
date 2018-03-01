@@ -3993,9 +3993,9 @@ void CMPTradeList::marginLogic(uint32_t property) // Vector of matching address 
         amountInOrder = trading_action == BUY ? shortBalance : longBalance;
         uint64_t nLiqPrice = (uint64_t) liqPrice;
 
-        PrintToConsole("shortBalance: %d\n", FormatContractShortMP(shortBalance));
+        PrintToConsole("shortBalance: %d\n", shortBalance);
         PrintToConsole("LiqPrice: %d\n", FormatContractShortMP(liqPrice));
-        PrintToConsole("longBalance: %d\n", FormatContractShortMP(longBalance));
+        PrintToConsole("longBalance: %d\n", longBalance);
         PrintToConsole("trading action: %d\n", trading_action);
         PrintToConsole("marketPrice in marginLogic function : %d\n", FormatContractShortMP(marketPrice));
         PrintToConsole("String LiqPrice in marginLogic function: %d\n", FormatContractShortMP(nLiqPrice));
@@ -4305,9 +4305,9 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded);
     
     PrintToConsole("________________________________________\n");
-    const string lineOutMaker = strprintf("%s %d %lu %s %s %s", address1, FormatContractShortMP(lives_maker) , FormatContractShortMP(amountForsale), s_status1, txid1.ToString(), key);
+    const string lineOutMaker = strprintf("%s %d %lu %s %s %s", address1, lives_maker , amountForsale, s_status1, txid1.ToString(), key);
     PrintToConsole("%s\n", lineOutMaker);
-    const string lineOutTaker = strprintf("%s %d %lu %s %s %s", address2, FormatContractShortMP(lives_taker) , FormatContractShortMP(amountStillForsale), s_status2, txid2.ToString(), key);
+    const string lineOutTaker = strprintf("%s %d %lu %s %s %s", address2, lives_taker , amountStillForsale, s_status2, txid2.ToString(), key);
     PrintToConsole("%s\n", lineOutTaker);
 
     std::fstream fileFirst;
