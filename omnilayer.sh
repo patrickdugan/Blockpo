@@ -28,10 +28,10 @@ COL=2147483652
 #DATADIR=$HOME/.bitcoin
 rm -r -f $DATADIR/regtest
 
-function orderbook{
+function orderbook {
 
   #SELL ORDERBOOK --------------------------------------------------------------
-  echo -e "\n"
+        echo  ""
 	printf "\x1b[31m       SELL ORDER BOOK\x1b[0m\n"
 	vendebook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 2)
 
@@ -82,7 +82,7 @@ function orderbook{
 	done
 
   #BUY ORDERBOOK----------------------------------------------------------------
-	echo -e "\n"
+	echo ""
 	printf "\x1b[32m       BUY ORDER BOOK\x1b[0m\n"
 	comprabook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 1)
 	total_rows_compra=`echo "$comprabook" | jq '. | length'`
@@ -344,7 +344,7 @@ while true; do
       TRA1=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_cancelallcontractsbyaddress ${ADDR} 2)
       $SRC/omnicore-cli -datadir=$DATADIR  --regtest generate 1
       #$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction $TRA1
-			orderbook
+      orderbook
       continue
    fi
 
@@ -422,7 +422,7 @@ while true; do
           fi
           $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
           done
-
+          fi
 		      #Obtengo el libro de ordenes de compra y venta
 	        orderbook
 
