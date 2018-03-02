@@ -15,6 +15,8 @@ echo ''
 SUM=0
 PROM=0
 N=10
+declare -A mapVolumes
+declare -A mapAmounts
 amountbitcoin_baseaddr=10
 amountbitcoin_manyaddr=2
 amountbitcoin_moneyaddr=1
@@ -25,6 +27,106 @@ COL=2147483652
 #DATADIR=$HOME/contractstest
 #DATADIR=$HOME/.bitcoin
 rm -r -f $DATADIR/regtest
+
+function orderbook{
+
+  #SELL ORDERBOOK --------------------------------------------------------------
+  echo -e "\n"
+	printf "\x1b[31m       SELL ORDER BOOK\x1b[0m\n"
+	vendebook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 2)
+
+	total_rows_venta=`echo "$vendebook" | jq '. | length'`
+
+	mapVolumes=()
+	mapAmounts=()
+
+	idx2=0
+	while true; do
+
+	if [ "$idx2" == "$total_rows_venta" ]
+	then
+	  break
+	fi
+	amountforsale=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."amountforsale"`
+	effectiveprice=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."effectiveprice"`
+	#txid=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."block"`
+	amountforsale=${amountforsale%.*}
+	amountforsale="${amountforsale#\"}"
+	effectiveprice=${effectiveprice%.*}
+	effectiveprice="${effectiveprice#\"}"
+	amountforsale=${amountforsale%.*}
+	amountforsale="${amountforsale#\"}"
+	effectiveprice=${effectiveprice%.*}
+  effectiveprice="${effectiveprice#\"}"
+	volumen=${mapVolumes[$effectiveprice]}
+
+  if [ -z "$volumen" ];
+	then
+	   mapVolumes[$effectiveprice]=$amountforsale
+		 mapAmounts[$idx2]=$effectiveprice
+	else
+	   volumen=$(($volumen+$amountforsale))
+		 mapVolumes[$effectiveprice]=${volumen}
+	fi
+
+  idx2=$((idx2+1))
+
+	done
+
+	printf "\x1b[31m  Price              Volumen\x1b[0m\n"
+	sorted=($(sort -r <<<"${mapAmounts[*]}"))
+
+	for i in "${sorted[@]}"
+	do
+	   printf "\x1b[31m\" $i                 ${mapVolumes[$i]} \"\x1b[0m\n"
+	done
+
+  #BUY ORDERBOOK----------------------------------------------------------------
+	echo -e "\n"
+	printf "\x1b[32m       BUY ORDER BOOK\x1b[0m\n"
+	comprabook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 1)
+	total_rows_compra=`echo "$comprabook" | jq '. | length'`
+	#total_rows_compra=$((total_rows_compra+1))
+	mapVolumes=()
+	mapAmounts=()
+	idx=0
+	while true; do
+	if [ "$idx" == "$total_rows_compra" ]
+	then
+	  break
+	fi
+	amountforsalec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."amountforsale"`
+	effectivepricec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."effectiveprice"`
+	#txidc=`echo "$comprabook" | jq '.['"$idx"']' | jq ."block"`
+	amountforsalec=${amountforsalec%.*}
+	amountforsalec="${amountforsalec#\"}"
+	effectivepricec=${effectivepricec%.*}
+	effectivepricec="${effectivepricec#\"}"
+	volumen=${mapVolumes[$effectivepricec]}
+
+	if [ -z "$volumen" ];
+	then
+	  mapVolumes[$effectivepricec]=$amountforsalec
+		mapAmounts[$idx]=$effectivepricec
+	else
+	  volumen=$(($volumen+$amountforsalec))
+		mapVolumes[$effectivepricec]=${volumen}
+	fi
+	idx=$((idx+1))
+
+	done
+
+	printf "\x1b[32m  Price              Volumen\x1b[0m\n"
+
+	sorted=($(sort -r <<<"${mapAmounts[*]}"))
+
+	for i in "${sorted[@]}"
+	do
+	   printf "\x1b[32m\" $i                 ${mapVolumes[$i]} \"\x1b[0m\n"
+  done
+
+}
+
 
 #If the omnicored is already on
 $SRC/omnicore-cli --regtest --datadit=$DATADIR stop &>/dev/null
@@ -38,7 +140,7 @@ ADDR=$($SRC/omnicore-cli -datadir=$DATADIR --regtest  getnewaddress OMNIAccount)
 
 #Funding the address with some testnet BTC for fees
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  sendtoaddress ${ADDR} ${amountbitcoin_baseaddr} >/dev/null  # enviamos 10 BTC a ADDR
-$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null 
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null
 
 #Getting some address
 ADDRess=()
@@ -108,7 +210,7 @@ $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
 #printf "Creating an Divisible Token:\n"   # TODO: see the indivisible/divisible troubles (amountToReserve < nBalance) in logicMath_Contra$
 $SRC/omnicore-cli --regtest omni_sendissuancemanaged ${ADDR} 2 2 0 "Tether" "Tether" "Tether" "" "" >/dev/null
 $SRC/omnicore-cli --regtest generate 1 >/dev/null
-#$SRC/omnicore-cli --regtest omni_gettransaction $TRA9 
+#$SRC/omnicore-cli --regtest omni_gettransaction $TRA9
 
 #Sending synthetic USDs to all
 $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant ${ADDR} ${ADDR} ${COL} "${amountusds_manyaddr}" > /dev/null
@@ -123,7 +225,7 @@ do
 
         #printf "\n________________________________________\n"
         #printf "Checking USDs balances for the address #$i:\n"
-        #$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getbalance ${ADDRess[$i]} ${COL} 
+        #$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getbalance ${ADDRess[$i]} ${COL}
 done
 
 #$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getbalance ${ADDR} ${COL} > /dev/null
@@ -136,7 +238,7 @@ for (( i=1; i<=${N}; i++ ))
 do
         NUMBER=$[ 10539 - i ]
         SUM=$[ SUM + NUMBER ]
-        NUM=$[ RANDOM%1000 + 1 ]
+        NUM=$[ RANDOM%1000 + 100 ]
         #echo "NUMBER : ${NUMBER}"
         #echo "SUM : ${SUM}"
         #printf "\n________________________________________\n"
@@ -161,201 +263,99 @@ while true; do
 	echo "3 - Get Positions"
 	echo "4 - Get Order Book"
 	echo "5 - Deposit on Balance"
-	echo "6 - Exit"
+	echo "6 - Cancel Orders"
+	echo "7 - Exit"
 	echo "*********"
-        echo ""
-        echo -n "Choose the operation : "
+  echo ""
+  echo -n "Choose the operation : "
 	read opt
             while [[ ! ${opt} =~ ^[0-9]+$ ]]; do
                echo "Please enter a correct option:"
             read opt
             done
 
-            while [ ${opt} -gt 6 ] || [ ${opt} -lt 1 ]; do
+            while [ ${opt} -gt 7 ] || [ ${opt} -lt 1 ]; do
                echo "Please enter a correct option:"
             read opt
             done
 
-	    if [ "$opt" == "2" ]
-	    then
-		balance=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_balance ${ADDR} ${COL})
-		amountbalance=`echo "$balance" | jq ."balance"`
-		amountreserve=`echo "$balance" | jq ."reserved"`
-		amountbalance=${amountbalance%.*}
-		amountbalance="${amountbalance#\"}"
-		amountreserve=${amountreserve%.*}
-		amountreserve="${amountreserve#\"}"
+	 if [ "$opt" == "2" ]
+	 then
+	    balance=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_balance ${ADDR} ${COL})
+		  amountbalance=`echo "$balance" | jq ."balance"`
+		  amountreserve=`echo "$balance" | jq ."reserved"`
+		  amountbalance=${amountbalance%.*}
+		  amountbalance="${amountbalance#\"}"
+		  amountreserve=${amountreserve%.*}
+		  amountreserve="${amountreserve#\"}"
 
-		echo -e "\n"
-		echo "Balance :"           $amountbalance
-		echo "Contract Reserved :" $amountreserve
-		continue
+		  echo -e "\n"
+		  echo "Balance :"           $amountbalance
+		  echo "Contract Reserved :" $amountreserve
+		  continue
 
-	    fi
+	 fi
 
-	    if [ "$opt" == "3" ]
-	    then
-		position=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getposition ${ADDR} 2147483651)
-		shortPosition=`echo "$position" | jq ."shortPosition"`
-		longPosition=`echo "$position" | jq ."longPosition"`
-		shortPosition=${shortPosition%.*}
-		shortPosition="${shortPosition#\"}"
-		longPosition=${longPosition%.*}
-		longPosition="${longPosition#\"}"
+	 if [ "$opt" == "3" ]
+	 then
+	    position=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getposition ${ADDR} 2147483651)
+		  shortPosition=`echo "$position" | jq ."shortPosition"`
+		  longPosition=`echo "$position" | jq ."longPosition"`
+		  shortPosition=${shortPosition%.*}
+		  shortPosition="${shortPosition#\"}"
+		  longPosition=${longPosition%.*}
+		  longPosition="${longPosition#\"}"
+		  echo -e "\n"
+		  echo "Short Positions :" $shortPosition
+		  echo "Long Positions :" $longPosition
+		  continue
 
-		echo -e "\n"
-		echo "Short Positions :" $shortPosition
-		echo "Long Positions :" $longPosition
-		continue
+	 fi
 
-	    fi
+	 if [ "$opt" == "4" ]
+	 then
+      orderbook
+		  continue
+	 fi
 
-	    if [ "$opt" == "4" ]
-	    then
+	 if [ "$opt" == "5" ]
+	 then
+	     echo "Please enter amount of USD that you want:"
+       read amount
+       $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR $ADDR 2147483652 ${amount} >/dev/null
+	     $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
+       echo "Your new balance is:"
+       balance=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_balance $ADDR 2147483652)
+       amountbalance=`echo "$balance" | jq ."balance"`
+       amountreserve=`echo "$balance" | jq ."reserved"`
+       amountbalance=${amountbalance%.*}
+       amountbalance="${amountbalance#\"}"
+       amountreserve=${amountreserve%.*}
+       amountreserve="${amountreserve#\"}"
+       echo -e "\n"
+       echo "Balance :"           $amountbalance
+       echo "Contract Reserved :" $amountreserve
+       continue
+	 fi
 
-		echo -e "\n"
-		printf "\x1b[31m       SELL ORDER BOOK\x1b[0m\n"
-		vendebook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 2)
+	 if [ "$opt"  == "6" ]
+   then
+      echo "Cancelling orders ... "
+      TRA1=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_cancelallcontractsbyaddress ${ADDR} 2)
+      $SRC/omnicore-cli -datadir=$DATADIR  --regtest generate 1
+      #$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction $TRA1
+			orderbook
+      continue
+   fi
 
+	 if [ "$opt" == "7" ]
+	 then
+ 	    $SRC/omnicore-cli -datadir=$DATADIR --regtest stop
+		  exit 1
+	 fi
 
-		total_rows_venta=`echo "$vendebook" | jq '. | length'`
-
-		declare -A mapVolumes
-		declare -A mapAmounts
-
-		mapVolumes=()
-		mapAmounts=()
-
-		idx2=0
-		while true; do
-
-			if [ "$idx2" == "$total_rows_venta" ]
-			then
-			    break
-			fi
-                        amountforsale=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."amountforsale"`
-			effectiveprice=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."effectiveprice"`
-                        #txid=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."block"`
-			amountforsale=${amountforsale%.*}
-			amountforsale="${amountforsale#\"}"
-			effectiveprice=${effectiveprice%.*}
-			effectiveprice="${effectiveprice#\"}"
-                        amountforsale=${amountforsale%.*}
-                        amountforsale="${amountforsale#\"}"
-                        effectiveprice=${effectiveprice%.*}
-                        effectiveprice="${effectiveprice#\"}"
-                        volumen=${mapVolumes[$effectiveprice]}
-
-						if [ -z "$volumen" ];
-						then	
-							mapVolumes[$effectiveprice]=$amountforsale
-							mapAmounts[$idx2]=$effectiveprice
-						else
-							volumen=$(($volumen+$amountforsale))
-							mapVolumes[$effectiveprice]=${volumen}
-						fi
-
-
-		        idx2=$((idx2+1))
-
-
-		done
-
-		printf "\x1b[31m  Price              Volumen\x1b[0m\n"
-		sorted=($(sort -r <<<"${mapAmounts[*]}"))
-
-		for i in "${sorted[@]}"
-		do
-			printf "\x1b[31m\" $i                 ${mapVolumes[$i]} \"\x1b[0m\n"
-		done
-
-
-
-
-		echo -e "\n"
-		printf "\x1b[32m       BUY ORDER BOOK\x1b[0m\n"
-		comprabook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 1)
-		total_rows_compra=`echo "$comprabook" | jq '. | length'`
-		#total_rows_compra=$((total_rows_compra+1))
-
-        
-                mapVolumes=()
-		mapAmounts=()
-		idx=0
-		while true; do
-
-			if [ "$idx" == "$total_rows_compra" ]
-			then
-			    break
-			fi
-
-                        amountforsalec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."amountforsale"`
-			effectivepricec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."effectiveprice"`
-			#txidc=`echo "$comprabook" | jq '.['"$idx"']' | jq ."block"`
-			amountforsalec=${amountforsalec%.*}
-			amountforsalec="${amountforsalec#\"}"
-			effectivepricec=${effectivepricec%.*}
-			effectivepricec="${effectivepricec#\"}"
-						volumen=${mapVolumes[$effectivepricec]}
-
-						if [ -z "$volumen" ];
-						then	
-							mapVolumes[$effectivepricec]=$amountforsalec
-							mapAmounts[$idx]=$effectivepricec
-						else
-							volumen=$(($volumen+$amountforsalec))
-							mapVolumes[$effectivepricec]=${volumen}
-						fi
-
-
-		        idx=$((idx+1))
-
-
-		done
-
-		printf "\x1b[32m  Price              Volumen\x1b[0m\n"
-
-		sorted=($(sort -r <<<"${mapAmounts[*]}"))
-
-                for i in "${sorted[@]}"
-                do
-                        printf "\x1b[32m\" $i                 ${mapVolumes[$i]} \"\x1b[0m\n"
-                done
-
-
-
-
-		continue
-
-	    fi
-
-	    if [ "$opt" == "5" ]
-	    then
-	    echo "Please enter amount of USD that you want:"
-            read amount
-            $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR $ADDR 2147483652 ${amount} >/dev/null
-	    $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
-            echo "Your new balance is:"
-            balance=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_balance $ADDR 2147483652)
-            amountbalance=`echo "$balance" | jq ."balance"`
-            amountreserve=`echo "$balance" | jq ."reserved"`
-            amountbalance=${amountbalance%.*}
-            amountbalance="${amountbalance#\"}"
-            amountreserve=${amountreserve%.*}
-            amountreserve="${amountreserve#\"}"
-            echo -e "\n"
-            echo "Balance :"           $amountbalance
-            echo "Contract Reserved :" $amountreserve
-            continue
-	    fi
-
-	    if [ "$opt" == "6" ]
-	    then
- 		     $SRC/omnicore-cli -datadir=$DATADIR --regtest stop
-		     exit 1
-	    fi
-            if [ "$opt" == "1" ] 
-            then
+   if [ "$opt" == "1" ]
+   then
 		   echo "TRADE : "
 		   echo "1 - BUY"
 		   echo "2 - SELL"
@@ -389,150 +389,41 @@ while true; do
 		   $SRC/omnicore-cli -datadir=$DATADIR  --regtest generate 1 >/dev/null
 		   $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction $TRA2 >/dev/null
 
-                   SUM=$[ SUM + price ]
-                   N=$[ N + 1 ]
-                   PROM=$[ $SUM/$N ]
-                   #echo "SUM : ${SUM}"
-                   #echo "N : ${N}"
-                   #echo "PROM: ${PROM}"
+       SUM=$[ SUM + price ]
+       N=$[ N + 1 ]
+       PROM=$[ $SUM/$N ]
+       #echo "SUM : ${SUM}"
+       #echo "N : ${N}"
+       #echo "PROM: ${PROM}"
 
-                   for i in {1..10}
-                   do
-                   RAN=$[ RANDOM%3 + 1 ]
-                   RAN2=$[ RANDOM%2 ]
-                   NUM1=$[ RANDOM%1000 + 100 ]
-                   NUM2=$[ RANDOM%1000 + 100 ]
-                   nprice=$[ price + RAN ]
-                   nprice1=$[price - RAN ]
-                   #echo "RAN : ${RAN}"
-                   #echo "RAN2 : ${RAN2}"
-                   #echo "nprice : ${nprice}"
-                   #echo "nprice1 : ${nprice1}"
-                   if [ "$RAN2" == "0" ]
-                   then 
-                       TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 ${NUM1} 1 1 ${nprice1} 1)
-                       $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR ${ADDRess[$i]} 2147483652 ${NUM1} "" >/dev/null
-                       #echo "Direccion : ${ADDRess[$i]}"
-                   elif [ "$RAN2" == "1" ]
-                   then
-                      TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 ${NUM2} 1 1 ${nprice} 2)
-                      $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR ${ADDRess[$i]} 2147483652 ${NUM2} "" >/dev/null
-                      #echo "Direccion : ${ADDRess[$i]}"
-                   fi
-                   $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
-                   done
+       for i in {1..10}
+       do
+          RAN=$[ RANDOM%3 + 1 ]
+          RAN2=$[ RANDOM%2 ]
+          NUM1=$[ RANDOM%1000 + 100 ]
+          NUM2=$[ RANDOM%1000 + 100 ]
+          nprice=$[ price + RAN ]
+          nprice1=$[price - RAN ]
+          #echo "RAN : ${RAN}"
+          #echo "RAN2 : ${RAN2}"
+          #echo "nprice : ${nprice}"
+          #echo "nprice1 : ${nprice1}"
 
-		   #Obtengo el libro de ordenes de compra y venta
-		   echo -e "\n"
-		   printf "\x1b[31m       SELL ORDER BOOK\x1b[0m\n"
-		   vendebook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 2)
-		   total_rows_venta=`echo "$vendebook" | jq '. | length'`
+          if [ "$RAN2" == "0" ]
+          then
+             TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 ${NUM1} 1 1 ${nprice1} 1)
+             $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR ${ADDRess[$i]} 2147483652 ${NUM1} "" >/dev/null
+             #echo "Direccion : ${ADDRess[$i]}"
+          elif [ "$RAN2" == "1" ]
+          then
+              TRA3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$i]} 2147483651 ${NUM2} 1 1 ${nprice} 2)
+              $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant $ADDR ${ADDRess[$i]} 2147483652 ${NUM2} "" >/dev/null
+              #echo "Direccion : ${ADDRess[$i]}"
+          fi
+          $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
+          done
 
-
-		declare -A mapVolumes
-		declare -A mapAmounts
-
-		mapVolumes=()
-		mapAmounts=()
-
-		idx2=0
-		while true; do
-
-			if [ "$idx2" == "$total_rows_venta" ]
-			then
-			    break
-			fi
-
-
-                        amountforsale=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."amountforsale"`
-			effectiveprice=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."effectiveprice"`
-                        #txid=`echo "$vendebook" | jq '.['"$idx2"']' | jq ."block"`
-			amountforsale=${amountforsale%.*}
-			amountforsale="${amountforsale#\"}"
-			effectiveprice=${effectiveprice%.*}
-			effectiveprice="${effectiveprice#\"}"
-                        amountforsale=${amountforsale%.*}
-                        amountforsale="${amountforsale#\"}"
-                        effectiveprice=${effectiveprice%.*}
-                        effectiveprice="${effectiveprice#\"}"
-                        volumen=${mapVolumes[$effectiveprice]}
-
-						if [ -z "$volumen" ];
-						then	
-							mapVolumes[$effectiveprice]=$amountforsale
-							mapAmounts[$idx2]=$effectiveprice
-						else
-							volumen=$(($volumen+$amountforsale))
-							mapVolumes[$effectiveprice]=${volumen}
-						fi
-
-
-		        idx2=$((idx2+1))
-
-
-		done
-
-		printf "\x1b[31m  Price              Volumen\x1b[0m\n"
-		sorted=($(sort -r <<<"${mapAmounts[*]}"))
-
-		for i in "${sorted[@]}"
-		do
-			printf "\x1b[31m\" $i                 ${mapVolumes[$i]} \"\x1b[0m\n"
-		done
-
-
-
-		  echo -e "\n"
-		  printf "\x1b[32m       BUY ORDER BOOK\x1b[0m\n"
-                  comprabook=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_getcontract_orderbook 2147483651 1)
-		  total_rows_compra=`echo "$comprabook" | jq '. | length'`
-
-		        mapVolumes=()
-				mapAmounts=()
-				idx=0
-				while true; do
-
-					if [ "$idx" == "$total_rows_compra" ]
-					then
-					    break
-					fi
-
-		                        amountforsalec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."amountforsale"`
-					effectivepricec=`echo "$comprabook" | jq '.['"$idx"']' | jq ."effectiveprice"`
-					#txidc=`echo "$comprabook" | jq '.['"$idx"']' | jq ."block"`
-					amountforsalec=${amountforsalec%.*}
-					amountforsalec="${amountforsalec#\"}"
-					effectivepricec=${effectivepricec%.*}
-					effectivepricec="${effectivepricec#\"}"
-					volumen=${mapVolumes[$effectivepricec]}
-
-								if [ -z "$volumen" ];
-								then	
-									mapVolumes[$effectivepricec]=$amountforsalec
-									mapAmounts[$idx]=$effectivepricec
-								else
-									volumen=$(($volumen+$amountforsalec))
-									mapVolumes[$effectivepricec]=${volumen}
-								fi
-
-
-				        idx=$((idx+1))
-
-
-				done
-
-				printf "\x1b[32m  Price              Volumen\x1b[0m\n"
-
-				sorted=($(sort -r <<<"${mapAmounts[*]}"))
-
-                                for i in "${sorted[@]}"
-                                do
-                                printf "\x1b[32m\" $i                 ${mapVolumes[$i]} \"\x1b[0m\n"
-                                done
-
-
-
-
-             fi
+		      #Obtengo el libro de ordenes de compra y venta
+	        orderbook
 
 done
