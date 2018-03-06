@@ -38,6 +38,14 @@ typedef boost::multiprecision::checked_int128_t int128_t;
 
 using namespace mastercore;
 
+///////////////////////////////
+/*New things for Contracts*/
+extern uint32_t notionalSize;
+extern uint32_t marginRequirementContract;
+extern uint32_t collateralCurrency;
+extern volatile uint64_t marketPrice;
+///////////////////////////////
+
 //! Number of digits of unit price
 #define DISPLAY_PRECISION_LEN  50
 
@@ -373,13 +381,6 @@ MatchReturnType x_Trade(CMPMetaDEx* const pnew)
 /** New things for Contracts */
 MatchReturnType x_Trade(CMPContractDex* const pnew)
 {
-    ///////////////////////////////
-    /*New things for Contracts*/
-    extern uint32_t notionalSize;
-    extern uint32_t marginRequirementContract;
-    extern uint32_t collateralCurrency;
-    extern volatile uint64_t marketPrice;
-    ///////////////////////////////
 
     // PrintToConsole("________________________________________\n");
     // PrintToConsole("Checking the margin requirement and notional size\n");
@@ -1430,8 +1431,10 @@ int mastercore::ContractDex_CANCEL_EVERYTHING(const uint256& txid, unsigned int 
                 rc = 0;
 
                 // move from reserve to balance
-                assert(update_tally_map(it->getAddr(), it->getProperty(), -it->getAmountForSale(), CONTRACTDEX_RESERVE));
-                assert(update_tally_map(it->getAddr(), it->getProperty(), it->getAmountForSale(), BALANCE));
+                int64_t amountForSale = it->getAmountForSale();
+                int64_t amountToBalance = (int64_t) amountForSale*marginRequirementContract;
+                assert(update_tally_map(it->getAddr(), collateralCurrency, -amountToBalance, CONTRACTDEX_RESERVE));
+                assert(update_tally_map(it->getAddr(), collateralCurrency, amountToBalance, BALANCE));
 
                 // record the cancellation
                 bool bValid = true;
