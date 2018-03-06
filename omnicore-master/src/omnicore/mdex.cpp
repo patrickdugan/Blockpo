@@ -476,8 +476,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             buyer_address  = (pold->getTradingAction() == SELL) ? pnew->getAddr() : pold->getAddr();
 
             ///////////////////////////
-            int64_t nCouldBuy = 0;
-            nCouldBuy = ( buyer_amount < seller_amount ) ? buyer_amount : seller_amount;
+            int64_t nCouldBuy = buyer_amount < seller_amount ? buyer_amount : seller_amount;
             PrintToConsole("This is the nCouldBuy %d\n", nCouldBuy);
 
             if (nCouldBuy == 0) {
@@ -716,7 +715,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               property_traded,
                                               tradeStatus,
                                               pold->getEffectivePrice(),
-                                              pnew->getEffectivePrice()
+                                              pnew->getEffectivePrice(), 
+                                              nCouldBuy
                                               );
             ///////////////////////////////////////
             marketPrice = pold->getEffectivePrice();

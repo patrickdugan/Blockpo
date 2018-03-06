@@ -4297,7 +4297,7 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
 /////////////////////////////////
 /** New things for Contract */
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew)
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew, int64_t nCouldBuy)
 {
     if (!pdb) return;
 
@@ -4317,6 +4317,7 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
     const string lineOutFileSecond = strprintf("%s\t %s", address1, address2);
     const string lineOutFileThird  = strprintf("%s\t %s\t %s", address1, key, address2);
+    const string lineOutFileFourth = strprintf("%s\t %d\t %s", address1, FormatContractMP(nCouldBuy), address2);
 
     std::fstream fileSecond;
   	fileSecond.open ("graphInfoSecond.txt", std::fstream::in | std::fstream::out | std::fstream::app);
@@ -4327,6 +4328,11 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
   	fileThird.open ("graphInfoThird.txt", std::fstream::in | std::fstream::out | std::fstream::app);
   	saveDataGraphs(fileThird, lineOutFileThird);
     fileThird.close();
+
+    std::fstream fileFourth;
+    fileFourth.open ("graphInfoFourth.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+    saveDataGraphs(fileFourth, lineOutFileFourth);
+    fileFourth.close();
 
     Status status;
     if (pdb)
