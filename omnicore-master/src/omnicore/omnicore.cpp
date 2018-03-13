@@ -3993,7 +3993,7 @@ void CMPTradeList::marginLogic(uint32_t property) // Vector of matching address 
 
         boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
 
-        if (vstr.size() != 12) {
+        if (vstr.size() != 13) {
 
             PrintToLog("TRADEDB error - unexpected size of vector (%s)\n", strValue);
             continue;
