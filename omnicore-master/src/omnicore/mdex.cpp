@@ -391,7 +391,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
     MatchReturnType NewReturn = NOTHING;
     bool bBuyerSatisfied = false;
     const int64_t factor = 100000000;
-    
+
     if (msc_debug_metadex1) PrintToLog("%s(%s: prop=%d, desprice= %s);newo: %s\n", __FUNCTION__, pnew->getAddr(),
                                        propertyForSale, xToString(pnew->getEffectivePrice()), pnew->ToString());
 
@@ -701,7 +701,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               pnew->getHash(),
                                               pold->getAddr(),
                                               pnew->getAddr(),
-                                              pold->getEffectivePrice(),
+                                              nCouldBuy,
                                               contract_replacement.getAmountForSale(),
                                               pnew->getAmountForSale(),
                                               pold->getBlock(),
@@ -714,7 +714,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               tradeStatus,
                                               pold->getEffectivePrice(),
                                               pnew->getEffectivePrice(),
-                                              nCouldBuy
                                               );
             ///////////////////////////////////////
             marketPrice = pold->getEffectivePrice();
