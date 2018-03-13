@@ -4331,7 +4331,7 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     if (!pdb) return;
 
     const string key = txid1.ToString() + "+" + txid2.ToString();
-    const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d", address1, address2, nCouldBuy, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded, pricepold);
+    const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d:%d", address1, address2, nCouldBuy, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded, pricepold);
 
     PrintToConsole("________________________________________\n");
     const string lineOutMaker = strprintf("%s %d %lu %s %s %s", address1, lives_maker , amountForsale, s_status1, txid1.ToString(), key);
