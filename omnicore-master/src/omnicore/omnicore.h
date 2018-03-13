@@ -282,7 +282,7 @@ public:
 
     ///////////////////////////////////////
     /** New things for Contract */
-    int64_t getTradeBasis(string address, int64_t contractsClosed, uint32_t property);
+    double getPNL(string address, int64_t contractsClosed, int64_t price, uint32_t property, uint32_t marginRequirementContract, uint32_t notionalSize, std::string Status);
     void marginLogic(uint32_t property);
     //////////////////////////////////////
 
