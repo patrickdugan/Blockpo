@@ -713,7 +713,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               property_traded,
                                               tradeStatus,
                                               pold->getEffectivePrice(),
-                                              pnew->getEffectivePrice(),
+                                              pnew->getEffectivePrice()
                                               );
             ///////////////////////////////////////
             marketPrice = pold->getEffectivePrice();

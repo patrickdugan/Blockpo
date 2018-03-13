@@ -4020,7 +4020,7 @@ void CMPTradeList::marginLogic(uint32_t property) // Vector of matching address 
         int64_t amountInOrder = 0;
         int trading_action = shortBalance > 0 ? BUY : ( longBalance > 0 ? SELL : ACTIONINVALID );
         amountInOrder = trading_action == BUY ? shortBalance : longBalance;
-        uint64_t nLiqPrice = static_cast<uint64_t> liqPrice;
+        uint64_t nLiqPrice = static_cast<uint64_t> (liqPrice);
 
         PrintToConsole("shortBalance: %d\n", shortBalance);
         PrintToConsole("LiqPrice: %d\n", FormatContractShortMP(liqPrice));
