@@ -36,20 +36,22 @@ void RequireBalance(const std::string& address, uint32_t propertyId, int64_t amo
 
 void RequireForPegged(const std::string& address, uint32_t propertyId, uint32_t contractId)
 {
-    int64_t balance = getMPbalance(address, propertyId, BALANCE);
-    int64_t position = getMPbalance(address, contractId, NEGATIVE_BALANCE);
-    int64_t amount = static_cast<int64_t> (position*notionalSize);
-    if (balance == 0) {
-        throw JSONRPCError(RPC_TYPE_ERROR, "Sender has insufficient balance");
-    }
 
-    if (amount >= balance ) {
+    int64_t balance = getMPbalance(address, propertyId, BALANCE);
+    PrintToConsole("PropertyId : %d\n",propertyId);
+    PrintToConsole("Balance : %d\n",balance);
+    int64_t position = getMPbalance(address, contractId, NEGATIVE_BALANCE);
+
+    if (balance == 0) {
+        throw JSONRPCError(RPC_TYPE_ERROR, "Sender has not amount of collateral currency");
+    }
+    if (position == 0) {
             throw JSONRPCError(RPC_TYPE_ERROR, "Sender has not required short position on this contract");
     }
-    int64_t balanceUnconfirmed = getUserAvailableMPbalance(address, propertyId); // check the pending amounts
-    if (balanceUnconfirmed > 0) {
-        throw JSONRPCError(RPC_TYPE_ERROR, "Sender has insufficient balance (due to pending transactions)");
-    }
+    // int64_t balanceUnconfirmed = getUserAvailableMPbalance(address, propertyId); // check the pending amounts
+    // if (balanceUnconfirmed > 0) {
+    //     throw JSONRPCError(RPC_TYPE_ERROR, "Sender has insufficient balance (due to pending transactions)");
+    // }
 
 
 }

@@ -32,7 +32,7 @@ namespace mastercore
 /**
  * Returns a mapping of transaction types, and the blocks at which they are enabled.
  */
-    
+
 std::vector<TransactionRestriction> CConsensusParams::GetRestrictions() const
 {
     const TransactionRestriction vTxRestrictions[] =
@@ -72,11 +72,12 @@ std::vector<TransactionRestriction> CConsensusParams::GetRestrictions() const
 
         { MSC_TYPE_SEND_ALL,                  MP_TX_PKT_V0,  false,   MSC_SEND_ALL_BLOCK },
         ////////////////////////////////////
-        /** New things for Contract: To solve the Testnet Bug */ 
+        /** New things for Contract: To solve the Testnet Bug */
         { MSC_TYPE_CONTRACTDEX_TRADE,             MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
         { MSC_TYPE_CONTRACTDEX_CANCEL_PRICE,      MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
         { MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM,  MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
         { MSC_TYPE_CREATE_CONTRACT,               MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
+        { MSC_TYPE_PEGGED_CURRENCY,               MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
         ////////////////////////////////////
 
         // { MSC_TYPE_OFFER_ACCEPT_A_BET,        MP_TX_PKT_V0,  false,   MSC_BET_BLOCK      },

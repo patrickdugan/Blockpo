@@ -37,6 +37,15 @@ using boost::algorithm::token_compress_on;
 
 using namespace mastercore;
 
+////////////////////////////////////////
+/*New things for Contracts*/
+extern uint32_t blocksUntilExpiration;
+extern uint32_t notionalSize;
+extern uint32_t collateralCurrency;
+extern uint32_t marginRequirementContract;
+////////////////////////////////////////
+
+
 /** Returns a label for the given transaction type. */
 std::string mastercore::strTransactionType(uint16_t txType)
 {
@@ -2034,13 +2043,7 @@ int CMPTransaction::logicMath_ContractDexTrade()
 /** Tx 40 */
 int CMPTransaction::logicMath_CreateContractDex()
 {
-    ////////////////////////////////////////
-    /*New things for Contracts*/
-    extern uint32_t blocksUntilExpiration;
-    extern uint32_t notionalSize;
-    extern uint32_t collateralCurrency;
-    extern uint32_t marginRequirementContract;
-    ////////////////////////////////////////
+
 
     uint256 blockHash;
     {
@@ -2825,15 +2828,15 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
         return (PKT_ERROR_SP -21);
     }
 
-    // if (!IsTransactionTypeAllowed(block, ecosystem, type, version)) {
-    //     PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
-    //             __func__,
-    //             type,
-    //             version,
-    //             property,
-    //             block);
-    //     return (PKT_ERROR_SP -22);
-    // }
+    if (!IsTransactionTypeAllowed(block, ecosystem, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_SP -22);
+    }
 
     if (MSC_PROPERTY_TYPE_INDIVISIBLE != prop_type && MSC_PROPERTY_TYPE_DIVISIBLE != prop_type) {
         PrintToLog("%s(): rejected: invalid property type: %d\n", __func__, prop_type);
@@ -2845,14 +2848,38 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
         return (PKT_ERROR_SP -37);
     }
 
+        // checking collateral currency
+         int64_t nBalance = getMPbalance(sender, propertyId, BALANCE);
+        if (nBalance == 0) {
+            PrintToLog("%s(): rejected: sender %s has insufficient collateral currency in balance %d \n",
+                    __func__,
+                    sender,
+                    propertyId);
+            return (PKT_ERROR_SEND -25);
+        }
+
+         // checking the short position
+         int64_t position = getMPbalance(sender, contractId, NEGATIVE_BALANCE);
+         int64_t amount = static_cast<int64_t> (position*notionalSize);
+
+         if ((amount > nBalance) || (position == 0)) {
+           PrintToLog("%s(): rejected: sender %s has not a short position in this contract %d \n",
+                   __func__,
+                   sender,
+                   propertyId);
+           return (PKT_ERROR_SEND -25);
+         }
     // ------------------------------------------
+
     PrintToConsole("____________________________________________________________\n");
     PrintToConsole("Inside logicMath_CreatePeggedCurrency !!!!!\n");
     PrintToConsole("Address of sender : %s\n",sender);
     PrintToConsole("Property type : %d\n",prop_type);
-    PrintToConsole("Property Id : %d",propertyId);
-    PrintToConsole("Contract Id : %d",contractId);
+    PrintToConsole("Collateral currency Id : %d\n",propertyId);
+    PrintToConsole("Contract Id : %d\n",contractId);
+    PrintToConsole("Amount of pegged currency : %d\n",amount);
     PrintToConsole("____________________________________________________________\n");
+
     CMPSPInfo::Entry newSP;
     newSP.issuer = sender;
     newSP.txid = txid;
@@ -2862,37 +2889,22 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
     newSP.name.assign(name);
     newSP.url.assign(url);
     newSP.data.assign(data);
-    newSP.fixed = false;
+    newSP.fixed = true;
     newSP.manual = true;
     newSP.creation_block = blockHash;
     newSP.update_block = newSP.creation_block;
+    newSP.num_tokens = amount;
 
-    uint32_t propertyId = _my_sps->putSP(ecosystem, newSP);
-    assert(propertyId > 0);
+    const uint32_t npropertyId = _my_sps->putSP(ecosystem, newSP);
+    assert(npropertyId > 0);
+    PrintToConsole("Pegged currency Id: %d\n",npropertyId);
+    assert(update_tally_map(sender, npropertyId, amount, BALANCE));
+    NotifyTotalTokensChanged(npropertyId, block);
 
     PrintToLog("CREATED MANUAL PROPERTY id: %d admin: %s\n", propertyId, sender);
 
-    // checking collateral currency
-    // int64_t nBalance = getMPbalance(sender, propertyId, BALANCE);
-    // if (nBalance == 0) {
-    //     PrintToLog("%s(): rejected: sender %s has insufficient collateral currency in balance %d \n",
-    //             __func__,
-    //             sender,
-    //             propertyId;
-    //     return (PKT_ERROR_SEND -25);
-    // }
 
-     // checking the short position
-     int64_t position = getMPbalance(sender, contractId, NEGATIVE_BALANCE);
-    //  if (position > 0) {
-    //    PrintToLog("%s(): rejected: sender %s has not a short position in this contract %d \n",
-    //            __func__,
-    //            sender,
-    //            propertyId;
-    //    return (PKT_ERROR_SEND -25);
-    //  }
-
-     // putting into reserve contracts and collateral currency
+     //putting into reserve contracts and collateral currency
     //  assert(update_tally_map(sender, contractId, -position, NEGATIVE_BALANCE));
     //  assert(update_tally_map(sender, contractId, position, CONTRACTDEX_RESERVE));
      //

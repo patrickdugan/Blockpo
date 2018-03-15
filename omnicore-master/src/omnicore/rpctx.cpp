@@ -678,7 +678,7 @@ UniValue omni_sendissuance_pegged(const UniValue& params, bool fHelp)
     RequirePropertyName(name);
 
     // checking for collateral balance, checking for short position in given contract
-  //  RequireForPegged(fromAddress, propertyId, contractId);
+   RequireForPegged(fromAddress, propertyId, contractId);
 
     // create a payload for the transaction
     std::vector<unsigned char> payload = CreatePayload_IssuancePegged(ecosystem, type, previousId, category, subcategory, name, url, data, propertyId, contractId);
