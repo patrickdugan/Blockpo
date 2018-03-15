@@ -328,7 +328,7 @@ UniValue omni_createpayload_createcontract(const UniValue& params, bool fHelp)
     uint32_t collateral_currency = ParseNewValues(params[15]);
     uint32_t margin_requirement = ParseNewValues(params[16]);
     ////////////////////////////////////
-    
+
     RequirePropertyName(name);
     RequireExistingProperty(propertyIdDesired);
     RequireSameEcosystem(ecosystem, propertyIdDesired);
@@ -380,6 +380,57 @@ UniValue omni_createpayload_issuancemanaged(const UniValue& params, bool fHelp)
 
     return HexStr(payload.begin(), payload.end());
 }
+
+
+/*New things for contracts */ //////////////////////////////////////////////////
+
+UniValue omni_createpayload_issuance_pegged(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 10)
+        throw runtime_error(
+            "omni_createpayload_issuance_pegged ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\"\n"
+
+            "\nCreates the payload for a new pegged currency with manageable supply.\n"
+
+            "\nArguments:\n"
+            "1. ecosystem            (string, required) the ecosystem to create the pegged currency in (1 for main ecosystem, 2 for test ecosystem)\n"
+            "2. type                 (number, required) the type of the pegged to create: (1 for indivisible tokens, 2 for divisible tokens)\n"
+            "3. previousid           (number, required) an identifier of a predecessor token (use 0 for new tokens)\n"
+            "4. category             (string, required) a category for the new pegged (can be \"\")\n"
+            "5. subcategory          (string, required) a subcategory for the new pegged (can be \"\")\n"
+            "6. name                 (string, required) the name of the new pegged to create\n"
+            "7. url                  (string, required) an URL for further information about the new pegged (can be \"\")\n"
+            "8. data                 (string, required) a description for the new pegged (can be \"\")\n"
+            "9.collateralcurrency   (number, required) the collateral currency for the new pegged \n"
+            "10. future contract id  (number, required) the future contract id for the new pegged \n"
+
+            "\nResult:\n"
+            "\"hash\"                  (string) the hex-encoded transaction hash\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_sendissuance_pegged", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\" 2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\"")
+            + HelpExampleRpc("omni_sendissuance_pegged", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\", 2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\"")
+        );
+
+    // obtain parameters & info
+    uint8_t ecosystem = ParseEcosystem(params[0]);
+    uint16_t type = ParsePropertyType(params[1]);
+    uint32_t previousId = ParsePreviousPropertyId(params[2]);
+    std::string category = ParseText(params[3]);
+    std::string subcategory = ParseText(params[4]);
+    std::string name = ParseText(params[5]);
+    std::string url = ParseText(params[6]);
+    std::string data = ParseText(params[7]);
+    uint32_t propertyId = ParsePropertyId(params[8]);
+    uint32_t contractId = ParseNewValues(params[9]);
+    // perform checks
+    RequirePropertyName(name);
+
+    std::vector<unsigned char> payload = CreatePayload_IssuancePegged(ecosystem, type, previousId, category, subcategory, name, url, data, propertyId, contractId);
+
+    return HexStr(payload.begin(), payload.end());
+}
+/////////////////////////////////////////////////////////////////////////////////
 
 UniValue omni_createpayload_closecrowdsale(const UniValue& params, bool fHelp)
 {
@@ -639,7 +690,7 @@ UniValue omni_createpayload_cancelcontracttradesbyprice(const UniValue& params, 
     int64_t amountDesired = ParseAmountContract(params[3], isPropertyContract(propertyIdDesired));
     uint64_t effective_price = ParseEffectivePrice(params[4]);
     uint8_t trading_action = ParseContractDexAction(params[5]);
-    
+
     std::vector<unsigned char> payload = CreatePayload_ContractDexCancelPrice(propertyIdForSale, amountForSale, propertyIdDesired, amountDesired, effective_price, trading_action);
 
     return HexStr(payload.begin(), payload.end());
@@ -882,9 +933,10 @@ static const CRPCCommand commands[] =
     ////////////////////////////////////////
     /** New things for Contracts */
     { "omni layer (payload creation)", "omni_createpayload_contract_trade",             &omni_createpayload_contract_trade,      true },
-    { "omni layer (payload creation)", "omni_createpayload_cancelcontracttradesbyprice",&omni_createpayload_cancelcontracttradesbyprice,      true },
+    { "omni layer (payload creation)", "omni_createpayload_cancelcontracttradesbyprice", &omni_createpayload_cancelcontracttradesbyprice, true },
     { "omni layer (payload creation)", "omni_createpayload_createcontract",             &omni_createpayload_createcontract,      true },
-    { "omni layer (payload creation)", "omni_createpayload_cancelalltradescontract",    &omni_createpayload_cancelalltradescontract,     true },
+    { "omni layer (payload creation)", "omni_createpayload_cancelalltradescontract",    &omni_createpayload_cancelalltradescontract, true },
+    { "omni layer (payload creation)", "omni_createpayload_issuance_pegged" ,       &omni_createpayload_issuance_pegged,     true },
     ////////////////////////////////////////
 };
 

@@ -14,6 +14,14 @@
 #include <stdint.h>
 #include <string>
 
+///////////////////////////////
+/*New things for Contracts*/
+extern uint32_t notionalSize;
+extern uint32_t marginRequirementContract;
+extern uint32_t collateralCurrency;
+extern volatile uint64_t marketPrice;
+///////////////////////////////
+
 void RequireBalance(const std::string& address, uint32_t propertyId, int64_t amount)
 {
     int64_t balance = getMPbalance(address, propertyId, BALANCE);
@@ -25,6 +33,27 @@ void RequireBalance(const std::string& address, uint32_t propertyId, int64_t amo
         throw JSONRPCError(RPC_TYPE_ERROR, "Sender has insufficient balance (due to pending transactions)");
     }
 }
+
+void RequireForPegged(const std::string& address, uint32_t propertyId, uint32_t contractId)
+{
+    int64_t balance = getMPbalance(address, propertyId, BALANCE);
+    int64_t position = getMPbalance(address, contractId, NEGATIVE_BALANCE);
+    int64_t amount = static_cast<int64_t> (position*notionalSize);
+    if (balance == 0) {
+        throw JSONRPCError(RPC_TYPE_ERROR, "Sender has insufficient balance");
+    }
+
+    if (amount >= balance ) {
+            throw JSONRPCError(RPC_TYPE_ERROR, "Sender has not required short position on this contract");
+    }
+    int64_t balanceUnconfirmed = getUserAvailableMPbalance(address, propertyId); // check the pending amounts
+    if (balanceUnconfirmed > 0) {
+        throw JSONRPCError(RPC_TYPE_ERROR, "Sender has insufficient balance (due to pending transactions)");
+    }
+
+
+}
+
 
 void RequirePrimaryToken(uint32_t propertyId)
 {

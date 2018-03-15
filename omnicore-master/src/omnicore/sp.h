@@ -152,11 +152,9 @@ private:
     // implied version of OMNI and TOMNI so they don't hit the leveldb
     Entry implied_omni;
     Entry implied_tomni;
-    Entry implied_spc;
 
     uint32_t next_spid;
     uint32_t next_test_spid;
-    uint32_t next_spc;
 
 public:
 
@@ -166,8 +164,7 @@ public:
     /** Extends clearing of CDBBase. */
     void Clear();
 
-    // void init(uint32_t nextSPID = 0x3UL, uint32_t nextTestSPID = TEST_ECO_PROPERTY_1);
-    void init(uint32_t nextSPID = 0x3UL, uint32_t nextTestSPID = TEST_ECO_PROPERTY_1, uint32_t nextSPC = 0x3UL);
+    void init(uint32_t nextSPID = 0x3UL, uint32_t nextTestSPID = TEST_ECO_PROPERTY_1);
 
     uint32_t peekNextSPID(uint8_t ecosystem) const;
     bool updateSP(uint32_t propertyId, const Entry& info);
@@ -266,6 +263,5 @@ void eraseMaxedCrowdsale(const std::string& address, int64_t blockTime, int bloc
 
 unsigned int eraseExpiredCrowdsale(const CBlockIndex* pBlockIndex);
 }
-
 
 #endif // OMNICORE_SP_H

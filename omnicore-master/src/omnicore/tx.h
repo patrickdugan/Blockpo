@@ -33,7 +33,7 @@ class CMPTransaction
     ////////////////////////////
     /** New things for Contracts */
     friend class CMPContractDex;
-    
+
 
 private:
     uint256 txid;
@@ -89,6 +89,8 @@ private:
     /** New things Contract */
     uint64_t effective_price;
     uint8_t trading_action;
+    uint32_t propertyId;
+    uint32_t contractId;
     ////////////////////////////////////
 
     /** New things for Contracts */
@@ -138,6 +140,7 @@ private:
     bool interpret_CreateContractDex();
     bool interpret_ContractDexCancelPrice();
     bool interpret_ContractDexCancelEcosystem();
+    bool interpret_CreatePeggedCurrency();
     ///////////////////////////////////////////////
     bool interpret_AcceptOfferBTC();
     bool interpret_CreatePropertyFixed();
@@ -173,6 +176,7 @@ private:
     int logicMath_CreateContractDex();
     int logicMath_ContractDexCancelPrice();
     int logicMath_ContractDexCancelEcosystem();
+    int logicMath_CreatePeggedCurrency();
     ///////////////////////////////////////////////
     int logicMath_CreatePropertyFixed();
     int logicMath_CreatePropertyVariable();
@@ -255,8 +259,8 @@ public:
 
     ///////////////////////////////////////////////
     /** New things for Contract */
-    int getLogicMath_ContractDexTrade() { return logicMath_ContractDexTrade(); } 
-    int getLogicMath_CreateContractDex() { return logicMath_CreateContractDex(); } 
+    int getLogicMath_ContractDexTrade() { return logicMath_ContractDexTrade(); }
+    int getLogicMath_CreateContractDex() { return logicMath_CreateContractDex(); }
     ///////////////////////////////////////////////
 
     /** Creates a new CMPTransaction object. */
@@ -314,6 +318,8 @@ public:
         /** New things for Contracts */
         effective_price = 0;
         trading_action = 0;
+        propertyId = 0;
+        contractId = 0;
         ////////////////////////////////////
     }
 

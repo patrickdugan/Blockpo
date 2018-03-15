@@ -103,6 +103,9 @@ enum TransactionType {
   MSC_TYPE_CHANGE_ISSUER_ADDRESS      = 70,
   MSC_TYPE_ENABLE_FREEZING            = 71,
   MSC_TYPE_DISABLE_FREEZING           = 72,
+  /* New things for contracts */////////////////////////////////////////////////
+  MSC_TYPE_PEGGED_CURRENCY            = 100,
+  //////////////////////////////////////////////////////////////////////////////
   MSC_TYPE_FREEZE_PROPERTY_TOKENS     = 185,
   MSC_TYPE_UNFREEZE_PROPERTY_TOKENS   = 186,
   OMNICORE_MESSAGE_TYPE_DEACTIVATION  = 65533,
@@ -269,7 +272,7 @@ public:
 
     /////////////////////////////////
     /** New things for Contract */
-    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew);
+    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, int64_t nCouldbuy, int64_t amountForsale, int64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, int64_t pricepold, int64_t pricepnew);
     // void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid);
     /////////////////////////////////
 
@@ -282,7 +285,7 @@ public:
 
     ///////////////////////////////////////
     /** New things for Contract */
-    int64_t getTradeBasis(string address, int64_t contractsClosed, uint32_t property);
+    double getPNL(string address, int64_t contractsClosed, int64_t price, uint32_t property, uint32_t marginRequirementContract, uint32_t notionalSize, std::string Status);
     void marginLogic(uint32_t property);
     //////////////////////////////////////
 
@@ -367,7 +370,7 @@ int64_t getUserAvailableMPbalance(const std::string& address, uint32_t propertyI
 int64_t getUserFrozenMPbalance(const std::string& address, uint32_t propertyId);
 ///////////////////////////////////////
 /** New things for Contract */
-int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice);
+int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice, uint8_t trading_action, int64_t amountInOrder);
 //////////////////////////////////////
 
 /** Global handler to initialize Omni Core. */

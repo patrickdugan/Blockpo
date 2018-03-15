@@ -5,6 +5,9 @@
 #include <string>
 
 void RequireBalance(const std::string& address, uint32_t propertyId, int64_t amount);
+/*New things for contracts *///////////////////////////////////////////////////
+void RequireForPegged(const std::string& address, uint32_t propertyId, uint32_t contractId);
+////////////////////////////////////////////////////////////////////////////////
 void RequirePrimaryToken(uint32_t propertyId);
 void RequirePropertyName(const std::string& name);
 void RequireExistingProperty(uint32_t propertyId);

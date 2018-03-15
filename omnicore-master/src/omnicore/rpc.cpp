@@ -118,7 +118,7 @@ void ContractDexObjectToJSON(const CMPContractDex& obj, UniValue& contractdex_ob
     contractdex_obj.push_back(Pair("address", obj.getAddr()));
     contractdex_obj.push_back(Pair("txid", obj.getHash().GetHex()));
     contractdex_obj.push_back(Pair("propertyidforsale", (uint64_t) obj.getProperty()));
-    contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1, obj.getAmountForSale())));
+    contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1,obj.getAmountForSale())));
     contractdex_obj.push_back(Pair("tradingaction", obj.getTradingAction()));
     contractdex_obj.push_back(Pair("effectiveprice",  FormatMP(1,obj.getEffectivePrice())));
     contractdex_obj.push_back(Pair("block", obj.getBlock()));
@@ -165,6 +165,7 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
     int64_t nAvailable = getUserAvailableMPbalance(address, property);
 
     int64_t nReserved = 0;
+
     nReserved += getMPbalance(address, property, ACCEPT_RESERVE);
     nReserved += getMPbalance(address, property, METADEX_RESERVE);
     nReserved += getMPbalance(address, property, SELLOFFER_RESERVE);
@@ -174,10 +175,12 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
     if (divisible) {
         balance_obj.push_back(Pair("balance", FormatDivisibleMP(nAvailable)));
         balance_obj.push_back(Pair("reserved", FormatDivisibleMP(nReserved)));
+
         if (nFrozen != 0) balance_obj.push_back(Pair("frozen", FormatDivisibleMP(nFrozen)));
     } else {
         balance_obj.push_back(Pair("balance", FormatIndivisibleMP(nAvailable)));
         balance_obj.push_back(Pair("reserved", FormatIndivisibleMP(nReserved)));
+
         if (nFrozen != 0) balance_obj.push_back(Pair("frozen", FormatIndivisibleMP(nFrozen)));
     }
 
@@ -192,19 +195,22 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
 /** New things for Contract */
 bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool dContract)
 {
-    int64_t contractReserved = getMPbalance(address, property, CONTRACTDEX_RESERVE);
-    int64_t balance = getMPbalance(address, property, BALANCE);
-    int64_t negativeBalance = getMPbalance(address, property, NEGATIVE_BALANCE);
-    int64_t positiveBalance = getMPbalance(address, property, POSSITIVE_BALANCE);
+  int64_t contractReserved = getMPbalance(address, property, CONTRACTDEX_RESERVE);
+  int64_t balance = getMPbalance(address, property, BALANCE);
 
-    if (dContract) {
-        balance_obj.push_back(Pair("balance", FormatDivisibleMP(balance)));
-        balance_obj.push_back(Pair("reserved", FormatDivisibleMP(contractReserved)));
-        balance_obj.push_back(Pair("positive balance", FormatDivisibleMP(positiveBalance)));
-        balance_obj.push_back(Pair("negative balance", FormatDivisibleMP(negativeBalance)));
-    }
+  if (dContract) {
+      balance_obj.push_back(Pair("balance", FormatDivisibleMP(balance)));
+      balance_obj.push_back(Pair("reserved", FormatDivisibleMP(contractReserved)));
+  } else {
+      balance_obj.push_back(Pair("balance", FormatIndivisibleMP(balance)));
+      balance_obj.push_back(Pair("reserved", FormatIndivisibleMP(contractReserved)));
+  }
 
-    return true;
+  if ((balance == 0) && (contractReserved == 0)) {
+     return false;
+  } else {
+     return true;
+  }
 }
 
 ///////////////////////////////////////////////
@@ -213,20 +219,12 @@ bool PositionToJSON(const std::string& address, uint32_t property, UniValue& bal
 {
     int64_t longPosition  = getMPbalance(address, property, POSSITIVE_BALANCE);
     int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
-    
+
     balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(longPosition)));
     balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(shortPosition)));
 
-    if (shortPosition == 0 && longPosition == 0) {
-        balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(0)));
-        balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(0)));
-        return false;
-    } else {
-        return true;
-    }
+    return true;
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
 // Obtains details of a fee distribution
 UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
 {
@@ -1044,10 +1042,8 @@ UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
     std::string address = ParseAddress(params[0]);
     uint32_t propertyId = ParsePropertyId(params[1]);
 
-    RequireExistingProperty(propertyId);
-
     UniValue balanceObj(UniValue::VOBJ);
-    ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyContract(propertyId));
+    ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyDivisible(propertyId));
 
     return balanceObj;
 }
@@ -1076,10 +1072,8 @@ UniValue omni_getposition(const UniValue& params, bool fHelp)
     std::string address = ParseAddress(params[0]);
     uint32_t propertyId = ParsePropertyId(params[1]);
 
-    //RequireExistingProperty(propertyId);
-
     UniValue balanceObj(UniValue::VOBJ);
-    PositionToJSON(address, propertyId, balanceObj,isPropertyContract(propertyId));
+    PositionToJSON(address, propertyId, balanceObj, isPropertyDivisible(propertyId));
 
     return balanceObj;
 }

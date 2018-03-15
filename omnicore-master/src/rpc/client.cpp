@@ -134,6 +134,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_getcontract_orderbook", 1 },
     ///////////////////////////////////////////
     { "omni_getposition", 1 },
+    { "omni_getcontract_balance", 1 },
     ///////////////////////////////////////////
 
     { "omni_getseedblocks", 0 },
@@ -158,12 +159,21 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_sendcanceltradesbypair", 1 },
     { "omni_sendcanceltradesbypair", 2 },
     { "omni_sendcancelalltrades", 1 },
+    { "omni_cancelallcontractsbyaddress", 1 },
     { "omni_sendissuancefixed", 1 },
     { "omni_sendissuancefixed", 2 },
     { "omni_sendissuancefixed", 3 },
     { "omni_sendissuancemanaged", 1 },
     { "omni_sendissuancemanaged", 2 },
     { "omni_sendissuancemanaged", 3 },
+
+    /*New things for contracts  *///////////////////////////////////////////////
+    { "omni_sendissuance_pegged", 1 },
+    { "omni_sendissuance_pegged", 2 },
+    { "omni_sendissuance_pegged", 3 },
+    { "omni_sendissuance_pegged", 9 },
+      { "omni_sendissuance_pegged", 10 },
+    ////////////////////////////////////////////////////////////////////////////
     { "omni_sendissuancecrowdsale", 1 },
     { "omni_sendissuancecrowdsale", 2 },
     { "omni_sendissuancecrowdsale", 3 },
@@ -215,6 +225,15 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_createpayload_issuancemanaged", 0 },
     { "omni_createpayload_issuancemanaged", 1 },
     { "omni_createpayload_issuancemanaged", 2 },
+
+    /*New things for contracts  *///////////////////////////////////////////////
+    { "omni_createpayload_issuance_pegged", 0 },
+    { "omni_createpayload_issuance_pegged", 1 },
+    { "omni_createpayload_issuance_pegged", 2 },
+    { "omni_createpayload_issuance_pegged", 8 },
+    { "omni_createpayload_issuance_pegged", 9 },
+    ////////////////////////////////////////////////////////////////////////////
+
     { "omni_createpayload_issuancecrowdsale", 0 },
     { "omni_createpayload_issuancecrowdsale", 1 },
     { "omni_createpayload_issuancecrowdsale", 2 },
