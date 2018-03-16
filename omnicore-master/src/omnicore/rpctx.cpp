@@ -470,7 +470,9 @@ UniValue omni_createcontract(const UniValue& params, bool fHelp)
 
     std::string fromAddress = ParseAddress(params[0]);
     uint8_t ecosystem = ParseEcosystem(params[1]);
-    uint16_t type = ParsePropertyType(params[2]);
+    /*New things for contracts */////////////////////////////// We must add this on the development branch!
+    uint16_t type = ParseContractType(params[2]);
+    ////////////////////////////////////////////////////////////
     uint32_t previousId = ParsePropertyId(params[3]);
     std::string category = ParseText(params[4]);
     std::string subcategory = ParseText(params[5]);
@@ -678,7 +680,7 @@ UniValue omni_sendissuance_pegged(const UniValue& params, bool fHelp)
     RequirePropertyName(name);
 
     // checking for collateral balance, checking for short position in given contract
-   RequireForPegged(fromAddress, propertyId, contractId);
+  //  RequireForPegged(fromAddress, propertyId, contractId);
 
     // create a payload for the transaction
     std::vector<unsigned char> payload = CreatePayload_IssuancePegged(ecosystem, type, previousId, category, subcategory, name, url, data, propertyId, contractId);

@@ -88,7 +88,7 @@ int64_t ParseAmount(const UniValue& value, int propertyType)
 //////////////////////////////////
 /** New things for Contracts */
 int64_t ParseAmountContract(const UniValue& value, bool fContract)
-{   
+{
     /** Here we use getValStr() instead of get_str */
     int64_t amount = mastercore::StrToInt64(value.getValStr(), fContract);
     if (amount < 1) {
@@ -155,11 +155,22 @@ uint8_t ParseContractDexAction(const UniValue& value)
 uint16_t ParsePropertyType(const UniValue& value)
 {
     int64_t propertyType = value.get_int64();
-    if (propertyType < 1 || 3 < propertyType) {
-        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid property type (1 = indivisible, 2 = divisible, 3 = contract)");
+    if (propertyType < 1 || 2 < propertyType) {
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid property type (1 = indivisible, 2 = divisible)");
     }
     return static_cast<uint16_t>(propertyType);
 }
+
+uint16_t ParseContractType(const UniValue& value)
+{
+    int64_t propertyType = value.get_int64();
+    if (propertyType != 3) {
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid contract type (3 = contract)");
+    }
+    return static_cast<uint16_t>(propertyType);
+}
+
+
 
 uint32_t ParsePreviousPropertyId(const UniValue& value)
 {
@@ -270,7 +281,7 @@ std::vector<PrevTxsEntry> ParsePrevTxs(const UniValue& value)
 
     std::vector<PrevTxsEntry> prevTxsParsed;
     prevTxsParsed.reserve(prevTxs.size());
-    
+
     for (size_t i = 0; i < prevTxs.size(); ++i) {
         const UniValue& p = prevTxs[i];
         if (p.type() != UniValue::VOBJ) {

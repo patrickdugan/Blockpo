@@ -41,7 +41,7 @@ void RequireForPegged(const std::string& address, uint32_t propertyId, uint32_t 
     PrintToConsole("PropertyId : %d\n",propertyId);
     PrintToConsole("Balance : %d\n",balance);
     int64_t position = getMPbalance(address, contractId, NEGATIVE_BALANCE);
-
+    PrintToConsole("Position : %d\n",position);
     if (balance == 0) {
         throw JSONRPCError(RPC_TYPE_ERROR, "Sender has not amount of collateral currency");
     }

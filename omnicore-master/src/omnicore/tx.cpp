@@ -2823,6 +2823,9 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
         blockHash = pindex->GetBlockHash();
     }
 
+
+
+
     if (OMNI_PROPERTY_MSC != ecosystem && OMNI_PROPERTY_TMSC != ecosystem) {
         PrintToLog("%s(): rejected: invalid ecosystem: %d\n", __func__, (uint32_t) ecosystem);
         return (PKT_ERROR_SP -21);
@@ -2862,6 +2865,17 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
          int64_t position = getMPbalance(sender, contractId, NEGATIVE_BALANCE);
          int64_t amount = static_cast<int64_t> (position*notionalSize);
 
+         PrintToConsole("____________________________________________________________\n");
+         PrintToConsole("Inside logicMath_CreatePeggedCurrency !!!!!\n");
+         PrintToConsole("Address of sender : %s\n",sender);
+         PrintToConsole("Property type : %d\n",prop_type);
+         PrintToConsole("Collateral currency Id : %d\n",propertyId);
+         PrintToConsole("Contract Id : %d\n",contractId);
+         PrintToConsole("Amount of pegged currency : %d\n",amount);
+         PrintToConsole("nBalance : %d\n",nBalance);
+         PrintToConsole("Notional Size : %d\n",notionalSize);
+         PrintToConsole("____________________________________________________________\n");
+
          if ((amount > nBalance) || (position == 0)) {
            PrintToLog("%s(): rejected: sender %s has not a short position in this contract %d \n",
                    __func__,
@@ -2871,14 +2885,7 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
          }
     // ------------------------------------------
 
-    PrintToConsole("____________________________________________________________\n");
-    PrintToConsole("Inside logicMath_CreatePeggedCurrency !!!!!\n");
-    PrintToConsole("Address of sender : %s\n",sender);
-    PrintToConsole("Property type : %d\n",prop_type);
-    PrintToConsole("Collateral currency Id : %d\n",propertyId);
-    PrintToConsole("Contract Id : %d\n",contractId);
-    PrintToConsole("Amount of pegged currency : %d\n",amount);
-    PrintToConsole("____________________________________________________________\n");
+
 
     CMPSPInfo::Entry newSP;
     newSP.issuer = sender;
@@ -2905,11 +2912,11 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
 
 
      //putting into reserve contracts and collateral currency
-    //  assert(update_tally_map(sender, contractId, -position, NEGATIVE_BALANCE));
-    //  assert(update_tally_map(sender, contractId, position, CONTRACTDEX_RESERVE));
+     assert(update_tally_map(sender, contractId, -position, NEGATIVE_BALANCE));
+     assert(update_tally_map(sender, contractId, position, CONTRACTDEX_RESERVE));
      //
-    //  assert(update_tally_map(sender, propertyId, -nBalance, BALANCE));
-    //  assert(update_tally_map(sender, propertyId, nBalance, CONTRACTDEX_RESERVE));
+     assert(update_tally_map(sender, propertyId, -amount, BALANCE));
+     assert(update_tally_map(sender, propertyId, amount, CONTRACTDEX_RESERVE));
 
     return 0;
 
