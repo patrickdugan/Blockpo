@@ -910,7 +910,7 @@ bool CMPTransaction::interpret_DisableFreezing()
 /** Tx 54 */
 bool CMPTransaction::interpret_CreatePeggedCurrency()
 {
-    if (pkt_size < 25) {
+    if (pkt_size < 33) {
         return false;
     }
     const char* p = 11 + (char*) &pkt;
@@ -936,12 +936,16 @@ bool CMPTransaction::interpret_CreatePeggedCurrency()
     p += 4;
     memcpy(&contractId, p, 4);
     swapByteOrder32(contractId);
+    p += 4;
+    memcpy(&amount, p, 8);
+    swapByteOrder64(amount);
 
     PrintToConsole("Category : %s\n",category);
     PrintToConsole("Subcategory : %s\n",subcategory);
     PrintToConsole("Name : %s\n",name);
     PrintToConsole("Url : %s\n",url);
     PrintToConsole("Data : %s\n",data);
+    PrintToConsole("Amount : %\n",amount);
 
     if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
         PrintToLog("\t       ecosystem: %d\n", ecosystem);
@@ -2824,8 +2828,6 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
     }
 
 
-
-
     if (OMNI_PROPERTY_MSC != ecosystem && OMNI_PROPERTY_TMSC != ecosystem) {
         PrintToLog("%s(): rejected: invalid ecosystem: %d\n", __func__, (uint32_t) ecosystem);
         return (PKT_ERROR_SP -21);
@@ -2852,7 +2854,7 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
     }
 
         // checking collateral currency
-         int64_t nBalance = getMPbalance(sender, propertyId, BALANCE);
+         uint64_t nBalance = static_cast<uint64_t>(getMPbalance(sender, propertyId, BALANCE));
         if (nBalance == 0) {
             PrintToLog("%s(): rejected: sender %s has insufficient collateral currency in balance %d \n",
                     __func__,
@@ -2861,9 +2863,35 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
             return (PKT_ERROR_SEND -25);
         }
 
-         // checking the short position
+         uint32_t marginReq = 0;
+         uint32_t notSize = 0;
+         CMPSPInfo::Entry sp;
+         {
+             LOCK(cs_tally);
+             if (!_my_sps->getSP(contractId, sp)) {
+                 PrintToLog(" %s() : Property identifier %d does not exist\n",
+                 __func__,
+                 sender,
+                 contractId);
+                 return (PKT_ERROR_SEND -25);
+             } else if (sp.subcategory != "Futures Contracts") {
+                 PrintToLog(" %s() : property identifier %d does not a future contract\n",
+                 __func__,
+                 sender,
+                 contractId);
+                 return (PKT_ERROR_SEND -25);
+             } else if (sp.collateral_currency != propertyId) {
+                PrintToLog(" %s() : Future contract has not this collateral currency %d\n",
+                __func__,
+                sender,
+                propertyId);
+                return (PKT_ERROR_SEND -25);
+             }
+             marginReq = sp.margin_requirement;
+             notSize = sp.notional_size;
+         }
          int64_t position = getMPbalance(sender, contractId, NEGATIVE_BALANCE);
-         int64_t amount = static_cast<int64_t> (position*notionalSize);
+         int64_t contractsNeeded = static_cast<int64_t> (amount/notSize); // We must check the role of marginReq here.
 
          PrintToConsole("____________________________________________________________\n");
          PrintToConsole("Inside logicMath_CreatePeggedCurrency !!!!!\n");
@@ -2871,13 +2899,16 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
          PrintToConsole("Property type : %d\n",prop_type);
          PrintToConsole("Collateral currency Id : %d\n",propertyId);
          PrintToConsole("Contract Id : %d\n",contractId);
-         PrintToConsole("Amount of pegged currency : %d\n",amount);
+         PrintToConsole("Amount of pegged currency created: %d\n",amount);
          PrintToConsole("nBalance : %d\n",nBalance);
-         PrintToConsole("Notional Size : %d\n",notionalSize);
+         PrintToConsole("Contracts Needed : %d\n",contractsNeeded);
+         PrintToConsole("Notional Size : %d\n",notSize);
+         PrintToConsole("Short Position : %d\n",position);
+         PrintToConsole("Margin Requirement : %d\n",marginReq);
          PrintToConsole("____________________________________________________________\n");
 
-         if ((amount > nBalance) || (position == 0)) {
-           PrintToLog("%s(): rejected: sender %s has not a short position in this contract %d \n",
+         if ((nBalance < amount) || (position < contractsNeeded)) {
+           PrintToLog("%s(): rejected:Sender has not required short position on this contract %d \n",
                    __func__,
                    sender,
                    propertyId);
@@ -2912,8 +2943,8 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
 
 
      //putting into reserve contracts and collateral currency
-     assert(update_tally_map(sender, contractId, -position, NEGATIVE_BALANCE));
-     assert(update_tally_map(sender, contractId, position, CONTRACTDEX_RESERVE));
+     assert(update_tally_map(sender, contractId, -contractsNeeded, NEGATIVE_BALANCE));
+     assert(update_tally_map(sender, contractId, contractsNeeded, CONTRACTDEX_RESERVE));
      //
      assert(update_tally_map(sender, propertyId, -amount, BALANCE));
      assert(update_tally_map(sender, propertyId, amount, CONTRACTDEX_RESERVE));

@@ -307,7 +307,7 @@ std::vector<unsigned char> CreatePayload_IssuanceManaged(uint8_t ecosystem, uint
 }
 /*New thing for contracts*//////////////////////////////////////////////////////
 std::vector<unsigned char> CreatePayload_IssuancePegged(uint8_t ecosystem, uint16_t propertyType, uint32_t previousPropertyId, std::string category,
-                                                       std::string subcategory, std::string name, std::string url, std::string data, uint32_t propertyId, uint32_t contractId)
+                                                       std::string subcategory, std::string name, std::string url, std::string data, uint32_t propertyId, uint32_t contractId, uint64_t amount)
 {
     std::vector<unsigned char> payload;
     uint16_t messageType = 100;
@@ -321,6 +321,8 @@ std::vector<unsigned char> CreatePayload_IssuancePegged(uint8_t ecosystem, uint1
     mastercore::swapByteOrder32(propertyId);
     // future contract
     mastercore::swapByteOrder32(contractId);
+
+    mastercore::swapByteOrder64(amount);
 
     if (category.size() > 255) category = category.substr(0,255);
     if (subcategory.size() > 255) subcategory = subcategory.substr(0,255);
@@ -343,8 +345,9 @@ std::vector<unsigned char> CreatePayload_IssuancePegged(uint8_t ecosystem, uint1
     payload.push_back('\0');
     payload.insert(payload.end(), data.begin(), data.end());
     payload.push_back('\0');
-    PUSH_BACK_BYTES(payload, propertyId)
-    PUSH_BACK_BYTES(payload, contractId)
+    PUSH_BACK_BYTES(payload, propertyId);
+    PUSH_BACK_BYTES(payload, contractId);
+    PUSH_BACK_BYTES(payload, amount);
 
     return payload;
 }

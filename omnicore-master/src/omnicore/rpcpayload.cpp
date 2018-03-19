@@ -386,7 +386,7 @@ UniValue omni_createpayload_issuancemanaged(const UniValue& params, bool fHelp)
 
 UniValue omni_createpayload_issuance_pegged(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() != 10)
+    if (fHelp || params.size() != 11)
         throw runtime_error(
             "omni_createpayload_issuance_pegged ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\"\n"
 
@@ -403,7 +403,7 @@ UniValue omni_createpayload_issuance_pegged(const UniValue& params, bool fHelp)
             "8. data                 (string, required) a description for the new pegged (can be \"\")\n"
             "9.collateralcurrency   (number, required) the collateral currency for the new pegged \n"
             "10. future contract id  (number, required) the future contract id for the new pegged \n"
-
+            "11. amount of pegged    (number, required) amount of pegged currency created\n"
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
@@ -423,10 +423,11 @@ UniValue omni_createpayload_issuance_pegged(const UniValue& params, bool fHelp)
     std::string data = ParseText(params[7]);
     uint32_t propertyId = ParsePropertyId(params[8]);
     uint32_t contractId = ParseNewValues(params[9]);
+    uint64_t amount = ParseAmount(params[10], isPropertyDivisible(propertyId));
     // perform checks
     RequirePropertyName(name);
 
-    std::vector<unsigned char> payload = CreatePayload_IssuancePegged(ecosystem, type, previousId, category, subcategory, name, url, data, propertyId, contractId);
+    std::vector<unsigned char> payload = CreatePayload_IssuancePegged(ecosystem, type, previousId, category, subcategory, name, url, data, propertyId, contractId, amount);
 
     return HexStr(payload.begin(), payload.end());
 }

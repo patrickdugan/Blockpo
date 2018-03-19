@@ -23,7 +23,7 @@ std::vector<unsigned char> CreatePayload_CreateContract(uint8_t ecosystem, uint1
                                                           uint32_t blocks_until_expiration, uint32_t notional_size, uint32_t collateral_currency, uint32_t margin_requirement);
 
 std::vector<unsigned char> CreatePayload_IssuancePegged(uint8_t ecosystem, uint16_t propertyType, uint32_t previousPropertyId, std::string category,
-                                                                                                                 std::string subcategory, std::string name, std::string url, std::string data, uint32_t propertyId, uint32_t contractId);
+                                                                                                                 std::string subcategory, std::string name, std::string url, std::string data, uint32_t propertyId, uint32_t contractId, uint64_t amount);
 
 ///////////////////////////
 std::vector<unsigned char> CreatePayload_IssuanceManaged(uint8_t ecosystem, uint16_t propertyType, uint32_t previousPropertyId, std::string category,

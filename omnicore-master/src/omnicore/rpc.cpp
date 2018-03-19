@@ -1072,17 +1072,7 @@ UniValue omni_getposition(const UniValue& params, bool fHelp)
     std::string address = ParseAddress(params[0]);
     uint32_t propertyId = ParsePropertyId(params[1]);
     RequireExistingProperty(propertyId);
-    CMPSPInfo::Entry sp;
-    {
-        LOCK(cs_tally);
-        if (!_my_sps->getSP(propertyId, sp)) { // we need to add this in the development branch!
-            throw JSONRPCError(RPC_INVALID_PARAMETER, "Property identifier does not exist");
-        }else if (sp.subcategory != "Futures Contracts") {
-            throw JSONRPCError(RPC_INVALID_PARAMETER, "Property identifier does not a future contract");
-        }
-        PrintToConsole("Category : %s\n",sp.category);
-
-    }
+    RequireContract(propertyId);
     UniValue balanceObj(UniValue::VOBJ);
     PositionToJSON(address, propertyId, balanceObj, isPropertyDivisible(propertyId));
 

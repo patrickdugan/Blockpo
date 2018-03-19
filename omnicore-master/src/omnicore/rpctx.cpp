@@ -638,7 +638,7 @@ UniValue omni_sendissuancemanaged(const UniValue& params, bool fHelp)
 }
 UniValue omni_sendissuance_pegged(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() != 11)
+    if (fHelp || params.size() != 12)
         throw runtime_error(
             "omni_sendissuance_pegged\"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\"\n"
 
@@ -656,6 +656,7 @@ UniValue omni_sendissuance_pegged(const UniValue& params, bool fHelp)
             "9. data                 (string, required) a description for the new pegged (can be \"\")\n"
             "10. collateralcurrency  (number, required) the collateral currency for the new pegged \n"
             "11. future contract id  (number, required) the future contract id for the new pegged \n"
+            "12. amount of pegged    (number, required) amount of pegged to create \n"
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
@@ -676,14 +677,25 @@ UniValue omni_sendissuance_pegged(const UniValue& params, bool fHelp)
     std::string data = ParseText(params[8]);
     uint32_t propertyId = ParsePropertyId(params[9]);
     uint32_t contractId = ParseNewValues(params[10]);
+    uint64_t amount = ParseAmount(params[11], isPropertyDivisible(propertyId));
+
     // perform checks
     RequirePropertyName(name);
 
+     // Checking existing
+    RequireExistingProperty(propertyId);
+
+    // Property must not be a future contract
+    RequireNotContract(propertyId);
+
+    // Checking for future contract
+    RequireContract(contractId);
+
     // checking for collateral balance, checking for short position in given contract
-  //  RequireForPegged(fromAddress, propertyId, contractId);
+    RequireForPegged(fromAddress, propertyId, contractId, amount);
 
     // create a payload for the transaction
-    std::vector<unsigned char> payload = CreatePayload_IssuancePegged(ecosystem, type, previousId, category, subcategory, name, url, data, propertyId, contractId);
+    std::vector<unsigned char> payload = CreatePayload_IssuancePegged(ecosystem, type, previousId, category, subcategory, name, url, data, propertyId, contractId, amount);
 
     // request the wallet build the transaction (and if needed commit it)
     uint256 txid;

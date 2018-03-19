@@ -91,6 +91,7 @@ private:
     uint8_t trading_action;
     uint32_t propertyId;
     uint32_t contractId;
+    uint64_t amount;
     ////////////////////////////////////
 
     /** New things for Contracts */
@@ -320,6 +321,7 @@ public:
         trading_action = 0;
         propertyId = 0;
         contractId = 0;
+        amount = 0;
         ////////////////////////////////////
     }
 
