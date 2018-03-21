@@ -3020,6 +3020,22 @@ int CMPTransaction::logicMath_RedemptionPegged()
                 FormatMP(property, nValue));
         return (PKT_ERROR_SEND -25);
     }
+    uint32_t propertyId = 0;
+    uint32_t notSize = 0;
+    CMPSPInfo::Entry sp;
+    {
+        LOCK(cs_tally);
+        if (!_my_sps->getSP(contractId, sp)) {
+            PrintToLog(" %s() : Property identifier %d does not exist\n",
+            __func__,
+            sender,
+            contractId);
+            return (PKT_ERROR_SEND -25);
+        } else {
+           propertyId = sp.collateral_currency;
+           notSize = sp.notional_size;
+        }
+    }
 
 
 
@@ -3030,9 +3046,20 @@ int CMPTransaction::logicMath_RedemptionPegged()
         receiver = sender;
     }
 
+    int64_t contractsNeeded = static_cast<int64_t> (nValue/notSize);
+
+    PrintToConsole("contracts redeemed : %d\n",contractsNeeded);
+    PrintToConsole("amount redeemed : %d\n",nValue);
+
     // Delete the tokens
     assert(update_tally_map(sender, property, -nValue, BALANCE));
 
+    // getting back from reserve contracts and collateral currency
+    assert(update_tally_map(sender, contractId, -contractsNeeded, CONTRACTDEX_RESERVE));
+    assert(update_tally_map(sender, contractId, contractsNeeded, NEGATIVE_BALANCE));
+
+    assert(update_tally_map(sender, propertyId, -nValue, CONTRACTDEX_RESERVE));
+    assert(update_tally_map(sender, propertyId, nValue, BALANCE));
 
     return 0;
 }
