@@ -129,6 +129,18 @@ void RequireContract(uint32_t propertyId)
     }
 }
 
+void RequirePeggedCurrency(uint32_t propertyId)
+{
+    LOCK(cs_tally);
+    CMPSPInfo::Entry sp;
+    if (!mastercore::_my_sps->getSP(propertyId, sp)) {
+        throw JSONRPCError(RPC_DATABASE_ERROR, "Failed to retrieve property");
+    }
+    if (sp.subcategory != "Pegged Currency") {
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "propertyId must be a pegged currency\n");
+    }
+}
+
 void RequireActiveCrowdsale(uint32_t propertyId)
 {
     LOCK(cs_tally);

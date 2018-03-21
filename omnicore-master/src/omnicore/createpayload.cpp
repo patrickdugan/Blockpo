@@ -351,6 +351,28 @@ std::vector<unsigned char> CreatePayload_IssuancePegged(uint8_t ecosystem, uint1
 
     return payload;
 }
+
+std::vector<unsigned char> CreatePayload_RedemptionPegged(uint32_t propertyId, uint32_t contractId, uint64_t amount)
+{
+    std::vector<unsigned char> payload;
+    uint16_t messageType = 101;
+    uint16_t messageVer = 0;
+    mastercore::swapByteOrder16(messageType);
+    mastercore::swapByteOrder16(messageVer);
+    mastercore::swapByteOrder32(propertyId);
+    mastercore::swapByteOrder64(amount);
+    mastercore::swapByteOrder32(contractId);
+
+    PUSH_BACK_BYTES(payload, messageVer);
+    PUSH_BACK_BYTES(payload, messageType);
+    PUSH_BACK_BYTES(payload, propertyId);
+    PUSH_BACK_BYTES(payload, amount);
+    PUSH_BACK_BYTES(payload, contractId);
+
+    return payload;
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 
 std::vector<unsigned char> CreatePayload_CloseCrowdsale(uint32_t propertyId)

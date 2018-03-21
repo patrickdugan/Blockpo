@@ -172,7 +172,9 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_sendissuance_pegged", 2 },
     { "omni_sendissuance_pegged", 3 },
     { "omni_sendissuance_pegged", 9 },
-      { "omni_sendissuance_pegged", 10 },
+    { "omni_sendissuance_pegged", 10 },
+    { "omni_redemption_pegged", 1 },
+    { "omni_redemption_pegged", 3 },
     ////////////////////////////////////////////////////////////////////////////
     { "omni_sendissuancecrowdsale", 1 },
     { "omni_sendissuancecrowdsale", 2 },
@@ -232,6 +234,8 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_createpayload_issuance_pegged", 2 },
     { "omni_createpayload_issuance_pegged", 8 },
     { "omni_createpayload_issuance_pegged", 9 },
+    { "omni_createpayload_redemption_pegged", 0 },
+    { "omni_createpayload_redemption_pegged", 2 },
     ////////////////////////////////////////////////////////////////////////////
 
     { "omni_createpayload_issuancecrowdsale", 0 },

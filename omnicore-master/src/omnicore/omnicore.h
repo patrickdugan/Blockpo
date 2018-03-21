@@ -105,6 +105,7 @@ enum TransactionType {
   MSC_TYPE_DISABLE_FREEZING           = 72,
   /* New things for contracts */////////////////////////////////////////////////
   MSC_TYPE_PEGGED_CURRENCY            = 100,
+  MSC_TYPE_REDEMPTION_PEGGED          = 101,
   //////////////////////////////////////////////////////////////////////////////
   MSC_TYPE_FREEZE_PROPERTY_TOKENS     = 185,
   MSC_TYPE_UNFREEZE_PROPERTY_TOKENS   = 186,

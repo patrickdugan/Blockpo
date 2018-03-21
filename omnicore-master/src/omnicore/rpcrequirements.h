@@ -9,6 +9,7 @@ void RequireBalance(const std::string& address, uint32_t propertyId, int64_t amo
 void RequireForPegged(const std::string& address, uint32_t propertyId, uint32_t contractId, uint64_t amount);
 void RequireNotContract(uint32_t propertyId);
 void RequireContract(uint32_t propertyId);
+void RequirePeggedCurrency(uint32_t propertyId);
 ////////////////////////////////////////////////////////////////////////////////
 void RequirePrimaryToken(uint32_t propertyId);
 void RequirePropertyName(const std::string& name);

@@ -142,6 +142,7 @@ private:
     bool interpret_ContractDexCancelPrice();
     bool interpret_ContractDexCancelEcosystem();
     bool interpret_CreatePeggedCurrency();
+    bool interpret_RedemptionPegged();
     ///////////////////////////////////////////////
     bool interpret_AcceptOfferBTC();
     bool interpret_CreatePropertyFixed();
@@ -178,6 +179,7 @@ private:
     int logicMath_ContractDexCancelPrice();
     int logicMath_ContractDexCancelEcosystem();
     int logicMath_CreatePeggedCurrency();
+      int logicMath_RedemptionPegged();
     ///////////////////////////////////////////////
     int logicMath_CreatePropertyFixed();
     int logicMath_CreatePropertyVariable();

@@ -423,7 +423,7 @@ UniValue omni_createpayload_issuance_pegged(const UniValue& params, bool fHelp)
     std::string data = ParseText(params[7]);
     uint32_t propertyId = ParsePropertyId(params[8]);
     uint32_t contractId = ParseNewValues(params[9]);
-    uint64_t amount = ParseAmount(params[10], isPropertyDivisible(propertyId));
+    uint64_t amount = static_cast<uint64_t>(ParseAmount(params[10], isPropertyDivisible(propertyId)));
     // perform checks
     RequirePropertyName(name);
 
@@ -431,6 +431,42 @@ UniValue omni_createpayload_issuance_pegged(const UniValue& params, bool fHelp)
 
     return HexStr(payload.begin(), payload.end());
 }
+
+UniValue omni_createpayload_redemption_pegged(const UniValue& params, bool fHelp)
+{
+   if (fHelp || params.size() != 3)
+        throw runtime_error(
+            "omni_createpayload_simplesend propertyid \"amount\"\n"
+
+            "\nCreate the payload for a simple send transaction.\n"
+
+            "\nArguments:\n"
+            "1. propertyid           (number, required) the identifier of the tokens to send\n"
+            "2. amount               (string, required) the amount to send\n"
+            "3. contractid           (number, required) the identifier of the future contract involved\n"
+
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_sendissuance_pegged", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\" 2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\"")
+            + HelpExampleRpc("omni_sendissuance_pegged", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\", 2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\"")
+        );
+
+    uint32_t propertyId = ParsePropertyId(params[0]);
+    RequireExistingProperty(propertyId);
+    uint64_t amount = static_cast<uint64_t>(ParseAmount(params[1], isPropertyDivisible(propertyId)));
+    uint32_t contractId = ParseNewValues(params[2]);
+
+    std::vector<unsigned char> payload = CreatePayload_RedemptionPegged(propertyId, contractId, amount);
+
+    return HexStr(payload.begin(), payload.end());
+}
+
+
+
+
 /////////////////////////////////////////////////////////////////////////////////
 
 UniValue omni_createpayload_closecrowdsale(const UniValue& params, bool fHelp)
@@ -937,7 +973,8 @@ static const CRPCCommand commands[] =
     { "omni layer (payload creation)", "omni_createpayload_cancelcontracttradesbyprice", &omni_createpayload_cancelcontracttradesbyprice, true },
     { "omni layer (payload creation)", "omni_createpayload_createcontract",             &omni_createpayload_createcontract,      true },
     { "omni layer (payload creation)", "omni_createpayload_cancelalltradescontract",    &omni_createpayload_cancelalltradescontract, true },
-    { "omni layer (payload creation)", "omni_createpayload_issuance_pegged" ,       &omni_createpayload_issuance_pegged,     true },
+    { "omni layer (payload creation)", "omni_createpayload_issuance_pegged" ,       &omni_createpayload_issuance_pegged, true },
+    { "omni layer (payload creation)", "omni_createpayload_redemption_pegged" ,       &omni_createpayload_redemption_pegged, true },
     ////////////////////////////////////////
 };
 

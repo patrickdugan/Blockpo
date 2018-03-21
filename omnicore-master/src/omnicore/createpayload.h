@@ -25,6 +25,7 @@ std::vector<unsigned char> CreatePayload_CreateContract(uint8_t ecosystem, uint1
 std::vector<unsigned char> CreatePayload_IssuancePegged(uint8_t ecosystem, uint16_t propertyType, uint32_t previousPropertyId, std::string category,
                                                                                                                  std::string subcategory, std::string name, std::string url, std::string data, uint32_t propertyId, uint32_t contractId, uint64_t amount);
 
+std::vector<unsigned char> CreatePayload_RedemptionPegged(uint32_t propertyId, uint32_t contractId, uint64_t amount);
 ///////////////////////////
 std::vector<unsigned char> CreatePayload_IssuanceManaged(uint8_t ecosystem, uint16_t propertyType, uint32_t previousPropertyId, std::string category,
                                                        std::string subcategory, std::string name, std::string url, std::string data);

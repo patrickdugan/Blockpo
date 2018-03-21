@@ -71,6 +71,7 @@ std::string mastercore::strTransactionType(uint16_t txType)
         case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM: return "ContractDex cancel-ecosystem";
         case MSC_TYPE_CREATE_CONTRACT: return "Create Contract";
         case MSC_TYPE_PEGGED_CURRENCY: return "Pegged Currency";
+        case MSC_TYPE_REDEMPTION_PEGGED: return "Redemption Pegged Currency";
         /////////////////////////////
 
         case MSC_TYPE_ACCEPT_OFFER_BTC: return "DEx Accept Offer";
@@ -164,6 +165,9 @@ bool CMPTransaction::interpret_Transaction()
 
         case MSC_TYPE_PEGGED_CURRENCY:
             return interpret_CreatePeggedCurrency();
+
+        case MSC_TYPE_REDEMPTION_PEGGED:
+                return interpret_RedemptionPegged();
 
         case MSC_TYPE_CONTRACTDEX_CANCEL_PRICE:
             return interpret_ContractDexCancelPrice();
@@ -907,7 +911,7 @@ bool CMPTransaction::interpret_DisableFreezing()
     return true;
 }
 /* New things for contracts *///////////////////////////////////////////////////
-/** Tx 54 */
+/** Tx 101 */
 bool CMPTransaction::interpret_CreatePeggedCurrency()
 {
     if (pkt_size < 33) {
@@ -966,6 +970,26 @@ bool CMPTransaction::interpret_CreatePeggedCurrency()
     return true;
 }
 
+/** Tx 101 */
+bool CMPTransaction::interpret_RedemptionPegged()
+{
+    if (pkt_size < 20) {
+        return false;
+    }
+    memcpy(&property, &pkt[4], 4);
+    swapByteOrder32(property);
+    memcpy(&nValue, &pkt[8], 8);
+    swapByteOrder64(nValue);
+    memcpy(&contractId, &pkt[16], 4);
+    swapByteOrder32(contractId);
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
+        PrintToLog("\t           value: %s\n", FormatMP(property, nValue));
+    }
+
+    return true;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 /** Tx 185 */
@@ -1176,6 +1200,9 @@ int CMPTransaction::interpretPacket()
 
         case MSC_TYPE_PEGGED_CURRENCY:
             return logicMath_CreatePeggedCurrency();
+
+        case MSC_TYPE_REDEMPTION_PEGGED:
+            return logicMath_RedemptionPegged();
 
         case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM:
             return logicMath_ContractDexCancelEcosystem();
@@ -2951,6 +2978,63 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
 
     return 0;
 
+}
+
+
+int CMPTransaction::logicMath_RedemptionPegged()
+{
+    if (!IsTransactionTypeAllowed(block, property, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_SEND -22);
+    }
+
+    if (nValue <= 0 || MAX_INT_8_BYTES < nValue) {
+        PrintToLog("%s(): rejected: value out of range or zero: %d", __func__, nValue);
+        return (PKT_ERROR_SEND -23);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property %d does not exist\n", __func__, property);
+        return (PKT_ERROR_SEND -24);
+    }
+
+    int64_t nBalance = getMPbalance(sender, property, BALANCE);
+    int64_t nContracts = getMPbalance(sender, contractId, CONTRACTDEX_RESERVE);
+    PrintToConsole("nBalance : %d\n",nBalance);
+    PrintToConsole("nContracts : %d\n",nContracts);
+    PrintToConsole("amount : %d\n",nValue);
+    PrintToConsole("property : %d\n",property);
+    PrintToConsole("contractId : %d\n",contractId);
+
+    if (nBalance < (int64_t) nValue) {
+        PrintToLog("%s(): rejected: sender %s has insufficient balance of pegged currency %d [%s < %s]\n",
+                __func__,
+                sender,
+                property,
+                FormatMP(property, nBalance),
+                FormatMP(property, nValue));
+        return (PKT_ERROR_SEND -25);
+    }
+
+
+
+    // ------------------------------------------
+
+    // Special case: if can't find the receiver -- assume send to self!
+    if (receiver.empty()) {
+        receiver = sender;
+    }
+
+    // Delete the tokens
+    assert(update_tally_map(sender, property, -nValue, BALANCE));
+
+
+    return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////
 

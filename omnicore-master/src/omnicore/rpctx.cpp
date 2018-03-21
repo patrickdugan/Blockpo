@@ -713,6 +713,58 @@ UniValue omni_sendissuance_pegged(const UniValue& params, bool fHelp)
         }
     }
 }
+UniValue omni_redemption_pegged(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 4)
+        throw runtime_error(
+            "omni_redemption_pegged \"fromaddress\" propertyid \"amount\" ( \"redeemaddress\" distributionproperty )\n"
+
+            "\n Redemption of the pegged currency .\n"
+
+            "\nArguments:\n"
+            "1. redeemaddress         (string, required) the address of owner \n"
+            "2. propertyid           (number, required) the identifier of the tokens to redeem\n"
+            "3. amount               (number, required) the amount of pegged currency for redemption"
+            "4. contractid           (number, required) the identifier of the future contract involved\n"
+            "\nResult:\n"
+            "\"hash\"                  (string) the hex-encoded transaction hash\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_redemption_pegged", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\" , 1")
+            + HelpExampleRpc("omni_redemption_pegged", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\", 1")
+        );
+
+    // obtain parameters & info
+    std::string fromAddress = ParseAddress(params[0]);
+    uint32_t propertyId = ParsePropertyId(params[1]);
+    uint64_t amount = ParseAmount(params[2], isPropertyDivisible(propertyId));
+    uint32_t contractId = ParseNewValues(params[3]);
+    // perform checks
+    RequireExistingProperty(propertyId);
+    RequirePeggedCurrency(propertyId);
+    RequireContract(contractId);
+    RequireBalance(fromAddress, propertyId, amount);
+
+    // create a payload for the transaction
+    std::vector<unsigned char> payload = CreatePayload_RedemptionPegged(propertyId, contractId, amount);
+
+    // request the wallet build the transaction (and if needed commit it)
+    uint256 txid;
+    std::string rawHex;
+    int result = WalletTxBuilder(fromAddress, "", "", 0, payload, txid, rawHex, autoCommit);
+
+    // check error and return the txid (or raw hex depending on autocommit)
+    if (result != 0) {
+        throw JSONRPCError(result, error_str(result));
+    } else {
+        if (!autoCommit) {
+            return rawHex;
+        } else {
+            return txid.GetHex();
+        }
+    }
+}
+
 
 UniValue omni_sendsto(const UniValue& params, bool fHelp)
 {
@@ -1744,6 +1796,7 @@ static const CRPCCommand commands[] =
     { "omni layer (transaction creation)", "omni_createcontract",          &omni_createcontract,          false },
     { "omni layer (transaction creation)", "omni_tradecontract",           &omni_tradecontract,           false },
     { "omni layer (transaction creation)", "omni_sendissuance_pegged",     &omni_sendissuance_pegged,     false },
+    { "omni layer (transaction creation)", "omni_redemption_pegged",       &omni_redemption_pegged,       false },
     ///////////////////////////////////
     { "hidden",                            "omni_senddeactivation",        &omni_senddeactivation,        true  },
     { "hidden",                            "omni_sendactivation",          &omni_sendactivation,          false },
