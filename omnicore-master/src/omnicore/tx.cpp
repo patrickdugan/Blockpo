@@ -3031,6 +3031,7 @@ int CMPTransaction::logicMath_RedemptionPegged()
     }
     uint32_t propertyId = 0;
     uint32_t notSize = 0;
+    const int64_t factor = 100000000;
     CMPSPInfo::Entry sp;
     {
         LOCK(cs_tally);
@@ -3046,30 +3047,28 @@ int CMPTransaction::logicMath_RedemptionPegged()
         }
     }
 
-
-
-    // ------------------------------------------
-
-    // Special case: if can't find the receiver -- assume send to self!
-    if (receiver.empty()) {
-        receiver = sender;
-    }
-
-    int64_t contractsNeeded = static_cast<int64_t> (nValue/notSize);
-
+    int64_t contractsNeeded = static_cast<int64_t> (nValue/(notSize*factor));
+    int64_t normValue = static_cast<int64_t> (nValue/factor);
     PrintToConsole("contracts redeemed : %d\n",contractsNeeded);
-    PrintToConsole("amount redeemed : %d\n",nValue);
+    PrintToConsole("nValue : %d\n",nValue);
+    PrintToConsole("Notional Size : %d\n",notSize);
+    PrintToConsole("NormValue : %d\n",normValue);
+    int64_t ncNeeded = contractsNeeded*factor;
+    if ((contractsNeeded > 0) && (normValue > 0)) {
+       // Delete the tokens
+       assert(update_tally_map(sender, property, -nValue, BALANCE));
 
-    // Delete the tokens
-    assert(update_tally_map(sender, property, -nValue, BALANCE));
+       // getting back from reserve contracts and collateral currency
+       assert(update_tally_map(sender, contractId, -ncNeeded, CONTRACTDEX_RESERVE));
+       assert(update_tally_map(sender, contractId, ncNeeded, NEGATIVE_BALANCE));
 
-    // getting back from reserve contracts and collateral currency
-    assert(update_tally_map(sender, contractId, -contractsNeeded, CONTRACTDEX_RESERVE));
-    assert(update_tally_map(sender, contractId, contractsNeeded, NEGATIVE_BALANCE));
-
-    assert(update_tally_map(sender, propertyId, -nValue, CONTRACTDEX_RESERVE));
-    assert(update_tally_map(sender, propertyId, nValue, BALANCE));
-
+       assert(update_tally_map(sender, propertyId, -nValue, CONTRACTDEX_RESERVE));
+       assert(update_tally_map(sender, propertyId, nValue, BALANCE));
+    } else {
+         PrintToLog("amount redeemed must be equal at least to value of one future contract \n");
+         PrintToConsole("amount redeemed must be equal at least to value of one future contract \n");
+         return (PKT_ERROR_SEND -25);
+    }
     return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////
