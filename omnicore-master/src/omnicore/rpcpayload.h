@@ -24,6 +24,7 @@ UniValue omni_createpayload_issuance_pegged(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_cancelcontracttradesbyprice(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_cancelalltradescontract(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_redemption_pegged(const UniValue& params, bool fHelp);
+UniValue omni_createpayload_send_pegged(const UniValue& params, bool fHelp);
 //////////////////////////////////
 UniValue omni_createpayload_canceltradesbyprice(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_canceltradesbypair(const UniValue& params, bool fHelp);

@@ -944,6 +944,36 @@ UniValue omni_createpayload_unfreeze(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
+UniValue omni_createpayload_send_pegged(const UniValue& params, bool fHelp)
+{
+
+   if (fHelp || params.size() != 2)
+        throw runtime_error(
+            "omni_createpayload_sendpegcurrency propertyid \"amount\"\n"
+
+            "\nCreate the payload for a simple send transaction.\n"
+
+            "\nArguments:\n"
+            "1. propertyid           (number, required) the identifier of the tokens to send\n"
+            "2. amount               (string, required) the amount to send\n"
+
+            "\nResult:\n"
+            "\"payload\"             (string) the hex-encoded payload\n"
+
+            "\nExamples:\n"
+            + HelpExampleCli("omni_createpayload_sendpegcurrency", "1 \"100.0\"")
+            + HelpExampleRpc("omni_createpayload_sendpegcurrency", "1, \"100.0\"")
+        );
+
+    uint32_t propertyId = ParsePropertyId(params[0]);
+    RequireExistingProperty(propertyId);
+    uint64_t amount = ParseAmount(params[1], isPropertyDivisible(propertyId));
+
+    std::vector<unsigned char> payload = CreatePayload_SendPeggedCurrency(propertyId, amount);
+
+    return HexStr(payload.begin(), payload.end());
+}
+
 static const CRPCCommand commands[] =
 { //  category                         name                                      actor (function)                         okSafeMode
   //  -------------------------------- ----------------------------------------- ---------------------------------------- ----------
@@ -975,6 +1005,8 @@ static const CRPCCommand commands[] =
     { "omni layer (payload creation)", "omni_createpayload_cancelalltradescontract",    &omni_createpayload_cancelalltradescontract, true },
     { "omni layer (payload creation)", "omni_createpayload_issuance_pegged" ,       &omni_createpayload_issuance_pegged, true },
     { "omni layer (payload creation)", "omni_createpayload_redemption_pegged" ,       &omni_createpayload_redemption_pegged, true },
+    { "omni layer (payload creation)", "omni_createpayload_send_pegged" ,       &omni_createpayload_send_pegged, true },
+
     ////////////////////////////////////////
 };
 

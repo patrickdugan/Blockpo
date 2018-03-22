@@ -23,6 +23,7 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp);
 UniValue omni_createcontract(const UniValue& params, bool fHelp);
 UniValue omni_sendissuance_pegged(const UniValue& params, bool fHelp);
 UniValue omni_redemption_pegged(const UniValue& params, bool fHelp);
+UniValue omni_send_pegged(const UniValue& params, bool fHelp);
 /////////////////////////////////////////
 UniValue omni_sendcanceltradesbyprice(const UniValue& params, bool fHelp);
 UniValue omni_sendcanceltradesbypair(const UniValue& params, bool fHelp);

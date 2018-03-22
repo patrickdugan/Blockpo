@@ -78,7 +78,8 @@ std::vector<TransactionRestriction> CConsensusParams::GetRestrictions() const
         { MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM,  MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
         { MSC_TYPE_CREATE_CONTRACT,               MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
         { MSC_TYPE_PEGGED_CURRENCY,               MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
-        { MSC_TYPE_REDEMPTION_PEGGED,             MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK }
+        { MSC_TYPE_REDEMPTION_PEGGED,             MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK },
+	{ MSC_TYPE_SEND_PEGGED_CURRENCY,          MP_TX_PKT_V0,  false,   MSC_CONTRACTDEX_BLOCK }
          ////////////////////////////////////
 
         // { MSC_TYPE_OFFER_ACCEPT_A_BET,        MP_TX_PKT_V0,  false,   MSC_BET_BLOCK      },

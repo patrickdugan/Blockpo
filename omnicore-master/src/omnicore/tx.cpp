@@ -72,6 +72,8 @@ std::string mastercore::strTransactionType(uint16_t txType)
         case MSC_TYPE_CREATE_CONTRACT: return "Create Contract";
         case MSC_TYPE_PEGGED_CURRENCY: return "Pegged Currency";
         case MSC_TYPE_REDEMPTION_PEGGED: return "Redemption Pegged Currency";
+        case MSC_TYPE_SEND_PEGGED_CURRENCY: return "Send Pegged Currency";
+
         /////////////////////////////
 
         case MSC_TYPE_ACCEPT_OFFER_BTC: return "DEx Accept Offer";
@@ -167,7 +169,10 @@ bool CMPTransaction::interpret_Transaction()
             return interpret_CreatePeggedCurrency();
 
         case MSC_TYPE_REDEMPTION_PEGGED:
-                return interpret_RedemptionPegged();
+            return interpret_RedemptionPegged();
+       
+        case MSC_TYPE_SEND_PEGGED_CURRENCY:
+            return interpret_SendPeggedCurrency();
 
         case MSC_TYPE_CONTRACTDEX_CANCEL_PRICE:
             return interpret_ContractDexCancelPrice();
@@ -1203,6 +1208,10 @@ int CMPTransaction::interpretPacket()
 
         case MSC_TYPE_REDEMPTION_PEGGED:
             return logicMath_RedemptionPegged();
+
+        case MSC_TYPE_SEND_PEGGED_CURRENCY:
+            return logicMath_SendPeggedCurrency();
+
 
         case MSC_TYPE_CONTRACTDEX_CANCEL_ECOSYSTEM:
             return logicMath_ContractDexCancelEcosystem();
@@ -3308,3 +3317,78 @@ int CMPTransaction::logicMath_Alert()
 
     return 0;
 }
+
+bool CMPTransaction::interpret_SendPeggedCurrency()
+{
+
+
+    if (pkt_size < 16) {
+        return false;
+    }
+    memcpy(&property, &pkt[4], 4);
+    swapByteOrder32(property);
+    memcpy(&nValue, &pkt[8], 8);
+    swapByteOrder64(nValue);
+    nNewValue = nValue;
+
+    if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
+        PrintToLog("\t        property: %d (%s)\n", property, strMPProperty(property));
+        PrintToLog("\t           value: %s\n", FormatMP(property, nValue));
+    }
+
+    return true;
+}
+
+int CMPTransaction::logicMath_SendPeggedCurrency()
+{
+
+
+    if (!IsTransactionTypeAllowed(block, property, type, version)) {
+        PrintToLog("%s(): rejected: type %d or version %d not permitted for property %d at block %d\n",
+                __func__,
+                type,
+                version,
+                property,
+                block);
+        return (PKT_ERROR_SEND -22);
+    }
+
+    if (nValue <= 0 || MAX_INT_8_BYTES < nValue) {
+        PrintToLog("%s(): rejected: value out of range or zero: %d", __func__, nValue);
+        return (PKT_ERROR_SEND -23);
+    }
+
+    if (!IsPropertyIdValid(property)) {
+        PrintToLog("%s(): rejected: property %d does not exist\n", __func__, property);
+        return (PKT_ERROR_SEND -24);
+    }
+
+    int64_t nBalance = getMPbalance(sender, property, BALANCE);
+    if (nBalance < (int64_t) nValue) {
+        PrintToLog("%s(): rejected: sender %s has insufficient balance of property %d [%s < %s]\n",
+                __func__,
+                sender,
+                property,
+                FormatMP(property, nBalance),
+                FormatMP(property, nValue));
+        return (PKT_ERROR_SEND -25);
+    }
+
+
+    // ------------------------------------------
+
+    // Special case: if can't find the receiver -- assume send to self!
+    if (receiver.empty()) {
+        receiver = sender;
+    }
+
+    // Move the tokensss
+   
+    assert(update_tally_map(sender, property, -nValue, BALANCE));
+    assert(update_tally_map(receiver, property, nValue, BALANCE));
+
+
+    return 0;
+}
+
+
