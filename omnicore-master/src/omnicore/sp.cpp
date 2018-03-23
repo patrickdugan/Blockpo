@@ -37,7 +37,7 @@ CMPSPInfo::Entry::Entry()
     deadline(0), early_bird(0), percentage(0),
     close_early(false), max_tokens(false), missedTokens(0), timeclosed(0),
     fixed(false), manual(false), blocks_until_expiration(0), notional_size(0),
-    collateral_currency(0), margin_requirement(0) {}
+    collateral_currency(0), margin_requirement(0), contracts_needed(0) {}
 
 bool CMPSPInfo::Entry::isDivisible() const
 {

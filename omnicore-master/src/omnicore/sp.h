@@ -92,6 +92,7 @@ public:
         uint32_t notional_size;
         uint32_t collateral_currency;
         uint32_t margin_requirement;
+        int64_t contracts_needed;
         ////////////////////////////
 
         // For crowdsale properties:
@@ -138,12 +139,12 @@ public:
             READWRITE(margin_requirement);
             ////////////////////////////
         }
- 
+
         ////////////////////////////
         /** New things for Contracts */
         bool isContract() const;
         ////////////////////////////
- 
+
         bool isDivisible() const;
         void print() const;
     };

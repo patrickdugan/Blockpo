@@ -1792,6 +1792,7 @@ UniValue omni_send_pegged(const UniValue& params, bool fHelp)
     std::string fromAddress = ParseAddress(params[0]);
     std::string toAddress = ParseAddress(params[1]);
     uint32_t propertyId = ParsePropertyId(params[2]);
+    RequirePeggedCurrency(propertyId);
     int64_t amount = ParseAmount(params[3], isPropertyDivisible(propertyId));
     std::string redeemAddress = (params.size() > 4 && !ParseText(params[4]).empty()) ? ParseAddress(params[4]): "";
     int64_t referenceAmount = (params.size() > 5) ? ParseAmount(params[5], true): 0;
