@@ -47,15 +47,15 @@ PAYLOAD=00000000000000020000000000989680
 printf "${PAYLOAD}\n"
 # creating the base raw bitcoin cash transaction
 JSON="{\""$ADDR2"\":8,\""$ADDR"\":1}"
-TRA1=$($SRC/bitcoin-cli -datadir=$DATADIR createrawtransaction '[{"txid": '${txid}',"vout":'${vout}'}]' ${JSON})
+JSON3="{\"data\":\"6f6d6e6900000000000000020000000000989680\"}" # Omni Marker and the payload
+TRA1=$($SRC/bitcoin-cli -datadir=$DATADIR createrawtransaction '[{"txid": '${txid}',"vout":'${vout}'}]' ${JSON3})
 # $SRC/bitcoin-cli -datadir=$DATADIR decoderawtransaction ${TRA1})
 # $SRC/bitcoin-cli -datadir=$DATADIR decodescript ${TRA1}
-
 TRA2=$($SRC/bitcoin-cli -datadir=$DATADIR signrawtransaction ${TRA1})
 hex=`echo "$TRA2" | jq .'"hex"'`
 hex1=`echo ${hex//[^a-zA-Z0-9]/}`
-TRA6=$($SRC/bitcoin-cli -datadir=$DATADIR sendrawtransaction ${hex1} true)
-$SRC/bitcoin-cli -datadir=$DATADIR generate 1 > /dev/null
-$SRC/bitcoin-cli -datadir=$DATADIR getrawtransaction ${TRA6} 1
-# $SRC/bitcoin-cli -datadir=$DATADIR getrawtransaction ${hex1} 1
+TRA3=$($SRC/bitcoin-cli -datadir=$DATADIR sendrawtransaction ${hex1} true)
+# $SRC/bitcoin-cli -datadir=$DATADIR generate 1 > /dev/null
+# $SRC/bitcoin-cli -datadir=$DATADIR getrawtransaction ${TRA6} 1
+$SRC/bitcoin-cli -datadir=$DATADIR decoderawtransaction ${hex1}
 $SRC/bitcoin-cli -datadir=$DATADIR stop
