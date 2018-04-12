@@ -1,0 +1,1406 @@
+#----------------Looking sources for the shortest paths---------------------#
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n4FYye9K11KZ4LH6NUN6FDeija6PLHP2SK ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' n4FYye9K11KZ4LH6NUN6FDeija6PLHP2SK ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+ShortPosNettedPartly
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mxxrARXUtzeciPFDVoigTgVXQq8qZsTrZA ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' mxxrARXUtzeciPFDVoigTgVXQq8qZsTrZA ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' msdcqDdNBUcMLuosWBV1SM2589MFctEnrn ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' msdcqDdNBUcMLuosWBV1SM2589MFctEnrn ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' my37RPhTaSVmJgEoqKRrbBNPQwtgxMYuj6 ' :
+['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' my37RPhTaSVmJgEoqKRrbBNPQwtgxMYuj6 ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' moQ7apDPjS8ZwViMAaLtnpcun5tpM57QPL ' :
+['OpenShortPosition', 'ShortPosIncreased'] 
+
+Initial status for the address ' moQ7apDPjS8ZwViMAaLtnpcun5tpM57QPL ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' moP1satV2H7tpYM7HJ2cLUic6kR2MDnhMz ' :
+['OpenLongPosition', 'OpenShortPosByLongPosNetted', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' moP1satV2H7tpYM7HJ2cLUic6kR2MDnhMz ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mheetGGUuZAMz2U4KSjqHnHSQKkd5Bv4bf ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mheetGGUuZAMz2U4KSjqHnHSQKkd5Bv4bf ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mxU2PozrYRZqY9cZUjqHqGkqESNX15cukh ' :
+['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted'] 
+
+Initial status for the address ' mxU2PozrYRZqY9cZUjqHqGkqESNX15cukh ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n3gR4sjcegLFyzMHqsFKiEwsNet46AojvX ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' n3gR4sjcegLFyzMHqsFKiEwsNet46AojvX ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mt6TeGQ5yriMMj2wm6Tw9r8TNunBPBcXdb ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosIncreased', 'LongPosNettedPartly', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mt6TeGQ5yriMMj2wm6Tw9r8TNunBPBcXdb ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mqqkkBpPUdYdYG5beiFf7wN33kzgem9jYK ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mqqkkBpPUdYdYG5beiFf7wN33kzgem9jYK ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n1DUwP83cofh9VhcegX8yNa2uFEWctPFaa ' :
+['OpenLongPosition', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' n1DUwP83cofh9VhcegX8yNa2uFEWctPFaa ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n1Cy59jt1nBcCgbV3XKAiaQ9NH9bxpmbpi ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'LongPosNettedPartly'] 
+
+Initial status for the address ' n1Cy59jt1nBcCgbV3XKAiaQ9NH9bxpmbpi ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' myD5DaiCUEKSS6Tgf78sLjyFkBxzpcY9bY ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted', 'OpenLongPosByShortPosNetted'] 
+
+Initial status for the address ' myD5DaiCUEKSS6Tgf78sLjyFkBxzpcY9bY ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mv3jK4voqmM55EQuk9BEid3JjSJE51F6Cg ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'LongPosNettedPartly', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mv3jK4voqmM55EQuk9BEid3JjSJE51F6Cg ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mwtvEwTkVZzwbNZ4xHSyNK2HzMKqTbGiT3 ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' mwtvEwTkVZzwbNZ4xHSyNK2HzMKqTbGiT3 ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' myTbX9UJRPVdMs5VhU3rVzrLdLXsYHjXfJ ' :
+['OpenShortPosition', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' myTbX9UJRPVdMs5VhU3rVzrLdLXsYHjXfJ ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mxzf9NSeG5DwBXkjDYxU4dgevQGv3PEKWm ' :
+['OpenLongPosition', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' mxzf9NSeG5DwBXkjDYxU4dgevQGv3PEKWm ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mxxmjU6DH5f8nR2wyux6SwKJkbotihjjZw ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased'] 
+
+Initial status for the address ' mxxmjU6DH5f8nR2wyux6SwKJkbotihjjZw ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' muzvErFQMww356GAnc1FUfiMjata7vktiH ' :
+[''] 
+
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mpSg8k3LnpRRxVfT3uRydXBobeFxigHt8j ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted'] 
+
+Initial status for the address ' mpSg8k3LnpRRxVfT3uRydXBobeFxigHt8j ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mhDfgbcSAAm3V3pBufgLswNkRNcSPfDfc4 ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mhDfgbcSAAm3V3pBufgLswNkRNcSPfDfc4 ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mkXdaD5gPHQMKTqBTmd3rgCSsjKHzLqKDd ' :
+['OpenShortPosition', 'ShortPosIncreased'] 
+
+Initial status for the address ' mkXdaD5gPHQMKTqBTmd3rgCSsjKHzLqKDd ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' msin3Uk3snZYDGVhtmBzevocQAqaseXYhX ' :
+['OpenLongPosition', 'LongPosIncreased', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' msin3Uk3snZYDGVhtmBzevocQAqaseXYhX ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mmbD2o5JqvW3Lj7z52L1VBrWaTLy2gxHbE ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' mmbD2o5JqvW3Lj7z52L1VBrWaTLy2gxHbE ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mp7oBJ5JqE9J1v2YEq36a6ioxrghntSjvQ ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' mp7oBJ5JqE9J1v2YEq36a6ioxrghntSjvQ ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mjUJGsuKrFGGyKZ9y4CvL5y53HStNCU16u ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased'] 
+
+Initial status for the address ' mjUJGsuKrFGGyKZ9y4CvL5y53HStNCU16u ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mr1BFDKQYqoUu4vB517dDKHMC1MysC9ds5 ' :
+['OpenShortPosition'] 
+
+Initial status for the address ' mr1BFDKQYqoUu4vB517dDKHMC1MysC9ds5 ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' myfM2rhMJAr8SWxYE4kJVCpaP1tpCebYGq ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' myfM2rhMJAr8SWxYE4kJVCpaP1tpCebYGq ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mi7wyWMpVCkSN6bc7tFgMizHVULvXueKdq ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' mi7wyWMpVCkSN6bc7tFgMizHVULvXueKdq ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mmsY1eZDTcgPSrVSWJDSyBNrpzYjwZmhWm ' :
+['OpenShortPosition', 'ShortPosIncreased'] 
+
+Initial status for the address ' mmsY1eZDTcgPSrVSWJDSyBNrpzYjwZmhWm ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mgieRriFvK894LbYhFLubQMdWvk4awXP9k ' :
+['OpenShortPosition', 'ShortPosIncreased'] 
+
+Initial status for the address ' mgieRriFvK894LbYhFLubQMdWvk4awXP9k ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mnJdbab5Bj44wVbdVizsM8bW3Xfju4BnqG ' :
+['OpenShortPosition'] 
+
+Initial status for the address ' mnJdbab5Bj44wVbdVizsM8bW3Xfju4BnqG ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mrLLYUFjMBPQnoJ9ezaVpeRAqkQPAUmNSX ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' mrLLYUFjMBPQnoJ9ezaVpeRAqkQPAUmNSX ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mnpMimzKEFrfsrfoLZRFZ7MBzL2CxDwxfR ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mnpMimzKEFrfsrfoLZRFZ7MBzL2CxDwxfR ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' muvsKastx5tKJKfjbhSHj94Ufjx7RR5iiv ' :
+['OpenShortPosition'] 
+
+Initial status for the address ' muvsKastx5tKJKfjbhSHj94Ufjx7RR5iiv ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mxxhxWRKKiALEU11inSxeMLJvzsP4ChR1F ' :
+['OpenLongPosition', 'OpenShortPosByLongPosNetted', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' mxxhxWRKKiALEU11inSxeMLJvzsP4ChR1F ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' muZmWmo696AkFfprxJNP3C2q8zLY1scKLx ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted'] 
+
+Initial status for the address ' muZmWmo696AkFfprxJNP3C2q8zLY1scKLx ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mkyUWDWhp7CpdzVTuiyt4Tq8XUFNdwy5M5 ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' mkyUWDWhp7CpdzVTuiyt4Tq8XUFNdwy5M5 ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n3Ctv9N2uGAR4rVNdhdm6rvhvgVppc62hM ' :
+['OpenShortPosition', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' n3Ctv9N2uGAR4rVNdhdm6rvhvgVppc62hM ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n4JnvLtuREYDaaaBCbHb33Y2pHbviHPFZ2 ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly'] 
+
+Initial status for the address ' n4JnvLtuREYDaaaBCbHb33Y2pHbviHPFZ2 ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n1Gpyt6GHuVfD4ffQvz2oyBVi8DBhpuv7P ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' n1Gpyt6GHuVfD4ffQvz2oyBVi8DBhpuv7P ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n24Lavvu5KS9dDuiREeSP4nKuqtqtjTZx6 ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased'] 
+
+Initial status for the address ' n24Lavvu5KS9dDuiREeSP4nKuqtqtjTZx6 ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mzSBzjCpeghNzCPCnToiGLDdsXoyVYuCts ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mzSBzjCpeghNzCPCnToiGLDdsXoyVYuCts ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mydUQLY8AAFmQfR5iXfZHRjJkeNPRMTNzD ' :
+['OpenShortPosition', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted'] 
+
+Initial status for the address ' mydUQLY8AAFmQfR5iXfZHRjJkeNPRMTNzD ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' moLWFJVHDJsoMuCxSsdLvgiVXhWVbsEy4U ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted'] 
+
+Initial status for the address ' moLWFJVHDJsoMuCxSsdLvgiVXhWVbsEy4U ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' msEPueKKDipGGZ5Yor9UoisL1jdGXs5JSW ' :
+['OpenLongPosition', 'LongPosIncreased', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased'] 
+
+Initial status for the address ' msEPueKKDipGGZ5Yor9UoisL1jdGXs5JSW ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mfYqprM1KuEcPYMkFZ9eZ4CG4C59L3hhRd ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosIncreased'] 
+
+Initial status for the address ' mfYqprM1KuEcPYMkFZ9eZ4CG4C59L3hhRd ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mtufekDEFvKMcXAZzxUQg122UXH5r5R7Ks ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'LongPosNettedPartly', 'LongPosNettedPartly', 'LongPosNettedPartly', 'LongPosIncreased'] 
+
+Initial status for the address ' mtufekDEFvKMcXAZzxUQg122UXH5r5R7Ks ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+LongPosNettedPartly
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mwbb2pTkMDbAPfDy2dT9Bpb6EpUpRmgyKB ' :
+['OpenLongPosition', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mwbb2pTkMDbAPfDy2dT9Bpb6EpUpRmgyKB ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n4TCQWxjHNYma5EuCpp8PqEcYN8x2zKSxk ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' n4TCQWxjHNYma5EuCpp8PqEcYN8x2zKSxk ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' msFuPRA8H5eJ1Dp8LQP1a1gkf8JNcHs7Wv ' :
+['OpenShortPosition'] 
+
+Initial status for the address ' msFuPRA8H5eJ1Dp8LQP1a1gkf8JNcHs7Wv ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mkW3pzpLZHMKhwRWSy3sbvRWx2Q9Zmv97R ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosIncreased', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' mkW3pzpLZHMKhwRWSy3sbvRWx2Q9Zmv97R ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mkRweDSE5gaXoCgZsa9NG89ZtphGbdBoQV ' :
+['OpenLongPosition', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' mkRweDSE5gaXoCgZsa9NG89ZtphGbdBoQV ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+ShortPosNettedPartly
+ShortPosNettedPartly
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mkekDXWnd8Pv4jMZ7TeEQz9PonJTZU1LeX ' :
+['OpenShortPosition', 'ShortPosIncreased', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' mkekDXWnd8Pv4jMZ7TeEQz9PonJTZU1LeX ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' myQyDLYAYw5qovbZEqZqBm8qkpFWrMpx9R ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'LongPosNettedPartly'] 
+
+Initial status for the address ' myQyDLYAYw5qovbZEqZqBm8qkpFWrMpx9R ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mm1ytgzGggeNGx57XmhVu4DiW5Yrdyhi5s ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' mm1ytgzGggeNGx57XmhVu4DiW5Yrdyhi5s ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n1MsRXueWhDpYpByH5QjfbStNYNCEWj7iJ ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly'] 
+
+Initial status for the address ' n1MsRXueWhDpYpByH5QjfbStNYNCEWj7iJ ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mpFXXVAZTG2uCZ6uKpgzWdoYuXiorY747c ' :
+['OpenShortPosition', 'ShortPosIncreased'] 
+
+Initial status for the address ' mpFXXVAZTG2uCZ6uKpgzWdoYuXiorY747c ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mzPK8AgJZaWEnaRzF5SXS3HL1FmNhx399d ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' mzPK8AgJZaWEnaRzF5SXS3HL1FmNhx399d ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' miZsQZgpUgsRNf5ZBT6c1yT4zkAaxiM3DF ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' miZsQZgpUgsRNf5ZBT6c1yT4zkAaxiM3DF ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mobGX9JrdamtrVnZwPo2RtAnaq7vrrcCVC ' :
+['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' mobGX9JrdamtrVnZwPo2RtAnaq7vrrcCVC ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mgnPcuuDW93X9wVwYNhufuxZfMzRzh9HJR ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' mgnPcuuDW93X9wVwYNhufuxZfMzRzh9HJR ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mwMP4tc6TiuU4rScPKxRU1h95RFV2xRqPu ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mwMP4tc6TiuU4rScPKxRU1h95RFV2xRqPu ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mogLNoG9r6rTtAijqrwvv5hgfKcVchweiZ ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' mogLNoG9r6rTtAijqrwvv5hgfKcVchweiZ ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' msscQCnFiB13bgU573Cm6XHMkkkoDHFo2x ' :
+['OpenShortPosition', 'ShortPosIncreased'] 
+
+Initial status for the address ' msscQCnFiB13bgU573Cm6XHMkkkoDHFo2x ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n3yUy1SNm1eRb6SdLGXK1gDcoJmkshRjUp ' :
+['OpenLongPosition', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' n3yUy1SNm1eRb6SdLGXK1gDcoJmkshRjUp ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n3EUiVD4pNmnwXwf8ZKtN9Wnp5kCrQDjE4 ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted'] 
+
+Initial status for the address ' n3EUiVD4pNmnwXwf8ZKtN9Wnp5kCrQDjE4 ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mtGyC1VyLwqQWcDpyUU7toHRoztLFs8wW1 ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted'] 
+
+Initial status for the address ' mtGyC1VyLwqQWcDpyUU7toHRoztLFs8wW1 ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mv6AAC9zJmW7QrbRuRABti1K2YY1mrhWA7 ' :
+['OpenShortPosition', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' mv6AAC9zJmW7QrbRuRABti1K2YY1mrhWA7 ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' myRdXVA6JhZ1gweeocBS2DrsjodRRLkj2U ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' myRdXVA6JhZ1gweeocBS2DrsjodRRLkj2U ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mpSgVLvULkQxx63iz3Ce1BrwUCJtTq8RSW ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' mpSgVLvULkQxx63iz3Ce1BrwUCJtTq8RSW ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mkHR3H7wKuEzmRLhc4F1GEWRgz3nKAb9wq ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased'] 
+
+Initial status for the address ' mkHR3H7wKuEzmRLhc4F1GEWRgz3nKAb9wq ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mtoDwQZRaigsccWAXgSJmiMWDWZQLX7VbQ ' :
+['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'ShortPosIncreased'] 
+
+Initial status for the address ' mtoDwQZRaigsccWAXgSJmiMWDWZQLX7VbQ ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mnmJ8aWfFQBTehWExBg3iEsknjWw5Zy67K ' :
+['OpenLongPosition'] 
+
+Initial status for the address ' mnmJ8aWfFQBTehWExBg3iEsknjWw5Zy67K ':
+OpenLongPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mwvL2oTumh4c69NFRDMe18PeiQCQpeuqwK ' :
+['OpenShortPosition'] 
+
+Initial status for the address ' mwvL2oTumh4c69NFRDMe18PeiQCQpeuqwK ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' moVMJZ88JGqkuQJ4YosVXeMVKBu2tqfahA ' :
+['OpenLongPosition'] 
+
+Initial status for the address ' moVMJZ88JGqkuQJ4YosVXeMVKBu2tqfahA ':
+OpenLongPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mu2jxWs3benB4AMZHCZ3a2JSoMpUJrMgpx ' :
+['OpenShortPosition', 'ShortPosIncreased'] 
+
+Initial status for the address ' mu2jxWs3benB4AMZHCZ3a2JSoMpUJrMgpx ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mvS21eQNyv2FZbthdMPejnt4MY9nvbVUwe ' :
+[''] 
+
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mpjnWq4T9UWaDX5M18PS3M81RGqmPPnbqW ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' mpjnWq4T9UWaDX5M18PS3M81RGqmPPnbqW ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mw3Z69aR84zPKgUPBTeKUpT9nVMiYcjdr6 ' :
+['OpenShortPosition', 'ShortPosIncreased', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' mw3Z69aR84zPKgUPBTeKUpT9nVMiYcjdr6 ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mnYYbX5e5i5ntw5kc6Y3gCpKLq2pouuUUK ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased'] 
+
+Initial status for the address ' mnYYbX5e5i5ntw5kc6Y3gCpKLq2pouuUUK ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mz3MDC2sLBgcsXWm9tkCf2EtPL2fmgdNX1 ' :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' mz3MDC2sLBgcsXWm9tkCf2EtPL2fmgdNX1 ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mkcDXHjnfD4Vu2jHQNoRPPQ4B3zgFF4EBp ' :
+[''] 
+
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mm71Qg44LDxCqNBKqQMg8mUEdmj4S4gEZY ' :
+['OpenShortPosition'] 
+
+Initial status for the address ' mm71Qg44LDxCqNBKqQMg8mUEdmj4S4gEZY ':
+OpenShortPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mg6mVjeeUvWnac4bfjyeS1bkqHFSQYyq5s ' :
+['OpenLongPosition', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosIncreased'] 
+
+Initial status for the address ' mg6mVjeeUvWnac4bfjyeS1bkqHFSQYyq5s ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' n1Vma8926cAq7mDGNmGXoVUw8GnvP9BofK ' :
+['OpenShortPosition', 'ShortPosNettedPartly'] 
+
+Initial status for the address ' n1Vma8926cAq7mDGNmGXoVUw8GnvP9BofK ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mwUF3PGAVkJSVPY6Q1zymV6gMqufPbMpWB ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosIncreased', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mwUF3PGAVkJSVPY6Q1zymV6gMqufPbMpWB ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' msZrZ6qNKT7YyJT6mDrEjxB6Dit9mPURXd ' :
+['OpenLongPosition', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased', 'ShortPosIncreased'] 
+
+Initial status for the address ' msZrZ6qNKT7YyJT6mDrEjxB6Dit9mPURXd ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mtqfFV79RTL2htuXh6YzDTP2fvybUvwEye ' :
+['OpenShortPosition', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' mtqfFV79RTL2htuXh6YzDTP2fvybUvwEye ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mvEhH2b5nvhPH356HzjaAuipJNbmzdMa5n ' :
+[''] 
+
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' my5UDcmQV5UomzLhViAGfsefp4VzALcruW ' :
+['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' my5UDcmQV5UomzLhViAGfsefp4VzALcruW ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mva2KeFNfS8YzrUwEftb5CpbtddkoGmAd3 ' :
+['OpenShortPosition', 'ShortPosNettedPartly', 'OpenLongPosByShortPosNetted'] 
+
+Initial status for the address ' mva2KeFNfS8YzrUwEftb5CpbtddkoGmAd3 ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+ShortPosNettedPartly
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mjvUS6cBZjQEnwVYwKmnm1Dy9DELoe3Pn9 ' :
+['OpenShortPosition', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' mjvUS6cBZjQEnwVYwKmnm1Dy9DELoe3Pn9 ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mfscvzAHKEUQQBqxbgv1Zx5YChpQoQXPjN ' :
+['OpenLongPosition', 'LongPosIncreased', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased', 'ShortPosIncreased'] 
+
+Initial status for the address ' mfscvzAHKEUQQBqxbgv1Zx5YChpQoQXPjN ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenShortPosByLongPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mkNmDyAqsTTB81Gx2GUQowDbvjuFoaM7HT ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' mkNmDyAqsTTB81Gx2GUQowDbvjuFoaM7HT ':
+OpenLongPosition
+
+Conclusion:
+This address can't be a source!
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mj7o3QYA2FuJ36ZAzFWmqhDo82dpcvuSKF ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly'] 
+
+Initial status for the address ' mj7o3QYA2FuJ36ZAzFWmqhDo82dpcvuSKF ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mh1W5FqtesES8jRLKHBtWRdTd4FJjA9Dkh ' :
+['OpenShortPosition', 'ShortPosIncreased', 'OpenLongPosByShortPosNetted', 'LongPosIncreased', 'LongPosIncreased'] 
+
+Initial status for the address ' mh1W5FqtesES8jRLKHBtWRdTd4FJjA9Dkh ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' mktuhCJ4L9wXqz936U4q8xb2E83oodRwc2 ' :
+['OpenShortPosition', 'OpenLongPosByShortPosNetted', 'LongPosIncreased'] 
+
+Initial status for the address ' mktuhCJ4L9wXqz936U4q8xb2E83oodRwc2 ':
+OpenShortPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+OpenLongPosByShortPosNetted
+
+#----------------Checking if the address could be a source---------------------#
+
+Status vector for address  ' momUuwMBiTUAniYbixieugCUKxwXWQKFHX ' :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'LongPosNettedPartly', 'OpenShortPosByLongPosNetted', 'ShortPosIncreased'] 
+
+Initial status for the address ' momUuwMBiTUAniYbixieugCUKxwXWQKFHX ':
+OpenLongPosition
+
+Conclusion:
+This address could be a source!
+
+Netted status after open a position:
+LongPosNettedPartly
+LongPosNettedPartly
+OpenShortPosByLongPosNetted
+
+#----------------Sources for the shortest paths found---------------------#
+
+Source vector:
+['n4FYye9K11KZ4LH6NUN6FDeija6PLHP2SK', 'mxxrARXUtzeciPFDVoigTgVXQq8qZsTrZA', 'msdcqDdNBUcMLuosWBV1SM2589MFctEnrn', 'my37RPhTaSVmJgEoqKRrbBNPQwtgxMYuj6', 'moP1satV2H7tpYM7HJ2cLUic6kR2MDnhMz', 'mheetGGUuZAMz2U4KSjqHnHSQKkd5Bv4bf', 'mxU2PozrYRZqY9cZUjqHqGkqESNX15cukh', 'n3gR4sjcegLFyzMHqsFKiEwsNet46AojvX', 'mt6TeGQ5yriMMj2wm6Tw9r8TNunBPBcXdb', 'mqqkkBpPUdYdYG5beiFf7wN33kzgem9jYK', 'n1DUwP83cofh9VhcegX8yNa2uFEWctPFaa', 'n1Cy59jt1nBcCgbV3XKAiaQ9NH9bxpmbpi', 'myD5DaiCUEKSS6Tgf78sLjyFkBxzpcY9bY', 'mv3jK4voqmM55EQuk9BEid3JjSJE51F6Cg', 'mwtvEwTkVZzwbNZ4xHSyNK2HzMKqTbGiT3', 'myTbX9UJRPVdMs5VhU3rVzrLdLXsYHjXfJ', 'mxzf9NSeG5DwBXkjDYxU4dgevQGv3PEKWm', 'mpSg8k3LnpRRxVfT3uRydXBobeFxigHt8j', 'mhDfgbcSAAm3V3pBufgLswNkRNcSPfDfc4', 'msin3Uk3snZYDGVhtmBzevocQAqaseXYhX', 'mmbD2o5JqvW3Lj7z52L1VBrWaTLy2gxHbE', 'mp7oBJ5JqE9J1v2YEq36a6ioxrghntSjvQ', 'mjUJGsuKrFGGyKZ9y4CvL5y53HStNCU16u', 'myfM2rhMJAr8SWxYE4kJVCpaP1tpCebYGq', 'mi7wyWMpVCkSN6bc7tFgMizHVULvXueKdq', 'mrLLYUFjMBPQnoJ9ezaVpeRAqkQPAUmNSX', 'mnpMimzKEFrfsrfoLZRFZ7MBzL2CxDwxfR', 'mxxhxWRKKiALEU11inSxeMLJvzsP4ChR1F', 'muZmWmo696AkFfprxJNP3C2q8zLY1scKLx', 'mkyUWDWhp7CpdzVTuiyt4Tq8XUFNdwy5M5', 'n3Ctv9N2uGAR4rVNdhdm6rvhvgVppc62hM', 'n4JnvLtuREYDaaaBCbHb33Y2pHbviHPFZ2', 'n1Gpyt6GHuVfD4ffQvz2oyBVi8DBhpuv7P', 'mzSBzjCpeghNzCPCnToiGLDdsXoyVYuCts', 'mydUQLY8AAFmQfR5iXfZHRjJkeNPRMTNzD', 'moLWFJVHDJsoMuCxSsdLvgiVXhWVbsEy4U', 'msEPueKKDipGGZ5Yor9UoisL1jdGXs5JSW', 'mtufekDEFvKMcXAZzxUQg122UXH5r5R7Ks', 'mwbb2pTkMDbAPfDy2dT9Bpb6EpUpRmgyKB', 'n4TCQWxjHNYma5EuCpp8PqEcYN8x2zKSxk', 'mkW3pzpLZHMKhwRWSy3sbvRWx2Q9Zmv97R', 'mkRweDSE5gaXoCgZsa9NG89ZtphGbdBoQV', 'mkekDXWnd8Pv4jMZ7TeEQz9PonJTZU1LeX', 'myQyDLYAYw5qovbZEqZqBm8qkpFWrMpx9R', 'mm1ytgzGggeNGx57XmhVu4DiW5Yrdyhi5s', 'n1MsRXueWhDpYpByH5QjfbStNYNCEWj7iJ', 'mzPK8AgJZaWEnaRzF5SXS3HL1FmNhx399d', 'miZsQZgpUgsRNf5ZBT6c1yT4zkAaxiM3DF', 'mobGX9JrdamtrVnZwPo2RtAnaq7vrrcCVC', 'mgnPcuuDW93X9wVwYNhufuxZfMzRzh9HJR', 'mwMP4tc6TiuU4rScPKxRU1h95RFV2xRqPu', 'mogLNoG9r6rTtAijqrwvv5hgfKcVchweiZ', 'n3yUy1SNm1eRb6SdLGXK1gDcoJmkshRjUp', 'n3EUiVD4pNmnwXwf8ZKtN9Wnp5kCrQDjE4', 'mtGyC1VyLwqQWcDpyUU7toHRoztLFs8wW1', 'mv6AAC9zJmW7QrbRuRABti1K2YY1mrhWA7', 'myRdXVA6JhZ1gweeocBS2DrsjodRRLkj2U', 'mpSgVLvULkQxx63iz3Ce1BrwUCJtTq8RSW', 'mkHR3H7wKuEzmRLhc4F1GEWRgz3nKAb9wq', 'mtoDwQZRaigsccWAXgSJmiMWDWZQLX7VbQ', 'mpjnWq4T9UWaDX5M18PS3M81RGqmPPnbqW', 'mw3Z69aR84zPKgUPBTeKUpT9nVMiYcjdr6', 'mz3MDC2sLBgcsXWm9tkCf2EtPL2fmgdNX1', 'mg6mVjeeUvWnac4bfjyeS1bkqHFSQYyq5s', 'n1Vma8926cAq7mDGNmGXoVUw8GnvP9BofK', 'mwUF3PGAVkJSVPY6Q1zymV6gMqufPbMpWB', 'msZrZ6qNKT7YyJT6mDrEjxB6Dit9mPURXd', 'mtqfFV79RTL2htuXh6YzDTP2fvybUvwEye', 'my5UDcmQV5UomzLhViAGfsefp4VzALcruW', 'mva2KeFNfS8YzrUwEftb5CpbtddkoGmAd3', 'mjvUS6cBZjQEnwVYwKmnm1Dy9DELoe3Pn9', 'mfscvzAHKEUQQBqxbgv1Zx5YChpQoQXPjN', 'mj7o3QYA2FuJ36ZAzFWmqhDo82dpcvuSKF', 'mh1W5FqtesES8jRLKHBtWRdTd4FJjA9Dkh', 'mktuhCJ4L9wXqz936U4q8xb2E83oodRwc2', 'momUuwMBiTUAniYbixieugCUKxwXWQKFHX']
+
+Number of sources:	76
+Number of nodes:	96
+
+#----------------Saving plot---------------------#
