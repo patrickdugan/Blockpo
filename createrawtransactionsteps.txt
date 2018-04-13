@@ -1,0 +1,11 @@
+./bitcoin-abc-0.16.2/bin/bitcoind -datadir=/home/daniel/BCH/ -daemon
+./bitcoin-abc-0.16.2/bin/bitcoin-cli -datadir=/home/daniel/BCH/ getnewaddress
+./bitcoin-abc-0.16.2/bin/bitcoin-cli -datadir=/home/daniel/BCH/ dumpprivkey ADDRESS1 
+./bitcoin-abc-0.16.2/bin/bitcoin-cli -datadir=/home/daniel/BCH/ listunspent 1 9999 "[\"ADDRESS\"]"
+./bitcoin-abc-0.16.2/bin/bitcoin-cli -datadir=/home/daniel/BCH/ createrawtransaction '[{"txid": "TXID","vout": VOUT}]''{"ADDR2":0.00009754(TOTAL),"data":"6f6d6e69000000000000001f0000002068f77000"}'
+./bitcoin-abc-0.16.2/bin/bitcoin-cli -datadir=/home/daniel/BCH/ signrawtransaction 'HEXCREATE''[{"txid": "TXID","vout":VOUT,"scriptPubKey": "pubkey","amount":total}]' '["PRIVKEY"]'
+./bitcoin-abc-0.16.2/bin/bitcoin-cli -datadir=/home/daniel/BCH/ decoderawtransaction HEXASIGN
+./bitcoin-abc-0.16.2/bin/bitcoin-cli -datadir=/home/daniel/BCH/ sendrawtransaction HEXASIGN
+
+
+IMPORTANTE: monto enviado debe ser el monto total de la cuenta inicial en el createrawtransaction en amount.

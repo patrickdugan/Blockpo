@@ -120,6 +120,8 @@ print "\nSource vector:\n", sources_vector
 print "\nNumber of sources:\t", len(sources_vector) 
 print "Number of nodes:\t",  G.number_of_nodes()
 
+print "\n#----------------Logic to find zero netted branchs start here---------------------#"
+
 
 print "\n#----------------Saving plot---------------------#"
 plt.savefig("graphSimulation.png")
