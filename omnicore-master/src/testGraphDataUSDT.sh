@@ -1,3 +1,5 @@
+rm graphInfo*
+
 NUL=/dev/null
 
 printf "\n//////////////////////////////////////////\n"
@@ -15,13 +17,13 @@ sleep 3
 
 printf "\n________________________________________\n"
 printf "Preparing some mature regtest BTC: Mining the first 101 blocks getting 50 Bitcoins\n"
-./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest  -rpcwait generate 101 > $NUL # Es importante agregar el rpcwait que espera que el nodo e$
+./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest  -rpcwait generate 202 > $NUL # Es importante agregar el rpcwait que espera que el nodo e$
 
 printf "\n________________________________________\n"
 printf "\n Checking the balance of block:\n"
 ./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest  getbalance  # balance del bloque (50BTCs)
 
-##################################################################
+# ##################################################################
 printf "\n________________________________________\n"
 printf "Obtaining the base address to work with\n"
 ADDRBase=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest  getnewaddress OMNIAccount)
@@ -32,12 +34,12 @@ printf $ADDRBase
 N=100
 
 amountbitcoin_baseaddr=40
-amountbitcoin_manyaddr=0.2
-amountbitcoin_moneyaddr=20
-amountomnies_manyaddr=20
+amountbitcoin_manyaddr=0.02
+amountbitcoin_moneyaddr=30
 notional_size=1
 margin_requirement=1
-amountusdts_manyaddr=1000000
+amountusdts_manyaddr=100000
+# amountomnies_manyaddr=20
 collateral=2147483652
 
 ADDRess=()

@@ -269,7 +269,7 @@ public:
 
     /////////////////////////////////
     /** New things for Contract */
-    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, int64_t nCouldBuy, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, int64_t pricepold, int64_t pricepnew);
+    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew, int64_t nCouldBuy);
     // void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid);
     /////////////////////////////////
 
@@ -282,7 +282,7 @@ public:
 
     ///////////////////////////////////////
     /** New things for Contract */
-    double getPNL(string address, int64_t contractsClosed, int64_t price, uint32_t property, uint32_t marginRequirementContract, uint32_t notionalSize, std::string Status);
+    int64_t getTradeBasis(string address, int64_t contractsClosed, uint32_t property);
     void marginLogic(uint32_t property);
     //////////////////////////////////////
 

@@ -359,11 +359,11 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
  //    // BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),10,POSSITIVE_BALANCE));
  //    BOOST_CHECK(mastercore::update_tally_map(objContractDEx.getAddr(), objContractDEx.getProperty(), 20, POSSITIVE_BALANCE));
  //    BOOST_CHECK(mastercore::update_tally_map(objContractDEx1.getAddr(), objContractDEx1.getProperty(), 20, POSSITIVE_BALANCE));
-
+   
  //    //putting some money on reserve of seller and buyer
  //    BOOST_CHECK(mastercore::update_tally_map(objContractDEx.getAddr(), objContractDEx.getProperty(), 100000, CONTRACTDEX_RESERVE));
  //    BOOST_CHECK(mastercore::update_tally_map(objContractDEx1.getAddr(), objContractDEx1.getProperty(), 100000, CONTRACTDEX_RESERVE));
-
+   
  //    // checking balance and reserve of seller
  //    BOOST_CHECK_EQUAL(0, getMPbalance(objContractDEx.getAddr(), objContractDEx.getProperty(), BALANCE));
  //    BOOST_CHECK_EQUAL(100000, getMPbalance(objContractDEx.getAddr(), objContractDEx.getProperty(), CONTRACTDEX_RESERVE));
@@ -391,11 +391,11 @@ BOOST_AUTO_TEST_CASE(object_checkpkt_contractdex)
  //    BOOST_CHECK_EQUAL(100000, getMPbalance(objContractDEx1.getAddr(), objContractDEx1.getProperty(), CONTRACTDEX_RESERVE));
 
 	// t_tradelistdb->printAll();
- //    mastercore_shutdown();
+ //    mastercore_shutdown();    
 
     ////////////////////////////////////////////////
-}
-
+}																																																											
+																													
 BOOST_AUTO_TEST_CASE(equal_amount)
 {
     CMPTally tally;  // the tally map object
@@ -536,11 +536,11 @@ BOOST_AUTO_TEST_CASE(freed_reserve)
     // BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(),10,POSSITIVE_BALANCE));
     // BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(), seller.getProperty(), 20, POSSITIVE_BALANCE));
     // BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(), buyer.getProperty(), 20, POSSITIVE_BALANCE));
-
+   
     //putting some money on reserve of seller and buyer
     BOOST_CHECK(mastercore::update_tally_map(seller.getAddr(),seller.getProperty(), 100000, CONTRACTDEX_RESERVE));
     BOOST_CHECK(mastercore::update_tally_map(buyer.getAddr(),buyer.getProperty(), 100000, CONTRACTDEX_RESERVE));
-
+   
     // checking balance and reserve of seller
     BOOST_CHECK_EQUAL(0, getMPbalance(seller.getAddr(), seller.getProperty(), BALANCE));
     BOOST_CHECK_EQUAL(100000, getMPbalance(seller.getAddr(), seller.getProperty(), CONTRACTDEX_RESERVE));
@@ -694,7 +694,7 @@ BOOST_AUTO_TEST_CASE(PNL)  // seller_amount = 10, buyer_amount = 10;
                   0,  // amount remaining
                   10,  // effective_price
                   1 // trading_action
-  );
+  );  
 
   CMPContractDex *s;
   s = &seller;
@@ -770,7 +770,7 @@ if (direction){
     BOOST_CHECK_EQUAL(TRADED, x_Trade(s4));
 }
 
-// t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 15, 1);
+t_tradelistdb->getTradeBasis("1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", 15, 1);
 t_tradelistdb->printAll();
 
 mastercore_shutdown();
@@ -780,7 +780,7 @@ mastercore_shutdown();
 BOOST_AUTO_TEST_CASE(PNL2)  // seller_amount = 10, buyer_amount = 10;
 {
     CMPTally tally;  // the tally map object
-
+    
     CMPContractDex seller(
                   "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
                   172,  // block
@@ -870,7 +870,7 @@ BOOST_AUTO_TEST_CASE(PNL2)  // seller_amount = 10, buyer_amount = 10;
                   10,  // effective_price
                   1 // trading_action
     );
-
+    
     CMPContractDex seller4(
                   "1dexX7zmPen1yBz2H9ZF62AK5TGGqGTZH", // address
                   172,  // block
@@ -992,7 +992,7 @@ BOOST_AUTO_TEST_CASE(PNL2)  // seller_amount = 10, buyer_amount = 10;
     } else {
         BOOST_TEST_MESSAGE("The buyer is inserted in priceMap, the seller in x_Trade");
         BOOST_CHECK(ContractDex_INSERT(buyer3));
-        BOOST_CHECK_EQUAL(TRADED, x_Trade(s3));
+        BOOST_CHECK_EQUAL(TRADED, x_Trade(s3)); 
     }
     if (direction){
         BOOST_TEST_MESSAGE("The seller is inserted in priceMap, the buyer in x_Trade");
