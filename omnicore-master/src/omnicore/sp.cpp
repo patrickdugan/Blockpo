@@ -102,6 +102,15 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
     implied_tomni.url = "http://www.omnilayer.org";
     implied_tomni.data = "Test Omni serve as the binding between Bitcoin, smart properties and contracts created on the Omni Layer.";
 
+    implied_spc.issuer = ExodusAddress().ToString();
+    implied_spc.prop_type = MSC_PROPERTY_TYPE_CONTRACT;
+    implied_spc.num_tokens = 700000;
+    implied_spc.category = "Derivaties";
+    implied_spc.subcategory = "Futures Contracts";
+    implied_spc.name = "SPC";
+    implied_spc.url = "www.tradelayer.org";
+    implied_spc.data = "Futures Contracts Exchange on OmniLayer.";
+
     init();
 }
 
@@ -118,11 +127,19 @@ void CMPSPInfo::Clear()
     init();
 }
 
-void CMPSPInfo::init(uint32_t nextSPID, uint32_t nextTestSPID)
+// void CMPSPInfo::init(uint32_t nextSPID, uint32_t nextTestSPID)
+// {
+//     next_spid = nextSPID;
+//     next_test_spid = nextTestSPID;
+// }
+
+void CMPSPInfo::init(uint32_t nextSPID, uint32_t nextTestSPID, uint32_t nextSPC)
 {
     next_spid = nextSPID;
     next_test_spid = nextTestSPID;
+    next_spc = nextSPC;
 }
+
 
 uint32_t CMPSPInfo::peekNextSPID(uint8_t ecosystem) const
 {
@@ -135,6 +152,12 @@ uint32_t CMPSPInfo::peekNextSPID(uint8_t ecosystem) const
         case OMNI_PROPERTY_TMSC: // Test ecosystem, same as above with high bit set
             nextId = next_test_spid;
             break;
+<<<<<<< HEAD:omnicore-master/src/omnicore/sp.cpp
+=======
+        case OMNI_PROPERTY_SPC: 
+            nextId = next_spc;
+            break;
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/sp.cpp
 
         default: // Non-standard ecosystem, ID's start at 0
             nextId = 0;
@@ -146,8 +169,12 @@ uint32_t CMPSPInfo::peekNextSPID(uint8_t ecosystem) const
 bool CMPSPInfo::updateSP(uint32_t propertyId, const Entry& info)
 {
     // cannot update implied SP
+<<<<<<< HEAD:omnicore-master/src/omnicore/sp.cpp
     if (OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId) {
 
+=======
+    if (OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId || OMNI_PROPERTY_SPC == propertyId) {
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/sp.cpp
         return false;
     }
 
@@ -198,7 +225,13 @@ uint32_t CMPSPInfo::putSP(uint8_t ecosystem, const Entry& info)
         case OMNI_PROPERTY_TMSC: // Test ecosystem, same as above with high bit set
             propertyId = next_test_spid++;
             break;
+<<<<<<< HEAD:omnicore-master/src/omnicore/sp.cpp
 
+=======
+        case OMNI_PROPERTY_SPC: // Test ecosystem, same as above with high bit set
+            propertyId = next_spc++;
+            break;
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/sp.cpp
         default: // Non-standard ecosystem, ID's start at 0
             propertyId = 0;
     }
@@ -258,6 +291,9 @@ bool CMPSPInfo::getSP(uint32_t propertyId, Entry& info) const
     } else if (OMNI_PROPERTY_TMSC == propertyId) {
         info = implied_tomni;
         return true;
+    } else if (OMNI_PROPERTY_SPC == propertyId) {
+        info = implied_spc;
+        return true;
     }
 
     // DB key for property entry
@@ -289,7 +325,11 @@ bool CMPSPInfo::getSP(uint32_t propertyId, Entry& info) const
 bool CMPSPInfo::hasSP(uint32_t propertyId) const
 {
     // Special cases for constant SPs MSC and TMSC
+<<<<<<< HEAD:omnicore-master/src/omnicore/sp.cpp
     if ( OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId ) {
+=======
+    if ( OMNI_PROPERTY_MSC == propertyId || OMNI_PROPERTY_TMSC == propertyId || OMNI_PROPERTY_SPC == propertyId ) {
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/sp.cpp
         return true;
     }
 
@@ -463,8 +503,12 @@ bool CMPSPInfo::getWatermark(uint256& watermark) const
 void CMPSPInfo::printAll() const
 {
     // print off the hard coded MSC and TMSC entries
+<<<<<<< HEAD:omnicore-master/src/omnicore/sp.cpp
     for (uint32_t idx = OMNI_PROPERTY_MSC; idx <= OMNI_PROPERTY_TMSC; idx++) {
 
+=======
+    for (uint32_t idx = OMNI_PROPERTY_MSC; idx <= OMNI_PROPERTY_SPC; idx++) {
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/sp.cpp
         Entry info;
         PrintToConsole("%10d => ", idx);
         if (getSP(idx, info)) {
@@ -596,6 +640,10 @@ bool mastercore::IsPropertyIdValid(uint32_t propertyId)
         nextId = _my_sps->peekNextSPID(1);
     } else {
         nextId = _my_sps->peekNextSPID(2);
+    }
+
+    if ( propertyId == OMNI_PROPERTY_SPC ) {
+        nextId = _my_sps->peekNextSPID(3);
     }
 
     if (propertyId < nextId) {
@@ -932,6 +980,7 @@ std::string mastercore::strEcosystem(uint8_t ecosystem)
     switch (ecosystem) {
         case OMNI_PROPERTY_MSC: return "main";
         case OMNI_PROPERTY_TMSC: return "test";
+        case OMNI_PROPERTY_SPC: return "spc";
     }
 
     return "unknown";

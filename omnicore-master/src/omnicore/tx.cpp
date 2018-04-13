@@ -491,7 +491,11 @@ bool CMPTransaction::interpret_MetaDExCancelEcosystem()
     return true;
 }
 
+<<<<<<< HEAD:omnicore-master/src/omnicore/tx.cpp
 /////////////////////////////////////////
+=======
+//////////////////////////////
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/tx.cpp
 /** New things for Contracts */
 /** Tx 32 */
 bool CMPTransaction::interpret_ContractDexCancelEcosystem()
@@ -515,7 +519,11 @@ bool CMPTransaction::interpret_ContractDexCancelEcosystem()
     return true;
 }
 
+<<<<<<< HEAD:omnicore-master/src/omnicore/tx.cpp
 /////////////////////////////////////////
+=======
+//////////////////////////////
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/tx.cpp
 /** New things for Contracts */
 /** Tx 29 */
 bool CMPTransaction::interpret_ContractDexTrade()

@@ -1649,21 +1649,33 @@ int input_mp_accepts_string(const string &s)
 int input_globals_state_string(const string &s)
 {
   uint64_t exodusPrev;
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
 
   unsigned int nextSPID, nextTestSPID;
+=======
+  unsigned int nextSPID, nextTestSPID, nextSPC;
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
   std::vector<std::string> vstr;
   boost::split(vstr, s, boost::is_any_of(" ,="), token_compress_on);
-  if (3 != vstr.size()) return -1;
+  if (4 != vstr.size()) return -1;
 
     int i = 0;
     exodusPrev = boost::lexical_cast<uint64_t>(vstr[i++]);
     nextSPID = boost::lexical_cast<unsigned int>(vstr[i++]);
     nextTestSPID = boost::lexical_cast<unsigned int>(vstr[i++]);
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
 
 	exodus_prev = exodusPrev;
   	_my_sps->init(nextSPID, nextTestSPID);
 
   	return 0;
+=======
+    nextSPC = boost::lexical_cast<unsigned int>(vstr[i++]);
+
+  exodus_prev = exodusPrev;
+  _my_sps->init(nextSPID, nextTestSPID, nextSPC);
+  return 0;
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
 }
 
 // addr,propertyId,nValue,property_desired,deadline,early_bird,percentage,txid
@@ -3800,7 +3812,10 @@ bool CMPTradeList::getMatchingTrades(const uint256& txid, uint32_t propertyId, U
 
   std::vector<std::string> vstr;
   string txidStr = txid.ToString();
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
 
+=======
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
   leveldb::Iterator* it = NewIterator(); // Allocation proccess
 
   for(it->SeekToFirst(); it->Valid(); it->Next()) {
@@ -3875,6 +3890,11 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
     PrintToConsole("Market Price in Omnicore: %d\n", marketPrice);
     PrintToConsole("________________________________________\n");
 
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
+=======
+    if (!pdb) return false;
+
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
     int count = 0;
     int64_t totalContracts = 0;
     int64_t totalAmount = 0;
@@ -3892,8 +3912,12 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
 
         boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
 
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
         if (vstr.size() != 12) {
 
+=======
+        if (vstr.size() != 13) {
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
             PrintToLog("TRADEDB error - unexpected number of tokens in value (%s)\n", strValue);
             continue;
         }
@@ -3948,9 +3972,13 @@ int64_t CMPTradeList::getTradeBasis(string address, int64_t contractsClosed, uin
 /** New things for Contracts */
 void CMPTradeList::marginLogic(uint32_t property) // Vector of matching address for a given contract traded
 {
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
     PrintToConsole("___________________________________________________________\n");
     PrintToConsole("Looking for Address in marginLogic function\n");
 
+=======
+    PrintToConsole("Looking for Address in getAddressMatched function\n");
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
     std::vector<std::string> vstr;
     std::vector<std::string> addr;   // Address vector
 
@@ -3965,7 +3993,10 @@ void CMPTradeList::marginLogic(uint32_t property) // Vector of matching address 
         boost::split(vstr, strValue, boost::is_any_of(":"), token_compress_on);
 
         if (vstr.size() != 12) {
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
 
+=======
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
             PrintToLog("TRADEDB error - unexpected size of vector (%s)\n", strValue);
             continue;
         }
@@ -3982,6 +4013,7 @@ void CMPTradeList::marginLogic(uint32_t property) // Vector of matching address 
 
       for(std::vector<std::string>::iterator it = addr.begin() ; it != addr.end(); ++it){
 
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
         PrintToConsole("Into for loop watching addres on vector addr\n");
         PrintToConsole("Address in vector addr: %s\n", *it);
 
@@ -4020,11 +4052,32 @@ void CMPTradeList::marginLogic(uint32_t property) // Vector of matching address 
 
         } else {
            PrintToConsole("No margin call!\n");
+=======
+        PrintToConsole("Address in vector addr: %s\n", *it);
+        int64_t liqPrice = getMPbalance(*it,property, LIQUIDATION_PRICE);
+
+        uint64_t nLiqPrice = (uint64_t) liqPrice;
+        PrintToConsole("marketPrice in marginLogic function : %d\n", FormatContractShortMP(marketPrice));
+        PrintToConsole("String LiqPrice in marginLogic function: %d\n", FormatContractShortMP(nLiqPrice));
+
+        if( FormatContractShortMP(marketPrice) <= FormatContractShortMP(nLiqPrice) ){
+
+           PrintToConsole("//////////////////////////////////////MARGIN CALL !!!!!!!!!!!\n");
+           PrintToConsole("Liquidation price in marginLogic function: %s\n",nLiqPrice);
+           int rc = marginCall(*it, property, marketPrice);
+           assert(update_tally_map(*it, property,-liqPrice, LIQUIDATION_PRICE));
+           PrintToConsole("Margin call number rc %d\n", rc);
+           addr.erase(it);  //deleting the address from vector
+
+        } else {
+           PrintToConsole("No margin call!: marketPrice > nLiqPrice\n");
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
 
         }
 
       }
       delete it;
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
 
 }
 ////////////////////////////////////////
@@ -4034,6 +4087,30 @@ int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketP
     PrintToConsole("____________________________________________________________\n");
     PrintToConsole("Into the marginCall function\n");
 
+=======
+}
+
+////////////////////////////////////////
+/** New things for Contracts */
+int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice)
+{
+    PrintToConsole("Into the marginCall function\n");
+
+    int64_t liqPrice = getMPbalance(address, propertyId, LIQUIDATION_PRICE);
+    int64_t shortBalance = getMPbalance(address, propertyId, NEGATIVE_BALANCE);
+    int64_t longBalance = getMPbalance(address, propertyId, POSSITIVE_BALANCE);
+    int64_t amountInOrder = 0;
+    uint8_t inverseAction = 0;
+
+    int trading_action = shortBalance > 0 ? BUY : ( longBalance > 0 ? SELL : ACTIONINVALID );
+    amountInOrder = trading_action == BUY ? shortBalance : longBalance;
+
+    PrintToConsole("shortBalance: %d\n",shortBalance);
+    PrintToConsole("LiqPrice: %d\n",liqPrice);
+    PrintToConsole("longBalance: %d\n",longBalance);
+    PrintToConsole("trading action: %d\n",trading_action);
+
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
     const uint256 tx;
     int rc = ContractDex_ADD(address, propertyId, amountInOrder, 1, 1, 0, tx, 1, marketPrice, trading_action,0);
     if (rc == 0) {
@@ -4293,7 +4370,59 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
         ++nWritten;
         if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
     }
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.cpp
+=======
 }
+
+/////////////////////////////////
+/** New things for Contract */
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew)
+{
+    if (!pdb) return;
+
+    const string key = txid1.ToString() + "+" + txid2.ToString();
+    const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded);
+
+    PrintToConsole("________________________________________\n");
+    const string lineOutMaker = strprintf("Addr1: %s, LivesMaker: %d, Amount1: %lu, Status1: %s Txid: %s", address1, lives_maker, amountForsale, s_status1, key);
+    PrintToConsole("%s\n", lineOutMaker);
+    const string lineOutTaker = strprintf("Addr2: %s, LivesTaker: %d, Amount2: %lu, Status2: %s Txid: %s", address2, lives_taker, amountStillForsale, s_status2, key);
+    PrintToConsole("%s\n", lineOutTaker);
+
+    Status status;
+    if (pdb)
+    {
+        status = pdb->Put(writeoptions, key, value);
+        ++nWritten;
+        if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
+    }
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.cpp
+}
+/////////////////////////////////
+// /** New things for Contract */
+// void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid)
+// {
+//     if (!pdb) return;
+//     const string key = txid1.ToString() + "+" + txid2.ToString();
+//     const string value = strprintf("%s:%s:%u:%u:%lu:%lu:%d:%d:%s:", address1, address2, prop1, prop2, amount1, amount2, blockNum, fee, t_status);
+//     std::vector<std::string> STxid;
+//     string result;
+
+//     for (unsigned int n = 0; n < vecTxid.size(); ++n) {
+//         STxid.push_back(vecTxid[n].ToString());
+//     }
+//     std::string joined = boost::algorithm::join(STxid, ":");
+//     result = value + joined;
+
+//     Status status;
+//     if (pdb)
+//     {
+//         status = pdb->Put(writeoptions, key, result);
+//         ++nWritten;
+//         if (msc_debug_tradedb) PrintToLog("%s(): %s\n", __FUNCTION__, status.ToString());
+//     }
+// }
+/////////////////////////////////
 
 /////////////////////////////////
 /** New things for Contract */

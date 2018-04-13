@@ -269,7 +269,11 @@ public:
 
     /////////////////////////////////
     /** New things for Contract */
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.h
     void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew, int64_t nCouldBuy);
+=======
+    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew);
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.h
     // void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid);
     /////////////////////////////////
 
@@ -367,7 +371,11 @@ int64_t getUserAvailableMPbalance(const std::string& address, uint32_t propertyI
 int64_t getUserFrozenMPbalance(const std::string& address, uint32_t propertyId);
 ///////////////////////////////////////
 /** New things for Contract */
+<<<<<<< HEAD:omnicore-master/src/omnicore/omnicore.h
 int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice, uint8_t trading_action, int64_t amountInOrder);
+=======
+int marginCall(const std::string& address, uint32_t propertyId, uint64_t marketPrice);
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/omnicore.h
 //////////////////////////////////////
 
 /** Global handler to initialize Omni Core. */

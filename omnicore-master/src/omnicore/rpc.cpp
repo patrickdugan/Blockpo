@@ -118,7 +118,11 @@ void ContractDexObjectToJSON(const CMPContractDex& obj, UniValue& contractdex_ob
     contractdex_obj.push_back(Pair("address", obj.getAddr()));
     contractdex_obj.push_back(Pair("txid", obj.getHash().GetHex()));
     contractdex_obj.push_back(Pair("propertyidforsale", (uint64_t) obj.getProperty()));
+<<<<<<< HEAD:omnicore-master/src/omnicore/rpc.cpp
     contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1,obj.getAmountForSale())));
+=======
+    contractdex_obj.push_back(Pair("amountforsale",  FormatMP(1, obj.getAmountForSale())));
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/rpc.cpp
     contractdex_obj.push_back(Pair("tradingaction", obj.getTradingAction()));
     contractdex_obj.push_back(Pair("effectiveprice",  FormatMP(1,obj.getEffectivePrice())));
     contractdex_obj.push_back(Pair("block", obj.getBlock()));
@@ -175,12 +179,18 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
     if (divisible) {
         balance_obj.push_back(Pair("balance", FormatDivisibleMP(nAvailable)));
         balance_obj.push_back(Pair("reserved", FormatDivisibleMP(nReserved)));
+<<<<<<< HEAD:omnicore-master/src/omnicore/rpc.cpp
 
+=======
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/rpc.cpp
         if (nFrozen != 0) balance_obj.push_back(Pair("frozen", FormatDivisibleMP(nFrozen)));
     } else {
         balance_obj.push_back(Pair("balance", FormatIndivisibleMP(nAvailable)));
         balance_obj.push_back(Pair("reserved", FormatIndivisibleMP(nReserved)));
+<<<<<<< HEAD:omnicore-master/src/omnicore/rpc.cpp
 
+=======
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/rpc.cpp
         if (nFrozen != 0) balance_obj.push_back(Pair("frozen", FormatIndivisibleMP(nFrozen)));
     }
 
@@ -195,6 +205,7 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
 /** New things for Contract */
 bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool dContract)
 {
+<<<<<<< HEAD:omnicore-master/src/omnicore/rpc.cpp
   int64_t contractReserved = getMPbalance(address, property, CONTRACTDEX_RESERVE);
   int64_t balance = getMPbalance(address, property, BALANCE);
 
@@ -211,6 +222,21 @@ bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniVal
   } else {
      return true;
   }
+=======
+    int64_t contractReserved = getMPbalance(address, property, CONTRACTDEX_RESERVE);
+    int64_t balance = getMPbalance(address, property, BALANCE);
+    int64_t negativeBalance = getMPbalance(address, property, NEGATIVE_BALANCE);
+    int64_t positiveBalance = getMPbalance(address, property, POSSITIVE_BALANCE);
+
+    if (dContract) {
+        balance_obj.push_back(Pair("balance", FormatDivisibleMP(balance)));
+        balance_obj.push_back(Pair("reserved", FormatDivisibleMP(contractReserved)));
+        balance_obj.push_back(Pair("positive balance", FormatDivisibleMP(positiveBalance)));
+        balance_obj.push_back(Pair("negative balance", FormatDivisibleMP(negativeBalance)));
+    }
+
+    return true;
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/rpc.cpp
 }
 
 ///////////////////////////////////////////////
@@ -219,12 +245,29 @@ bool PositionToJSON(const std::string& address, uint32_t property, UniValue& bal
 {
     int64_t longPosition  = getMPbalance(address, property, POSSITIVE_BALANCE);
     int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
+<<<<<<< HEAD:omnicore-master/src/omnicore/rpc.cpp
 
     balance_obj.push_back(Pair("longPosition", FormatIndivisibleMP(longPosition)));
     balance_obj.push_back(Pair("shortPosition", FormatIndivisibleMP(shortPosition)));
 
     return true;
 }
+=======
+    
+    balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(longPosition)));
+    balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(shortPosition)));
+
+    if (shortPosition == 0 && longPosition == 0) {
+        balance_obj.push_back(Pair("longPosition", FormatDivisibleMP(0)));
+        balance_obj.push_back(Pair("shortPosition", FormatDivisibleMP(0)));
+        return false;
+    } else {
+        return true;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/rpc.cpp
 // Obtains details of a fee distribution
 UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
 {
@@ -1042,8 +1085,15 @@ UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
     std::string address = ParseAddress(params[0]);
     uint32_t propertyId = ParsePropertyId(params[1]);
 
+<<<<<<< HEAD:omnicore-master/src/omnicore/rpc.cpp
     UniValue balanceObj(UniValue::VOBJ);
     ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyDivisible(propertyId));
+=======
+    RequireExistingProperty(propertyId);
+
+    UniValue balanceObj(UniValue::VOBJ);
+    ContractBalanceToJSON(address, propertyId, balanceObj, isPropertyContract(propertyId));
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/rpc.cpp
 
     return balanceObj;
 }
@@ -1072,8 +1122,15 @@ UniValue omni_getposition(const UniValue& params, bool fHelp)
     std::string address = ParseAddress(params[0]);
     uint32_t propertyId = ParsePropertyId(params[1]);
 
+<<<<<<< HEAD:omnicore-master/src/omnicore/rpc.cpp
     UniValue balanceObj(UniValue::VOBJ);
     PositionToJSON(address, propertyId, balanceObj, isPropertyDivisible(propertyId));
+=======
+    //RequireExistingProperty(propertyId);
+
+    UniValue balanceObj(UniValue::VOBJ);
+    PositionToJSON(address, propertyId, balanceObj,isPropertyContract(propertyId));
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a:omnicore-master/src/omnicore/rpc.cpp
 
     return balanceObj;
 }

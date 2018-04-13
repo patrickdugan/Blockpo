@@ -37,8 +37,12 @@ std::string xToString(const rational_t& value);
 std::string xToString(const uint64_t &value);
 std::string xToString(const int64_t  &price);
 std::string xToString(const uint32_t &value);
+<<<<<<< HEAD
 void saveDataGraphs(std::fstream &file, std::string lineOutMaker, std::string lineOutTaker);
 void saveDataGraphs(std::fstream &file, std::string lineOut);
+=======
+void saveDataGraphs(std::ofstream& file, std::string lineOut);
+>>>>>>> 1f3cf0f784172b2d901b1e954eff928f7ed25a9a
 ///////////////////////////////
 
 enum MatchReturnType
