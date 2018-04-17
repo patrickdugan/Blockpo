@@ -613,8 +613,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                     countClosedBuyer = getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ? negative_buy : abs( negative_buy - getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) );
                 }
 
-            } else if ( negative_buy == 0 && possitive_buy == 0 ) {
-             
+            } else if ( negative_buy == 0 && possitive_buy == 0 ) 
+            { 
                 if ( pold->getTradingAction() == BUY )
                 {
                     Status_b = getMPbalance( contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE ) > 0 ? "OpenLongPosition" : "OpenShortPosition";
@@ -630,27 +630,33 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             ////////////////////////////////////////////////
             int64_t lives_maker = 0, lives_taker = 0;
 
-            if( (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) > 0) && ( getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ) ) {
+            if( (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) > 0) && ( getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) == 0 ) ) 
+            {
                 lives_maker = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE);
 
-            } else if( (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) > 0 ) && (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) == 0 ) ) {
+            } else if( (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE) > 0 ) && (getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), POSSITIVE_BALANCE) == 0 ) ) 
+            {
                 lives_maker = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
 
             } else {
                 lives_maker = 0;
             }
 
-            if( (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) > 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ) ) {
+            if( (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) > 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) == 0 ) ) 
+            {
                 lives_taker = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
 
-            } else if( (getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) > 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 ) ) {
+            } else if( (getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE) > 0 ) && (getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE) == 0 ) ) 
+            {
                 lives_taker = getMPbalance(pnew->getAddr(), pnew->getProperty(), NEGATIVE_BALANCE);
             }
 
-            if (countClosedSeller < 0){
+            if (countClosedSeller < 0)
+            {
                 countClosedSeller = 0;
             }
-            if (countClosedBuyer < 0){
+            if (countClosedBuyer < 0)
+            {
                countClosedBuyer = 0;
             }
             ///////////////////////////////////////
@@ -704,13 +710,114 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             std::string Status_maker = "";
             std::string Status_taker = "";
 
-            if (pold->getAddr() == seller_address){
+            if ( pold->getAddr() == seller_address ){
                 Status_maker = Status_s;
                 Status_taker = Status_b;
             } else {
                 Status_maker = Status_b;
                 Status_taker = Status_s;
             }
+
+            ////////////////////////////////////////////////////
+
+            std::string Status_s_new1 = "", Status_s_new2 = "";
+            std::string Status_b_new1 = "", Status_b_new2 = "";
+            
+            int64_t lives_s_new1 = 0, lives_s_new2 = 0;
+            int64_t lives_b_new1 = 0, lives_b_new2 = 0;
+            
+            int64_t nCouldBuy_new1 = 0, nCouldBuy_new2 = 0;
+
+            if ( Status_maker == "OpenShortPosByLongPosNetted" && pold->getTradingAction() == SELL )
+            {
+                Status_s_new1  = "LongPosNetted"; 
+                lives_s_new1   = 0;
+                Status_s_new2  = "OpenShortPosition";
+                lives_s_new2   = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
+                nCouldBuy_new1 = possitive_sell;
+                nCouldBuy_new2 = nCouldBuy-possitive_sell;
+
+                if ( Status_taker == "OpenLongPosByShortPosNetted" ) 
+                {
+                    if ( possitive_sell > negative_buy ) 
+                    {
+                        Status_b_new1  = "ShortPosNetted"; 
+                        lives_b_new1   = 0;
+                        Status_b_new2  = "OpenLongPosition";
+                        lives_b_new2   = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
+                        nCouldBuy_new1 = negative_buy;
+                        nCouldBuy_new2 = nCouldBuy-negative_buy;
+                    
+                    } else if ( possitive_sell < negative_buy ) 
+                    {
+                        Status_b_new1  = "ShortPosNetted"; 
+                        lives_b_new1   = 0;
+                        Status_b_new2  = "OpenLongPosition";
+                        lives_b_new2   = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
+                        nCouldBuy_new1 = negative_buy;
+                        nCouldBuy_new2 = nCouldBuy-negative_buy;
+
+                    } else if ( possitive_sell == negative_buy )
+                    {
+                        Status_b_new1  = "ShortPosNetted"; 
+                        lives_b_new1   = 0;
+                        Status_b_new2  = "OpenLongPosition";
+                        lives_b_new2   = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
+                        nCouldBuy_new1 = negative_buy;
+                        nCouldBuy_new2 = nCouldBuy-negative_buy;
+                    }
+                } else if ( Status_taker == "ShortPosNetted" ) 
+                {
+                    Status_s_new1  = "LongPosNetted"; 
+                    lives_s_new1   = 0;
+                    Status_s_new2  = "OpenShortPosition";
+                    lives_s_new2   = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
+                    nCouldBuy_new1 = possitive_sell;
+                    nCouldBuy_new2 = nCouldBuy-possitive_sell;
+
+                } else if ( Status_taker == "ShortPosNettedPartly" )
+                {
+                    Status_s_new1  = "LongPosNetted"; 
+                    lives_s_new1   = 0;
+                    Status_s_new2  = "OpenShortPosition";
+                    lives_s_new2   = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
+                    nCouldBuy_new1 = possitive_sell;
+                    nCouldBuy_new2 = nCouldBuy-possitive_sell;
+
+                } else if ( Status_taker == "LongPosIncreased" ) 
+                {
+                    Status_s_new1  = "LongPosNetted"; 
+                    lives_s_new1   = 0;
+                    Status_s_new2  = "OpenShortPosition";
+                    lives_s_new2   = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
+                    nCouldBuy_new1 = possitive_sell;
+                    nCouldBuy_new2 = nCouldBuy-possitive_sell;
+                }
+
+            } else if ( Status_taker == "OpenLongPosByShortPosNetted" && pold->getAddr() == buyer_address )
+            {
+                Status_b_new1  = "ShortPosNetted"; 
+                lives_b_new1   = 0;
+                Status_b_new2  = "OpenLongPosition";
+                lives_b_new2   = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
+                nCouldBuy_new1 = negative_buy;
+                nCouldBuy_new2 = nCouldBuy-negative_buy;
+            }
+
+            std::string Status_maker1 = "", Status_maker2 = "";
+            std::string Status_taker1 = "", Status_taker2 = "";
+
+            if ( pold->getAddr() == seller_address )
+            {
+                Status_maker1 = Status_s_new1;
+                Status_taker1 = Status_b_new1;
+            } else  
+            {
+                Status_maker2 = Status_b_new2;
+                Status_taker2 = Status_s_new2;
+            }
+            
+            ///////////////////////////////////////////////////
 
             t_tradelistdb->recordMatchedTrade(pold->getHash(),
                                               pnew->getHash(),
@@ -729,8 +836,17 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               tradeStatus,
                                               pold->getEffectivePrice(),
                                               pnew->getEffectivePrice(), 
-                                              nCouldBuy
-                                              );
+                                              nCouldBuy,
+                                              lives_s_new1,
+                                              lives_s_new2,
+                                              lives_b_new1,
+                                              lives_b_new2,
+                                              Status_maker1,
+                                              Status_taker1,
+                                              Status_maker2,
+                                              Status_taker2,
+                                              nCouldBuy_new1,
+                                              nCouldBuy_new2);
             ///////////////////////////////////////
             marketPrice = pold->getEffectivePrice();
             // PrintToConsole("marketPrice: %d\n", FormatContractShortMP(marketPrice));

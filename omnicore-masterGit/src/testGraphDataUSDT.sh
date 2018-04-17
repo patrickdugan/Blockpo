@@ -24,11 +24,9 @@ printf "\n Checking the balance of block:\n"
 ./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest  getbalance  # balance del bloque (50BTCs)
 
 # ##################################################################
-printf "\n________________________________________\n"
-printf "Obtaining the base address to work with\n"
 ADDRBase=$(./omnicore-cli -datadir=/home/lihki/.bitcoin --regtest  getnewaddress OMNIAccount)
 printf "\n________________________________________\n"
-printf "Printing the base address to work with\n"
+printf "Base address to work with:\n"
 printf $ADDRBase
 
 N=100

@@ -54,14 +54,14 @@ nx.draw(G, pos, **options)
 
 print "#----------------Testing Shortest Paths---------------------#"
 
-infoOmni = np.genfromtxt('graphInfoFifth.txt', dtype=None)
+info_omni = np.genfromtxt('graphInfoFifth.txt', dtype=None)
 
 DG = Graph(list(G.nodes))
 
-for i in xrange(len(infoOmni)):
-	DG.addEdge(infoOmni[i][0], infoOmni[i][3], infoOmni[i][6])
+for i in xrange(len(info_omni)):
+	DG.addEdge(info_omni[i][0], info_omni[i][3], info_omni[i][6])
 
-DG.shortestPath(infoOmni[0][0])
+DG.shortestPath(info_omni[0][0])
 
 status_map = np.genfromtxt('graphInfoFirst.txt', dtype=None)
 
@@ -116,13 +116,21 @@ for addrs, status in status_by_addrs.iteritems():
 		print "This address can't be a source!"
 	
 print "\n#----------------Sources for the shortest paths found---------------------#"
+
 print "\nSource vector:\n", sources_vector
 print "\nNumber of sources:\t", len(sources_vector) 
 print "Number of nodes:\t",  G.number_of_nodes()
 
 print "\n#----------------Logic to find zero netted branchs start here---------------------#"
 
+paths_array = np.zeros((len(sources_vector), len(info_omni)))
+for i in range(len(sources_vector)):
+	print "\nChecking addresses netting the source", "'", sources_vector[i], "':","\n"
+	for j in range(len(info_omni)):
+		if ( "Netted" in info_omni[j][1] and sources_vector[i] == info_omni[j][0] ) or ( "Netted" in info_omni[j][4] and sources_vector[i] == info_omni[j][3]):
+			print info_omni[j][3], "\t", info_omni[j][0]
+
 
 print "\n#----------------Saving plot---------------------#"
 plt.savefig("graphSimulation.png")
-# pylab.show()
+pylab.show()

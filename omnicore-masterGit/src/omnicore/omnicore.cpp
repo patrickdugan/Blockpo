@@ -4297,12 +4297,12 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
 /////////////////////////////////
 /** New things for Contract */
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amountForsale, uint64_t amountStillForsale, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew, int64_t nCouldBuy)
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amount_maker, uint64_t amount_taker, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew, int64_t nCouldBuy, int64_t lives_s_new1, int64_t lives_s_new2, int64_t lives_b_new1, int64_t lives_b_new2, string Status_maker1, string Status_taker1, string Status_maker2, string Status_taker2, int64_t nCouldBuy_new1, int64_t nCouldBuy_new2)
 {
     if (!pdb) return;
 
     const string key = txid1.ToString() + "+" + txid2.ToString();
-    const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d", address1, address2, effective_price, amountForsale, amountStillForsale, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded);
+    const string value = strprintf("%s:%s:%lu:%lu:%lu:%d:%d:%s:%s:%d:%d:%d", address1, address2, effective_price, amount_maker, amount_taker, blockNum1, blockNum2, s_status1, s_status2, lives_maker, lives_taker, property_traded);
     
     PrintToConsole("________________________________________\n");
     const string lineOutMaker = strprintf("%s %s", address1, s_status1);
@@ -4318,7 +4318,7 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     const string lineOutFileSecond = strprintf("%s\t %s", address1, address2);
     const string lineOutFileThird  = strprintf("%s\t %s\t %s", address1, key, address2);
     const string lineOutFileFourth = strprintf("%s\t %d\t %s", address1, FormatContractMP(nCouldBuy), address2);
-    const string lineOutFileFifth = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, s_status1, lives_maker, address2, s_status2, lives_taker, FormatContractMP(nCouldBuy));
+    const string lineOutFileFifth  = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, s_status1, lives_maker, address2, s_status2, lives_taker, FormatContractMP(nCouldBuy));
 
     std::fstream fileSecond;
   	fileSecond.open ("graphInfoSecond.txt", std::fstream::in | std::fstream::out | std::fstream::app);

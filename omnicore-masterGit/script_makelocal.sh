@@ -3,5 +3,5 @@
 echo "Doing Make"
 ./autogen.sh
 ./configure
-make --jobs=10
+make 
 echo "Done"
