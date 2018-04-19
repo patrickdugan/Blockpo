@@ -710,7 +710,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             std::string Status_maker = "";
             std::string Status_taker = "";
 
-            if ( pold->getAddr() == seller_address ){
+            if ( pold->getAddr() == seller_address )
+            {
                 Status_maker = Status_s;
                 Status_taker = Status_b;
             } else {
@@ -720,103 +721,552 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
 
             ////////////////////////////////////////////////////
 
-            std::string Status_s_new1 = "", Status_s_new2 = "";
-            std::string Status_b_new1 = "", Status_b_new2 = "";
+            std::string Status_s0 = "EmptyStr", Status_s1 = "EmptyStr", Status_s2 = "EmptyStr", Status_s3 = "EmptyStr";
+            std::string Status_b0 = "EmptyStr", Status_b1 = "EmptyStr", Status_b2 = "EmptyStr", Status_b3 = "EmptyStr";
             
-            int64_t lives_s_new1 = 0, lives_s_new2 = 0;
-            int64_t lives_b_new1 = 0, lives_b_new2 = 0;
+            int64_t lives_s0 = 0, lives_s1 = 0, lives_s2 = 0, lives_s3 = 0;
+            int64_t lives_b0 = 0, lives_b1 = 0, lives_b2 = 0, lives_b3 = 0;
+
+            lives_s0 = lives_maker;
+            lives_b0 = lives_taker;
             
-            int64_t nCouldBuy_new1 = 0, nCouldBuy_new2 = 0;
+            int64_t nCouldBuy0 = 0, nCouldBuy1 = 0, nCouldBuy2 = 0, nCouldBuy3 = 0;
 
-            if ( Status_maker == "OpenShortPosByLongPosNetted" && pold->getTradingAction() == SELL )
-            {
-                Status_s_new1  = "LongPosNetted"; 
-                lives_s_new1   = 0;
-                Status_s_new2  = "OpenShortPosition";
-                lives_s_new2   = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
-                nCouldBuy_new1 = possitive_sell;
-                nCouldBuy_new2 = nCouldBuy-possitive_sell;
+            nCouldBuy0 = nCouldBuy;
 
-                if ( Status_taker == "OpenLongPosByShortPosNetted" ) 
-                {
-                    if ( possitive_sell > negative_buy ) 
-                    {
-                        Status_b_new1  = "ShortPosNetted"; 
-                        lives_b_new1   = 0;
-                        Status_b_new2  = "OpenLongPosition";
-                        lives_b_new2   = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
-                        nCouldBuy_new1 = negative_buy;
-                        nCouldBuy_new2 = nCouldBuy-negative_buy;
+            if ( pold->getAddr() == seller_address ) {
+
+                if ( Status_maker == "OpenShortPosByLongPosNetted" ) {
+
+                    if ( Status_taker == "OpenLongPosByShortPosNetted" ) {
+
+                        if ( possitive_sell > negative_buy ) {
+
+                            Status_s1  = "LongPosNettedPartly"; 
+                            lives_s1   = possitive_sell - negative_buy;
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_s2  = "LongPosNetted"; 
+                            lives_s2   = 0;
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = lives_s1;
+                            nCouldBuy2 = lives_s1;
+
+                            Status_s3  = "OpenShortPosition"; 
+                            lives_s3   = nCouldBuy - possitive_sell;
+                            Status_b3  = "LongPosIncreased"; 
+                            lives_b3   = lives_b2 + lives_s3;
+                            nCouldBuy3 = lives_s3;
                     
-                    } else if ( possitive_sell < negative_buy ) 
-                    {
-                        Status_b_new1  = "ShortPosNetted"; 
-                        lives_b_new1   = 0;
-                        Status_b_new2  = "OpenLongPosition";
-                        lives_b_new2   = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
-                        nCouldBuy_new1 = negative_buy;
-                        nCouldBuy_new2 = nCouldBuy-negative_buy;
+                        } else if ( possitive_sell < negative_buy ) {
 
-                    } else if ( possitive_sell == negative_buy )
-                    {
-                        Status_b_new1  = "ShortPosNetted"; 
-                        lives_b_new1   = 0;
-                        Status_b_new2  = "OpenLongPosition";
-                        lives_b_new2   = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
-                        nCouldBuy_new1 = negative_buy;
-                        nCouldBuy_new2 = nCouldBuy-negative_buy;
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "ShortPosNettedPartly"; 
+                            lives_b1   = negative_buy - possitive_sell ;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosition"; 
+                            lives_s2   = lives_b1;
+                            Status_b2  = "ShortPosNetted"; 
+                            lives_b2   = 0;
+                            nCouldBuy2 = lives_s2;
+
+                            Status_b3  = "OpenLongPosition"; 
+                            lives_b3   = nCouldBuy - negative_buy;
+                            Status_s3  = "ShortPosIncreased"; 
+                            lives_s3   = lives_s2 + lives_b3;
+                            nCouldBuy3 = lives_b3;
+
+                        } else if ( possitive_sell == negative_buy ) {
+
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosition"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = lives_s2;
+                            nCouldBuy2 = lives_s2;
+                        } 
+                    } else if ( Status_taker == "ShortPosNettedPartly" ) {
+
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "ShortPosNettedPartly"; 
+                            lives_b1   = negative_buy - possitive_sell;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosByLongPosNetted"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "ShortPosNettedPartly"; 
+                            lives_b2   = lives_b1 - lives_s2;
+                            nCouldBuy2 = lives_s2;
+
+                    } else if ( Status_taker == "ShortPosNetted" ) {
+
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "ShortPosNettedPartly"; 
+                            lives_b1   = negative_buy - possitive_sell;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosByLongPosNetted"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "ShortPosNetted"; 
+                            lives_b2   = 0;
+                            nCouldBuy2 = lives_s2;
+
+                    } else if ( Status_taker == "OpenLongPosition" ) {
+
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "OpenLongPosition"; 
+                            lives_b1   = possitive_sell;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosByLongPosNetted"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "LongPosIncreased"; 
+                            lives_b2   = lives_b1 + lives_s2;
+                            nCouldBuy2 = lives_s2;
+             
+                    } else if ( Status_taker == "LongPosIncreased" ) {
+                    
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "LongPosIncreased"; 
+                            lives_b1   = possitive_buy + possitive_sell;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosByLongPosNetted"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "LongPosIncreased"; 
+                            lives_b2   = lives_b1 + lives_s2;
+                            nCouldBuy2 = lives_s2;
                     }
-                } else if ( Status_taker == "ShortPosNetted" ) 
-                {
-                    Status_s_new1  = "LongPosNetted"; 
-                    lives_s_new1   = 0;
-                    Status_s_new2  = "OpenShortPosition";
-                    lives_s_new2   = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
-                    nCouldBuy_new1 = possitive_sell;
-                    nCouldBuy_new2 = nCouldBuy-possitive_sell;
+                } else if ( Status_taker == "OpenLongPosByShortPosNetted" ) {
 
-                } else if ( Status_taker == "ShortPosNettedPartly" )
-                {
-                    Status_s_new1  = "LongPosNetted"; 
-                    lives_s_new1   = 0;
-                    Status_s_new2  = "OpenShortPosition";
-                    lives_s_new2   = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
-                    nCouldBuy_new1 = possitive_sell;
-                    nCouldBuy_new2 = nCouldBuy-possitive_sell;
+                    if ( Status_maker == "OpenShortPosByLongPosNetted" ) {
 
-                } else if ( Status_taker == "LongPosIncreased" ) 
-                {
-                    Status_s_new1  = "LongPosNetted"; 
-                    lives_s_new1   = 0;
-                    Status_s_new2  = "OpenShortPosition";
-                    lives_s_new2   = getMPbalance(contract_replacement.getAddr(), contract_replacement.getProperty(), NEGATIVE_BALANCE);
-                    nCouldBuy_new1 = possitive_sell;
-                    nCouldBuy_new2 = nCouldBuy-possitive_sell;
+                        if ( negative_buy < possitive_sell ) {
+
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            Status_s1  = "LongPosNettedPartly"; 
+                            lives_s1   = possitive_sell - negative_buy;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = lives_s1;
+                            Status_s2  = "LongPosNetted"; 
+                            lives_s2   = 0;
+                            nCouldBuy2 = lives_s1;
+
+                            Status_s3  = "OpenShortPosition"; 
+                            lives_s3   = nCouldBuy - possitive_sell;
+                            Status_b3  = "LongPosIncreased"; 
+                            lives_b3   = lives_b2 + lives_s3;
+                            nCouldBuy3 = lives_s3;
+                    
+                        } else if ( negative_buy > possitive_sell ) {
+
+                            Status_b1  = "ShortPosNettedPartly"; 
+                            lives_b1   = negative_buy - possitive_sell;
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            nCouldBuy1 = lives_b1;
+
+                            Status_b2  = "ShortPosNetted"; 
+                            lives_b2   = 0;
+                            Status_s2  = "OpenShortPosition"; 
+                            lives_s2   = lives_b1;
+                            nCouldBuy2 = lives_b1;
+
+                            Status_b3  = "OpenLongPosition"; 
+                            lives_b3   = nCouldBuy - negative_buy;
+                            Status_s3  = "ShortPosIncreased"; 
+                            lives_s3   = lives_s2 + lives_b3;
+                            nCouldBuy3 = lives_b3;
+
+                        } else if ( negative_buy == possitive_sell ) {
+
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosition"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = lives_s2;
+                            nCouldBuy2 = lives_s2;
+                        } 
+                    } else if ( Status_maker == "LongPosNettedPartly" ) {
+
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            Status_s1  = "LongPosNettedPartly"; 
+                            lives_s1   = possitive_sell - negative_buy;
+                            nCouldBuy1 = lives_s1;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = nCouldBuy - negative_buy;
+                            Status_s2  = "LongPosNettedPartly"; 
+                            lives_s2   = lives_s1 - lives_b2;
+                            nCouldBuy2 = lives_b2;
+
+                    } else if ( Status_maker == "LongPosNetted" ) {
+
+                            Status_b1  = "ShortPosNetted";
+                            lives_b1   = 0;
+                            Status_s1  = "LongPosNettedPartly"; 
+                            lives_s1   = possitive_sell - negative_buy;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = nCouldBuy - negative_buy;
+                            Status_s2  = "LongPosNetted"; 
+                            lives_s2   = 0;
+                            nCouldBuy2 = lives_b2;
+
+                    } else if ( Status_maker == "OpenShortPosition" ) {
+
+                            Status_b1  = "ShortPosNetted";
+                            lives_b1   = 0;
+                            Status_s1  = "OpenShortPosition"; 
+                            lives_s1   = negative_buy;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = nCouldBuy - negative_buy;
+                            Status_s2  = "ShortPosIncreased"; 
+                            lives_s2   = lives_s1 + lives_b2;
+                            nCouldBuy2 = lives_b2;
+                
+                    } else if ( Status_maker == "ShortPosIncreased" ) {
+
+                            Status_b1  = "ShortPosNetted";
+                            lives_b1   = 0;
+                            Status_s1  = "ShortPosIncreased"; 
+                            lives_s1   = negative_sell + negative_buy;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = nCouldBuy - negative_buy;
+                            Status_s2  = "ShortPosIncreased"; 
+                            lives_s2   = lives_s1 + lives_b2;
+                            nCouldBuy2 = lives_b2;
+                    }
                 }
+            } else {
 
-            } else if ( Status_taker == "OpenLongPosByShortPosNetted" && pold->getAddr() == buyer_address )
-            {
-                Status_b_new1  = "ShortPosNetted"; 
-                lives_b_new1   = 0;
-                Status_b_new2  = "OpenLongPosition";
-                lives_b_new2   = getMPbalance(pnew->getAddr(), pnew->getProperty(), POSSITIVE_BALANCE);
-                nCouldBuy_new1 = negative_buy;
-                nCouldBuy_new2 = nCouldBuy-negative_buy;
+                if ( Status_maker == "OpenLongPosByShortPosNetted" ) {
+
+                    if ( Status_taker == "OpenShortPosByLongPosNetted" ) {
+
+                        if ( negative_buy < possitive_sell ) {
+
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            Status_s1  = "LongPosNettedPartly"; 
+                            lives_s1   = possitive_sell - negative_buy;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = lives_s1;
+                            Status_s2  = "LongPosNetted"; 
+                            lives_s2   = 0;
+                            nCouldBuy2 = lives_s1;
+
+                            Status_s3  = "OpenShortPosition"; 
+                            lives_s3   = nCouldBuy - possitive_sell;
+                            Status_b3  = "LongPosIncreased"; 
+                            lives_b3   = lives_b2 + lives_s3;
+                            nCouldBuy3 = lives_s3;
+                    
+                        } else if ( negative_buy > possitive_sell ) {
+
+                            Status_b1  = "ShortPosNettedPartly"; 
+                            lives_b1   = negative_buy - possitive_sell;
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            nCouldBuy1 = lives_b1;
+
+                            Status_b2  = "ShortPosNetted"; 
+                            lives_b2   = 0;
+                            Status_s2  = "OpenShortPosition"; 
+                            lives_s2   = lives_b1;
+                            nCouldBuy2 = lives_b1;
+
+                            Status_b3  = "OpenLongPosition"; 
+                            lives_b3   = nCouldBuy - negative_buy;
+                            Status_s3  = "ShortPosIncreased"; 
+                            lives_s3   = lives_s2 + lives_b3;
+                            nCouldBuy3 = lives_b3;
+
+                        } else if ( negative_buy == possitive_sell ) {
+
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosition"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = lives_s2;
+                            nCouldBuy2 = lives_s2;
+                        } 
+                    } else if ( Status_taker == "LongPosNettedPartly" ) {
+
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            Status_s1  = "LongPosNettedPartly"; 
+                            lives_s1   = possitive_sell - negative_buy;
+                            nCouldBuy1 = lives_s1;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = nCouldBuy - negative_buy;
+                            Status_s2  = "LongPosNettedPartly"; 
+                            lives_s2   = lives_s1 - lives_b2;
+                            nCouldBuy2 = lives_b2;
+
+                    } else if ( Status_taker == "LongPosNetted" ) {
+
+                            Status_b1  = "ShortPosNetted";
+                            lives_b1   = 0;
+                            Status_s1  = "LongPosNettedPartly"; 
+                            lives_s1   = possitive_sell - negative_buy;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = nCouldBuy - negative_buy;
+                            Status_s2  = "LongPosNetted"; 
+                            lives_s2   = 0;
+                            nCouldBuy2 = lives_b2;
+
+                    } else if ( Status_taker == "OpenShortPosition" ) {
+
+                            Status_b1  = "ShortPosNetted";
+                            lives_b1   = 0;
+                            Status_s1  = "OpenShortPosition"; 
+                            lives_s1   = negative_buy;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = nCouldBuy - negative_buy;
+                            Status_s2  = "ShortPosIncreased"; 
+                            lives_s2   = lives_s1 + lives_b2;
+                            nCouldBuy2 = lives_b2;
+                
+                    } else if ( Status_taker == "ShortPosIncreased" ) {
+
+                            Status_b1  = "ShortPosNetted";
+                            lives_b1   = 0;
+                            Status_s1  = "ShortPosIncreased"; 
+                            lives_s1   = negative_sell + negative_buy;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = nCouldBuy - negative_buy;
+                            Status_s2  = "ShortPosIncreased"; 
+                            lives_s2   = lives_s1 + lives_b2;
+                            nCouldBuy2 = lives_b2;
+                    }
+                } else if ( Status_taker == "OpenShortPosByLongPosNetted" ) {
+
+                    if ( Status_maker == "OpenLongPosByShortPosNetted" ) {
+
+                        if ( possitive_sell > negative_buy ) {
+
+                            Status_s1  = "LongPosNettedPartly"; 
+                            lives_s1   = possitive_sell - negative_buy;
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            nCouldBuy1 = negative_buy;
+
+                            Status_s2  = "LongPosNetted"; 
+                            lives_s2   = 0;
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = lives_s1;
+                            nCouldBuy2 = lives_s1;
+
+                            Status_s3  = "OpenShortPosition"; 
+                            lives_s3   = nCouldBuy - possitive_sell;
+                            Status_b3  = "LongPosIncreased"; 
+                            lives_b3   = lives_b2 + lives_s3;
+                            nCouldBuy3 = lives_s3;
+                    
+                        } else if ( possitive_sell < negative_buy ) {
+
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "ShortPosNettedPartly"; 
+                            lives_b1   = negative_buy - possitive_sell ;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosition"; 
+                            lives_s2   = lives_b1;
+                            Status_b2  = "ShortPosNetted"; 
+                            lives_b2   = 0;
+                            nCouldBuy2 = lives_s2;
+
+                            Status_b3  = "OpenLongPosition"; 
+                            lives_b3   = nCouldBuy - negative_buy;
+                            Status_s3  = "ShortPosIncreased"; 
+                            lives_s3   = lives_s2 + lives_b3;
+                            nCouldBuy3 = lives_b3;
+
+                        } else if ( possitive_sell == negative_buy ) {
+
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "ShortPosNetted"; 
+                            lives_b1   = 0;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosition"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "OpenLongPosition"; 
+                            lives_b2   = lives_s2;
+                            nCouldBuy2 = lives_s2;
+                        } 
+                    } else if ( Status_maker == "ShortPosNettedPartly" ) {
+
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "ShortPosNettedPartly"; 
+                            lives_b1   = negative_buy - possitive_sell;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosByLongPosNetted"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "ShortPosNettedPartly"; 
+                            lives_b2   = lives_b1 - lives_s2;
+                            nCouldBuy2 = lives_s2;
+
+                    } else if ( Status_maker == "ShortPosNetted" ) {
+
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "ShortPosNettedPartly"; 
+                            lives_b1   = negative_buy - possitive_sell;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosByLongPosNetted"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "ShortPosNetted"; 
+                            lives_b2   = 0;
+                            nCouldBuy2 = lives_s2;
+
+                    } else if ( Status_maker == "OpenLongPosition" ) {
+
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "OpenLongPosition"; 
+                            lives_b1   = possitive_sell;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosByLongPosNetted"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "LongPosIncreased"; 
+                            lives_b2   = lives_b1 + lives_s2;
+                            nCouldBuy2 = lives_s2;
+             
+                    } else if ( Status_maker == "LongPosIncreased" ) {
+                    
+                            Status_s1  = "LongPosNetted"; 
+                            lives_s1   = 0;
+                            Status_b1  = "LongPosIncreased"; 
+                            lives_b1   = possitive_buy + possitive_sell;
+                            nCouldBuy1 = possitive_sell;
+
+                            Status_s2  = "OpenShortPosByLongPosNetted"; 
+                            lives_s2   = nCouldBuy - possitive_sell;
+                            Status_b2  = "LongPosIncreased"; 
+                            lives_b2   = lives_b1 + lives_s2;
+                            nCouldBuy2 = lives_s2;
+                    }
+                }
             }
 
-            std::string Status_maker1 = "", Status_maker2 = "";
-            std::string Status_taker1 = "", Status_taker2 = "";
+            std::string Status_maker0 = "EmptyStr", Status_maker1 = "EmptyStr", Status_maker2 = "EmptyStr", Status_maker3 = "EmptyStr";
+            std::string Status_taker0 = "EmptyStr", Status_taker1 = "EmptyStr", Status_taker2 = "EmptyStr", Status_taker3 = "EmptyStr";
+
+            std::vector<std::string> v_status;
+            std::vector<int64_t> v_livesc;
+            std::vector<int64_t> v_ncouldbuy;
+
+            v_ncouldbuy.push_back(nCouldBuy0);
+            v_ncouldbuy.push_back(nCouldBuy1);
+            v_ncouldbuy.push_back(nCouldBuy2);
+            v_ncouldbuy.push_back(nCouldBuy3);
+
+            v_livesc.push_back(lives_s0);
+            v_livesc.push_back(lives_b0);
+            v_livesc.push_back(lives_s1);
+            v_livesc.push_back(lives_b1);
+            v_livesc.push_back(lives_s2);
+            v_livesc.push_back(lives_b2);
+            v_livesc.push_back(lives_s3);
+            v_livesc.push_back(lives_b3);
 
             if ( pold->getAddr() == seller_address )
             {
-                Status_maker1 = Status_s_new1;
-                Status_taker1 = Status_b_new1;
+                v_status.push_back(Status_s);
+                v_status.push_back(Status_b);
+                v_status.push_back(Status_s1);
+                v_status.push_back(Status_b1);
+                v_status.push_back(Status_s2);
+                v_status.push_back(Status_b2);
+                v_status.push_back(Status_s3);
+                v_status.push_back(Status_b3);
+
+            } else {
+
+                v_status.push_back(Status_b);
+                v_status.push_back(Status_s);
+                v_status.push_back(Status_b1);
+                v_status.push_back(Status_s1);
+                v_status.push_back(Status_b2);
+                v_status.push_back(Status_s2);
+                v_status.push_back(Status_b3);
+                v_status.push_back(Status_s3);                
+            }
+
+            Status_maker0 = Status_maker;
+            Status_taker0 = Status_taker;
+
+            if ( pold->getAddr() == seller_address )
+            {
+                Status_maker1 = Status_s1;
+                Status_taker1 = Status_b1;
+                Status_maker2 = Status_s2;
+                Status_taker2 = Status_b2;
+                Status_maker3 = Status_s3;
+                Status_taker3 = Status_b3;
             } else  
             {
-                Status_maker2 = Status_b_new2;
-                Status_taker2 = Status_s_new2;
+                Status_maker1 = Status_b1;
+                Status_taker1 = Status_s1;
+                Status_maker2 = Status_b2;
+                Status_taker2 = Status_s2;
+                Status_maker3 = Status_b3;
+                Status_taker3 = Status_s3;
             }
             
+            PrintToConsole("SMaker0: %s \t STaker0: %s\n", Status_maker0, lives_s0, Status_taker0, lives_b0);
+            PrintToConsole("SMaker1: %s \t STaker1: %s\n", Status_maker1, lives_s1, Status_taker1, lives_b1);            
+            PrintToConsole("SMaker2: %s \t STaker2: %s\n", Status_maker2, lives_s2, Status_taker2, lives_b2);
+            PrintToConsole("SMaker3: %s \t STaker3: %s\n", Status_maker3, lives_s3, Status_taker3, lives_b3);            
             ///////////////////////////////////////////////////
 
             t_tradelistdb->recordMatchedTrade(pold->getHash(),
@@ -837,16 +1287,24 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               pold->getEffectivePrice(),
                                               pnew->getEffectivePrice(), 
                                               nCouldBuy,
-                                              lives_s_new1,
-                                              lives_s_new2,
-                                              lives_b_new1,
-                                              lives_b_new2,
+                                              lives_s0,
+                                              lives_s1,
+                                              lives_s2,
+                                              lives_s3,
+                                              lives_b0,                                              
+                                              lives_b1,
+                                              lives_b2,
+                                              lives_b3,
                                               Status_maker1,
                                               Status_taker1,
                                               Status_maker2,
                                               Status_taker2,
-                                              nCouldBuy_new1,
-                                              nCouldBuy_new2);
+                                              Status_maker3,
+                                              Status_taker3,
+                                              nCouldBuy0,
+                                              nCouldBuy1,
+                                              nCouldBuy2, 
+                                              nCouldBuy3);
             ///////////////////////////////////////
             marketPrice = pold->getEffectivePrice();
             // PrintToConsole("marketPrice: %d\n", FormatContractShortMP(marketPrice));
@@ -1058,6 +1516,24 @@ void CMPContractDex::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
 
 ////////////////////////////////////
 /** New things for Contract */
+void saveDataGraphs(std::fstream &file, std::string lineOutSixth1, std::string lineOutSixth2, std::string lineOutSixth3, bool savedata_bool)
+{
+    std::string lineSixth1 = lineOutSixth1;
+    std::string lineSixth2 = lineOutSixth2;
+    std::string lineSixth3 = lineOutSixth3;
+
+    if ( savedata_bool )
+    {
+        file << lineSixth1 << "\n";
+        file << lineSixth2 << std::endl;
+    } else {
+
+        file << lineSixth1 << "\n";
+        file << lineSixth2 << "\n";
+        file << lineSixth3 << std::endl;
+    }
+}
+
 void saveDataGraphs(std::fstream &file, std::string lineOutMaker, std::string lineOutTaker)
 {
     std::string lineMaker = lineOutMaker;
@@ -1066,8 +1542,7 @@ void saveDataGraphs(std::fstream &file, std::string lineOutMaker, std::string li
     file << lineMaker << "\n";
     file << lineTaker << std::endl;
 }
-////////////////////////////////////
-/** New things for Contract */
+
 void saveDataGraphs(std::fstream &file, std::string lineOut)
 {
     std::string line = lineOut;
