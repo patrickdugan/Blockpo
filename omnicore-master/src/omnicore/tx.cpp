@@ -2187,8 +2187,11 @@ int CMPTransaction::logicMath_CreateContractDex()
     newSP.notional_size = notional_size;
     newSP.collateral_currency = collateral_currency;
     newSP.margin_requirement = margin_requirement;
+    newSP.init_block = block;
     ////////////////////////////////////////
-
+    //
+    // PrintToConsole("Bloque de creacion del contrato: %s\n",block);
+    // PrintToConsole("Bloques antes de expiracion del contrato: %s\n",blocks_until_expiration);
     const uint32_t propertyId = _my_sps->putSP(ecosystem, newSP);
     assert(propertyId > 0);
 
@@ -3062,7 +3065,7 @@ int CMPTransaction::logicMath_RedemptionPegged()
        assert(update_tally_map(sender, property, -nValue, BALANCE));
        // getting back from reserve contracts and collateral currency
        assert(update_tally_map(sender, contractId, -ncNeeded, CONTRACTDEX_RESERVE));
-
+        // getting back from reserve the collateral currency needed
        if ((posContracts > 0) && (negContracts == 0)){
           int64_t dif = posContracts - ncNeeded;
           PrintToConsole("Difference of contracts : %d\n",dif);

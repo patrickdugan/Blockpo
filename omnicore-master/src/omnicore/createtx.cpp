@@ -184,4 +184,3 @@ void InputsToView(const std::vector<PrevTxsEntry>& prevTxs, CCoinsViewCache& vie
         coins->vout[it->outPoint.n].nValue = it->txOut.nValue;
     }
 }
-

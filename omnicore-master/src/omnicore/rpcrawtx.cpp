@@ -201,7 +201,7 @@ UniValue omni_createrawtx_input(const UniValue& params, bool fHelp)
             + HelpExampleCli("omni_createrawtx_input", "\"01000000000000000000\" \"b006729017df05eda586df9ad3f8ccfee5be340aadf88155b784d1fc0e8342ee\" 0")
             + HelpExampleRpc("omni_createrawtx_input", "\"01000000000000000000\", \"b006729017df05eda586df9ad3f8ccfee5be340aadf88155b784d1fc0e8342ee\", 0")
         );
-
+    
     CMutableTransaction tx = ParseMutableTransaction(params[0]);
     uint256 txid = ParseHashV(params[1], "txid");
     uint32_t nOut = ParseOutputIndex(params[2]);

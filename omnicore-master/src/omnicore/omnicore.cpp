@@ -883,6 +883,7 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
     assert(bRPConly == mp_tx.isRpcOnly());
     mp_tx.Set(wtx.GetHash(), nBlock, idx, nTime);
 
+    PrintToConsole("Block inside parseTransacton: %d\n",nBlock);
     // ### CLASS IDENTIFICATION AND MARKER CHECK ###
     int omniClass = GetEncodingClass(wtx, nBlock);
 
@@ -2510,7 +2511,6 @@ bool mastercore_handler_tx(const CTransaction& tx, int nBlock, unsigned int idx,
     // we do not care about parsing blocks prior to our waterline (empty blockchain defense)
     if (nBlock < nWaterlineBlock) return false;
     int64_t nBlockTime = pBlockIndex->GetBlockTime();
-
     CMPTransaction mp_obj;
     mp_obj.unlockLogic();
 
@@ -4572,8 +4572,9 @@ int mastercore_handler_block_begin(int nBlockPrev, CBlockIndex const * pBlockInd
 
     // handle any features that go live with this block
     CheckLiveActivations(pBlockIndex->nHeight);
-
+    addInterestPegged(nBlockPrev,pBlockIndex);
     eraseExpiredCrowdsale(pBlockIndex);
+
 
     return 0;
 }

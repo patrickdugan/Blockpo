@@ -76,7 +76,7 @@ std::vector<unsigned char> CreatePayload_DExSell(uint32_t propertyId, uint64_t a
     PUSH_BACK_BYTES(payload, propertyId);
     PUSH_BACK_BYTES(payload, amountForSale);
     PUSH_BACK_BYTES(payload, amountDesired);
-    PUSH_BACK_BYTES(payload, timeLimit);
+PUSH_BACK_BYTES(payload, timeLimit);
     PUSH_BACK_BYTES(payload, minFee);
     PUSH_BACK_BYTES(payload, subAction);
 

@@ -861,7 +861,64 @@ void mastercore::eraseMaxedCrowdsale(const std::string& address, int64_t blockTi
         my_crowds.erase(it);
     }
 }
+/* New things for contracts *///////////////////////////////////////////////////
+int mastercore::addInterestPegged(int nBlockPrev, const CBlockIndex* pBlockIndex)
+{
+    if (pBlockIndex == NULL) return 0;
+    uint32_t contractId = 2147483651;
+    uint32_t peggedId = 2147483653;
+    string sender = "";
+    const int64_t blockTime = pBlockIndex->GetBlockTime();
+    // int blockHeight = pBlockIndex->nHeight;
+    CMPSPInfo::Entry sp;
+    if (!_my_sps->getSP(contractId, sp)) {
+            // PrintToLog(" %s() : Property identifier %d does not exist\n",
+            //    __func__,
+            //    sender,
+            //    contractId);
+             return 0;
+       }
+     if (sp.subcategory != "Futures Contracts") {
+          // PrintToLog(" %s() : property identifier %d does not a future contract\n",
+          //    __func__,
+          //    sender,
+          //    contractId);
+             return 0;
+       }
+       uint32_t expiration = sp.blocks_until_expiration;
+       int init_block = sp.init_block;
+       int deadline = static_cast<int>(expiration + init_block);
+       PrintToConsole("Inside addInterestPegged function-------------------\n");
+       PrintToConsole("blocks until expiration: %d\n",expiration);
+       PrintToConsole("Prev Block: %d\n",nBlockPrev);
+       PrintToConsole("creationblock: %d\n",init_block);
+       PrintToConsole("deadline block: %d\n",deadline);
 
+       if(nBlockPrev == deadline){
+         PrintToConsole("This is the block of SETTLEMENT, then we include the interest!!!: %d\n",deadline);
+         LOCK(cs_tally);
+         for (std::unordered_map<std::string, CMPTally>::iterator it = mp_tally_map.begin(); it != mp_tally_map.end(); ++it) {
+             uint32_t id = 0;
+             bool includeAddress = false;
+             std::string address = it->first;
+             (it->second).init();
+             while (0 != (id = (it->second).next())) {
+                 if (id == peggedId) {
+                     includeAddress = true;
+                     PrintToConsole("Address with pegged currency : %s\n",address);
+                     break;
+                 }
+
+             }
+             if (!includeAddress) {
+                 continue; // ignore this address, has never transacted in this propertyId
+             }
+          }
+       }
+       PrintToConsole("----------------------------------------------------\n");
+        return 1;
+}
+////////////////////////////////////////////////////////////////////////////////
 unsigned int mastercore::eraseExpiredCrowdsale(const CBlockIndex* pBlockIndex)
 {
     if (pBlockIndex == NULL) return 0;

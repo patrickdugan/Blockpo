@@ -99,6 +99,7 @@ private:
     uint32_t notional_size;
     uint32_t collateral_currency;
     uint32_t margin_requirement;
+    // int block;
     ////////////////////////////
 
     // TradeOffer

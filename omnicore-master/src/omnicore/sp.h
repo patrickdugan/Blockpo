@@ -93,6 +93,7 @@ public:
         uint32_t collateral_currency;
         uint32_t margin_requirement;
         int64_t contracts_needed;
+        int init_block;
         ////////////////////////////
 
         // For crowdsale properties:
@@ -137,6 +138,7 @@ public:
             READWRITE(notional_size);
             READWRITE(collateral_currency);
             READWRITE(margin_requirement);
+            READWRITE(init_block);
             ////////////////////////////
         }
 
@@ -243,6 +245,7 @@ bool isPropertyDivisible(uint32_t propertyId);
 //////////////////////////////////////
 /** New things for Contracts */
 bool isPropertyContract(uint32_t propertyId);
+int addInterestPegged(int nBlockPrev, const CBlockIndex* pBlockIndex);
 //////////////////////////////////////
 
 bool IsPropertyIdValid(uint32_t propertyId);
