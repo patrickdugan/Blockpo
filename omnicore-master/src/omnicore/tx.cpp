@@ -949,12 +949,12 @@ bool CMPTransaction::interpret_CreatePeggedCurrency()
     memcpy(&amount, p, 8);
     swapByteOrder64(amount);
 
-    PrintToConsole("Category : %s\n",category);
-    PrintToConsole("Subcategory : %s\n",subcategory);
-    PrintToConsole("Name : %s\n",name);
-    PrintToConsole("Url : %s\n",url);
-    PrintToConsole("Data : %s\n",data);
-    PrintToConsole("Amount : %\n",amount);
+    // PrintToConsole("Category : %s\n",category);
+    // PrintToConsole("Subcategory : %s\n",subcategory);
+    // PrintToConsole("Name : %s\n",name);
+    // PrintToConsole("Url : %s\n",url);
+    // PrintToConsole("Data : %s\n",data);
+    // PrintToConsole("Amount : %\n",amount);
 
     if ((!rpcOnly && msc_debug_packets) || msc_debug_packets_readonly) {
         PrintToLog("\t       ecosystem: %d\n", ecosystem);
@@ -2931,20 +2931,20 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
     }
      int64_t position = getMPbalance(sender, contractId, NEGATIVE_BALANCE);
      int64_t contractsNeeded = static_cast<int64_t> (amount/notSize); // We must check the role of marginReq here.
-
-     PrintToConsole("____________________________________________________________\n");
-     PrintToConsole("Inside logicMath_CreatePeggedCurrency !!!!!\n");
-     PrintToConsole("Address of sender : %s\n",sender);
-     PrintToConsole("Property type : %d\n",prop_type);
-     PrintToConsole("Collateral currency Id : %d\n",propertyId);
-     PrintToConsole("Contract Id : %d\n",contractId);
-     PrintToConsole("Amount of pegged currency created: %d\n",amount);
-     PrintToConsole("nBalance : %d\n",nBalance);
-     PrintToConsole("Contracts Needed : %d\n",contractsNeeded);
-     PrintToConsole("Notional Size : %d\n",notSize);
-     PrintToConsole("Short Position : %d\n",position);
-     PrintToConsole("Margin Requirement : %d\n",marginReq);
-     PrintToConsole("____________________________________________________________\n");
+     //
+    //  PrintToConsole("____________________________________________________________\n");
+    //  PrintToConsole("Inside logicMath_CreatePeggedCurrency !!!!!\n");
+    //  PrintToConsole("Address of sender : %s\n",sender);
+    //  PrintToConsole("Property type : %d\n",prop_type);
+    //  PrintToConsole("Collateral currency Id : %d\n",propertyId);
+    //  PrintToConsole("Contract Id : %d\n",contractId);
+    //  PrintToConsole("Amount of pegged currency created: %d\n",amount);
+    //  PrintToConsole("nBalance : %d\n",nBalance);
+    //  PrintToConsole("Contracts Needed : %d\n",contractsNeeded);
+    //  PrintToConsole("Notional Size : %d\n",notSize);
+    //  PrintToConsole("Short Position : %d\n",position);
+    //  PrintToConsole("Margin Requirement : %d\n",marginReq);
+    //  PrintToConsole("____________________________________________________________\n");
 
      if ((nBalance < amount) || (position < contractsNeeded)) {
         PrintToLog("%s(): rejected:Sender has not required short position on this contract %d \n",
@@ -2973,7 +2973,7 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
 
     const uint32_t npropertyId = _my_sps->putSP(ecosystem, newSP);
     assert(npropertyId > 0);
-    PrintToConsole("Pegged currency Id: %d\n",npropertyId);
+    // PrintToConsole("Pegged currency Id: %d\n",npropertyId);
     assert(update_tally_map(sender, npropertyId, amount, BALANCE));
     NotifyTotalTokensChanged(npropertyId, block);
 
@@ -3018,11 +3018,11 @@ int CMPTransaction::logicMath_RedemptionPegged()
     int64_t nContracts = getMPbalance(sender, contractId, CONTRACTDEX_RESERVE);
     int64_t negContracts = getMPbalance(sender, contractId, NEGATIVE_BALANCE);
     int64_t posContracts = getMPbalance(sender, contractId, POSSITIVE_BALANCE);
-    PrintToConsole("nBalance : %d\n",nBalance);
-    PrintToConsole("nContracts : %d\n",nContracts);
-    PrintToConsole("amount : %d\n",nValue);
-    PrintToConsole("property : %d\n",property);
-    PrintToConsole("contractId : %d\n",contractId);
+    // PrintToConsole("nBalance : %d\n",nBalance);
+    // PrintToConsole("nContracts : %d\n",nContracts);
+    // PrintToConsole("amount : %d\n",nValue);
+    // PrintToConsole("property : %d\n",property);
+    // PrintToConsole("contractId : %d\n",contractId);
 
     if (nBalance < (int64_t) nValue) {
         PrintToLog("%s(): rejected: sender %s has insufficient balance of pegged currency %d [%s < %s]\n",
@@ -3055,10 +3055,10 @@ int CMPTransaction::logicMath_RedemptionPegged()
     int64_t normValue = static_cast<int64_t> (nValue/factor);
     int64_t ncNeeded = contractsNeeded*factor;
 
-    PrintToConsole("contracts redeemed : %d\n",contractsNeeded);
-    PrintToConsole("nValue : %d\n",nValue);
-    PrintToConsole("Notional Size : %d\n",notSize);
-    PrintToConsole("NormValue : %d\n",normValue);
+    // PrintToConsole("contracts redeemed : %d\n",contractsNeeded);
+    // PrintToConsole("nValue : %d\n",nValue);
+    // PrintToConsole("Notional Size : %d\n",notSize);
+    // PrintToConsole("NormValue : %d\n",normValue);
 
     if ((contractsNeeded > 0) && (normValue > 0)) {
        // Delete the tokens
@@ -3068,7 +3068,7 @@ int CMPTransaction::logicMath_RedemptionPegged()
         // getting back from reserve the collateral currency needed
        if ((posContracts > 0) && (negContracts == 0)){
           int64_t dif = posContracts - ncNeeded;
-          PrintToConsole("Difference of contracts : %d\n",dif);
+          // PrintToConsole("Difference of contracts : %d\n",dif);
           if (dif >= 0){
              assert(update_tally_map(sender, contractId, -ncNeeded, POSSITIVE_BALANCE));
           }else {
@@ -3078,16 +3078,16 @@ int CMPTransaction::logicMath_RedemptionPegged()
        } else if ((posContracts == 0) && (negContracts >= 0)) {
           assert(update_tally_map(sender, contractId, ncNeeded, NEGATIVE_BALANCE));
        }
-       PrintToConsole("Contracts in long position : %d\n",posContracts);
-       PrintToConsole("Contracts in short position : %d\n",negContracts);
-       PrintToConsole("Contracts Needed : %d\n",contractsNeeded);
+      //  PrintToConsole("Contracts in long position : %d\n",posContracts);
+      //  PrintToConsole("Contracts in short position : %d\n",negContracts);
+      //  PrintToConsole("Contracts Needed : %d\n",contractsNeeded);
 
        assert(update_tally_map(sender, propertyId, -nValue, CONTRACTDEX_RESERVE));
        assert(update_tally_map(sender, propertyId, nValue, BALANCE));
 
     } else {
        PrintToLog("amount redeemed must be equal at least to value of one future contract \n");
-       PrintToConsole("amount redeemed must be equal at least to value of one future contract \n");
+      //  PrintToConsole("amount redeemed must be equal at least to value of one future contract \n");
        return (PKT_ERROR_SEND -25);
     }
     return 0;

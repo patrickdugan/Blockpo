@@ -31,6 +31,8 @@
 #include <utility>
 
 using namespace mastercore;
+extern int64_t priceIndex;
+extern volatile uint64_t marketPrice;
 
 CMPSPInfo::Entry::Entry()
   : prop_type(0), prev_prop_id(0), num_tokens(0), property_desired(0),
@@ -867,6 +869,7 @@ int mastercore::addInterestPegged(int nBlockPrev, const CBlockIndex* pBlockIndex
     if (pBlockIndex == NULL) return 0;
     uint32_t contractId = 2147483651;
     uint32_t peggedId = 2147483653;
+    const int64_t factor = 100000000;
     string sender = "";
     const int64_t blockTime = pBlockIndex->GetBlockTime();
     // int blockHeight = pBlockIndex->nHeight;
@@ -888,15 +891,43 @@ int mastercore::addInterestPegged(int nBlockPrev, const CBlockIndex* pBlockIndex
        uint32_t expiration = sp.blocks_until_expiration;
        int init_block = sp.init_block;
        int deadline = static_cast<int>(expiration + init_block);
+       int64_t nMarketPrice = static_cast<int64_t>(marketPrice/factor);
        PrintToConsole("Inside addInterestPegged function-------------------\n");
+       PrintToConsole("Index value : %d\n",priceIndex);
+       PrintToConsole("Market price : %d\n",nMarketPrice);
        PrintToConsole("blocks until expiration: %d\n",expiration);
        PrintToConsole("Prev Block: %d\n",nBlockPrev);
        PrintToConsole("creationblock: %d\n",init_block);
        PrintToConsole("deadline block: %d\n",deadline);
 
-       if(nBlockPrev == deadline){
+       CMPSPInfo::Entry newSp;
+       //LOCK(cs_tally);
+       if (!_my_sps->getSP(peggedId, newSp)) {
+               // PrintToLog(" %s() : Property identifier %d does not exist\n",
+               //    __func__,
+               //    sender,
+               //    contractId);
+                return 0;
+          }
+        if (newSp.subcategory != "Pegged Currency") {
+             // PrintToLog(" %s() : property identifier %d does not a future contract\n",
+             //    __func__,
+             //    sender,
+             //    contractId);
+                return 0;
+        }
+        int64_t num_tokens = newSp.num_tokens/factor;
+        double diff = static_cast<double>(priceIndex - nMarketPrice);
+        double interest = static_cast<double>(diff/nMarketPrice);
+        PrintToConsole("Difference betweeen priceIndex and marketPrice : %lf\n",diff);
+        PrintToConsole("interest: %lf\n",interest);
+        PrintToConsole("Amounts of pegged currency created : %d\n",num_tokens);
+
+        if(nBlockPrev == deadline){
+
          PrintToConsole("This is the block of SETTLEMENT, then we include the interest!!!: %d\n",deadline);
          LOCK(cs_tally);
+
          for (std::unordered_map<std::string, CMPTally>::iterator it = mp_tally_map.begin(); it != mp_tally_map.end(); ++it) {
              uint32_t id = 0;
              bool includeAddress = false;
@@ -905,7 +936,9 @@ int mastercore::addInterestPegged(int nBlockPrev, const CBlockIndex* pBlockIndex
              while (0 != (id = (it->second).next())) {
                  if (id == peggedId) {
                      includeAddress = true;
-                     PrintToConsole("Address with pegged currency : %s\n",address);
+                     int64_t nPegged = getMPbalance(address, peggedId, BALANCE);
+                     int64_t intPegged = static_cast<int64_t>(nPegged*(interest));
+                     assert(update_tally_map(address, peggedId, intPegged, BALANCE));
                      break;
                  }
 
