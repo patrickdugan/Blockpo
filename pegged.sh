@@ -13,6 +13,7 @@ $SRC/omnicore-cli -datadir=$DATADIR --regtest  -rpcwait generate 101 >/dev/null
 printf "Creating some addresses ...\n"
 ADDR=$($SRC/omnicore-cli -datadir=$DATADIR --regtest  getnewaddress OMNIAccount)
 ADDR2=$($SRC/omnicore-cli -datadir=$DATADIR --regtest  getnewaddress OMNIAccount)
+ADDR3=$($SRC/omnicore-cli -datadir=$DATADIR --regtest  getnewaddress OMNIAccount)
 printf "${ADDR}\n"
 printf "${ADDR2}\n"
 JSON="{\""${ADDR}"\":${bitcoins},\""${ADDR2}"\":${bitcoins}}"
@@ -22,7 +23,7 @@ $SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null
 
 # Default inputs in create contract RPC
 par1="Future Contract 1"
-par2=1
+par2=20 # blocks until expiration
 par3=10 # Notional Size
 par5=2 #Margin Requirement
 #Creo el futuro
@@ -31,58 +32,89 @@ $SRC/omnicore-cli -datadir=$DATADIR --regtest generate 1 >/dev/null
 
 # Creating Divisible tokens ( Synthetic USD)
 #printf "Creating an Divisible Token:\n"   # TODO: see the indivisible/divisible troubles (amountToReserve < nBalance) in logicMath_Contra$
-$SRC/omnicore-cli --regtest omni_sendissuancemanaged ${ADDR} 2 2 0 "Tether" "Tether" "Tether" "" "" >/dev/null
+$SRC/omnicore-cli --regtest omni_sendissuancemanaged ${ADDR} 2 2 0 "ALL" "ALL" "ALL" "" "" >/dev/null
 $SRC/omnicore-cli --regtest generate 1 >/dev/null
 #$SRC/omnicore-cli --regtest omni_gettransaction $TRA9
 
-#Sending synthetic USDs to all
+#Sending ALLs to everyone
 $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant ${ADDR} ${ADDR} ${COL} 1000000 > /dev/null
 $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_sendgrant ${ADDR} ${ADDR2} ${COL} 1000000 > /dev/null
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 >/dev/null
 
 # Checking the balances
-printf "Balance of USDT for ADDR:\n"
+printf "Balance of ALL for ADDR:\n"
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR} 2147483652
-printf "Balance of USDT for ADDR2:\n"
+printf "Balance of ALL for ADDR2:\n"
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR2} 2147483652
 
 printf "Making some tradings ...\n"
 TRA1=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDR2} 2147483651 100 1 1 100 1) #>/dev/null
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 #>/dev/null
 $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction ${TRA1}
+# ADDR going in short position
 TRA2=$($SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDR} 2147483651 100 1 1 100 2) #>/dev/null
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 #>/dev/null
 $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction ${TRA2}
 printf "Position in Contracts for ADDR: \n"
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getposition ${ADDR} 2147483651
 printf "Testing the RPC for  pegged currency createpayload\n"
-$SRC/omnicore-cli --regtest --datadir=$DATADIR omni_createpayload_issuance_pegged 2 2 0 "Currency" "Pegged Currency" "Lihki Coin" "Lihki" "Lihki" ${COL} ${CONT} ${AMOUNT}
+$SRC/omnicore-cli --regtest --datadir=$DATADIR omni_createpayload_issuance_pegged 2 2 0 "Currency" "Pegged Currency" "USD" "USD" "USD" ${COL} ${CONT} ${AMOUNT}
 printf "Testing the RPC for  pegged currency Tx\n"
-TRA=$($SRC/omnicore-cli --regtest --datadir=$DATADIR omni_sendissuance_pegged ${ADDR} 2 2 0 "Currency" "Pegged Currency" "Lihki Coin" "Lihki" "Lihki" ${COL} ${CONT} ${AMOUNT})
+TRA=$($SRC/omnicore-cli --regtest --datadir=$DATADIR omni_sendissuance_pegged ${ADDR} 2 2 0 "Currency" "Pegged Currency" "USD" USD "USD" ${COL} ${CONT} ${AMOUNT})
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null
 $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction ${TRA}
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_listproperties
 # Checking the balances
-printf "Balance of USDT for ADDR:\n"
+printf "Balance of ALL for ADDR:\n"
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR} 2147483652
 #$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR2} 2147483652
 printf "Balance of Pegged Currency in ADDR: \n"
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR} 2147483653
 printf "Position in Contracts for ADDR: \n"
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getposition ${ADDR} 2147483651
-printf "Checking Payload for Redemption of Peggeds : \n"
-$SRC/omnicore-cli --regtest --datadir=$DATADIR omni_createpayload_redemption_pegged 2147483651 1000 ${CONT}
+printf "Making some tradings ...\n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDR2} 2147483651 1 1 1 100 2 >/dev/null
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 #>/dev/null
+$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction ${TRA1}
+$SRC/omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDR} 2147483651 1 1 1 100 1 >/dev/null
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 #>/dev/null
+printf "Position in Contracts for ADDR: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getposition ${ADDR} 2147483651
 printf " Sending pegged currency from ADDR to ADDR2 : \n"
-TRA3=$($SRC/omnicore-cli --regtest --datadir=$DATADIR omni_send ${ADDR} ${ADDR2} 2147483653 1200)
+TRA3=$($SRC/omnicore-cli --regtest --datadir=$DATADIR omni_send_pegged ${ADDR} ${ADDR3} 2147483653 500)
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 >/dev/null
-# printf "Checking RPC for Redemption of Peggeds : \n"
-# TRA3=$($SRC/omnicore-cli --regtest --datadir=$DATADIR omni_redemption_pegged ${ADDR} 2147483653 1000 ${CONT})
-# $SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null
+printf "Balance of USDT for ADDR:\n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR} 2147483652
 $SRC/omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction ${TRA3}
+printf "Balance of Pegged Currency in ADDR: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR} 2147483653
+printf "Balance of Pegged Currency in ADDR3: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR3} 2147483653
+printf "Checking RPC for Redemption of Peggeds : \n"
+TRA4=$($SRC/omnicore-cli --regtest --datadir=$DATADIR omni_redemption_pegged ${ADDR} 2147483653 200 ${CONT})
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 1 > /dev/null
+printf "Balance of ALL for ADDR:\n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR} 2147483652
+printf "Balance of Pegged Currency in ADDR: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR} 2147483653
+printf "Position in Contracts for ADDR: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getposition ${ADDR} 2147483651
+printf "Balance of Pegged Currency in ADDR2: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR2} 2147483653
+printf "Balance of Pegged Currency in ADDR3: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR3} 2147483653
+printf "Creating 12 blocks more:\n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  generate 12 > /dev/null
 printf "Balance of Pegged Currency in ADDR: \n"
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR} 2147483653
 printf "Balance of Pegged Currency in ADDR2: \n"
 $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR2} 2147483653
-# printf "Position in Contracts for ADDR: \n"
-# $SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getposition ${ADDR} 2147483651
+printf "Balance of Pegged Currency in ADDR3: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR3} 2147483653
+printf "Balance of ALL in ADDR: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR} ${COL}
+printf "Balance of ALL in ADDR2: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR2} ${COL}
+printf "Balance of ALL in ADDR3: \n"
+$SRC/omnicore-cli -datadir=$DATADIR --regtest  omni_getbalance ${ADDR3} ${COL}
 $SRC/omnicore-cli --regtest --datadir=$DATADIR stop
