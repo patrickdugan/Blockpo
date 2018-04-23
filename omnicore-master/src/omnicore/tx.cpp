@@ -43,6 +43,7 @@ extern uint32_t blocksUntilExpiration;
 extern uint32_t notionalSize;
 extern uint32_t collateralCurrency;
 extern uint32_t marginRequirementContract;
+extern int64_t Allprice;
 ////////////////////////////////////////
 
 
@@ -2931,20 +2932,20 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
     }
      int64_t position = getMPbalance(sender, contractId, NEGATIVE_BALANCE);
      int64_t contractsNeeded = static_cast<int64_t> (amount/notSize); // We must check the role of marginReq here.
-     //
-    //  PrintToConsole("____________________________________________________________\n");
-    //  PrintToConsole("Inside logicMath_CreatePeggedCurrency !!!!!\n");
-    //  PrintToConsole("Address of sender : %s\n",sender);
-    //  PrintToConsole("Property type : %d\n",prop_type);
-    //  PrintToConsole("Collateral currency Id : %d\n",propertyId);
-    //  PrintToConsole("Contract Id : %d\n",contractId);
-    //  PrintToConsole("Amount of pegged currency created: %d\n",amount);
-    //  PrintToConsole("nBalance : %d\n",nBalance);
-    //  PrintToConsole("Contracts Needed : %d\n",contractsNeeded);
-    //  PrintToConsole("Notional Size : %d\n",notSize);
-    //  PrintToConsole("Short Position : %d\n",position);
-    //  PrintToConsole("Margin Requirement : %d\n",marginReq);
-    //  PrintToConsole("____________________________________________________________\n");
+     
+     PrintToConsole("____________________________________________________________\n");
+     PrintToConsole("Inside logicMath_CreatePeggedCurrency !!!!!\n");
+     PrintToConsole("Address of sender : %s\n",sender);
+     PrintToConsole("Property type : %d\n",prop_type);
+     PrintToConsole("Collateral currency Id : %d\n",propertyId);
+     PrintToConsole("Contract Id : %d\n",contractId);
+     PrintToConsole("Amount of pegged currency created: %d\n",amount);
+     PrintToConsole("nBalance : %d\n",nBalance);
+     PrintToConsole("Contracts Needed : %d\n",contractsNeeded);
+     PrintToConsole("Notional Size : %d\n",notSize);
+     PrintToConsole("Short Position : %d\n",position);
+     PrintToConsole("Margin Requirement : %d\n",marginReq);
+     PrintToConsole("____________________________________________________________\n");
 
      if ((nBalance < amount) || (position < contractsNeeded)) {
         PrintToLog("%s(): rejected:Sender has not required short position on this contract %d \n",

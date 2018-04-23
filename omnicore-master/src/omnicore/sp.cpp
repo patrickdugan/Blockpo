@@ -32,6 +32,7 @@
 
 using namespace mastercore;
 extern int64_t priceIndex;
+extern int64_t allPrice;
 extern volatile uint64_t marketPrice;
 
 CMPSPInfo::Entry::Entry()
@@ -890,6 +891,7 @@ int mastercore::addInterestPegged(int nBlockPrev, const CBlockIndex* pBlockIndex
        }
        uint32_t expiration = sp.blocks_until_expiration;
        int init_block = sp.init_block;
+       uint32_t collateral = sp.collateral_currency;
        int deadline = static_cast<int>(expiration + init_block);
        int64_t nMarketPrice = static_cast<int64_t>(marketPrice/factor);
        PrintToConsole("Inside addInterestPegged function-------------------\n");
@@ -899,7 +901,7 @@ int mastercore::addInterestPegged(int nBlockPrev, const CBlockIndex* pBlockIndex
        PrintToConsole("Prev Block: %d\n",nBlockPrev);
        PrintToConsole("creationblock: %d\n",init_block);
        PrintToConsole("deadline block: %d\n",deadline);
-
+       PrintToConsole("collateral currency : %d\n",collateral);
        CMPSPInfo::Entry newSp;
        //LOCK(cs_tally);
        if (!_my_sps->getSP(peggedId, newSp)) {
@@ -917,6 +919,7 @@ int mastercore::addInterestPegged(int nBlockPrev, const CBlockIndex* pBlockIndex
                 return 0;
         }
         int64_t num_tokens = newSp.num_tokens/factor;
+
         double diff = static_cast<double>(priceIndex - nMarketPrice);
         double interest = static_cast<double>(diff/nMarketPrice);
         PrintToConsole("Difference betweeen priceIndex and marketPrice : %lf\n",diff);
@@ -937,8 +940,12 @@ int mastercore::addInterestPegged(int nBlockPrev, const CBlockIndex* pBlockIndex
                  if (id == peggedId) {
                      includeAddress = true;
                      int64_t nPegged = getMPbalance(address, peggedId, BALANCE);
-                     int64_t intPegged = static_cast<int64_t>(nPegged*(interest));
-                     assert(update_tally_map(address, peggedId, intPegged, BALANCE));
+                     PrintToConsole("nPegged : %d\n",nPegged);
+                     double dAll = static_cast<double>((nPegged*interest)/allPrice);
+                     PrintToConsole("dAll : %lu\n",dAll);
+                     int64_t intAll = static_cast<int64_t>(dAll);
+                     PrintToConsole("intAll : %lu\n",intAll);
+                     assert(update_tally_map(address, collateral, intAll, BALANCE));
                      break;
                  }
 
