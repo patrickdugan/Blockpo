@@ -4327,11 +4327,6 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     const string lineOutSixth2  = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker2, lives_s2, address2, Status_taker2, lives_b2, FormatContractMP(nCouldBuy2));
     const string lineOutSixth3  = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker3, lives_s3, address2, Status_taker3, lives_b3, FormatContractMP(nCouldBuy3));
 
-    // PrintToConsole("%s\n", lineOutSixth0);
-    // PrintToConsole("%s\n", lineOutSixth1);
-    // PrintToConsole("%s\n", lineOutSixth2);
-    // PrintToConsole("%s\n", lineOutSixth3);
-
     std::fstream fileSixth;
     fileSixth.open ("graphInfoSixth.txt", std::fstream::in | std::fstream::out | std::fstream::app);
     
@@ -4346,6 +4341,7 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
             savedata_bool = true;    
         }
         saveDataGraphs(fileSixth, lineOutSixth1, lineOutSixth2, lineOutSixth3, savedata_bool);        
+
     } else {
     
         saveDataGraphs(fileSixth, lineOutSixth0);

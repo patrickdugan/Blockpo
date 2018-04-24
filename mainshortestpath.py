@@ -133,4 +133,4 @@ for i in range(len(sources_vector)):
 
 print "\n#----------------Saving plot---------------------#"
 plt.savefig("graphSimulation.png")
-pylab.show()
+# pylab.show()
