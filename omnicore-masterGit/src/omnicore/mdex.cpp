@@ -1531,6 +1531,32 @@ void CMPContractDex::saveOffer(std::ofstream& file, SHA256_CTX* shaCtx) const
 
 ////////////////////////////////////
 /** New things for Contract */
+void saveDataGraphs(std::fstream &file, std::string lineOutMaker1, std::string lineOutTaker1, std::string lineOutMaker2, std::string lineOutTaker2, std::string lineOutMaker3, std::string lineOutTaker3, bool savedata_bool)
+{
+    std::string lineMaker1 = lineOutMaker1;
+    std::string lineTaker1 = lineOutTaker1;
+    std::string lineMaker2 = lineOutMaker2;
+    std::string lineTaker2 = lineOutTaker2;
+    std::string lineMaker3 = lineOutMaker3;
+    std::string lineTaker3 = lineOutTaker3;
+
+    if ( savedata_bool )
+    {
+        file << lineMaker1 << "\n";
+        file << lineTaker1 << "\n";
+        file << lineMaker2 << "\n";
+        file << lineTaker2 << std::endl;
+    } else {
+
+        file << lineMaker1 << "\n";
+        file << lineTaker1 << "\n";
+        file << lineMaker2 << "\n";
+        file << lineTaker2 << "\n";
+        file << lineMaker3 << "\n";
+        file << lineTaker3 << std::endl;
+    }
+}
+
 void saveDataGraphs(std::fstream &file, std::string lineOutSixth1, std::string lineOutSixth2, std::string lineOutSixth3, bool savedata_bool)
 {
     std::string lineSixth1 = lineOutSixth1;

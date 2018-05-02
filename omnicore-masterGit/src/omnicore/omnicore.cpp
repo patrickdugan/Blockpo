@@ -4311,27 +4311,31 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     const string lineOutTaker = strprintf("%s %s", address2, s_status2);
     PrintToConsole("%s\n", lineOutTaker);
 
-    std::fstream fileFirst;
-  	fileFirst.open ("graphInfoFirst.txt", std::fstream::in | std::fstream::out | std::fstream::app);
-  	saveDataGraphs(fileFirst, lineOutMaker, lineOutTaker);
-    fileFirst.close();
-
     const string lineOutFileSecond = strprintf("%s\t %s", address1, address2);
     const string lineOutFileThird  = strprintf("%s\t %s\t %s", address1, key, address2);
     const string lineOutFileFourth = strprintf("%s\t %d\t %s", address1, FormatContractMP(nCouldBuy), address2);
     const string lineOutFileFifth  = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, s_status1, lives_maker, address2, s_status2, lives_taker, FormatContractMP(nCouldBuy));
 
     ///////////////////////////////////////////////////
-    const string lineOutSixth0  = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, s_status1, lives_maker, address2, s_status2, lives_taker, FormatContractMP(nCouldBuy));
-    const string lineOutSixth1  = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker1, lives_s1, address2, Status_taker1, lives_b1, FormatContractMP(nCouldBuy1));
-    const string lineOutSixth2  = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker2, lives_s2, address2, Status_taker2, lives_b2, FormatContractMP(nCouldBuy2));
-    const string lineOutSixth3  = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker3, lives_s3, address2, Status_taker3, lives_b3, FormatContractMP(nCouldBuy3));
+
+    const string lineOutSixth0 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, s_status1, lives_maker, address2, s_status2, lives_taker, FormatContractMP(nCouldBuy));
+    const string lineOutSixth1 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker1, lives_s1, address2, Status_taker1, lives_b1, FormatContractMP(nCouldBuy1));
+    const string lineOutSixth2 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker2, lives_s2, address2, Status_taker2, lives_b2, FormatContractMP(nCouldBuy2));
+    const string lineOutSixth3 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker3, lives_s3, address2, Status_taker3, lives_b3, FormatContractMP(nCouldBuy3));
+    const string lineOutMaker1 = strprintf("%s %s", address1, Status_maker1);
+    const string lineOutTaker1 = strprintf("%s %s", address2, Status_taker1);
+    const string lineOutMaker2 = strprintf("%s %s", address1, Status_maker2);
+    const string lineOutTaker2 = strprintf("%s %s", address2, Status_taker2);
+    const string lineOutMaker3 = strprintf("%s %s", address1, Status_maker3);
+    const string lineOutTaker3 = strprintf("%s %s", address2, Status_taker3);
+
+    bool status_bool1 = s_status1 == "OpenShortPosByLongPosNetted" || s_status1 == "OpenLongPosByShortPosNetted";
+    bool status_bool2 = s_status2 == "OpenShortPosByLongPosNetted" || s_status2 == "OpenLongPosByShortPosNetted";
+
+    ///////////////////////////////////////////////////
 
     std::fstream fileSixth;
     fileSixth.open ("graphInfoSixth.txt", std::fstream::in | std::fstream::out | std::fstream::app);
-    
-    bool status_bool1 = s_status1 == "OpenShortPosByLongPosNetted" || s_status1 == "OpenLongPosByShortPosNetted";
-    bool status_bool2 = s_status2 == "OpenShortPosByLongPosNetted" || s_status2 == "OpenLongPosByShortPosNetted";
 
     if ( status_bool1 || status_bool2 ) 
     {
@@ -4347,6 +4351,27 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
         saveDataGraphs(fileSixth, lineOutSixth0);
     }
     fileSixth.close();
+
+    ///////////////////////////////////////////////////
+
+    std::fstream fileFirst;
+    fileFirst.open ("graphInfoFirst.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+    
+    if ( status_bool1 || status_bool2 ) 
+    {
+        bool savedata_bool = false;
+        if ( Status_maker3 == "EmptyStr" || Status_taker3 == "EmptyStr" ) 
+        {
+            savedata_bool = true;    
+        }
+        saveDataGraphs(fileFirst, lineOutMaker1, lineOutTaker1, lineOutMaker2, lineOutTaker2, lineOutMaker3, lineOutTaker3, savedata_bool);        
+
+    } else {
+    
+        saveDataGraphs(fileFirst, lineOutMaker, lineOutTaker);
+    }
+    fileFirst.close();
+
     ///////////////////////////////////////////////////
 
     std::fstream fileSecond;

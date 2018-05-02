@@ -40,33 +40,28 @@ options = {
  'linewidths': 0.5,
  'width': 0.5,
 }
-#------------------------------------------------------------#
+
+###################################################################
+
 pos = nx.nx_pydot.graphviz_layout(G)
 points=np.array([pos[v] for v in sorted(G)])
-
-print "Abscissa axis:\n", points[:,0]
-print "Ordinate axis:\n", points[:,1]
-print "Grid for the grap:\n", points
-print "Number of rows:\n", len(points[:,1])
-print "Number of cols:\n", len(points[:,0])
-
 nx.draw(G, pos, **options)
 
-print "#----------------Testing Shortest Paths---------------------#"
-
-info_omni = np.genfromtxt('graphInfoFifth.txt', dtype=None)
+info_omni = np.genfromtxt('graphInfoSixth.txt', dtype=None)
 
 DG = Graph(list(G.nodes))
 
 for i in xrange(len(info_omni)):
 	DG.addEdge(info_omni[i][0], info_omni[i][3], info_omni[i][6])
 
+print "#----------------Testing Shortest Paths from:", info_omni[0][0], " ---------------------#"
 DG.shortestPath(info_omni[0][0])
 
+###################################################################
+print "#----------------Status vector by address---------------------#"
+
 status_map = np.genfromtxt('graphInfoFirst.txt', dtype=None)
-
 pairs = np.column_stack((status_map[:, 0], status_map[:, 1]))
-
 status_by_addrs = defaultdict(list)
 
 for addrs, status in pairs:
@@ -79,58 +74,70 @@ for addrs, status in status_by_addrs.iteritems():
 
 addressj = np.genfromtxt('graphInfoAddresses.txt', dtype=None)
 for j in range(len(addressj)):
-	print addressj[j]," :\t", status_by_addrs[addressj[j]]
+	print addressj[j],":\t", status_by_addrs[addressj[j]]
 
-print "#----------------Looking sources for the shortest paths---------------------#"
-
+###################################################################
 addrs_srcs = []
 status_byaddress = ""
 sources_vector = []
+array_status_byaddress = []
 
 for addrs, status in status_by_addrs.iteritems():
 
-	print "\n#----------------Checking if the address could be a source---------------------#\n"
 	addrs_srcs = addrs,':'.join(status)
-	status_byaddress = addrs_srcs[1]
+	status_byaddress = addrs_srcs[1] 
 
 	status_vector = []
 	for j in status_byaddress.split(":"):
 		status_vector.append(j)
 
-	print "Status vector for address ", "'", addrs, "'", ":\n", status_vector, "\n"
-	if status_vector[0] == "OpenLongPosition" or status_vector[0] == "OpenShortPosition":
-		print "Initial status for the address", "'", addrs, "':"
-		print status_vector[0]
-
 	status_vectorl = ''.join(status_vector)
-	print "\nConclusion:"
-	if "Netted" in status_vectorl:
+
+	print "------------------------------------------------"
+	print "Address:", addrs, "\n"
+	if ( "OpenShortPosition" in status_vectorl ) or ( "ShortPosIncreased" in status_vectorl ):
 		sources_vector.append(addrs)
 
-		print "This address could be a source!\n"
-		print "Netted status after open a position:"
-		for i in xrange(1, len(status_vector)):
-			if "Netted" in status_vector[i]:
-				print status_vector[i]
-	else:
-		print "This address can't be a source!"
-	
-print "\n#----------------Sources for the shortest paths found---------------------#"
+		print "Conclusion:"
+		print "This address can be a source!!\n"
+		print "Status vector for ", addrs, ":"
+		print status_vector
 
-print "\nSource vector:\n", sources_vector
+	else:
+		print "Conclusion:"
+		print "This address can not be a source!!\n"
+		print "Status vector for ", addrs, ":"
+		print status_vector, "\n"
+
+	print "\n", addrs,": ", status_vector
+
 print "\nNumber of sources:\t", len(sources_vector) 
 print "Number of nodes:\t",  G.number_of_nodes()
+print "Sources vector:\t", sources_vector
+
+##################################################################
 
 print "\n#----------------Logic to find zero netted branchs start here---------------------#"
 
-paths_array = np.zeros((len(sources_vector), len(info_omni)))
-for i in range(len(sources_vector)):
-	print "\nChecking addresses netting the source", "'", sources_vector[i], "':","\n"
-	for j in range(len(info_omni)):
-		if ( "Netted" in info_omni[j][1] and sources_vector[i] == info_omni[j][0] ) or ( "Netted" in info_omni[j][4] and sources_vector[i] == info_omni[j][3]):
-			print info_omni[j][3], "\t", info_omni[j][0]
+paths_file = np.genfromtxt('graphInfoSixth.txt', dtype=None)
+print paths_file, "\n"
 
+for addrs in addressj:
+	paths_array = []
+	print "\nPath asociated to:", addrs, "\n"
+	for i in range(len(paths_file)):
+		if addrs in str(paths_file[:][i]):
+			paths_vector = []
+			paths_vector.extend([paths_file[i][3], paths_file[i][6], paths_file[i][0]])
+			paths_array.append(paths_vector)			
+	print paths_array
+
+for addrs in sources_vector:
+	for i in range(len(paths_file)):
+		if addrs in str(paths_file[:][i]):
+			print paths_file[:][i]
 
 print "\n#----------------Saving plot---------------------#"
+
 plt.savefig("graphSimulation.png")
 # pylab.show()

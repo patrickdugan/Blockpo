@@ -37,6 +37,7 @@ std::string xToString(const rational_t& value);
 std::string xToString(const uint64_t &value);
 std::string xToString(const int64_t  &price);
 std::string xToString(const uint32_t &value);
+void saveDataGraphs(std::fstream &file, std::string lineOutMaker1, std::string lineOutTaker1, std::string lineOutMaker2, std::string lineOutTaker2, std::string lineOutMaker3, std::string lineOutTaker3, bool savedata_bool);
 void saveDataGraphs(std::fstream &file, std::string lineOutSixth1, std::string lineOutSixth2, std::string lineOutSixth3, bool savedata_bool);
 void saveDataGraphs(std::fstream &file, std::string lineOutMaker, std::string lineOutTaker);
 void saveDataGraphs(std::fstream &file, std::string lineOut);

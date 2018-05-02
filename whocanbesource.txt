@@ -1,0 +1,120 @@
+#----------------Graph Simulation---------------------#
+---------------------------------------
+List of Nodes: 
+['KATY', 'EMPANADA', 'PATRICK', 'DAVID', 'DANIEL', 'PUTIERREZ', 'ANDRES', 'ALEJO', 'LIHKI', 'YURI']
+---------------------------------------
+List of Edges: 
+[('KATY', 'PUTIERREZ'), ('KATY', 'DAVID'), ('EMPANADA', 'ALEJO'), ('EMPANADA', 'LIHKI'), ('PATRICK', 'ANDRES'), ('PATRICK', 'ALEJO'), ('PATRICK', 'LIHKI'), ('DAVID', 'PUTIERREZ'), ('DAVID', 'YURI'), ('DANIEL', 'KATY'), ('DANIEL', 'ANDRES'), ('DANIEL', 'DAVID'), ('PUTIERREZ', 'ANDRES'), ('ANDRES', 'ALEJO'), ('ALEJO', 'DANIEL'), ('LIHKI', 'EMPANADA'), ('LIHKI', 'YURI')]
+---------------------------------------
+Number of Nodes:  10
+---------------------------------------
+Number of Edges:  17
+---------------------------------------
+#----------------Testing Shortest Paths from: PATRICK  ---------------------#
+53
+20
+0
+45
+40
+53
+7
+21
+15
+24
+#----------------Status vector by address---------------------#
+LIHKI :	['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition']
+ALEJO :	['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition', 'LongPosIncreased']
+ANDRES :	['OpenLongPosition', 'LongPosNettedPartly', 'LongPosNetted', 'OpenShortPosition', 'ShortPosNetted']
+DANIEL :	['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'ShortPosIncreased']
+PATRICK :	['OpenLongPosition', 'LongPosIncreased', 'LongPosNetted']
+KATY :	['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition']
+DAVID :	['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition']
+PUTIERREZ :	['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'LongPosNettedPartly', 'LongPosNettedPartly']
+YURI :	['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased']
+EMPANADA :	['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosIncreased']
+------------------------------------------------
+Address: KATY 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  KATY :
+['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition']
+------------------------------------------------
+Address: EMPANADA 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  EMPANADA :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosIncreased']
+------------------------------------------------
+Address: PATRICK 
+
+Conclusion:
+This address can not be a source!!
+
+Status vector for  PATRICK :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNetted']
+------------------------------------------------
+Address: DAVID 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  DAVID :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition']
+------------------------------------------------
+Address: DANIEL 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  DANIEL :
+['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'ShortPosIncreased']
+------------------------------------------------
+Address: PUTIERREZ 
+
+Conclusion:
+This address can not be a source!!
+
+Status vector for  PUTIERREZ :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosNettedPartly', 'LongPosNettedPartly', 'LongPosNettedPartly']
+------------------------------------------------
+Address: ANDRES 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  ANDRES :
+['OpenLongPosition', 'LongPosNettedPartly', 'LongPosNetted', 'OpenShortPosition', 'ShortPosNetted']
+------------------------------------------------
+Address: ALEJO 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  ALEJO :
+['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition', 'LongPosIncreased']
+------------------------------------------------
+Address: LIHKI 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  LIHKI :
+['OpenShortPosition', 'ShortPosNettedPartly', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition']
+------------------------------------------------
+Address: YURI 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  YURI :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased']
+
+Number of sources:	8
+Number of nodes:	10
+Sources vector:	['KATY', 'EMPANADA', 'DAVID', 'DANIEL', 'ANDRES', 'ALEJO', 'LIHKI', 'YURI']
+
+#----------------Saving plot---------------------#
