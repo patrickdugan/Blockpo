@@ -132,10 +132,66 @@ for addrs in addressj:
 			paths_array.append(paths_vector)			
 	print paths_array
 
+##################################################################
+
 for addrs in sources_vector:
+
 	for i in range(len(paths_file)):
-		if addrs in str(paths_file[:][i]):
-			print paths_file[:][i]
+
+		vec_pathsl = []
+		vec_pathsl = paths_file[:][i]	
+
+		open_shortl = ( addrs == vec_pathsl[0] and vec_pathsl[1] == "OpenShortPosition" )
+		open_shortr = ( addrs == vec_pathsl[3] and vec_pathsl[4] == "OpenShortPosition" )
+		incr_shortl = ( addrs == vec_pathsl[0] and vec_pathsl[1] == "ShortPosIncreased" )
+		incr_shortr = ( addrs == vec_pathsl[3] and vec_pathsl[4] == "ShortPosIncreased" )
+
+		if ( open_shortl or open_shortr ) or ( incr_shortl or incr_shortl ):
+	
+			addrs_tracked = ""
+			if addrs == vec_pathsl[0]:
+				addrs_tracked = vec_pathsl[3]
+			else:
+				addrs_tracked = vec_pathsl[0]
+			print "\n", addrs, "is opening short pos of", vec_pathsl[6], "contracts with", addrs_tracked, "\n"	
+
+			array_longer_path = []
+			path_longer1 = []
+			path_longer2 = []
+			path_single = []			
+			
+			for j in xrange(i, len(paths_file)):
+
+				vec_pathsr = []
+				vec_pathsr = paths_file[:][j]
+
+				if ( addrs_tracked == vec_pathsr[0] and "ShortPosNetted" in str(vec_pathsr[1]) ) or ( addrs_tracked == vec_pathsr[3] and "ShortPosNetted" in str(vec_pathsr[4]) ):		
+
+					path_single.append(vec_pathsr[0])
+					path_single.append(vec_pathsr[6])
+					path_single.append(vec_pathsr[3])
+
+				elif ( addrs_tracked == vec_pathsr[0] and "OpenLongPosition" in str(vec_pathsr[1]) ) or ( addrs_tracked == vec_pathsr[3] and "OpenLongPosition" in str(vec_pathsr[4]) ):
+
+					path_longer1.append(vec_pathsr[0])
+					path_longer1.append(vec_pathsr[6])
+					path_longer1.append(vec_pathsr[3])
+
+				elif ( addrs_tracked == vec_pathsr[0] and "LongPosNettedPartly" in str(vec_pathsr[1]) ) or ( addrs_tracked == vec_pathsr[3] and "LongPosNettedPartly" in str(vec_pathsr[4]) ):
+
+					path_longer2.append(vec_pathsr[0])
+					path_longer2.append(vec_pathsr[6])
+					path_longer2.append(vec_pathsr[3])
+
+			array_longer_path.append(path_longer1)
+			array_longer_path.append(path_longer2)
+			print "Single path: ", path_single, "\n"
+			print "Longer path: ", array_longer_path
+
+			# dim = (2, 2)
+			# matriz2 = np.zeros(dim)
+			# matriz2[1, 1] = 2
+			# print matriz2[1, 1] 
 
 print "\n#----------------Saving plot---------------------#"
 
