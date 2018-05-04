@@ -117,21 +117,24 @@ print "Sources vector:\t", sources_vector
 
 ##################################################################
 
-print "\n#----------------Logic to find zero netted branchs start here---------------------#"
+print "\n#----------------Logic to find zero netted branchs start here---------------------#\n"
 
 paths_file = np.genfromtxt('graphInfoSixth.txt', dtype=None)
 print paths_file, "\n"
 
+# Covering the graph following the trades for every addresses in the order that were saved at the database
+
 for addrs in addressj:
 	paths_array = []
-	print "\nPath asociated to:", addrs, "\n"
+	# print "\nPath asociated to:", addrs, "\n"
 	for i in range(len(paths_file)):
 		if addrs in str(paths_file[:][i]):
 			paths_vector = []
 			paths_vector.extend([paths_file[i][3], paths_file[i][6], paths_file[i][0]])
 			paths_array.append(paths_vector)			
-	print paths_array
+	# print paths_array
 
+print "#---------------------------------------------------------------------------------#"
 ##################################################################
 
 for addrs in sources_vector:
@@ -153,12 +156,11 @@ for addrs in sources_vector:
 				addrs_tracked = vec_pathsl[3]
 			else:
 				addrs_tracked = vec_pathsl[0]
-			print "\n", addrs, "is opening short pos of", vec_pathsl[6], "contracts with", addrs_tracked, "\n"	
+			print "\n", addrs, "is opening short pos of", vec_pathsl[6], "contracts with", addrs_tracked, ":\n"	
 
 			array_longer_path = []
 			path_longer1 = []
-			path_longer2 = []
-			path_single = []			
+			path_longer2 = []			
 			
 			for j in xrange(i, len(paths_file)):
 
@@ -167,33 +169,38 @@ for addrs in sources_vector:
 
 				if ( addrs_tracked == vec_pathsr[0] and "ShortPosNetted" in str(vec_pathsr[1]) ) or ( addrs_tracked == vec_pathsr[3] and "ShortPosNetted" in str(vec_pathsr[4]) ):		
 
+					path_single = []
 					path_single.append(vec_pathsr[0])
 					path_single.append(vec_pathsr[6])
 					path_single.append(vec_pathsr[3])
+					print "Path Simple: ", path_single, "\n"
 
 				elif ( addrs_tracked == vec_pathsr[0] and "OpenLongPosition" in str(vec_pathsr[1]) ) or ( addrs_tracked == vec_pathsr[3] and "OpenLongPosition" in str(vec_pathsr[4]) ):
 
 					path_longer1.append(vec_pathsr[0])
 					path_longer1.append(vec_pathsr[6])
 					path_longer1.append(vec_pathsr[3])
+					array_longer_path.append(path_longer1)
 
 				elif ( addrs_tracked == vec_pathsr[0] and "LongPosNettedPartly" in str(vec_pathsr[1]) ) or ( addrs_tracked == vec_pathsr[3] and "LongPosNettedPartly" in str(vec_pathsr[4]) ):
 
 					path_longer2.append(vec_pathsr[0])
 					path_longer2.append(vec_pathsr[6])
 					path_longer2.append(vec_pathsr[3])
+					array_longer_path.append(path_longer2)
 
-			array_longer_path.append(path_longer1)
-			array_longer_path.append(path_longer2)
-			print "Single path: ", path_single, "\n"
-			print "Longer path: ", array_longer_path
+			print "Path Complex: ", array_longer_path
 
 			# dim = (2, 2)
 			# matriz2 = np.zeros(dim)
 			# matriz2[1, 1] = 2
-			# print matriz2[1, 1] 
+			# print matriz2[1, 1]
 
-print "\n#----------------Saving plot---------------------#"
+print "\n#------------------------'Definitions'---------------------------------#\n"			
+print "Path Simple:\tThe netting event of the tracked address that receives the contracts happens at the begining\n"
+print "Path Complex:\tThe netting event of the tracked address that receives the contracts happens after the contracts are\n\t\topened or keep open contracts at the end date"
+print "\n#----------------------------------------------------------------------#"			
 
+##########################################################
 plt.savefig("graphSimulation.png")
 # pylab.show()
