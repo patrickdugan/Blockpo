@@ -2932,7 +2932,7 @@ int CMPTransaction::logicMath_CreatePeggedCurrency()
     }
      int64_t position = getMPbalance(sender, contractId, NEGATIVE_BALANCE);
      int64_t contractsNeeded = static_cast<int64_t> (amount/notSize); // We must check the role of marginReq here.
-     
+
      PrintToConsole("____________________________________________________________\n");
      PrintToConsole("Inside logicMath_CreatePeggedCurrency !!!!!\n");
      PrintToConsole("Address of sender : %s\n",sender);
@@ -3064,9 +3064,9 @@ int CMPTransaction::logicMath_RedemptionPegged()
     if ((contractsNeeded > 0) && (normValue > 0)) {
        // Delete the tokens
        assert(update_tally_map(sender, property, -nValue, BALANCE));
-       // getting back from reserve contracts and collateral currency
+       // getting back from reserve contracts
        assert(update_tally_map(sender, contractId, -ncNeeded, CONTRACTDEX_RESERVE));
-        // getting back from reserve the collateral currency needed
+
        if ((posContracts > 0) && (negContracts == 0)){
           int64_t dif = posContracts - ncNeeded;
           // PrintToConsole("Difference of contracts : %d\n",dif);
@@ -3081,10 +3081,7 @@ int CMPTransaction::logicMath_RedemptionPegged()
        }
       //  PrintToConsole("Contracts in long position : %d\n",posContracts);
       //  PrintToConsole("Contracts in short position : %d\n",negContracts);
-      //  PrintToConsole("Contracts Needed : %d\n",contractsNeeded);
-
-       assert(update_tally_map(sender, propertyId, -nValue, CONTRACTDEX_RESERVE));
-       assert(update_tally_map(sender, propertyId, nValue, BALANCE));
+      //  PrintToConsole("Contracts Needed : %d\n",contractsNeeded)
 
     } else {
        PrintToLog("amount redeemed must be equal at least to value of one future contract \n");
