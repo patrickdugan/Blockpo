@@ -96,11 +96,11 @@ Sources vector:	['ANDRES', 'DANIEL', 'ALEJO', 'PATRICK']
 
 ANDRES is opening short pos of 4 contracts with LIHKI :
 
-Path Complex:  [['LIHKI', 12, 'PATRICK']]
+Path Complex:  [['LIHKI', 4, 'ANDRES'], ['ALEJO', 6, 'LIHKI'], ['LIHKI', 12, 'PATRICK']]
 
 DANIEL is opening short pos of 15 contracts with LIHKI :
 
-Path Complex:  [['LIHKI', 15, 'DANIEL'], ['LIHKI', 12, 'PATRICK']]
+Path Complex:  [['LIHKI', 15, 'DANIEL'], ['LIHKI', 4, 'ANDRES'], ['ALEJO', 6, 'LIHKI'], ['LIHKI', 12, 'PATRICK']]
 
 ALEJO is opening short pos of 16 contracts with ANDRES :
 
