@@ -7,10 +7,12 @@ import numpy as np
 import requests
 import pylab
 import os, sys
+import itertools
 
 from networkx.utils import not_implemented_for, arbitrary_element
 from functools import partial
 from itertools import chain
+from numpy import array
 
 from shortestpath import Graph
 
@@ -215,127 +217,86 @@ for j in range(len(M_file)):
 	M_filej = []
 	M_filej = M_file[:][j]
 
-	if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased":
+	addrs_trk  = M_filej[0] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[3]
+	status_trk = M_filej[1] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[4] 
+	lives_trk  = M_filej[2] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[5]
+	addrs_src  = M_filej[3] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[0]
+	status_src = M_filej[4] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[1]
+	lives_src  = M_filej[5] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[2]
+	amount_trd = M_filej[6] 
 
-		addrs_src  = M_filej[3]
-		status_src = M_filej[4] 
-		addrs_trk  = M_filej[0]
-		status_trk = M_filej[1]
-		amount_trd = M_filej[6]
+	single_path = []
+	path_complex_one = []
+	path_complex_two = []
 
-		if status_trk == "ShortPosNetted":
+	if status_trk == "ShortPosNetted" or status_trk == "ShortPosNettedPartly":
 	
-			print "Source: ", addrs_src, "\n"
-			single_path = []
+		print "Source: ", addrs_src, "\n"
 
-			single_path.append(addrs_src)
-			single_path.append(amount_trd)
-			single_path.append(addrs_trk)
+		single_path.append(addrs_src)
+		single_path.append(amount_trd)
+		single_path.append(addrs_trk)
 
-			print "Single path:\n", single_path, "\n"
+		print "Single path:\n", single_path, "\n"
 
-		if status_trk == "OpenLongPosition":
+	elif status_trk == "LongPosIncreased":
+
+		print "Working on it"
+
+	elif status_trk == "OpenLongPosition":
+		
+		print "Source: ", addrs_src, "\n"
+		print "Complex path:"
+
+		single_path.append(addrs_src)
+		single_path.append(amount_trd)
+		single_path.append(addrs_trk)
+
+		path_complex_one.append(single_path)
+		path_complex_two.append(single_path)
+		R_partly = []
+
+		for i in xrange(j, len(M_file)):
+
+			N_filei = []
+			N_filei = M_file[:][i]
+			status_trki = N_filei[1] if addrs_trk == N_filei[0] else N_filei[4]
+
+			if addrs_trk in str(N_filei) and status_trki == "LongPosNetted":
+
+				path_complex_ele_one = []
+				path_complex_ele_one.append(N_filei[0])
+				path_complex_ele_one.append(N_filei[6])
+				path_complex_ele_one.append(N_filei[3])
+
+				path_complex_one.append(path_complex_ele_one) 
+
+			elif addrs_trk in str(N_filei) and status_trki == "LongPosNettedPartly":				
+									
+				path_complex_ele_two = []
+				path_complex_ele_two.append(N_filei[0])
+				path_complex_ele_two.append(N_filei[6])
+				path_complex_ele_two.append(N_filei[3])
+
+				R_partly.append(path_complex_ele_two) 	
+
+		if ( len(R_partly) != 0 ):
 			
-			print "Source: ", addrs_src, "\n"
-			print "Complex path:"
-			path_complex = []
+			A_partly = str(R_partly[-1:])[2:-2]
+			A_partly = A_partly.replace('\'', '')
+			A_partly = A_partly.split(", ")
 
-			for i in xrange(j-1, len(M_file)):
-					
-				M_filei = []
-				M_filei = M_file[:][i]
-
-				if addrs_trk in str(M_filei) and "Netted" in str(M_filei):
-
-					path_complex_ele = []
-
-					path_complex_ele.append(M_filei[0])
-					path_complex_ele.append(M_filei[6])
-					path_complex_ele.append(M_filei[3])
-
-					path_complex.append(path_complex_ele)
-
-				if addrs_trk in str(M_filei) and "" in str(M_filei):
-
-					path_complex_ele = []
-
-					path_complex_ele.append(M_filei[0])
-					path_complex_ele.append(M_filei[6])
-					path_complex_ele.append(M_filei[3])
-
-					path_complex.append(path_complex_ele)
-
-			print path_complex
-
-			print "#---------------------------------------------------------------------------------#"
+			path_complex_ele_two = []
+			for val in range(len(A_partly)):
+				path_complex_ele_two.append(int(A_partly[val])) if val == 1 else path_complex_ele_two.append(A_partly[val])
 	
-	# if M_filej[1] == "OpenShortPosition" or M_filej[1] == "ShortPosIncreased":
-
-	# 	addrs_src = M_filej[0]
-	# 	addrs_trk = M_filej[3]
-
-	# 	single_path = []
-	# 	single_path.append(addrs_src)
-	# 	single_path.append(M_filej[6])
-	# 	single_path.append(addrs_trk)
-
-	# 	print single_path
+			path_complex_two.append(path_complex_ele_two)
+			print path_complex_two
+		else:
+			print path_complex_two
 
 
-# 	if "OpenShortPosition" in str(M_filej) or "ShortPosIncreased" in str(M_filej):
-
-# 		addrs_source  = ""
-# 		addrs_tracked = ""
-
-# 		if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased":
-
-# 			addrs_source  = M_filej[3]
-# 			addrs_tracked = M_filej[0]
-# 		else:
-# 			addrs_source  = M_filej[0]
-# 			addrs_tracked = M_filej[3]
-
-# 		# print "\n[", addrs_source, ",", M_filej[6], ",", addrs_tracked,"]\n"
-
-# 		array_longer_path = []
-
-# 		for j in xrange(i, len(M_file)):
-			
-# 			M_filer = []
-# 			M_filer = M_file[:][j]
-# 			path_single = []
-
-# 			# if ( addrs_tracked == M_filer[0] and "ShortPosNettedPartly" in str(M_filer[1]) ) or ( addrs_tracked == M_filer[3] and "ShortPosNettedPartly" in str(M_filer[4]) ):
-
-# 			# 	path_single.append(M_filer[0])
-# 			# 	path_single.append(M_filer[6])
-# 			# 	path_single.append(M_filer[3])
-
-# 			if ( addrs_tracked == M_filer[0] and "ShortPosNetted" in str(M_filer[1]) ) or ( addrs_tracked == M_filer[3] and "ShortPosNetted" in str(M_filer[4]) ):
-
-# 				path_single.append(M_filer[0])
-# 				path_single.append(M_filer[6])
-# 				path_single.append(M_filer[3])
-
-# 				print "Simple path:\t", path_single
-
-# 			if ( addrs_tracked == M_filer[0] and "OpenLongPosition" in str(M_filer[1]) ) or ( addrs_tracked == M_filer[3] and "OpenLongPosition" in str(M_filer[4]) ):
-
-# 				path_single.append(M_filer[0])
-# 				path_single.append(M_filer[6])
-# 				path_single.append(M_filer[3])
-# 				array_longer_path.append(path_single)
-
-# 				print "Complex path:\t", array_longer_path, "\n"
-			
-# 			# if ( addrs_tracked == M_filer[0] and "LongPosIncreased" in str(M_filer[1]) ) or ( addrs_tracked == M_filer[3] and "LongPosIncreased" in str(M_filer[4]) ):
-
-# 			# 	path_single.append(M_filer[0])
-# 			# 	path_single.append(M_filer[6])
-# 			# 	path_single.append(M_filer[3])
-
-# 		print "#---------------------------------------------------------------------------------#\n"
-
+		print "#---------------------------------------------------------------------------------#"
 
 ##########################################################
 plt.savefig("graphSimulation.png")
