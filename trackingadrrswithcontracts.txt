@@ -1,0 +1,144 @@
+#----------------Graph Simulation---------------------#
+---------------------------------------
+List of Nodes: 
+['ANDRES', 'DANIEL', 'ALEJO', 'LIHKI', 'PATRICK']
+---------------------------------------
+List of Edges: 
+[('ANDRES', 'ALEJO'), ('DANIEL', 'PATRICK'), ('ALEJO', 'PATRICK'), ('ALEJO', 'LIHKI'), ('LIHKI', 'ANDRES'), ('LIHKI', 'DANIEL'), ('LIHKI', 'PATRICK'), ('PATRICK', 'ANDRES')]
+---------------------------------------
+Number of Nodes:  5
+---------------------------------------
+Number of Edges:  8
+---------------------------------------
+#----------------Testing Shortest Paths from: LIHKI  ---------------------#
+4
+15
+8
+0
+12
+#----------------Status vector by address---------------------#
+LIHKI :	['OpenLongPosition', 'LongPosIncreased', 'LongPosIncreased', 'LongPosNettedPartly']
+DANIEL :	['OpenShortPosition', 'ShortPosNettedPartly']
+ANDRES :	['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNetted', 'OpenLongPosition']
+ALEJO :	['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition', 'LongPosNettedPartly']
+PATRICK :	['OpenLongPosition', 'LongPosNetted', 'OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly']
+------------------------------------------------
+Address: ANDRES 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  ANDRES :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNetted', 'OpenLongPosition']
+
+ANDRES :  ['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNetted', 'OpenLongPosition']
+------------------------------------------------
+Address: DANIEL 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  DANIEL :
+['OpenShortPosition', 'ShortPosNettedPartly']
+
+DANIEL :  ['OpenShortPosition', 'ShortPosNettedPartly']
+------------------------------------------------
+Address: ALEJO 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  ALEJO :
+['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition', 'LongPosNettedPartly']
+
+ALEJO :  ['OpenShortPosition', 'ShortPosIncreased', 'ShortPosNettedPartly', 'ShortPosNetted', 'OpenLongPosition', 'LongPosNettedPartly']
+------------------------------------------------
+Address: LIHKI 
+
+Conclusion:
+This address can not be a source!!
+
+Status vector for  LIHKI :
+['OpenLongPosition', 'LongPosIncreased', 'LongPosIncreased', 'LongPosNettedPartly'] 
+
+
+LIHKI :  ['OpenLongPosition', 'LongPosIncreased', 'LongPosIncreased', 'LongPosNettedPartly']
+------------------------------------------------
+Address: PATRICK 
+
+Conclusion:
+This address can be a source!!
+
+Status vector for  PATRICK :
+['OpenLongPosition', 'LongPosNetted', 'OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly']
+
+PATRICK :  ['OpenLongPosition', 'LongPosNetted', 'OpenShortPosition', 'ShortPosIncreased', 'ShortPosIncreased', 'ShortPosNettedPartly']
+
+Number of sources:	4
+Number of nodes:	5
+Sources vector:	['ANDRES', 'DANIEL', 'ALEJO', 'PATRICK']
+
+#----------------Logic to find zero netted branchs start here---------------------#
+
+[('LIHKI', 'OpenLongPosition', 15, 'DANIEL', 'OpenShortPosition', 15, 15)
+ ('LIHKI', 'LongPosIncreased', 19, 'ANDRES', 'OpenShortPosition', 4, 4)
+ ('PATRICK', 'OpenLongPosition', 12, 'ANDRES', 'ShortPosIncreased', 16, 12)
+ ('ANDRES', 'ShortPosNetted', 0, 'ALEJO', 'OpenShortPosition', 16, 16)
+ ('ANDRES', 'OpenLongPosition', 4, 'ALEJO', 'ShortPosIncreased', 20, 4)
+ ('ALEJO', 'ShortPosNettedPartly', 8, 'PATRICK', 'LongPosNetted', 0, 12)
+ ('ALEJO', 'ShortPosNetted', 0, 'PATRICK', 'OpenShortPosition', 8, 8)
+ ('ALEJO', 'OpenLongPosition', 7, 'PATRICK', 'ShortPosIncreased', 15, 7)
+ ('DANIEL', 'ShortPosNettedPartly', 13, 'PATRICK', 'ShortPosIncreased', 17, 2)
+ ('ALEJO', 'LongPosNettedPartly', 1, 'LIHKI', 'LongPosIncreased', 25, 6)
+ ('LIHKI', 'LongPosNettedPartly', 13, 'PATRICK', 'ShortPosNettedPartly', 5, 12)] 
+
+#---------------------------------------------------------------------------------#
+
+#------------------------'Definitions'---------------------------------#
+
+Path Simple:	The netting event of the tracked address that receives the contracts happens at the begining
+
+Path Complex:	The netting event of the tracked address that receives the contracts happens after the contracts are
+		opened or keep open contracts at the end date
+
+#---------------------------------------------------------------------------------#
+
+Source:  DANIEL ; Tracked:  LIHKI 
+
+Complex path:
+[['DANIEL', 15, 'LIHKI'], ['LIHKI', 12, 'PATRICK']]
+#---------------------------------------------------------------------------------#
+Source:  ANDRES ; Tracked:  LIHKI 
+
+Complex path:
+[['ANDRES', 4, 'LIHKI'], ['LIHKI', 12, 'PATRICK']]
+#---------------------------------------------------------------------------------#
+Source:  ANDRES ; Tracked:  PATRICK 
+
+Complex path:
+[['ANDRES', 12, 'PATRICK'], ['ALEJO', 12, 'PATRICK']]
+#---------------------------------------------------------------------------------#
+Source:  ALEJO ; Tracked:  ANDRES 
+
+Single path:
+['ALEJO', 16, 'ANDRES'] 
+
+Source:  ALEJO ; Tracked:  ANDRES 
+
+Single path:  ['ANDRES', 4, 'ALEJO']
+#---------------------------------------------------------------------------------#
+Source:  PATRICK ; Tracked:  ALEJO 
+
+Single path:
+['PATRICK', 8, 'ALEJO'] 
+
+Source:  PATRICK ; Tracked:  ALEJO 
+
+Complex path:
+[['PATRICK', 7, 'ALEJO'], ['ALEJO', 6, 'LIHKI']]
+#---------------------------------------------------------------------------------#
+Source:  PATRICK ; Tracked:  DANIEL 
+
+Single path:
+['PATRICK', 2, 'DANIEL'] 
+
