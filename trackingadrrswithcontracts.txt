@@ -92,7 +92,6 @@ Sources vector:	['ANDRES', 'DANIEL', 'ALEJO', 'PATRICK']
  ('ALEJO', 'LongPosNettedPartly', 1, 'LIHKI', 'LongPosIncreased', 25, 6)
  ('LIHKI', 'LongPosNettedPartly', 13, 'PATRICK', 'ShortPosNettedPartly', 5, 12)] 
 
-#---------------------------------------------------------------------------------#
 
 #------------------------'Definitions'---------------------------------#
 
@@ -100,45 +99,137 @@ Path Simple:	The netting event of the tracked address that receives the contract
 
 Path Complex:	The netting event of the tracked address that receives the contracts happens after the contracts are
 		opened or keep open contracts at the end date
+M_file:
+[('LIHKI', 'OpenLongPosition', 15, 'DANIEL', 'OpenShortPosition', 15, 15)
+ ('LIHKI', 'LongPosIncreased', 19, 'ANDRES', 'OpenShortPosition', 4, 4)
+ ('PATRICK', 'OpenLongPosition', 12, 'ANDRES', 'ShortPosIncreased', 16, 12)
+ ('ANDRES', 'ShortPosNetted', 0, 'ALEJO', 'OpenShortPosition', 16, 16)
+ ('ANDRES', 'OpenLongPosition', 4, 'ALEJO', 'ShortPosIncreased', 20, 4)
+ ('ALEJO', 'ShortPosNettedPartly', 8, 'PATRICK', 'LongPosNetted', 0, 12)
+ ('ALEJO', 'ShortPosNetted', 0, 'PATRICK', 'OpenShortPosition', 8, 8)
+ ('ALEJO', 'OpenLongPosition', 7, 'PATRICK', 'ShortPosIncreased', 15, 7)
+ ('DANIEL', 'ShortPosNettedPartly', 13, 'PATRICK', 'ShortPosIncreased', 17, 2)
+ ('ALEJO', 'LongPosNettedPartly', 1, 'LIHKI', 'LongPosIncreased', 25, 6)
+ ('LIHKI', 'LongPosNettedPartly', 13, 'PATRICK', 'ShortPosNettedPartly', 5, 12)] Length M_file:  11 
 
 #---------------------------------------------------------------------------------#
 
 Source:  DANIEL ; Tracked:  LIHKI 
 
 Complex path:
-[['DANIEL', 15, 'LIHKI'], ['LIHKI', 12, 'PATRICK']]
+[['DANIEL', 15, 'LIHKI'], ['LIHKI', 12, 'PATRICK']] 
+
+Contrats opened:
+['LIHKI', 3, 'PATRICK'] 
+
+[lives_src, lives_trk, amount_trd]:
+[[15, 15, 15], [5, 13, 12]] 
+
+Index j for:  [0, 10]
+M_file:
+[('LIHKI', 'LongPosIncreased', 19, 'ANDRES', 'OpenShortPosition', 4, 4)
+ ('PATRICK', 'OpenLongPosition', 12, 'ANDRES', 'ShortPosIncreased', 16, 12)
+ ('ANDRES', 'ShortPosNetted', 0, 'ALEJO', 'OpenShortPosition', 16, 16)
+ ('ANDRES', 'OpenLongPosition', 4, 'ALEJO', 'ShortPosIncreased', 20, 4)
+ ('ALEJO', 'ShortPosNettedPartly', 8, 'PATRICK', 'LongPosNetted', 0, 12)
+ ('ALEJO', 'ShortPosNetted', 0, 'PATRICK', 'OpenShortPosition', 8, 8)
+ ('ALEJO', 'OpenLongPosition', 7, 'PATRICK', 'ShortPosIncreased', 15, 7)
+ ('DANIEL', 'ShortPosNettedPartly', 13, 'PATRICK', 'ShortPosIncreased', 17, 2)
+ ('ALEJO', 'LongPosNettedPartly', 1, 'LIHKI', 'LongPosIncreased', 25, 6)] Length M_file:  9 
+
 #---------------------------------------------------------------------------------#
+
 Source:  ANDRES ; Tracked:  LIHKI 
 
-Complex path:
-[['ANDRES', 4, 'LIHKI'], ['LIHKI', 12, 'PATRICK']]
+Single path:  ['ANDRES', 4, 'LIHKI']
+Index j for:  [0]
+M_file:
+[('PATRICK', 'OpenLongPosition', 12, 'ANDRES', 'ShortPosIncreased', 16, 12)
+ ('ANDRES', 'ShortPosNetted', 0, 'ALEJO', 'OpenShortPosition', 16, 16)
+ ('ANDRES', 'OpenLongPosition', 4, 'ALEJO', 'ShortPosIncreased', 20, 4)
+ ('ALEJO', 'ShortPosNettedPartly', 8, 'PATRICK', 'LongPosNetted', 0, 12)
+ ('ALEJO', 'ShortPosNetted', 0, 'PATRICK', 'OpenShortPosition', 8, 8)
+ ('ALEJO', 'OpenLongPosition', 7, 'PATRICK', 'ShortPosIncreased', 15, 7)
+ ('DANIEL', 'ShortPosNettedPartly', 13, 'PATRICK', 'ShortPosIncreased', 17, 2)
+ ('ALEJO', 'LongPosNettedPartly', 1, 'LIHKI', 'LongPosIncreased', 25, 6)] Length M_file:  8 
+
 #---------------------------------------------------------------------------------#
+
 Source:  ANDRES ; Tracked:  PATRICK 
 
 Complex path:
 [['ANDRES', 12, 'PATRICK'], ['ALEJO', 12, 'PATRICK']]
+Index j for:  [0, 3]
+M_file:
+[('ANDRES', 'ShortPosNetted', 0, 'ALEJO', 'OpenShortPosition', 16, 16)
+ ('ANDRES', 'OpenLongPosition', 4, 'ALEJO', 'ShortPosIncreased', 20, 4)
+ ('ALEJO', 'ShortPosNetted', 0, 'PATRICK', 'OpenShortPosition', 8, 8)
+ ('ALEJO', 'OpenLongPosition', 7, 'PATRICK', 'ShortPosIncreased', 15, 7)
+ ('DANIEL', 'ShortPosNettedPartly', 13, 'PATRICK', 'ShortPosIncreased', 17, 2)
+ ('ALEJO', 'LongPosNettedPartly', 1, 'LIHKI', 'LongPosIncreased', 25, 6)] Length M_file:  6 
+
 #---------------------------------------------------------------------------------#
+
 Source:  ALEJO ; Tracked:  ANDRES 
 
 Single path:
 ['ALEJO', 16, 'ANDRES'] 
 
+Index j for:  [0]
+M_file:
+[('ANDRES', 'OpenLongPosition', 4, 'ALEJO', 'ShortPosIncreased', 20, 4)
+ ('ALEJO', 'ShortPosNetted', 0, 'PATRICK', 'OpenShortPosition', 8, 8)
+ ('ALEJO', 'OpenLongPosition', 7, 'PATRICK', 'ShortPosIncreased', 15, 7)
+ ('DANIEL', 'ShortPosNettedPartly', 13, 'PATRICK', 'ShortPosIncreased', 17, 2)
+ ('ALEJO', 'LongPosNettedPartly', 1, 'LIHKI', 'LongPosIncreased', 25, 6)] Length M_file:  5 
+
+#---------------------------------------------------------------------------------#
+
 Source:  ALEJO ; Tracked:  ANDRES 
 
-Single path:  ['ANDRES', 4, 'ALEJO']
+Single path:  ['ALEJO', 4, 'ANDRES']
+Index j for:  [0]
+M_file:
+[('ALEJO', 'ShortPosNetted', 0, 'PATRICK', 'OpenShortPosition', 8, 8)
+ ('ALEJO', 'OpenLongPosition', 7, 'PATRICK', 'ShortPosIncreased', 15, 7)
+ ('DANIEL', 'ShortPosNettedPartly', 13, 'PATRICK', 'ShortPosIncreased', 17, 2)
+ ('ALEJO', 'LongPosNettedPartly', 1, 'LIHKI', 'LongPosIncreased', 25, 6)] Length M_file:  4 
+
 #---------------------------------------------------------------------------------#
+
 Source:  PATRICK ; Tracked:  ALEJO 
 
 Single path:
 ['PATRICK', 8, 'ALEJO'] 
 
+Index j for:  [0]
+M_file:
+[('ALEJO', 'OpenLongPosition', 7, 'PATRICK', 'ShortPosIncreased', 15, 7)
+ ('DANIEL', 'ShortPosNettedPartly', 13, 'PATRICK', 'ShortPosIncreased', 17, 2)
+ ('ALEJO', 'LongPosNettedPartly', 1, 'LIHKI', 'LongPosIncreased', 25, 6)] Length M_file:  3 
+
+#---------------------------------------------------------------------------------#
+
 Source:  PATRICK ; Tracked:  ALEJO 
 
 Complex path:
-[['PATRICK', 7, 'ALEJO'], ['ALEJO', 6, 'LIHKI']]
+[['PATRICK', 7, 'ALEJO'], ['ALEJO', 6, 'LIHKI']] 
+
+Contrats opened:
+['ALEJO', 1, 'LIHKI'] 
+
+[lives_src, lives_trk, amount_trd]:
+[[15, 7, 7], [25, 1, 6]] 
+
+Index j for:  [0, 2]
+M_file:
+[ ('DANIEL', 'ShortPosNettedPartly', 13, 'PATRICK', 'ShortPosIncreased', 17, 2)] Length M_file:  1 
+
 #---------------------------------------------------------------------------------#
+
 Source:  PATRICK ; Tracked:  DANIEL 
 
 Single path:
-['PATRICK', 2, 'DANIEL'] 
+['DANIEL', 2, 'PATRICK']
+#---------------------------------------------------------------------------------#
 

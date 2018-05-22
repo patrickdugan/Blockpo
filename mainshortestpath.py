@@ -1,5 +1,6 @@
 #! /usr/bin/python
 
+from collections import OrderedDict
 from collections import defaultdict
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -8,6 +9,7 @@ import requests
 import pylab
 import os, sys
 import itertools
+import json
 
 from networkx.utils import not_implemented_for, arbitrary_element
 from functools import partial
@@ -124,7 +126,7 @@ print "\n#----------------Logic to find zero netted branchs start here----------
 paths_file = np.genfromtxt('graphInfoSixth.txt', dtype=None)
 print paths_file, "\n"
 
-# Covering the graph following the trades for every addresses in the order that were saved at the database
+# Covering the graph by following the trades for every addresses in the order that were saved at the database
 
 for addrs in addressj:
 	paths_array = []
@@ -136,21 +138,40 @@ for addrs in addressj:
 			paths_array.append(paths_vector)			
 	# print paths_array
 
-print "#---------------------------------------------------------------------------------#"
-
 ##################################################################
 
 print "\n#------------------------'Definitions'---------------------------------#\n"			
 print "Path Simple:\tThe netting event of the tracked address that receives the contracts happens at the begining\n"
 print "Path Complex:\tThe netting event of the tracked address that receives the contracts happens after the contracts are\n\t\topened or keep open contracts at the end date"
-print "\n#---------------------------------------------------------------------------------#\n"
 
 M_file = np.genfromtxt('graphInfoSixth.txt', dtype=None)
+M_file = array(M_file)
 
-for j in range(len(M_file)):
+idx_i = []
+Interval = range(len(M_file))
+
+for j in Interval:	
+
+	if j > 0:
+		print "Index j for: ", idx_i
+		M_file = np.delete(M_file, idx_i, 0)
+		
+	print "M_file:\n", M_file, "Length M_file: ", len(M_file), "\n"
+
+	single_path = []
+
+	if len(M_file) == 1:
+		print "#---------------------------------------------------------------------------------#\n"
+		print "Source: ", M_file[0][3], "; Tracked: ", M_file[0][0], "\n"	
+		single_path.append(M_file[0][0])
+		single_path.append(M_file[0][6])
+		single_path.append(M_file[0][3])
+		print "Single path:\n", single_path
+
+		break
 
 	M_filej = []
-	M_filej = M_file[:][j]
+	M_filej = M_file[:][0]
 
 	addrs_trk  = M_filej[0] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[3]
 	status_trk = M_filej[1] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[4] 
@@ -160,25 +181,29 @@ for j in range(len(M_file)):
 	lives_src  = M_filej[5] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[2]
 	amount_trd = M_filej[6] 
 
-	single_path = []
 	path_complex_one = []
 	path_complex_two = []
+	contracts_opened = []
 	R_partly = []
+	L_partly = []
 
 	if status_src == "OpenShortPosition" or status_src == "ShortPosIncreased":
 	
 		if status_trk == "ShortPosNetted" or status_trk == "ShortPosNettedPartly":
-	
+			
+			print "#---------------------------------------------------------------------------------#\n"
 			print "Source: ", addrs_src, "; Tracked: ", addrs_trk, "\n"
 
 			single_path.append(addrs_src)
 			single_path.append(amount_trd)
 			single_path.append(addrs_trk)
 
-			print "Single path:\n", single_path, "\n"
+			print "Single path:\n", single_path, "\n"			
+			idx_i = [0]
 
 		elif status_trk == "OpenLongPosition" or status_trk == "LongPosIncreased":
-		
+
+			print "#---------------------------------------------------------------------------------#\n"
 			print "Source: ", addrs_src, "; Tracked: ", addrs_trk, "\n"
 
 			single_path.append(addrs_src)
@@ -188,15 +213,36 @@ for j in range(len(M_file)):
 			path_complex_one.append(single_path)
 			path_complex_two.append(single_path)
 
-			counter = 0
-			for i in xrange(j, len(M_file)):				
+			Lives_amountsj = []
+			Lives_amountsj.append(lives_src)
+			Lives_amountsj.append(lives_trk)
+			Lives_amountsj.append(amount_trd)		
+			L_partly.append(Lives_amountsj)
+
+			idx_iter = 0
+			Long_pos_incr = []
+			status_addrs_trk_v = []
+
+			for i in xrange(1, len(M_file)):				
 
 				N_filei = []
 				N_filei = M_file[:][i]
+
 				status_trki = N_filei[1] if addrs_trk == N_filei[0] else N_filei[4]
+				addrs_srci  = N_filei[3] if addrs_trk == N_filei[0] else N_filei[0]
+				lives_trki  = N_filei[2] if addrs_trk == N_filei[0] else N_filei[5]
+				lives_srci  = N_filei[2] if addrs_src == N_filei[0] else N_filei[5]
+				amount_trdi = N_filei[6]
 
 				if addrs_trk in str(N_filei):
-					counter += 1
+					idx_iter += 1
+					status_addrs_trk_v.append(status_trki)
+
+				path_long_pos_incr = []
+				path_long_pos_incr.append(N_filei[0])
+				path_long_pos_incr.append(N_filei[6])
+				path_long_pos_incr.append(N_filei[3])
+				Long_pos_incr.append(path_long_pos_incr)
 
 				if addrs_trk in str(N_filei) and status_trki == "LongPosNetted":
 
@@ -209,26 +255,33 @@ for j in range(len(M_file)):
 
 					print "Complex path:\n", path_complex_one
 
-				elif addrs_trk in str(N_filei) and status_trki == "LongPosNettedPartly":				
+					idx_i = [0, i]
+
+				elif addrs_trk in str(N_filei) and status_trki == "LongPosNettedPartly":
 									
 					path_complex_ele_two = []
 					path_complex_ele_two.append(N_filei[0])
 					path_complex_ele_two.append(N_filei[6])
 					path_complex_ele_two.append(N_filei[3])
 
-					R_partly.append(path_complex_ele_two) 	
+					R_partly.append(path_complex_ele_two)
 
-			if ( counter == 1 ):
-				# print "Contador: ", counter, j
-				path_complex_ele_thr = []
-				path_complex_ele_thr.append(M_filej[0])
-				path_complex_ele_thr.append(M_filej[6])
-				path_complex_ele_thr.append(M_filej[3])
-				print "Single path: ", path_complex_ele_thr
+					Lives_amountsi = []
+					Lives_amountsi.append(lives_srci)
+					Lives_amountsi.append(lives_trki)
+					Lives_amountsi.append(amount_trdi)
 
-			if ( len(R_partly) > 1 ):
+					L_partly.append(Lives_amountsi)
 
-				# print "len(R_partly) = ", len(R_partly), "!!"			
+					idx_i = [0] if i in idx_i else [0, i]
+
+			if "Netted" not in str(status_addrs_trk_v) or len(status_addrs_trk_v) == 0:
+
+				print "Single path: ", single_path
+				idx_i = [0]
+
+			if len(R_partly) > 1:
+
 				A_partly = str(R_partly[-1:])[2:-2]
 				A_partly = A_partly.replace('\'', '')
 				A_partly = A_partly.split(", ")
@@ -238,11 +291,17 @@ for j in range(len(M_file)):
 					path_complex_ele_two.append(int(A_partly[val])) if val == 1 else path_complex_ele_two.append(A_partly[val])
 		
 				path_complex_two.append(path_complex_ele_two)
-				print "Complex path:\n",  path_complex_two
 
-			elif ( len(R_partly) == 1 ):
+				contracts_opened.append(A_partly[0])
+				contracts_opened.append(abs(L_partly[0][-1]-L_partly[1][-1]))
+				contracts_opened.append(A_partly[-1])
 
-				# print "len(R_partly) = ", len(R_partly), "!!"
+				print "Complex path:\n",  path_complex_two, "\n"
+				print "Contrats opened:\n", contracts_opened, "\n"
+				print "[lives_src, lives_trk, amount_trd]:\n",  L_partly, "\n"
+
+			elif len(R_partly) == 1:
+
 				A_partly = str(R_partly)[2:-2]
 				A_partly = A_partly.replace('\'', '')
 				A_partly = A_partly.split(", ")
@@ -252,9 +311,47 @@ for j in range(len(M_file)):
 					path_complex_ele_two.append(int(A_partly[val])) if val == 1 else path_complex_ele_two.append(A_partly[val])
 		
 				path_complex_two.append(path_complex_ele_two)
-				print "Complex path:\n",  path_complex_two
 
-			print "#---------------------------------------------------------------------------------#"
+				contracts_opened.append(A_partly[0])
+				contracts_opened.append(abs(L_partly[0][-1]-L_partly[1][-1]))
+				contracts_opened.append(A_partly[-1])
+
+				print "Complex path:\n",  path_complex_two, "\n"
+				print "Contrats opened:\n", contracts_opened, "\n"
+				print "[lives_src, lives_trk, amount_trd]:\n",  L_partly, "\n"
+	
+print "#---------------------------------------------------------------------------------#\n"
+
+Json_file = np.genfromtxt('graphInfoAddresses.txt', dtype=None)
+
+Keys = ['id','label'] 
+Values = [] 
+Dict = dict(zip(Keys, Values)) 
+Data = []
+
+x=0
+while x < len(Json_file):
+    x += 1 
+    MoreValues = [Json_file[x-1],Json_file[x-1]] 
+    Dict = dict(zip(Keys, MoreValues))
+    Data.append(Dict)
+
+# print Data, "\n"
+
+#############################################
+M = np.genfromtxt('graphInfoFourth.txt', dtype=None)
+
+KK = ['from','to', 'label', 'arrows'] 
+VV = [] 
+DDIC = dict(zip(KK, VV))
+DDA2 = []
+
+for k in range(len(M)):
+    X = [M[k][0], M[k][2], M[k][1], '{middle:{scaleFactor:0.5},from:true}']
+    DDIC = dict(zip(KK, X))
+    DDA2.append(DDIC)
+
+# print DDA2
 
 ##########################################################
 plt.savefig("graphSimulation.png")
