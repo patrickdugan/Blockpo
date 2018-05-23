@@ -147,16 +147,16 @@ print "Path Complex:\tThe netting event of the tracked address that receives the
 M_file = np.genfromtxt('graphInfoSixth.txt', dtype=None)
 M_file = array(M_file)
 
-idx_i = []
+idx_i = [0]
 Interval = range(len(M_file))
 
 for j in Interval:	
 
 	if j > 0:
-		print "Index j for: ", idx_i
+		print "Rows to delete: ", idx_i
 		M_file = np.delete(M_file, idx_i, 0)
 		
-	print "M_file:\n", M_file, "Length M_file: ", len(M_file), "\n"
+	print "M_file:\n", M_file, "\nLength M_file: ", len(M_file), "\n"
 
 	single_path = []
 
@@ -166,8 +166,8 @@ for j in Interval:
 		single_path.append(M_file[0][0])
 		single_path.append(M_file[0][6])
 		single_path.append(M_file[0][3])
-		print "Single path:\n", single_path
-
+		print "Single path:\n", single_path, "\n"
+		print "Length M_file: ", 0
 		break
 
 	M_filej = []
@@ -223,6 +223,7 @@ for j in Interval:
 			Long_pos_incr = []
 			status_addrs_trk_v = []
 
+			amount_trd_sum = 0
 			for i in xrange(1, len(M_file)):				
 
 				N_filei = []
@@ -255,70 +256,81 @@ for j in Interval:
 
 					print "Complex path:\n", path_complex_one
 
-					idx_i = [0, i]
+					idx_i.append(i)
 
 				elif addrs_trk in str(N_filei) and status_trki == "LongPosNettedPartly":
-									
-					path_complex_ele_two = []
-					path_complex_ele_two.append(N_filei[0])
-					path_complex_ele_two.append(N_filei[6])
-					path_complex_ele_two.append(N_filei[3])
 
-					R_partly.append(path_complex_ele_two)
+					amount_trd_sum = amount_trd_sum + N_filei[6]
 
-					Lives_amountsi = []
-					Lives_amountsi.append(lives_srci)
-					Lives_amountsi.append(lives_trki)
-					Lives_amountsi.append(amount_trdi)
+					if amount_trd_sum <= amount_trd:
 
-					L_partly.append(Lives_amountsi)
+						path_complex_ele_two = []
+						path_complex_ele_two.append(N_filei[0])
+						path_complex_ele_two.append(N_filei[6])
+						path_complex_ele_two.append(N_filei[3])
 
-					idx_i = [0] if i in idx_i else [0, i]
+						R_partly.append(path_complex_ele_two)
+
+						Lives_amountsi = []
+						Lives_amountsi.append(lives_srci)
+						Lives_amountsi.append(lives_trki)
+						Lives_amountsi.append(amount_trdi)
+
+						L_partly.append(Lives_amountsi)
+
+						idx_i.append(i)
+
+						print "Opened contrats: ", amount_trd, " >= Total contracts traded: ", amount_trd_sum
+					else:
+						print "Opened contrats: ", amount_trd, " < Total contracts traded: ", amount_trd_sum
+						break
 
 			if "Netted" not in str(status_addrs_trk_v) or len(status_addrs_trk_v) == 0:
 
 				print "Single path: ", single_path
 				idx_i = [0]
 
-			if len(R_partly) > 1:
+			# if len(R_partly) > 1:
 
-				A_partly = str(R_partly[-1:])[2:-2]
-				A_partly = A_partly.replace('\'', '')
-				A_partly = A_partly.split(", ")
+			# 	A_partly = str(R_partly[-1:])[2:-2]
+			# 	A_partly = A_partly.replace('\'', '')
+			# 	A_partly = A_partly.split(", ")
 
-				path_complex_ele_two = []
-				for val in range(len(A_partly)):
-					path_complex_ele_two.append(int(A_partly[val])) if val == 1 else path_complex_ele_two.append(A_partly[val])
+			# 	path_complex_ele_two = []
+			# 	for val in range(len(A_partly)):
+			# 		path_complex_ele_two.append(int(A_partly[val])) if val == 1 else path_complex_ele_two.append(A_partly[val])
 		
-				path_complex_two.append(path_complex_ele_two)
+			# 	path_complex_two.append(path_complex_ele_two)
 
-				contracts_opened.append(A_partly[0])
-				contracts_opened.append(abs(L_partly[0][-1]-L_partly[1][-1]))
-				contracts_opened.append(A_partly[-1])
+			# 	contracts_opened.append(A_partly[0])
+			# 	contracts_opened.append(abs(L_partly[0][-1]-L_partly[1][-1]))
+			# 	contracts_opened.append(A_partly[-1])
 
-				print "Complex path:\n",  path_complex_two, "\n"
-				print "Contrats opened:\n", contracts_opened, "\n"
-				print "[lives_src, lives_trk, amount_trd]:\n",  L_partly, "\n"
+			# 	print "Complex path:\n",  path_complex_two, "\n"
+			# 	print "Contrats opened:\n", contracts_opened, "\n"
+			# 	print "[lives_src, lives_trk, amount_trd]:\n",  L_partly, "\n"
+			# 	print "Opened contrats: ", amount_trd, " > Total contracts traded: ", amount_trd_sum
 
-			elif len(R_partly) == 1:
+			# elif len(R_partly) == 1:
 
-				A_partly = str(R_partly)[2:-2]
-				A_partly = A_partly.replace('\'', '')
-				A_partly = A_partly.split(", ")
+			# 	A_partly = str(R_partly)[2:-2]
+			# 	A_partly = A_partly.replace('\'', '')
+			# 	A_partly = A_partly.split(", ")
 
-				path_complex_ele_two = []
-				for val in range(len(A_partly)):
-					path_complex_ele_two.append(int(A_partly[val])) if val == 1 else path_complex_ele_two.append(A_partly[val])
+			# 	path_complex_ele_two = []
+			# 	for val in range(len(A_partly)):
+			# 		path_complex_ele_two.append(int(A_partly[val])) if val == 1 else path_complex_ele_two.append(A_partly[val])
 		
-				path_complex_two.append(path_complex_ele_two)
+			# 	path_complex_two.append(path_complex_ele_two)
 
-				contracts_opened.append(A_partly[0])
-				contracts_opened.append(abs(L_partly[0][-1]-L_partly[1][-1]))
-				contracts_opened.append(A_partly[-1])
+			# 	contracts_opened.append(A_partly[0])
+			# 	contracts_opened.append(abs(L_partly[0][-1]-L_partly[1][-1]))
+			# 	contracts_opened.append(A_partly[-1])
 
-				print "Complex path:\n",  path_complex_two, "\n"
-				print "Contrats opened:\n", contracts_opened, "\n"
-				print "[lives_src, lives_trk, amount_trd]:\n",  L_partly, "\n"
+			# 	print "Complex path:\n",  path_complex_two, "\n"
+			# 	print "Contrats opened:\n", contracts_opened, "\n"
+			# 	print "[lives_src, lives_trk, amount_trd]:\n",  L_partly, "\n"
+			# 	print "Opened contrats: ", amount_trd, " > Total contracts traded: ", amount_trd_sum
 	
 print "#---------------------------------------------------------------------------------#\n"
 
