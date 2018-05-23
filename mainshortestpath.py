@@ -280,9 +280,10 @@ for j in Interval:
 
 						idx_i.append(i)
 
-						print "Opened contrats: ", amount_trd, " >= Total contracts traded: ", amount_trd_sum
+						print "Opened contrats: ", amount_trd, " >= Total traded contracts: ", amount_trd_sum
 					else:
-						print "Opened contrats: ", amount_trd, " < Total contracts traded: ", amount_trd_sum
+						print "Opened contrats: ", amount_trd, " < Total traded contracts: ", amount_trd_sum
+						# Here we need to add a new row and update the amounts "lives, traded"
 						break
 
 			if "Netted" not in str(status_addrs_trk_v) or len(status_addrs_trk_v) == 0:
