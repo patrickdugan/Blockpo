@@ -153,7 +153,7 @@ Interval = range(len(M_file))
 for j in Interval:	
 
 	if j > 0:
-		print "Rows to delete: ", idx_i
+		print "\nRows to deleted: ", idx_i
 		M_file = np.delete(M_file, idx_i, 0)
 		
 	print "M_file:\n", M_file, "\nLength M_file: ", len(M_file), "\n"
@@ -224,6 +224,9 @@ for j in Interval:
 			status_addrs_trk_v = []
 
 			amount_trd_sum = 0
+			path_complex_ele_thr = []
+			path_complex_ele_fth = []
+
 			for i in xrange(1, len(M_file)):				
 
 				N_filei = []
@@ -260,31 +263,47 @@ for j in Interval:
 
 				elif addrs_trk in str(N_filei) and status_trki == "LongPosNettedPartly":
 
+					amount_trd_sum_before = amount_trd_sum
 					amount_trd_sum = amount_trd_sum + N_filei[6]
+					amount_trd_sum_later = amount_trd_sum
 
 					if amount_trd_sum <= amount_trd:
-
+						
 						path_complex_ele_two = []
 						path_complex_ele_two.append(N_filei[0])
 						path_complex_ele_two.append(N_filei[6])
 						path_complex_ele_two.append(N_filei[3])
 
-						R_partly.append(path_complex_ele_two)
-
-						Lives_amountsi = []
-						Lives_amountsi.append(lives_srci)
-						Lives_amountsi.append(lives_trki)
-						Lives_amountsi.append(amount_trdi)
-
-						L_partly.append(Lives_amountsi)
+						path_complex_two.append(path_complex_ele_two)
 
 						idx_i.append(i)
 
-						print "Opened contrats: ", amount_trd, " >= Total traded contracts: ", amount_trd_sum
-					else:
-						print "Opened contrats: ", amount_trd, " < Total traded contracts: ", amount_trd_sum
-						# Here we need to add a new row and update the amounts "lives, traded"
-						break
+						path_complex_ele_fth.append(addrs_src)
+						path_complex_ele_fth.append(abs(amount_trd - amount_trd_sum_later))
+						path_complex_ele_fth.append(addrs_trk)
+
+					elif amount_trd < amount_trd_sum:
+
+						path_complex_ele_thr.append(N_filei[0])
+						path_complex_ele_thr.append(abs(amount_trd - amount_trd_sum_before))
+						path_complex_ele_thr.append(N_filei[3])
+
+						idx_i.append(i)
+
+						print "HOLAAAAAA!!!!!!!!!! M_file[-1:]", M_file[-1:]
+						np.append(M_file, M_file[-1:], axis=0)
+
+			if path_complex_ele_thr != [] and path_complex_two != []:
+
+				print "Opened contrats: ", amount_trd, " < Total traded contracts: ", amount_trd_sum, " -> Amount traded this contract", abs(amount_trd_sum_later - amount_trd_sum_before), "\n"				
+				print "Complex path:\n", path_complex_two
+				print "New edge added:\n", path_complex_ele_thr
+
+			elif path_complex_ele_fth != [] and path_complex_two != []:
+
+				print "Opened contrats: ", amount_trd, " >= Total traded contracts: ", amount_trd_sum, " -> Amount traded this contract", abs(amount_trd_sum_later - amount_trd_sum_before), "\n"
+				print "Complex path:\n", path_complex_two
+				print "Contracts opened:\n", path_complex_ele_fth
 
 			if "Netted" not in str(status_addrs_trk_v) or len(status_addrs_trk_v) == 0:
 

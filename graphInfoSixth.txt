@@ -9,3 +9,4 @@ ALEJO	 OpenLongPosition	 7	 PATRICK	 ShortPosIncreased	 15	 7
 DANIEL	 ShortPosNettedPartly	 13	 PATRICK	 ShortPosIncreased	 17	 2
 ALEJO	 LongPosNettedPartly	 1	 LIHKI	 LongPosIncreased	 25	 6
 LIHKI	 LongPosNettedPartly	 13	 PATRICK	 ShortPosNettedPartly	 5	 12
+LIHKI	 LongPosNettedPartly	 8	 PATRICK	 ShortPosNettedPartly	 0	 5
