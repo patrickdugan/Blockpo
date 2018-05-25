@@ -90,6 +90,10 @@ for j in Interval:
 			path_complex_ele_thr = []
 			path_complex_ele_fth = []
 
+			idx_j = [0]
+			idx_k = [0]
+			idx_l = [0]
+
 			for i in xrange(1, len(M_file)):				
 
 				N_filei = []
@@ -122,12 +126,12 @@ for j in Interval:
 
 					print "Complex path:\n", path_complex_one
 
-					idx_i.append(i)
+					idx_l.append(i)
+
+					break
 
 				elif addrs_trk in str(N_filei) and status_trki == "LongPosNettedPartly":
 
-					print "Hola!!!!!!!!: ", N_filei[2], N_filei[5]
-					
 					amount_trd_sum_before = amount_trd_sum
 					amount_trd_sum = int(amount_trd_sum) + int(N_filei[6])
 					amount_trd_sum_later = amount_trd_sum
@@ -141,7 +145,7 @@ for j in Interval:
 
 						path_complex_two.append(path_complex_ele_two)
 
-						idx_i.append(i)
+						idx_j.append(i)
 
 						diff_later = int(amount_trd) - int(amount_trd_sum_later)
 						path_complex_ele_fth.append(addrs_src)
@@ -156,22 +160,31 @@ for j in Interval:
 						path_complex_ele_thr.append(N_filei[3])
 
 						print "amount_trd_sum_before: ", amount_trd_sum_before, "amount_trd_sum_later: ", amount_trd_sum_later, "amount_trd: ", N_filei[6]
-						idx_i.append(i)
+
+						idx_k.append(i-1)
+						idx_k.append(i)
 
 						amount_new = abs(diff_before - N_filei[6])
-						M_file.append([N_filei[0], N_filei[1], a, N_filei[3], N_filei[4], b, amount_new])
+						M_file.append([N_filei[0], N_filei[1], N_filei[2], N_filei[3], N_filei[4], N_filei[5], amount_new])
 
 			if path_complex_ele_thr != [] and path_complex_two != []:
 
 				print "Opened contrats: ", amount_trd, " < Total traded contracts: ", amount_trd_sum, " -> Amount traded this contract", abs(amount_trd_sum_later - amount_trd_sum_before), "\n"				
 				print "Complex path:\n", path_complex_two
 				print "New edge added:\n", path_complex_ele_thr
+				print "New row added:\n", M_file[-1][:]
+				idx_i = idx_k
 
 			elif path_complex_ele_fth != [] and path_complex_two != []:
 
 				print "Opened contrats: ", amount_trd, " >= Total traded contracts: ", amount_trd_sum, " -> Amount traded this contract", abs(amount_trd_sum_later - amount_trd_sum_before), "\n"
 				print "Complex path:\n", path_complex_two
 				print "Contracts opened:\n", path_complex_ele_fth
+				idx_i = idx_j
+
+			elif path_complex_ele_fth == [] and path_complex_ele_fth == []:			
+
+				idx_i = idx_l
 
 			if "Netted" not in str(status_addrs_trk_v) or len(status_addrs_trk_v) == 0:
 
