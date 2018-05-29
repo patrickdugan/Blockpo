@@ -1,23 +1,25 @@
 #! /usr/bin/python
 
+import sys
 import numpy as np
+
+sys.stdout = open('out', 'w')
 
 print "\n#------------------------'Definitions'---------------------------------#\n"			
 print "Path Simple:\tThe netting event of the tracked address that receives the contracts happens at the begining\n"
 print "Path Complex:\tThe netting event of the tracked address that receives the contracts happens after the contracts are\n\t\topened or keep open contracts at the end date"
 
-
 with open('graphInfoSixth.txt') as file:
     M_file = [[int(digit) if digit.isdigit() else digit for digit in line.split()] for line in file]
 
-idx_i = [0]
+idx_j = [0]
 Interval = range(len(M_file))
 
 for j in Interval:	
 
 	if j > 0:
-		print "\nRows to deleted: ", idx_i
-		M_file = np.delete(M_file, idx_i, 0)
+		print "\nRows to deleted: ", idx_j
+		M_file = np.delete(M_file, idx_j, 0)
 		
 	print "M_file:\n", M_file, "\nLength M_file: ", len(M_file), "\n"
 
@@ -38,17 +40,19 @@ for j in Interval:
 
 	addrs_trk  = M_filej[0] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[3]
 	status_trk = M_filej[1] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[4] 
-	lives_trk  = M_filej[2] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[5]
+	lives_trk  = int(M_filej[2]) if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else int(M_filej[5])
+
 	addrs_src  = M_filej[3] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[0]
 	status_src = M_filej[4] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[1]
-	lives_src  = M_filej[5] if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else M_filej[2]
-	amount_trd = M_filej[6] 
+	lives_src  = int(M_filej[5]) if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else int(M_filej[2])
 
+	amount_trd = int(M_filej[6]) 
+
+	path_complex = []
 	path_complex_one = []
 	path_complex_two = []
 	contracts_opened = []
 	R_partly = []
-	L_partly = []
 
 	if status_src == "OpenShortPosition" or status_src == "ShortPosIncreased":
 	
@@ -56,18 +60,22 @@ for j in Interval:
 			
 			print "#---------------------------------------------------------------------------------#\n"
 			print "Source: ", addrs_src, "; Tracked: ", addrs_trk, "\n"
+			print "................................"
 
 			single_path.append(addrs_src)
 			single_path.append(amount_trd)
 			single_path.append(addrs_trk)
 
 			print "Single path:\n", single_path, "\n"			
-			idx_i = [0]
+			idx_j = [0]
+
+			continue
 
 		elif status_trk == "OpenLongPosition" or status_trk == "LongPosIncreased":
 
 			print "#---------------------------------------------------------------------------------#\n"
 			print "Source: ", addrs_src, "; Tracked: ", addrs_trk, "\n"
+			print "................................"
 
 			single_path.append(addrs_src)
 			single_path.append(amount_trd)
@@ -75,24 +83,19 @@ for j in Interval:
 
 			path_complex_one.append(single_path)
 			path_complex_two.append(single_path)
-
-			Lives_amountsj = []
-			Lives_amountsj.append(lives_src)
-			Lives_amountsj.append(lives_trk)
-			Lives_amountsj.append(amount_trd)		
-			L_partly.append(Lives_amountsj)
+			path_complex.append(single_path)
 
 			idx_iter = 0
 			Long_pos_incr = []
 			status_addrs_trk_v = []
 
 			amount_trd_sum = 0
-			path_complex_ele_thr = []
 			path_complex_ele_fth = []
 
-			idx_j = [0]
-			idx_k = [0]
-			idx_l = [0]
+			idx_i  = [0]
+			idx_j1 = [0]
+			idx_j2 = [0]
+			idx_j3 = [0]
 
 			for i in xrange(1, len(M_file)):				
 
@@ -100,10 +103,12 @@ for j in Interval:
 				N_filei = M_file[:][i]
 
 				status_trki = N_filei[1] if addrs_trk == N_filei[0] else N_filei[4]
-				addrs_srci  = N_filei[3] if addrs_trk == N_filei[0] else N_filei[0]
-				lives_trki  = N_filei[2] if addrs_trk == N_filei[0] else N_filei[5]
-				lives_srci  = N_filei[2] if addrs_src == N_filei[0] else N_filei[5]
-				amount_trdi = N_filei[6]
+				status_srci = N_filei[1] if addrs_src == N_filei[0] else N_filei[4]
+				addrs_trki  = N_filei[0] if addrs_trk == N_filei[0] else N_filei[3]
+				addrs_srci  = N_filei[0] if addrs_src == N_filei[0] else N_filei[3]
+				lives_trki  = int(N_filei[2]) if addrs_trk == N_filei[0] else int(N_filei[5])
+				lives_srci  = int(N_filei[2]) if addrs_src == N_filei[0] else int(N_filei[5])
+				amount_trdi = int(N_filei[6])
 
 				if addrs_trk in str(N_filei):
 					idx_iter += 1
@@ -111,82 +116,83 @@ for j in Interval:
 
 				path_long_pos_incr = []
 				path_long_pos_incr.append(N_filei[0])
-				path_long_pos_incr.append(N_filei[6])
+				path_long_pos_incr.append(amount_trdi)
 				path_long_pos_incr.append(N_filei[3])
 				Long_pos_incr.append(path_long_pos_incr)
 
-				if addrs_trk in str(N_filei) and status_trki == "LongPosNetted":
+				netted_status = ["LongPosNetted", "LongPosNettedPartly"]
 
-					path_complex_ele_one = []
-					path_complex_ele_one.append(N_filei[0])
-					path_complex_ele_one.append(N_filei[6])
-					path_complex_ele_one.append(N_filei[3])
+				if addrs_trk in str(N_filei) and status_trki in str(netted_status):
 
-					path_complex_one.append(path_complex_ele_one) 
+					amount_trd_sum_b = amount_trd_sum
+					amount_trd_sum   = amount_trd_sum + amount_trdi
+					amount_trd_sum_l = amount_trd_sum
 
-					print "Complex path:\n", path_complex_one
+					print "Amounts!!! amount_trdi: ", amount_trdi, " | amount_trd: ", amount_trd, " | lives_trki: ", lives_trki, " | amount_trd_sum: ", amount_trd_sum
 
-					idx_l.append(i)
+					d_amounts = amount_trd - amount_trd_sum
+					if d_amounts > 0:
 
-					break
+						print "Opened contrats: ", amount_trd, " > Total amount traded: ", amount_trd_sum, "\n"
+						print "amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi |", addrs_trk, status_trki, amount_trdi, "\n"
+						print "................................"
 
-				elif addrs_trk in str(N_filei) and status_trki == "LongPosNettedPartly":
-
-					amount_trd_sum_before = amount_trd_sum
-					amount_trd_sum = int(amount_trd_sum) + int(N_filei[6])
-					amount_trd_sum_later = amount_trd_sum
-
-					if amount_trd_sum <= amount_trd:
-						
 						path_complex_ele_two = []
-						path_complex_ele_two.append(N_filei[0])
-						path_complex_ele_two.append(N_filei[6])
-						path_complex_ele_two.append(N_filei[3])
+						path_complex_ele_two.append(addrs_srci)
+						path_complex_ele_two.append(amount_trdi)
+						path_complex_ele_two.append(addrs_trki)
 
 						path_complex_two.append(path_complex_ele_two)
+						idx_i.append(i)
 
-						idx_j.append(i)
+					elif d_amounts < 0:
 
-						diff_later = int(amount_trd) - int(amount_trd_sum_later)
-						path_complex_ele_fth.append(addrs_src)
-						path_complex_ele_fth.append(abs(diff_later))
-						path_complex_ele_fth.append(addrs_trk)
+						print "Opened contrats: ", amount_trd, " < Total amount traded: ", amount_trd_sum, "\n"
+						diff_r = abs(amount_trd - amount_trd_sum_b)
+ 
+ 						path_complex_ele_thr = []
+						path_complex_ele_thr.append(addrs_srci)
+						path_complex_ele_thr.append(diff_r)
+						path_complex_ele_thr.append(addrs_trki)
 
-					elif amount_trd < amount_trd_sum:
+						path_complex_two.append(path_complex_ele_thr)
+						print "amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r |", addrs_trk, status_trki, amount_trdi, diff_r, "\n"
+						print "................................"
 
-						diff_before = int(amount_trd) - int(amount_trd_sum_before)
-						path_complex_ele_thr.append(N_filei[0])
-						path_complex_ele_thr.append(abs(diff_before))
-						path_complex_ele_thr.append(N_filei[3])
+						idx_i.append(i)
 
-						print "amount_trd_sum_before: ", amount_trd_sum_before, "amount_trd_sum_later: ", amount_trd_sum_later, "amount_trd: ", N_filei[6]
+						amount_new = abs(diff_r - amount_trd_sum_l)
+						new_row = np.array([N_filei[0], N_filei[1], N_filei[2], N_filei[3], N_filei[4], N_filei[5], amount_new])
+						M_file = np.vstack([M_file, new_row])
 
-						idx_k.append(i-1)
-						idx_k.append(i)
+						print "New row added: ", new_row
+						print "................................"
+						break
+					
+					elif d_amounts == 0:
 
-						amount_new = abs(diff_before - N_filei[6])
-						M_file.append([N_filei[0], N_filei[1], N_filei[2], N_filei[3], N_filei[4], N_filei[5], amount_new])
+						print "Opened contrats: ", amount_trd, " = Total amount traded: ", amount_trd_sum, "\n"
+						print "amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi |", addrs_trk, status_trki, amount_trdi, "\n"
+						print "................................"
 
-			if path_complex_ele_thr != [] and path_complex_two != []:
+						path_complex_ele_one = []
+						path_complex_ele_one.append(addrs_srci)
+						path_complex_ele_one.append(amount_trdi)
+						path_complex_ele_one.append(addrs_trki)
+						path_complex_two.append(path_complex_ele_one)
 
-				print "Opened contrats: ", amount_trd, " < Total traded contracts: ", amount_trd_sum, " -> Amount traded this contract", abs(amount_trd_sum_later - amount_trd_sum_before), "\n"				
-				print "Complex path:\n", path_complex_two
-				print "New edge added:\n", path_complex_ele_thr
-				print "New row added:\n", M_file[-1][:]
-				idx_i = idx_k
+						idx_i.append(i)
 
-			elif path_complex_ele_fth != [] and path_complex_two != []:
+						break
 
-				print "Opened contrats: ", amount_trd, " >= Total traded contracts: ", amount_trd_sum, " -> Amount traded this contract", abs(amount_trd_sum_later - amount_trd_sum_before), "\n"
-				print "Complex path:\n", path_complex_two
-				print "Contracts opened:\n", path_complex_ele_fth
-				idx_i = idx_j
+			idx_j = idx_i
+			if len(status_addrs_trk_v) == 0 and len(status_addrs_trk_v) == 0:
 
-			elif path_complex_ele_fth == [] and path_complex_ele_fth == []:			
-
-				idx_i = idx_l
-
-			if "Netted" not in str(status_addrs_trk_v) or len(status_addrs_trk_v) == 0:
-
+				print "Opened contrats: ", amount_trd, "\n"
 				print "Single path: ", single_path
-				idx_i = [0]
+				idx_j = [0]
+
+				continue
+
+			print "\nPath:\n", path_complex_two
+			print "................................"
