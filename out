@@ -28,7 +28,7 @@ amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mvNW2vKdN
 ................................
 
 Path:
-[['mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 2452, 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'], ['mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 1824, 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'], ['mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 628, 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX']]
+[OrderedDict([('addrs_src', 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V'), ('lives_src', 2452), ('addrs_trk', 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'), ('lives_trk', 2452), ('amount_trd', 2452)]), OrderedDict([('addrs_src', 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'), ('lives_src', 628), ('addrs_trk', 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'), ('lives_trk', 628), ('amount_trd', 1824)]), OrderedDict([('addrs_src', 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'), ('lives_src', 0), ('addrs_trk', 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'), ('lives_trk', 0), ('amount_trd', 628)])]
 ................................
 
 Rows to deleted:  [0, 38, 39]
@@ -55,7 +55,7 @@ Source:  mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW ; Tracked:  moS5VZeCbMRv6qGHJXV8uMWX
 ................................
 
 Path:
-[['mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW', 463, 'moS5VZeCbMRv6qGHJXV8uMWXbMzD5HS8Cw']]
+[OrderedDict([('addrs_src', 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW'), ('lives_src', 463), ('addrs_trk', 'moS5VZeCbMRv6qGHJXV8uMWXbMzD5HS8Cw'), ('lives_trk', 463), ('amount_trd', 463)])]
 ................................
 
 Rows to deleted:  [0]
@@ -91,7 +91,7 @@ New row added:  ['mwue3DQUbn1Ypc2g6puWDkZpYgQGnD33fk' 'LongPosIncreased' '2781'
 ................................
 
 Path:
-[['mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB', 755, 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'], ['mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 755, 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk']]
+[OrderedDict([('addrs_src', 'mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB'), ('lives_src', 755), ('addrs_trk', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_trk', 755), ('amount_trd', 755)]), OrderedDict([('addrs_src', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_src', 1823), ('addrs_trk', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_trk', 1823), ('amount_trd', 1373)])]
 ................................
 
 Rows to deleted:  [0, 89]
@@ -124,7 +124,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mpZHt5qZy
 ................................
 
 Path:
-[['mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 1058, 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib'], ['mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib', 134, 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib']]
+[OrderedDict([('addrs_src', 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz'), ('lives_src', 1058), ('addrs_trk', 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib'), ('lives_trk', 1058), ('amount_trd', 1058)]), OrderedDict([('addrs_src', 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib'), ('lives_src', 924), ('addrs_trk', 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib'), ('lives_trk', 924), ('amount_trd', 134)])]
 ................................
 
 Rows to deleted:  [0, 104]
@@ -151,7 +151,7 @@ Source:  mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz ; Tracked:  mjSWk8Xu4tjJt2sYXKE9CiGN
 ................................
 Opened contrats:  718 
 
-Single path:  ['mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 718, 'mjSWk8Xu4tjJt2sYXKE9CiGNFinuPGt8PT']
+Single path:  OrderedDict([('addrs_src', 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz'), ('lives_src', 1776), ('addrs_trk', 'mjSWk8Xu4tjJt2sYXKE9CiGNFinuPGt8PT'), ('lives_trk', 718), ('amount_trd', 718)])
 
 Rows to deleted:  [0]
 M_file:
@@ -183,7 +183,7 @@ amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mqVFAgwKB
 ................................
 
 Path:
-[['mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 2239, 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf'], ['mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 2239, 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf']]
+[OrderedDict([('addrs_src', 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz'), ('lives_src', 4015), ('addrs_trk', 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf'), ('lives_trk', 2239), ('amount_trd', 2239)]), OrderedDict([('addrs_src', 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf'), ('lives_src', 0), ('addrs_trk', 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf'), ('lives_trk', 0), ('amount_trd', 2239)])]
 ................................
 
 Rows to deleted:  [0, 9]
@@ -216,7 +216,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mn2Y62jZk
 ................................
 
 Path:
-[['mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 608, 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6'], ['mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6', 505, 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6']]
+[OrderedDict([('addrs_src', 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz'), ('lives_src', 4623), ('addrs_trk', 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6'), ('lives_trk', 608), ('amount_trd', 608)]), OrderedDict([('addrs_src', 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6'), ('lives_src', 2094), ('addrs_trk', 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6'), ('lives_trk', 2094), ('amount_trd', 505)])]
 ................................
 
 Rows to deleted:  [0, 76]
@@ -258,7 +258,7 @@ New row added:  ['mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu' 'OpenLongPosition' '155'
 ................................
 
 Path:
-[['mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu', 1419, 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'], ['mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu', 1266, 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'], ['mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu', 153, 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49']]
+[OrderedDict([('addrs_src', 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu'), ('lives_src', 1419), ('addrs_trk', 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'), ('lives_trk', 1419), ('amount_trd', 1419)]), OrderedDict([('addrs_src', 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu'), ('lives_src', 0), ('addrs_trk', 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'), ('lives_trk', 1266), ('amount_trd', 1266)]), OrderedDict([('addrs_src', 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu'), ('lives_src', 155), ('addrs_trk', 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'), ('lives_trk', 1111), ('amount_trd', 155)])]
 ................................
 
 Rows to deleted:  [0, 127, 128]
@@ -285,7 +285,7 @@ Source:  mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup ; Tracked:  moS5VZeCbMRv6qGHJXV8uMWX
 ................................
 Opened contrats:  2111 
 
-Single path:  ['mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup', 2111, 'moS5VZeCbMRv6qGHJXV8uMWXbMzD5HS8Cw']
+Single path:  OrderedDict([('addrs_src', 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup'), ('lives_src', 2111), ('addrs_trk', 'moS5VZeCbMRv6qGHJXV8uMWXbMzD5HS8Cw'), ('lives_trk', 2574), ('amount_trd', 2111)])
 
 Rows to deleted:  [0]
 M_file:
@@ -320,7 +320,7 @@ New row added:  ['mg95mwSVbb5EBePBRKZUeTJSwcuPGo6dvP' 'ShortPosNetted' '0'
 ................................
 
 Path:
-[['mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup', 1163, 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'], ['mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 1163, 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G']]
+[OrderedDict([('addrs_src', 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup'), ('lives_src', 3274), ('addrs_trk', 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'), ('lives_trk', 1163), ('amount_trd', 1163)]), OrderedDict([('addrs_src', 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'), ('lives_src', 2035), ('addrs_trk', 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'), ('lives_trk', 2035), ('amount_trd', 2035)])]
 ................................
 
 Rows to deleted:  [0, 121]
@@ -353,7 +353,7 @@ amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | n1EZoRCse
 ................................
 
 Path:
-[['mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 1251, 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw'], ['n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 1251, 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw']]
+[OrderedDict([('addrs_src', 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM'), ('lives_src', 1251), ('addrs_trk', 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw'), ('lives_trk', 1251), ('amount_trd', 1251)]), OrderedDict([('addrs_src', 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw'), ('lives_src', 0), ('addrs_trk', 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw'), ('lives_trk', 0), ('amount_trd', 1251)])]
 ................................
 
 Rows to deleted:  [0, 20]
@@ -389,7 +389,7 @@ New row added:  ['mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h' 'OpenLongPosition' '1823'
 ................................
 
 Path:
-[['n4J9R4QdJCbBSxi3Qw1JzLgY6iQR5XnJko', 1280, 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'], ['mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 1280, 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk']]
+[OrderedDict([('addrs_src', 'n4J9R4QdJCbBSxi3Qw1JzLgY6iQR5XnJko'), ('lives_src', 1280), ('addrs_trk', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_trk', 2035), ('amount_trd', 1280)]), OrderedDict([('addrs_src', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_src', 0), ('addrs_trk', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_trk', 0), ('amount_trd', 1823)])]
 ................................
 
 Rows to deleted:  [0, 77]
@@ -428,7 +428,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mwSwcfD4W
 ................................
 
 Path:
-[['n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB', 2714, 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'], ['mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 1203, 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'], ['mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 872, 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G']]
+[OrderedDict([('addrs_src', 'n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB'), ('lives_src', 2714), ('addrs_trk', 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'), ('lives_trk', 3877), ('amount_trd', 2714)]), OrderedDict([('addrs_src', 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'), ('lives_src', 832), ('addrs_trk', 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'), ('lives_trk', 832), ('amount_trd', 1203)]), OrderedDict([('addrs_src', 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'), ('lives_src', 2035), ('addrs_trk', 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G'), ('lives_trk', 2035), ('amount_trd', 872)])]
 ................................
 
 Rows to deleted:  [0, 116, 187]
@@ -464,7 +464,7 @@ New row added:  ['mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu' 'OpenLongPosition' '155'
 ................................
 
 Path:
-[['n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB', 740, 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'], ['mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 740, 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49']]
+[OrderedDict([('addrs_src', 'n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB'), ('lives_src', 3454), ('addrs_trk', 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'), ('lives_trk', 2159), ('amount_trd', 740)]), OrderedDict([('addrs_src', 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'), ('lives_src', 1111), ('addrs_trk', 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'), ('lives_trk', 1111), ('amount_trd', 1268)])]
 ................................
 
 Rows to deleted:  [0, 184]
@@ -500,7 +500,7 @@ New row added:  ['mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h' 'LongPosIncreased' '2880'
 ................................
 
 Path:
-[['mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 48, 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'], ['miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 48, 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA']]
+[OrderedDict([('addrs_src', 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf'), ('lives_src', 48), ('addrs_trk', 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'), ('lives_trk', 2287), ('amount_trd', 48)]), OrderedDict([('addrs_src', 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'), ('lives_src', 658), ('addrs_trk', 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'), ('lives_trk', 658), ('amount_trd', 2297)])]
 ................................
 
 Rows to deleted:  [0, 77]
@@ -536,7 +536,7 @@ New row added:  ['mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu' 'OpenLongPosition' '155'
 ................................
 
 Path:
-[['mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR', 526, 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'], ['mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 526, 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49']]
+[OrderedDict([('addrs_src', 'mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR'), ('lives_src', 526), ('addrs_trk', 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'), ('lives_trk', 2685), ('amount_trd', 526)]), OrderedDict([('addrs_src', 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'), ('lives_src', 1111), ('addrs_trk', 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49'), ('lives_trk', 1111), ('amount_trd', 528)])]
 ................................
 
 Rows to deleted:  [0, 182]
@@ -572,7 +572,7 @@ New row added:  ['mmaPzd2QAmJZKrTRjgE2jthWaHJEgYFdXC' 'ShortPosNettedPartly' '10
 ................................
 
 Path:
-[['mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR', 1613, 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'], ['myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 1613, 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN']]
+[OrderedDict([('addrs_src', 'mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR'), ('lives_src', 2139), ('addrs_trk', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_trk', 1613), ('amount_trd', 1613)]), OrderedDict([('addrs_src', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_src', 2724), ('addrs_trk', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_trk', 2724), ('amount_trd', 1779)])]
 ................................
 
 Rows to deleted:  [0, 76]
@@ -608,7 +608,7 @@ New row added:  ['myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN' 'LongPosNettedPartly' '956
 ................................
 
 Path:
-[['mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt', 1580, 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'], ['mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 1580, 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN']]
+[OrderedDict([('addrs_src', 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt'), ('lives_src', 1580), ('addrs_trk', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_trk', 3193), ('amount_trd', 1580)]), OrderedDict([('addrs_src', 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V'), ('lives_src', 3108), ('addrs_trk', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_trk', 956), ('amount_trd', 1768)])]
 ................................
 
 Rows to deleted:  [0, 157]
@@ -634,7 +634,7 @@ Source:  mn7zYnWt78WsQb8DL3KnmCf5oHxNV6Qdzq ; Tracked:  n4J9R4QdJCbBSxi3Qw1JzLgY
 
 ................................
 Single path:
-['mn7zYnWt78WsQb8DL3KnmCf5oHxNV6Qdzq', 739, 'n4J9R4QdJCbBSxi3Qw1JzLgY6iQR5XnJko'] 
+OrderedDict([('addrs_src', 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V'), ('lives_src', 3108), ('addrs_trk', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_trk', 956), ('amount_trd', 1768)]) 
 
 
 Rows to deleted:  [0]
@@ -670,7 +670,7 @@ New row added:  ['mtnHzodRGb1Vkozjk1KP1d6bZuMoGht9WT' 'OpenLongPosition' '1270'
 ................................
 
 Path:
-[['mn7zYnWt78WsQb8DL3KnmCf5oHxNV6Qdzq', 327, 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'], ['mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 327, 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw']]
+[OrderedDict([('addrs_src', 'mn7zYnWt78WsQb8DL3KnmCf5oHxNV6Qdzq'), ('lives_src', 1066), ('addrs_trk', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_trk', 327), ('amount_trd', 327)]), OrderedDict([('addrs_src', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_src', 3544), ('addrs_trk', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_trk', 3544), ('amount_trd', 1270)])]
 ................................
 
 Rows to deleted:  [0, 18]
@@ -703,7 +703,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mq7WfY7S5
 ................................
 
 Path:
-[['n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7', 2871, 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy'], ['mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy', 51, 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy']]
+[OrderedDict([('addrs_src', 'n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7'), ('lives_src', 2871), ('addrs_trk', 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy'), ('lives_trk', 2871), ('amount_trd', 2871)]), OrderedDict([('addrs_src', 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy'), ('lives_src', 2820), ('addrs_trk', 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy'), ('lives_trk', 2820), ('amount_trd', 51)])]
 ................................
 
 Rows to deleted:  [0, 40]
@@ -730,7 +730,7 @@ Source:  n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7 ; Tracked:  mfymy6NjAM4CrRshkVX3o4pq
 ................................
 
 Path:
-[['n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7', 1355, 'mfymy6NjAM4CrRshkVX3o4pqGJ9PspvVXt']]
+[OrderedDict([('addrs_src', 'n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7'), ('lives_src', 4226), ('addrs_trk', 'mfymy6NjAM4CrRshkVX3o4pqGJ9PspvVXt'), ('lives_trk', 1355), ('amount_trd', 1355)])]
 ................................
 
 Rows to deleted:  [0]
@@ -775,7 +775,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | myDjVaR42
 ................................
 
 Path:
-[['mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 1310, 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'], ['mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW', 683, 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'], ['myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 166, 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'], ['mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 188, 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN']]
+[OrderedDict([('addrs_src', 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR'), ('lives_src', 1310), ('addrs_trk', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_trk', 4503), ('amount_trd', 1310)]), OrderedDict([('addrs_src', 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW'), ('lives_src', 1038), ('addrs_trk', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_trk', 273), ('amount_trd', 683)]), OrderedDict([('addrs_src', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_src', 2724), ('addrs_trk', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_trk', 2724), ('amount_trd', 166)]), OrderedDict([('addrs_src', 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V'), ('lives_src', 3108), ('addrs_trk', 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN'), ('lives_trk', 956), ('amount_trd', 188)])]
 ................................
 
 Rows to deleted:  [0, 150, 173, 174]
@@ -808,7 +808,7 @@ amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mfdxonYx9
 ................................
 
 Path:
-[['mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 1693, 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S'], ['mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 1693, 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S']]
+[OrderedDict([('addrs_src', 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR'), ('lives_src', 3003), ('addrs_trk', 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S'), ('lives_trk', 1693), ('amount_trd', 1693)]), OrderedDict([('addrs_src', 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S'), ('lives_src', 0), ('addrs_trk', 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S'), ('lives_trk', 0), ('amount_trd', 1693)])]
 ................................
 
 Rows to deleted:  [0, 19]
@@ -856,7 +856,7 @@ New row added:  ['n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB' 'ShortPosNettedPartly' '23
 ................................
 
 Path:
-[['myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr', 2539, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'], ['n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 1755, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'], ['n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 471, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'], ['n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 313, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx']]
+[OrderedDict([('addrs_src', 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr'), ('lives_src', 2539), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 2539), ('amount_trd', 2539)]), OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 3189), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 3189), ('amount_trd', 1755)]), OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 2718), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 2718), ('amount_trd', 471)]), OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 802)])]
 ................................
 
 Rows to deleted:  [0, 101, 102, 103]
@@ -882,7 +882,7 @@ Source:  mfda11joa3ErkdsTQc66feU5tv98ts46kV ; Tracked:  mw7HLu4jXDNkye8D8txWkCQN
 
 ................................
 Single path:
-['mfda11joa3ErkdsTQc66feU5tv98ts46kV', 453, 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 802)]) 
 
 
 Rows to deleted:  [0]
@@ -933,7 +933,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mgGNpRdic
 ................................
 
 Path:
-[['mfda11joa3ErkdsTQc66feU5tv98ts46kV', 2663, 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'], ['mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 191, 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'], ['mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 1039, 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'], ['mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 68, 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'], ['mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 943, 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw']]
+[OrderedDict([('addrs_src', 'mfda11joa3ErkdsTQc66feU5tv98ts46kV'), ('lives_src', 3116), ('addrs_trk', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_trk', 2990), ('amount_trd', 2663)]), OrderedDict([('addrs_src', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_src', 3353), ('addrs_trk', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_trk', 3353), ('amount_trd', 191)]), OrderedDict([('addrs_src', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_src', 2314), ('addrs_trk', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_trk', 2314), ('amount_trd', 1039)]), OrderedDict([('addrs_src', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_src', 2246), ('addrs_trk', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_trk', 2246), ('amount_trd', 68)]), OrderedDict([('addrs_src', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_src', 3544), ('addrs_trk', 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw'), ('lives_trk', 3544), ('amount_trd', 943)])]
 ................................
 
 Rows to deleted:  [0, 11, 12, 13, 164]
@@ -975,7 +975,7 @@ New row added:  ['mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX' 'OpenLongPosition' '1797'
 ................................
 
 Path:
-[['n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639', 2108, 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'], ['mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 854, 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'], ['mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 1254, 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW']]
+[OrderedDict([('addrs_src', 'n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639'), ('lives_src', 2108), ('addrs_trk', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_trk', 2108), ('amount_trd', 2108)]), OrderedDict([('addrs_src', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_src', 1797), ('addrs_trk', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_trk', 1797), ('amount_trd', 854)]), OrderedDict([('addrs_src', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_src', 0), ('addrs_trk', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_trk', 0), ('amount_trd', 1797)])]
 ................................
 
 Rows to deleted:  [0, 99, 100]
@@ -1002,7 +1002,7 @@ Source:  n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa ; Tracked:  mfymy6NjAM4CrRshkVX3o4pq
 ................................
 Opened contrats:  303 
 
-Single path:  ['n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa', 303, 'mfymy6NjAM4CrRshkVX3o4pqGJ9PspvVXt']
+Single path:  OrderedDict([('addrs_src', 'n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa'), ('lives_src', 303), ('addrs_trk', 'mfymy6NjAM4CrRshkVX3o4pqGJ9PspvVXt'), ('lives_trk', 1658), ('amount_trd', 303)])
 
 Rows to deleted:  [0]
 M_file:
@@ -1027,7 +1027,7 @@ Source:  n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa ; Tracked:  mfda11joa3ErkdsTQc66feU5
 
 ................................
 Single path:
-['n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa', 1411, 'mfda11joa3ErkdsTQc66feU5tv98ts46kV'] 
+OrderedDict([('addrs_src', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_src', 0), ('addrs_trk', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_trk', 0), ('amount_trd', 1397)]) 
 
 
 Rows to deleted:  [0]
@@ -1053,7 +1053,7 @@ Source:  n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw ; Tracked:  mfda11joa3ErkdsTQc66feU5
 
 ................................
 Single path:
-['n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 157, 'mfda11joa3ErkdsTQc66feU5tv98ts46kV'] 
+OrderedDict([('addrs_src', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_src', 0), ('addrs_trk', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_trk', 0), ('amount_trd', 1397)]) 
 
 
 Rows to deleted:  [0]
@@ -1101,7 +1101,7 @@ New row added:  ['mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA' 'LongPosNettedPartly' '288
 ................................
 
 Path:
-[['n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 145, 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'], ['mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup', 60, 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'], ['mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 0, 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'], ['mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 85, 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA']]
+[OrderedDict([('addrs_src', 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw'), ('lives_src', 302), ('addrs_trk', 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'), ('lives_trk', 145), ('amount_trd', 145)]), OrderedDict([('addrs_src', 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup'), ('lives_src', 2331), ('addrs_trk', 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'), ('lives_trk', 4084), ('amount_trd', 60)]), OrderedDict([('addrs_src', 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM'), ('lives_src', 0), ('addrs_trk', 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'), ('lives_trk', 3286), ('amount_trd', 0)]), OrderedDict([('addrs_src', 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM'), ('lives_src', 402), ('addrs_trk', 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'), ('lives_trk', 2884), ('amount_trd', 402)])]
 ................................
 
 Rows to deleted:  [0, 135, 136, 137]
@@ -1128,7 +1128,7 @@ Source:  myceY8aca8oMdkcaFBr9sNdoA7Hh2iJGxZ ; Tracked:  mhUxW3PPipqWG2fPeeqipBAt
 ................................
 
 Path:
-[['myceY8aca8oMdkcaFBr9sNdoA7Hh2iJGxZ', 1056, 'mhUxW3PPipqWG2fPeeqipBAtJAmpmqGrKa']]
+[OrderedDict([('addrs_src', 'myceY8aca8oMdkcaFBr9sNdoA7Hh2iJGxZ'), ('lives_src', 1056), ('addrs_trk', 'mhUxW3PPipqWG2fPeeqipBAtJAmpmqGrKa'), ('lives_trk', 1056), ('amount_trd', 1056)])]
 ................................
 
 Rows to deleted:  [0]
@@ -1167,7 +1167,7 @@ amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mvCTKJrgG
 ................................
 
 Path:
-[['myceY8aca8oMdkcaFBr9sNdoA7Hh2iJGxZ', 1273, 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'], ['mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 543, 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'], ['mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 730, 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP']]
+[OrderedDict([('addrs_src', 'myceY8aca8oMdkcaFBr9sNdoA7Hh2iJGxZ'), ('lives_src', 2329), ('addrs_trk', 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'), ('lives_trk', 1273), ('amount_trd', 1273)]), OrderedDict([('addrs_src', 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'), ('lives_src', 730), ('addrs_trk', 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'), ('lives_trk', 730), ('amount_trd', 543)]), OrderedDict([('addrs_src', 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'), ('lives_src', 0), ('addrs_trk', 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'), ('lives_trk', 0), ('amount_trd', 730)])]
 ................................
 
 Rows to deleted:  [0, 8, 9]
@@ -1206,7 +1206,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mjKUdCRix
 ................................
 
 Path:
-[['mprPEk3broTDmdqQAjbRMb1H5cAjCPXmi5', 2177, 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB'], ['mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 129, 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB'], ['mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 222, 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB']]
+[OrderedDict([('addrs_src', 'mprPEk3broTDmdqQAjbRMb1H5cAjCPXmi5'), ('lives_src', 2177), ('addrs_trk', 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB'), ('lives_trk', 2177), ('amount_trd', 2177)]), OrderedDict([('addrs_src', 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB'), ('lives_src', 3260), ('addrs_trk', 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB'), ('lives_trk', 3260), ('amount_trd', 129)]), OrderedDict([('addrs_src', 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB'), ('lives_src', 3038), ('addrs_trk', 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB'), ('lives_trk', 3038), ('amount_trd', 222)])]
 ................................
 
 Rows to deleted:  [0, 29, 30]
@@ -1239,7 +1239,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mrpkm4bAa
 ................................
 
 Path:
-[['mmaPzd2QAmJZKrTRjgE2jthWaHJEgYFdXC', 2964, 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'], ['mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 377, 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA']]
+[OrderedDict([('addrs_src', 'mmaPzd2QAmJZKrTRjgE2jthWaHJEgYFdXC'), ('lives_src', 2964), ('addrs_trk', 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'), ('lives_trk', 3109), ('amount_trd', 2964)]), OrderedDict([('addrs_src', 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM'), ('lives_src', 402), ('addrs_trk', 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'), ('lives_trk', 2884), ('amount_trd', 377)])]
 ................................
 
 Rows to deleted:  [0, 145]
@@ -1265,7 +1265,7 @@ Source:  mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX ; Tracked:  mrwCfiL9sxe5kLNvnsE13ffJ
 
 ................................
 Single path:
-['mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 923, 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt'] 
+OrderedDict([('addrs_src', 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM'), ('lives_src', 402), ('addrs_trk', 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'), ('lives_trk', 2884), ('amount_trd', 377)]) 
 
 
 Rows to deleted:  [0]
@@ -1292,7 +1292,7 @@ Source:  mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD ; Tracked:  mn2Y62jZkz9piBQk3EhGtkB9
 ................................
 Opened contrats:  1991 
 
-Single path:  ['mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD', 1991, 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6']
+Single path:  OrderedDict([('addrs_src', 'mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD'), ('lives_src', 1991), ('addrs_trk', 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6'), ('lives_trk', 2599), ('amount_trd', 1991)])
 
 Rows to deleted:  [0]
 M_file:
@@ -1604,7 +1604,7 @@ New row added:  ['mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h' 'OpenLongPosition' '1823'
 ................................
 
 Path:
-[['mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD', 694, 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'], ['mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 618, 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'], ['mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 76, 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk']]
+[OrderedDict([('addrs_src', 'mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD'), ('lives_src', 2685), ('addrs_trk', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_trk', 2729), ('amount_trd', 694)]), OrderedDict([('addrs_src', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_src', 1823), ('addrs_trk', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_trk', 1823), ('amount_trd', 618)]), OrderedDict([('addrs_src', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_src', 0), ('addrs_trk', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_trk', 0), ('amount_trd', 543)])]
 ................................
 
 Rows to deleted:  [0, 136, 137]
@@ -1913,7 +1913,7 @@ New row added:  ['mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB' 'ShortPosNettedPartly' '43
 ................................
 
 Path:
-[['mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 837, 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn'], ['n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 632, 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn'], ['n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 205, 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn']]
+[OrderedDict([('addrs_src', 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S'), ('lives_src', 837), ('addrs_trk', 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn'), ('lives_trk', 2598), ('amount_trd', 837)]), OrderedDict([('addrs_src', 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn'), ('lives_src', 1966), ('addrs_trk', 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn'), ('lives_trk', 1966), ('amount_trd', 632)]), OrderedDict([('addrs_src', 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn'), ('lives_src', 1643), ('addrs_trk', 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn'), ('lives_trk', 1643), ('amount_trd', 323)])]
 ................................
 
 Rows to deleted:  [0, 56, 57]
@@ -2209,7 +2209,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mttXUzKD3
 ................................
 
 Path:
-[['mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 2280, 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV'], ['mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV', 714, 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV']]
+[OrderedDict([('addrs_src', 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S'), ('lives_src', 3117), ('addrs_trk', 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV'), ('lives_trk', 2280), ('amount_trd', 2280)]), OrderedDict([('addrs_src', 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV'), ('lives_src', 1566), ('addrs_trk', 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV'), ('lives_trk', 1566), ('amount_trd', 714)])]
 ................................
 
 Rows to deleted:  [0, 39]
@@ -2504,7 +2504,7 @@ New row added:  ['mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR' 'ShortPosNettedPartly' '34
 ................................
 
 Path:
-[['mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 202, 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'], ['mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 202, 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb']]
+[OrderedDict([('addrs_src', 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'), ('lives_src', 202), ('addrs_trk', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_trk', 932), ('amount_trd', 202)]), OrderedDict([('addrs_src', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_src', 0), ('addrs_trk', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_trk', 0), ('amount_trd', 932)])]
 ................................
 
 Rows to deleted:  [0, 30]
@@ -2788,7 +2788,7 @@ Source:  mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP ; Tracked:  mnQQYiHCTLBTXbUQaUKZYwuA
 ................................
 Opened contrats:  163 
 
-Single path:  ['mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 163, 'mnQQYiHCTLBTXbUQaUKZYwuAJc5BwBe8Ez']
+Single path:  OrderedDict([('addrs_src', 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'), ('lives_src', 365), ('addrs_trk', 'mnQQYiHCTLBTXbUQaUKZYwuAJc5BwBe8Ez'), ('lives_trk', 163), ('amount_trd', 163)])
 
 Rows to deleted:  [0]
 M_file:
@@ -3081,7 +3081,7 @@ amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mjo7KvYro
 ................................
 
 Path:
-[['mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 900, 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'], ['mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 860, 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'], ['mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 40, 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG']]
+[OrderedDict([('addrs_src', 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'), ('lives_src', 1265), ('addrs_trk', 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'), ('lives_trk', 900), ('amount_trd', 900)]), OrderedDict([('addrs_src', 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'), ('lives_src', 40), ('addrs_trk', 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'), ('lives_trk', 40), ('amount_trd', 860)]), OrderedDict([('addrs_src', 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'), ('lives_src', 0), ('addrs_trk', 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'), ('lives_trk', 0), ('amount_trd', 40)])]
 ................................
 
 Rows to deleted:  [0, 38, 39]
@@ -3356,7 +3356,7 @@ Source:  mmVHwmeTV7pUy543LverM5NdT8PeBiCnyv ; Tracked:  n1rftjejoN7U5tTM5ywthTnd
 
 ................................
 Single path:
-['mmVHwmeTV7pUy543LverM5NdT8PeBiCnyv', 352, 'n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB'] 
+OrderedDict([('addrs_src', 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'), ('lives_src', 0), ('addrs_trk', 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'), ('lives_trk', 0), ('amount_trd', 40)]) 
 
 
 Rows to deleted:  [0]
@@ -3630,7 +3630,7 @@ Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mjKUdCRixN4N6pQaG6agBdNw
 ................................
 Opened contrats:  1212 
 
-Single path:  ['mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy', 1212, 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB']
+Single path:  OrderedDict([('addrs_src', 'mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy'), ('lives_src', 1212), ('addrs_trk', 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB'), ('lives_trk', 3389), ('amount_trd', 1212)])
 
 Rows to deleted:  [0]
 M_file:
@@ -3900,7 +3900,7 @@ Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mmVHwmeTV7pUy543LverM5Nd
 
 ................................
 Single path:
-['mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy', 352, 'mmVHwmeTV7pUy543LverM5NdT8PeBiCnyv'] 
+OrderedDict([('addrs_src', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_src', 0), ('addrs_trk', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_trk', 0), ('amount_trd', 730)]) 
 
 
 Rows to deleted:  [0]
@@ -4170,7 +4170,7 @@ Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mmVHwmeTV7pUy543LverM5Nd
 ................................
 Opened contrats:  499 
 
-Single path:  ['mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy', 499, 'mmVHwmeTV7pUy543LverM5NdT8PeBiCnyv']
+Single path:  OrderedDict([('addrs_src', 'mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy'), ('lives_src', 2063), ('addrs_trk', 'mmVHwmeTV7pUy543LverM5NdT8PeBiCnyv'), ('lives_trk', 499), ('amount_trd', 499)])
 
 Rows to deleted:  [0]
 M_file:
@@ -4436,7 +4436,7 @@ Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mvCTKJrgGYnUuV8Fe5UcV7NX
 
 ................................
 Single path:
-['mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy', 1265, 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'] 
+OrderedDict([('addrs_src', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_src', 0), ('addrs_trk', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_trk', 0), ('amount_trd', 730)]) 
 
 
 Rows to deleted:  [0]
@@ -4702,7 +4702,7 @@ Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mvCTKJrgGYnUuV8Fe5UcV7NX
 ................................
 Opened contrats:  796 
 
-Single path:  ['mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy', 796, 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP']
+Single path:  OrderedDict([('addrs_src', 'mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy'), ('lives_src', 4124), ('addrs_trk', 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP'), ('lives_trk', 796), ('amount_trd', 796)])
 
 Rows to deleted:  [0]
 M_file:
@@ -4964,7 +4964,7 @@ Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mqM2p9aXjMqdr1PaBrBSQB34
 
 ................................
 Single path:
-['mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy', 463, 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW'] 
+OrderedDict([('addrs_src', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_src', 0), ('addrs_trk', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_trk', 0), ('amount_trd', 730)]) 
 
 
 Rows to deleted:  [0]
@@ -5226,7 +5226,7 @@ Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mqM2p9aXjMqdr1PaBrBSQB34
 ................................
 
 Path:
-[['mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy', 304, 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW']]
+[OrderedDict([('addrs_src', 'mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy'), ('lives_src', 4891), ('addrs_trk', 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW'), ('lives_trk', 304), ('amount_trd', 304)])]
 ................................
 
 Rows to deleted:  [0]
@@ -5501,7 +5501,7 @@ New row added:  ['mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h' 'LongPosIncreased' '2880'
 ................................
 
 Path:
-[['mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub', 668, 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'], ['mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub', 633, 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'], ['miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 35, 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA']]
+[OrderedDict([('addrs_src', 'mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub'), ('lives_src', 668), ('addrs_trk', 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'), ('lives_trk', 2955), ('amount_trd', 668)]), OrderedDict([('addrs_src', 'mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub'), ('lives_src', 1758), ('addrs_trk', 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'), ('lives_trk', 25), ('amount_trd', 633)]), OrderedDict([('addrs_src', 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'), ('lives_src', 658), ('addrs_trk', 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'), ('lives_trk', 658), ('amount_trd', 2249)])]
 ................................
 
 Rows to deleted:  [0, 27, 116]
@@ -5756,7 +5756,7 @@ Source:  mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub ; Tracked:  mzG2rnYDwq8QR41avaLh9J88
 
 ................................
 Single path:
-['mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub', 1723, 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR'] 
+OrderedDict([('addrs_src', 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'), ('lives_src', 658), ('addrs_trk', 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA'), ('lives_trk', 658), ('amount_trd', 2249)]) 
 
 
 Rows to deleted:  [0]
@@ -6025,7 +6025,7 @@ New row added:  ['mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt' 'OpenLongPosition' '440'
 ................................
 
 Path:
-[['mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs', 2743, 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'], ['mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 2714, 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'], ['mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 29, 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w']]
+[OrderedDict([('addrs_src', 'mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs'), ('lives_src', 2743), ('addrs_trk', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_trk', 2743), ('amount_trd', 2743)]), OrderedDict([('addrs_src', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_src', 2714), ('addrs_trk', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_trk', 2714), ('amount_trd', 2714)]), OrderedDict([('addrs_src', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_src', 2274), ('addrs_trk', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_trk', 2274), ('amount_trd', 440)])]
 ................................
 
 Rows to deleted:  [0, 4, 5]
@@ -6274,7 +6274,7 @@ Source:  mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K ; Tracked:  n1XNDmxzm6VP6MDSEfdYPQGA
 
 ................................
 Single path:
-['mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K', 2108, 'n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639'] 
+OrderedDict([('addrs_src', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_src', 2274), ('addrs_trk', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_trk', 2274), ('amount_trd', 440)]) 
 
 
 Rows to deleted:  [0]
@@ -6522,7 +6522,7 @@ Source:  mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K ; Tracked:  n1XNDmxzm6VP6MDSEfdYPQGA
 ................................
 
 Path:
-[['mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K', 1813, 'n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639']]
+[OrderedDict([('addrs_src', 'mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K'), ('lives_src', 3921), ('addrs_trk', 'n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639'), ('lives_trk', 1813), ('amount_trd', 1813)])]
 ................................
 
 Rows to deleted:  [0]
@@ -6767,7 +6767,7 @@ Source:  mpfTU8NVFXsEEiEZgoTHPyYbaT9P6w9JWk ; Tracked:  mvNW2vKdNL9bCN18UqZvLMQr
 
 ................................
 Single path:
-['mpfTU8NVFXsEEiEZgoTHPyYbaT9P6w9JWk', 520, 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'] 
+OrderedDict([('addrs_src', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_src', 2274), ('addrs_trk', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_trk', 2274), ('amount_trd', 3125)]) 
 
 
 Rows to deleted:  [0]
@@ -7475,7 +7475,7 @@ Source:  n4irPX4VGMg1EXqFfHyPWAKufuAUrdeX68 ; Tracked:  mrpkm4bAaxCvciwSQnFQjTRk
 ................................
 Opened contrats:  334 
 
-Single path:  ['n4irPX4VGMg1EXqFfHyPWAKufuAUrdeX68', 334, 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA']
+Single path:  OrderedDict([('addrs_src', 'n4irPX4VGMg1EXqFfHyPWAKufuAUrdeX68'), ('lives_src', 334), ('addrs_trk', 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA'), ('lives_trk', 4015), ('amount_trd', 334)])
 
 Rows to deleted:  [0]
 M_file:
@@ -7712,7 +7712,7 @@ Source:  mwue3DQUbn1Ypc2g6puWDkZpYgQGnD33fk ; Tracked:  mrwCfiL9sxe5kLNvnsE13ffJ
 ................................
 
 Path:
-[['mwue3DQUbn1Ypc2g6puWDkZpYgQGnD33fk', 1298, 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt']]
+[OrderedDict([('addrs_src', 'mwue3DQUbn1Ypc2g6puWDkZpYgQGnD33fk'), ('lives_src', 1298), ('addrs_trk', 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt'), ('lives_trk', 1738), ('amount_trd', 1298)])]
 ................................
 
 Rows to deleted:  [0]
@@ -7947,7 +7947,7 @@ Source:  mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX ; Tracked:  mvNW2vKdNL9bCN18UqZvLMQr
 
 ................................
 Single path:
-['mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX', 181, 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'] 
+OrderedDict([('addrs_src', 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w'), ('lives_src', 2274), ('addrs_trk', 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt'), ('lives_trk', 440), ('amount_trd', 3125)]) 
 
 
 Rows to deleted:  [0]
@@ -8181,7 +8181,7 @@ Source:  mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX ; Tracked:  mvNW2vKdNL9bCN18UqZvLMQr
 ................................
 Opened contrats:  307 
 
-Single path:  ['mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX', 307, 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX']
+Single path:  OrderedDict([('addrs_src', 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX'), ('lives_src', 488), ('addrs_trk', 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX'), ('lives_trk', 307), ('amount_trd', 307)])
 
 Rows to deleted:  [0]
 M_file:
@@ -8424,7 +8424,7 @@ amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mtSu76Ggd
 ................................
 
 Path:
-[['mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX', 272, 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7'], ['mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 111, 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7'], ['mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 161, 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7']]
+[OrderedDict([('addrs_src', 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX'), ('lives_src', 760), ('addrs_trk', 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7'), ('lives_trk', 272), ('amount_trd', 272)]), OrderedDict([('addrs_src', 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7'), ('lives_src', 161), ('addrs_trk', 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7'), ('lives_trk', 161), ('amount_trd', 111)]), OrderedDict([('addrs_src', 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7'), ('lives_src', 0), ('addrs_trk', 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7'), ('lives_trk', 0), ('amount_trd', 161)])]
 ................................
 
 Rows to deleted:  [0, 35, 36]
@@ -8665,7 +8665,7 @@ New row added:  ['mo14MKvoJd6JY7tZagTrjYnvQsDKqa6PoQ' 'ShortPosNetted' '0'
 ................................
 
 Path:
-[['mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX', 583, 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'], ['mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 191, 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'], ['mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 392, 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h']]
+[OrderedDict([('addrs_src', 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX'), ('lives_src', 1343), ('addrs_trk', 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'), ('lives_trk', 583), ('amount_trd', 583)]), OrderedDict([('addrs_src', 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'), ('lives_src', 2689), ('addrs_trk', 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'), ('lives_trk', 2689), ('amount_trd', 191)]), OrderedDict([('addrs_src', 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'), ('lives_src', 1607), ('addrs_trk', 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'), ('lives_trk', 1607), ('amount_trd', 1607)])]
 ................................
 
 Rows to deleted:  [0, 19, 20]
@@ -9094,7 +9094,7 @@ Source:  mtnHzodRGb1Vkozjk1KP1d6bZuMoGht9WT ; Tracked:  mrwCfiL9sxe5kLNvnsE13ffJ
 ................................
 
 Path:
-[['mtnHzodRGb1Vkozjk1KP1d6bZuMoGht9WT', 116, 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt']]
+[OrderedDict([('addrs_src', 'mtnHzodRGb1Vkozjk1KP1d6bZuMoGht9WT'), ('lives_src', 116), ('addrs_trk', 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt'), ('lives_trk', 3124), ('amount_trd', 116)])]
 ................................
 
 Rows to deleted:  [0]
@@ -9307,7 +9307,7 @@ Source:  mtnHzodRGb1Vkozjk1KP1d6bZuMoGht9WT ; Tracked:  mgsonvrkUSgNZLhnKfLe4oh7
 
 ................................
 Single path:
-['mtnHzodRGb1Vkozjk1KP1d6bZuMoGht9WT', 46, 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup'] 
+OrderedDict([('addrs_src', 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'), ('lives_src', 1607), ('addrs_trk', 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'), ('lives_trk', 1607), ('amount_trd', 1406)]) 
 
 
 Rows to deleted:  [0]
@@ -9518,7 +9518,7 @@ Source:  mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb ; Tracked:  mzG2rnYDwq8QR41avaLh9J88
 
 ................................
 Single path:
-['mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 348, 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR'] 
+OrderedDict([('addrs_src', 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'), ('lives_src', 1607), ('addrs_trk', 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h'), ('lives_trk', 1607), ('amount_trd', 1406)]) 
 
 
 Rows to deleted:  [0]
@@ -9734,7 +9734,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mzG2rnYDw
 ................................
 
 Path:
-[['mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 853, 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR'], ['mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW', 742, 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR']]
+[OrderedDict([('addrs_src', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_src', 1201), ('addrs_trk', 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR'), ('lives_trk', 853), ('amount_trd', 853)]), OrderedDict([('addrs_src', 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW'), ('lives_src', 1780), ('addrs_trk', 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR'), ('lives_trk', 111), ('amount_trd', 742)])]
 ................................
 
 Rows to deleted:  [0, 74]
@@ -9955,7 +9955,7 @@ New row added:  ['mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K' 'ShortPosNettedPartly' '21
 ................................
 
 Path:
-[['mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 1734, 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'], ['mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 150, 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'], ['mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 1584, 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1']]
+[OrderedDict([('addrs_src', 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb'), ('lives_src', 2935), ('addrs_trk', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_trk', 1734), ('amount_trd', 1734)]), OrderedDict([('addrs_src', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_src', 1807), ('addrs_trk', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_trk', 1807), ('amount_trd', 150)]), OrderedDict([('addrs_src', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_src', 0), ('addrs_trk', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_trk', 0), ('amount_trd', 1807)])]
 ................................
 
 Rows to deleted:  [0, 9, 10]
@@ -10166,7 +10166,7 @@ New row added:  ['mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K' 'ShortPosNettedPartly' '21
 ................................
 
 Path:
-[['mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ', 223, 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'], ['mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 223, 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1']]
+[OrderedDict([('addrs_src', 'mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ'), ('lives_src', 223), ('addrs_trk', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_trk', 1957), ('amount_trd', 223)]), OrderedDict([('addrs_src', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_src', 0), ('addrs_trk', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_trk', 0), ('amount_trd', 373)])]
 ................................
 
 Rows to deleted:  [0, 93]
@@ -10365,7 +10365,7 @@ Source:  mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ ; Tracked:  mwue3DQUbn1Ypc2g6puWDkZp
 
 ................................
 Single path:
-['mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ', 1298, 'mwue3DQUbn1Ypc2g6puWDkZpYgQGnD33fk'] 
+OrderedDict([('addrs_src', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_src', 0), ('addrs_trk', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_trk', 0), ('amount_trd', 373)]) 
 
 
 Rows to deleted:  [0]
@@ -10563,7 +10563,7 @@ Source:  mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ ; Tracked:  mwue3DQUbn1Ypc2g6puWDkZp
 ................................
 Opened contrats:  1408 
 
-Single path:  ['mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ', 1408, 'mwue3DQUbn1Ypc2g6puWDkZpYgQGnD33fk']
+Single path:  OrderedDict([('addrs_src', 'mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ'), ('lives_src', 2929), ('addrs_trk', 'mwue3DQUbn1Ypc2g6puWDkZpYgQGnD33fk'), ('lives_trk', 1408), ('amount_trd', 1408)])
 
 Rows to deleted:  [0]
 M_file:
@@ -10767,7 +10767,7 @@ New row added:  ['mh8bEuAPkvE7z9iercUcpW246DpVz9jzDc' 'ShortPosNetted' '0'
 ................................
 
 Path:
-[['mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 1133, 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'], ['mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 1133, 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h']]
+[OrderedDict([('addrs_src', 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk'), ('lives_src', 1133), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 2956), ('amount_trd', 1133)]), OrderedDict([('addrs_src', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_src', 3930), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 3930), ('amount_trd', 3930)])]
 ................................
 
 Rows to deleted:  [0, 20]
@@ -10960,7 +10960,7 @@ Source:  mo14MKvoJd6JY7tZagTrjYnvQsDKqa6PoQ ; Tracked:  mmaPzd2QAmJZKrTRjgE2jthW
 
 ................................
 Single path:
-['mo14MKvoJd6JY7tZagTrjYnvQsDKqa6PoQ', 1082, 'mmaPzd2QAmJZKrTRjgE2jthWaHJEgYFdXC'] 
+OrderedDict([('addrs_src', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_src', 3930), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 3930), ('amount_trd', 3930)]) 
 
 
 Rows to deleted:  [0]
@@ -11151,7 +11151,7 @@ Source:  mh8bEuAPkvE7z9iercUcpW246DpVz9jzDc ; Tracked:  myLaNvaXSiHxbvvHUpd7dTT9
 
 ................................
 Single path:
-['mh8bEuAPkvE7z9iercUcpW246DpVz9jzDc', 1557, 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr'] 
+OrderedDict([('addrs_src', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_src', 3930), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 3930), ('amount_trd', 3930)]) 
 
 
 Rows to deleted:  [0]
@@ -11340,7 +11340,7 @@ Source:  mjo7KvYroMLPf4urGasEms8YApvyGtdhJG ; Tracked:  mgsonvrkUSgNZLhnKfLe4oh7
 
 ................................
 Single path:
-['mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 2692, 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup'] 
+OrderedDict([('addrs_src', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_src', 3930), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 3930), ('amount_trd', 3930)]) 
 
 
 Rows to deleted:  [0]
@@ -11537,7 +11537,7 @@ New row added:  ['mh8bEuAPkvE7z9iercUcpW246DpVz9jzDc' 'OpenLongPosition' '3338'
 ................................
 
 Path:
-[['n2RK44agft1XBN9noz8vzQhEZFK2oRn41Z', 1029, 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'], ['mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 1029, 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h']]
+[OrderedDict([('addrs_src', 'n2RK44agft1XBN9noz8vzQhEZFK2oRn41Z'), ('lives_src', 1029), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 3985), ('amount_trd', 1029)]), OrderedDict([('addrs_src', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_src', 592), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 592), ('amount_trd', 3338)])]
 ................................
 
 Rows to deleted:  [0, 16]
@@ -11722,7 +11722,7 @@ Source:  mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1 ; Tracked:  mnzgwhJuLFsk8L8FSMS6LNMj
 
 ................................
 Single path:
-['mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 313, 'mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K'] 
+OrderedDict([('addrs_src', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_src', 592), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 592), ('amount_trd', 3338)]) 
 
 
 Rows to deleted:  [0]
@@ -11912,7 +11912,7 @@ amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mzLr8oAYx
 ................................
 
 Path:
-[['mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 633, 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6'], ['mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 152, 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6']]
+[OrderedDict([('addrs_src', 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1'), ('lives_src', 946), ('addrs_trk', 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6'), ('lives_trk', 633), ('amount_trd', 633)]), OrderedDict([('addrs_src', 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz'), ('lives_src', 2679), ('addrs_trk', 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6'), ('lives_trk', 2669), ('amount_trd', 152)])]
 ................................
 
 Rows to deleted:  [0, 59]
@@ -12259,7 +12259,7 @@ Source:  mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF ; Tracked:  mgsonvrkUSgNZLhnKfLe4oh7
 ................................
 
 Path:
-[['mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF', 291, 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup']]
+[OrderedDict([('addrs_src', 'mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF'), ('lives_src', 787), ('addrs_trk', 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup'), ('lives_trk', 291), ('amount_trd', 291)])]
 ................................
 
 Rows to deleted:  [0]
@@ -12432,7 +12432,7 @@ Source:  mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF ; Tracked:  mqkQR87rWVKrqK7EAreQzg9V
 
 ................................
 Single path:
-['mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF', 1792, 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz'] 
+OrderedDict([('addrs_src', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_src', 592), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 592), ('amount_trd', 2309)]) 
 
 
 Rows to deleted:  [0]
@@ -12603,7 +12603,7 @@ Source:  mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF ; Tracked:  mx4Z7qE8t2kQZM6KzrLrNewe
 
 ................................
 Single path:
-['mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF', 2436, 'mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs'] 
+OrderedDict([('addrs_src', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_src', 592), ('addrs_trk', 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h'), ('lives_trk', 592), ('amount_trd', 2309)]) 
 
 
 Rows to deleted:  [0]
@@ -12773,7 +12773,7 @@ Source:  mg95mwSVbb5EBePBRKZUeTJSwcuPGo6dvP ; Tracked:  mzLr8oAYxSvrmQ2xn9CjnAcC
 ................................
 
 Path:
-[['mg95mwSVbb5EBePBRKZUeTJSwcuPGo6dvP', 1842, 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6']]
+[OrderedDict([('addrs_src', 'mg95mwSVbb5EBePBRKZUeTJSwcuPGo6dvP'), ('lives_src', 1842), ('addrs_trk', 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6'), ('lives_trk', 2475), ('amount_trd', 1842)])]
 ................................
 
 Rows to deleted:  [0]
@@ -12950,7 +12950,7 @@ New row added:  ['mw2Em2mDuakNhxz6Eh9XdnCF32uhW4sTRx' 'LongPosIncreased' '864'
 ................................
 
 Path:
-[['mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn', 652, 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y'], ['mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y', 652, 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y']]
+[OrderedDict([('addrs_src', 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn'), ('lives_src', 652), ('addrs_trk', 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y'), ('lives_trk', 652), ('amount_trd', 652)]), OrderedDict([('addrs_src', 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y'), ('lives_src', 399), ('addrs_trk', 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y'), ('lives_trk', 399), ('amount_trd', 724)])]
 ................................
 
 Rows to deleted:  [0, 18]
@@ -13149,7 +13149,7 @@ New row added:  ['n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB' 'ShortPosNettedPartly' '23
 ................................
 
 Path:
-[['n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1', 2405, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'], ['n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 850, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'], ['n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 270, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'], ['n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 37, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'], ['n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 489, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'], ['n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 759, 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx']]
+[OrderedDict([('addrs_src', 'n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1'), ('lives_src', 2405), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 4944), ('amount_trd', 2405)]), OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 850), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 850), ('amount_trd', 850)]), OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 580), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 580), ('amount_trd', 270)]), OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 543), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 543), ('amount_trd', 37)]), OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 54), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 54), ('amount_trd', 489)]), OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 2715)])]
 ................................
 
 Rows to deleted:  [0, 11, 12, 13, 14, 64]
@@ -13305,7 +13305,7 @@ Source:  n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1 ; Tracked:  mw2Em2mDuakNhxz6Eh9XdnCF
 ................................
 
 Path:
-[['n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1', 6, 'mw2Em2mDuakNhxz6Eh9XdnCF32uhW4sTRx']]
+[OrderedDict([('addrs_src', 'n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1'), ('lives_src', 2411), ('addrs_trk', 'mw2Em2mDuakNhxz6Eh9XdnCF32uhW4sTRx'), ('lives_trk', 140), ('amount_trd', 6)])]
 ................................
 
 Rows to deleted:  [0]
@@ -13458,7 +13458,7 @@ Source:  mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY ; Tracked:  mx4Z7qE8t2kQZM6KzrLrNewe
 
 ................................
 Single path:
-['mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY', 307, 'mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -13610,7 +13610,7 @@ Source:  mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY ; Tracked:  mx4Z7qE8t2kQZM6KzrLrNewe
 ................................
 Opened contrats:  1656 
 
-Single path:  ['mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY', 1656, 'mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs']
+Single path:  OrderedDict([('addrs_src', 'mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY'), ('lives_src', 1963), ('addrs_trk', 'mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs'), ('lives_trk', 1656), ('amount_trd', 1656)])
 
 Rows to deleted:  [0]
 M_file:
@@ -13759,7 +13759,7 @@ Source:  mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY ; Tracked:  mpkmbR86msXz4tcthmxCMBhR
 ................................
 Opened contrats:  288 
 
-Single path:  ['mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY', 288, 'mpkmbR86msXz4tcthmxCMBhRBPgJDETUP5']
+Single path:  OrderedDict([('addrs_src', 'mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY'), ('lives_src', 2251), ('addrs_trk', 'mpkmbR86msXz4tcthmxCMBhRBPgJDETUP5'), ('lives_trk', 1002), ('amount_trd', 288)])
 
 Rows to deleted:  [0]
 M_file:
@@ -13905,7 +13905,7 @@ Source:  mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7 ; Tracked:  mp1iCFqh39xnKPka8nD4QCKy
 
 ................................
 Single path:
-['mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 2809, 'mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -14050,7 +14050,7 @@ Source:  mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7 ; Tracked:  mh8bEuAPkvE7z9iercUcpW24
 
 ................................
 Single path:
-['mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 1352, 'mh8bEuAPkvE7z9iercUcpW246DpVz9jzDc'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -14457,7 +14457,7 @@ Source:  miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU ; Tracked:  mjUYSsnZRDn2gdXJK11b561Y
 
 ................................
 Single path:
-['miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU', 1219, 'mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -14594,7 +14594,7 @@ Source:  miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU ; Tracked:  n3KzZHUSAmV59yRw3J7Rpg6v
 
 ................................
 Single path:
-['miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU', 843, 'n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -14730,7 +14730,7 @@ Source:  mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW ; Tracked:  mwqoixD2L65LM6gHFy85eTAc
 ................................
 
 Path:
-[['mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 1441, 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX']]
+[OrderedDict([('addrs_src', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_src', 1441), ('addrs_trk', 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX'), ('lives_trk', 3238), ('amount_trd', 1441)])]
 ................................
 
 Rows to deleted:  [0]
@@ -14864,7 +14864,7 @@ Source:  mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW ; Tracked:  mg95mwSVbb5EBePBRKZUeTJS
 ................................
 
 Path:
-[['mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 12, 'mg95mwSVbb5EBePBRKZUeTJSwcuPGo6dvP']]
+[OrderedDict([('addrs_src', 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW'), ('lives_src', 1453), ('addrs_trk', 'mg95mwSVbb5EBePBRKZUeTJSwcuPGo6dvP'), ('lives_trk', 1215), ('amount_trd', 12)])]
 ................................
 
 Rows to deleted:  [0]
@@ -15116,7 +15116,7 @@ Source:  mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y ; Tracked:  mne7qGH3a1Qnt3gL8Y3uYnd2
 
 ................................
 Single path:
-['mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y', 2774, 'mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -15243,7 +15243,7 @@ Source:  mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP ; Tracked:  mpGo6tsvNXn2UR83FjoYRCmc
 
 ................................
 Single path:
-['mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP', 432, 'mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -15369,7 +15369,7 @@ Source:  mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP ; Tracked:  mpGo6tsvNXn2UR83FjoYRCmc
 ................................
 
 Path:
-[['mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP', 1281, 'mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB']]
+[OrderedDict([('addrs_src', 'mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP'), ('lives_src', 1713), ('addrs_trk', 'mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB'), ('lives_trk', 1281), ('amount_trd', 1281)])]
 ................................
 
 Rows to deleted:  [0]
@@ -15493,7 +15493,7 @@ Source:  mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP ; Tracked:  mzLr8oAYxSvrmQ2xn9CjnAcC
 ................................
 Opened contrats:  346 
 
-Single path:  ['mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP', 346, 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6']
+Single path:  OrderedDict([('addrs_src', 'mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP'), ('lives_src', 2059), ('addrs_trk', 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6'), ('lives_trk', 2821), ('amount_trd', 346)])
 
 Rows to deleted:  [0]
 M_file:
@@ -15613,7 +15613,7 @@ Source:  mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP ; Tracked:  n1vZmCwfPsopnNpS8LdaQ9jc
 
 ................................
 Single path:
-['mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP', 2470, 'n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -15733,7 +15733,7 @@ Source:  mr5mpcRzE3FepjRRUuCo9q91XzujW5gS81 ; Tracked:  mg95mwSVbb5EBePBRKZUeTJS
 ................................
 Opened contrats:  896 
 
-Single path:  ['mr5mpcRzE3FepjRRUuCo9q91XzujW5gS81', 896, 'mg95mwSVbb5EBePBRKZUeTJSwcuPGo6dvP']
+Single path:  OrderedDict([('addrs_src', 'mr5mpcRzE3FepjRRUuCo9q91XzujW5gS81'), ('lives_src', 896), ('addrs_trk', 'mg95mwSVbb5EBePBRKZUeTJSwcuPGo6dvP'), ('lives_trk', 2111), ('amount_trd', 896)])
 
 Rows to deleted:  [0]
 M_file:
@@ -15849,7 +15849,7 @@ Source:  mr5mpcRzE3FepjRRUuCo9q91XzujW5gS81 ; Tracked:  miVaUFSFBPvVE91WEk7qCH3W
 
 ................................
 Single path:
-['mr5mpcRzE3FepjRRUuCo9q91XzujW5gS81', 876, 'miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -15964,7 +15964,7 @@ Source:  mzJMCfjNosAu73MepichqiVT9spsxanRDu ; Tracked:  miVaUFSFBPvVE91WEk7qCH3W
 
 ................................
 Single path:
-['mzJMCfjNosAu73MepichqiVT9spsxanRDu', 557, 'miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -16077,7 +16077,7 @@ Source:  mzJMCfjNosAu73MepichqiVT9spsxanRDu ; Tracked:  myLaNvaXSiHxbvvHUpd7dTT9
 
 ................................
 Single path:
-['mzJMCfjNosAu73MepichqiVT9spsxanRDu', 982, 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -16189,7 +16189,7 @@ Source:  mzJMCfjNosAu73MepichqiVT9spsxanRDu ; Tracked:  myLaNvaXSiHxbvvHUpd7dTT9
 ................................
 
 Path:
-[['mzJMCfjNosAu73MepichqiVT9spsxanRDu', 226, 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr']]
+[OrderedDict([('addrs_src', 'mzJMCfjNosAu73MepichqiVT9spsxanRDu'), ('lives_src', 1765), ('addrs_trk', 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr'), ('lives_trk', 226), ('amount_trd', 226)])]
 ................................
 
 Rows to deleted:  [0]
@@ -16298,7 +16298,7 @@ Source:  myDNBkMtWgE7FEfqPbCkBL3cZhC8SxFHuU ; Tracked:  mjo7KvYroMLPf4urGasEms8Y
 
 ................................
 Single path:
-['myDNBkMtWgE7FEfqPbCkBL3cZhC8SxFHuU', 259, 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -16405,7 +16405,7 @@ Source:  myDNBkMtWgE7FEfqPbCkBL3cZhC8SxFHuU ; Tracked:  n4HbCKoE28KmqPSWqiFUuVp7
 
 ................................
 Single path:
-['myDNBkMtWgE7FEfqPbCkBL3cZhC8SxFHuU', 828, 'n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -16510,7 +16510,7 @@ Source:  myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s ; Tracked:  n3KzZHUSAmV59yRw3J7Rpg6v
 
 ................................
 Single path:
-['myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s', 836, 'n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -16614,7 +16614,7 @@ Source:  myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s ; Tracked:  n1XNDmxzm6VP6MDSEfdYPQGA
 ................................
 Opened contrats:  1088 
 
-Single path:  ['myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s', 1088, 'n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639']
+Single path:  OrderedDict([('addrs_src', 'myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s'), ('lives_src', 1924), ('addrs_trk', 'n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639'), ('lives_trk', 2901), ('amount_trd', 1088)])
 
 Rows to deleted:  [0]
 M_file:
@@ -16715,7 +16715,7 @@ Source:  myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s ; Tracked:  myLaNvaXSiHxbvvHUpd7dTT9
 ................................
 
 Path:
-[['myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s', 711, 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr']]
+[OrderedDict([('addrs_src', 'myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s'), ('lives_src', 2635), ('addrs_trk', 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr'), ('lives_trk', 937), ('amount_trd', 711)])]
 ................................
 
 Rows to deleted:  [0]
@@ -16814,7 +16814,7 @@ Source:  myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s ; Tracked:  mhJjDQzwpYJPeWeT6QCSvxnj
 
 ................................
 Single path:
-['myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s', 1947, 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -16912,7 +16912,7 @@ Source:  myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s ; Tracked:  mhJjDQzwpYJPeWeT6QCSvxnj
 ................................
 
 Path:
-[['myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s', 384, 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V']]
+[OrderedDict([('addrs_src', 'myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s'), ('lives_src', 4966), ('addrs_trk', 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V'), ('lives_trk', 384), ('amount_trd', 384)])]
 ................................
 
 Rows to deleted:  [0]
@@ -17008,7 +17008,7 @@ Source:  mqMS6sdXypzAkaEkWrwyAWEDmbmtTnm5KG ; Tracked:  mhJjDQzwpYJPeWeT6QCSvxnj
 ................................
 Opened contrats:  956 
 
-Single path:  ['mqMS6sdXypzAkaEkWrwyAWEDmbmtTnm5KG', 956, 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V']
+Single path:  OrderedDict([('addrs_src', 'mqMS6sdXypzAkaEkWrwyAWEDmbmtTnm5KG'), ('lives_src', 956), ('addrs_trk', 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V'), ('lives_trk', 1340), ('amount_trd', 956)])
 
 Rows to deleted:  [0]
 M_file:
@@ -17100,7 +17100,7 @@ Source:  mqMS6sdXypzAkaEkWrwyAWEDmbmtTnm5KG ; Tracked:  mieQEyfeyMEYEvqUuxNNNE6U
 
 ................................
 Single path:
-['mqMS6sdXypzAkaEkWrwyAWEDmbmtTnm5KG', 652, 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -17192,7 +17192,7 @@ Source:  mqMS6sdXypzAkaEkWrwyAWEDmbmtTnm5KG ; Tracked:  mieQEyfeyMEYEvqUuxNNNE6U
 ................................
 
 Path:
-[['mqMS6sdXypzAkaEkWrwyAWEDmbmtTnm5KG', 452, 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn']]
+[OrderedDict([('addrs_src', 'mqMS6sdXypzAkaEkWrwyAWEDmbmtTnm5KG'), ('lives_src', 2060), ('addrs_trk', 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn'), ('lives_trk', 452), ('amount_trd', 452)])]
 ................................
 
 Rows to deleted:  [0]
@@ -17282,7 +17282,7 @@ Source:  n1kGjCxyn8FrXShsLk8esQpiN6Jupj1zT8 ; Tracked:  mieQEyfeyMEYEvqUuxNNNE6U
 ................................
 
 Path:
-[['n1kGjCxyn8FrXShsLk8esQpiN6Jupj1zT8', 2127, 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn']]
+[OrderedDict([('addrs_src', 'n1kGjCxyn8FrXShsLk8esQpiN6Jupj1zT8'), ('lives_src', 2127), ('addrs_trk', 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn'), ('lives_trk', 2579), ('amount_trd', 2127)])]
 ................................
 
 Rows to deleted:  [0]
@@ -17369,7 +17369,7 @@ Source:  n1kGjCxyn8FrXShsLk8esQpiN6Jupj1zT8 ; Tracked:  n4HbCKoE28KmqPSWqiFUuVp7
 
 ................................
 Single path:
-['n1kGjCxyn8FrXShsLk8esQpiN6Jupj1zT8', 3, 'n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -17454,7 +17454,7 @@ Source:  mk8ggRn8jo1RrC1GivkWTnpxim7fsjeEbM ; Tracked:  n4HbCKoE28KmqPSWqiFUuVp7
 
 ................................
 Single path:
-['mk8ggRn8jo1RrC1GivkWTnpxim7fsjeEbM', 883, 'n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -17538,7 +17538,7 @@ Source:  mk8ggRn8jo1RrC1GivkWTnpxim7fsjeEbM ; Tracked:  n4HbCKoE28KmqPSWqiFUuVp7
 ................................
 Opened contrats:  1660 
 
-Single path:  ['mk8ggRn8jo1RrC1GivkWTnpxim7fsjeEbM', 1660, 'n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa']
+Single path:  OrderedDict([('addrs_src', 'mk8ggRn8jo1RrC1GivkWTnpxim7fsjeEbM'), ('lives_src', 2543), ('addrs_trk', 'n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa'), ('lives_trk', 1660), ('amount_trd', 1660)])
 
 Rows to deleted:  [0]
 M_file:
@@ -17618,7 +17618,7 @@ Source:  n14uswn8VuP5nEetKjVvFUxBitQo7eCzAT ; Tracked:  n1vZmCwfPsopnNpS8LdaQ9jc
 
 ................................
 Single path:
-['n14uswn8VuP5nEetKjVvFUxBitQo7eCzAT', 1756, 'n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -17698,7 +17698,7 @@ Source:  n14uswn8VuP5nEetKjVvFUxBitQo7eCzAT ; Tracked:  n1vZmCwfPsopnNpS8LdaQ9jc
 ................................
 Opened contrats:  299 
 
-Single path:  ['n14uswn8VuP5nEetKjVvFUxBitQo7eCzAT', 299, 'n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7']
+Single path:  OrderedDict([('addrs_src', 'n14uswn8VuP5nEetKjVvFUxBitQo7eCzAT'), ('lives_src', 2055), ('addrs_trk', 'n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7'), ('lives_trk', 299), ('amount_trd', 299)])
 
 Rows to deleted:  [0]
 M_file:
@@ -17774,7 +17774,7 @@ Source:  n14uswn8VuP5nEetKjVvFUxBitQo7eCzAT ; Tracked:  mmrRdiiAMN8mmuqnQ8UsymXe
 
 ................................
 Single path:
-['n14uswn8VuP5nEetKjVvFUxBitQo7eCzAT', 232, 'mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -17850,7 +17850,7 @@ Source:  mjjTfY21jvFJ2fEmuoiQshRKnqoVbyqy5y ; Tracked:  mh9jcNJkasjGZXV99wYPSd5b
 ................................
 
 Path:
-[['mjjTfY21jvFJ2fEmuoiQshRKnqoVbyqy5y', 1306, 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu']]
+[OrderedDict([('addrs_src', 'mjjTfY21jvFJ2fEmuoiQshRKnqoVbyqy5y'), ('lives_src', 1306), ('addrs_trk', 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu'), ('lives_trk', 1461), ('amount_trd', 1306)])]
 ................................
 
 Rows to deleted:  [0]
@@ -17923,7 +17923,7 @@ Source:  mghZFnAMCgKmthk8ChokmBeR4XKoDxVdcp ; Tracked:  mne7qGH3a1Qnt3gL8Y3uYnd2
 
 ................................
 Single path:
-['mghZFnAMCgKmthk8ChokmBeR4XKoDxVdcp', 444, 'mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -17995,7 +17995,7 @@ Source:  mghZFnAMCgKmthk8ChokmBeR4XKoDxVdcp ; Tracked:  mpLCpNPCp3vHoqVTtKbctSHR
 ................................
 Opened contrats:  1461 
 
-Single path:  ['mghZFnAMCgKmthk8ChokmBeR4XKoDxVdcp', 1461, 'mpLCpNPCp3vHoqVTtKbctSHRi1rVDhRCwN']
+Single path:  OrderedDict([('addrs_src', 'mghZFnAMCgKmthk8ChokmBeR4XKoDxVdcp'), ('lives_src', 1905), ('addrs_trk', 'mpLCpNPCp3vHoqVTtKbctSHRi1rVDhRCwN'), ('lives_trk', 1461), ('amount_trd', 1461)])
 
 Rows to deleted:  [0]
 M_file:
@@ -18063,7 +18063,7 @@ Source:  muL8Ds5feas6EPqobm87PTsSbrV2kz82uD ; Tracked:  mmrRdiiAMN8mmuqnQ8UsymXe
 
 ................................
 Single path:
-['muL8Ds5feas6EPqobm87PTsSbrV2kz82uD', 2019, 'mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -18131,7 +18131,7 @@ Source:  muL8Ds5feas6EPqobm87PTsSbrV2kz82uD ; Tracked:  mmrRdiiAMN8mmuqnQ8UsymXe
 ................................
 Opened contrats:  2650 
 
-Single path:  ['muL8Ds5feas6EPqobm87PTsSbrV2kz82uD', 2650, 'mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY']
+Single path:  OrderedDict([('addrs_src', 'muL8Ds5feas6EPqobm87PTsSbrV2kz82uD'), ('lives_src', 4669), ('addrs_trk', 'mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY'), ('lives_trk', 2650), ('amount_trd', 2650)])
 
 Rows to deleted:  [0]
 M_file:
@@ -18195,7 +18195,7 @@ Source:  muL8Ds5feas6EPqobm87PTsSbrV2kz82uD ; Tracked:  n1EZoRCseA3FGUrS4kpoRxR4
 
 ................................
 Single path:
-['muL8Ds5feas6EPqobm87PTsSbrV2kz82uD', 95, 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -18259,7 +18259,7 @@ Source:  mk8ggRn8jo1RrC1GivkWTnpxim7fsjeEbM ; Tracked:  mgsonvrkUSgNZLhnKfLe4oh7
 ................................
 Opened contrats:  1980 
 
-Single path:  ['mk8ggRn8jo1RrC1GivkWTnpxim7fsjeEbM', 1980, 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup']
+Single path:  OrderedDict([('addrs_src', 'mk8ggRn8jo1RrC1GivkWTnpxim7fsjeEbM'), ('lives_src', 4523), ('addrs_trk', 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup'), ('lives_trk', 2271), ('amount_trd', 1980)])
 
 Rows to deleted:  [0]
 M_file:
@@ -18320,7 +18320,7 @@ Source:  mu2Zus6ZeC4MBEfKCdmNFKNg5MYSCPjtJv ; Tracked:  myLaNvaXSiHxbvvHUpd7dTT9
 ................................
 
 Path:
-[['mu2Zus6ZeC4MBEfKCdmNFKNg5MYSCPjtJv', 524, 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr']]
+[OrderedDict([('addrs_src', 'mu2Zus6ZeC4MBEfKCdmNFKNg5MYSCPjtJv'), ('lives_src', 820), ('addrs_trk', 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr'), ('lives_trk', 1461), ('amount_trd', 524)])]
 ................................
 
 Rows to deleted:  [0]
@@ -18380,7 +18380,7 @@ Source:  miFW7vwrVZ2pDboBhqTJU9Qn2UB4BudqKi ; Tracked:  myLaNvaXSiHxbvvHUpd7dTT9
 ................................
 
 Path:
-[['miFW7vwrVZ2pDboBhqTJU9Qn2UB4BudqKi', 1732, 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr']]
+[OrderedDict([('addrs_src', 'miFW7vwrVZ2pDboBhqTJU9Qn2UB4BudqKi'), ('lives_src', 1732), ('addrs_trk', 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr'), ('lives_trk', 3193), ('amount_trd', 1732)])]
 ................................
 
 Rows to deleted:  [0]
@@ -18438,7 +18438,7 @@ Source:  miaTSy5N6HJ4ejUMmgGXJn1LzQ4pAeCJFM ; Tracked:  myLaNvaXSiHxbvvHUpd7dTT9
 ................................
 Opened contrats:  1850 
 
-Single path:  ['miaTSy5N6HJ4ejUMmgGXJn1LzQ4pAeCJFM', 1850, 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr']
+Single path:  OrderedDict([('addrs_src', 'miaTSy5N6HJ4ejUMmgGXJn1LzQ4pAeCJFM'), ('lives_src', 1850), ('addrs_trk', 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr'), ('lives_trk', 5043), ('amount_trd', 1850)])
 
 Rows to deleted:  [0]
 M_file:
@@ -18492,7 +18492,7 @@ Source:  miaTSy5N6HJ4ejUMmgGXJn1LzQ4pAeCJFM ; Tracked:  mn4qfUpsM2GmB2KiraNAAScV
 
 ................................
 Single path:
-['miaTSy5N6HJ4ejUMmgGXJn1LzQ4pAeCJFM', 325, 'mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -18545,7 +18545,7 @@ Source:  mzjeCZdqy7FareLX1GCJsDVhRLxWyG9kxV ; Tracked:  mn4qfUpsM2GmB2KiraNAAScV
 
 ................................
 Single path:
-['mzjeCZdqy7FareLX1GCJsDVhRLxWyG9kxV', 596, 'mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -18597,7 +18597,7 @@ Source:  mzjeCZdqy7FareLX1GCJsDVhRLxWyG9kxV ; Tracked:  mn4qfUpsM2GmB2KiraNAAScV
 ................................
 Opened contrats:  219 
 
-Single path:  ['mzjeCZdqy7FareLX1GCJsDVhRLxWyG9kxV', 219, 'mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD']
+Single path:  OrderedDict([('addrs_src', 'mzjeCZdqy7FareLX1GCJsDVhRLxWyG9kxV'), ('lives_src', 815), ('addrs_trk', 'mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD'), ('lives_trk', 219), ('amount_trd', 219)])
 
 Rows to deleted:  [0]
 M_file:
@@ -18646,7 +18646,7 @@ Source:  mzjeCZdqy7FareLX1GCJsDVhRLxWyG9kxV ; Tracked:  mwqoixD2L65LM6gHFy85eTAc
 ................................
 
 Path:
-[['mzjeCZdqy7FareLX1GCJsDVhRLxWyG9kxV', 524, 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX']]
+[OrderedDict([('addrs_src', 'mzjeCZdqy7FareLX1GCJsDVhRLxWyG9kxV'), ('lives_src', 1339), ('addrs_trk', 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX'), ('lives_trk', 3762), ('amount_trd', 524)])]
 ................................
 
 Rows to deleted:  [0]
@@ -18694,7 +18694,7 @@ Source:  mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D ; Tracked:  mwqoixD2L65LM6gHFy85eTAc
 ................................
 
 Path:
-[['mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D', 1244, 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX']]
+[OrderedDict([('addrs_src', 'mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D'), ('lives_src', 1244), ('addrs_trk', 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX'), ('lives_trk', 5006), ('amount_trd', 1244)])]
 ................................
 
 Rows to deleted:  [0]
@@ -18740,7 +18740,7 @@ Source:  mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D ; Tracked:  mhUxW3PPipqWG2fPeeqipBAt
 ................................
 Opened contrats:  1410 
 
-Single path:  ['mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D', 1410, 'mhUxW3PPipqWG2fPeeqipBAtJAmpmqGrKa']
+Single path:  OrderedDict([('addrs_src', 'mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D'), ('lives_src', 2654), ('addrs_trk', 'mhUxW3PPipqWG2fPeeqipBAtJAmpmqGrKa'), ('lives_trk', 2466), ('amount_trd', 1410)])
 
 Rows to deleted:  [0]
 M_file:
@@ -18782,7 +18782,7 @@ Source:  mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D ; Tracked:  mjo7KvYroMLPf4urGasEms8Y
 
 ................................
 Single path:
-['mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D', 995, 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG'] 
+OrderedDict([('addrs_src', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_src', 1916), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', 1916), ('amount_trd', 3602)]) 
 
 
 Rows to deleted:  [0]
@@ -18824,7 +18824,7 @@ Source:  mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D ; Tracked:  mieQEyfeyMEYEvqUuxNNNE6U
 ................................
 Opened contrats:  660 
 
-Single path:  ['mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D', 660, 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn']
+Single path:  OrderedDict([('addrs_src', 'mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D'), ('lives_src', 4309), ('addrs_trk', 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn'), ('lives_trk', 3239), ('amount_trd', 660)])
 
 Rows to deleted:  [0]
 M_file:
@@ -19077,6 +19077,6 @@ Length M_file:  1
 Source:  n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx ; Tracked:  n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB 
 
 Single path:
-['n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB', '3602', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'] 
+OrderedDict([('addrs_src', 'n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB'), ('lives_src', '2300'), ('addrs_trk', 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx'), ('lives_trk', '1916'), ('amount_trd', '3602')]) 
 
 Length M_file:  0
