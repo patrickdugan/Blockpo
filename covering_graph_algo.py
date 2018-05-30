@@ -16,7 +16,7 @@ with open('graphInfoSixth.txt') as file:
 idx_j = [0]
 Interval = range(len(M_file))
 
-key_path = ['addrs_src', 'lives_src', 'addrs_trk', 'lives_trk', 'amount_trd']
+key_path = ['addrs_src', 'lives_src', 'addrs_trk', 'lives_trk', 'amount_trd', 'opened_sett']
 for j in Interval:	
 
 	if j > 0:
@@ -29,8 +29,8 @@ for j in Interval:
 	if len(M_file) == 1:
 		print "#---------------------------------------------------------------------------------#\n"
 		print "Source: ", M_file[0][3], "; Tracked: ", M_file[0][0], "\n"	
-		single_path_value_begin = [M_file[0][0], M_file[0][2], M_file[0][3], M_file[0][5], M_file[0][6]]
-		single_path_begin = OrderedDict(zip(key_path,single_path_value_begin))
+		single_path_value_begin = [M_file[0][0], M_file[0][2], M_file[0][3], M_file[0][5], M_file[0][6], M_file[0][6]]
+		single_path_begin = dict(zip(key_path,single_path_value_begin))
 		print "Single path:\n", single_path_begin, "\n"
 		print "Length M_file: ", 0
 		break
@@ -47,6 +47,7 @@ for j in Interval:
 	lives_src  = int(M_filej[5]) if M_filej[4] == "OpenShortPosition" or M_filej[4] == "ShortPosIncreased" else int(M_filej[2])
 
 	amount_trd = int(M_filej[6]) 
+	path_complex_one = []
 	path_complex_two = []
 
 	if status_src == "OpenShortPosition" or status_src == "ShortPosIncreased":
@@ -57,10 +58,11 @@ for j in Interval:
 			print "Source: ", addrs_src, "; Tracked: ", addrs_trk, "\n"
 			print "................................"
 
-			single_path_value_ele = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi]
-			single_path_ele = OrderedDict(zip(key_path, single_path_value_ele))
+			single_path_value_ele = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, amount_trdi]
+			single_path_ele = dict(zip(key_path, single_path_value_ele))
 
 			print "Single path:\n", single_path_ele, "\n"			
+			print "Length M_file: ", 1
 			idx_j = [0]
 
 			continue
@@ -71,14 +73,12 @@ for j in Interval:
 			print "Source: ", addrs_src, "; Tracked: ", addrs_trk, "\n"
 			print "................................"
 
-			single_path_value_ele = [addrs_src, lives_src, addrs_trk, lives_trk, amount_trd]
-			single_path_ele = OrderedDict(zip(key_path, single_path_value_ele))
+			single_path_value_ele = [addrs_src, lives_src, addrs_trk, lives_trk, amount_trd, 0000]
+			single_path_ele = dict(zip(key_path, single_path_value_ele))
 
 			path_complex_two.append(single_path_ele)
 
 			idx_iter = 0
-			status_addrs_trk_v = []
-
 			amount_trd_sum = 0
 			path_complex_ele_fth = []
 
@@ -99,7 +99,6 @@ for j in Interval:
 
 				if addrs_trk in str(N_filei):
 					idx_iter += 1
-					status_addrs_trk_v.append(status_trki)
 
 				netted_status = ["LongPosNetted", "LongPosNettedPartly"]
 
@@ -118,8 +117,8 @@ for j in Interval:
 						print "amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi |", addrs_trk, status_trki, amount_trdi, "\n"
 						print "................................"
 
-						path_complex_value_ele_two = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi]
-						path_complex_ele_two = OrderedDict(zip(key_path, path_complex_value_ele_two))
+						path_complex_value_ele_two = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0000]
+						path_complex_ele_two = dict(zip(key_path, path_complex_value_ele_two))
 						
 						path_complex_two.append(path_complex_ele_two)
 
@@ -130,8 +129,8 @@ for j in Interval:
 						print "Opened contrats: ", amount_trd, " < Total amount traded: ", amount_trd_sum, "\n"
 						diff_r = abs(amount_trd - amount_trd_sum_b)
  
-						path_complex_ele_value_thr = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi]						
-						path_complex_ele_thr = OrderedDict(zip(key_path, path_complex_ele_value_thr))
+						path_complex_ele_value_thr = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0000]						
+						path_complex_ele_thr = dict(zip(key_path, path_complex_ele_value_thr))
 
 						path_complex_two.append(path_complex_ele_thr)
 						print "amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r |", addrs_trk, status_trki, amount_trdi, diff_r, "\n"
@@ -153,8 +152,8 @@ for j in Interval:
 						print "amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi |", addrs_trk, status_trki, amount_trdi, "\n"
 						print "................................"
 
-						path_complex_ele_value_one = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi]
-						path_complex_ele_one = OrderedDict(zip(key_path, path_complex_ele_value_one))						
+						path_complex_ele_value_one = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0000]
+						path_complex_ele_one = dict(zip(key_path, path_complex_ele_value_one))						
 
 						path_complex_two.append(path_complex_ele_one)
 
@@ -163,25 +162,29 @@ for j in Interval:
 						break
 
 			idx_j = idx_i
-			if len(status_addrs_trk_v) == 0 and idx_iter == 0:
 
-				print "Opened contrats: ", amount_trd, "\n"
-				print "Single path: ", single_path_ele
+			if idx_iter == 0 or len(path_complex_two) == 1:
+
+				single_path_value_begin = [M_file[0][0], M_file[0][2], M_file[0][3], M_file[0][5], M_file[0][6], M_file[0][6]]
+				path_complex_one = dict(zip(key_path,single_path_value_begin))
+				print "Single path:\n", path_complex_one, "\n"
+				print "Length M_file: ", 1
+
 				idx_j = [0]
 
-				continue
+			else:
+				print "Path:\n", path_complex_two
 
-			print "\nPath:\n", path_complex_two
+			total_amount_trade = 0
+			for j in range(len(path_complex_two)):				
+				total_amount_trade += int(path_complex_two[j]['amount_trd'])
 
-			# contrats_opened = int(path_complex_two[0][1])
-			# trades_amount_total = 0
-			# for j in range(1, len(path_complex_two)):
-			# 	path_complex_two_v = path_complex_two[:][j]
-			# 	trades_amount_total += int(path_complex_two_v[1])
+			contrats_opened   = int(path_complex_two[0]['amount_trd'])
+			total_next_trades = abs(contrats_opened - total_amount_trade)
 
-			# amount_new_row = abs(trades_amount_total - contrats_opened)
-			# # print "amount_new_row: ", amount_new_row
-			# if amount_new_row > 0 and path_complex_two > 1:
-			# 	print "amount_new_row: ", amount_new_row 
+			contracts_opened_sett = abs(contrats_opened - total_next_trades)
+			if total_next_trades < contrats_opened and total_next_trades != 0:
+				print "\ntotal_next_trades: ", total_next_trades, "\tcontrats_opened: ", contrats_opened
+				print "contracts_opened_sett: ", contracts_opened_sett
 
 			print "................................"
