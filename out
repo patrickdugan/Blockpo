@@ -14,20 +14,24 @@ Length M_file:  208
 Source:  mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V ; Tracked:  mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX 
 
 ................................
+
 Amounts!!! amount_trdi:  1824  | amount_trd:  2452  | lives_trki:  628  | amount_trd_sum:  1824
 Opened contrats:  2452  > Total amount traded:  1824 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX LongPosNettedPartly 1824 
 
 ................................
+
 Amounts!!! amount_trdi:  628  | amount_trd:  2452  | lives_trki:  0  | amount_trd_sum:  2452
 Opened contrats:  2452  = Total amount traded:  2452 
 
 amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX LongPosNetted 628 
 
 ................................
+
 Path:
-[{'amount_trd': 2452, 'lives_trk': 2452, 'addrs_trk': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'lives_src': 2452, 'addrs_src': 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 'opened_sett': 0}, {'amount_trd': 1824, 'lives_trk': 628, 'addrs_trk': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'lives_src': 628, 'addrs_src': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'opened_sett': 0}, {'amount_trd': 628, 'lives_trk': 0, 'addrs_trk': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'lives_src': 0, 'addrs_src': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'opened_sett': 0}]
+[{'amount_trd': 2452, 'lives_trk': 2452, 'addrs_trk': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'lives_src': 2452, 'addrs_src': 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 'opened_sett': 0}, {'amount_trd': 1824, 'lives_trk': 628, 'addrs_trk': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'lives_src': 628, 'addrs_src': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'opened_sett': 0}, {'amount_trd': 628, 'lives_trk': 0, 'addrs_trk': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'lives_src': 0, 'addrs_src': 'mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 38, 39]
@@ -80,17 +84,22 @@ Length M_file:  204
 Source:  mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB ; Tracked:  mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk 
 
 ................................
+
 Amounts!!! amount_trdi:  1373  | amount_trd:  755  | lives_trki:  1823  | amount_trd_sum:  1373
 Opened contrats:  755  < Total amount traded:  1373 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk LongPosNettedPartly 1373 755 
 
 ................................
+
 New row added:  ['mwue3DQUbn1Ypc2g6puWDkZpYgQGnD33fk' 'LongPosIncreased' '2781'
- 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk' 'LongPosNettedPartly' '1823' '618']
+ 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk' 'LongPosNettedPartly' '1823' '618'] 
+
 ................................
+
 Path:
-[{'amount_trd': 755, 'lives_trk': 755, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 755, 'addrs_src': 'mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB', 'opened_sett': 0}, {'amount_trd': 1373, 'lives_trk': 1823, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 1823, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}]
+[{'amount_trd': 755, 'lives_trk': 755, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 755, 'addrs_src': 'mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB', 'opened_sett': 0}, {'amount_trd': 1373, 'lives_trk': 1823, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 1823, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 89]
@@ -115,17 +124,20 @@ Length M_file:  203
 Source:  mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz ; Tracked:  mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib 
 
 ................................
+
 Amounts!!! amount_trdi:  134  | amount_trd:  1058  | lives_trki:  924  | amount_trd_sum:  134
 Opened contrats:  1058  > Total amount traded:  134 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib LongPosNettedPartly 134 
 
-................................
-Path:
-[{'amount_trd': 1058, 'lives_trk': 1058, 'addrs_trk': 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib', 'lives_src': 1058, 'addrs_src': 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 'opened_sett': 0}, {'amount_trd': 134, 'lives_trk': 924, 'addrs_trk': 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib', 'lives_src': 924, 'addrs_src': 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib', 'opened_sett': 0}]
-
 total_next_trades:  134 	contrats_opened:  1058
-contracts_opened_sett:  924
+contracts_opened_sett:  924 
+
+................................
+
+Path:
+[{'amount_trd': 1058, 'lives_trk': 1058, 'addrs_trk': 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib', 'lives_src': 1058, 'addrs_src': 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 'opened_sett': 924}, {'amount_trd': 134, 'lives_trk': 924, 'addrs_trk': 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib', 'lives_src': 924, 'addrs_src': 'mpZHt5qZyVst9UXfNUvDRHR39S8FsXbcib', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 104]
@@ -178,14 +190,17 @@ Length M_file:  200
 Source:  mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz ; Tracked:  mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf 
 
 ................................
+
 Amounts!!! amount_trdi:  2239  | amount_trd:  2239  | lives_trki:  0  | amount_trd_sum:  2239
 Opened contrats:  2239  = Total amount traded:  2239 
 
 amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf LongPosNetted 2239 
 
 ................................
+
 Path:
-[{'amount_trd': 2239, 'lives_trk': 2239, 'addrs_trk': 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 'lives_src': 4015, 'addrs_src': 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 'opened_sett': 0}, {'amount_trd': 2239, 'lives_trk': 0, 'addrs_trk': 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 'lives_src': 0, 'addrs_src': 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 'opened_sett': 0}]
+[{'amount_trd': 2239, 'lives_trk': 2239, 'addrs_trk': 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 'lives_src': 4015, 'addrs_src': 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 'opened_sett': 0}, {'amount_trd': 2239, 'lives_trk': 0, 'addrs_trk': 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 'lives_src': 0, 'addrs_src': 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 9]
@@ -210,17 +225,20 @@ Length M_file:  198
 Source:  mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz ; Tracked:  mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6 
 
 ................................
+
 Amounts!!! amount_trdi:  505  | amount_trd:  608  | lives_trki:  2094  | amount_trd_sum:  505
 Opened contrats:  608  > Total amount traded:  505 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6 LongPosNettedPartly 505 
 
-................................
-Path:
-[{'amount_trd': 608, 'lives_trk': 608, 'addrs_trk': 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6', 'lives_src': 4623, 'addrs_src': 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 'opened_sett': 0}, {'amount_trd': 505, 'lives_trk': 2094, 'addrs_trk': 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6', 'lives_src': 2094, 'addrs_src': 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6', 'opened_sett': 0}]
-
 total_next_trades:  505 	contrats_opened:  608
-contracts_opened_sett:  103
+contracts_opened_sett:  103 
+
+................................
+
+Path:
+[{'amount_trd': 608, 'lives_trk': 608, 'addrs_trk': 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6', 'lives_src': 4623, 'addrs_src': 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 'opened_sett': 103}, {'amount_trd': 505, 'lives_trk': 2094, 'addrs_trk': 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6', 'lives_src': 2094, 'addrs_src': 'mn2Y62jZkz9piBQk3EhGtkB9vkhQmqTBc6', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 76]
@@ -245,23 +263,29 @@ Length M_file:  196
 Source:  mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu ; Tracked:  mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49 
 
 ................................
+
 Amounts!!! amount_trdi:  1266  | amount_trd:  1419  | lives_trki:  1266  | amount_trd_sum:  1266
 Opened contrats:  1419  > Total amount traded:  1266 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49 LongPosNettedPartly 1266 
 
 ................................
+
 Amounts!!! amount_trdi:  155  | amount_trd:  1419  | lives_trki:  1111  | amount_trd_sum:  1421
 Opened contrats:  1419  < Total amount traded:  1421 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49 LongPosNettedPartly 155 153 
 
 ................................
+
 New row added:  ['mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu' 'OpenLongPosition' '155'
- 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49' 'LongPosNettedPartly' '1111' '1268']
+ 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49' 'LongPosNettedPartly' '1111' '1268'] 
+
 ................................
+
 Path:
-[{'amount_trd': 1419, 'lives_trk': 1419, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 1419, 'addrs_src': 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu', 'opened_sett': 0}, {'amount_trd': 1266, 'lives_trk': 1266, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 0, 'addrs_src': 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu', 'opened_sett': 0}, {'amount_trd': 155, 'lives_trk': 1111, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 155, 'addrs_src': 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu', 'opened_sett': 0}]
+[{'amount_trd': 1419, 'lives_trk': 1419, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 1419, 'addrs_src': 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu', 'opened_sett': 0}, {'amount_trd': 1266, 'lives_trk': 1266, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 0, 'addrs_src': 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu', 'opened_sett': 0}, {'amount_trd': 155, 'lives_trk': 1111, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 155, 'addrs_src': 'mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 127, 128]
@@ -314,17 +338,22 @@ Length M_file:  193
 Source:  mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup ; Tracked:  mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G 
 
 ................................
+
 Amounts!!! amount_trdi:  2035  | amount_trd:  1163  | lives_trki:  2035  | amount_trd_sum:  2035
 Opened contrats:  1163  < Total amount traded:  2035 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G LongPosNettedPartly 2035 1163 
 
 ................................
+
 New row added:  ['mg95mwSVbb5EBePBRKZUeTJSwcuPGo6dvP' 'ShortPosNetted' '0'
- 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G' 'LongPosNettedPartly' '2035' '872']
+ 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G' 'LongPosNettedPartly' '2035' '872'] 
+
 ................................
+
 Path:
-[{'amount_trd': 1163, 'lives_trk': 1163, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 3274, 'addrs_src': 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup', 'opened_sett': 0}, {'amount_trd': 2035, 'lives_trk': 2035, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 2035, 'addrs_src': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'opened_sett': 0}]
+[{'amount_trd': 1163, 'lives_trk': 1163, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 3274, 'addrs_src': 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup', 'opened_sett': 0}, {'amount_trd': 2035, 'lives_trk': 2035, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 2035, 'addrs_src': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 121]
@@ -349,14 +378,17 @@ Length M_file:  192
 Source:  mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM ; Tracked:  n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw 
 
 ................................
+
 Amounts!!! amount_trdi:  1251  | amount_trd:  1251  | lives_trki:  0  | amount_trd_sum:  1251
 Opened contrats:  1251  = Total amount traded:  1251 
 
 amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw LongPosNetted 1251 
 
 ................................
+
 Path:
-[{'amount_trd': 1251, 'lives_trk': 1251, 'addrs_trk': 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 'lives_src': 1251, 'addrs_src': 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 'opened_sett': 0}, {'amount_trd': 1251, 'lives_trk': 0, 'addrs_trk': 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 'lives_src': 0, 'addrs_src': 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 'opened_sett': 0}]
+[{'amount_trd': 1251, 'lives_trk': 1251, 'addrs_trk': 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 'lives_src': 1251, 'addrs_src': 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 'opened_sett': 0}, {'amount_trd': 1251, 'lives_trk': 0, 'addrs_trk': 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 'lives_src': 0, 'addrs_src': 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 20]
@@ -381,17 +413,22 @@ Length M_file:  190
 Source:  n4J9R4QdJCbBSxi3Qw1JzLgY6iQR5XnJko ; Tracked:  mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk 
 
 ................................
+
 Amounts!!! amount_trdi:  1823  | amount_trd:  1280  | lives_trki:  0  | amount_trd_sum:  1823
 Opened contrats:  1280  < Total amount traded:  1823 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk LongPosNetted 1823 1280 
 
 ................................
+
 New row added:  ['mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h' 'OpenLongPosition' '1823'
- 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk' 'LongPosNetted' '0' '543']
+ 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk' 'LongPosNetted' '0' '543'] 
+
 ................................
+
 Path:
-[{'amount_trd': 1280, 'lives_trk': 2035, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 1280, 'addrs_src': 'n4J9R4QdJCbBSxi3Qw1JzLgY6iQR5XnJko', 'opened_sett': 0}, {'amount_trd': 1823, 'lives_trk': 0, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 0, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}]
+[{'amount_trd': 1280, 'lives_trk': 2035, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 1280, 'addrs_src': 'n4J9R4QdJCbBSxi3Qw1JzLgY6iQR5XnJko', 'opened_sett': 0}, {'amount_trd': 1823, 'lives_trk': 0, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 0, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 77]
@@ -416,23 +453,27 @@ Length M_file:  189
 Source:  n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB ; Tracked:  mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G 
 
 ................................
+
 Amounts!!! amount_trdi:  1203  | amount_trd:  2714  | lives_trki:  832  | amount_trd_sum:  1203
 Opened contrats:  2714  > Total amount traded:  1203 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G LongPosNettedPartly 1203 
 
 ................................
+
 Amounts!!! amount_trdi:  872  | amount_trd:  2714  | lives_trki:  2035  | amount_trd_sum:  2075
 Opened contrats:  2714  > Total amount traded:  2075 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G LongPosNettedPartly 872 
 
-................................
-Path:
-[{'amount_trd': 2714, 'lives_trk': 3877, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 2714, 'addrs_src': 'n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB', 'opened_sett': 0}, {'amount_trd': 1203, 'lives_trk': 832, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 832, 'addrs_src': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'opened_sett': 0}, {'amount_trd': 872, 'lives_trk': 2035, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 2035, 'addrs_src': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'opened_sett': 0}]
-
 total_next_trades:  2075 	contrats_opened:  2714
-contracts_opened_sett:  639
+contracts_opened_sett:  639 
+
+................................
+
+Path:
+[{'amount_trd': 2714, 'lives_trk': 3877, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 2714, 'addrs_src': 'n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB', 'opened_sett': 639}, {'amount_trd': 1203, 'lives_trk': 832, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 832, 'addrs_src': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'opened_sett': 0}, {'amount_trd': 872, 'lives_trk': 2035, 'addrs_trk': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'lives_src': 2035, 'addrs_src': 'mwSwcfD4W6tJxMML6CT9FPrJQCMLAWk54G', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 116, 187]
@@ -457,17 +498,22 @@ Length M_file:  186
 Source:  n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB ; Tracked:  mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49 
 
 ................................
+
 Amounts!!! amount_trdi:  1268  | amount_trd:  740  | lives_trki:  1111  | amount_trd_sum:  1268
 Opened contrats:  740  < Total amount traded:  1268 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49 LongPosNettedPartly 1268 740 
 
 ................................
+
 New row added:  ['mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu' 'OpenLongPosition' '155'
- 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49' 'LongPosNettedPartly' '1111' '528']
+ 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49' 'LongPosNettedPartly' '1111' '528'] 
+
 ................................
+
 Path:
-[{'amount_trd': 740, 'lives_trk': 2159, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 3454, 'addrs_src': 'n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB', 'opened_sett': 0}, {'amount_trd': 1268, 'lives_trk': 1111, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 1111, 'addrs_src': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'opened_sett': 0}]
+[{'amount_trd': 740, 'lives_trk': 2159, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 3454, 'addrs_src': 'n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB', 'opened_sett': 0}, {'amount_trd': 1268, 'lives_trk': 1111, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 1111, 'addrs_src': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 184]
@@ -492,17 +538,22 @@ Length M_file:  185
 Source:  mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf ; Tracked:  miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA 
 
 ................................
+
 Amounts!!! amount_trdi:  2297  | amount_trd:  48  | lives_trki:  658  | amount_trd_sum:  2297
 Opened contrats:  48  < Total amount traded:  2297 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA LongPosNettedPartly 2297 48 
 
 ................................
+
 New row added:  ['mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h' 'LongPosIncreased' '2880'
- 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA' 'LongPosNettedPartly' '658' '2249']
+ 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA' 'LongPosNettedPartly' '658' '2249'] 
+
 ................................
+
 Path:
-[{'amount_trd': 48, 'lives_trk': 2287, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 48, 'addrs_src': 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 'opened_sett': 0}, {'amount_trd': 2297, 'lives_trk': 658, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 658, 'addrs_src': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'opened_sett': 0}]
+[{'amount_trd': 48, 'lives_trk': 2287, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 48, 'addrs_src': 'mqVFAgwKBK3xb4E2wD1aRL5SKDxZ1aAWwf', 'opened_sett': 0}, {'amount_trd': 2297, 'lives_trk': 658, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 658, 'addrs_src': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 77]
@@ -527,17 +578,22 @@ Length M_file:  184
 Source:  mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR ; Tracked:  mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49 
 
 ................................
+
 Amounts!!! amount_trdi:  528  | amount_trd:  526  | lives_trki:  1111  | amount_trd_sum:  528
 Opened contrats:  526  < Total amount traded:  528 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49 LongPosNettedPartly 528 526 
 
 ................................
+
 New row added:  ['mh9jcNJkasjGZXV99wYPSd5bDYx5MVDkQu' 'OpenLongPosition' '155'
- 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49' 'LongPosNettedPartly' '1111' '2']
+ 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49' 'LongPosNettedPartly' '1111' '2'] 
+
 ................................
+
 Path:
-[{'amount_trd': 526, 'lives_trk': 2685, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 526, 'addrs_src': 'mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR', 'opened_sett': 0}, {'amount_trd': 528, 'lives_trk': 1111, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 1111, 'addrs_src': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'opened_sett': 0}]
+[{'amount_trd': 526, 'lives_trk': 2685, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 526, 'addrs_src': 'mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR', 'opened_sett': 0}, {'amount_trd': 528, 'lives_trk': 1111, 'addrs_trk': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'lives_src': 1111, 'addrs_src': 'mq9CgkroiiBTpwjnTz9RpBBMdRRJT4Np49', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 182]
@@ -562,17 +618,22 @@ Length M_file:  183
 Source:  mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR ; Tracked:  myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN 
 
 ................................
+
 Amounts!!! amount_trdi:  1779  | amount_trd:  1613  | lives_trki:  2724  | amount_trd_sum:  1779
 Opened contrats:  1613  < Total amount traded:  1779 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN LongPosNettedPartly 1779 1613 
 
 ................................
+
 New row added:  ['mmaPzd2QAmJZKrTRjgE2jthWaHJEgYFdXC' 'ShortPosNettedPartly' '103'
- 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN' 'LongPosNettedPartly' '2724' '166']
+ 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN' 'LongPosNettedPartly' '2724' '166'] 
+
 ................................
+
 Path:
-[{'amount_trd': 1613, 'lives_trk': 1613, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 2139, 'addrs_src': 'mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR', 'opened_sett': 0}, {'amount_trd': 1779, 'lives_trk': 2724, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 2724, 'addrs_src': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'opened_sett': 0}]
+[{'amount_trd': 1613, 'lives_trk': 1613, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 2139, 'addrs_src': 'mgZXc1oNsC6Bq1U3FyYwuBvmKFMTPqWcbR', 'opened_sett': 0}, {'amount_trd': 1779, 'lives_trk': 2724, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 2724, 'addrs_src': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 76]
@@ -597,17 +658,22 @@ Length M_file:  182
 Source:  mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt ; Tracked:  myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN 
 
 ................................
+
 Amounts!!! amount_trdi:  1768  | amount_trd:  1580  | lives_trki:  956  | amount_trd_sum:  1768
 Opened contrats:  1580  < Total amount traded:  1768 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN LongPosNettedPartly 1768 1580 
 
 ................................
+
 New row added:  ['myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN' 'LongPosNettedPartly' '956'
- 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V' 'LongPosIncreased' '3108' '188']
+ 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V' 'LongPosIncreased' '3108' '188'] 
+
 ................................
+
 Path:
-[{'amount_trd': 1580, 'lives_trk': 3193, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 1580, 'addrs_src': 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt', 'opened_sett': 0}, {'amount_trd': 1768, 'lives_trk': 956, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 3108, 'addrs_src': 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 'opened_sett': 0}]
+[{'amount_trd': 1580, 'lives_trk': 3193, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 1580, 'addrs_src': 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt', 'opened_sett': 0}, {'amount_trd': 1768, 'lives_trk': 956, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 3108, 'addrs_src': 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 157]
@@ -631,7 +697,6 @@ Length M_file:  181
 
 Source:  mn7zYnWt78WsQb8DL3KnmCf5oHxNV6Qdzq ; Tracked:  n4J9R4QdJCbBSxi3Qw1JzLgY6iQR5XnJko 
 
-................................
 Single path:
 {'amount_trd': 1768, 'lives_trk': 956, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 3108, 'addrs_src': 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 'opened_sett': 1768} 
 
@@ -659,17 +724,22 @@ Length M_file:  180
 Source:  mn7zYnWt78WsQb8DL3KnmCf5oHxNV6Qdzq ; Tracked:  mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw 
 
 ................................
+
 Amounts!!! amount_trdi:  1270  | amount_trd:  327  | lives_trki:  3544  | amount_trd_sum:  1270
 Opened contrats:  327  < Total amount traded:  1270 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw LongPosNettedPartly 1270 327 
 
 ................................
+
 New row added:  ['mtnHzodRGb1Vkozjk1KP1d6bZuMoGht9WT' 'OpenLongPosition' '1270'
- 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw' 'LongPosNettedPartly' '3544' '943']
+ 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw' 'LongPosNettedPartly' '3544' '943'] 
+
 ................................
+
 Path:
-[{'amount_trd': 327, 'lives_trk': 327, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 1066, 'addrs_src': 'mn7zYnWt78WsQb8DL3KnmCf5oHxNV6Qdzq', 'opened_sett': 0}, {'amount_trd': 1270, 'lives_trk': 3544, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 3544, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}]
+[{'amount_trd': 327, 'lives_trk': 327, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 1066, 'addrs_src': 'mn7zYnWt78WsQb8DL3KnmCf5oHxNV6Qdzq', 'opened_sett': 0}, {'amount_trd': 1270, 'lives_trk': 3544, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 3544, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 18]
@@ -694,17 +764,20 @@ Length M_file:  179
 Source:  n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7 ; Tracked:  mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy 
 
 ................................
+
 Amounts!!! amount_trdi:  51  | amount_trd:  2871  | lives_trki:  2820  | amount_trd_sum:  51
 Opened contrats:  2871  > Total amount traded:  51 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy LongPosNettedPartly 51 
 
-................................
-Path:
-[{'amount_trd': 2871, 'lives_trk': 2871, 'addrs_trk': 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy', 'lives_src': 2871, 'addrs_src': 'n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7', 'opened_sett': 0}, {'amount_trd': 51, 'lives_trk': 2820, 'addrs_trk': 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy', 'lives_src': 2820, 'addrs_src': 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy', 'opened_sett': 0}]
-
 total_next_trades:  51 	contrats_opened:  2871
-contracts_opened_sett:  2820
+contracts_opened_sett:  2820 
+
+................................
+
+Path:
+[{'amount_trd': 2871, 'lives_trk': 2871, 'addrs_trk': 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy', 'lives_src': 2871, 'addrs_src': 'n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7', 'opened_sett': 2820}, {'amount_trd': 51, 'lives_trk': 2820, 'addrs_trk': 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy', 'lives_src': 2820, 'addrs_src': 'mq7WfY7S5ug8VFt5r3mmow6iAXtUHpheuy', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 40]
@@ -757,29 +830,34 @@ Length M_file:  176
 Source:  mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR ; Tracked:  myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN 
 
 ................................
+
 Amounts!!! amount_trdi:  683  | amount_trd:  1310  | lives_trki:  273  | amount_trd_sum:  683
 Opened contrats:  1310  > Total amount traded:  683 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN LongPosNettedPartly 683 
 
 ................................
+
 Amounts!!! amount_trdi:  166  | amount_trd:  1310  | lives_trki:  2724  | amount_trd_sum:  849
 Opened contrats:  1310  > Total amount traded:  849 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN LongPosNettedPartly 166 
 
 ................................
+
 Amounts!!! amount_trdi:  188  | amount_trd:  1310  | lives_trki:  956  | amount_trd_sum:  1037
 Opened contrats:  1310  > Total amount traded:  1037 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN LongPosNettedPartly 188 
 
-................................
-Path:
-[{'amount_trd': 1310, 'lives_trk': 4503, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 1310, 'addrs_src': 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 'opened_sett': 0}, {'amount_trd': 683, 'lives_trk': 273, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 1038, 'addrs_src': 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW', 'opened_sett': 0}, {'amount_trd': 166, 'lives_trk': 2724, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 2724, 'addrs_src': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'opened_sett': 0}, {'amount_trd': 188, 'lives_trk': 956, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 3108, 'addrs_src': 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 'opened_sett': 0}]
-
 total_next_trades:  1037 	contrats_opened:  1310
-contracts_opened_sett:  273
+contracts_opened_sett:  273 
+
+................................
+
+Path:
+[{'amount_trd': 1310, 'lives_trk': 4503, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 1310, 'addrs_src': 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 'opened_sett': 273}, {'amount_trd': 683, 'lives_trk': 273, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 1038, 'addrs_src': 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW', 'opened_sett': 0}, {'amount_trd': 166, 'lives_trk': 2724, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 2724, 'addrs_src': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'opened_sett': 0}, {'amount_trd': 188, 'lives_trk': 956, 'addrs_trk': 'myDjVaR42ZtaFTu4qRsjkFd1sQ5tg2bwsN', 'lives_src': 3108, 'addrs_src': 'mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 150, 173, 174]
@@ -804,14 +882,17 @@ Length M_file:  172
 Source:  mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR ; Tracked:  mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S 
 
 ................................
+
 Amounts!!! amount_trdi:  1693  | amount_trd:  1693  | lives_trki:  0  | amount_trd_sum:  1693
 Opened contrats:  1693  = Total amount traded:  1693 
 
 amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S LongPosNetted 1693 
 
 ................................
+
 Path:
-[{'amount_trd': 1693, 'lives_trk': 1693, 'addrs_trk': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'lives_src': 3003, 'addrs_src': 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 'opened_sett': 0}, {'amount_trd': 1693, 'lives_trk': 0, 'addrs_trk': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'lives_src': 0, 'addrs_src': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'opened_sett': 0}]
+[{'amount_trd': 1693, 'lives_trk': 1693, 'addrs_trk': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'lives_src': 3003, 'addrs_src': 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 'opened_sett': 0}, {'amount_trd': 1693, 'lives_trk': 0, 'addrs_trk': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'lives_src': 0, 'addrs_src': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 19]
@@ -836,29 +917,36 @@ Length M_file:  170
 Source:  myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr ; Tracked:  n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx 
 
 ................................
+
 Amounts!!! amount_trdi:  1755  | amount_trd:  2539  | lives_trki:  3189  | amount_trd_sum:  1755
 Opened contrats:  2539  > Total amount traded:  1755 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx LongPosNettedPartly 1755 
 
 ................................
+
 Amounts!!! amount_trdi:  471  | amount_trd:  2539  | lives_trki:  2718  | amount_trd_sum:  2226
 Opened contrats:  2539  > Total amount traded:  2226 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx LongPosNettedPartly 471 
 
 ................................
+
 Amounts!!! amount_trdi:  802  | amount_trd:  2539  | lives_trki:  1916  | amount_trd_sum:  3028
 Opened contrats:  2539  < Total amount traded:  3028 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx LongPosNettedPartly 802 313 
 
 ................................
+
 New row added:  ['n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB' 'ShortPosNettedPartly' '2300'
- 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx' 'LongPosNettedPartly' '1916' '2715']
+ 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx' 'LongPosNettedPartly' '1916' '2715'] 
+
 ................................
+
 Path:
-[{'amount_trd': 2539, 'lives_trk': 2539, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 2539, 'addrs_src': 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr', 'opened_sett': 0}, {'amount_trd': 1755, 'lives_trk': 3189, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 3189, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 471, 'lives_trk': 2718, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 2718, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 802, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}]
+[{'amount_trd': 2539, 'lives_trk': 2539, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 2539, 'addrs_src': 'myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr', 'opened_sett': 0}, {'amount_trd': 1755, 'lives_trk': 3189, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 3189, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 471, 'lives_trk': 2718, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 2718, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 802, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 101, 102, 103]
@@ -882,7 +970,6 @@ Length M_file:  167
 
 Source:  mfda11joa3ErkdsTQc66feU5tv98ts46kV ; Tracked:  mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM 
 
-................................
 Single path:
 {'amount_trd': 802, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 802} 
 
@@ -910,35 +997,41 @@ Length M_file:  166
 Source:  mfda11joa3ErkdsTQc66feU5tv98ts46kV ; Tracked:  mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw 
 
 ................................
+
 Amounts!!! amount_trdi:  191  | amount_trd:  2663  | lives_trki:  3353  | amount_trd_sum:  191
 Opened contrats:  2663  > Total amount traded:  191 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw LongPosNettedPartly 191 
 
 ................................
+
 Amounts!!! amount_trdi:  1039  | amount_trd:  2663  | lives_trki:  2314  | amount_trd_sum:  1230
 Opened contrats:  2663  > Total amount traded:  1230 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw LongPosNettedPartly 1039 
 
 ................................
+
 Amounts!!! amount_trdi:  68  | amount_trd:  2663  | lives_trki:  2246  | amount_trd_sum:  1298
 Opened contrats:  2663  > Total amount traded:  1298 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw LongPosNettedPartly 68 
 
 ................................
+
 Amounts!!! amount_trdi:  943  | amount_trd:  2663  | lives_trki:  3544  | amount_trd_sum:  2241
 Opened contrats:  2663  > Total amount traded:  2241 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw LongPosNettedPartly 943 
 
-................................
-Path:
-[{'amount_trd': 2663, 'lives_trk': 2990, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 3116, 'addrs_src': 'mfda11joa3ErkdsTQc66feU5tv98ts46kV', 'opened_sett': 0}, {'amount_trd': 191, 'lives_trk': 3353, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 3353, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}, {'amount_trd': 1039, 'lives_trk': 2314, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 2314, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}, {'amount_trd': 68, 'lives_trk': 2246, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 2246, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}, {'amount_trd': 943, 'lives_trk': 3544, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 3544, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}]
-
 total_next_trades:  2241 	contrats_opened:  2663
-contracts_opened_sett:  422
+contracts_opened_sett:  422 
+
+................................
+
+Path:
+[{'amount_trd': 2663, 'lives_trk': 2990, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 3116, 'addrs_src': 'mfda11joa3ErkdsTQc66feU5tv98ts46kV', 'opened_sett': 422}, {'amount_trd': 191, 'lives_trk': 3353, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 3353, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}, {'amount_trd': 1039, 'lives_trk': 2314, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 2314, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}, {'amount_trd': 68, 'lives_trk': 2246, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 2246, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}, {'amount_trd': 943, 'lives_trk': 3544, 'addrs_trk': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'lives_src': 3544, 'addrs_src': 'mgGNpRdicFbQyLNmbUYgph32zod9C2Tobw', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 11, 12, 13, 164]
@@ -963,23 +1056,29 @@ Length M_file:  161
 Source:  n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639 ; Tracked:  mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW 
 
 ................................
+
 Amounts!!! amount_trdi:  854  | amount_trd:  2108  | lives_trki:  1797  | amount_trd_sum:  854
 Opened contrats:  2108  > Total amount traded:  854 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW LongPosNettedPartly 854 
 
 ................................
+
 Amounts!!! amount_trdi:  1797  | amount_trd:  2108  | lives_trki:  0  | amount_trd_sum:  2651
 Opened contrats:  2108  < Total amount traded:  2651 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW LongPosNetted 1797 1254 
 
 ................................
+
 New row added:  ['mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX' 'OpenLongPosition' '1797'
- 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW' 'LongPosNetted' '0' '1397']
+ 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW' 'LongPosNetted' '0' '1397'] 
+
 ................................
+
 Path:
-[{'amount_trd': 2108, 'lives_trk': 2108, 'addrs_trk': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'lives_src': 2108, 'addrs_src': 'n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639', 'opened_sett': 0}, {'amount_trd': 854, 'lives_trk': 1797, 'addrs_trk': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'lives_src': 1797, 'addrs_src': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'opened_sett': 0}, {'amount_trd': 1797, 'lives_trk': 0, 'addrs_trk': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'lives_src': 0, 'addrs_src': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'opened_sett': 0}]
+[{'amount_trd': 2108, 'lives_trk': 2108, 'addrs_trk': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'lives_src': 2108, 'addrs_src': 'n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639', 'opened_sett': 0}, {'amount_trd': 854, 'lives_trk': 1797, 'addrs_trk': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'lives_src': 1797, 'addrs_src': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'opened_sett': 0}, {'amount_trd': 1797, 'lives_trk': 0, 'addrs_trk': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'lives_src': 0, 'addrs_src': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 99, 100]
@@ -1031,7 +1130,6 @@ Length M_file:  158
 
 Source:  n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa ; Tracked:  mfda11joa3ErkdsTQc66feU5tv98ts46kV 
 
-................................
 Single path:
 {'amount_trd': 1397, 'lives_trk': 0, 'addrs_trk': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'lives_src': 0, 'addrs_src': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'opened_sett': 1397} 
 
@@ -1058,7 +1156,6 @@ Length M_file:  157
 
 Source:  n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw ; Tracked:  mfda11joa3ErkdsTQc66feU5tv98ts46kV 
 
-................................
 Single path:
 {'amount_trd': 1397, 'lives_trk': 0, 'addrs_trk': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'lives_src': 0, 'addrs_src': 'mrDdLEuaJPHmRJ93Eme59KswYaH75uFeEW', 'opened_sett': 1397} 
 
@@ -1086,29 +1183,36 @@ Length M_file:  156
 Source:  n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw ; Tracked:  mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA 
 
 ................................
+
 Amounts!!! amount_trdi:  60  | amount_trd:  145  | lives_trki:  4084  | amount_trd_sum:  60
 Opened contrats:  145  > Total amount traded:  60 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA LongPosNettedPartly 60 
 
 ................................
+
 Amounts!!! amount_trdi:  0  | amount_trd:  145  | lives_trki:  3286  | amount_trd_sum:  60
 Opened contrats:  145  > Total amount traded:  60 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA LongPosNettedPartly 0 
 
 ................................
+
 Amounts!!! amount_trdi:  402  | amount_trd:  145  | lives_trki:  2884  | amount_trd_sum:  462
 Opened contrats:  145  < Total amount traded:  462 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA LongPosNettedPartly 402 85 
 
 ................................
+
 New row added:  ['mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA' 'LongPosNettedPartly' '2884'
- 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM' 'OpenLongPosition' '402' '377']
+ 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM' 'OpenLongPosition' '402' '377'] 
+
 ................................
+
 Path:
-[{'amount_trd': 145, 'lives_trk': 145, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 302, 'addrs_src': 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 'opened_sett': 0}, {'amount_trd': 60, 'lives_trk': 4084, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 2331, 'addrs_src': 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup', 'opened_sett': 0}, {'amount_trd': 0, 'lives_trk': 3286, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 0, 'addrs_src': 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 'opened_sett': 0}, {'amount_trd': 402, 'lives_trk': 2884, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 402, 'addrs_src': 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 'opened_sett': 0}]
+[{'amount_trd': 145, 'lives_trk': 145, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 302, 'addrs_src': 'n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw', 'opened_sett': 0}, {'amount_trd': 60, 'lives_trk': 4084, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 2331, 'addrs_src': 'mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup', 'opened_sett': 0}, {'amount_trd': 0, 'lives_trk': 3286, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 0, 'addrs_src': 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 'opened_sett': 0}, {'amount_trd': 402, 'lives_trk': 2884, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 402, 'addrs_src': 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 135, 136, 137]
@@ -1161,20 +1265,24 @@ Length M_file:  152
 Source:  myceY8aca8oMdkcaFBr9sNdoA7Hh2iJGxZ ; Tracked:  mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP 
 
 ................................
+
 Amounts!!! amount_trdi:  543  | amount_trd:  1273  | lives_trki:  730  | amount_trd_sum:  543
 Opened contrats:  1273  > Total amount traded:  543 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP LongPosNettedPartly 543 
 
 ................................
+
 Amounts!!! amount_trdi:  730  | amount_trd:  1273  | lives_trki:  0  | amount_trd_sum:  1273
 Opened contrats:  1273  = Total amount traded:  1273 
 
 amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP LongPosNetted 730 
 
 ................................
+
 Path:
-[{'amount_trd': 1273, 'lives_trk': 1273, 'addrs_trk': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'lives_src': 2329, 'addrs_src': 'myceY8aca8oMdkcaFBr9sNdoA7Hh2iJGxZ', 'opened_sett': 0}, {'amount_trd': 543, 'lives_trk': 730, 'addrs_trk': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'lives_src': 730, 'addrs_src': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'opened_sett': 0}, {'amount_trd': 730, 'lives_trk': 0, 'addrs_trk': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'lives_src': 0, 'addrs_src': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'opened_sett': 0}]
+[{'amount_trd': 1273, 'lives_trk': 1273, 'addrs_trk': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'lives_src': 2329, 'addrs_src': 'myceY8aca8oMdkcaFBr9sNdoA7Hh2iJGxZ', 'opened_sett': 0}, {'amount_trd': 543, 'lives_trk': 730, 'addrs_trk': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'lives_src': 730, 'addrs_src': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'opened_sett': 0}, {'amount_trd': 730, 'lives_trk': 0, 'addrs_trk': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'lives_src': 0, 'addrs_src': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 8, 9]
@@ -1199,23 +1307,27 @@ Length M_file:  149
 Source:  mprPEk3broTDmdqQAjbRMb1H5cAjCPXmi5 ; Tracked:  mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB 
 
 ................................
+
 Amounts!!! amount_trdi:  129  | amount_trd:  2177  | lives_trki:  3260  | amount_trd_sum:  129
 Opened contrats:  2177  > Total amount traded:  129 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB LongPosNettedPartly 129 
 
 ................................
+
 Amounts!!! amount_trdi:  222  | amount_trd:  2177  | lives_trki:  3038  | amount_trd_sum:  351
 Opened contrats:  2177  > Total amount traded:  351 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB LongPosNettedPartly 222 
 
-................................
-Path:
-[{'amount_trd': 2177, 'lives_trk': 2177, 'addrs_trk': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'lives_src': 2177, 'addrs_src': 'mprPEk3broTDmdqQAjbRMb1H5cAjCPXmi5', 'opened_sett': 0}, {'amount_trd': 129, 'lives_trk': 3260, 'addrs_trk': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'lives_src': 3260, 'addrs_src': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'opened_sett': 0}, {'amount_trd': 222, 'lives_trk': 3038, 'addrs_trk': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'lives_src': 3038, 'addrs_src': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'opened_sett': 0}]
-
 total_next_trades:  351 	contrats_opened:  2177
-contracts_opened_sett:  1826
+contracts_opened_sett:  1826 
+
+................................
+
+Path:
+[{'amount_trd': 2177, 'lives_trk': 2177, 'addrs_trk': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'lives_src': 2177, 'addrs_src': 'mprPEk3broTDmdqQAjbRMb1H5cAjCPXmi5', 'opened_sett': 1826}, {'amount_trd': 129, 'lives_trk': 3260, 'addrs_trk': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'lives_src': 3260, 'addrs_src': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'opened_sett': 0}, {'amount_trd': 222, 'lives_trk': 3038, 'addrs_trk': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'lives_src': 3038, 'addrs_src': 'mjKUdCRixN4N6pQaG6agBdNwRwXMCrmBnB', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 29, 30]
@@ -1240,17 +1352,20 @@ Length M_file:  146
 Source:  mmaPzd2QAmJZKrTRjgE2jthWaHJEgYFdXC ; Tracked:  mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA 
 
 ................................
+
 Amounts!!! amount_trdi:  377  | amount_trd:  2964  | lives_trki:  2884  | amount_trd_sum:  377
 Opened contrats:  2964  > Total amount traded:  377 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA LongPosNettedPartly 377 
 
-................................
-Path:
-[{'amount_trd': 2964, 'lives_trk': 3109, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 2964, 'addrs_src': 'mmaPzd2QAmJZKrTRjgE2jthWaHJEgYFdXC', 'opened_sett': 0}, {'amount_trd': 377, 'lives_trk': 2884, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 402, 'addrs_src': 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 'opened_sett': 0}]
-
 total_next_trades:  377 	contrats_opened:  2964
-contracts_opened_sett:  2587
+contracts_opened_sett:  2587 
+
+................................
+
+Path:
+[{'amount_trd': 2964, 'lives_trk': 3109, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 2964, 'addrs_src': 'mmaPzd2QAmJZKrTRjgE2jthWaHJEgYFdXC', 'opened_sett': 2587}, {'amount_trd': 377, 'lives_trk': 2884, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 402, 'addrs_src': 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 145]
@@ -1274,7 +1389,6 @@ Length M_file:  144
 
 Source:  mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX ; Tracked:  mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt 
 
-................................
 Single path:
 {'amount_trd': 377, 'lives_trk': 2884, 'addrs_trk': 'mrpkm4bAaxCvciwSQnFQjTRkpLpgSiQSpA', 'lives_src': 402, 'addrs_src': 'mw7HLu4jXDNkye8D8txWkCQNfw9qUApSsM', 'opened_sett': 377} 
 
@@ -1601,23 +1715,29 @@ Length M_file:  142
 Source:  mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD ; Tracked:  mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk 
 
 ................................
+
 Amounts!!! amount_trdi:  618  | amount_trd:  694  | lives_trki:  1823  | amount_trd_sum:  618
 Opened contrats:  694  > Total amount traded:  618 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk LongPosNettedPartly 618 
 
 ................................
+
 Amounts!!! amount_trdi:  543  | amount_trd:  694  | lives_trki:  0  | amount_trd_sum:  1161
 Opened contrats:  694  < Total amount traded:  1161 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk LongPosNetted 543 76 
 
 ................................
+
 New row added:  ['mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h' 'OpenLongPosition' '1823'
- 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk' 'LongPosNetted' '0' '1085']
+ 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk' 'LongPosNetted' '0' '1085'] 
+
 ................................
+
 Path:
-[{'amount_trd': 694, 'lives_trk': 2729, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 2685, 'addrs_src': 'mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD', 'opened_sett': 0}, {'amount_trd': 618, 'lives_trk': 1823, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 1823, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}, {'amount_trd': 543, 'lives_trk': 0, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 0, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}]
+[{'amount_trd': 694, 'lives_trk': 2729, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 2685, 'addrs_src': 'mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD', 'opened_sett': 0}, {'amount_trd': 618, 'lives_trk': 1823, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 1823, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}, {'amount_trd': 543, 'lives_trk': 0, 'addrs_trk': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'lives_src': 0, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 136, 137]
@@ -1909,23 +2029,29 @@ Length M_file:  140
 Source:  mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S ; Tracked:  n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn 
 
 ................................
+
 Amounts!!! amount_trdi:  632  | amount_trd:  837  | lives_trki:  1966  | amount_trd_sum:  632
 Opened contrats:  837  > Total amount traded:  632 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn LongPosNettedPartly 632 
 
 ................................
+
 Amounts!!! amount_trdi:  323  | amount_trd:  837  | lives_trki:  1643  | amount_trd_sum:  955
 Opened contrats:  837  < Total amount traded:  955 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn LongPosNettedPartly 323 205 
 
 ................................
+
 New row added:  ['mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB' 'ShortPosNettedPartly' '432'
- 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn' 'LongPosNettedPartly' '1643' '750']
+ 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn' 'LongPosNettedPartly' '1643' '750'] 
+
 ................................
+
 Path:
-[{'amount_trd': 837, 'lives_trk': 2598, 'addrs_trk': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'lives_src': 837, 'addrs_src': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'opened_sett': 0}, {'amount_trd': 632, 'lives_trk': 1966, 'addrs_trk': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'lives_src': 1966, 'addrs_src': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'opened_sett': 0}, {'amount_trd': 323, 'lives_trk': 1643, 'addrs_trk': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'lives_src': 1643, 'addrs_src': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'opened_sett': 0}]
+[{'amount_trd': 837, 'lives_trk': 2598, 'addrs_trk': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'lives_src': 837, 'addrs_src': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'opened_sett': 0}, {'amount_trd': 632, 'lives_trk': 1966, 'addrs_trk': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'lives_src': 1966, 'addrs_src': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'opened_sett': 0}, {'amount_trd': 323, 'lives_trk': 1643, 'addrs_trk': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'lives_src': 1643, 'addrs_src': 'n1F7HsShaRURc5fPdJAFZvhfYSsduBquJn', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 56, 57]
@@ -2213,17 +2339,20 @@ Length M_file:  138
 Source:  mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S ; Tracked:  mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV 
 
 ................................
+
 Amounts!!! amount_trdi:  714  | amount_trd:  2280  | lives_trki:  1566  | amount_trd_sum:  714
 Opened contrats:  2280  > Total amount traded:  714 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV LongPosNettedPartly 714 
 
-................................
-Path:
-[{'amount_trd': 2280, 'lives_trk': 2280, 'addrs_trk': 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV', 'lives_src': 3117, 'addrs_src': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'opened_sett': 0}, {'amount_trd': 714, 'lives_trk': 1566, 'addrs_trk': 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV', 'lives_src': 1566, 'addrs_src': 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV', 'opened_sett': 0}]
-
 total_next_trades:  714 	contrats_opened:  2280
-contracts_opened_sett:  1566
+contracts_opened_sett:  1566 
+
+................................
+
+Path:
+[{'amount_trd': 2280, 'lives_trk': 2280, 'addrs_trk': 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV', 'lives_src': 3117, 'addrs_src': 'mfdxonYx9TAkxUVgjvWzbmDHnLoBTWzJ2S', 'opened_sett': 1566}, {'amount_trd': 714, 'lives_trk': 1566, 'addrs_trk': 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV', 'lives_src': 1566, 'addrs_src': 'mttXUzKD3ysso5ZkpWviixS9m8Z9UJrHMV', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 39]
@@ -2507,17 +2636,22 @@ Length M_file:  136
 Source:  mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP ; Tracked:  mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb 
 
 ................................
+
 Amounts!!! amount_trdi:  932  | amount_trd:  202  | lives_trki:  0  | amount_trd_sum:  932
 Opened contrats:  202  < Total amount traded:  932 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb LongPosNetted 932 202 
 
 ................................
+
 New row added:  ['mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR' 'ShortPosNettedPartly' '348'
- 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb' 'LongPosNetted' '0' '730']
+ 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb' 'LongPosNetted' '0' '730'] 
+
 ................................
+
 Path:
-[{'amount_trd': 202, 'lives_trk': 932, 'addrs_trk': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'lives_src': 202, 'addrs_src': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'opened_sett': 0}, {'amount_trd': 932, 'lives_trk': 0, 'addrs_trk': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'lives_src': 0, 'addrs_src': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'opened_sett': 0}]
+[{'amount_trd': 202, 'lives_trk': 932, 'addrs_trk': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'lives_src': 202, 'addrs_src': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'opened_sett': 0}, {'amount_trd': 932, 'lives_trk': 0, 'addrs_trk': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'lives_src': 0, 'addrs_src': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 30]
@@ -3082,20 +3216,24 @@ Length M_file:  134
 Source:  mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP ; Tracked:  mjo7KvYroMLPf4urGasEms8YApvyGtdhJG 
 
 ................................
+
 Amounts!!! amount_trdi:  860  | amount_trd:  900  | lives_trki:  40  | amount_trd_sum:  860
 Opened contrats:  900  > Total amount traded:  860 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mjo7KvYroMLPf4urGasEms8YApvyGtdhJG LongPosNettedPartly 860 
 
 ................................
+
 Amounts!!! amount_trdi:  40  | amount_trd:  900  | lives_trki:  0  | amount_trd_sum:  900
 Opened contrats:  900  = Total amount traded:  900 
 
 amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mjo7KvYroMLPf4urGasEms8YApvyGtdhJG LongPosNetted 40 
 
 ................................
+
 Path:
-[{'amount_trd': 900, 'lives_trk': 900, 'addrs_trk': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'lives_src': 1265, 'addrs_src': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'opened_sett': 0}, {'amount_trd': 860, 'lives_trk': 40, 'addrs_trk': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'lives_src': 40, 'addrs_src': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'opened_sett': 0}, {'amount_trd': 40, 'lives_trk': 0, 'addrs_trk': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'lives_src': 0, 'addrs_src': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'opened_sett': 0}]
+[{'amount_trd': 900, 'lives_trk': 900, 'addrs_trk': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'lives_src': 1265, 'addrs_src': 'mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP', 'opened_sett': 0}, {'amount_trd': 860, 'lives_trk': 40, 'addrs_trk': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'lives_src': 40, 'addrs_src': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'opened_sett': 0}, {'amount_trd': 40, 'lives_trk': 0, 'addrs_trk': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'lives_src': 0, 'addrs_src': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 38, 39]
@@ -3368,7 +3506,6 @@ Length M_file:  131
 
 Source:  mmVHwmeTV7pUy543LverM5NdT8PeBiCnyv ; Tracked:  n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB 
 
-................................
 Single path:
 {'amount_trd': 40, 'lives_trk': 0, 'addrs_trk': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'lives_src': 0, 'addrs_src': 'mjo7KvYroMLPf4urGasEms8YApvyGtdhJG', 'opened_sett': 40} 
 
@@ -3915,7 +4052,6 @@ Length M_file:  129
 
 Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mmVHwmeTV7pUy543LverM5NdT8PeBiCnyv 
 
-................................
 Single path:
 {'amount_trd': 730, 'lives_trk': 0, 'addrs_trk': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'lives_src': 0, 'addrs_src': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'opened_sett': 730} 
 
@@ -4454,7 +4590,6 @@ Length M_file:  127
 
 Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mvCTKJrgGYnUuV8Fe5UcV7NXibxS8BnuvP 
 
-................................
 Single path:
 {'amount_trd': 730, 'lives_trk': 0, 'addrs_trk': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'lives_src': 0, 'addrs_src': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'opened_sett': 730} 
 
@@ -4985,7 +5120,6 @@ Length M_file:  125
 
 Source:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy ; Tracked:  mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW 
 
-................................
 Single path:
 {'amount_trd': 730, 'lives_trk': 0, 'addrs_trk': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'lives_src': 0, 'addrs_src': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'opened_sett': 730} 
 
@@ -5509,23 +5643,29 @@ Length M_file:  123
 Source:  mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub ; Tracked:  miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA 
 
 ................................
+
 Amounts!!! amount_trdi:  633  | amount_trd:  668  | lives_trki:  25  | amount_trd_sum:  633
 Opened contrats:  668  > Total amount traded:  633 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA LongPosNettedPartly 633 
 
 ................................
+
 Amounts!!! amount_trdi:  2249  | amount_trd:  668  | lives_trki:  658  | amount_trd_sum:  2882
 Opened contrats:  668  < Total amount traded:  2882 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA LongPosNettedPartly 2249 35 
 
 ................................
+
 New row added:  ['mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h' 'LongPosIncreased' '2880'
- 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA' 'LongPosNettedPartly' '658' '2847']
+ 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA' 'LongPosNettedPartly' '658' '2847'] 
+
 ................................
+
 Path:
-[{'amount_trd': 668, 'lives_trk': 2955, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 668, 'addrs_src': 'mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub', 'opened_sett': 0}, {'amount_trd': 633, 'lives_trk': 25, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 1758, 'addrs_src': 'mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub', 'opened_sett': 0}, {'amount_trd': 2249, 'lives_trk': 658, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 658, 'addrs_src': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'opened_sett': 0}]
+[{'amount_trd': 668, 'lives_trk': 2955, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 668, 'addrs_src': 'mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub', 'opened_sett': 0}, {'amount_trd': 633, 'lives_trk': 25, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 1758, 'addrs_src': 'mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub', 'opened_sett': 0}, {'amount_trd': 2249, 'lives_trk': 658, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 658, 'addrs_src': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 27, 116]
@@ -5778,7 +5918,6 @@ Length M_file:  121
 
 Source:  mtwqCzGn5Ej9Bg7vCkNSnhGmTWDYUax8ub ; Tracked:  mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR 
 
-................................
 Single path:
 {'amount_trd': 2249, 'lives_trk': 658, 'addrs_trk': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'lives_src': 658, 'addrs_src': 'miVtkesb4ckrMm78Bjc5YhKguHJHJAnRHA', 'opened_sett': 2249} 
 
@@ -6033,23 +6172,29 @@ Length M_file:  120
 Source:  mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs ; Tracked:  mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w 
 
 ................................
+
 Amounts!!! amount_trdi:  2714  | amount_trd:  2743  | lives_trki:  2714  | amount_trd_sum:  2714
 Opened contrats:  2743  > Total amount traded:  2714 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w LongPosNettedPartly 2714 
 
 ................................
+
 Amounts!!! amount_trdi:  440  | amount_trd:  2743  | lives_trki:  2274  | amount_trd_sum:  3154
 Opened contrats:  2743  < Total amount traded:  3154 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w LongPosNettedPartly 440 29 
 
 ................................
+
 New row added:  ['mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt' 'OpenLongPosition' '440'
- 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w' 'LongPosNettedPartly' '2274' '3125']
+ 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w' 'LongPosNettedPartly' '2274' '3125'] 
+
 ................................
+
 Path:
-[{'amount_trd': 2743, 'lives_trk': 2743, 'addrs_trk': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'lives_src': 2743, 'addrs_src': 'mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs', 'opened_sett': 0}, {'amount_trd': 2714, 'lives_trk': 2714, 'addrs_trk': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'lives_src': 2714, 'addrs_src': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'opened_sett': 0}, {'amount_trd': 440, 'lives_trk': 2274, 'addrs_trk': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'lives_src': 2274, 'addrs_src': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'opened_sett': 0}]
+[{'amount_trd': 2743, 'lives_trk': 2743, 'addrs_trk': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'lives_src': 2743, 'addrs_src': 'mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs', 'opened_sett': 0}, {'amount_trd': 2714, 'lives_trk': 2714, 'addrs_trk': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'lives_src': 2714, 'addrs_src': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'opened_sett': 0}, {'amount_trd': 440, 'lives_trk': 2274, 'addrs_trk': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'lives_src': 2274, 'addrs_src': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 4, 5]
@@ -6296,7 +6441,6 @@ Length M_file:  118
 
 Source:  mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K ; Tracked:  n1XNDmxzm6VP6MDSEfdYPQGAzXYDHkU639 
 
-................................
 Single path:
 {'amount_trd': 440, 'lives_trk': 2274, 'addrs_trk': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'lives_src': 2274, 'addrs_src': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'opened_sett': 440} 
 
@@ -6791,7 +6935,6 @@ Length M_file:  116
 
 Source:  mpfTU8NVFXsEEiEZgoTHPyYbaT9P6w9JWk ; Tracked:  mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX 
 
-................................
 Single path:
 {'amount_trd': 3125, 'lives_trk': 2274, 'addrs_trk': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'lives_src': 2274, 'addrs_src': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'opened_sett': 3125} 
 
@@ -7975,7 +8118,6 @@ Length M_file:  111
 
 Source:  mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX ; Tracked:  mvNW2vKdNL9bCN18UqZvLMQr4uVwcgWZYX 
 
-................................
 Single path:
 {'amount_trd': 3125, 'lives_trk': 440, 'addrs_trk': 'mrwCfiL9sxe5kLNvnsE13ffJ5VPjLj2bzt', 'lives_src': 2274, 'addrs_src': 'mtvUMRvV51AnWqtCLuuWafBDUv945U4v9w', 'opened_sett': 3125} 
 
@@ -8443,20 +8585,24 @@ Length M_file:  109
 Source:  mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX ; Tracked:  mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7 
 
 ................................
+
 Amounts!!! amount_trdi:  111  | amount_trd:  272  | lives_trki:  161  | amount_trd_sum:  111
 Opened contrats:  272  > Total amount traded:  111 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7 LongPosNettedPartly 111 
 
 ................................
+
 Amounts!!! amount_trdi:  161  | amount_trd:  272  | lives_trki:  0  | amount_trd_sum:  272
 Opened contrats:  272  = Total amount traded:  272 
 
 amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7 LongPosNetted 161 
 
 ................................
+
 Path:
-[{'amount_trd': 272, 'lives_trk': 272, 'addrs_trk': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'lives_src': 760, 'addrs_src': 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX', 'opened_sett': 0}, {'amount_trd': 111, 'lives_trk': 161, 'addrs_trk': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'lives_src': 161, 'addrs_src': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'opened_sett': 0}, {'amount_trd': 161, 'lives_trk': 0, 'addrs_trk': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'lives_src': 0, 'addrs_src': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'opened_sett': 0}]
+[{'amount_trd': 272, 'lives_trk': 272, 'addrs_trk': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'lives_src': 760, 'addrs_src': 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX', 'opened_sett': 0}, {'amount_trd': 111, 'lives_trk': 161, 'addrs_trk': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'lives_src': 161, 'addrs_src': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'opened_sett': 0}, {'amount_trd': 161, 'lives_trk': 0, 'addrs_trk': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'lives_src': 0, 'addrs_src': 'mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 35, 36]
@@ -8680,23 +8826,29 @@ Length M_file:  106
 Source:  mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX ; Tracked:  mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h 
 
 ................................
+
 Amounts!!! amount_trdi:  191  | amount_trd:  583  | lives_trki:  2689  | amount_trd_sum:  191
 Opened contrats:  583  > Total amount traded:  191 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h LongPosNettedPartly 191 
 
 ................................
+
 Amounts!!! amount_trdi:  1607  | amount_trd:  583  | lives_trki:  1607  | amount_trd_sum:  1798
 Opened contrats:  583  < Total amount traded:  1798 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h LongPosNettedPartly 1607 392 
 
 ................................
+
 New row added:  ['mo14MKvoJd6JY7tZagTrjYnvQsDKqa6PoQ' 'ShortPosNetted' '0'
- 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h' 'LongPosNettedPartly' '1607' '1406']
+ 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h' 'LongPosNettedPartly' '1607' '1406'] 
+
 ................................
+
 Path:
-[{'amount_trd': 583, 'lives_trk': 583, 'addrs_trk': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'lives_src': 1343, 'addrs_src': 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX', 'opened_sett': 0}, {'amount_trd': 191, 'lives_trk': 2689, 'addrs_trk': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'lives_src': 2689, 'addrs_src': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'opened_sett': 0}, {'amount_trd': 1607, 'lives_trk': 1607, 'addrs_trk': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'lives_src': 1607, 'addrs_src': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'opened_sett': 0}]
+[{'amount_trd': 583, 'lives_trk': 583, 'addrs_trk': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'lives_src': 1343, 'addrs_src': 'mwqoixD2L65LM6gHFy85eTAc5oNN4fcvNX', 'opened_sett': 0}, {'amount_trd': 191, 'lives_trk': 2689, 'addrs_trk': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'lives_src': 2689, 'addrs_src': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'opened_sett': 0}, {'amount_trd': 1607, 'lives_trk': 1607, 'addrs_trk': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'lives_src': 1607, 'addrs_src': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 19, 20]
@@ -9337,7 +9489,6 @@ Length M_file:  100
 
 Source:  mtnHzodRGb1Vkozjk1KP1d6bZuMoGht9WT ; Tracked:  mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup 
 
-................................
 Single path:
 {'amount_trd': 1406, 'lives_trk': 1607, 'addrs_trk': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'lives_src': 1607, 'addrs_src': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'opened_sett': 1406} 
 
@@ -9549,7 +9700,6 @@ Length M_file:  99
 
 Source:  mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb ; Tracked:  mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR 
 
-................................
 Single path:
 {'amount_trd': 1406, 'lives_trk': 1607, 'addrs_trk': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'lives_src': 1607, 'addrs_src': 'mp3z4z1XNTCp7R99fE8r2aNe7av2vNon5h', 'opened_sett': 1406} 
 
@@ -9760,17 +9910,20 @@ Length M_file:  98
 Source:  mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb ; Tracked:  mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR 
 
 ................................
+
 Amounts!!! amount_trdi:  742  | amount_trd:  853  | lives_trki:  111  | amount_trd_sum:  742
 Opened contrats:  853  > Total amount traded:  742 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR LongPosNettedPartly 742 
 
-................................
-Path:
-[{'amount_trd': 853, 'lives_trk': 853, 'addrs_trk': 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 'lives_src': 1201, 'addrs_src': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'opened_sett': 0}, {'amount_trd': 742, 'lives_trk': 111, 'addrs_trk': 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 'lives_src': 1780, 'addrs_src': 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW', 'opened_sett': 0}]
-
 total_next_trades:  742 	contrats_opened:  853
-contracts_opened_sett:  111
+contracts_opened_sett:  111 
+
+................................
+
+Path:
+[{'amount_trd': 853, 'lives_trk': 853, 'addrs_trk': 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 'lives_src': 1201, 'addrs_src': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'opened_sett': 111}, {'amount_trd': 742, 'lives_trk': 111, 'addrs_trk': 'mzG2rnYDwq8QR41avaLh9J88PX9u2qdogR', 'lives_src': 1780, 'addrs_src': 'mqM2p9aXjMqdr1PaBrBSQB34WEH2RyYNnW', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 74]
@@ -9974,23 +10127,29 @@ Length M_file:  96
 Source:  mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb ; Tracked:  mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1 
 
 ................................
+
 Amounts!!! amount_trdi:  150  | amount_trd:  1734  | lives_trki:  1807  | amount_trd_sum:  150
 Opened contrats:  1734  > Total amount traded:  150 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1 LongPosNettedPartly 150 
 
 ................................
+
 Amounts!!! amount_trdi:  1807  | amount_trd:  1734  | lives_trki:  0  | amount_trd_sum:  1957
 Opened contrats:  1734  < Total amount traded:  1957 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1 LongPosNetted 1807 1584 
 
 ................................
+
 New row added:  ['mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K' 'ShortPosNettedPartly' '2114'
- 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1' 'LongPosNetted' '0' '373']
+ 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1' 'LongPosNetted' '0' '373'] 
+
 ................................
+
 Path:
-[{'amount_trd': 1734, 'lives_trk': 1734, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 2935, 'addrs_src': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'opened_sett': 0}, {'amount_trd': 150, 'lives_trk': 1807, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 1807, 'addrs_src': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'opened_sett': 0}, {'amount_trd': 1807, 'lives_trk': 0, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 0, 'addrs_src': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'opened_sett': 0}]
+[{'amount_trd': 1734, 'lives_trk': 1734, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 2935, 'addrs_src': 'mpAxiCCz9Na4pgjxBBw4jdBjbAT6Ygrinb', 'opened_sett': 0}, {'amount_trd': 150, 'lives_trk': 1807, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 1807, 'addrs_src': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'opened_sett': 0}, {'amount_trd': 1807, 'lives_trk': 0, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 0, 'addrs_src': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 9, 10]
@@ -10190,17 +10349,22 @@ Length M_file:  94
 Source:  mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ ; Tracked:  mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1 
 
 ................................
+
 Amounts!!! amount_trdi:  373  | amount_trd:  223  | lives_trki:  0  | amount_trd_sum:  373
 Opened contrats:  223  < Total amount traded:  373 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1 LongPosNetted 373 223 
 
 ................................
+
 New row added:  ['mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K' 'ShortPosNettedPartly' '2114'
- 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1' 'LongPosNetted' '0' '150']
+ 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1' 'LongPosNetted' '0' '150'] 
+
 ................................
+
 Path:
-[{'amount_trd': 223, 'lives_trk': 1957, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 223, 'addrs_src': 'mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ', 'opened_sett': 0}, {'amount_trd': 373, 'lives_trk': 0, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 0, 'addrs_src': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'opened_sett': 0}]
+[{'amount_trd': 223, 'lives_trk': 1957, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 223, 'addrs_src': 'mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ', 'opened_sett': 0}, {'amount_trd': 373, 'lives_trk': 0, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 0, 'addrs_src': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 93]
@@ -10397,7 +10561,6 @@ Length M_file:  93
 
 Source:  mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ ; Tracked:  mwue3DQUbn1Ypc2g6puWDkZpYgQGnD33fk 
 
-................................
 Single path:
 {'amount_trd': 373, 'lives_trk': 0, 'addrs_trk': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'lives_src': 0, 'addrs_src': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'opened_sett': 373} 
 
@@ -10793,17 +10956,22 @@ Length M_file:  91
 Source:  mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk ; Tracked:  mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h 
 
 ................................
+
 Amounts!!! amount_trdi:  3930  | amount_trd:  1133  | lives_trki:  3930  | amount_trd_sum:  3930
 Opened contrats:  1133  < Total amount traded:  3930 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h LongPosNettedPartly 3930 1133 
 
 ................................
+
 New row added:  ['mh8bEuAPkvE7z9iercUcpW246DpVz9jzDc' 'ShortPosNetted' '0'
- 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h' 'LongPosNettedPartly' '3930' '2797']
+ 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h' 'LongPosNettedPartly' '3930' '2797'] 
+
 ................................
+
 Path:
-[{'amount_trd': 1133, 'lives_trk': 2956, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 1133, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}, {'amount_trd': 3930, 'lives_trk': 3930, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 3930, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 0}]
+[{'amount_trd': 1133, 'lives_trk': 2956, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 1133, 'addrs_src': 'mnkgGmY9uhka1KKrFKxwvBzersc3Mn6qZk', 'opened_sett': 0}, {'amount_trd': 3930, 'lives_trk': 3930, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 3930, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 20]
@@ -10994,7 +11162,6 @@ Length M_file:  90
 
 Source:  mo14MKvoJd6JY7tZagTrjYnvQsDKqa6PoQ ; Tracked:  mmaPzd2QAmJZKrTRjgE2jthWaHJEgYFdXC 
 
-................................
 Single path:
 {'amount_trd': 3930, 'lives_trk': 3930, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 3930, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 3930} 
 
@@ -11186,7 +11353,6 @@ Length M_file:  89
 
 Source:  mh8bEuAPkvE7z9iercUcpW246DpVz9jzDc ; Tracked:  myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr 
 
-................................
 Single path:
 {'amount_trd': 3930, 'lives_trk': 3930, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 3930, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 3930} 
 
@@ -11376,7 +11542,6 @@ Length M_file:  88
 
 Source:  mjo7KvYroMLPf4urGasEms8YApvyGtdhJG ; Tracked:  mgsonvrkUSgNZLhnKfLe4oh7vg9uDxkrup 
 
-................................
 Single path:
 {'amount_trd': 3930, 'lives_trk': 3930, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 3930, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 3930} 
 
@@ -11565,17 +11730,22 @@ Length M_file:  87
 Source:  n2RK44agft1XBN9noz8vzQhEZFK2oRn41Z ; Tracked:  mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h 
 
 ................................
+
 Amounts!!! amount_trdi:  3338  | amount_trd:  1029  | lives_trki:  592  | amount_trd_sum:  3338
 Opened contrats:  1029  < Total amount traded:  3338 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h LongPosNettedPartly 3338 1029 
 
 ................................
+
 New row added:  ['mh8bEuAPkvE7z9iercUcpW246DpVz9jzDc' 'OpenLongPosition' '3338'
- 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h' 'LongPosNettedPartly' '592' '2309']
+ 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h' 'LongPosNettedPartly' '592' '2309'] 
+
 ................................
+
 Path:
-[{'amount_trd': 1029, 'lives_trk': 3985, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 1029, 'addrs_src': 'n2RK44agft1XBN9noz8vzQhEZFK2oRn41Z', 'opened_sett': 0}, {'amount_trd': 3338, 'lives_trk': 592, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 592, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 0}]
+[{'amount_trd': 1029, 'lives_trk': 3985, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 1029, 'addrs_src': 'n2RK44agft1XBN9noz8vzQhEZFK2oRn41Z', 'opened_sett': 0}, {'amount_trd': 3338, 'lives_trk': 592, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 592, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 16]
@@ -11758,7 +11928,6 @@ Length M_file:  86
 
 Source:  mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1 ; Tracked:  mnzgwhJuLFsk8L8FSMS6LNMjPXq3jy9w9K 
 
-................................
 Single path:
 {'amount_trd': 3338, 'lives_trk': 592, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 592, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 3338} 
 
@@ -11943,17 +12112,20 @@ Length M_file:  85
 Source:  mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1 ; Tracked:  mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6 
 
 ................................
+
 Amounts!!! amount_trdi:  152  | amount_trd:  633  | lives_trki:  2669  | amount_trd_sum:  152
 Opened contrats:  633  > Total amount traded:  152 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6 LongPosNettedPartly 152 
 
-................................
-Path:
-[{'amount_trd': 633, 'lives_trk': 633, 'addrs_trk': 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6', 'lives_src': 946, 'addrs_src': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'opened_sett': 0}, {'amount_trd': 152, 'lives_trk': 2669, 'addrs_trk': 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6', 'lives_src': 2679, 'addrs_src': 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 'opened_sett': 0}]
-
 total_next_trades:  152 	contrats_opened:  633
-contracts_opened_sett:  481
+contracts_opened_sett:  481 
+
+................................
+
+Path:
+[{'amount_trd': 633, 'lives_trk': 633, 'addrs_trk': 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6', 'lives_src': 946, 'addrs_src': 'mv7YYAKBzh6tdzyffDihsXwHwvrn8txsy1', 'opened_sett': 481}, {'amount_trd': 152, 'lives_trk': 2669, 'addrs_trk': 'mzLr8oAYxSvrmQ2xn9CjnAcCZ73L9ZQ3H6', 'lives_src': 2679, 'addrs_src': 'mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 59]
@@ -12472,7 +12644,6 @@ Length M_file:  80
 
 Source:  mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF ; Tracked:  mqkQR87rWVKrqK7EAreQzg9VyvNiEbLzfz 
 
-................................
 Single path:
 {'amount_trd': 2309, 'lives_trk': 592, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 592, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 2309} 
 
@@ -12644,7 +12815,6 @@ Length M_file:  79
 
 Source:  mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF ; Tracked:  mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs 
 
-................................
 Single path:
 {'amount_trd': 2309, 'lives_trk': 592, 'addrs_trk': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'lives_src': 592, 'addrs_src': 'mpxUMSUjR6ykXTj6mB4CWwubRFuiAh6Y3h', 'opened_sett': 2309} 
 
@@ -12984,17 +13154,22 @@ Length M_file:  77
 Source:  mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn ; Tracked:  mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y 
 
 ................................
+
 Amounts!!! amount_trdi:  724  | amount_trd:  652  | lives_trki:  399  | amount_trd_sum:  724
 Opened contrats:  652  < Total amount traded:  724 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y LongPosNettedPartly 724 652 
 
 ................................
+
 New row added:  ['mw2Em2mDuakNhxz6Eh9XdnCF32uhW4sTRx' 'LongPosIncreased' '864'
- 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y' 'LongPosNettedPartly' '399' '72']
+ 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y' 'LongPosNettedPartly' '399' '72'] 
+
 ................................
+
 Path:
-[{'amount_trd': 652, 'lives_trk': 652, 'addrs_trk': 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y', 'lives_src': 652, 'addrs_src': 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn', 'opened_sett': 0}, {'amount_trd': 724, 'lives_trk': 399, 'addrs_trk': 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y', 'lives_src': 399, 'addrs_src': 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y', 'opened_sett': 0}]
+[{'amount_trd': 652, 'lives_trk': 652, 'addrs_trk': 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y', 'lives_src': 652, 'addrs_src': 'mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn', 'opened_sett': 0}, {'amount_trd': 724, 'lives_trk': 399, 'addrs_trk': 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y', 'lives_src': 399, 'addrs_src': 'mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 18]
@@ -13158,41 +13333,50 @@ Length M_file:  76
 Source:  n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1 ; Tracked:  n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx 
 
 ................................
+
 Amounts!!! amount_trdi:  850  | amount_trd:  2405  | lives_trki:  850  | amount_trd_sum:  850
 Opened contrats:  2405  > Total amount traded:  850 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx LongPosNettedPartly 850 
 
 ................................
+
 Amounts!!! amount_trdi:  270  | amount_trd:  2405  | lives_trki:  580  | amount_trd_sum:  1120
 Opened contrats:  2405  > Total amount traded:  1120 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx LongPosNettedPartly 270 
 
 ................................
+
 Amounts!!! amount_trdi:  37  | amount_trd:  2405  | lives_trki:  543  | amount_trd_sum:  1157
 Opened contrats:  2405  > Total amount traded:  1157 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx LongPosNettedPartly 37 
 
 ................................
+
 Amounts!!! amount_trdi:  489  | amount_trd:  2405  | lives_trki:  54  | amount_trd_sum:  1646
 Opened contrats:  2405  > Total amount traded:  1646 
 
 amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi | n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx LongPosNettedPartly 489 
 
 ................................
+
 Amounts!!! amount_trdi:  2715  | amount_trd:  2405  | lives_trki:  1916  | amount_trd_sum:  4361
 Opened contrats:  2405  < Total amount traded:  4361 
 
 amount_trd < amount_trd_sum: | addrs_trk | status_trki | amount_trdi | diff_r | n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx LongPosNettedPartly 2715 759 
 
 ................................
+
 New row added:  ['n1rftjejoN7U5tTM5ywthTndKvVfLZe8eB' 'ShortPosNettedPartly' '2300'
- 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx' 'LongPosNettedPartly' '1916' '3602']
+ 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx' 'LongPosNettedPartly' '1916' '3602'] 
+
 ................................
+
 Path:
-[{'amount_trd': 2405, 'lives_trk': 4944, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 2405, 'addrs_src': 'n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1', 'opened_sett': 0}, {'amount_trd': 850, 'lives_trk': 850, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 850, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 270, 'lives_trk': 580, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 580, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 37, 'lives_trk': 543, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 543, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 489, 'lives_trk': 54, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 54, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 2715, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}]
+[{'amount_trd': 2405, 'lives_trk': 4944, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 2405, 'addrs_src': 'n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1', 'opened_sett': 0}, {'amount_trd': 850, 'lives_trk': 850, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 850, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 270, 'lives_trk': 580, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 580, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 37, 'lives_trk': 543, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 543, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 489, 'lives_trk': 54, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 54, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}, {'amount_trd': 2715, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 0}] 
+
 ................................
 
 Rows to deleted:  [0, 11, 12, 13, 14, 64]
@@ -13500,7 +13684,6 @@ Length M_file:  70
 
 Source:  mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY ; Tracked:  mx4Z7qE8t2kQZM6KzrLrNewe3onhY7NyEs 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -13952,7 +14135,6 @@ Length M_file:  67
 
 Source:  mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7 ; Tracked:  mp1iCFqh39xnKPka8nD4QCKy7CVVxz2DrF 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -14098,7 +14280,6 @@ Length M_file:  66
 
 Source:  mtSu76GgdiPjEjmbEzge57QRmpmEvcPqi7 ; Tracked:  mh8bEuAPkvE7z9iercUcpW246DpVz9jzDc 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -14506,7 +14687,6 @@ Length M_file:  63
 
 Source:  miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU ; Tracked:  mjUYSsnZRDn2gdXJK11b561YddQRxfaMCQ 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -14644,7 +14824,6 @@ Length M_file:  62
 
 Source:  miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU ; Tracked:  n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -15169,7 +15348,6 @@ Length M_file:  58
 
 Source:  mjLNrcsQc1rPqHcoNx5NKinnY3RhRxaC7Y ; Tracked:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -15297,7 +15475,6 @@ Length M_file:  57
 
 Source:  mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP ; Tracked:  mpGo6tsvNXn2UR83FjoYRCmcLEY44r2eTB 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -15671,7 +15848,6 @@ Length M_file:  54
 
 Source:  mr4eRfDTun7qzVPQH5THSXqhZy7YqJFYNP ; Tracked:  n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -15910,7 +16086,6 @@ Length M_file:  52
 
 Source:  mr5mpcRzE3FepjRRUuCo9q91XzujW5gS81 ; Tracked:  miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -16026,7 +16201,6 @@ Length M_file:  51
 
 Source:  mzJMCfjNosAu73MepichqiVT9spsxanRDu ; Tracked:  miVaUFSFBPvVE91WEk7qCH3WaSQ95ep1vU 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -16140,7 +16314,6 @@ Length M_file:  50
 
 Source:  mzJMCfjNosAu73MepichqiVT9spsxanRDu ; Tracked:  myLaNvaXSiHxbvvHUpd7dTT9XQzLC5jEqr 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -16363,7 +16536,6 @@ Length M_file:  48
 
 Source:  myDNBkMtWgE7FEfqPbCkBL3cZhC8SxFHuU ; Tracked:  mjo7KvYroMLPf4urGasEms8YApvyGtdhJG 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -16471,7 +16643,6 @@ Length M_file:  47
 
 Source:  myDNBkMtWgE7FEfqPbCkBL3cZhC8SxFHuU ; Tracked:  n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -16577,7 +16748,6 @@ Length M_file:  46
 
 Source:  myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s ; Tracked:  n3KzZHUSAmV59yRw3J7Rpg6vvGv5fmwgw1 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -16885,7 +17055,6 @@ Length M_file:  43
 
 Source:  myJd2m9yX4AFgwAeoPPAgG4m6gcnMCi31s ; Tracked:  mhJjDQzwpYJPeWeT6QCSvxnjHF2EyKFC8V 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -17175,7 +17344,6 @@ Length M_file:  40
 
 Source:  mqMS6sdXypzAkaEkWrwyAWEDmbmtTnm5KG ; Tracked:  mieQEyfeyMEYEvqUuxNNNE6UTwFYdZcQgn 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -17447,7 +17615,6 @@ Length M_file:  37
 
 Source:  n1kGjCxyn8FrXShsLk8esQpiN6Jupj1zT8 ; Tracked:  n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -17533,7 +17700,6 @@ Length M_file:  36
 
 Source:  mk8ggRn8jo1RrC1GivkWTnpxim7fsjeEbM ; Tracked:  n4HbCKoE28KmqPSWqiFUuVp7NFnv7jCYUa 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -17700,7 +17866,6 @@ Length M_file:  34
 
 Source:  n14uswn8VuP5nEetKjVvFUxBitQo7eCzAT ; Tracked:  n1vZmCwfPsopnNpS8LdaQ9jcQDv1EFbXK7 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -17859,7 +18024,6 @@ Length M_file:  32
 
 Source:  n14uswn8VuP5nEetKjVvFUxBitQo7eCzAT ; Tracked:  mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -18010,7 +18174,6 @@ Length M_file:  30
 
 Source:  mghZFnAMCgKmthk8ChokmBeR4XKoDxVdcp ; Tracked:  mne7qGH3a1Qnt3gL8Y3uYnd2gXQDn34Jiy 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -18153,7 +18316,6 @@ Length M_file:  28
 
 Source:  muL8Ds5feas6EPqobm87PTsSbrV2kz82uD ; Tracked:  mmrRdiiAMN8mmuqnQ8UsymXen6iZySakxY 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -18288,7 +18450,6 @@ Length M_file:  26
 
 Source:  muL8Ds5feas6EPqobm87PTsSbrV2kz82uD ; Tracked:  n1EZoRCseA3FGUrS4kpoRxR4CYYgjusyAw 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -18592,7 +18753,6 @@ Length M_file:  21
 
 Source:  miaTSy5N6HJ4ejUMmgGXJn1LzQ4pAeCJFM ; Tracked:  mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -18646,7 +18806,6 @@ Length M_file:  20
 
 Source:  mzjeCZdqy7FareLX1GCJsDVhRLxWyG9kxV ; Tracked:  mn4qfUpsM2GmB2KiraNAAScVkd3r8AfFcD 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 
@@ -18890,7 +19049,6 @@ Length M_file:  15
 
 Source:  mkZauocEpSqqgSpzc3ouGoi9anFkKfMa4D ; Tracked:  mjo7KvYroMLPf4urGasEms8YApvyGtdhJG 
 
-................................
 Single path:
 {'amount_trd': 3602, 'lives_trk': 1916, 'addrs_trk': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'lives_src': 1916, 'addrs_src': 'n1mkjJiii2xWJ15gHJ1ujsK9zNk7Lj7KDx', 'opened_sett': 3602} 
 

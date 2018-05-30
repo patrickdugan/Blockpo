@@ -56,7 +56,6 @@ for j in Interval:
 			
 			print "#---------------------------------------------------------------------------------#\n"
 			print "Source: ", addrs_src, "; Tracked: ", addrs_trk, "\n"
-			print "................................"
 
 			single_path_value_ele = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, amount_trdi]
 			single_path_ele = dict(zip(key_path, single_path_value_ele))
@@ -71,7 +70,6 @@ for j in Interval:
 
 			print "#---------------------------------------------------------------------------------#\n"
 			print "Source: ", addrs_src, "; Tracked: ", addrs_trk, "\n"
-			print "................................"
 
 			single_path_value_ele = [addrs_src, lives_src, addrs_trk, lives_trk, amount_trd, 0000]
 			single_path_ele = dict(zip(key_path, single_path_value_ele))
@@ -102,12 +100,15 @@ for j in Interval:
 
 				netted_status = ["LongPosNetted", "LongPosNettedPartly"]
 
+				####################################################################
+
 				if addrs_trk in str(N_filei) and status_trki in str(netted_status):
 
 					amount_trd_sum_b = amount_trd_sum
 					amount_trd_sum   = amount_trd_sum + amount_trdi
 					amount_trd_sum_l = amount_trd_sum
 
+					print "................................\n"
 					print "Amounts!!! amount_trdi: ", amount_trdi, " | amount_trd: ", amount_trd, " | lives_trki: ", lives_trki, " | amount_trd_sum: ", amount_trd_sum
 
 					d_amounts = amount_trd - amount_trd_sum
@@ -115,7 +116,6 @@ for j in Interval:
 
 						print "Opened contrats: ", amount_trd, " > Total amount traded: ", amount_trd_sum, "\n"
 						print "amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi |", addrs_trk, status_trki, amount_trdi, "\n"
-						print "................................"
 
 						path_complex_value_ele_two = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0000]
 						path_complex_ele_two = dict(zip(key_path, path_complex_value_ele_two))
@@ -142,15 +142,14 @@ for j in Interval:
 						new_row = np.array([N_filei[0], N_filei[1], N_filei[2], N_filei[3], N_filei[4], N_filei[5], amount_new])
 						M_file = np.vstack([M_file, new_row])
 
-						print "New row added: ", new_row
-						print "................................"
+						print "\nNew row added: ", new_row, "\n"
+
 						break
 					
 					elif d_amounts == 0:
 
 						print "Opened contrats: ", amount_trd, " = Total amount traded: ", amount_trd_sum, "\n"
 						print "amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi |", addrs_trk, status_trki, amount_trdi, "\n"
-						print "................................"
 
 						path_complex_ele_value_one = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0000]
 						path_complex_ele_one = dict(zip(key_path, path_complex_ele_value_one))						
@@ -161,7 +160,24 @@ for j in Interval:
 
 						break
 
+				####################################################################
 			idx_j = idx_i
+
+			total_amount_trade = 0
+			for j in range(len(path_complex_two)):				
+				total_amount_trade += int(path_complex_two[j]['amount_trd'])
+
+			contrats_opened   = int(path_complex_two[0]['amount_trd'])
+			total_next_trades = abs(contrats_opened - total_amount_trade)
+
+			contracts_opened_sett = abs(contrats_opened - total_next_trades)
+			if total_next_trades < contrats_opened and total_next_trades != 0:
+
+				print "total_next_trades: ", total_next_trades, "\tcontrats_opened: ", contrats_opened
+				print "contracts_opened_sett: ", contracts_opened_sett, "\n"
+				path_complex_two[0]['opened_sett']=contracts_opened_sett
+
+			print "................................"
 
 			if idx_iter == 0 or len(path_complex_two) == 1:
 
@@ -173,18 +189,6 @@ for j in Interval:
 				idx_j = [0]
 
 			else:
-				print "Path:\n", path_complex_two
-
-			total_amount_trade = 0
-			for j in range(len(path_complex_two)):				
-				total_amount_trade += int(path_complex_two[j]['amount_trd'])
-
-			contrats_opened   = int(path_complex_two[0]['amount_trd'])
-			total_next_trades = abs(contrats_opened - total_amount_trade)
-
-			contracts_opened_sett = abs(contrats_opened - total_next_trades)
-			if total_next_trades < contrats_opened and total_next_trades != 0:
-				print "\ntotal_next_trades: ", total_next_trades, "\tcontrats_opened: ", contrats_opened
-				print "contracts_opened_sett: ", contracts_opened_sett
+				print "\nPath:\n", path_complex_two, "\n"
 
 			print "................................"
