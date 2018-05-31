@@ -71,7 +71,7 @@ for j in Interval:
 			print "#---------------------------------------------------------------------------------#\n"
 			print "Source: ", addrs_src, "; Tracked: ", addrs_trk, "\n"
 
-			single_path_value_ele = [addrs_src, lives_src, addrs_trk, lives_trk, amount_trd, 0000]
+			single_path_value_ele = [addrs_src, lives_src, addrs_trk, lives_trk, amount_trd, 0]
 			single_path_ele = dict(zip(key_path, single_path_value_ele))
 
 			path_complex_two.append(single_path_ele)
@@ -86,13 +86,14 @@ for j in Interval:
 
 				N_filei = []
 				N_filei = M_file[:][i]
+				N_filei_b = M_file[:][i-1]
 
 				status_trki = N_filei[1] if addrs_trk == N_filei[0] else N_filei[4]
-				status_srci = N_filei[1] if addrs_src == N_filei[0] else N_filei[4]
+				status_srci = N_filei[4] if addrs_trk == N_filei[0] else N_filei[1]
 				addrs_trki  = N_filei[0] if addrs_trk == N_filei[0] else N_filei[3]
-				addrs_srci  = N_filei[0] if addrs_src == N_filei[0] else N_filei[3]
+				addrs_srci  = N_filei[3] if addrs_trk == N_filei[0] else N_filei[0]
 				lives_trki  = int(N_filei[2]) if addrs_trk == N_filei[0] else int(N_filei[5])
-				lives_srci  = int(N_filei[2]) if addrs_src == N_filei[0] else int(N_filei[5])
+				lives_srci  = int(N_filei[5]) if addrs_trk == N_filei[0] else int(N_filei[2])
 				amount_trdi = int(N_filei[6])
 
 				if addrs_trk in str(N_filei):
@@ -109,7 +110,7 @@ for j in Interval:
 					amount_trd_sum_l = amount_trd_sum
 
 					print "................................\n"
-					print "Amounts!!! amount_trdi: ", amount_trdi, " | amount_trd: ", amount_trd, " | lives_trki: ", lives_trki, " | amount_trd_sum: ", amount_trd_sum
+					print "Amounts!!! amount_trdi: ", amount_trdi, " | amount_trd: ", amount_trd, " | lives_trki: ", lives_trki, " | lives_srci: ", lives_srci, " | amount_trd_sum: ", amount_trd_sum
 
 					d_amounts = amount_trd - amount_trd_sum
 					if d_amounts > 0:
@@ -117,7 +118,7 @@ for j in Interval:
 						print "Opened contrats: ", amount_trd, " > Total amount traded: ", amount_trd_sum, "\n"
 						print "amount_trd > amount_trd_sum: | addrs_trk | status_trki | amount_trdi |", addrs_trk, status_trki, amount_trdi, "\n"
 
-						path_complex_value_ele_two = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0000]
+						path_complex_value_ele_two = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0]
 						path_complex_ele_two = dict(zip(key_path, path_complex_value_ele_two))
 						
 						path_complex_two.append(path_complex_ele_two)
@@ -129,7 +130,7 @@ for j in Interval:
 						print "Opened contrats: ", amount_trd, " < Total amount traded: ", amount_trd_sum, "\n"
 						diff_r = abs(amount_trd - amount_trd_sum_b)
  
-						path_complex_ele_value_thr = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0000]						
+						path_complex_ele_value_thr = [addrs_srci, abs(lives_srci - diff_r), addrs_trki, abs(lives_trki - diff_r), diff_r, 0]						
 						path_complex_ele_thr = dict(zip(key_path, path_complex_ele_value_thr))
 
 						path_complex_two.append(path_complex_ele_thr)
@@ -151,7 +152,7 @@ for j in Interval:
 						print "Opened contrats: ", amount_trd, " = Total amount traded: ", amount_trd_sum, "\n"
 						print "amount_trd = amount_trd_sum: | addrs_trk | status_trki | amount_trdi |", addrs_trk, status_trki, amount_trdi, "\n"
 
-						path_complex_ele_value_one = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0000]
+						path_complex_ele_value_one = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0]
 						path_complex_ele_one = dict(zip(key_path, path_complex_ele_value_one))						
 
 						path_complex_two.append(path_complex_ele_one)
@@ -187,8 +188,7 @@ for j in Interval:
 				print "Length M_file: ", 1
 
 				idx_j = [0]
-
 			else:
-				print "\nPath:\n", path_complex_two, "\n"
+				print "\nPath:\n", np.array(path_complex_two), "\n"
 
 			print "................................"
