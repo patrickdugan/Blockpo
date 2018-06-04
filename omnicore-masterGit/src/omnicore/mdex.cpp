@@ -499,7 +499,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                   assert(update_tally_map(seller_address, property_traded, -difference_s, NEGATIVE_BALANCE));
                }
             } else if ( negative_sell > 0 || possitive_sell == 0 ) {
-
                 assert(update_tally_map(seller_address, property_traded, nCouldBuy, NEGATIVE_BALANCE));
             } 
             
@@ -515,7 +514,6 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             } else if ( negative_buy == 0 || possitive_buy > 0 ) {
                 assert(update_tally_map(buyer_address, property_traded, nCouldBuy, POSSITIVE_BALANCE));
             }
-            
             ///////////////////////////
             std::string Status_s = "";
             std::string Status_b = "";
@@ -915,13 +913,11 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                         } 
                     } else if ( Status_taker == "LongPosNettedPartly" ) {
 
-                            // Checking this 1
-
                             Status_b1  = "ShortPosNetted"; 
                             lives_maker1   = 0;
                             Status_s1  = "LongPosNettedPartly"; 
                             lives_taker1   = possitive_sell - negative_buy;
-                            nCouldBuy1 = negative_buy;
+                            nCouldBuy1 = lives_taker1;
 
                             Status_b2  = "OpenLongPosition"; 
                             lives_maker2   = nCouldBuy - negative_buy;
@@ -1159,7 +1155,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                             lives_taker1   = 0;
                             Status_s1  = "LongPosNettedPartly"; 
                             lives_maker1   = possitive_sell - negative_buy;
-                            nCouldBuy1 = negative_buy;
+                            nCouldBuy1 = lives_taker1;
 
                             Status_b2  = "OpenLongPosition"; 
                             lives_taker2   = nCouldBuy - negative_buy;
