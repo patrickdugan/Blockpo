@@ -111,6 +111,12 @@ for j in Interval:
                         
                         path_complex_two.append(path_complex_ele_two)
 
+                        print "Checking: |index i:", i,"|addrs_srci:",addrs_srci,"|status_srci:",status_srci,"|amount_trdi:",amount_trdi,"|\n"                        
+                        if status_srci == "OpenLongPosition" or status_srci == "LongPosIncreased":                            
+                            looking_for_netted(i, M_file, addrs_srci)
+                        else:
+                            continue
+
                         idx_i.append(i)
 
                     elif d_amounts < 0:
@@ -138,6 +144,12 @@ for j in Interval:
 
                         print "\nNew row added: ", new_row, "\n"
 
+                        print "Checking: |index i:", i,"|addrs_srci:",addrs_srci,"|status_srci:",status_srci,"|amount_trdi:",amount_trdi,"|\n"                        
+                        if status_srci == "OpenLongPosition" or status_srci == "LongPosIncreased":
+                            looking_for_netted(i, M_file, addrs_srci)
+                        else:
+                            continue
+
                         break
                     
                     elif d_amounts == 0:
@@ -150,11 +162,16 @@ for j in Interval:
 
                         path_complex_two.append(path_complex_ele_one)
 
+                        print "Checking: |index i:", i,"|addrs_srci:",addrs_srci,"|status_srci:",status_srci,"|amount_trdi:",amount_trdi,"|\n"                        
+                        if status_srci == "OpenLongPosition" or status_srci == "LongPosIncreased":
+                            looking_for_netted(i, M_file, addrs_srci)
+                        else:
+                            continue
+
                         idx_i.append(i)
 
                         break
-
-                ####################################################################
+            ####################################################################
             idx_j = idx_i
 
             total_amount_trade = 0
