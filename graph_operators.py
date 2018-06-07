@@ -7,6 +7,49 @@ import setglobales
 globales.init()
 setglobales.stuff()
 
+class status_amounts:
+
+    def __init__(self, v):
+    
+        if v[4] == "OpenShortPosition" or v[4] == "ShortPosIncreased":
+
+            self.addrs_trk  = v[0]
+            self.status_trk = v[1]
+            self.lives_trk  = int(v[2]) 
+            self.addrs_src  = v[3] 
+            self.status_src = v[4] 
+            self.lives_src  = int(v[5]) 
+        else:
+            self.addrs_trk  = v[3]
+            self.status_trk = v[4] 
+            self.lives_trk  = int(v[5])
+            self.addrs_src  = v[0]
+            self.status_src = v[1]
+            self.lives_src  = int(v[2])
+
+        self.amount_trd = int(v[6])
+
+class status_amounts_j:
+
+    def __init__(self, v, addrs_trk):
+
+        if addrs_trk == v[0]:   
+            self.status_trki = v[1] 
+            self.status_srci = v[4] 
+            self.addrs_trki  = v[0] 
+            self.addrs_srci  = v[3] 
+            self.lives_trki  = int(v[2]) 
+            self.lives_srci  = int(v[5]) 
+        else:
+            self.status_trki = v[4]
+            self.status_srci = v[1]
+            self.addrs_trki  = v[3]
+            self.addrs_srci  = v[0]
+            self.lives_trki  = int(v[5])
+            self.lives_srci  = int(v[2])
+
+        self.amount_trdi = int(v[6])
+
 def negative_for_short(m):
 
     for row in m:
@@ -20,140 +63,110 @@ def negative_for_short(m):
                 row[2]=-row[2]
     return m                
 
-def amounts_addresses_status(v):
-
-    if v[4] == "OpenShortPosition" or v[4] == "ShortPosIncreased":
-
-        addrs_trk  = v[0]
-        status_trk = v[1]
-        lives_trk  = int(v[2]) 
-
-        addrs_src  = v[3] 
-        status_src = v[4] 
-        lives_src  = int(v[5]) 
-    else:
-        addrs_trk  = v[3]
-        status_trk = v[4] 
-        lives_trk  = int(v[5])
-
-        addrs_src  = v[0]
-        status_src = v[1]
-        lives_src  = int(v[2])
-
-    amount_trd = int(v[6])
-
-    return addrs_trk, status_trk, lives_trk, addrs_src, status_src, lives_src, amount_trd
-
-def amounts_addresses_status_inloop(v, addrs_trk):
-
-    if addrs_trk == v[0]:   
-    
-        status_trki = v[1] 
-        status_srci = v[4] 
-
-        addrs_trki  = v[0] 
-        addrs_srci  = v[3] 
-
-        lives_trki  = int(v[2]) 
-        lives_srci  = int(v[5]) 
-    else:
-        status_trki = v[4]
-        status_srci = v[1]
-    
-        addrs_trki  = v[3]
-        addrs_srci  = v[0]
-
-        lives_trki  = int(v[5])
-        lives_srci  = int(v[2])
-
-    amount_trdi = int(v[6])
-
-    return addrs_trki, status_trki, lives_trki, addrs_srci, status_srci, lives_srci, amount_trdi
-
 def looking_for_netted(i, m, addrs_trk):
 
     idx_k = []    
     v = m[:][i]
 
-    addrs_trk, status_trk, lives_trk, addrs_src, status_src, lives_src, amount_trd = amounts_addresses_status_inloop(v, addrs_trk)
+    obj_ni = status_amounts_j(v, addrs_trk)
     amount_trd_sum = 0
 
     path_complex_two = []
 
-    single_path_value_ele = [addrs_src, lives_src, addrs_trk, lives_trk, amount_trd, 0]
+    single_path_value_ele = [obj_ni.addrs_srci, obj_ni.lives_srci, obj_ni.addrs_trki, obj_ni.lives_trki, obj_ni.amount_trdi, 0]
     single_path_ele = dict(zip(globales.key_path, single_path_value_ele))
     path_complex_two.append(single_path_ele)
 
     print "______________________________\n"
-    print "New path for:", addrs_trk, "??\n"
-    print "|addrs_trk:", addrs_trk, "|lives_trk: ", lives_trk,"|status_trk: ", status_trk,"|amount_trd: " ,amount_trd, "|\n"
+    print "New path for:", obj_ni.addrs_trki, "??\n"
+    print "|addrs_trk:", obj_ni.addrs_trki, "|lives_trk: ", obj_ni.lives_trki,"|status_trk: ", obj_ni.status_trki,"|amount_trd: " , obj_ni.amount_trdi, "|\n"
 
     idx_iter = 0    
 
     for k in xrange(i+1, len(m)):
                                 
         u = m[:][k]
-        addrs_trki, status_trki, lives_trki, addrs_srci, status_srci, lives_srci, amount_trdi = amounts_addresses_status_inloop(u, addrs_trk)
+        obj_mk = status_amounts_j(u, addrs_trk)
 
-        if addrs_trk in str(u):
+        if obj_ni.addrs_trki in str(u):
             idx_iter += 1
 
-        if addrs_trk in str(u) and status_trki in str(globales.netted_status):
+        if obj_ni.addrs_trki in str(u) and obj_mk.status_trki in str(globales.netted_status):
             
             amount_trd_sum_b = amount_trd_sum
-            amount_trd_sum   = amount_trd_sum + amount_trdi
+            amount_trd_sum   = amount_trd_sum + obj_mk.amount_trdi
             amount_trd_sum_l = amount_trd_sum
 
-            d_amounts = amount_trd - amount_trd_sum
+            bool_src = obj_mk.status_srci == "OpenLongPosition" or obj_mk.status_srci == "LongPosIncreased"
+            d_amounts = obj_ni.amount_trdi - amount_trd_sum
+
             if d_amounts > 0:
                 
                 print "______________________________\n"
-                print "Check!! amount_trd > amount_trd_sum!!: | addrs_trk | status_trki | amount_trdi |", addrs_src, status_srci, amount_trdi, "\n"
-                print "Iter: ", k, addrs_trki, status_trki, lives_trki, addrs_srci, status_srci, lives_srci, amount_trdi
-                path_complex_value_ele_two = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0]
+                print "Check!! amount_trd > amount_trd_sum!!: | addrs_trk | obj_mk.status_trki | obj_mk.amount_trdi |", obj_ni.addrs_srci, obj_mk.status_srci, obj_mk.amount_trdi, "\n"
+                print "Iter: ", k, obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.amount_trdi
+                path_complex_value_ele_two = [obj_mk.addrs_srci, obj_mk.lives_srci, obj_mk.addrs_trki, obj_mk.lives_trki, obj_mk.amount_trdi, 0]
                 path_complex_ele_two = dict(zip(globales.key_path, path_complex_value_ele_two))
 
                 path_complex_two.append(path_complex_ele_two)
 
-                idx_k.append(k)                
+                idx_k.append(k)
+
+                if bool_src:                            
+                    idx_q, M_file = looking_for_netted(k, m, obj_mk.addrs_srci)
+                    idx_k = id_newrow(idx_q, idx_k)
+                else:
+                    continue                                
  
             elif d_amounts < 0:
 
                 print "______________________________\n"
-                print "Check!! amount_trd < amount_trd_sum: |addrs_trk: ", addrs_trk, "|status_trki: ", status_trki,  "|amount_trdi: ", amount_trdi, "|addrs_srci: ", addrs_srci, "|status_srci: ",status_srci,"\n"
-                print "Iter: ", k, addrs_trki, status_trki, lives_trki, addrs_srci, status_srci, lives_srci, amount_trdi
-                diff_r = abs(amount_trd - amount_trd_sum_b)
+                print "Check!! amount_trd < amount_trd_sum: |addrs_trk: ", obj_ni.addrs_trki, "|obj_mk.status_trki: ", obj_mk.status_trki,  "|obj_mk.amount_trdi: ", obj_mk.amount_trdi, "|obj_mk.addrs_srci: ", obj_mk.addrs_srci, "|obj_mk.status_srci: ",obj_mk.status_srci,"\n"
+                print "Iter: ", k, obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.amount_trdi
+                diff_r = abs(obj_ni.amount_trdi - amount_trd_sum_b)
 
-                print "\namount_trdi", amount_trdi, "lives_trki", lives_trki, "status_trki: ", status_trki
-                x_src = abs(amount_trdi - lives_srci) if "Long" in str(status_srci) else -abs(amount_trdi - lives_srci)
-                y_trk = abs(amount_trdi + lives_trki) if "Long" in str(status_trki) else -abs(amount_trdi - lives_trki)
+                print "\nobj_mk.amount_trdi", obj_mk.amount_trdi, "obj_mk.lives_trki", obj_mk.lives_trki, "obj_mk.status_trki: ", obj_mk.status_trki
+                x_src = abs(obj_mk.amount_trdi - obj_mk.lives_srci) if "Long" in str(obj_mk.status_srci) else -abs(obj_mk.amount_trdi - obj_mk.lives_srci)
+                y_trk = abs(obj_mk.amount_trdi + obj_mk.lives_trki) if "Long" in str(obj_mk.status_trki) else -abs(obj_mk.amount_trdi - obj_mk.lives_trki)
                 print "x_src: ", x_src, "y_trk", y_trk
 
-                path_complex_ele_value_thr = [addrs_srci, abs(x_src + diff_r), addrs_trki, abs(y_trk - diff_r), diff_r, 0]                      
+                path_complex_ele_value_thr = [obj_mk.addrs_srci, abs(x_src + diff_r), obj_mk.addrs_trki, abs(y_trk - diff_r), diff_r, 0]                      
                 path_complex_ele_thr = dict(zip(globales.key_path, path_complex_ele_value_thr))
 
                 idx_k.append(k)
                 path_complex_two.append(path_complex_ele_thr)                
 
-                amount_new = abs(diff_r - amount_trdi)
-                new_row = np.array([addrs_srci, status_srci, lives_srci, addrs_trki, status_trki, lives_trki, amount_new])
+                amount_new = abs(diff_r - obj_mk.amount_trdi)
+                new_row = np.array([obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, amount_new])
                 m = np.vstack([m, new_row])
                 print "______________________________\n"
                 print "\nNew row added new path: ", new_row, "\n"
+
+                if bool_src:                            
+                    idx_q, M_file = looking_for_netted(k, m, obj_mk.addrs_srci)
+                    idx_k = id_newrow(idx_q, idx_k)
+                else:
+                    continue                                
 
                 break
 
             elif d_amounts == 0:
 
                 print "______________________________\n"
-                print "Check!! amount_trd = amount_trd_sum: |addrs_trk: ", addrs_trk, "|status_trki: ", status_trki,  "|amount_trdi: ", amount_trdi, "|addrs_srci: ", addrs_srci, "|status_srci: ",status_srci,"\n"
-                print "Iter: ", k, addrs_trki, status_trki, lives_trki, addrs_srci, status_srci, lives_srci, amount_trdi
+                print "Check!! amount_trd = amount_trd_sum: |addrs_trk: ", obj_ni.addrs_trki, "|obj_mk.status_trki: ", obj_mk.status_trki,  "|obj_mk.amount_trdi: ", obj_mk.amount_trdi, "|obj_mk.addrs_srci: ", obj_mk.addrs_srci, "|obj_mk.status_srci: ",obj_mk.status_srci,"\n"
+                print "Iter: ", k, obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.amount_trdi
 
-                path_complex_ele_value_one = [addrs_srci, lives_srci, addrs_trki, lives_trki, amount_trdi, 0]
+                path_complex_ele_value_one = [obj_mk.addrs_srci, obj_mk.lives_srci, obj_mk.addrs_trki, obj_mk.lives_trki, obj_mk.amount_trdi, 0]
                 path_complex_ele_one = dict(zip(globales.key_path, path_complex_ele_value_one))                      
 
                 idx_k.append(k)
                 path_complex_two.append(path_complex_ele_one)                
+
+                if bool_src:                            
+                    idx_q, M_file = looking_for_netted(k, m, obj_mk.addrs_srci)
+                    idx_k = id_newrow(idx_q, idx_k)
+                else:
+                    continue                                
 
                 break
         else:
@@ -163,7 +176,7 @@ def looking_for_netted(i, m, addrs_trk):
         print "______________________________\n"
         print "\nidx_k: ", idx_k, "\n"
     else:
-        print "There is no netted events for: ", addrs_trk, "!!\n"
+        print "There is no netted events for: ", obj_ni.addrs_trki, "!!\n"
 
     total_amount_trade = 0
     for j in range(len(path_complex_two)):              
