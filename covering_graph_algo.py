@@ -29,19 +29,20 @@ for j in Interval:
 
     if j > 0:
         print "------------------------------------------------------"
-        print "\nRows to deleted: ", idx_j
+        print "\nRows deleted: ", idx_j
         M_file = np.delete(M_file, idx_j, 0)
         
     print "M_file:\n", M_file, "\nLength M_file: ", len(M_file), "\n"
 
-    if len(M_file) == 1:
-      print "###################################################################################\n"
-      print "Source: ", M_file[0][3], "; Tracked: ", M_file[0][0], "\n"   
-      single_path_value_begin = [M_file[0][0], M_file[0][2], M_file[0][3], M_file[0][5], M_file[0][6], M_file[0][6]]
-      single_path_begin = dict(zip(globales.key_path,single_path_value_begin))
-      print "Single path:\n", single_path_begin, "\n"
-      print "Length M_file: ", 0
-      break
+    bool_M_file, single_path_begin = first_single_path(M_file)
+
+    if bool_M_file:
+        
+        print "###################################################################################\n"
+        print "Source: ", M_file[0][3], "; Tracked: ", M_file[0][0], "\n"        
+        print "Last Single path:\n", np.array(single_path_begin), "\n"
+
+        break
 
     M_filej = []
     M_filej = M_file[:][0]
@@ -107,7 +108,7 @@ for j in Interval:
                     if d_amounts > 0:
 
                         print "Opened contrats: ", obj_mj.amount_trd, " > Total amount traded: ", amount_trd_sum, "\n"
-                        print "amount_trd > amount_trd_sum: |addrs_trk: ", obj_mj.addrs_trk, "|obj_ni.status_trki: ", obj_ni.status_trki,  "|obj_ni.amount_trdi: ", obj_ni.amount_trdi, "|obj_ni.addrs_srci: ", obj_ni.addrs_srci, "|obj_ni.status_srci: ",obj_ni.status_srci,"\n"
+                        print "'iteration: ", i, "': amount_trd > amount_trd_sum: |addrs_trk: ", obj_mj.addrs_trk, "|obj_ni.status_trki: ", obj_ni.status_trki,  "|obj_ni.amount_trdi: ", obj_ni.amount_trdi, "|obj_ni.addrs_srci: ", obj_ni.addrs_srci, "|obj_ni.status_srci: ",obj_ni.status_srci,"\n"
 
                         path_complex_value_ele_two = [obj_ni.addrs_srci, obj_ni.lives_srci, obj_ni.addrs_trki, obj_ni.lives_trki, obj_ni.amount_trdi, 0]
                         path_complex_ele_two = dict(zip(globales.key_path, path_complex_value_ele_two))
@@ -118,8 +119,6 @@ for j in Interval:
                         if bool_src:                            
                             idx_k, M_file = looking_for_netted(i, M_file, obj_ni.addrs_srci)
                             idx_i = id_newrow(idx_k, idx_i)
-                        else:
-                            continue
 
                     elif d_amounts < 0:
 
@@ -135,27 +134,26 @@ for j in Interval:
                         path_complex_ele_thr = dict(zip(globales.key_path, path_complex_ele_value_thr))
 
                         path_complex_two.append(path_complex_ele_thr)
-                        print "amount_trd < amount_trd_sum: |addrs_trk: ", obj_mj.addrs_trk, "|obj_ni.status_trki: ", obj_ni.status_trki,  "|obj_ni.amount_trdi: ", obj_ni.amount_trdi, "|obj_ni.addrs_srci: ", obj_ni.addrs_srci, "|obj_ni.status_srci: ",obj_ni.status_srci,"\n"
+                        print "'iteration: ", i, "': amount_trd < amount_trd_sum: |addrs_trk: ", obj_mj.addrs_trk, "|obj_ni.status_trki: ", obj_ni.status_trki,  "|obj_ni.amount_trdi: ", obj_ni.amount_trdi, "|obj_ni.addrs_srci: ", obj_ni.addrs_srci, "|obj_ni.status_srci: ",obj_ni.status_srci,"\n"
                         print "\n------------------------------------------------------\n"
 
                         amount_new = abs(diff_r - obj_ni.amount_trdi)
                         new_row = np.array([obj_ni.addrs_srci, obj_ni.status_srci, obj_ni.lives_srci, obj_ni.addrs_trki, obj_ni.status_trki, obj_ni.lives_trki, amount_new])
                         M_file = np.vstack([M_file, new_row])
+                        idx_i.append(i)
 
                         print "\nNew row added: ", new_row, "\n"
 
                         if bool_src:                            
                             idx_k, M_file = looking_for_netted(i, M_file, obj_ni.addrs_srci)
                             idx_i = id_newrow(idx_k, idx_i)
-                        else:
-                            continue
 
                         break
                     
                     elif d_amounts == 0:
 
                         print "Opened contrats: ", obj_mj.amount_trd, " = Total amount traded: ", amount_trd_sum, "\n"
-                        print "amount_trd = amount_trd_sum: |addrs_trk: ", obj_mj.addrs_trk, "|obj_ni.status_trki: ", obj_ni.status_trki,  "|obj_ni.amount_trdi: ", obj_ni.amount_trdi, "|obj_ni.addrs_srci: ", obj_ni.addrs_srci, "|obj_ni.status_srci: ",obj_ni.status_srci,"\n"
+                        print "'iteration: ", i, "': amount_trd = amount_trd_sum: |addrs_trk: ", obj_mj.addrs_trk, "|obj_ni.status_trki: ", obj_ni.status_trki,  "|obj_ni.amount_trdi: ", obj_ni.amount_trdi, "|obj_ni.addrs_srci: ", obj_ni.addrs_srci, "|obj_ni.status_srci: ",obj_ni.status_srci,"\n"
 
                         path_complex_ele_value_one = [obj_ni.addrs_srci, obj_ni.lives_srci, obj_ni.addrs_trki, obj_ni.lives_trki, obj_ni.amount_trdi, 0]
                         path_complex_ele_one = dict(zip(globales.key_path, path_complex_ele_value_one))                      
@@ -167,8 +165,6 @@ for j in Interval:
                         if bool_src:                            
                             idx_k, M_file = looking_for_netted(i, M_file, obj_ni.addrs_srci)
                             idx_i = id_newrow(idx_k, idx_i)
-                        else:
-                            continue
 
                         break
             ####################################################################

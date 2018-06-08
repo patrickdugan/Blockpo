@@ -104,7 +104,7 @@ def looking_for_netted(i, m, addrs_trk):
                 
                 print "______________________________\n"
                 print "Check!! amount_trd > amount_trd_sum!!: | addrs_trk | obj_mk.status_trki | obj_mk.amount_trdi |", obj_ni.addrs_srci, obj_mk.status_srci, obj_mk.amount_trdi, "\n"
-                print "Iter: ", k, obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.amount_trdi
+                print "'Iter: ", k , "': ", obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.amount_trdi
                 path_complex_value_ele_two = [obj_mk.addrs_srci, obj_mk.lives_srci, obj_mk.addrs_trki, obj_mk.lives_trki, obj_mk.amount_trdi, 0]
                 path_complex_ele_two = dict(zip(globales.key_path, path_complex_value_ele_two))
 
@@ -115,14 +115,12 @@ def looking_for_netted(i, m, addrs_trk):
                 if bool_src:                            
                     idx_q, M_file = looking_for_netted(k, m, obj_mk.addrs_srci)
                     idx_k = id_newrow(idx_q, idx_k)
-                else:
-                    continue                                
  
             elif d_amounts < 0:
 
                 print "______________________________\n"
                 print "Check!! amount_trd < amount_trd_sum: |addrs_trk: ", obj_ni.addrs_trki, "|obj_mk.status_trki: ", obj_mk.status_trki,  "|obj_mk.amount_trdi: ", obj_mk.amount_trdi, "|obj_mk.addrs_srci: ", obj_mk.addrs_srci, "|obj_mk.status_srci: ",obj_mk.status_srci,"\n"
-                print "Iter: ", k, obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.amount_trdi
+                print "'Iter: ", k , "': ", k, obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.amount_trdi
                 diff_r = abs(obj_ni.amount_trdi - amount_trd_sum_b)
 
                 print "\nobj_mk.amount_trdi", obj_mk.amount_trdi, "obj_mk.lives_trki", obj_mk.lives_trki, "obj_mk.status_trki: ", obj_mk.status_trki
@@ -145,8 +143,6 @@ def looking_for_netted(i, m, addrs_trk):
                 if bool_src:                            
                     idx_q, M_file = looking_for_netted(k, m, obj_mk.addrs_srci)
                     idx_k = id_newrow(idx_q, idx_k)
-                else:
-                    continue                                
 
                 break
 
@@ -154,7 +150,7 @@ def looking_for_netted(i, m, addrs_trk):
 
                 print "______________________________\n"
                 print "Check!! amount_trd = amount_trd_sum: |addrs_trk: ", obj_ni.addrs_trki, "|obj_mk.status_trki: ", obj_mk.status_trki,  "|obj_mk.amount_trdi: ", obj_mk.amount_trdi, "|obj_mk.addrs_srci: ", obj_mk.addrs_srci, "|obj_mk.status_srci: ",obj_mk.status_srci,"\n"
-                print "Iter: ", k, obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.amount_trdi
+                print "'Iter: ", k , "': ", k, obj_mk.addrs_trki, obj_mk.status_trki, obj_mk.lives_trki, obj_mk.addrs_srci, obj_mk.status_srci, obj_mk.lives_srci, obj_mk.amount_trdi
 
                 path_complex_ele_value_one = [obj_mk.addrs_srci, obj_mk.lives_srci, obj_mk.addrs_trki, obj_mk.lives_trki, obj_mk.amount_trdi, 0]
                 path_complex_ele_one = dict(zip(globales.key_path, path_complex_ele_value_one))                      
@@ -165,17 +161,10 @@ def looking_for_netted(i, m, addrs_trk):
                 if bool_src:                            
                     idx_q, M_file = looking_for_netted(k, m, obj_mk.addrs_srci)
                     idx_k = id_newrow(idx_q, idx_k)
-                else:
-                    continue                                
 
                 break
-        else:
-            continue
 
-    if len(idx_k) != 0:
-        print "______________________________\n"
-        print "\nidx_k: ", idx_k, "\n"
-    else:
+    if len(idx_k) == 0:
         print "There is no netted events for: ", obj_ni.addrs_trki, "!!\n"
 
     total_amount_trade = 0
@@ -203,3 +192,17 @@ def id_newrow(idx_k, idx_i):
             idx_i.append(idx_k[l])
 
     return idx_i
+
+def first_single_path(m):
+
+    bool_single_path = False
+    single_path = []
+    if len(m) == 1:
+
+        single_path_value_begin = [m[0][0], m[0][2], m[0][3], m[0][5], m[0][6], m[0][6]]
+        single_path_begin = dict(zip(globales.key_path,single_path_value_begin))
+        single_path.append(single_path_begin)
+
+        bool_single_path = True
+
+    return bool_single_path, single_path
