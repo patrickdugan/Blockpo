@@ -32,8 +32,11 @@ for j in Interval:
         print "\nRows deleted: ", idx_j
         M_file = np.delete(M_file, idx_j, 0)
         
+    row_top = np.array([M_file[:][-1]]) 
+    M_file  = np.concatenate((row_top, M_file))
+    M_file  = np.delete(M_file, -1, 0)
     print "M_file:\n", M_file, "\nLength M_file: ", len(M_file), "\n"
-
+ 
     bool_M_file, single_path_begin = first_single_path(M_file)
 
     if bool_M_file:
@@ -146,6 +149,7 @@ for j in Interval:
                         amount_new = abs(diff_r - obj_ni.amount_trdi)
                         new_row = np.array([obj_ni.addrs_srci, obj_ni.status_srci, obj_ni.lives_srci, obj_ni.addrs_trki, obj_ni.status_trki, obj_ni.lives_trki, amount_new])
                         M_file = np.vstack([M_file, new_row])
+
                         idx_i.append(i)
 
                         print "\nNew row added: ", new_row, "\n"

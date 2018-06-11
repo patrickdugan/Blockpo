@@ -69,62 +69,10 @@ with open('statusbyaddrres.txt', 'w') as f:
 
 print "//////////////////////////////////////////////////////////////////////////////////////////"
 
+x = np.array([1, 2, 3])
+grid = np.array([[9, 8, 7],
+                 [6, 5, 4]])
 
-# print "Example:"
-
-# with open('example_array.txt') as file:
-#     array2d = [[int(digit) if digit.isdigit() else digit for digit in line.split()] for line in file]
-
-# print array2d
-# array2d.append([1, 2, 3, 4, "Jajajaja"])
-# print array2d
-
-# print array2d[:][0]
-
-# print "//////////////////////////////////////////////////////////////////////////////////////////"
-
-# A_partly = str(R_partly)[2:-2]
-# A_partly = A_partly.replace('\'', '')
-# A_partly = A_partly.split(", ")
-
-# path_complex_ele_two = []
-# for val in range(len(A_partly)):
-
-# 	path_complex_ele_two.append(int(A_partly[val])) if val == 1 else path_complex_ele_two.append(A_partly[val])		
-# 	path_complex_two.append(path_complex_ele_two)
-
-
-# print "//////////////////////////////////////////////////////////////////////////////////////////"
-
-# Json_file = np.genfromtxt('graphInfoAddresses.txt', dtype=None)
-
-# Keys = ['id','label'] 
-# Values = [] 
-# Dict = dict(zip(Keys, Values)) 
-# Data = []
-
-# x=0
-# while x < len(Json_file):
-#     x += 1 
-#     MoreValues = [Json_file[x-1],Json_file[x-1]] 
-#     Dict = dict(zip(Keys, MoreValues))
-#     Data.append(Dict)
-
-# # print Data, "\n"
-
-# #############################################
-# M = np.genfromtxt('graphInfoFourth.txt', dtype=None)
-
-# KK = ['from','to', 'label', 'arrows'] 
-# VV = [] 
-# DDIC = dict(zip(KK, VV))
-# DDA2 = []
-
-# for k in range(len(M)):
-#     X = [M[k][0], M[k][2], M[k][1], '{middle:{scaleFactor:0.5},from:true}']
-#     DDIC = dict(zip(KK, X))
-#     DDA2.append(DDIC)
-
-# # print DDA2
-
+M = np.vstack([grid, x])
+print M 
 print "//////////////////////////////////////////////////////////////////////////////////////////"
