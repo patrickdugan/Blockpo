@@ -82,6 +82,8 @@ for j in Interval:
             path_complex_ele_fth = []
 
             idx_i  = [0]
+            average_longincr = []            
+            average_longincr.append([obj_mj.addrs_trk, obj_mj.lives_trk, obj_mj.status_trk, obj_mj.amount_trd, 0])
 
             for i in xrange(1, len(M_file)):                
 
@@ -93,8 +95,12 @@ for j in Interval:
                     idx_iter += 1
 
                 ####################################################################
+                if obj_mj.addrs_trk in str(N_filei) and obj_ni.status_trki == "LongPosIncreased":
+                    average_longincr.append([obj_ni.addrs_trki, obj_ni.lives_trki, obj_ni.status_trki, obj_ni.amount_trdi, i])
 
                 if obj_mj.addrs_trk in str(N_filei) and obj_ni.status_trki in str(globales.netted_status):
+
+                    average_lonposincreased(average_longincr, obj_ni.amount_trdi)
 
                     amount_trd_sum_b = amount_trd_sum
                     amount_trd_sum   = amount_trd_sum + obj_ni.amount_trdi
@@ -102,7 +108,7 @@ for j in Interval:
 
                     print "\n------------------------------------------------------\n"
                     print "\nAmounts!!! obj_ni.amount_trdi: ", obj_ni.amount_trdi, " | amount_trd: ", obj_mj.amount_trd, " | obj_ni.lives_trki: ", obj_ni.lives_trki, " | obj_ni.lives_srci: ", obj_ni.lives_srci, " | amount_trd_sum: ", amount_trd_sum
-                    bool_src = obj_ni.status_srci == "OpenLongPosition" or obj_ni.status_srci == "LongPosIncreased"
+                    bool_src = obj_ni.status_srci == "OpenLongPosition" or obj_ni.status_srci == "LongPosIncreased" 
 
                     d_amounts = obj_mj.amount_trd - amount_trd_sum
                     if d_amounts > 0:

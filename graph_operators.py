@@ -83,6 +83,9 @@ def looking_for_netted(i, m, addrs_trk):
 
     idx_iter = 0    
 
+    average_longincr = []            
+    average_longincr.append([obj_ni.addrs_trki, obj_ni.lives_trki, obj_ni.status_trki, obj_ni.amount_trdi, 0])
+
     for k in xrange(i+1, len(m)):
                                 
         u = m[:][k]
@@ -91,8 +94,13 @@ def looking_for_netted(i, m, addrs_trk):
         if obj_ni.addrs_trki in str(u):
             idx_iter += 1
 
+        if obj_ni.addrs_trki in str(u) and obj_mk.status_trki == "LongPosIncreased":
+            average_longincr.append([obj_mk.addrs_trki, obj_mk.lives_trki, obj_mk.status_trki, obj_mk.amount_trdi, k])
+
         if obj_ni.addrs_trki in str(u) and obj_mk.status_trki in str(globales.netted_status):
             
+            average_lonposincreased(average_longincr, obj_mk.amount_trdi)
+
             amount_trd_sum_b = amount_trd_sum
             amount_trd_sum   = amount_trd_sum + obj_mk.amount_trdi
             amount_trd_sum_l = amount_trd_sum
@@ -206,3 +214,40 @@ def first_single_path(m):
         bool_single_path = True
 
     return bool_single_path, single_path
+
+def average_lonposincreased(average_longincr, trade_amount):
+
+    if len(average_longincr) > 1:
+            
+        print "average_longincr before:\n"
+        for row in average_longincr:
+            print row
+
+        divider = 0
+        for row in average_longincr:
+            divider += row[3]
+                        
+        residue = 0
+        if divider >= trade_amount:
+            col_amounts = [int((float(row[3])/divider)*trade_amount) for row in average_longincr]
+            residue = abs(trade_amount - np.sum(col_amounts))
+            print "\ndivider: ", divider, " >= obj_ni.amount_trdi: ", trade_amount                           
+            print '\ncol_amounts: ', col_amounts, ", amount_trdi - sum(col_amounts): ", trade_amount - np.sum(col_amounts), ", max(col_amounts): ", np.amax(col_amounts), ", argmax(col_amounts): ", np.argmax(col_amounts)
+        else:
+            col_amounts = [row[3] for row in average_longincr]
+            residue = 0
+            print "\ndivider: ", divider, " < obj_ni.amount_trdi: ", trade_amount                            
+            print '\ncol_amounts: ', col_amounts, ", divider - sum(col_amounts): ", divider - np.sum(col_amounts), ", max(col_amounts): ", np.amax(col_amounts), ", argmax(col_amounts): ", np.argmax(col_amounts)
+
+        k = 0
+        last_amount_trade = 0
+        for row in average_longincr:
+            k += 1
+            row[3] = row[3]-(col_amounts[k-1]+residue) if k == np.argmax(col_amounts)+1 else row[3]-col_amounts[k-1]
+            row[1] = row[3] if k == 1 else row[3]+last_amount_trade
+            last_amount_trade += row[3]
+
+        print "\naverage_longincr later:\n"
+        for row in average_longincr:
+            print row
+    return

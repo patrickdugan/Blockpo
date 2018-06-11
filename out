@@ -186,6 +186,19 @@ New path for: mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn ??
 
 |addrs_trk: mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn |lives_trk:  271 |status_trk:  OpenLongPosition |amount_trd:  271 |
 
+average_longincr before:
+
+['mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn', 271, 'OpenLongPosition', 271, 0]
+['mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn', 4320, 'LongPosIncreased', 4049, 73]
+
+divider:  4320  >= obj_ni.amount_trdi:  442
+
+col_amounts:  [27, 414] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  414 , argmax(col_amounts):  1
+
+average_longincr later:
+
+['mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn', 244, 'OpenLongPosition', 244, 0]
+['mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn', 3878, 'LongPosIncreased', 3634, 73]
 ______________________________
 
 Check!! amount_trd < amount_trd_sum: |addrs_trk:  mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn |obj_mk.status_trki:  LongPosNettedPartly |obj_mk.amount_trdi:  442 |obj_mk.addrs_srci:  n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF |obj_mk.status_srci:  ShortPosNettedPartly 
@@ -390,6 +403,19 @@ Length M_file:  183
 
 Source:  mmkZ6duB1RY7jicjr6AgeVR8bYjaiAnf2P ; Tracked:  mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1 
 
+average_longincr before:
+
+['mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1', 689, 'OpenLongPosition', 689, 0]
+['mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1', 690, 'LongPosIncreased', 1, 19]
+
+divider:  690  >= obj_ni.amount_trdi:  160
+
+col_amounts:  [159, 0] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  159 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1', 529, 'OpenLongPosition', 529, 0]
+['mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1', 530, 'LongPosIncreased', 1, 19]
 
 ------------------------------------------------------
 
@@ -399,6 +425,19 @@ Opened contrats:  689  > Total amount traded:  160
 
 'iteration:  121 ': amount_trd > amount_trd_sum: |addrs_trk:  mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1 |obj_ni.status_trki:  LongPosNettedPartly |obj_ni.amount_trdi:  160 |obj_ni.addrs_srci:  msM2syHYCN1u7s8hXNPQ84xaQUZzTNHyju |obj_ni.status_srci:  ShortPosNettedPartly 
 
+average_longincr before:
+
+['mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1', 529, 'OpenLongPosition', 529, 0]
+['mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1', 530, 'LongPosIncreased', 1, 19]
+
+divider:  530  >= obj_ni.amount_trdi:  530
+
+col_amounts:  [529, 1] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  529 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1', 0, 'OpenLongPosition', 0, 0]
+['mh9U7Gp4FsYeA9V2PCgnNmRqWqiuEFUda1', 0, 'LongPosIncreased', 0, 19]
 
 ------------------------------------------------------
 
@@ -472,6 +511,19 @@ New path for: n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF ??
 
 |addrs_trk: n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF |lives_trk:  1242 |status_trk:  LongPosIncreased |amount_trd:  754 |
 
+average_longincr before:
+
+['n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF', 1242, 'LongPosIncreased', 754, 0]
+['n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF', 1755, 'LongPosIncreased', 513, 89]
+
+divider:  1267  < obj_ni.amount_trdi:  1755
+
+col_amounts:  [754, 513] , divider - sum(col_amounts):  0 , max(col_amounts):  754 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF', 0, 'LongPosIncreased', 0, 0]
+['n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF', 0, 'LongPosIncreased', 0, 89]
 ______________________________
 
 Check!! amount_trd < amount_trd_sum: |addrs_trk:  n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF |obj_mk.status_trki:  LongPosNetted |obj_mk.amount_trdi:  1755 |obj_mk.addrs_srci:  mwrV2Z5rqN4dGzsA4n84rbB4fBUJLxWtBX |obj_mk.status_srci:  LongPosIncreased 
@@ -527,6 +579,19 @@ Length M_file:  179
 
 Source:  mkt29wbSLfuNLSbjbmE2KFJwzKV5sLoKkr ; Tracked:  mokrQPi86knCXVuqTBvsCvfv5hktGnLijp 
 
+average_longincr before:
+
+['mokrQPi86knCXVuqTBvsCvfv5hktGnLijp', 1672, 'OpenLongPosition', 1672, 0]
+['mokrQPi86knCXVuqTBvsCvfv5hktGnLijp', 2081, 'LongPosIncreased', 409, 14]
+
+divider:  2081  >= obj_ni.amount_trdi:  892
+
+col_amounts:  [716, 175] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  716 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mokrQPi86knCXVuqTBvsCvfv5hktGnLijp', 955, 'OpenLongPosition', 955, 0]
+['mokrQPi86knCXVuqTBvsCvfv5hktGnLijp', 1189, 'LongPosIncreased', 234, 14]
 
 ------------------------------------------------------
 
@@ -575,6 +640,19 @@ Length M_file:  177
 
 Source:  mrtj3Xh3LcZhJKzwgVL7NhF2DDg2J5jUDL ; Tracked:  mzKW3LrrwdG46rSLtn8ySqGATboKZJ2Fs8 
 
+average_longincr before:
+
+['mzKW3LrrwdG46rSLtn8ySqGATboKZJ2Fs8', 2084, 'OpenLongPosition', 2084, 0]
+['mzKW3LrrwdG46rSLtn8ySqGATboKZJ2Fs8', 2472, 'LongPosIncreased', 388, 1]
+
+divider:  2472  >= obj_ni.amount_trdi:  141
+
+col_amounts:  [118, 22] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  118 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mzKW3LrrwdG46rSLtn8ySqGATboKZJ2Fs8', 1965, 'OpenLongPosition', 1965, 0]
+['mzKW3LrrwdG46rSLtn8ySqGATboKZJ2Fs8', 2331, 'LongPosIncreased', 366, 1]
 
 ------------------------------------------------------
 
@@ -669,6 +747,19 @@ Length M_file:  173
 
 Source:  n2V7mYYQ3Sz8AfGaXfiU4z7QYiPoPijwNP ; Tracked:  mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A 
 
+average_longincr before:
+
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 3235, 'OpenLongPosition', 3235, 0]
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 3891, 'LongPosIncreased', 656, 25]
+
+divider:  3891  >= obj_ni.amount_trdi:  472
+
+col_amounts:  [392, 79] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  392 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 2842, 'OpenLongPosition', 2842, 0]
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 3419, 'LongPosIncreased', 577, 25]
 
 ------------------------------------------------------
 
@@ -678,6 +769,19 @@ Opened contrats:  3235  > Total amount traded:  472
 
 'iteration:  69 ': amount_trd > amount_trd_sum: |addrs_trk:  mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A |obj_ni.status_trki:  LongPosNettedPartly |obj_ni.amount_trdi:  472 |obj_ni.addrs_srci:  n1dJ3QkzWUFqJRbgnDSjQV8aBuVVJv36Ea |obj_ni.status_srci:  ShortPosNettedPartly 
 
+average_longincr before:
+
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 2842, 'OpenLongPosition', 2842, 0]
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 3419, 'LongPosIncreased', 577, 25]
+
+divider:  3419  >= obj_ni.amount_trdi:  85
+
+col_amounts:  [70, 14] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  70 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 2771, 'OpenLongPosition', 2771, 0]
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 3334, 'LongPosIncreased', 563, 25]
 
 ------------------------------------------------------
 
@@ -695,6 +799,19 @@ New path for: mxphqvZeeJJ71yiATgocH2JGdW1q4WhuaB ??
 
 There is no netted events for:  mxphqvZeeJJ71yiATgocH2JGdW1q4WhuaB !!
 
+average_longincr before:
+
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 2771, 'OpenLongPosition', 2771, 0]
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 3334, 'LongPosIncreased', 563, 25]
+
+divider:  3334  >= obj_ni.amount_trdi:  959
+
+col_amounts:  [797, 161] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  797 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 1973, 'OpenLongPosition', 1973, 0]
+['mktF6f8dATfFDmrQrnP74khjVxJzvJfp1A', 2375, 'LongPosIncreased', 402, 25]
 
 ------------------------------------------------------
 
@@ -839,6 +956,23 @@ Length M_file:  165
 
 Source:  mxphqvZeeJJ71yiATgocH2JGdW1q4WhuaB ; Tracked:  mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX 
 
+average_longincr before:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 601, 'OpenLongPosition', 601, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 620, 'LongPosIncreased', 19, 25]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2892, 'LongPosIncreased', 2272, 26]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 3498, 'LongPosIncreased', 606, 31]
+
+divider:  3498  >= obj_ni.amount_trdi:  458
+
+col_amounts:  [78, 2, 297, 79] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  297 , argmax(col_amounts):  2
+
+average_longincr later:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 523, 'OpenLongPosition', 523, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 540, 'LongPosIncreased', 17, 25]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2513, 'LongPosIncreased', 1973, 26]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 3040, 'LongPosIncreased', 527, 31]
 
 ------------------------------------------------------
 
@@ -856,6 +990,23 @@ New path for: n3tdnbmYnesQefLDhDBw6xF9ZotyWK2P6B ??
 
 There is no netted events for:  n3tdnbmYnesQefLDhDBw6xF9ZotyWK2P6B !!
 
+average_longincr before:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 523, 'OpenLongPosition', 523, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 540, 'LongPosIncreased', 17, 25]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2513, 'LongPosIncreased', 1973, 26]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 3040, 'LongPosIncreased', 527, 31]
+
+divider:  3040  >= obj_ni.amount_trdi:  508
+
+col_amounts:  [87, 2, 329, 88] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  329 , argmax(col_amounts):  2
+
+average_longincr later:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 436, 'OpenLongPosition', 436, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 451, 'LongPosIncreased', 15, 25]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2093, 'LongPosIncreased', 1642, 26]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2532, 'LongPosIncreased', 439, 31]
 
 ------------------------------------------------------
 
@@ -929,6 +1080,19 @@ New path for: mrJe8AiP9nqyvjDHBe1RQei7savbSGswDK ??
 
 |addrs_trk: mrJe8AiP9nqyvjDHBe1RQei7savbSGswDK |lives_trk:  2152 |status_trk:  OpenLongPosition |amount_trd:  2152 |
 
+average_longincr before:
+
+['mrJe8AiP9nqyvjDHBe1RQei7savbSGswDK', 2152, 'OpenLongPosition', 2152, 0]
+['mrJe8AiP9nqyvjDHBe1RQei7savbSGswDK', 3391, 'LongPosIncreased', 1239, 22]
+
+divider:  3391  >= obj_ni.amount_trdi:  977
+
+col_amounts:  [620, 356] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  620 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mrJe8AiP9nqyvjDHBe1RQei7savbSGswDK', 1531, 'OpenLongPosition', 1531, 0]
+['mrJe8AiP9nqyvjDHBe1RQei7savbSGswDK', 2414, 'LongPosIncreased', 883, 22]
 ______________________________
 
 Check!! amount_trd > amount_trd_sum!!: | addrs_trk | obj_mk.status_trki | obj_mk.amount_trdi | mni5UJT2xnWS3AhRm9YdV2LHf7m4YgL85u OpenLongPosition 977 
@@ -1001,6 +1165,21 @@ New path for: mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX ??
 
 |addrs_trk: mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX |lives_trk:  620 |status_trk:  LongPosIncreased |amount_trd:  19 |
 
+average_longincr before:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 620, 'LongPosIncreased', 19, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2892, 'LongPosIncreased', 2272, 23]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 3498, 'LongPosIncreased', 606, 28]
+
+divider:  2897  >= obj_ni.amount_trdi:  889
+
+col_amounts:  [5, 697, 185] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  697 , argmax(col_amounts):  1
+
+average_longincr later:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 14, 'LongPosIncreased', 14, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 1587, 'LongPosIncreased', 1573, 23]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2008, 'LongPosIncreased', 421, 28]
 ______________________________
 
 Check!! amount_trd < amount_trd_sum: |addrs_trk:  mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX |obj_mk.status_trki:  LongPosNettedPartly |obj_mk.amount_trdi:  889 |obj_mk.addrs_srci:  n27dVHz5AAcxeoMwfRvBcJHoVkkFmhTDgJ |obj_mk.status_srci:  OpenLongPosition 
@@ -1196,6 +1375,21 @@ New path for: mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z ??
 
 |addrs_trk: mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z |lives_trk:  190 |status_trk:  OpenLongPosition |amount_trd:  190 |
 
+average_longincr before:
+
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 190, 'OpenLongPosition', 190, 0]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 1266, 'LongPosIncreased', 1076, 94]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 1570, 'LongPosIncreased', 304, 104]
+
+divider:  1570  >= obj_ni.amount_trdi:  34
+
+col_amounts:  [4, 23, 6] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  23 , argmax(col_amounts):  1
+
+average_longincr later:
+
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 186, 'OpenLongPosition', 186, 0]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 1238, 'LongPosIncreased', 1052, 94]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 1536, 'LongPosIncreased', 298, 104]
 ______________________________
 
 Check!! amount_trd > amount_trd_sum!!: | addrs_trk | obj_mk.status_trki | obj_mk.amount_trdi | mfp6QfSAvddGewyEvjNr6DWAnFFYYmsMqR LongPosIncreased 34 
@@ -1209,6 +1403,21 @@ New path for: mu1Wtr46NM2zUbvvNEXBNptPoBWJEMwSpp ??
 
 There is no netted events for:  mu1Wtr46NM2zUbvvNEXBNptPoBWJEMwSpp !!
 
+average_longincr before:
+
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 186, 'OpenLongPosition', 186, 0]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 1238, 'LongPosIncreased', 1052, 94]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 1536, 'LongPosIncreased', 298, 104]
+
+divider:  1536  >= obj_ni.amount_trdi:  1536
+
+col_amounts:  [186, 1052, 298] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  1052 , argmax(col_amounts):  1
+
+average_longincr later:
+
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 0, 'OpenLongPosition', 0, 0]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 0, 'LongPosIncreased', 0, 94]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 0, 'LongPosIncreased', 0, 104]
 ______________________________
 
 Check!! amount_trd < amount_trd_sum: |addrs_trk:  mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z |obj_mk.status_trki:  LongPosNetted |obj_mk.amount_trdi:  1536 |obj_mk.addrs_srci:  mur3Tq9FZmfsuefZsG5XCkP949GeSMw5xr |obj_mk.status_srci:  OpenLongPosition 
@@ -1700,6 +1909,19 @@ Length M_file:  140
 
 Source:  n4En5obEJ4sNveFYQ1zSiSvzLbQPs1qdsH ; Tracked:  n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF 
 
+average_longincr before:
+
+['n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF', 488, 'OpenLongPosition', 488, 0]
+['n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF', 1755, 'LongPosIncreased', 513, 58]
+
+divider:  1001  >= obj_ni.amount_trdi:  1001
+
+col_amounts:  [488, 513] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  513 , argmax(col_amounts):  1
+
+average_longincr later:
+
+['n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF', 0, 'OpenLongPosition', 0, 0]
+['n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF', 0, 'LongPosIncreased', 0, 58]
 
 ------------------------------------------------------
 
@@ -5146,6 +5368,19 @@ Length M_file:  122
 
 Source:  mm6iF58Vp4EkLoBwZXCWdf62J3B6NRMuqe ; Tracked:  mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX 
 
+average_longincr before:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2892, 'LongPosIncreased', 2272, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 3498, 'LongPosIncreased', 606, 5]
+
+divider:  2878  >= obj_ni.amount_trdi:  309
+
+col_amounts:  [243, 65] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  243 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2028, 'LongPosIncreased', 2028, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2569, 'LongPosIncreased', 541, 5]
 
 ------------------------------------------------------
 
@@ -5163,6 +5398,19 @@ New path for: n2XMVGeLkRYbuKP337EadHauFZTbbwvmrb ??
 
 There is no netted events for:  n2XMVGeLkRYbuKP337EadHauFZTbbwvmrb !!
 
+average_longincr before:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2028, 'LongPosIncreased', 2028, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2569, 'LongPosIncreased', 541, 5]
+
+divider:  2569  >= obj_ni.amount_trdi:  260
+
+col_amounts:  [205, 54] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  205 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 1822, 'LongPosIncreased', 1822, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2309, 'LongPosIncreased', 487, 5]
 
 ------------------------------------------------------
 
@@ -5180,6 +5428,19 @@ New path for: n35GZ3HKYw83Uu9e2rsVhKjA14Es5TFyDD ??
 
 There is no netted events for:  n35GZ3HKYw83Uu9e2rsVhKjA14Es5TFyDD !!
 
+average_longincr before:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 1822, 'LongPosIncreased', 1822, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 2309, 'LongPosIncreased', 487, 5]
+
+divider:  2309  >= obj_ni.amount_trdi:  1074
+
+col_amounts:  [847, 226] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  847 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 974, 'LongPosIncreased', 974, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 1235, 'LongPosIncreased', 261, 5]
 
 ------------------------------------------------------
 
@@ -5197,6 +5458,19 @@ New path for: msitoDxn9GjgaopqkhiFPo6T5x45Q4Fhzo ??
 
 There is no netted events for:  msitoDxn9GjgaopqkhiFPo6T5x45Q4Fhzo !!
 
+average_longincr before:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 974, 'LongPosIncreased', 974, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 1235, 'LongPosIncreased', 261, 5]
+
+divider:  1235  >= obj_ni.amount_trdi:  365
+
+col_amounts:  [287, 77] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  287 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 686, 'LongPosIncreased', 686, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 870, 'LongPosIncreased', 184, 5]
 
 ------------------------------------------------------
 
@@ -5214,6 +5488,19 @@ New path for: mpHb5CNb2tQuYoAdfj2J15Vcihoahk9af8 ??
 
 There is no netted events for:  mpHb5CNb2tQuYoAdfj2J15Vcihoahk9af8 !!
 
+average_longincr before:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 686, 'LongPosIncreased', 686, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 870, 'LongPosIncreased', 184, 5]
+
+divider:  870  >= obj_ni.amount_trdi:  870
+
+col_amounts:  [686, 184] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  686 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 0, 'LongPosIncreased', 0, 0]
+['mpasjeCqmVyzEjA2eaxyVre88NTpERY6PX', 0, 'LongPosIncreased', 0, 5]
 
 ------------------------------------------------------
 
@@ -8766,6 +9053,19 @@ New path for: mrTD3v96CxXkXszo4NRyuoZ4Hj9raFUmkX ??
 
 |addrs_trk: mrTD3v96CxXkXszo4NRyuoZ4Hj9raFUmkX |lives_trk:  834 |status_trk:  OpenLongPosition |amount_trd:  834 |
 
+average_longincr before:
+
+['mrTD3v96CxXkXszo4NRyuoZ4Hj9raFUmkX', 834, 'OpenLongPosition', 834, 0]
+['mrTD3v96CxXkXszo4NRyuoZ4Hj9raFUmkX', 3047, 'LongPosIncreased', 2213, 10]
+
+divider:  3047  >= obj_ni.amount_trdi:  2691
+
+col_amounts:  [736, 1954] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  1954 , argmax(col_amounts):  1
+
+average_longincr later:
+
+['mrTD3v96CxXkXszo4NRyuoZ4Hj9raFUmkX', 98, 'OpenLongPosition', 98, 0]
+['mrTD3v96CxXkXszo4NRyuoZ4Hj9raFUmkX', 356, 'LongPosIncreased', 258, 10]
 ______________________________
 
 Check!! amount_trd < amount_trd_sum: |addrs_trk:  mrTD3v96CxXkXszo4NRyuoZ4Hj9raFUmkX |obj_mk.status_trki:  LongPosNettedPartly |obj_mk.amount_trdi:  2691 |obj_mk.addrs_srci:  mo3Qmgqhk9HzEifBQcgK9fSbHyFdtP9bX1 |obj_mk.status_srci:  ShortPosNetted 
@@ -13319,6 +13619,19 @@ Length M_file:  67
 
 Source:  n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF ; Tracked:  mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge 
 
+average_longincr before:
+
+['mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge', 2435, 'OpenLongPosition', 2435, 0]
+['mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge', 2661, 'LongPosIncreased', 226, 2]
+
+divider:  2661  >= obj_ni.amount_trdi:  1971
+
+col_amounts:  [1803, 167] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  1803 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge', 631, 'OpenLongPosition', 631, 0]
+['mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge', 690, 'LongPosIncreased', 59, 2]
 
 ------------------------------------------------------
 
@@ -13328,6 +13641,19 @@ Opened contrats:  2435  > Total amount traded:  1971
 
 'iteration:  19 ': amount_trd > amount_trd_sum: |addrs_trk:  mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge |obj_ni.status_trki:  LongPosNettedPartly |obj_ni.amount_trdi:  1971 |obj_ni.addrs_srci:  mz2qtDH18ZKnCLctoXehhXwhzVG94FdYbp |obj_ni.status_srci:  ShortPosNetted 
 
+average_longincr before:
+
+['mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge', 631, 'OpenLongPosition', 631, 0]
+['mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge', 690, 'LongPosIncreased', 59, 2]
+
+divider:  690  < obj_ni.amount_trdi:  1520
+
+col_amounts:  [631, 59] , divider - sum(col_amounts):  0 , max(col_amounts):  631 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge', 0, 'OpenLongPosition', 0, 0]
+['mhH6TaqSpG2vmRiZuyjfrWQ81Da6stivge', 0, 'LongPosIncreased', 0, 2]
 
 ------------------------------------------------------
 
@@ -15591,6 +15917,19 @@ Length M_file:  49
 
 Source:  mfp6QfSAvddGewyEvjNr6DWAnFFYYmsMqR ; Tracked:  mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z 
 
+average_longincr before:
+
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 1266, 'LongPosIncreased', 1076, 0]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 1570, 'LongPosIncreased', 304, 7]
+
+divider:  1380  >= obj_ni.amount_trdi:  1380
+
+col_amounts:  [1076, 304] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  1076 , argmax(col_amounts):  0
+
+average_longincr later:
+
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 0, 'LongPosIncreased', 0, 0]
+['mxJbfLu1wQAywALdgakVhz7XkUU8tnZJ5z', 0, 'LongPosIncreased', 0, 7]
 
 ------------------------------------------------------
 
