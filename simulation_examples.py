@@ -67,12 +67,13 @@ print c
 with open('statusbyaddrres.txt', 'w') as f:
     print >> f, c 
 
-print "//////////////////////////////////////////////////////////////////////////////////////////"
+print "LAST//////////////////////////////////////////////////////////////////////////////////////////"
 
-x = np.array([1, 2, 3])
-grid = np.array([[9, 8, 7],
-                 [6, 5, 4]])
+a = np.zeros((2, 2))
+print "a: ", a
+# In the following line 1 is the index before which to insert, 0 is the axis.
+b = np.insert(a, 1, np.array((1, 1)), 0)
+print "np.insert(a, 1, np.array((1, 1)), 0):\n", b   
+print "np.insert(a, 1, np.array((1, 1)), 1):\n", np.insert(a, 1, np.array((1, 1)), 1)
 
-M = np.vstack([grid, x])
-print M 
 print "//////////////////////////////////////////////////////////////////////////////////////////"

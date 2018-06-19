@@ -1,0 +1,36 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+1. mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX	 OpenLongPosition	 1659	 msdqV6DienRvkd4yEnM5KtaCZPZx8rfexC	 ShortPosIncreased	 2719	 1659
+
+2. n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G	 LongPosIncreased	 4752	 mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX	 LongPosNettedPartly	 568	 1091
+
+----------------------------------
+n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD	 LongPosIncreased	 4531	 n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G	 LongPosNettedPartly	 2205	 2547
+
+->
+
+New path!!:  [ {'amount_trd': 1091, 'lives_trk': 3661, 'addrs_trk': 'n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G', 'lives_src': 0, 'addrs_src': 'n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD', 'opened_sett': 0}]
+
+New row added new path:  ['n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD' 'LongPosIncreased' '1091'
+ 'n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G' 'LongPosNettedPartly' '2205' '1456']
+
+New row added new path:  ['n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD' 'LongPosIncreased' '4531 - 1091'
+ 'n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G' 'LongPosNettedPartly' '2205' '1456']
+
+----------------------------------
+
+3. mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn	 OpenLongPosition	 271	 mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX	 LongPosNettedPartly	 297	 271
+
+----------------------------------
+mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn	 LongPosIncreased	 4320	 n3N4bqrrS56cgNEQue2X52i389mprAc27x	 OpenShortPosition	 4049	 4049
+
+n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF	 ShortPosNettedPartly	 2209	 mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn	 LongPosNettedPartly	 3878	 442
+----------------------------------
+
+Path:
+[ {'amount_trd': 1659, 'lives_trk': 0, 'addrs_trk': 'mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX', 'lives_src': -1060, 'addrs_src': 'msdqV6DienRvkd4yEnM5KtaCZPZx8rfexC', 'opened_sett': 297}
+ {'amount_trd': 1091, 'lives_trk': 568, 'addrs_trk': 'mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX', 'lives_src': 3661, 'addrs_src': 'n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G', 'opened_sett': 0}
+ {'amount_trd': 271, 'lives_trk': 297, 'addrs_trk': 'mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX', 'lives_src': 0, 'addrs_src': 'mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn', 'opened_sett': 0}] 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
