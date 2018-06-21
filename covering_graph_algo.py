@@ -38,6 +38,7 @@ for j in Interval:
     bool_M_file, single_path_begin = first_single_path(M_file)
 
     if bool_M_file:        
+
         print "###################################################################################\n"
         print "Source: ", M_file[0][3], "; Tracked: ", M_file[0][0], "\n"
         print "Last Single path:\n", np.array(single_path_begin), "\n"
@@ -49,26 +50,56 @@ for j in Interval:
     path_complex_one = []
     path_complex_two = []
 
-    obj_long_trk = status_amounts_long_trk(M_filej)
+    print "###################################################################################\n"
 
-    if obj_long_trk.status_trk in globales.open_incr_long:
+    obj_long_trk  = status_amounts_long_trk(M_filej)
+    bool_track_long  = True if obj_long_trk.status_trk  in globales.open_incr_long  else False
 
-        print "###################################################################################\n"
+    obj_short_trk = status_amounts_short_trk(M_filej)
+    bool_track_short = True if obj_short_trk.status_trk in globales.open_incr_short else False
+
+    bool_del_path_row = True if bool_track_long and bool_track_short else False
+
+    idx_new = []
+    idx_i  = [0]
+
+    single_path_value_ele = [obj_long_trk.addrs_src, obj_long_trk.lives_src, obj_long_trk.addrs_trk, obj_long_trk.lives_trk , obj_long_trk.amount_trd, 0]
+    single_path_ele = dict(zip(globales.key_path, single_path_value_ele))
+
+    path_complex_two.append(single_path_ele)
+
+    if bool_track_long:
+
         print "(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"        
-
-        single_path_value_ele = [obj_long_trk.addrs_src, obj_long_trk.lives_src, obj_long_trk.addrs_trk, obj_long_trk.lives_trk , obj_long_trk.amount_trd, 0]
-        single_path_ele = dict(zip(globales.key_path, single_path_value_ele))
-
-        path_complex_two.append(single_path_ele)
 
         idx_iter = 0
         amount_trd_sum = 0
         path_complex_ele_fth = []
 
-        idx_i  = [0]
         average_longincr = []            
         average_longincr.append([obj_long_trk.addrs_trk, obj_long_trk.lives_trk, obj_long_trk.status_trk, obj_long_trk.amount_trd, 0])
 
-        clearing_operator(M_file, obj_long_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two, idx_i)
+        M_file, idx_i, path_complex_two = clearing_operator(M_file, obj_long_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two, idx_i, bool_del_path_row)
 
-    obj_short_trk = status_amounts_short_trk(M_filej)
+        idx_new.append(idx_i)
+
+    if bool_track_short:
+
+        print "*********************************************************************\n"
+        print "(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n"        
+
+        idx_iter = 0
+        amount_trd_sum = 0
+        path_complex_ele_fth = []
+
+        average_longincr = []            
+        average_longincr.append([obj_short_trk.addrs_trk, obj_short_trk.lives_trk, obj_short_trk.status_trk, obj_short_trk.amount_trd, 0])
+
+        M_file, idx_i, path_complex_two = clearing_operator(M_file, obj_short_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two, idx_i, bool_del_path_row)
+        idx_new.append(idx_i)
+
+    print "idx_new: ", idx_i
+    idx_j = idx_i
+
+    print "\n------------------------------------------------------\n"
+    print "\nPath:\n", np.array(path_complex_two), "\n"
