@@ -1,3 +1,14 @@
+1. mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5	 OpenLongPosition	 2499	 n3tdnbmYnesQefLDhDBw6xF9ZotyWK2P6B	 OpenShortPosition	 2499	 2499
+
+2. mwrnTVCjLRm4SrVa32Guwk4X3xMftpPJnj	 ShortPosNettedPartly	 2219	 mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5	 LongPosNettedPartly	 382	 2117
+
+3. mhz2PAis4JtnawDqBts6BaPcJAYzLtoGcm	 ShortPosNettedPartly	 3987	 mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5	 LongPosNetted	 0	 382
+
+Path:
+[ {'amount_trd': 2499, 'lives_trk': 2499, 'addrs_trk': 'mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5', 'lives_src': -2499, 'addrs_src': 'n3tdnbmYnesQefLDhDBw6xF9ZotyWK2P6B', 'opened_sett': 0}
+ {'amount_trd': 2117, 'lives_trk': 382, 'addrs_trk': 'mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5', 'lives_src': -2219, 'addrs_src': 'mwrnTVCjLRm4SrVa32Guwk4X3xMftpPJnj', 'opened_sett': 0}
+ {'amount_trd': 382, 'lives_trk': 0, 'addrs_trk': 'mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5', 'lives_src': -3987, 'addrs_src': 'mhz2PAis4JtnawDqBts6BaPcJAYzLtoGcm', 'opened_sett': 0}]
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 1. mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX	 OpenLongPosition	 1659	 msdqV6DienRvkd4yEnM5KtaCZPZx8rfexC	 ShortPosIncreased	 2719	 1659
@@ -8,6 +19,9 @@
 n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD	 LongPosIncreased	 4531	 n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G	 LongPosNettedPartly	 2205	 2547
 
 ->
+n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD	 LongPosIncreased	 3075	 n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G	 LongPosNettedPartly	 3661	 1091
+
+n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD	 LongPosIncreased	 4531	 n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G	 LongPosNettedPartly	 2205	 1456
 
 New path!!:  [ {'amount_trd': 1091, 'lives_trk': 3661, 'addrs_trk': 'n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G', 'lives_src': 0, 'addrs_src': 'n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD', 'opened_sett': 0}]
 

@@ -77,3 +77,9 @@ print "np.insert(a, 1, np.array((1, 1)), 0):\n", b
 print "np.insert(a, 1, np.array((1, 1)), 1):\n", np.insert(a, 1, np.array((1, 1)), 1)
 
 print "//////////////////////////////////////////////////////////////////////////////////////////"
+
+A = ["LongPosNetted", "LongPosNettedPartly"]
+B = "LongPosNetted"
+
+if B in A:
+	print B
