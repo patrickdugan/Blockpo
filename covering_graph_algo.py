@@ -11,7 +11,7 @@ sys.stdout = open('out', 'w')
 
 print "\n#------------------------'Definitions'---------------------------------#\n"            
 print "Path Simple:\tThe netting event of the tracked address that receives the contracts happens at the begining\n"
-print "Path Complex:\tThe netting event of the tracked address that receives the contracts happens after the contracts are\n\t\topened or keep open contracts at the end date"
+print "Path Complex:\tThe netting event of the tracked address that receives the contracts happens after the contracts are\n\t\t\t\topened or keep open contracts at the end date"
 
 globales.init()
 setglobales.stuff()
@@ -44,10 +44,10 @@ for j in Interval:
         print "Last Single path:\n", np.array(single_path_begin), "\n"
         break
 
+    index_init = 0
     M_filej = []
-    M_filej = M_file[:][0]
+    M_filej = M_file[:][index_init]
 
-    path_complex_one = []
     path_complex_two = []
 
     print "###################################################################################\n"
@@ -58,9 +58,6 @@ for j in Interval:
     obj_short_trk = status_amounts_short_trk(M_filej)
     bool_track_short = True if obj_short_trk.status_trk in globales.open_incr_short else False
 
-    bool_del_path_row = True if bool_track_long and bool_track_short else False
-
-    idx_new = []
     idx_i  = [0]
 
     single_path_value_ele = [obj_long_trk.addrs_src, obj_long_trk.lives_src, obj_long_trk.addrs_trk, obj_long_trk.lives_trk , obj_long_trk.amount_trd, 0]
@@ -68,35 +65,25 @@ for j in Interval:
 
     path_complex_two.append(single_path_ele)
 
+    idx_iter = 0
+    amount_trd_sum = 0
+    path_complex_ele_fth = []
+    average_longincr = []
+
     if bool_track_long:
 
         print "(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"        
-
-        idx_iter = 0
-        amount_trd_sum = 0
-        path_complex_ele_fth = []
-
-        average_longincr = []            
         average_longincr.append([obj_long_trk.addrs_trk, obj_long_trk.lives_trk, obj_long_trk.status_trk, obj_long_trk.amount_trd, 0])
 
-        M_file, idx_i, path_complex_two = clearing_operator(M_file, obj_long_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two, idx_i, bool_del_path_row)
-
-        idx_new.append(idx_i)
+        M_file, idx_i, path_complex_two = clearing_operator(M_file, obj_long_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two, idx_i, index_init, obj_long_trk.addrs_trk)
 
     if bool_track_short:
 
         print "*********************************************************************\n"
         print "(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n"        
-
-        idx_iter = 0
-        amount_trd_sum = 0
-        path_complex_ele_fth = []
-
-        average_longincr = []            
         average_longincr.append([obj_short_trk.addrs_trk, obj_short_trk.lives_trk, obj_short_trk.status_trk, obj_short_trk.amount_trd, 0])
 
-        M_file, idx_i, path_complex_two = clearing_operator(M_file, obj_short_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two, idx_i, bool_del_path_row)
-        idx_new.append(idx_i)
+        M_file, idx_i, path_complex_two = clearing_operator(M_file, obj_short_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two, idx_i, index_init, obj_short_trk.addrs_trk)
 
     print "idx_new: ", idx_i
     idx_j = idx_i
