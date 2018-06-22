@@ -10,3 +10,4 @@ def stuff():
     globales.open_incr_short = ["OpenShortPosition", "ShortPosIncreased"]
     globales.open_incr_long = ["OpenLongPosition", "LongPosIncreased"]
     globales.all_netted_status = ["LongPosNetted", "LongPosNettedPartly", "ShortPosNetted", "ShortPosNettedPartly"]
+    globales.incr_long_short = ["LongPosIncreased", "ShortPosIncreased"]

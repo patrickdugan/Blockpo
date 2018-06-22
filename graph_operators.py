@@ -77,7 +77,7 @@ def clearing_operator(M_file, obj_trk, idx_iter, average_incr, amount_trd_sum, p
                 print "\n------------------------------------------------------\n"
 
                 amount_new = abs(diff_r - obj_trk_inloop.amount_trdi)
-                new_row = np.array([obj_trk_inloop.addrs_srci, obj_trk_inloop.status_srci, obj_trk_inloop.lives_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_trki, obj_trk_inloop.lives_trki, amount_new])
+                new_row = np.array([obj_trk_inloop.addrs_srci, obj_trk_inloop.status_srci, obj_trk_inloop.lives_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_trki, obj_trk_inloop.lives_trki, amount_new, obj_trk_inloop.match_pricei])
                 M_file = np.delete(M_file, i, 0)
                 M_file = np.insert(M_file, i, new_row, 0)
 
@@ -108,7 +108,7 @@ def clearing_operator(M_file, obj_trk, idx_iter, average_incr, amount_trd_sum, p
                     idx_i = id_newrow(idx_k, idx_i)
 
                 break
-                                
+
     idx_j = idx_i
     total_amount_trade = 0
 
@@ -169,13 +169,7 @@ def average_posincreased(average_posincr, trade_amount):
 
 def vector_pos_incr(obj_trk, obj_trk_inloop, N_filei, average_incr, i):
 
-    if obj_trk in str(N_filei):
-
-        if obj_trk_inloop.status_trki == "LongPosIncreased":
-
-            average_incr.append([obj_trk_inloop.addrs_trki, obj_trk_inloop.lives_trki, obj_trk_inloop.status_trki, obj_trk_inloop.amount_trdi, i])
-
-        elif obj_trk_inloop.status_trki == "ShortPosIncreased":     
+    if obj_trk in str(N_filei) and obj_trk_inloop.status_trki in globales.incr_long_short:
 
             average_incr.append([obj_trk_inloop.addrs_trki, obj_trk_inloop.lives_trki, obj_trk_inloop.status_trki, obj_trk_inloop.amount_trdi, i])
 

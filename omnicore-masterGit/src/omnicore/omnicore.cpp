@@ -4318,10 +4318,10 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
     ///////////////////////////////////////////////////
 
-    const string lineOutSixth0 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, s_status1, lives_maker, address2, s_status2, lives_taker, FormatContractMP(nCouldBuy));
-    const string lineOutSixth1 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker1, lives_s1, address2, Status_taker1, lives_b1, FormatContractMP(nCouldBuy1));
-    const string lineOutSixth2 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker2, lives_s2, address2, Status_taker2, lives_b2, FormatContractMP(nCouldBuy2));
-    const string lineOutSixth3 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d", address1, Status_maker3, lives_s3, address2, Status_taker3, lives_b3, FormatContractMP(nCouldBuy3));
+    const string lineOutSixth0 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d\t %d", address1, s_status1, lives_maker, address2, s_status2, lives_taker, FormatContractMP(nCouldBuy), FormatContractShortMP(effective_price));
+    const string lineOutSixth1 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d\t %d", address1, Status_maker1, lives_s1, address2, Status_taker1, lives_b1, FormatContractMP(nCouldBuy1), FormatContractShortMP(effective_price));
+    const string lineOutSixth2 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d\t %d", address1, Status_maker2, lives_s2, address2, Status_taker2, lives_b2, FormatContractMP(nCouldBuy2), FormatContractShortMP(effective_price));
+    const string lineOutSixth3 = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d\t %d", address1, Status_maker3, lives_s3, address2, Status_taker3, lives_b3, FormatContractMP(nCouldBuy3), FormatContractShortMP(effective_price));
     const string lineOutMaker1 = strprintf("%s %s", address1, Status_maker1);
     const string lineOutTaker1 = strprintf("%s %s", address2, Status_taker1);
     const string lineOutMaker2 = strprintf("%s %s", address1, Status_maker2);

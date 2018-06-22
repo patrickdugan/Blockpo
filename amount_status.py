@@ -93,6 +93,7 @@ class status_amounts_inloop:
             self.lives_srci  = int(v[2])
 
         self.amount_trdi = int(v[6])
+        self.match_pricei = int(v[7])
 
 def negative_for_short(m):
 
