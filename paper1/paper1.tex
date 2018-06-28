@@ -1,5 +1,5 @@
 \documentclass[preprint,reqno,12pt]{elsarticle}
-%\usepackage{refcheck}
+
 \usepackage[latin1]{inputenc} 
 \usepackage{amsmath} 
 \usepackage{amsfonts} 
@@ -8,10 +8,10 @@
 \usepackage{graphicx}  
 \usepackage{latexsym}    
 
-
 \usepackage[T1]{fontenc} 
 
 \usepackage{amsmath}
+
 \usepackage{graphicx}
 \usepackage{amsfonts}
 \def\fl{\Rightarrow}
@@ -20,12 +20,13 @@
 \newtheorem{Alg}{Algorithm}[section]
 \newtheorem{example}{Example}[section]
 
-
 \newtheorem{corollary}{Corollary}[section]
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
 \theoremstyle{definition}
 \newtheorem{remark}{Remark}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{definition*}{Definition}
 \newproof{pf}{Proof}
 
 \newcommand{\Feps}{\boldsymbol{F}_{\varepsilon}} 
@@ -43,12 +44,16 @@
 \newcommand{\bbw}{{\boldsymbol w}}
 \def\rpn{\mathbb{R}_+^N}
 \newcommand{\bw}{\boldsymbol w}
+\newcommand{\bLf}{\boldsymbol{\mathfrak{L}}}
 \newcommand{\bW}{\boldsymbol W}
+\newcommand{\bL}{\boldsymbol L}
 \newcommand{\bc}{\boldsymbol c}
 \newcommand{\bC}{\boldsymbol C}
 \newcommand{\bx}{\boldsymbol x}
 \newcommand{\bb}{\boldsymbol b}
 \newcommand{\bq}{\boldsymbol q}
+\newcommand{\bl}{\boldsymbol l}
+\newcommand{\bs}{\boldsymbol s}
 \newcommand{\minmod}{\operatorname*{minmod}} 
 \newcommand{\diag}{\operatorname*{diag}}
 \newcommand{\bt}{\boldsymbol \tau}
@@ -56,8 +61,8 @@
 
 \def\eps{\varepsilon}  
    
-\usepackage{graphicx}   
-\usepackage[english]{babel}   
+\usepackage{graphicx}
+\usepackage[british,UKenglish,USenglish,english,american]{babel}
    
 \usepackage[usenames]{color}
 
@@ -87,59 +92,35 @@
   
 \address[pd]{Tradelayer, Conc\'{o}n, Valparaiso, Chile}   
   
+\selectlanguage{USenglish}
 \begin{abstract}
 
-Graph theory is very important for to develop algorithms for settlement in futures contracts .... 
+Centralization in cryptocurrency derivatives has been an issue for a some years, since exchanges have to be compliant to have their bank accounts in order, and they have to provide the required KYC and AML. The main issue is they work as non-deliverable, multilateral protocols, of which security depends on a cold and hot storage of tokens with centralized security protocols. To create a decentralized solution to this, where there is no central point of failure, it needs for a compliant protocol where settlement is bilateral. This creates a problem of using settlement algorithms, because other than working fast, it has to have hard-coded delivery of tokens, and an all time overview of open interest. We propose a strategy based on graphs, where each participant is represented by a vertice, connected by amounts as their respective edges. Following a flow mechanism, and a continuous accounting, we can ameliorate counterparty risk, and deliver in-protocol derivatives as future contracts at settlement.
 
 \end{abstract} 
    
- 
 \begin{keyword} 
 Financial derivatives, Clearing Algorithm, Shortest Path  
- \end{keyword}
+\end{keyword}
  
 \end{frontmatter} 
 
-Text ... citation: \cite{JS2015}.
+\pagenumbering{arabic}
 
-% \selectlanguage{USenglish}
+\selectlanguage{USenglish}
+\include{clearingalgo}
 
-% \include{firstpages}
+\selectlanguage{USenglish}
+\include{applications}
 
-% \tableofcontents{}
-% \cleardoublepage
-% \addcontentsline{toc}{chapter}{List of Figures} % para que aparezca en el indice de contenidos
-% \listoffigures % indice de figuras
-
-% \cleardoublepage
-% \addcontentsline{toc}{chapter}{List of Tables} % para que aparezca en el indice de contenidos
-% \listoftables % indice de tablas
-
-
-% \selectlanguage{USenglish}
-% \include{abstract}
-% \selectlanguage{spanish}
-% \include{resumen}
-
-% \pagenumbering{arabic}
-
-% \selectlanguage{USenglish}
-% \include{introduction}
-% \selectlanguage{spanish}
-% \include{introduccion}
-% \selectlanguage{USenglish}
-% \include{pvm}
-% \include{droplets}
-% \include{croma}
-% \include{conclusions}
-% \selectlanguage{spanish}
-% \include{conclusiones}
-% \selectlanguage{USenglish}
-% \include{biblio}
+\selectlanguage{USenglish}
+\include{conclusions}
 
 \newpage
 
+\selectlanguage{USenglish}
 \bibliographystyle{ieeetr}
 \bibliography{paper1bib} 
   
 \end{document}
+\grid

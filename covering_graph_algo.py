@@ -3,6 +3,7 @@
 import sys
 import numpy as np
 from graph_operators import*
+import pandas as pd
 
 import globales
 import setglobales
@@ -17,7 +18,7 @@ globales.init()
 setglobales.stuff()
 
 with open('graphInfoSixth.txt') as file:
-    M_file = [[int(digit) if digit.isdigit() else digit for digit in line.split()] for line in file]
+	M_file = [[int(digit) if digit.isdigit() else digit for digit in line.split()] for line in file]
 
 print "Negative or Positive:"
 M_file = negative_for_short(M_file)
@@ -29,64 +30,67 @@ Interval = range(len(M_file))
 q = 0
 for j in Interval:  
 
-    if j > 0:
-        print "------------------------------------------------------"
-        print "\nRows deleted: ", idx_j
-        M_file = np.delete(M_file, idx_j, 0)
+	if j > 0:
+		print "------------------------------------------------------"
+		print "\nRows deleted: ", idx_j
+		M_file = np.delete(M_file, idx_j, 0)
 
-    print "M_file:\n", np.array(M_file), "\nLength M_file: ", len(M_file), "\n"
-    bool_M_file, single_path_begin = first_single_path(M_file)
+	print "M_file:\n", np.array(M_file), "\nLength M_file: ", len(M_file), "\n"
+	bool_M_file, single_path_begin = first_single_path(M_file)
 
-    if bool_M_file:        
+	if bool_M_file:        
 
-        print "###################################################################################\n"
-        print "Source: ", M_file[0][3], "; Tracked: ", M_file[0][0], "\n"
-        print "Last Single path:\n", np.array(single_path_begin), "\n"
-        break
+		print "###################################################################################\n"
+		print "Source: ", M_file[0][3], "; Tracked: ", M_file[0][0], "\n"
+		print "Last Single path:\n", np.array(single_path_begin), "\n"
+		break
 
-    index_init = 0
-    M_filej = []
-    M_filej = M_file[:][index_init]
+	index_init = 0
+	M_filej = []
+	M_filej = M_file[:][index_init]
 
-    path_complex_two = []
+	path_complex_two_long = []
+	path_complex_two_shrt = []
 
-    print "###################################################################################\n"
+	print "###################################################################################\n"
 
-    obj_long_trk  = status_amounts_long_trk(M_filej)
-    bool_track_long  = True if obj_long_trk.status_trk  in globales.open_incr_long  else False
+	obj_long_trk  = status_amounts_long_trk(M_filej)
+	bool_track_long  = True if obj_long_trk.status_trk  in globales.open_incr_long  else False
 
-    obj_short_trk = status_amounts_short_trk(M_filej)
-    bool_track_short = True if obj_short_trk.status_trk in globales.open_incr_short else False
+	obj_short_trk = status_amounts_short_trk(M_filej)
+	bool_track_short = True if obj_short_trk.status_trk in globales.open_incr_short else False
 
-    idx_i  = [0]
+	idx_i  = []
+	new_l = []
 
-    single_path_value_ele = [obj_long_trk.addrs_src, obj_long_trk.lives_src, obj_long_trk.addrs_trk, obj_long_trk.lives_trk , obj_long_trk.amount_trd, 0]
-    single_path_ele = dict(zip(globales.key_path, single_path_value_ele))
+	idx_iter = 0
+	amount_trd_sum = 0
+	average_longincr = []
 
-    path_complex_two.append(single_path_ele)
+	if bool_track_long:
 
-    idx_iter = 0
-    amount_trd_sum = 0
-    path_complex_ele_fth = []
-    average_longincr = []
+		print "(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"        
+		average_longincr.append([obj_long_trk.addrs_trk, obj_long_trk.lives_trk, obj_long_trk.status_trk, obj_long_trk.amount_trd, 0])
 
-    if bool_track_long:
+		M_file, idx_j, path_complex_two_long = clearing_operator(M_file, obj_long_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two_long, idx_j, index_init, obj_long_trk.addrs_trk, obj_long_trk.amount_trd)
 
-        print "(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"        
-        average_longincr.append([obj_long_trk.addrs_trk, obj_long_trk.lives_trk, obj_long_trk.status_trk, obj_long_trk.amount_trd, 0])
+	if bool_track_short:
 
-        M_file, idx_i, path_complex_two = clearing_operator(M_file, obj_long_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two, idx_i, index_init, obj_long_trk.addrs_trk)
+		print "*********************************************************************\n"
+		print "(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n"
+		average_longincr.append([obj_short_trk.addrs_trk, obj_short_trk.lives_trk, obj_short_trk.status_trk, obj_short_trk.amount_trd, 0])
 
-    if bool_track_short:
+		M_file, idx_j, path_complex_two_shrt = clearing_operator(M_file, obj_short_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two_shrt, idx_j, index_init, obj_short_trk.addrs_trk, obj_long_trk.amount_trd)
 
-        print "*********************************************************************\n"
-        print "(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n"        
-        average_longincr.append([obj_short_trk.addrs_trk, obj_short_trk.lives_trk, obj_short_trk.status_trk, obj_short_trk.amount_trd, 0])
+	print "idx_new: ", idx_j
 
-        M_file, idx_i, path_complex_two = clearing_operator(M_file, obj_short_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two, idx_i, index_init, obj_short_trk.addrs_trk)
+	path_complex_two = []
 
-    print "idx_new: ", idx_i
-    idx_j = idx_i
+	single_path_value_ele = [obj_long_trk.addrs_src, obj_long_trk.lives_src, obj_long_trk.addrs_trk, obj_long_trk.lives_trk , obj_long_trk.amount_trd, 0, obj_long_trk.matched_price]
+	single_path_ele = dict(zip(globales.key_path, single_path_value_ele))
 
-    print "\n------------------------------------------------------\n"
-    print "\nPath:\n", np.array(path_complex_two), "\n"
+	path_complex_two.append(single_path_ele)
+	path_complex_two = append_fromlist_tolist(path_complex_two_long, path_complex_two)
+	path_complex_two = append_fromlist_tolist(path_complex_two_shrt, path_complex_two)
+
+	print "\nPath:\n", np.array(path_complex_two), "\n"

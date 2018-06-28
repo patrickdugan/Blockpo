@@ -1,50 +1,11 @@
-1. mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5	 OpenLongPosition	 2499	 n3tdnbmYnesQefLDhDBw6xF9ZotyWK2P6B	 OpenShortPosition	 2499	 2499
+1. n1r5YKPgdNPHYcFpuLtoxedQxzqjhyFmTG	 OpenLongPosition	 1291	 mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW	 OpenShortPosition	 1291	 1291	 16917
 
-2. mwrnTVCjLRm4SrVa32Guwk4X3xMftpPJnj	 ShortPosNettedPartly	 2219	 mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5	 LongPosNettedPartly	 382	 2117
+2. mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD	 LongPosIncreased	 828	 n1r5YKPgdNPHYcFpuLtoxedQxzqjhyFmTG	 LongPosNettedPartly	 937	 354	 13253
 
-3. mhz2PAis4JtnawDqBts6BaPcJAYzLtoGcm	 ShortPosNettedPartly	 3987	 mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5	 LongPosNetted	 0	 382
+---------------------------------------
 
-Path:
-[ {'amount_trd': 2499, 'lives_trk': 2499, 'addrs_trk': 'mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5', 'lives_src': -2499, 'addrs_src': 'n3tdnbmYnesQefLDhDBw6xF9ZotyWK2P6B', 'opened_sett': 0}
- {'amount_trd': 2117, 'lives_trk': 382, 'addrs_trk': 'mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5', 'lives_src': -2219, 'addrs_src': 'mwrnTVCjLRm4SrVa32Guwk4X3xMftpPJnj', 'opened_sett': 0}
- {'amount_trd': 382, 'lives_trk': 0, 'addrs_trk': 'mrHYwX8LJYXqkVk9yFTsmXxTZdS4U7hAM5', 'lives_src': -3987, 'addrs_src': 'mhz2PAis4JtnawDqBts6BaPcJAYzLtoGcm', 'opened_sett': 0}]
+mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD	 ShortPosNetted	 0	 mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH	 LongPosNettedPartly	 2102	 2102	 13253
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-1. mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX	 OpenLongPosition	 1659	 msdqV6DienRvkd4yEnM5KtaCZPZx8rfexC	 ShortPosIncreased	 2719	 1659
 
-2. n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G	 LongPosIncreased	 4752	 mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX	 LongPosNettedPartly	 568	 1091
-
-----------------------------------
-n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD	 LongPosIncreased	 4531	 n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G	 LongPosNettedPartly	 2205	 2547
-
-->
-n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD	 LongPosIncreased	 3075	 n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G	 LongPosNettedPartly	 3661	 1091
-
-n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD	 LongPosIncreased	 4531	 n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G	 LongPosNettedPartly	 2205	 1456
-
-New path!!:  [ {'amount_trd': 1091, 'lives_trk': 3661, 'addrs_trk': 'n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G', 'lives_src': 0, 'addrs_src': 'n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD', 'opened_sett': 0}]
-
-New row added new path:  ['n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD' 'LongPosIncreased' '1091'
- 'n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G' 'LongPosNettedPartly' '2205' '1456']
-
-New row added new path:  ['n4edxKoGBXTUiFw1AMYowQrmJbHgukXgpD' 'LongPosIncreased' '4531 - 1091'
- 'n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G' 'LongPosNettedPartly' '2205' '1456']
-
-----------------------------------
-
-3. mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn	 OpenLongPosition	 271	 mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX	 LongPosNettedPartly	 297	 271
-
-----------------------------------
-mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn	 LongPosIncreased	 4320	 n3N4bqrrS56cgNEQue2X52i389mprAc27x	 OpenShortPosition	 4049	 4049
-
-n2KSJcKbvSbGQm7aWBaFPTm9HPkiiQfqnF	 ShortPosNettedPartly	 2209	 mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn	 LongPosNettedPartly	 3878	 442
-----------------------------------
-
-Path:
-[ {'amount_trd': 1659, 'lives_trk': 0, 'addrs_trk': 'mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX', 'lives_src': -1060, 'addrs_src': 'msdqV6DienRvkd4yEnM5KtaCZPZx8rfexC', 'opened_sett': 297}
- {'amount_trd': 1091, 'lives_trk': 568, 'addrs_trk': 'mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX', 'lives_src': 3661, 'addrs_src': 'n4En4v1h3HrvbfSJi3pyHKyjBg3bTEC37G', 'opened_sett': 0}
- {'amount_trd': 271, 'lives_trk': 297, 'addrs_trk': 'mqskAMMrXgKxFaGx8RPmzB4cRznLBUzWZX', 'lives_src': 0, 'addrs_src': 'mpy1nKY3PyqWe7wP1XEP3GwtHMRNBirDVn', 'opened_sett': 0}] 
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+---------------------------------------

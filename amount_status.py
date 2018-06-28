@@ -28,6 +28,7 @@ class status_amounts:
             self.lives_src  = int(v[2])
 
         self.amount_trd = int(v[6])
+        self.matched_price = int(v[7])
 
 class status_amounts_long_trk:
 
@@ -50,6 +51,7 @@ class status_amounts_long_trk:
             self.lives_src  = int(v[2])
 
         self.amount_trd = int(v[6])
+        self.matched_price = int(v[7])
 
 class status_amounts_short_trk:
 
@@ -72,6 +74,7 @@ class status_amounts_short_trk:
             self.lives_src  = int(v[2])
 
         self.amount_trd = int(v[6])
+        self.matched_price = int(v[7])
 
 class status_amounts_inloop:
 
@@ -93,7 +96,7 @@ class status_amounts_inloop:
             self.lives_srci  = int(v[2])
 
         self.amount_trdi = int(v[6])
-        self.match_pricei = int(v[7])
+        self.matched_pricei = int(v[7])
 
 def negative_for_short(m):
 
@@ -122,7 +125,7 @@ def first_single_path(m):
     single_path = []
     if len(m) == 1:
 
-        single_path_value_begin = [m[0][0], m[0][2], m[0][3], m[0][5], m[0][6], m[0][6]]
+        single_path_value_begin = [m[0][0], m[0][2], m[0][3], m[0][5], m[0][6], m[0][6], m[0][7]]
         single_path_begin = dict(zip(globales.key_path,single_path_value_begin))
         single_path.append(single_path_begin)
 
