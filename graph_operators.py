@@ -122,10 +122,8 @@ def clearing_operator(M_file, obj_trk, idx_iter, average_incr, amount_trd_sum, p
         total_amount_trade += int(path_complex_two[j]['amount_trd'])
 
     total_next_trades = abs(amount_trd_begining - total_amount_trade)
-    contracts_opened_sett = abs(amount_trd_begining - total_next_trades)
-
     if total_next_trades < amount_trd_begining and total_next_trades != 0:
-        path_complex_two[0]['opened_sett']=contracts_opened_sett
+        path_complex_two[-1]['opened_sett']=total_next_trades
 
     return M_file, list(set(idx_j)), path_complex_two
 

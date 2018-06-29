@@ -25,6 +25,7 @@ M_file = negative_for_short(M_file)
 
 bool_new_row = False
 idx_j = [0]
+
 Interval = range(len(M_file))
 
 q = 0
@@ -60,7 +61,7 @@ for j in Interval:
 	obj_short_trk = status_amounts_short_trk(M_filej)
 	bool_track_short = True if obj_short_trk.status_trk in globales.open_incr_short else False
 
-	idx_i  = []
+	idx_i  = [0]
 	new_l = []
 
 	idx_iter = 0
@@ -72,7 +73,7 @@ for j in Interval:
 		print "(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"        
 		average_longincr.append([obj_long_trk.addrs_trk, obj_long_trk.lives_trk, obj_long_trk.status_trk, obj_long_trk.amount_trd, 0])
 
-		M_file, idx_j, path_complex_two_long = clearing_operator(M_file, obj_long_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two_long, idx_j, index_init, obj_long_trk.addrs_trk, obj_long_trk.amount_trd)
+		M_file, idx_i, path_complex_two_long = clearing_operator(M_file, obj_long_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two_long, idx_i, index_init, obj_long_trk.addrs_trk, obj_long_trk.amount_trd)
 
 	if bool_track_short:
 
@@ -80,10 +81,9 @@ for j in Interval:
 		print "(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n"
 		average_longincr.append([obj_short_trk.addrs_trk, obj_short_trk.lives_trk, obj_short_trk.status_trk, obj_short_trk.amount_trd, 0])
 
-		M_file, idx_j, path_complex_two_shrt = clearing_operator(M_file, obj_short_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two_shrt, idx_j, index_init, obj_short_trk.addrs_trk, obj_long_trk.amount_trd)
+		M_file, idx_i, path_complex_two_shrt = clearing_operator(M_file, obj_short_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two_shrt, idx_i, index_init, obj_short_trk.addrs_trk, obj_long_trk.amount_trd)
 
-	print "idx_new: ", idx_j
-
+	idx_j = idx_i
 	path_complex_two = []
 
 	single_path_value_ele = [obj_long_trk.addrs_src, obj_long_trk.lives_src, obj_long_trk.addrs_trk, obj_long_trk.lives_trk , obj_long_trk.amount_trd, 0, obj_long_trk.matched_price]
