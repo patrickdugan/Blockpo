@@ -24,18 +24,14 @@ print "Negative or Positive:"
 M_file = negative_for_short(M_file)
 
 bool_new_row = False
-idx_j = [0]
+Interval = xrange(1, len(M_file))
 
-Interval = range(len(M_file))
+path_complex_two_matrix = []
 
 q = 0
-for j in Interval:  
+for j in Interval:
 
-	if j > 0:
-		print "------------------------------------------------------"
-		print "\nRows deleted: ", idx_j
-		M_file = np.delete(M_file, idx_j, 0)
-
+	idx_i = [0]
 	print "M_file:\n", np.array(M_file), "\nLength M_file: ", len(M_file), "\n"
 	bool_M_file, single_path_begin = first_single_path(M_file)
 
@@ -61,9 +57,6 @@ for j in Interval:
 	obj_short_trk = status_amounts_short_trk(M_filej)
 	bool_track_short = True if obj_short_trk.status_trk in globales.open_incr_short else False
 
-	idx_i  = [0]
-	new_l = []
-
 	idx_iter = 0
 	amount_trd_sum = 0
 	average_longincr = []
@@ -83,7 +76,8 @@ for j in Interval:
 
 		M_file, idx_i, path_complex_two_shrt = clearing_operator(M_file, obj_short_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two_shrt, idx_i, index_init, obj_short_trk.addrs_trk, obj_long_trk.amount_trd)
 
-	idx_j = idx_i
+	print "idx_new: ", idx_i
+
 	path_complex_two = []
 
 	single_path_value_ele = [obj_long_trk.addrs_src, obj_long_trk.lives_src, obj_long_trk.addrs_trk, obj_long_trk.lives_trk , obj_long_trk.amount_trd, 0, obj_long_trk.matched_price]
@@ -94,3 +88,11 @@ for j in Interval:
 	path_complex_two = append_fromlist_tolist(path_complex_two_shrt, path_complex_two)
 
 	print "\nPath:\n", np.array(path_complex_two), "\n"
+	path_complex_two_matrix.append(path_complex_two)
+
+	print "------------------------------------------------------"
+	print "\nRows deleted: ", idx_i
+	M_file = np.delete(M_file, idx_i, 0)
+
+print "###################################################################################\n"
+print "Matriz with all the Paths:\n\n", np.array(path_complex_two_matrix)
