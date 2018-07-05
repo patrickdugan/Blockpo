@@ -125,7 +125,8 @@ def first_single_path(m):
     single_path = []
     if len(m) == 1:
 
-        single_path_value_begin = [m[0][0], m[0][2], m[0][3], m[0][5], m[0][6], m[0][6], m[0][7]]
+        PNL_first = 0
+        single_path_value_begin = [m[0][0], m[0][2], m[0][1], m[0][3], m[0][5], m[0][4], m[0][6], m[0][6], m[0][7], PNL_first]
         single_path_begin = dict(zip(globales.key_path,single_path_value_begin))
         single_path.append(single_path_begin)
 

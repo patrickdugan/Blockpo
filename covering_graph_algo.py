@@ -80,7 +80,8 @@ for j in Interval:
 
 	path_complex_two = []
 
-	single_path_value_ele = [obj_long_trk.addrs_src, obj_long_trk.lives_src, obj_long_trk.addrs_trk, obj_long_trk.lives_trk , obj_long_trk.amount_trd, 0, obj_long_trk.matched_price]
+	PNL = 0
+	single_path_value_ele = [obj_long_trk.addrs_src, obj_long_trk.lives_src, obj_long_trk.status_src, obj_long_trk.addrs_trk, obj_long_trk.lives_trk, obj_long_trk.status_trk, obj_long_trk.amount_trd, 0, obj_long_trk.matched_price, PNL]
 	single_path_ele = dict(zip(globales.key_path, single_path_value_ele))
 
 	path_complex_two.append(single_path_ele)
@@ -93,6 +94,3 @@ for j in Interval:
 	print "------------------------------------------------------"
 	print "\nRows deleted: ", idx_i
 	M_file = np.delete(M_file, idx_i, 0)
-
-print "###################################################################################\n"
-print "Matriz with all the Paths:\n\n", np.array(path_complex_two_matrix)

@@ -24,6 +24,7 @@ def clearing_operator(M_file, obj_trk, idx_iter, average_incr, amount_trd_sum, p
         idx_new = 0
         average_longincr_new = []
         amount_trd_sum_new = 0
+        PNL = 0
 
         bool_netted_status_long  = True if obj_trk_inloop.status_trki in str(globales.netted_status_long)  else False
         bool_netted_status_short = True if obj_trk_inloop.status_trki in str(globales.netted_status_short) else False
@@ -48,8 +49,9 @@ def clearing_operator(M_file, obj_trk, idx_iter, average_incr, amount_trd_sum, p
                 print "Opened contrats: ", obj_trk.amount_trd, " > Sum amounts traded: ", amount_trd_sum, "\n"
                 print "'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trki,  "|amount_trdi: ", obj_trk_inloop.amount_trdi, "|addrs_srci: ", obj_trk_inloop.addrs_srci, "|status_srci: ",obj_trk_inloop.status_srci,"\n"
 
-                print "PNL d_amounts > 0:\t", PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi)
-                path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.lives_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.lives_trki, obj_trk_inloop.amount_trdi, 0, obj_trk_inloop.matched_pricei]
+                PNL = PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi)
+                print "PNL d_amounts > 0:\t", PNL
+                path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.lives_srci, obj_trk_inloop.status_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.lives_trki, obj_trk_inloop.status_trki, obj_trk_inloop.amount_trdi, 0, obj_trk_inloop.matched_pricei, PNL]
                 path_complex_ele_two = dict(zip(globales.key_path, path_complex_value_ele_two))
                         
                 path_complex_two.append(path_complex_ele_two)
@@ -66,14 +68,15 @@ def clearing_operator(M_file, obj_trk, idx_iter, average_incr, amount_trd_sum, p
                 diff_r = abs(obj_trk.amount_trd - amount_trd_sum_b)
                 print "Opened contrats: ", obj_trk.amount_trd, " < Sum amounts traded: ", amount_trd_sum, "diff_r: ", diff_r, "\n"
 
-                print "PNL d_amounts < 0:\t", PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi)
+                PNL = PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi)
+                print "PNL d_amounts < 0:\t", PNL
 
                 print "amount_trdi", obj_trk_inloop.amount_trdi, "lives_trki", obj_trk_inloop.lives_trki, "status_trki: ", obj_trk_inloop.status_trki
                 x_src = abs(obj_trk_inloop.amount_trdi - obj_trk_inloop.lives_srci) if "Long" in str(obj_trk_inloop.status_srci) else -abs(obj_trk_inloop.amount_trdi - obj_trk_inloop.lives_srci)
                 y_trk = abs(obj_trk_inloop.amount_trdi + obj_trk_inloop.lives_trki) if "Long" in str(obj_trk_inloop.status_trki) else -abs(obj_trk_inloop.amount_trdi - obj_trk_inloop.lives_trki)
                 print "x_src: ", x_src, "y_trk", y_trk
-                    
-                path_complex_ele_value_thr = [obj_trk_inloop.addrs_srci, abs(x_src + diff_r), obj_trk_inloop.addrs_trki, abs(y_trk - diff_r), diff_r, 0, obj_trk_inloop.matched_pricei]                      
+
+                path_complex_ele_value_thr = [obj_trk_inloop.addrs_srci, abs(x_src + diff_r), obj_trk_inloop.status_srci, obj_trk_inloop.addrs_trki, abs(y_trk - diff_r), obj_trk_inloop.status_trki, diff_r, 0, obj_trk_inloop.matched_pricei, PNL]                      
                 path_complex_ele_thr = dict(zip(globales.key_path, path_complex_ele_value_thr))
 
                 path_complex_two.append(path_complex_ele_thr)
@@ -102,9 +105,10 @@ def clearing_operator(M_file, obj_trk, idx_iter, average_incr, amount_trd_sum, p
                 print "Opened contrats: ", obj_trk.amount_trd, " = Sum amounts traded: ", amount_trd_sum, "\n"
                 print "'iteration: ", i, " |addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trki,  "|amount_trdi: ", obj_trk_inloop.amount_trdi, "|addrs_srci: ", obj_trk_inloop.addrs_srci, "|status_srci: ",obj_trk_inloop.status_srci,"\n"
 
-                print "PNL d_amounts = 0:\t", PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi)
+                PNL = PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi)
+                print "PNL d_amounts = 0:\t", PNL
 
-                path_complex_ele_value_one = [obj_trk_inloop.addrs_srci, obj_trk_inloop.lives_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.lives_trki, obj_trk_inloop.amount_trdi, 0, obj_trk_inloop.matched_pricei]
+                path_complex_ele_value_one = [obj_trk_inloop.addrs_srci, obj_trk_inloop.lives_srci, obj_trk_inloop.status_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.lives_trki, obj_trk_inloop.status_trki, obj_trk_inloop.amount_trdi, 0, obj_trk_inloop.matched_pricei, PNL]
                 path_complex_ele_one = dict(zip(globales.key_path, path_complex_ele_value_one))                      
 
                 path_complex_two.append(path_complex_ele_one)
@@ -196,4 +200,4 @@ def append_fromlist_tolist(path_complex_two_long, path_complex_two):
 
 def PNL_function(entry_price, exit_price, amount_closed):
 
-    return exit_price*amount_closed*(1/float(entry_price)-1/float(exit_price))
+    return amount_closed*(1/float(entry_price)-1/float(exit_price))
