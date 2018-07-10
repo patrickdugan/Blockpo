@@ -36,8 +36,10 @@ Opened contrats:  1291  > Sum amounts traded:  354
 
 'iteration:  170 |addrs_trk:  n1r5YKPgdNPHYcFpuLtoxedQxzqjhyFmTG |status_trki:  LongPosNettedPartly |amount_trdi:  354 |addrs_srci:  mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	-0.00578523732818
-New path for:  mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD ??
+PNL d_amounts > 0:	-0.00578523732818 
+
+Looking for New Path for:  mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD !!
+
 
 ------------------------------------------------------
 
@@ -48,21 +50,22 @@ Opened contrats:  1291  > Sum amounts traded:  652
 
 'iteration:  171 |addrs_trk:  n1r5YKPgdNPHYcFpuLtoxedQxzqjhyFmTG |status_trki:  LongPosNettedPartly |amount_trdi:  298 |addrs_srci:  n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g |status_srci:  ShortPosNettedPartly 
 
-PNL d_amounts > 0:	-0.00473849548959
+PNL d_amounts > 0:	-0.00473849548959 
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  n1r5YKPgdNPHYcFpuLtoxedQxzqjhyFmTG | Tracked:  mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW 
 
 
-divider:  2767  >= obj_ni.amount_trdi:  125
+divider:  1476  >= obj_ni.amount_trdi:  125
 
-col_amounts:  [58, 58, 8] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  58 , argmax(col_amounts):  0
+col_amounts:  [109, 15] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  109 , argmax(col_amounts):  0
 
 average_posincr:
-[['n1r5YKPgdNPHYcFpuLtoxedQxzqjhyFmTG' '1232' 'OpenLongPosition' '1232' '0']
- ['mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW' '2465' 'OpenShortPosition' '1233'
+[['mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW' '-1181' 'OpenShortPosition' '1181'
   '0']
- ['mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW' '2642' 'ShortPosIncreased' '177' '1']]
+ ['mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW' '-1461' 'ShortPosIncreased' '170'
+  '1']]
 
 ------------------------------------------------------
 
@@ -73,18 +76,23 @@ Opened contrats:  1291  > Sum amounts traded:  125
 
 'iteration:  10 |addrs_trk:  mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW |status_trki:  ShortPosNettedPartly |amount_trdi:  125 |addrs_srci:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	0.00129442895933
-New path for:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX ??
+PNL d_amounts > 0:	0.00129442895933 
 
-divider:  2037  >= obj_ni.amount_trdi:  293
+Looking for New Path for:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX !!
 
-col_amounts:  [37, 148, 106] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  148 , argmax(col_amounts):  1
+
+divider:  3328  >= obj_ni.amount_trdi:  293
+
+col_amounts:  [113, 23, 90, 65] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  113 , argmax(col_amounts):  0
 
 average_posincr:
-[['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '226' 'ShortPosIncreased' '226' '11']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '1107' 'ShortPosIncreased' '881'
+[['mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW' '-1176' 'OpenShortPosition' '1176'
+  '0']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-789' 'ShortPosIncreased' '240'
+  '11']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-1753' 'ShortPosIncreased' '941'
   '12']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '1744' 'ShortPosIncreased' '637'
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-2521' 'ShortPosIncreased' '678'
   '13']]
 
 ------------------------------------------------------
@@ -96,16 +104,21 @@ Opened contrats:  1291  > Sum amounts traded:  293
 
 'iteration:  167 |addrs_trk:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX |status_trki:  ShortPosNettedPartly |amount_trdi:  293 |addrs_srci:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ |status_srci:  LongPosNetted 
 
-PNL d_amounts > 0:	0.00184177864013
+PNL d_amounts > 0:	0.00184177864013 
 
-divider:  1744  >= obj_ni.amount_trdi:  764
 
-col_amounts:  [99, 385, 279] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  385 , argmax(col_amounts):  1
+divider:  3035  >= obj_ni.amount_trdi:  764
+
+col_amounts:  [296, 60, 236, 170] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  296 , argmax(col_amounts):  0
 
 average_posincr:
-[['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '127' 'ShortPosIncreased' '127' '11']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '622' 'ShortPosIncreased' '495' '12']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '980' 'ShortPosIncreased' '358' '13']]
+[['mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW' '-878' 'OpenShortPosition' '878' '0']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-729' 'ShortPosIncreased' '180'
+  '11']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-1517' 'ShortPosIncreased' '705'
+  '12']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-2351' 'ShortPosIncreased' '508'
+  '13']]
 
 ------------------------------------------------------
 
@@ -116,17 +129,23 @@ Opened contrats:  1291  > Sum amounts traded:  1057
 
 'iteration:  168 |addrs_trk:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX |status_trki:  ShortPosNettedPartly |amount_trdi:  764 |addrs_srci:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	0.00480245351898
-New path for:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ ??
+PNL d_amounts > 0:	0.00480245351898 
 
-divider:  980  >= obj_ni.amount_trdi:  325
+Looking for New Path for:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ !!
 
-col_amounts:  [42, 164, 118] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  164 , argmax(col_amounts):  1
+
+divider:  2271  >= obj_ni.amount_trdi:  325
+
+col_amounts:  [125, 25, 100, 72] , amount_trdi - sum(col_amounts):  3 , max(col_amounts):  125 , argmax(col_amounts):  0
 
 average_posincr:
-[['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '85' 'ShortPosIncreased' '85' '11']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '415' 'ShortPosIncreased' '330' '12']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '655' 'ShortPosIncreased' '240' '13']]
+[['mzPtznvPDdepWp5vFnp4ggK6ZsnhjdTQcW' '-750' 'OpenShortPosition' '750' '0']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-704' 'ShortPosIncreased' '155'
+  '11']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-1417' 'ShortPosIncreased' '605'
+  '12']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-2279' 'ShortPosIncreased' '436'
+  '13']]
 
 ------------------------------------------------------
 
@@ -135,7 +154,8 @@ Amounts!!!
 amount_trdi:  325  | lives_trki:  -1204  | lives_srci:  658  | amount_trd_sum:  1382
 Opened contrats:  1291  < Sum amounts traded:  1382 diff_r:  234 
 
-PNL d_amounts < 0:	0.00204292852575
+PNL d_amounts < 0:	0.00204292852575 
+
 amount_trdi 325 lives_trki -1204 status_trki:  ShortPosNettedPartly
 x_src:  333 y_trk -1529
 'iteration:  172 |addrs_trk:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX |status_trki:  ShortPosNettedPartly |amount_trdi:  325 |addrs_srci:  miPaM5Vb7PXbMeC9aGu5pYMGZ67qg5yKZw |status_srci:  LongPosNettedPartly 
@@ -189,8 +209,8 @@ col_amounts:  [164, 631, 2314] , amount_trdi - sum(col_amounts):  1 , max(col_am
 
 average_posincr:
 [['mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' '21' 'OpenLongPosition' '21' '0']
- ['mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' '101' 'LongPosIncreased' '80' '92']
- ['mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' '392' 'LongPosIncreased' '291' '98']]
+ ['mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' '265' 'LongPosIncreased' '80' '92']
+ ['mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' '1187' 'LongPosIncreased' '291' '98']]
 
 ------------------------------------------------------
 
@@ -199,7 +219,8 @@ Amounts!!!
 amount_trdi:  3110  | lives_trki:  3110  | lives_srci:  0  | amount_trd_sum:  3110
 Opened contrats:  185  < Sum amounts traded:  3110 diff_r:  185 
 
-PNL d_amounts < 0:	0.0331975933025
+PNL d_amounts < 0:	0.0331975933025 
+
 amount_trdi 3110 lives_trki 3110 status_trki:  LongPosNettedPartly
 x_src:  -3110 y_trk 6220
 'iteration:  99 |addrs_trk:  mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA |status_trki:  LongPosNettedPartly |amount_trdi:  3110 |addrs_srci:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj |status_srci:  ShortPosNetted 
@@ -252,7 +273,7 @@ col_amounts:  [1005, 1483] , amount_trdi - sum(col_amounts):  0 , max(col_amount
 
 average_posincr:
 [['mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' '0' 'OpenLongPosition' '0' '0']
- ['mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' '0' 'LongPosIncreased' '0' '16']]
+ ['mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' '1005' 'LongPosIncreased' '0' '16']]
 
 ------------------------------------------------------
 
@@ -261,7 +282,8 @@ Amounts!!!
 amount_trdi:  2488  | lives_trki:  0  | lives_srci:  2515  | amount_trd_sum:  2488
 Opened contrats:  1005  < Sum amounts traded:  2488 diff_r:  1005 
 
-PNL d_amounts < 0:	-0.012448429395
+PNL d_amounts < 0:	-0.012448429395 
+
 amount_trdi 2488 lives_trki 0 status_trki:  LongPosNetted
 x_src:  27 y_trk 2488
 'iteration:  136 |addrs_trk:  mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma |status_trki:  LongPosNetted |amount_trdi:  2488 |addrs_srci:  mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11 |status_srci:  LongPosIncreased 
@@ -273,15 +295,19 @@ x_src:  27 y_trk 2488
 New row added:  ['mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11' 'LongPosIncreased' '2515'
  'mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' 'LongPosNetted' '0' '1483' '18007'] 
 
-New path for:  mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11 ??
+Looking for New Path for:  mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11 !!
 
-divider:  852  < obj_ni.amount_trdi:  1165
 
-col_amounts:  [558, 294] , divider - sum(col_amounts):  0 , max(col_amounts):  558 , argmax(col_amounts):  0
+divider:  1857  >= obj_ni.amount_trdi:  1165
+
+col_amounts:  [630, 350, 184] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  630 , argmax(col_amounts):  0
 
 average_posincr:
-[['mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11' '0' 'LongPosIncreased' '0' '137']
- ['mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11' '0' 'LongPosIncreased' '0' '138']]
+[['mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' '374' 'OpenLongPosition' '374' '0']
+ ['mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11' '2723' 'LongPosIncreased' '208'
+  '137']
+ ['mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11' '3183' 'LongPosIncreased' '110'
+  '138']]
 
 ------------------------------------------------------
 
@@ -290,7 +316,8 @@ Amounts!!!
 amount_trdi:  1165  | lives_trki:  2202  | lives_srci:  2052  | amount_trd_sum:  1165
 Opened contrats:  1005  < Sum amounts traded:  1165 diff_r:  1005 
 
-PNL d_amounts < 0:	-0.0126130481232
+PNL d_amounts < 0:	-0.0126130481232 
+
 amount_trdi 1165 lives_trki 2202 status_trki:  LongPosNettedPartly
 x_src:  887 y_trk 3367
 'iteration:  201 |addrs_trk:  mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11 |status_trki:  LongPosNettedPartly |amount_trdi:  1165 |addrs_srci:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj |status_srci:  LongPosIncreased 
@@ -303,20 +330,12 @@ New row added:  ['mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj' 'LongPosIncreased' '2052'
  'mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11' 'LongPosNettedPartly' '2202' '160'
  '16298'] 
 
-New path for:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj ??
+Looking for New Path for:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma | Tracked:  n1EkZqamduwNEML6bPGScr7QP7wDzrYoZx 
 
-
-divider:  1005  >= obj_ni.amount_trdi:  92
-
-col_amounts:  [0, 0, 92] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  92 , argmax(col_amounts):  2
-
-average_posincr:
-[['mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' '0' 'OpenLongPosition' '0' '0']
- ['mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' '0' 'LongPosIncreased' '0' '16']
- ['n1EkZqamduwNEML6bPGScr7QP7wDzrYoZx' '913' 'OpenShortPosition' '913' '0']]
 
 ------------------------------------------------------
 
@@ -327,17 +346,10 @@ Opened contrats:  1005  > Sum amounts traded:  92
 
 'iteration:  166 |addrs_trk:  n1EkZqamduwNEML6bPGScr7QP7wDzrYoZx |status_trki:  ShortPosNettedPartly |amount_trdi:  92 |addrs_srci:  mpnLLmSPxZLQYy1BD4sN1egpGQPUg2zVu5 |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	0.00025068651571
-New path for:  mpnLLmSPxZLQYy1BD4sN1egpGQPUg2zVu5 ??
+PNL d_amounts > 0:	0.00025068651571 
 
-divider:  913  >= obj_ni.amount_trdi:  913
+Looking for New Path for:  mpnLLmSPxZLQYy1BD4sN1egpGQPUg2zVu5 !!
 
-col_amounts:  [0, 0, 913] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  913 , argmax(col_amounts):  2
-
-average_posincr:
-[['mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' '0' 'OpenLongPosition' '0' '0']
- ['mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' '0' 'LongPosIncreased' '0' '16']
- ['n1EkZqamduwNEML6bPGScr7QP7wDzrYoZx' '0' 'OpenShortPosition' '0' '0']]
 
 ------------------------------------------------------
 
@@ -348,8 +360,10 @@ Opened contrats:  1005  = Sum amounts traded:  1005
 
 'iteration:  183  |addrs_trk:  n1EkZqamduwNEML6bPGScr7QP7wDzrYoZx |status_trki:  ShortPosNetted |amount_trdi:  913 |addrs_srci:  mqTdHjNjW8zp1sjQU7o4NrBZ5ah2dchZSU |status_srci:  OpenShortPosition 
 
-PNL d_amounts = 0:	0.00248779118308
-New path for:  mqTdHjNjW8zp1sjQU7o4NrBZ5ah2dchZSU ??
+PNL d_amounts = 0:	0.00248779118308 
+
+Looking for New Path for:  mqTdHjNjW8zp1sjQU7o4NrBZ5ah2dchZSU !!
+
 idx_new:  [0, 136, 201, 166, 183]
 
 Path:
@@ -392,23 +406,25 @@ Opened contrats:  114  = Sum amounts traded:  114
 
 'iteration:  140  |addrs_trk:  mj1pD9SiXb6poF2x5zcZny3T4s6EjoMewc |status_trki:  LongPosNetted |amount_trdi:  114 |addrs_srci:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg |status_srci:  ShortPosNettedPartly 
 
-PNL d_amounts = 0:	0.00410973485084
+PNL d_amounts = 0:	0.00410973485084 
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mj1pD9SiXb6poF2x5zcZny3T4s6EjoMewc | Tracked:  n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g 
 
 
-divider:  3171  >= obj_ni.amount_trdi:  283
+divider:  3057  >= obj_ni.amount_trdi:  283
 
-col_amounts:  [10, 10, 118, 50, 93] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  118 , argmax(col_amounts):  2
+col_amounts:  [10, 123, 52, 96] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  123 , argmax(col_amounts):  1
 
 average_posincr:
-[['mj1pD9SiXb6poF2x5zcZny3T4s6EjoMewc' '104' 'OpenLongPosition' '104' '0']
- ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '208' 'OpenShortPosition' '104' '0']
- ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '1417' 'ShortPosIncreased' '1209'
+[['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '-104' 'OpenShortPosition' '104' '0']
+ ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '-1318' 'ShortPosIncreased' '1204'
   '1']
- ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '1934' 'ShortPosIncreased' '517' '2']
- ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '2888' 'ShortPosIncreased' '954' '3']]
+ ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '-1958' 'ShortPosIncreased' '515'
+  '2']
+ ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '-2961' 'ShortPosIncreased' '951'
+  '3']]
 
 ------------------------------------------------------
 
@@ -417,7 +433,8 @@ Amounts!!!
 amount_trdi:  283  | lives_trki:  -2476  | lives_srci:  -1871  | amount_trd_sum:  283
 Opened contrats:  114  < Sum amounts traded:  283 diff_r:  114 
 
-PNL d_amounts < 0:	0.00251289571313
+PNL d_amounts < 0:	0.00251289571313 
+
 amount_trdi 283 lives_trki -2476 status_trki:  ShortPosNettedPartly
 x_src:  -2154 y_trk -2759
 'iteration:  171 |addrs_trk:  n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g |status_trki:  ShortPosNettedPartly |amount_trdi:  283 |addrs_srci:  miYr54562idhnBS3mfetpB6FuFfJdBS976 |status_srci:  ShortPosIncreased 
@@ -430,7 +447,8 @@ New row added:  ['miYr54562idhnBS3mfetpB6FuFfJdBS976' 'ShortPosIncreased' '-1871
  'n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' 'ShortPosNettedPartly' '-2476' '169'
  '13331'] 
 
-New path for:  miYr54562idhnBS3mfetpB6FuFfJdBS976 ??
+Looking for New Path for:  miYr54562idhnBS3mfetpB6FuFfJdBS976 !!
+
 idx_new:  [0, 171, 140]
 
 Path:
@@ -471,8 +489,10 @@ Opened contrats:  1329  > Sum amounts traded:  384
 
 'iteration:  116 |addrs_trk:  mk2maGSPg9qa6BT8MKHxS2zPLVs3SarMhv |status_trki:  LongPosNettedPartly |amount_trdi:  384 |addrs_srci:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	-0.00153501346862
-New path for:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr ??
+PNL d_amounts > 0:	-0.00153501346862 
+
+Looking for New Path for:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr !!
+
 
 ------------------------------------------------------
 
@@ -483,7 +503,8 @@ Opened contrats:  1329  > Sum amounts traded:  1277
 
 'iteration:  162 |addrs_trk:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr |status_trki:  LongPosNetted |amount_trdi:  1277 |addrs_srci:  n2dXi8PqhmkA92qC6BmBtBKaeRtEFFd3zD |status_srci:  ShortPosNettedPartly 
 
-PNL d_amounts > 0:	0.0131366178959
+PNL d_amounts > 0:	0.0131366178959 
+
 
 ------------------------------------------------------
 
@@ -494,21 +515,23 @@ Opened contrats:  1329  = Sum amounts traded:  1329
 
 'iteration:  117  |addrs_trk:  mk2maGSPg9qa6BT8MKHxS2zPLVs3SarMhv |status_trki:  LongPosNetted |amount_trdi:  945 |addrs_srci:  mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny |status_srci:  ShortPosNettedPartly 
 
-PNL d_amounts = 0:	-0.00287752903397
+PNL d_amounts = 0:	-0.00287752903397 
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mk2maGSPg9qa6BT8MKHxS2zPLVs3SarMhv | Tracked:  n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g 
 
 
-divider:  4272  >= obj_ni.amount_trdi:  1359
+divider:  2943  >= obj_ni.amount_trdi:  1359
 
-col_amounts:  [422, 422, 180, 333] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  422 , argmax(col_amounts):  0
+col_amounts:  [613, 261, 483] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  613 , argmax(col_amounts):  0
 
 average_posincr:
-[['mk2maGSPg9qa6BT8MKHxS2zPLVs3SarMhv' '905' 'OpenLongPosition' '905' '0']
- ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '1812' 'ShortPosIncreased' '907' '0']
- ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '2199' 'ShortPosIncreased' '387' '1']
- ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '2913' 'ShortPosIncreased' '714' '2']]
+[['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '-828' 'ShortPosIncreased' '714' '0']
+ ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '-1749' 'ShortPosIncreased' '306'
+  '1']
+ ['n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' '-2574' 'ShortPosIncreased' '564'
+  '2']]
 
 ------------------------------------------------------
 
@@ -517,7 +540,8 @@ Amounts!!!
 amount_trdi:  1359  | lives_trki:  -1117  | lives_srci:  -1359  | amount_trd_sum:  1359
 Opened contrats:  1329  < Sum amounts traded:  1359 diff_r:  1329 
 
-PNL d_amounts < 0:	0.0105013102595
+PNL d_amounts < 0:	0.0105013102595 
+
 amount_trdi 1359 lives_trki -1117 status_trki:  ShortPosNettedPartly
 x_src:  -2718 y_trk -2476
 'iteration:  169 |addrs_trk:  n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g |status_trki:  ShortPosNettedPartly |amount_trdi:  1359 |addrs_srci:  mqn7dKM8yvtFFS8zdkM7pjCvaKD5TG3mFG |status_srci:  OpenShortPosition 
@@ -530,7 +554,8 @@ New row added:  ['mqn7dKM8yvtFFS8zdkM7pjCvaKD5TG3mFG' 'OpenShortPosition' '-1359
  'n1TBVLjE6EeJe5jCpUJwu5STPh4M8v1J8g' 'ShortPosNettedPartly' '-1117' '30'
  '13331'] 
 
-New path for:  mqn7dKM8yvtFFS8zdkM7pjCvaKD5TG3mFG ??
+Looking for New Path for:  mqn7dKM8yvtFFS8zdkM7pjCvaKD5TG3mFG !!
+
 idx_new:  [0, 169, 162, 116, 117]
 
 Path:
@@ -573,8 +598,19 @@ Opened contrats:  567  = Sum amounts traded:  567
 
 'iteration:  107  |addrs_trk:  mgtzTthow1jLeaTKYXVWoKx6PDV6968fd3 |status_trki:  LongPosNetted |amount_trdi:  567 |addrs_srci:  n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG |status_srci:  LongPosIncreased 
 
-PNL d_amounts = 0:	0.0186289662232
-New path for:  n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG ??
+PNL d_amounts = 0:	0.0186289662232 
+
+Looking for New Path for:  n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG !!
+
+
+divider:  883  >= obj_ni.amount_trdi:  294
+
+col_amounts:  [188, 105] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  188 , argmax(col_amounts):  0
+
+average_posincr:
+[['mgtzTthow1jLeaTKYXVWoKx6PDV6968fd3' '378' 'OpenLongPosition' '378' '0']
+ ['n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' '4310' 'LongPosIncreased' '211'
+  '108']]
 
 ------------------------------------------------------
 
@@ -585,8 +621,10 @@ Opened contrats:  567  > Sum amounts traded:  294
 
 'iteration:  132 |addrs_trk:  n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG |status_trki:  LongPosNettedPartly |amount_trdi:  294 |addrs_srci:  mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11 |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	0.0075018375763
-New path for:  mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11 ??
+PNL d_amounts > 0:	0.0075018375763 
+
+Looking for New Path for:  mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11 !!
+
 
 ------------------------------------------------------
 
@@ -595,7 +633,8 @@ Amounts!!!
 amount_trdi:  1509  | lives_trki:  693  | lives_srci:  -1225  | amount_trd_sum:  1509
 Opened contrats:  567  < Sum amounts traded:  1509 diff_r:  567 
 
-PNL d_amounts < 0:	0.0297170261427
+PNL d_amounts < 0:	0.0297170261427 
+
 amount_trdi 1509 lives_trki 693 status_trki:  LongPosNettedPartly
 x_src:  -2734 y_trk 2202
 'iteration:  189 |addrs_trk:  mkH8UcXhpkLvf6F9bLTkLSSTNkPTJ5gw11 |status_trki:  LongPosNettedPartly |amount_trdi:  1509 |addrs_srci:  mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe |status_srci:  ShortPosNettedPartly 
@@ -609,6 +648,14 @@ New row added:  ['mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe' 'ShortPosNettedPartly' '-1
  '16298'] 
 
 
+divider:  589  < obj_ni.amount_trdi:  3773
+
+col_amounts:  [378, 211] , divider - sum(col_amounts):  0 , max(col_amounts):  378 , argmax(col_amounts):  0
+
+average_posincr:
+[['mgtzTthow1jLeaTKYXVWoKx6PDV6968fd3' '0' 'OpenLongPosition' '0' '0']
+ ['n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' '4099' 'LongPosIncreased' '0' '108']]
+
 ------------------------------------------------------
 
 
@@ -616,7 +663,8 @@ Amounts!!!
 amount_trdi:  3773  | lives_trki:  3773  | lives_srci:  0  | amount_trd_sum:  4067
 Opened contrats:  567  < Sum amounts traded:  4067 diff_r:  273 
 
-PNL d_amounts < 0:	0.0964247412279
+PNL d_amounts < 0:	0.0964247412279 
+
 amount_trdi 3773 lives_trki 3773 status_trki:  LongPosNettedPartly
 x_src:  -3773 y_trk 7546
 'iteration:  133 |addrs_trk:  n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG |status_trki:  LongPosNettedPartly |amount_trdi:  3773 |addrs_srci:  mmmMCa1xw1tT6xTbPuTrVn5isKx7JvytWy |status_srci:  ShortPosNetted 
@@ -675,8 +723,18 @@ Opened contrats:  1047  = Sum amounts traded:  1047
 
 'iteration:  1  |addrs_trk:  myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv |status_trki:  LongPosNetted |amount_trdi:  1047 |addrs_srci:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj |status_srci:  OpenLongPosition 
 
-PNL d_amounts = 0:	0.0370688106464
-New path for:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj ??
+PNL d_amounts = 0:	0.0370688106464 
+
+Looking for New Path for:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj !!
+
+
+divider:  1535  >= obj_ni.amount_trdi:  1535
+
+col_amounts:  [1047, 488] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  1047 , argmax(col_amounts):  0
+
+average_posincr:
+[['myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv' '0' 'OpenLongPosition' '0' '0']
+ ['mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj' '1047' 'LongPosIncreased' '0' '2']]
 
 ------------------------------------------------------
 
@@ -685,7 +743,8 @@ Amounts!!!
 amount_trdi:  1535  | lives_trki:  0  | lives_srci:  1535  | amount_trd_sum:  1535
 Opened contrats:  1047  < Sum amounts traded:  1535 diff_r:  1047 
 
-PNL d_amounts < 0:	0.01504742165
+PNL d_amounts < 0:	0.01504742165 
+
 amount_trdi 1535 lives_trki 0 status_trki:  LongPosNetted
 x_src:  0 y_trk 1535
 'iteration:  15 |addrs_trk:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj |status_trki:  LongPosNetted |amount_trdi:  1535 |addrs_srci:  mqsggFLsrJG9jwY4h9gPmrjvSFkaFqnmpX |status_srci:  OpenLongPosition 
@@ -697,7 +756,16 @@ x_src:  0 y_trk 1535
 New row added:  ['mqsggFLsrJG9jwY4h9gPmrjvSFkaFqnmpX' 'OpenLongPosition' '1535'
  'mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj' 'LongPosNetted' '0' '488' '14077'] 
 
-New path for:  mqsggFLsrJG9jwY4h9gPmrjvSFkaFqnmpX ??
+Looking for New Path for:  mqsggFLsrJG9jwY4h9gPmrjvSFkaFqnmpX !!
+
+
+divider:  1293  < obj_ni.amount_trdi:  1781
+
+col_amounts:  [1047, 246] , divider - sum(col_amounts):  0 , max(col_amounts):  1047 , argmax(col_amounts):  0
+
+average_posincr:
+[['myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv' '0' 'OpenLongPosition' '0' '0']
+ ['mqsggFLsrJG9jwY4h9gPmrjvSFkaFqnmpX' '1535' 'LongPosIncreased' '0' '16']]
 
 ------------------------------------------------------
 
@@ -706,7 +774,8 @@ Amounts!!!
 amount_trdi:  1781  | lives_trki:  0  | lives_srci:  1781  | amount_trd_sum:  1781
 Opened contrats:  1047  < Sum amounts traded:  1781 diff_r:  1047 
 
-PNL d_amounts < 0:	0.0239719741194
+PNL d_amounts < 0:	0.0239719741194 
+
 amount_trdi 1781 lives_trki 0 status_trki:  LongPosNetted
 x_src:  0 y_trk 1781
 'iteration:  70 |addrs_trk:  mqsggFLsrJG9jwY4h9gPmrjvSFkaFqnmpX |status_trki:  LongPosNetted |amount_trdi:  1781 |addrs_srci:  mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw |status_srci:  OpenLongPosition 
@@ -718,7 +787,17 @@ x_src:  0 y_trk 1781
 New row added:  ['mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw' 'OpenLongPosition' '1781'
  'mqsggFLsrJG9jwY4h9gPmrjvSFkaFqnmpX' 'LongPosNetted' '0' '734' '14841'] 
 
-New path for:  mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw ??
+Looking for New Path for:  mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw !!
+
+
+divider:  3137  >= obj_ni.amount_trdi:  361
+
+col_amounts:  [120, 240] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  240 , argmax(col_amounts):  1
+
+average_posincr:
+[['myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv' '927' 'OpenLongPosition' '927' '0']
+ ['mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw' '3630' 'LongPosIncreased' '1849'
+  '71']]
 
 ------------------------------------------------------
 
@@ -729,8 +808,10 @@ Opened contrats:  1047  > Sum amounts traded:  361
 
 'iteration:  73 |addrs_trk:  mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw |status_trki:  LongPosNettedPartly |amount_trdi:  361 |addrs_srci:  mneQ9fJzF6HHVD4HJ4qcrG9NnYC5ndCcj5 |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	0.00319919984364
-New path for:  mneQ9fJzF6HHVD4HJ4qcrG9NnYC5ndCcj5 ??
+PNL d_amounts > 0:	0.00319919984364 
+
+Looking for New Path for:  mneQ9fJzF6HHVD4HJ4qcrG9NnYC5ndCcj5 !!
+
 
 ------------------------------------------------------
 
@@ -741,8 +822,18 @@ Opened contrats:  1047  > Sum amounts traded:  361
 
 'iteration:  126 |addrs_trk:  mneQ9fJzF6HHVD4HJ4qcrG9NnYC5ndCcj5 |status_trki:  LongPosNetted |amount_trdi:  361 |addrs_srci:  mnaKVRerX2bspDHjwA8urwMMafvztGo3pB |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	0.011889266848
-New path for:  mnaKVRerX2bspDHjwA8urwMMafvztGo3pB ??
+PNL d_amounts > 0:	0.011889266848 
+
+Looking for New Path for:  mnaKVRerX2bspDHjwA8urwMMafvztGo3pB !!
+
+
+divider:  2776  < obj_ni.amount_trdi:  3359
+
+col_amounts:  [927, 1849] , divider - sum(col_amounts):  0 , max(col_amounts):  1849 , argmax(col_amounts):  1
+
+average_posincr:
+[['myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv' '0' 'OpenLongPosition' '0' '0']
+ ['mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw' '1781' 'LongPosIncreased' '0' '71']]
 
 ------------------------------------------------------
 
@@ -751,7 +842,8 @@ Amounts!!!
 amount_trdi:  3359  | lives_trki:  3359  | lives_srci:  0  | amount_trd_sum:  3720
 Opened contrats:  1047  < Sum amounts traded:  3720 diff_r:  686 
 
-PNL d_amounts < 0:	0.0333171078507
+PNL d_amounts < 0:	0.0333171078507 
+
 amount_trdi 3359 lives_trki 3359 status_trki:  LongPosNettedPartly
 x_src:  -3359 y_trk 6718
 'iteration:  74 |addrs_trk:  mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw |status_trki:  LongPosNettedPartly |amount_trdi:  3359 |addrs_srci:  mj8RZ9nmXBw5hcwih2ex2EmAUk8YHDgj7b |status_srci:  ShortPosNetted 
@@ -807,15 +899,6 @@ Length M_file:  194
 (Tracking Short Position)  Source:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj | Tracked:  myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv 
 
 
-divider:  1122  >= obj_ni.amount_trdi:  488
-
-col_amounts:  [212, 63, 212] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  212 , argmax(col_amounts):  0
-
-average_posincr:
-[['mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj' '275' 'LongPosIncreased' '275' '0']
- ['mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj' '358' 'ShortPosIncreased' '83' '14']
- ['myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv' '634' 'OpenShortPosition' '276' '0']]
-
 ------------------------------------------------------
 
 
@@ -825,16 +908,20 @@ Opened contrats:  488  = Sum amounts traded:  488
 
 'iteration:  5  |addrs_trk:  myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv |status_trki:  ShortPosNetted |amount_trdi:  488 |addrs_srci:  mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh |status_srci:  OpenShortPosition 
 
-PNL d_amounts = 0:	-0.0172775354302
-New path for:  mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh ??
+PNL d_amounts = 0:	-0.0172775354302 
 
-divider:  1510  < obj_ni.amount_trdi:  1728
+Looking for New Path for:  mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh !!
 
-col_amounts:  [406, 1104] , divider - sum(col_amounts):  0 , max(col_amounts):  1104 , argmax(col_amounts):  1
+
+divider:  1998  >= obj_ni.amount_trdi:  1728
+
+col_amounts:  [422, 351, 954] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  954 , argmax(col_amounts):  2
 
 average_posincr:
-[['mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh' '0' 'ShortPosIncreased' '0' '6']
- ['mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh' '0' 'ShortPosIncreased' '0' '7']]
+[['myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv' '-66' 'OpenShortPosition' '66' '0']
+ ['mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh' '-543' 'ShortPosIncreased' '55' '6']
+ ['mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh' '-1043' 'ShortPosIncreased' '149'
+  '7']]
 
 ------------------------------------------------------
 
@@ -843,7 +930,8 @@ Amounts!!!
 amount_trdi:  1728  | lives_trki:  -270  | lives_srci:  -3087  | amount_trd_sum:  1728
 Opened contrats:  488  < Sum amounts traded:  1728 diff_r:  488 
 
-PNL d_amounts < 0:	-0.0506829262286
+PNL d_amounts < 0:	-0.0506829262286 
+
 amount_trdi 1728 lives_trki -270 status_trki:  ShortPosNettedPartly
 x_src:  -4815 y_trk -1998
 'iteration:  154 |addrs_trk:  mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh |status_trki:  ShortPosNettedPartly |amount_trdi:  1728 |addrs_srci:  mqn7dKM8yvtFFS8zdkM7pjCvaKD5TG3mFG |status_srci:  ShortPosIncreased 
@@ -856,7 +944,8 @@ New row added:  ['mqn7dKM8yvtFFS8zdkM7pjCvaKD5TG3mFG' 'ShortPosIncreased' '-3087
  'mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh' 'ShortPosNettedPartly' '-270' '1240'
  '13375'] 
 
-New path for:  mqn7dKM8yvtFFS8zdkM7pjCvaKD5TG3mFG ??
+Looking for New Path for:  mqn7dKM8yvtFFS8zdkM7pjCvaKD5TG3mFG !!
+
 idx_new:  [0, 154, 5]
 
 Path:
@@ -897,23 +986,26 @@ Opened contrats:  424  = Sum amounts traded:  424
 
 'iteration:  83  |addrs_trk:  mitfqzUqT1YFy3pAA61Bdh9t7T4vfhTqQY |status_trki:  LongPosNetted |amount_trdi:  424 |addrs_srci:  mfYfNBfdrSyC3QbhcJFCdHm3qaghAoWrKM |status_srci:  LongPosIncreased 
 
-PNL d_amounts = 0:	-0.00436779769395
-New path for:  mfYfNBfdrSyC3QbhcJFCdHm3qaghAoWrKM ??
+PNL d_amounts = 0:	-0.00436779769395 
+
+Looking for New Path for:  mfYfNBfdrSyC3QbhcJFCdHm3qaghAoWrKM !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mitfqzUqT1YFy3pAA61Bdh9t7T4vfhTqQY | Tracked:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX 
 
 
-divider:  2885  >= obj_ni.amount_trdi:  715
+divider:  2461  >= obj_ni.amount_trdi:  715
 
-col_amounts:  [105, 105, 65, 255, 184] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  255 , argmax(col_amounts):  3
+col_amounts:  [123, 76, 299, 215] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  299 , argmax(col_amounts):  2
 
 average_posincr:
-[['mitfqzUqT1YFy3pAA61Bdh9t7T4vfhTqQY' '319' 'OpenLongPosition' '319' '0']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '638' 'OpenShortPosition' '319' '0']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '836' 'ShortPosIncreased' '198' '1']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '1611' 'ShortPosIncreased' '775' '2']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '2170' 'ShortPosIncreased' '559' '3']]
+[['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-301' 'OpenShortPosition' '301' '0']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-736' 'ShortPosIncreased' '187' '1']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-1542' 'ShortPosIncreased' '730'
+  '2']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-2371' 'ShortPosIncreased' '528'
+  '3']]
 
 ------------------------------------------------------
 
@@ -922,7 +1014,8 @@ Amounts!!!
 amount_trdi:  715  | lives_trki:  -489  | lives_srci:  -715  | amount_trd_sum:  715
 Opened contrats:  424  < Sum amounts traded:  715 diff_r:  424 
 
-PNL d_amounts < 0:	-0.00237819889167
+PNL d_amounts < 0:	-0.00237819889167 
+
 amount_trdi 715 lives_trki -489 status_trki:  ShortPosNettedPartly
 x_src:  -1430 y_trk -1204
 'iteration:  149 |addrs_trk:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX |status_trki:  ShortPosNettedPartly |amount_trdi:  715 |addrs_srci:  n3a5txzzbd4pFrhSBv9MYr1fyJnDFcYBQT |status_srci:  OpenShortPosition 
@@ -935,7 +1028,8 @@ New row added:  ['n3a5txzzbd4pFrhSBv9MYr1fyJnDFcYBQT' 'OpenShortPosition' '-715'
  'n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' 'ShortPosNettedPartly' '-489' '291'
  '18930'] 
 
-New path for:  n3a5txzzbd4pFrhSBv9MYr1fyJnDFcYBQT ??
+Looking for New Path for:  n3a5txzzbd4pFrhSBv9MYr1fyJnDFcYBQT !!
+
 
 ------------------------------------------------------
 
@@ -944,7 +1038,8 @@ Amounts!!!
 amount_trdi:  715  | lives_trki:  0  | lives_srci:  -2173  | amount_trd_sum:  715
 Opened contrats:  424  < Sum amounts traded:  715 diff_r:  424 
 
-PNL d_amounts < 0:	-0.0014024419644
+PNL d_amounts < 0:	-0.0014024419644 
+
 amount_trdi 715 lives_trki 0 status_trki:  ShortPosNetted
 x_src:  -2888 y_trk -715
 'iteration:  167 |addrs_trk:  n3a5txzzbd4pFrhSBv9MYr1fyJnDFcYBQT |status_trki:  ShortPosNetted |amount_trdi:  715 |addrs_srci:  mtH6DhN7yQKg2X4b2EKWnWMiwZEK7xjjAT |status_srci:  ShortPosIncreased 
@@ -956,7 +1051,8 @@ x_src:  -2888 y_trk -715
 New row added:  ['mtH6DhN7yQKg2X4b2EKWnWMiwZEK7xjjAT' 'ShortPosIncreased' '-2173'
  'n3a5txzzbd4pFrhSBv9MYr1fyJnDFcYBQT' 'ShortPosNetted' '0' '291' '19432'] 
 
-New path for:  mtH6DhN7yQKg2X4b2EKWnWMiwZEK7xjjAT ??
+Looking for New Path for:  mtH6DhN7yQKg2X4b2EKWnWMiwZEK7xjjAT !!
+
 idx_new:  [0, 83, 149, 167]
 
 Path:
@@ -998,16 +1094,19 @@ Opened contrats:  263  = Sum amounts traded:  263
 
 'iteration:  22  |addrs_trk:  moSPmkoVw1pMjKnDw539yfQN4bwQhb8meU |status_trki:  LongPosNetted |amount_trdi:  263 |addrs_srci:  mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J |status_srci:  OpenLongPosition 
 
-PNL d_amounts = 0:	-0.0046597434587
-New path for:  mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J ??
+PNL d_amounts = 0:	-0.0046597434587 
 
-divider:  2908  < obj_ni.amount_trdi:  3006
+Looking for New Path for:  mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J !!
 
-col_amounts:  [1254, 1654] , divider - sum(col_amounts):  0 , max(col_amounts):  1654 , argmax(col_amounts):  1
+
+divider:  3171  >= obj_ni.amount_trdi:  3006
+
+col_amounts:  [249, 1188, 1567] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  1567 , argmax(col_amounts):  2
 
 average_posincr:
-[['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '0' 'LongPosIncreased' '0' '23']
- ['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '0' 'LongPosIncreased' '0' '27']]
+[['moSPmkoVw1pMjKnDw539yfQN4bwQhb8meU' '14' 'OpenLongPosition' '14' '0']
+ ['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '329' 'LongPosIncreased' '66' '23']
+ ['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '1602' 'LongPosIncreased' '85' '27']]
 
 ------------------------------------------------------
 
@@ -1016,7 +1115,8 @@ Amounts!!!
 amount_trdi:  3006  | lives_trki:  3006  | lives_srci:  0  | amount_trd_sum:  3006
 Opened contrats:  263  < Sum amounts traded:  3006 diff_r:  263 
 
-PNL d_amounts < 0:	-0.00431141054463
+PNL d_amounts < 0:	-0.00431141054463 
+
 amount_trdi 3006 lives_trki 3006 status_trki:  LongPosNettedPartly
 x_src:  -3006 y_trk 6012
 'iteration:  69 |addrs_trk:  mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J |status_trki:  LongPosNettedPartly |amount_trdi:  3006 |addrs_srci:  mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3 |status_srci:  ShortPosNetted 
@@ -1034,15 +1134,16 @@ New row added:  ['mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3' 'ShortPosNetted' '0'
 (Tracking Short Position)  Source:  moSPmkoVw1pMjKnDw539yfQN4bwQhb8meU | Tracked:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX 
 
 
-divider:  2300  >= obj_ni.amount_trdi:  408
+divider:  2037  >= obj_ni.amount_trdi:  408
 
-col_amounts:  [46, 46, 182, 131] , amount_trdi - sum(col_amounts):  3 , max(col_amounts):  182 , argmax(col_amounts):  2
+col_amounts:  [52, 206, 148] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  206 , argmax(col_amounts):  1
 
 average_posincr:
-[['moSPmkoVw1pMjKnDw539yfQN4bwQhb8meU' '217' 'OpenLongPosition' '217' '0']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '434' 'ShortPosIncreased' '217' '0']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '1280' 'ShortPosIncreased' '846' '1']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '1892' 'ShortPosIncreased' '612' '2']]
+[['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-760' 'ShortPosIncreased' '211' '0']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-1635' 'ShortPosIncreased' '823'
+  '1']
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-2438' 'ShortPosIncreased' '595'
+  '2']]
 
 ------------------------------------------------------
 
@@ -1051,7 +1152,8 @@ Amounts!!!
 amount_trdi:  408  | lives_trki:  -81  | lives_srci:  -408  | amount_trd_sum:  408
 Opened contrats:  263  < Sum amounts traded:  408 diff_r:  263 
 
-PNL d_amounts < 0:	-0.00167586145236
+PNL d_amounts < 0:	-0.00167586145236 
+
 amount_trdi 408 lives_trki -81 status_trki:  ShortPosNettedPartly
 x_src:  -816 y_trk -489
 'iteration:  149 |addrs_trk:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX |status_trki:  ShortPosNettedPartly |amount_trdi:  408 |addrs_srci:  mq7NSPmhKQJJviKXmvkM1exWWUUMPfP1VS |status_srci:  OpenShortPosition 
@@ -1064,7 +1166,8 @@ New row added:  ['mq7NSPmhKQJJviKXmvkM1exWWUUMPfP1VS' 'OpenShortPosition' '-408'
  'n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' 'ShortPosNettedPartly' '-81' '145'
  '18930'] 
 
-New path for:  mq7NSPmhKQJJviKXmvkM1exWWUUMPfP1VS ??
+Looking for New Path for:  mq7NSPmhKQJJviKXmvkM1exWWUUMPfP1VS !!
+
 idx_new:  [0, 69, 22, 149]
 
 Path:
@@ -1106,8 +1209,10 @@ Opened contrats:  1031  > Sum amounts traded:  397
 
 'iteration:  50 |addrs_trk:  mm4AwMaXj3oSroHepnLCk2ZopDso9hRYfS |status_trki:  LongPosNettedPartly |amount_trdi:  397 |addrs_srci:  mokn8rtp2agB2uTh8oZF2t8GXAsCurYSDn |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	-0.000427512825845
-New path for:  mokn8rtp2agB2uTh8oZF2t8GXAsCurYSDn ??
+PNL d_amounts > 0:	-0.000427512825845 
+
+Looking for New Path for:  mokn8rtp2agB2uTh8oZF2t8GXAsCurYSDn !!
+
 
 ------------------------------------------------------
 
@@ -1118,22 +1223,24 @@ Opened contrats:  1031  > Sum amounts traded:  565
 
 'iteration:  182 |addrs_trk:  mm4AwMaXj3oSroHepnLCk2ZopDso9hRYfS |status_trki:  LongPosNettedPartly |amount_trdi:  168 |addrs_srci:  msJGfAhEnromDi2WzWTWn9ZvdZSPiJQNvf |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	-0.000222254422482
-New path for:  msJGfAhEnromDi2WzWTWn9ZvdZSPiJQNvf ??
+PNL d_amounts > 0:	-0.000222254422482 
+
+Looking for New Path for:  msJGfAhEnromDi2WzWTWn9ZvdZSPiJQNvf !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mm4AwMaXj3oSroHepnLCk2ZopDso9hRYfS | Tracked:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX 
 
 
-divider:  2805  >= obj_ni.amount_trdi:  81
+divider:  1774  >= obj_ni.amount_trdi:  81
 
-col_amounts:  [29, 29, 21] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  29 , argmax(col_amounts):  0
+col_amounts:  [47, 33] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  47 , argmax(col_amounts):  0
 
 average_posincr:
-[['mm4AwMaXj3oSroHepnLCk2ZopDso9hRYfS' '1000' 'OpenLongPosition' '1000' '0']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '2002' 'ShortPosIncreased' '1002'
+[['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-1795' 'ShortPosIncreased' '983'
   '0']
- ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '2724' 'ShortPosIncreased' '722' '1']]
+ ['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-2553' 'ShortPosIncreased' '710'
+  '1']]
 
 ------------------------------------------------------
 
@@ -1144,19 +1251,23 @@ Opened contrats:  1031  > Sum amounts traded:  81
 
 'iteration:  147 |addrs_trk:  n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX |status_trki:  ShortPosNetted |amount_trdi:  81 |addrs_srci:  mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	-0.00033770008001
-New path for:  mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG ??
+PNL d_amounts > 0:	-0.00033770008001 
 
-divider:  2408  >= obj_ni.amount_trdi:  609
+Looking for New Path for:  mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG !!
 
-col_amounts:  [75, 78, 454] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  454 , argmax(col_amounts):  2
+
+divider:  3439  >= obj_ni.amount_trdi:  609
+
+col_amounts:  [182, 52, 55, 318] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  318 , argmax(col_amounts):  3
 
 average_posincr:
-[['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '223' 'ShortPosIncreased' '223'
+[['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-1661' 'ShortPosIncreased' '849'
+  '0']
+ ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '-419' 'ShortPosIncreased' '246'
   '148']
- ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '456' 'ShortPosIncreased' '233'
+ ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '-727' 'ShortPosIncreased' '256'
   '149']
- ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '1799' 'ShortPosIncreased' '1343'
+ ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '-2261' 'ShortPosIncreased' '1479'
   '150']]
 
 ------------------------------------------------------
@@ -1168,18 +1279,21 @@ Opened contrats:  1031  > Sum amounts traded:  609
 
 'iteration:  179 |addrs_trk:  mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG |status_trki:  ShortPosNettedPartly |amount_trdi:  609 |addrs_srci:  mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT |status_srci:  LongPosNetted 
 
-PNL d_amounts > 0:	-0.00123767709514
+PNL d_amounts > 0:	-0.00123767709514 
 
-divider:  1799  >= obj_ni.amount_trdi:  852
 
-col_amounts:  [105, 110, 636] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  636 , argmax(col_amounts):  2
+divider:  2830  >= obj_ni.amount_trdi:  852
+
+col_amounts:  [255, 74, 77, 445] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  445 , argmax(col_amounts):  3
 
 average_posincr:
-[['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '118' 'ShortPosIncreased' '118'
+[['n4Rfq9j36JVDRZFufqc33Ey1eTeUqZPehX' '-1406' 'ShortPosIncreased' '594'
+  '0']
+ ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '-345' 'ShortPosIncreased' '172'
   '148']
- ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '241' 'ShortPosIncreased' '123'
+ ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '-650' 'ShortPosIncreased' '179'
   '149']
- ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '947' 'ShortPosIncreased' '706'
+ ['mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' '-1815' 'ShortPosIncreased' '1033'
   '150']]
 
 ------------------------------------------------------
@@ -1189,7 +1303,8 @@ Amounts!!!
 amount_trdi:  852  | lives_trki:  -1120  | lives_srci:  -852  | amount_trd_sum:  1461
 Opened contrats:  1031  < Sum amounts traded:  1461 diff_r:  422 
 
-PNL d_amounts < 0:	-0.0017315285469
+PNL d_amounts < 0:	-0.0017315285469 
+
 amount_trdi 852 lives_trki -1120 status_trki:  ShortPosNettedPartly
 x_src:  -1704 y_trk -1972
 'iteration:  180 |addrs_trk:  mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG |status_trki:  ShortPosNettedPartly |amount_trdi:  852 |addrs_srci:  mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT |status_srci:  OpenShortPosition 
@@ -1202,7 +1317,8 @@ New row added:  ['mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT' 'OpenShortPosition' '-852'
  'mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG' 'ShortPosNettedPartly' '-1120' '430'
  '19728'] 
 
-New path for:  mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT ??
+Looking for New Path for:  mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT !!
+
 idx_new:  [0, 179, 50, 147, 180, 182]
 
 Path:
@@ -1246,8 +1362,10 @@ Opened contrats:  743  > Sum amounts traded:  427
 
 'iteration:  53 |addrs_trk:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri |status_trki:  LongPosNettedPartly |amount_trdi:  427 |addrs_srci:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	-0.0119748360636
-New path for:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ ??
+PNL d_amounts > 0:	-0.0119748360636 
+
+Looking for New Path for:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ !!
+
 
 ------------------------------------------------------
 
@@ -1256,7 +1374,8 @@ Amounts!!!
 amount_trdi:  974  | lives_trki:  2722  | lives_srci:  2426  | amount_trd_sum:  974
 Opened contrats:  743  < Sum amounts traded:  974 diff_r:  743 
 
-PNL d_amounts < 0:	-0.00485603105611
+PNL d_amounts < 0:	-0.00485603105611 
+
 amount_trdi 974 lives_trki 2722 status_trki:  LongPosNettedPartly
 x_src:  1452 y_trk 3696
 'iteration:  133 |addrs_trk:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ |status_trki:  LongPosNettedPartly |amount_trdi:  974 |addrs_srci:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd |status_srci:  LongPosIncreased 
@@ -1269,7 +1388,8 @@ New row added:  ['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' 'LongPosIncreased' '2426'
  'mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ' 'LongPosNettedPartly' '2722' '231'
  '18743'] 
 
-New path for:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd ??
+Looking for New Path for:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd !!
+
 
 ------------------------------------------------------
 
@@ -1280,16 +1400,19 @@ Opened contrats:  743  = Sum amounts traded:  743
 
 'iteration:  54  |addrs_trk:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri |status_trki:  LongPosNetted |amount_trdi:  316 |addrs_srci:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP |status_srci:  OpenLongPosition 
 
-PNL d_amounts = 0:	-0.00864435772754
-New path for:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP ??
+PNL d_amounts = 0:	-0.00864435772754 
 
-divider:  1891  < obj_ni.amount_trdi:  2112
+Looking for New Path for:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP !!
 
-col_amounts:  [327, 1564] , divider - sum(col_amounts):  0 , max(col_amounts):  1564 , argmax(col_amounts):  1
+
+divider:  2634  >= obj_ni.amount_trdi:  2112
+
+col_amounts:  [595, 262, 1254] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  1254 , argmax(col_amounts):  2
 
 average_posincr:
-[['mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP' '0' 'LongPosIncreased' '0' '55']
- ['mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP' '0' 'LongPosIncreased' '0' '61']]
+[['n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri' '148' 'OpenLongPosition' '148' '0']
+ ['mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP' '381' 'LongPosIncreased' '65' '55']
+ ['mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP' '952' 'LongPosIncreased' '309' '61']]
 
 ------------------------------------------------------
 
@@ -1298,7 +1421,8 @@ Amounts!!!
 amount_trdi:  2112  | lives_trki:  95  | lives_srci:  2112  | amount_trd_sum:  2112
 Opened contrats:  743  < Sum amounts traded:  2112 diff_r:  743 
 
-PNL d_amounts < 0:	-0.0813083787025
+PNL d_amounts < 0:	-0.0813083787025 
+
 amount_trdi 2112 lives_trki 95 status_trki:  LongPosNettedPartly
 x_src:  0 y_trk 2207
 'iteration:  70 |addrs_trk:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP |status_trki:  LongPosNettedPartly |amount_trdi:  2112 |addrs_srci:  mmLqxRNhUfdTZ9L1BAEp1wb3sfYnGNZZMt |status_srci:  OpenLongPosition 
@@ -1311,7 +1435,8 @@ New row added:  ['mmLqxRNhUfdTZ9L1BAEp1wb3sfYnGNZZMt' 'OpenLongPosition' '2112'
  'mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP' 'LongPosNettedPartly' '95' '1369'
  '11512'] 
 
-New path for:  mmLqxRNhUfdTZ9L1BAEp1wb3sfYnGNZZMt ??
+Looking for New Path for:  mmLqxRNhUfdTZ9L1BAEp1wb3sfYnGNZZMt !!
+
 
 ------------------------------------------------------
 
@@ -1322,7 +1447,8 @@ Opened contrats:  743  > Sum amounts traded:  355
 
 'iteration:  82 |addrs_trk:  mmLqxRNhUfdTZ9L1BAEp1wb3sfYnGNZZMt |status_trki:  LongPosNettedPartly |amount_trdi:  355 |addrs_srci:  mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh |status_srci:  ShortPosNettedPartly 
 
-PNL d_amounts > 0:	-0.000826057005154
+PNL d_amounts > 0:	-0.000826057005154 
+
 
 ------------------------------------------------------
 
@@ -1331,7 +1457,8 @@ Amounts!!!
 amount_trdi:  1581  | lives_trki:  1581  | lives_srci:  0  | amount_trd_sum:  1936
 Opened contrats:  743  < Sum amounts traded:  1936 diff_r:  388 
 
-PNL d_amounts < 0:	-0.00354095579848
+PNL d_amounts < 0:	-0.00354095579848 
+
 amount_trdi 1581 lives_trki 1581 status_trki:  LongPosNettedPartly
 x_src:  -1581 y_trk 3162
 'iteration:  83 |addrs_trk:  mmLqxRNhUfdTZ9L1BAEp1wb3sfYnGNZZMt |status_trki:  LongPosNettedPartly |amount_trdi:  1581 |addrs_srci:  mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT |status_srci:  ShortPosNetted 
@@ -1387,14 +1514,14 @@ Length M_file:  170
 (Tracking Short Position)  Source:  myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv | Tracked:  mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh 
 
 
-divider:  1916  >= obj_ni.amount_trdi:  265
+divider:  1510  >= obj_ni.amount_trdi:  265
 
-col_amounts:  [56, 56, 152] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  152 , argmax(col_amounts):  2
+col_amounts:  [71, 193] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  193 , argmax(col_amounts):  1
 
 average_posincr:
-[['myyhBJHP3U6cTZ6Zm98nuJGVbzYh13j1Cv' '350' 'OpenLongPosition' '350' '0']
- ['mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh' '700' 'ShortPosIncreased' '350' '0']
- ['mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh' '1651' 'ShortPosIncreased' '951' '1']]
+[['mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh' '-823' 'ShortPosIncreased' '335' '0']
+ ['mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh' '-1804' 'ShortPosIncreased' '910'
+  '1']]
 
 ------------------------------------------------------
 
@@ -1405,8 +1532,10 @@ Opened contrats:  406  > Sum amounts traded:  265
 
 'iteration:  148 |addrs_trk:  mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh |status_trki:  ShortPosNettedPartly |amount_trdi:  265 |addrs_srci:  mvCZQfBRRAnW5rmREf6Xknt3stbZiRw4UT |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	0.00160971297758
-New path for:  mvCZQfBRRAnW5rmREf6Xknt3stbZiRw4UT ??
+PNL d_amounts > 0:	0.00160971297758 
+
+Looking for New Path for:  mvCZQfBRRAnW5rmREf6Xknt3stbZiRw4UT !!
+
 idx_new:  [0, 148]
 
 Path:
@@ -1443,7 +1572,7 @@ col_amounts:  [235, 368] , amount_trdi - sum(col_amounts):  1 , max(col_amounts)
 
 average_posincr:
 [['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '869' 'OpenLongPosition' '869' '0']
- ['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '2225' 'LongPosIncreased' '1356'
+ ['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '2460' 'LongPosIncreased' '1356'
   '41']]
 
 ------------------------------------------------------
@@ -1455,7 +1584,8 @@ Opened contrats:  1104  > Sum amounts traded:  604
 
 'iteration:  116 |addrs_trk:  mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb |status_trki:  LongPosNettedPartly |amount_trdi:  604 |addrs_srci:  mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ |status_srci:  ShortPosNetted 
 
-PNL d_amounts > 0:	0.0172913071263
+PNL d_amounts > 0:	0.0172913071263 
+
 
 divider:  2225  >= obj_ni.amount_trdi:  2225
 
@@ -1463,7 +1593,7 @@ col_amounts:  [869, 1356] , amount_trdi - sum(col_amounts):  0 , max(col_amounts
 
 average_posincr:
 [['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '0' 'OpenLongPosition' '0' '0']
- ['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '0' 'LongPosIncreased' '0' '41']]
+ ['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '1104' 'LongPosIncreased' '0' '41']]
 
 ------------------------------------------------------
 
@@ -1472,7 +1602,8 @@ Amounts!!!
 amount_trdi:  2225  | lives_trki:  0  | lives_srci:  2225  | amount_trd_sum:  2829
 Opened contrats:  1104  < Sum amounts traded:  2829 diff_r:  500 
 
-PNL d_amounts < 0:	0.0636972820463
+PNL d_amounts < 0:	0.0636972820463 
+
 amount_trdi 2225 lives_trki 0 status_trki:  LongPosNetted
 x_src:  0 y_trk 2225
 'iteration:  117 |addrs_trk:  mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb |status_trki:  LongPosNetted |amount_trdi:  2225 |addrs_srci:  mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ |status_srci:  OpenLongPosition 
@@ -1484,18 +1615,22 @@ x_src:  0 y_trk 2225
 New row added:  ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' 'OpenLongPosition' '2225'
  'mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' 'LongPosNetted' '0' '1725' '19162'] 
 
-New path for:  mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ ??
+Looking for New Path for:  mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ !!
 
-divider:  1877  >= obj_ni.amount_trdi:  342
 
-col_amounts:  [22, 155, 156, 7] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  156 , argmax(col_amounts):  2
+divider:  2981  >= obj_ni.amount_trdi:  342
+
+col_amounts:  [126, 14, 97, 98, 4] , amount_trdi - sum(col_amounts):  3 , max(col_amounts):  126 , argmax(col_amounts):  0
 
 average_posincr:
-[['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '103' 'LongPosIncreased' '103' '118']
- ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '800' 'LongPosIncreased' '697' '143']
- ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '1503' 'LongPosIncreased' '703'
+[['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '975' 'OpenLongPosition' '975' '0']
+ ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '2336' 'LongPosIncreased' '111'
+  '118']
+ ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '3105' 'LongPosIncreased' '755'
+  '143']
+ ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '3965' 'LongPosIncreased' '763'
   '144']
- ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '1535' 'LongPosIncreased' '32' '145']]
+ ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '4098' 'LongPosIncreased' '35' '145']]
 
 ------------------------------------------------------
 
@@ -1506,19 +1641,23 @@ Opened contrats:  1104  > Sum amounts traded:  342
 
 'iteration:  164 |addrs_trk:  mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ |status_trki:  LongPosNettedPartly |amount_trdi:  342 |addrs_srci:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	0.00962247737231
-New path for:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 ??
+PNL d_amounts > 0:	0.00962247737231 
 
-divider:  1535  >= obj_ni.amount_trdi:  452
+Looking for New Path for:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 !!
 
-col_amounts:  [30, 205, 207, 9] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  207 , argmax(col_amounts):  2
+
+divider:  2639  >= obj_ni.amount_trdi:  452
+
+col_amounts:  [166, 19, 129, 130, 5] , amount_trdi - sum(col_amounts):  3 , max(col_amounts):  166 , argmax(col_amounts):  0
 
 average_posincr:
-[['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '73' 'LongPosIncreased' '73' '118']
- ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '565' 'LongPosIncreased' '492' '143']
- ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '1060' 'LongPosIncreased' '495'
+[['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '806' 'OpenLongPosition' '806' '0']
+ ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '2317' 'LongPosIncreased' '92' '118']
+ ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '2976' 'LongPosIncreased' '626'
+  '143']
+ ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '3835' 'LongPosIncreased' '633'
   '144']
- ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '1083' 'LongPosIncreased' '23' '145']]
+ ['mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ' '4093' 'LongPosIncreased' '30' '145']]
 
 ------------------------------------------------------
 
@@ -1529,8 +1668,10 @@ Opened contrats:  1104  > Sum amounts traded:  794
 
 'iteration:  165 |addrs_trk:  mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ |status_trki:  LongPosNettedPartly |amount_trdi:  452 |addrs_srci:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	0.0127174262348
-New path for:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri ??
+PNL d_amounts > 0:	0.0127174262348 
+
+Looking for New Path for:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb | Tracked:  mr287rckaeHj8uBEN3EdXPnT93sjXfhZNh 
@@ -1572,17 +1713,6 @@ Length M_file:  163
 (Tracking Short Position)  Source:  mfYfNBfdrSyC3QbhcJFCdHm3qaghAoWrKM | Tracked:  mxx8QxVutESvcyLRrZ7Uzo3UgXSYNagRUU 
 
 
-divider:  4714  >= obj_ni.amount_trdi:  1532
-
-col_amounts:  [497, 536, 497] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  536 , argmax(col_amounts):  1
-
-average_posincr:
-[['mfYfNBfdrSyC3QbhcJFCdHm3qaghAoWrKM' '1035' 'OpenLongPosition' '1035' '0']
- ['mfYfNBfdrSyC3QbhcJFCdHm3qaghAoWrKM' '2147' 'LongPosIncreased' '1112'
-  '71']
- ['mxx8QxVutESvcyLRrZ7Uzo3UgXSYNagRUU' '3182' 'OpenShortPosition' '1035'
-  '0']]
-
 ------------------------------------------------------
 
 
@@ -1592,8 +1722,19 @@ Opened contrats:  1532  = Sum amounts traded:  1532
 
 'iteration:  29  |addrs_trk:  mxx8QxVutESvcyLRrZ7Uzo3UgXSYNagRUU |status_trki:  ShortPosNetted |amount_trdi:  1532 |addrs_srci:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj |status_srci:  ShortPosIncreased 
 
-PNL d_amounts = 0:	-0.027116242385
-New path for:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj ??
+PNL d_amounts = 0:	-0.027116242385 
+
+Looking for New Path for:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj !!
+
+
+divider:  1770  >= obj_ni.amount_trdi:  1007
+
+col_amounts:  [871, 135] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  871 , argmax(col_amounts):  0
+
+average_posincr:
+[['mxx8QxVutESvcyLRrZ7Uzo3UgXSYNagRUU' '-660' 'OpenShortPosition' '660' '0']
+ ['msGf2me59wKW1WmfVKQce46DkQpH2wYtzj' '-2954' 'ShortPosIncreased' '103'
+  '30']]
 
 ------------------------------------------------------
 
@@ -1604,8 +1745,10 @@ Opened contrats:  1532  > Sum amounts traded:  1007
 
 'iteration:  82 |addrs_trk:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj |status_trki:  ShortPosNettedPartly |amount_trdi:  1007 |addrs_srci:  mmF8bma9npmauCYQ6ZyJbDyH5S7Y9BNrUQ |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	0.0037580564737
-New path for:  mmF8bma9npmauCYQ6ZyJbDyH5S7Y9BNrUQ ??
+PNL d_amounts > 0:	0.0037580564737 
+
+Looking for New Path for:  mmF8bma9npmauCYQ6ZyJbDyH5S7Y9BNrUQ !!
+
 
 ------------------------------------------------------
 
@@ -1616,8 +1759,20 @@ Opened contrats:  1532  > Sum amounts traded:  386
 
 'iteration:  88 |addrs_trk:  mmF8bma9npmauCYQ6ZyJbDyH5S7Y9BNrUQ |status_trki:  ShortPosNettedPartly |amount_trdi:  386 |addrs_srci:  mmn35wjBz8cyPka9cFqADYE5A7c6pk3wCd |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	0.00512068465432
-New path for:  mmn35wjBz8cyPka9cFqADYE5A7c6pk3wCd ??
+PNL d_amounts > 0:	0.00512068465432 
+
+Looking for New Path for:  mmn35wjBz8cyPka9cFqADYE5A7c6pk3wCd !!
+
+
+divider:  2342  >= obj_ni.amount_trdi:  586
+
+col_amounts:  [383, 202] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  383 , argmax(col_amounts):  0
+
+average_posincr:
+[['mxx8QxVutESvcyLRrZ7Uzo3UgXSYNagRUU' '-1148' 'OpenShortPosition' '1148'
+  '0']
+ ['mmn35wjBz8cyPka9cFqADYE5A7c6pk3wCd' '-994' 'ShortPosIncreased' '608'
+  '89']]
 
 ------------------------------------------------------
 
@@ -1628,8 +1783,18 @@ Opened contrats:  1532  > Sum amounts traded:  586
 
 'iteration:  113 |addrs_trk:  mmn35wjBz8cyPka9cFqADYE5A7c6pk3wCd |status_trki:  ShortPosNettedPartly |amount_trdi:  586 |addrs_srci:  mwZWFaQmhoA6oGozVDyfpsbRTfexGTnTpc |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	0.00337653806978
-New path for:  mwZWFaQmhoA6oGozVDyfpsbRTfexGTnTpc ??
+PNL d_amounts > 0:	0.00337653806978 
+
+Looking for New Path for:  mwZWFaQmhoA6oGozVDyfpsbRTfexGTnTpc !!
+
+
+divider:  763  < obj_ni.amount_trdi:  2082
+
+col_amounts:  [660, 103] , divider - sum(col_amounts):  0 , max(col_amounts):  660 , argmax(col_amounts):  0
+
+average_posincr:
+[['mxx8QxVutESvcyLRrZ7Uzo3UgXSYNagRUU' '0' 'OpenShortPosition' '0' '0']
+ ['msGf2me59wKW1WmfVKQce46DkQpH2wYtzj' '-2851' 'ShortPosIncreased' '0' '30']]
 
 ------------------------------------------------------
 
@@ -1638,7 +1803,8 @@ Amounts!!!
 amount_trdi:  2082  | lives_trki:  0  | lives_srci:  585  | amount_trd_sum:  3089
 Opened contrats:  1532  < Sum amounts traded:  3089 diff_r:  525 
 
-PNL d_amounts < 0:	0.00776988438753
+PNL d_amounts < 0:	0.00776988438753 
+
 amount_trdi 2082 lives_trki 0 status_trki:  ShortPosNetted
 x_src:  1497 y_trk -2082
 'iteration:  85 |addrs_trk:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj |status_trki:  ShortPosNetted |amount_trdi:  2082 |addrs_srci:  n37URSj5zBRxtRMe4faobxXx2QDEctXNRG |status_srci:  LongPosNettedPartly 
@@ -1690,8 +1856,8 @@ col_amounts:  [277, 679, 606] , amount_trdi - sum(col_amounts):  2 , max(col_amo
 
 average_posincr:
 [['mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n' '34' 'OpenLongPosition' '34' '0']
- ['mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n' '114' 'LongPosIncreased' '80' '44']
- ['mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n' '187' 'LongPosIncreased' '73' '45']]
+ ['mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n' '391' 'LongPosIncreased' '80' '44']
+ ['mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n' '1145' 'LongPosIncreased' '73' '45']]
 
 ------------------------------------------------------
 
@@ -1700,7 +1866,8 @@ Amounts!!!
 amount_trdi:  1564  | lives_trki:  187  | lives_srci:  2207  | amount_trd_sum:  1564
 Opened contrats:  311  < Sum amounts traded:  1564 diff_r:  311 
 
-PNL d_amounts < 0:	-0.0369726828714
+PNL d_amounts < 0:	-0.0369726828714 
+
 amount_trdi 1564 lives_trki 187 status_trki:  LongPosNettedPartly
 x_src:  643 y_trk 1751
 'iteration:  54 |addrs_trk:  mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n |status_trki:  LongPosNettedPartly |amount_trdi:  1564 |addrs_srci:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP |status_srci:  LongPosIncreased 
@@ -1713,7 +1880,8 @@ New row added:  ['mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP' 'LongPosIncreased' '2207'
  'mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n' 'LongPosNettedPartly' '187' '1253'
  '13206'] 
 
-New path for:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP ??
+Looking for New Path for:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP !!
+
 
 ------------------------------------------------------
 
@@ -1724,8 +1892,10 @@ Opened contrats:  311  > Sum amounts traded:  95
 
 'iteration:  63 |addrs_trk:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP |status_trki:  LongPosNetted |amount_trdi:  95 |addrs_srci:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	-0.00329217354064
-New path for:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr ??
+PNL d_amounts > 0:	-0.00329217354064 
+
+Looking for New Path for:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr !!
+
 
 ------------------------------------------------------
 
@@ -1736,21 +1906,12 @@ Opened contrats:  311  > Sum amounts traded:  144
 
 'iteration:  86 |addrs_trk:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP |status_trki:  ShortPosNettedPartly |amount_trdi:  49 |addrs_srci:  mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH |status_srci:  LongPosNettedPartly 
 
-PNL d_amounts > 0:	-0.00115835131758
+PNL d_amounts > 0:	-0.00115835131758 
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n | Tracked:  mwqVvzZJnDutCpyxFQYz29HgAvTUAYMUTw 
 
-
-divider:  498  >= obj_ni.amount_trdi:  311
-
-col_amounts:  [21, 49, 45, 194] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  194 , argmax(col_amounts):  3
-
-average_posincr:
-[['mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n' '13' 'OpenLongPosition' '13' '0']
- ['mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n' '44' 'LongPosIncreased' '31' '44']
- ['mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n' '72' 'LongPosIncreased' '28' '45']
- ['mwqVvzZJnDutCpyxFQYz29HgAvTUAYMUTw' '187' 'OpenShortPosition' '115' '0']]
 
 ------------------------------------------------------
 
@@ -1761,8 +1922,10 @@ Opened contrats:  311  = Sum amounts traded:  311
 
 'iteration:  129  |addrs_trk:  mwqVvzZJnDutCpyxFQYz29HgAvTUAYMUTw |status_trki:  ShortPosNetted |amount_trdi:  311 |addrs_srci:  mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG |status_srci:  ShortPosIncreased 
 
-PNL d_amounts = 0:	-0.000201577111017
-New path for:  mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG ??
+PNL d_amounts = 0:	-0.000201577111017 
+
+Looking for New Path for:  mp16QEiCrcv6r8MyPFqs3fqJ1soSr3phLG !!
+
 idx_new:  [0, 129, 54, 86, 63]
 
 Path:
@@ -1800,16 +1963,15 @@ Length M_file:  152
 (Tracking Short Position)  Source:  mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma | Tracked:  mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx 
 
 
-divider:  6400  >= obj_ni.amount_trdi:  3036
+divider:  4917  >= obj_ni.amount_trdi:  3036
 
-col_amounts:  [703, 703, 1556, 72] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  1556 , argmax(col_amounts):  2
+col_amounts:  [915, 2025, 94] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  2025 , argmax(col_amounts):  1
 
 average_posincr:
-[['mnvxo1ofvwDmRbdtjxX2NThuyjn1MrgJma' '780' 'LongPosIncreased' '780' '0']
- ['mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx' '1560' 'OpenShortPosition' '780' '0']
- ['mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx' '3283' 'ShortPosIncreased' '1723'
+[['mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx' '-568' 'OpenShortPosition' '568' '0']
+ ['mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx' '-2737' 'ShortPosIncreased' '1254'
   '1']
- ['mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx' '3364' 'ShortPosIncreased' '81' '2']]
+ ['mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx' '-4823' 'ShortPosIncreased' '59' '2']]
 
 ------------------------------------------------------
 
@@ -1818,7 +1980,8 @@ Amounts!!!
 amount_trdi:  3036  | lives_trki:  -1881  | lives_srci:  245  | amount_trd_sum:  3036
 Opened contrats:  1483  < Sum amounts traded:  3036 diff_r:  1483 
 
-PNL d_amounts < 0:	-0.0723308772898
+PNL d_amounts < 0:	-0.0723308772898 
+
 amount_trdi 3036 lives_trki -1881 status_trki:  ShortPosNettedPartly
 x_src:  2791 y_trk -4917
 'iteration:  34 |addrs_trk:  mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx |status_trki:  ShortPosNettedPartly |amount_trdi:  3036 |addrs_srci:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 |status_srci:  LongPosNettedPartly 
@@ -1870,7 +2033,8 @@ Opened contrats:  3281  > Sum amounts traded:  245
 
 'iteration:  33 |addrs_trk:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 |status_trki:  LongPosNetted |amount_trdi:  245 |addrs_srci:  mieV1qqv4tq9r2RvaPNV85tazQZhnwtHp2 |status_srci:  ShortPosNettedPartly 
 
-PNL d_amounts > 0:	-0.00577040082442
+PNL d_amounts > 0:	-0.00577040082442 
+
 
 ------------------------------------------------------
 
@@ -1881,8 +2045,10 @@ Opened contrats:  3281  > Sum amounts traded:  439
 
 'iteration:  146 |addrs_trk:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 |status_trki:  ShortPosNetted |amount_trdi:  194 |addrs_srci:  msBEzn8FaySnzppHH2xDwmx9PFedcE7DPE |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	-0.00112269844041
-New path for:  msBEzn8FaySnzppHH2xDwmx9PFedcE7DPE ??
+PNL d_amounts > 0:	-0.00112269844041 
+
+Looking for New Path for:  msBEzn8FaySnzppHH2xDwmx9PFedcE7DPE !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 | Tracked:  mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx 
@@ -1927,7 +2093,8 @@ Opened contrats:  153  = Sum amounts traded:  153
 
 'iteration:  50  |addrs_trk:  mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3 |status_trki:  LongPosNetted |amount_trdi:  153 |addrs_srci:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri |status_srci:  ShortPosNettedPartly 
 
-PNL d_amounts = 0:	0.000273162043871
+PNL d_amounts = 0:	0.000273162043871 
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3 | Tracked:  mgu7etPQbrSNJXSCstbfptvyMuUKfMuVbx 
@@ -2003,16 +2170,19 @@ Opened contrats:  146  = Sum amounts traded:  146
 
 'iteration:  3  |addrs_trk:  mj8RZ9nmXBw5hcwih2ex2EmAUk8YHDgj7b |status_trki:  LongPosNetted |amount_trdi:  146 |addrs_srci:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd |status_srci:  OpenLongPosition 
 
-PNL d_amounts = 0:	0.0025650351545
-New path for:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd ??
+PNL d_amounts = 0:	0.0025650351545 
 
-divider:  815  < obj_ni.amount_trdi:  961
+Looking for New Path for:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd !!
 
-col_amounts:  [151, 664] , divider - sum(col_amounts):  0 , max(col_amounts):  664 , argmax(col_amounts):  1
+
+divider:  961  >= obj_ni.amount_trdi:  961
+
+col_amounts:  [146, 151, 664] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  664 , argmax(col_amounts):  2
 
 average_posincr:
-[['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '0' 'LongPosIncreased' '0' '4']
- ['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '0' 'LongPosIncreased' '0' '19']]
+[['mj8RZ9nmXBw5hcwih2ex2EmAUk8YHDgj7b' '0' 'OpenLongPosition' '0' '0']
+ ['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '146' 'LongPosIncreased' '0' '4']
+ ['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '297' 'LongPosIncreased' '0' '19']]
 
 ------------------------------------------------------
 
@@ -2021,7 +2191,8 @@ Amounts!!!
 amount_trdi:  961  | lives_trki:  0  | lives_srci:  2461  | amount_trd_sum:  961
 Opened contrats:  146  < Sum amounts traded:  961 diff_r:  146 
 
-PNL d_amounts < 0:	0.00852214689191
+PNL d_amounts < 0:	0.00852214689191 
+
 amount_trdi 961 lives_trki 0 status_trki:  LongPosNetted
 x_src:  1500 y_trk 961
 'iteration:  28 |addrs_trk:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd |status_trki:  LongPosNetted |amount_trdi:  961 |addrs_srci:  mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH |status_srci:  LongPosIncreased 
@@ -2033,15 +2204,17 @@ x_src:  1500 y_trk 961
 New row added:  ['mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH' 'LongPosIncreased' '2461'
  'n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' 'LongPosNetted' '0' '815' '16115'] 
 
-New path for:  mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH ??
+Looking for New Path for:  mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH !!
 
-divider:  2545  >= obj_ni.amount_trdi:  2102
 
-col_amounts:  [958, 1143] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  1143 , argmax(col_amounts):  1
+divider:  2691  >= obj_ni.amount_trdi:  2102
+
+col_amounts:  [114, 906, 1081] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  1081 , argmax(col_amounts):  2
 
 average_posincr:
-[['mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH' '203' 'LongPosIncreased' '203' '29']
- ['mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH' '443' 'LongPosIncreased' '240' '42']]
+[['mj8RZ9nmXBw5hcwih2ex2EmAUk8YHDgj7b' '32' 'OpenLongPosition' '32' '0']
+ ['mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH' '2716' 'LongPosIncreased' '255' '29']
+ ['mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH' '3924' 'LongPosIncreased' '302' '42']]
 
 ------------------------------------------------------
 
@@ -2050,7 +2223,8 @@ Amounts!!!
 amount_trdi:  2102  | lives_trki:  2102  | lives_srci:  0  | amount_trd_sum:  2102
 Opened contrats:  146  < Sum amounts traded:  2102 diff_r:  146 
 
-PNL d_amounts < 0:	-0.00952758454797
+PNL d_amounts < 0:	-0.00952758454797 
+
 amount_trdi 2102 lives_trki 2102 status_trki:  LongPosNettedPartly
 x_src:  -2102 y_trk 4204
 'iteration:  76 |addrs_trk:  mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH |status_trki:  LongPosNettedPartly |amount_trdi:  2102 |addrs_srci:  mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD |status_srci:  ShortPosNetted 
@@ -2108,7 +2282,8 @@ Opened contrats:  4046  > Sum amounts traded:  2935
 
 'iteration:  99 |addrs_trk:  moKrytceaSbw9tXHVCd1TQTUBAcdmvsKb2 |status_trki:  LongPosNettedPartly |amount_trdi:  2935 |addrs_srci:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd |status_srci:  ShortPosNetted 
 
-PNL d_amounts > 0:	-0.0024669189876
+PNL d_amounts > 0:	-0.0024669189876 
+
 
 ------------------------------------------------------
 
@@ -2119,22 +2294,24 @@ Opened contrats:  4046  > Sum amounts traded:  3040
 
 'iteration:  100 |addrs_trk:  moKrytceaSbw9tXHVCd1TQTUBAcdmvsKb2 |status_trki:  LongPosNettedPartly |amount_trdi:  105 |addrs_srci:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	-8.82543419756e-05
-New path for:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd ??
+PNL d_amounts > 0:	-8.82543419756e-05 
+
+Looking for New Path for:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  moKrytceaSbw9tXHVCd1TQTUBAcdmvsKb2 | Tracked:  mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe 
 
 
-divider:  9005  >= obj_ni.amount_trdi:  2225
+divider:  4959  >= obj_ni.amount_trdi:  2225
 
-col_amounts:  [999, 999, 225] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  999 , argmax(col_amounts):  0
+col_amounts:  [1815, 409] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  1815 , argmax(col_amounts):  0
 
 average_posincr:
-[['moKrytceaSbw9tXHVCd1TQTUBAcdmvsKb2' '3045' 'OpenLongPosition' '3045' '0']
- ['mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe' '6092' 'OpenShortPosition' '3047'
+[['mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe' '-2230' 'OpenShortPosition' '2230'
   '0']
- ['mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe' '6780' 'ShortPosIncreased' '688' '1']]
+ ['mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe' '-4550' 'ShortPosIncreased' '504'
+  '1']]
 
 ------------------------------------------------------
 
@@ -2145,17 +2322,18 @@ Opened contrats:  4046  > Sum amounts traded:  2225
 
 'iteration:  102 |addrs_trk:  mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe |status_trki:  ShortPosNettedPartly |amount_trdi:  2225 |addrs_srci:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ |status_srci:  LongPosNettedPartly 
 
-PNL d_amounts > 0:	-0.00179419675627
+PNL d_amounts > 0:	-0.00179419675627 
 
-divider:  6780  >= obj_ni.amount_trdi:  1225
 
-col_amounts:  [550, 550, 124] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  550 , argmax(col_amounts):  0
+divider:  2734  >= obj_ni.amount_trdi:  1225
+
+col_amounts:  [999, 225] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  999 , argmax(col_amounts):  0
 
 average_posincr:
-[['moKrytceaSbw9tXHVCd1TQTUBAcdmvsKb2' '2494' 'OpenLongPosition' '2494' '0']
- ['mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe' '4991' 'OpenShortPosition' '2497'
+[['mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe' '-1230' 'OpenShortPosition' '1230'
   '0']
- ['mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe' '5555' 'ShortPosIncreased' '564' '1']]
+ ['mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe' '-4325' 'ShortPosIncreased' '279'
+  '1']]
 
 ------------------------------------------------------
 
@@ -2166,8 +2344,10 @@ Opened contrats:  4046  > Sum amounts traded:  3450
 
 'iteration:  130 |addrs_trk:  mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe |status_trki:  ShortPosNetted |amount_trdi:  1225 |addrs_srci:  n3M4mPdV2Ffr4cDYGf3xvgVskhYitHeLw1 |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	-0.0106137822418
-New path for:  n3M4mPdV2Ffr4cDYGf3xvgVskhYitHeLw1 ??
+PNL d_amounts > 0:	-0.0106137822418 
+
+Looking for New Path for:  n3M4mPdV2Ffr4cDYGf3xvgVskhYitHeLw1 !!
+
 idx_new:  [0, 130, 99, 100, 102]
 
 Path:
@@ -2207,7 +2387,7 @@ col_amounts:  [832, 551] , amount_trdi - sum(col_amounts):  1 , max(col_amounts)
 
 average_posincr:
 [['mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b' '80' 'OpenLongPosition' '80' '0']
- ['mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b' '133' 'LongPosIncreased' '53' '3']]
+ ['mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b' '966' 'LongPosIncreased' '53' '3']]
 
 ------------------------------------------------------
 
@@ -2216,7 +2396,8 @@ Amounts!!!
 amount_trdi:  1384  | lives_trki:  133  | lives_srci:  5006  | amount_trd_sum:  1384
 Opened contrats:  913  < Sum amounts traded:  1384 diff_r:  913 
 
-PNL d_amounts < 0:	-0.0134788466594
+PNL d_amounts < 0:	-0.0134788466594 
+
 amount_trdi 1384 lives_trki 133 status_trki:  LongPosNettedPartly
 x_src:  3622 y_trk 1517
 'iteration:  38 |addrs_trk:  mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b |status_trki:  LongPosNettedPartly |amount_trdi:  1384 |addrs_srci:  mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH |status_srci:  LongPosIncreased 
@@ -2229,7 +2410,8 @@ New row added:  ['mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH' 'LongPosIncreased' '5006'
  'mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b' 'LongPosNettedPartly' '133' '471'
  '16115'] 
 
-New path for:  mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH ??
+Looking for New Path for:  mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH !!
+
 
 ------------------------------------------------------
 
@@ -2240,8 +2422,10 @@ Opened contrats:  913  > Sum amounts traded:  474
 
 'iteration:  72 |addrs_trk:  mxQMfvimfybRjBfmMky2BrqpXvC2FdjVmH |status_trki:  LongPosNettedPartly |amount_trdi:  474 |addrs_srci:  mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	-0.0109682074362
-New path for:  mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD ??
+PNL d_amounts > 0:	-0.0109682074362 
+
+Looking for New Path for:  mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b | Tracked:  mkqrf4ezn12dsqLrTShvBTjPZ42whnhEAe 
@@ -2282,8 +2466,8 @@ divider:  815  >= obj_ni.amount_trdi:  50
 col_amounts:  [9, 40] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  40 , argmax(col_amounts):  1
 
 average_posincr:
-[['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '142' 'LongPosIncreased' '142' '0']
- ['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '765' 'LongPosIncreased' '623' '15']]
+[['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '288' 'LongPosIncreased' '142' '0']
+ ['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '920' 'LongPosIncreased' '623' '15']]
 
 ------------------------------------------------------
 
@@ -2294,8 +2478,10 @@ Opened contrats:  151  > Sum amounts traded:  50
 
 'iteration:  94 |addrs_trk:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd |status_trki:  ShortPosNettedPartly |amount_trdi:  50 |addrs_srci:  mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	0.0
-New path for:  mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg ??
+PNL d_amounts > 0:	0.0 
+
+Looking for New Path for:  mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd | Tracked:  mj8RZ9nmXBw5hcwih2ex2EmAUk8YHDgj7b 
@@ -2339,8 +2525,10 @@ Opened contrats:  2842  > Sum amounts traded:  2623
 
 'iteration:  19 |addrs_trk:  mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh |status_trki:  LongPosNettedPartly |amount_trdi:  2623 |addrs_srci:  mxx8QxVutESvcyLRrZ7Uzo3UgXSYNagRUU |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	-0.0703143450453
-New path for:  mxx8QxVutESvcyLRrZ7Uzo3UgXSYNagRUU ??
+PNL d_amounts > 0:	-0.0703143450453 
+
+Looking for New Path for:  mxx8QxVutESvcyLRrZ7Uzo3UgXSYNagRUU !!
+
 
 ------------------------------------------------------
 
@@ -2351,17 +2539,20 @@ Opened contrats:  2842  = Sum amounts traded:  2842
 
 'iteration:  20  |addrs_trk:  mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh |status_trki:  LongPosNetted |amount_trdi:  219 |addrs_srci:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ |status_srci:  OpenLongPosition 
 
-PNL d_amounts = 0:	-0.00563206492096
-New path for:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ ??
+PNL d_amounts = 0:	-0.00563206492096 
 
-divider:  3050  >= obj_ni.amount_trdi:  204
+Looking for New Path for:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ !!
 
-col_amounts:  [150, 53] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  150 , argmax(col_amounts):  0
+
+divider:  5892  >= obj_ni.amount_trdi:  204
+
+col_amounts:  [98, 78, 27] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  98 , argmax(col_amounts):  0
 
 average_posincr:
-[['mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ' '2105' 'LongPosIncreased' '2105'
+[['mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh' '2743' 'OpenLongPosition' '2743' '0']
+ ['mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ' '2397' 'LongPosIncreased' '2178'
   '21']
- ['mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ' '2846' 'LongPosIncreased' '741' '27']]
+ ['mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ' '3242' 'LongPosIncreased' '767' '27']]
 
 ------------------------------------------------------
 
@@ -2372,20 +2563,12 @@ Opened contrats:  2842  > Sum amounts traded:  204
 
 'iteration:  94 |addrs_trk:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ |status_trki:  LongPosNettedPartly |amount_trdi:  204 |addrs_srci:  mh6cw9hm9dJuaVgziRj27pL3ED5Xuk2Tqy |status_srci:  ShortPosNettedPartly 
 
-PNL d_amounts > 0:	-0.000533099075437
+PNL d_amounts > 0:	-0.000533099075437 
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh | Tracked:  mwi99ycAcqGW1a1HZPkghjPfjNFSnmo14H 
 
-
-divider:  5684  >= obj_ni.amount_trdi:  307
-
-col_amounts:  [153, 153] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  153 , argmax(col_amounts):  0
-
-average_posincr:
-[['mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh' '2688' 'OpenLongPosition' '2688' '0']
- ['mwi99ycAcqGW1a1HZPkghjPfjNFSnmo14H' '5377' 'OpenShortPosition' '2689'
-  '0']]
 
 ------------------------------------------------------
 
@@ -2396,8 +2579,10 @@ Opened contrats:  2842  > Sum amounts traded:  307
 
 'iteration:  4 |addrs_trk:  mwi99ycAcqGW1a1HZPkghjPfjNFSnmo14H |status_trki:  ShortPosNettedPartly |amount_trdi:  307 |addrs_srci:  mh6cw9hm9dJuaVgziRj27pL3ED5Xuk2Tqy |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	-0.00835389207335
-New path for:  mh6cw9hm9dJuaVgziRj27pL3ED5Xuk2Tqy ??
+PNL d_amounts > 0:	-0.00835389207335 
+
+Looking for New Path for:  mh6cw9hm9dJuaVgziRj27pL3ED5Xuk2Tqy !!
+
 
 ------------------------------------------------------
 
@@ -2408,7 +2593,8 @@ Opened contrats:  2842  > Sum amounts traded:  204
 
 'iteration:  94 |addrs_trk:  mh6cw9hm9dJuaVgziRj27pL3ED5Xuk2Tqy |status_trki:  ShortPosNettedPartly |amount_trdi:  204 |addrs_srci:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ |status_srci:  LongPosNettedPartly 
 
-PNL d_amounts > 0:	-0.000533099075437
+PNL d_amounts > 0:	-0.000533099075437 
+
 
 ------------------------------------------------------
 
@@ -2419,8 +2605,10 @@ Opened contrats:  2842  > Sum amounts traded:  562
 
 'iteration:  122 |addrs_trk:  mh6cw9hm9dJuaVgziRj27pL3ED5Xuk2Tqy |status_trki:  ShortPosNettedPartly |amount_trdi:  358 |addrs_srci:  n3M4mPdV2Ffr4cDYGf3xvgVskhYitHeLw1 |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	-0.0037527462837
-New path for:  n3M4mPdV2Ffr4cDYGf3xvgVskhYitHeLw1 ??
+PNL d_amounts > 0:	-0.0037527462837 
+
+Looking for New Path for:  n3M4mPdV2Ffr4cDYGf3xvgVskhYitHeLw1 !!
+
 
 ------------------------------------------------------
 
@@ -2431,8 +2619,10 @@ Opened contrats:  2842  > Sum amounts traded:  1120
 
 'iteration:  123 |addrs_trk:  mh6cw9hm9dJuaVgziRj27pL3ED5Xuk2Tqy |status_trki:  ShortPosNettedPartly |amount_trdi:  558 |addrs_srci:  mxmDDe7VYcXcsaREqW5m9HA6xoA2yVaaJj |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	-0.00495048787401
-New path for:  mxmDDe7VYcXcsaREqW5m9HA6xoA2yVaaJj ??
+PNL d_amounts > 0:	-0.00495048787401 
+
+Looking for New Path for:  mxmDDe7VYcXcsaREqW5m9HA6xoA2yVaaJj !!
+
 
 ------------------------------------------------------
 
@@ -2443,17 +2633,10 @@ Opened contrats:  2842  > Sum amounts traded:  2050
 
 'iteration:  124 |addrs_trk:  mh6cw9hm9dJuaVgziRj27pL3ED5Xuk2Tqy |status_trki:  ShortPosNettedPartly |amount_trdi:  930 |addrs_srci:  msBEzn8FaySnzppHH2xDwmx9PFedcE7DPE |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	-0.00513947814695
-New path for:  msBEzn8FaySnzppHH2xDwmx9PFedcE7DPE ??
+PNL d_amounts > 0:	-0.00513947814695 
 
-divider:  5377  >= obj_ni.amount_trdi:  558
+Looking for New Path for:  msBEzn8FaySnzppHH2xDwmx9PFedcE7DPE !!
 
-col_amounts:  [278, 279] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  279 , argmax(col_amounts):  1
-
-average_posincr:
-[['mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh' '2410' 'OpenLongPosition' '2410' '0']
- ['mwi99ycAcqGW1a1HZPkghjPfjNFSnmo14H' '4819' 'OpenShortPosition' '2409'
-  '0']]
 
 ------------------------------------------------------
 
@@ -2464,8 +2647,10 @@ Opened contrats:  2842  > Sum amounts traded:  865
 
 'iteration:  16 |addrs_trk:  mwi99ycAcqGW1a1HZPkghjPfjNFSnmo14H |status_trki:  ShortPosNettedPartly |amount_trdi:  558 |addrs_srci:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	-0.0151839471561
-New path for:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj ??
+PNL d_amounts > 0:	-0.0151839471561 
+
+Looking for New Path for:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj !!
+
 idx_new:  [0, 4, 16, 19, 20, 122, 123, 124, 94]
 
 Path:
@@ -2850,8 +3035,19 @@ Opened contrats:  604  > Sum amounts traded:  133
 
 'iteration:  31 |addrs_trk:  mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b |status_trki:  LongPosNetted |amount_trdi:  133 |addrs_srci:  mmZzjvNtMsonkTjtQQpYjMkz2FtGEUJWaL |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	-0.00126823920377
-New path for:  mmZzjvNtMsonkTjtQQpYjMkz2FtGEUJWaL ??
+PNL d_amounts > 0:	-0.00126823920377 
+
+Looking for New Path for:  mmZzjvNtMsonkTjtQQpYjMkz2FtGEUJWaL !!
+
+
+divider:  2974  >= obj_ni.amount_trdi:  1347
+
+col_amounts:  [273, 1073] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  1073 , argmax(col_amounts):  1
+
+average_posincr:
+[['mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b' '1244' 'LongPosIncreased' '331' '0']
+ ['mmZzjvNtMsonkTjtQQpYjMkz2FtGEUJWaL' '1429' 'LongPosIncreased' '1296'
+  '32']]
 
 ------------------------------------------------------
 
@@ -2860,7 +3056,8 @@ Amounts!!!
 amount_trdi:  1347  | lives_trki:  1156  | lives_srci:  1452  | amount_trd_sum:  1347
 Opened contrats:  604  < Sum amounts traded:  1347 diff_r:  604 
 
-PNL d_amounts < 0:	-0.00139861160687
+PNL d_amounts < 0:	-0.00139861160687 
+
 amount_trdi 1347 lives_trki 1156 status_trki:  LongPosNettedPartly
 x_src:  105 y_trk 2503
 'iteration:  88 |addrs_trk:  mmZzjvNtMsonkTjtQQpYjMkz2FtGEUJWaL |status_trki:  LongPosNettedPartly |amount_trdi:  1347 |addrs_srci:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd |status_srci:  LongPosIncreased 
@@ -2873,7 +3070,8 @@ New row added:  ['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' 'LongPosIncreased' '1452'
  'mmZzjvNtMsonkTjtQQpYjMkz2FtGEUJWaL' 'LongPosNettedPartly' '1156' '743'
  '18743'] 
 
-New path for:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd ??
+Looking for New Path for:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b | Tracked:  mrvratb7w6qXuQ9EBu6xtLZUSPwcATTdoZ 
@@ -3244,7 +3442,7 @@ col_amounts:  [4, 5] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  5
 
 average_posincr:
 [['mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' '547' 'OpenLongPosition' '547' '0']
- ['mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' '1310' 'LongPosIncreased' '763' '4']]
+ ['mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' '1314' 'LongPosIncreased' '763' '4']]
 
 ------------------------------------------------------
 
@@ -3255,7 +3453,8 @@ Opened contrats:  551  > Sum amounts traded:  10
 
 'iteration:  83 |addrs_trk:  mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg |status_trki:  LongPosNettedPartly |amount_trdi:  10 |addrs_srci:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq |status_srci:  ShortPosNetted 
 
-PNL d_amounts > 0:	9.02064364192e-05
+PNL d_amounts > 0:	9.02064364192e-05 
+
 
 divider:  1310  >= obj_ni.amount_trdi:  1310
 
@@ -3263,7 +3462,7 @@ col_amounts:  [547, 763] , amount_trdi - sum(col_amounts):  0 , max(col_amounts)
 
 average_posincr:
 [['mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' '0' 'OpenLongPosition' '0' '0']
- ['mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' '0' 'LongPosIncreased' '0' '4']]
+ ['mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' '551' 'LongPosIncreased' '0' '4']]
 
 ------------------------------------------------------
 
@@ -3272,7 +3471,8 @@ Amounts!!!
 amount_trdi:  1310  | lives_trki:  0  | lives_srci:  1310  | amount_trd_sum:  1320
 Opened contrats:  551  < Sum amounts traded:  1320 diff_r:  541 
 
-PNL d_amounts < 0:	0.0118170431709
+PNL d_amounts < 0:	0.0118170431709 
+
 amount_trdi 1310 lives_trki 0 status_trki:  LongPosNetted
 x_src:  0 y_trk 1310
 'iteration:  84 |addrs_trk:  mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg |status_trki:  LongPosNetted |amount_trdi:  1310 |addrs_srci:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq |status_srci:  OpenLongPosition 
@@ -3284,20 +3484,12 @@ x_src:  0 y_trk 1310
 New row added:  ['mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq' 'OpenLongPosition' '1310'
  'mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' 'LongPosNetted' '0' '769' '18621'] 
 
-New path for:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq ??
+Looking for New Path for:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg | Tracked:  mieV1qqv4tq9r2RvaPNV85tazQZhnwtHp2 
 
-
-divider:  551  >= obj_ni.amount_trdi:  194
-
-col_amounts:  [0, 0, 194] , amount_trdi - sum(col_amounts):  0 , max(col_amounts):  194 , argmax(col_amounts):  2
-
-average_posincr:
-[['mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' '0' 'OpenLongPosition' '0' '0']
- ['mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' '0' 'LongPosIncreased' '0' '4']
- ['mieV1qqv4tq9r2RvaPNV85tazQZhnwtHp2' '357' 'OpenShortPosition' '357' '0']]
 
 ------------------------------------------------------
 
@@ -3308,8 +3500,10 @@ Opened contrats:  551  > Sum amounts traded:  194
 
 'iteration:  18 |addrs_trk:  mieV1qqv4tq9r2RvaPNV85tazQZhnwtHp2 |status_trki:  ShortPosNettedPartly |amount_trdi:  194 |addrs_srci:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	-0.00218500923598
-New path for:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 ??
+PNL d_amounts > 0:	-0.00218500923598 
+
+Looking for New Path for:  mnPVuyvNtXgcQhN4uJzjWqBbuu6jpGP6i9 !!
+
 idx_new:  [0, 18, 83, 84]
 
 Path:
@@ -3669,16 +3863,19 @@ Opened contrats:  2683  > Sum amounts traded:  2041
 
 'iteration:  60 |addrs_trk:  muyY4APo23Gze4MpNzxeF2sYRQA9kfv66Y |status_trki:  LongPosNettedPartly |amount_trdi:  2041 |addrs_srci:  mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	0.0464118995789
-New path for:  mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ ??
+PNL d_amounts > 0:	0.0464118995789 
 
-divider:  1674  < obj_ni.amount_trdi:  2636
+Looking for New Path for:  mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ !!
 
-col_amounts:  [1476, 198] , divider - sum(col_amounts):  0 , max(col_amounts):  1476 , argmax(col_amounts):  0
+
+divider:  4357  >= obj_ni.amount_trdi:  2636
+
+col_amounts:  [1623, 892, 119] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  1623 , argmax(col_amounts):  0
 
 average_posincr:
-[['mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ' '0' 'LongPosIncreased' '0' '61']
- ['mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ' '0' 'LongPosIncreased' '0' '66']]
+[['muyY4APo23Gze4MpNzxeF2sYRQA9kfv66Y' '1058' 'OpenLongPosition' '1058' '0']
+ ['mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ' '3668' 'LongPosIncreased' '584' '61']
+ ['mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ' '4639' 'LongPosIncreased' '79' '66']]
 
 ------------------------------------------------------
 
@@ -3689,8 +3886,10 @@ Opened contrats:  2683  > Sum amounts traded:  2636
 
 'iteration:  68 |addrs_trk:  mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ |status_trki:  LongPosNettedPartly |amount_trdi:  2636 |addrs_srci:  mmydU2ve9CiGnrHMezUTRxzh9SMHnZoQpx |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	0.062668956675
-New path for:  mmydU2ve9CiGnrHMezUTRxzh9SMHnZoQpx ??
+PNL d_amounts > 0:	0.062668956675 
+
+Looking for New Path for:  mmydU2ve9CiGnrHMezUTRxzh9SMHnZoQpx !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  muyY4APo23Gze4MpNzxeF2sYRQA9kfv66Y | Tracked:  mh6cw9hm9dJuaVgziRj27pL3ED5Xuk2Tqy 
@@ -4378,8 +4577,8 @@ divider:  2908  >= obj_ni.amount_trdi:  903
 col_amounts:  [389, 513] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  513 , argmax(col_amounts):  1
 
 average_posincr:
-[['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '865' 'LongPosIncreased' '865' '0']
- ['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '2005' 'LongPosIncreased' '1140' '4']]
+[['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '1128' 'LongPosIncreased' '865' '0']
+ ['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '2657' 'LongPosIncreased' '1140' '4']]
 
 ------------------------------------------------------
 
@@ -4390,16 +4589,18 @@ Opened contrats:  1254  > Sum amounts traded:  903
 
 'iteration:  31 |addrs_trk:  mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J |status_trki:  LongPosNettedPartly |amount_trdi:  903 |addrs_srci:  mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3 |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	0.0147038988447
-New path for:  mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3 ??
+PNL d_amounts > 0:	0.0147038988447 
+
+Looking for New Path for:  mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3 !!
+
 
 divider:  2005  >= obj_ni.amount_trdi:  9
 
 col_amounts:  [3, 5] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  5 , argmax(col_amounts):  1
 
 average_posincr:
-[['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '862' 'LongPosIncreased' '862' '0']
- ['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '1996' 'LongPosIncreased' '1134' '4']]
+[['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '1125' 'LongPosIncreased' '862' '0']
+ ['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '2651' 'LongPosIncreased' '1134' '4']]
 
 ------------------------------------------------------
 
@@ -4410,15 +4611,16 @@ Opened contrats:  1254  > Sum amounts traded:  912
 
 'iteration:  32 |addrs_trk:  mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J |status_trki:  LongPosNettedPartly |amount_trdi:  9 |addrs_srci:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri |status_srci:  ShortPosNetted 
 
-PNL d_amounts > 0:	0.000162618842346
+PNL d_amounts > 0:	0.000162618842346 
+
 
 divider:  1996  < obj_ni.amount_trdi:  2094
 
 col_amounts:  [862, 1134] , divider - sum(col_amounts):  0 , max(col_amounts):  1134 , argmax(col_amounts):  1
 
 average_posincr:
-[['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '0' 'LongPosIncreased' '0' '0']
- ['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '0' 'LongPosIncreased' '0' '4']]
+[['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '263' 'LongPosIncreased' '0' '0']
+ ['mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' '1517' 'LongPosIncreased' '0' '4']]
 
 ------------------------------------------------------
 
@@ -4427,7 +4629,8 @@ Amounts!!!
 amount_trdi:  2094  | lives_trki:  0  | lives_srci:  2094  | amount_trd_sum:  3006
 Opened contrats:  1254  < Sum amounts traded:  3006 diff_r:  342 
 
-PNL d_amounts < 0:	0.0378359839859
+PNL d_amounts < 0:	0.0378359839859 
+
 amount_trdi 2094 lives_trki 0 status_trki:  LongPosNetted
 x_src:  0 y_trk 2094
 'iteration:  33 |addrs_trk:  mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J |status_trki:  LongPosNetted |amount_trdi:  2094 |addrs_srci:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri |status_srci:  OpenLongPosition 
@@ -4439,7 +4642,8 @@ x_src:  0 y_trk 2094
 New row added:  ['n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri' 'OpenLongPosition' '2094'
  'mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J' 'LongPosNetted' '0' '1752' '20675'] 
 
-New path for:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri ??
+Looking for New Path for:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J | Tracked:  moSPmkoVw1pMjKnDw539yfQN4bwQhb8meU 
@@ -4775,14 +4979,14 @@ Length M_file:  106
 (Tracking Short Position)  Source:  mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg | Tracked:  n2dXi8PqhmkA92qC6BmBtBKaeRtEFFd3zD 
 
 
-divider:  2611  >= obj_ni.amount_trdi:  565
+divider:  1842  >= obj_ni.amount_trdi:  565
 
-col_amounts:  [166, 166, 232] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  232 , argmax(col_amounts):  2
+col_amounts:  [235, 329] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  329 , argmax(col_amounts):  1
 
 average_posincr:
-[['mydV3oN1xJ1ms5Es7wJum7tgmQ4gDAukMg' '603' 'LongPosIncreased' '603' '0']
- ['n2dXi8PqhmkA92qC6BmBtBKaeRtEFFd3zD' '1206' 'OpenShortPosition' '603' '0']
- ['n2dXi8PqhmkA92qC6BmBtBKaeRtEFFd3zD' '2046' 'ShortPosIncreased' '840' '1']]
+[['n2dXi8PqhmkA92qC6BmBtBKaeRtEFFd3zD' '-534' 'OpenShortPosition' '534' '0']
+ ['n2dXi8PqhmkA92qC6BmBtBKaeRtEFFd3zD' '-1512' 'ShortPosIncreased' '743'
+  '1']]
 
 ------------------------------------------------------
 
@@ -4793,8 +4997,10 @@ Opened contrats:  769  > Sum amounts traded:  565
 
 'iteration:  77 |addrs_trk:  n2dXi8PqhmkA92qC6BmBtBKaeRtEFFd3zD |status_trki:  ShortPosNetted |amount_trdi:  565 |addrs_srci:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	-0.00549734566911
-New path for:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr ??
+PNL d_amounts > 0:	-0.00549734566911 
+
+Looking for New Path for:  mjPEDtU7BKKdqQ5gNLLRCgVEM22Xyii1wr !!
+
 idx_new:  [0, 77]
 
 Path:
@@ -5441,8 +5647,10 @@ Opened contrats:  2148  > Sum amounts traded:  1179
 
 'iteration:  53 |addrs_trk:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq |status_trki:  LongPosNettedPartly |amount_trdi:  1179 |addrs_srci:  mpnLLmSPxZLQYy1BD4sN1egpGQPUg2zVu5 |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	-0.0194735185704
-New path for:  mpnLLmSPxZLQYy1BD4sN1egpGQPUg2zVu5 ??
+PNL d_amounts > 0:	-0.0194735185704 
+
+Looking for New Path for:  mpnLLmSPxZLQYy1BD4sN1egpGQPUg2zVu5 !!
+
 
 ------------------------------------------------------
 
@@ -5453,8 +5661,10 @@ Opened contrats:  2148  > Sum amounts traded:  1179
 
 'iteration:  73 |addrs_trk:  mpnLLmSPxZLQYy1BD4sN1egpGQPUg2zVu5 |status_trki:  LongPosNetted |amount_trdi:  1179 |addrs_srci:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	0.00690952586442
-New path for:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg ??
+PNL d_amounts > 0:	0.00690952586442 
+
+Looking for New Path for:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg !!
+
 
 ------------------------------------------------------
 
@@ -5465,7 +5675,8 @@ Opened contrats:  2148  = Sum amounts traded:  2148
 
 'iteration:  54  |addrs_trk:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq |status_trki:  LongPosNetted |amount_trdi:  969 |addrs_srci:  myascTK9DnCTmm71xhe6JRseZhmwqvXwEq |status_srci:  ShortPosNettedPartly 
 
-PNL d_amounts = 0:	-0.0153004078764
+PNL d_amounts = 0:	-0.0153004078764 
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq | Tracked:  n3xc5cqAoHG8EmdFEYHSnUt8QLn2Eq55cA 
@@ -6092,8 +6303,10 @@ Opened contrats:  524  = Sum amounts traded:  524
 
 'iteration:  87  |addrs_trk:  mgv4D5dEDS7xUou8MXb2WEWzmHt3B5WsuB |status_trki:  LongPosNetted |amount_trdi:  524 |addrs_srci:  n1EkZqamduwNEML6bPGScr7QP7wDzrYoZx |status_srci:  LongPosIncreased 
 
-PNL d_amounts = 0:	-0.00231253667478
-New path for:  n1EkZqamduwNEML6bPGScr7QP7wDzrYoZx ??
+PNL d_amounts = 0:	-0.00231253667478 
+
+Looking for New Path for:  n1EkZqamduwNEML6bPGScr7QP7wDzrYoZx !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mgv4D5dEDS7xUou8MXb2WEWzmHt3B5WsuB | Tracked:  mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD 
@@ -6404,8 +6617,10 @@ Opened contrats:  250  = Sum amounts traded:  250
 
 'iteration:  61  |addrs_trk:  mwZWFaQmhoA6oGozVDyfpsbRTfexGTnTpc |status_trki:  LongPosNetted |amount_trdi:  250 |addrs_srci:  mmmMCa1xw1tT6xTbPuTrVn5isKx7JvytWy |status_srci:  LongPosIncreased 
 
-PNL d_amounts = 0:	0.00213267244233
-New path for:  mmmMCa1xw1tT6xTbPuTrVn5isKx7JvytWy ??
+PNL d_amounts = 0:	0.00213267244233 
+
+Looking for New Path for:  mmmMCa1xw1tT6xTbPuTrVn5isKx7JvytWy !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mwZWFaQmhoA6oGozVDyfpsbRTfexGTnTpc | Tracked:  mtYUJtvkvRrH3fJnfx51kEqpLb8vz17iYD 
@@ -6997,14 +7212,6 @@ Length M_file:  93
 (Tracking Short Position)  Source:  n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd | Tracked:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg 
 
 
-divider:  1328  >= obj_ni.amount_trdi:  119
-
-col_amounts:  [59, 59] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  59 , argmax(col_amounts):  0
-
-average_posincr:
-[['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '604' 'LongPosIncreased' '604' '0']
- ['n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg' '1209' 'OpenShortPosition' '605' '0']]
-
 ------------------------------------------------------
 
 
@@ -7014,16 +7221,10 @@ Opened contrats:  664  > Sum amounts traded:  119
 
 'iteration:  53 |addrs_trk:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg |status_trki:  ShortPosNettedPartly |amount_trdi:  119 |addrs_srci:  mneQ9fJzF6HHVD4HJ4qcrG9NnYC5ndCcj5 |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	0.000655801876684
-New path for:  mneQ9fJzF6HHVD4HJ4qcrG9NnYC5ndCcj5 ??
+PNL d_amounts > 0:	0.000655801876684 
 
-divider:  1209  >= obj_ni.amount_trdi:  431
+Looking for New Path for:  mneQ9fJzF6HHVD4HJ4qcrG9NnYC5ndCcj5 !!
 
-col_amounts:  [215, 215] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  215 , argmax(col_amounts):  0
-
-average_posincr:
-[['n2ZwAoWYSY46oeRgDVLAUjpBDsn1Tut8gd' '388' 'LongPosIncreased' '388' '0']
- ['n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg' '778' 'OpenShortPosition' '390' '0']]
 
 ------------------------------------------------------
 
@@ -7034,8 +7235,10 @@ Opened contrats:  664  > Sum amounts traded:  550
 
 'iteration:  57 |addrs_trk:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg |status_trki:  ShortPosNetted |amount_trdi:  431 |addrs_srci:  mj1pD9SiXb6poF2x5zcZny3T4s6EjoMewc |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	0.00237521520043
-New path for:  mj1pD9SiXb6poF2x5zcZny3T4s6EjoMewc ??
+PNL d_amounts > 0:	0.00237521520043 
+
+Looking for New Path for:  mj1pD9SiXb6poF2x5zcZny3T4s6EjoMewc !!
+
 idx_new:  [0, 57, 53]
 
 Path:
@@ -7326,8 +7529,18 @@ Opened contrats:  176  = Sum amounts traded:  176
 
 'iteration:  9  |addrs_trk:  mpGxBDztyTDQeRxWwHpGk9ydi7mfvy4uML |status_trki:  LongPosNetted |amount_trdi:  176 |addrs_srci:  mmydU2ve9CiGnrHMezUTRxzh9SMHnZoQpx |status_srci:  OpenLongPosition 
 
-PNL d_amounts = 0:	-0.000704740098863
-New path for:  mmydU2ve9CiGnrHMezUTRxzh9SMHnZoQpx ??
+PNL d_amounts = 0:	-0.000704740098863 
+
+Looking for New Path for:  mmydU2ve9CiGnrHMezUTRxzh9SMHnZoQpx !!
+
+
+divider:  1465  >= obj_ni.amount_trdi:  711
+
+col_amounts:  [85, 625] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  625 , argmax(col_amounts):  1
+
+average_posincr:
+[['mpGxBDztyTDQeRxWwHpGk9ydi7mfvy4uML' '91' 'OpenLongPosition' '91' '0']
+ ['mmydU2ve9CiGnrHMezUTRxzh9SMHnZoQpx' '839' 'LongPosIncreased' '663' '10']]
 
 ------------------------------------------------------
 
@@ -7336,7 +7549,8 @@ Amounts!!!
 amount_trdi:  711  | lives_trki:  754  | lives_srci:  896  | amount_trd_sum:  711
 Opened contrats:  176  < Sum amounts traded:  711 diff_r:  176 
 
-PNL d_amounts < 0:	-0.00388904321521
+PNL d_amounts < 0:	-0.00388904321521 
+
 amount_trdi 711 lives_trki 754 status_trki:  LongPosNettedPartly
 x_src:  185 y_trk 1465
 'iteration:  25 |addrs_trk:  mmydU2ve9CiGnrHMezUTRxzh9SMHnZoQpx |status_trki:  LongPosNettedPartly |amount_trdi:  711 |addrs_srci:  mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA |status_srci:  LongPosIncreased 
@@ -7349,7 +7563,17 @@ New row added:  ['mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' 'LongPosIncreased' '896'
  'mmydU2ve9CiGnrHMezUTRxzh9SMHnZoQpx' 'LongPosNettedPartly' '754' '535'
  '17822'] 
 
-New path for:  mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA ??
+Looking for New Path for:  mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA !!
+
+
+divider:  2782  >= obj_ni.amount_trdi:  887
+
+col_amounts:  [56, 830] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  830 , argmax(col_amounts):  1
+
+average_posincr:
+[['mpGxBDztyTDQeRxWwHpGk9ydi7mfvy4uML' '120' 'OpenLongPosition' '120' '0']
+ ['mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' '2671' 'LongPosIncreased' '1775'
+  '30']]
 
 ------------------------------------------------------
 
@@ -7358,7 +7582,8 @@ Amounts!!!
 amount_trdi:  887  | lives_trki:  2223  | lives_srci:  887  | amount_trd_sum:  887
 Opened contrats:  176  < Sum amounts traded:  887 diff_r:  176 
 
-PNL d_amounts < 0:	0.00461652066389
+PNL d_amounts < 0:	0.00461652066389 
+
 amount_trdi 887 lives_trki 2223 status_trki:  LongPosNettedPartly
 x_src:  0 y_trk 3110
 'iteration:  31 |addrs_trk:  mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA |status_trki:  LongPosNettedPartly |amount_trdi:  887 |addrs_srci:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj |status_srci:  OpenLongPosition 
@@ -7371,19 +7596,12 @@ New row added:  ['mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj' 'OpenLongPosition' '887'
  'mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' 'LongPosNettedPartly' '2223' '711'
  '22009'] 
 
-New path for:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj ??
+Looking for New Path for:  mk5ot1MpdkC4MxxqWDWCC5eEPAt5swnzuj !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mpGxBDztyTDQeRxWwHpGk9ydi7mfvy4uML | Tracked:  mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT 
 
-
-divider:  352  < obj_ni.amount_trdi:  541
-
-col_amounts:  [176, 176] , divider - sum(col_amounts):  0 , max(col_amounts):  176 , argmax(col_amounts):  0
-
-average_posincr:
-[['mpGxBDztyTDQeRxWwHpGk9ydi7mfvy4uML' '0' 'OpenLongPosition' '0' '0']
- ['mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT' '0' 'OpenShortPosition' '0' '0']]
 
 ------------------------------------------------------
 
@@ -7392,7 +7610,8 @@ Amounts!!!
 amount_trdi:  541  | lives_trki:  609  | lives_srci:  3323  | amount_trd_sum:  541
 Opened contrats:  176  < Sum amounts traded:  541 diff_r:  176 
 
-PNL d_amounts < 0:	-2.6385582156e-05
+PNL d_amounts < 0:	-2.6385582156e-05 
+
 amount_trdi 541 lives_trki 609 status_trki:  LongPosNettedPartly
 x_src:  2782 y_trk 1150
 'iteration:  88 |addrs_trk:  mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT |status_trki:  LongPosNettedPartly |amount_trdi:  541 |addrs_srci:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri |status_srci:  LongPosIncreased 
@@ -7405,7 +7624,8 @@ New row added:  ['n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri' 'LongPosIncreased' '3323'
  'mtkvj6NtsioYXGe1wNCtZ2ZQsgobYrWjRT' 'LongPosNettedPartly' '609' '365'
  '19728'] 
 
-New path for:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri ??
+Looking for New Path for:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri !!
+
 idx_new:  [0, 9, 25, 88, 31]
 
 Path:
@@ -7684,8 +7904,10 @@ Opened contrats:  761  = Sum amounts traded:  761
 
 'iteration:  10  |addrs_trk:  mvv5JtuBpvLKeRJKpKDTMMNdFaCRWJz3AM |status_trki:  LongPosNetted |amount_trdi:  761 |addrs_srci:  mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n |status_srci:  LongPosIncreased 
 
-PNL d_amounts = 0:	0.0196140383318
-New path for:  mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n ??
+PNL d_amounts = 0:	0.0196140383318 
+
+Looking for New Path for:  mikRdJMkAbmZBeGwK2ibRkDQansFJ9VC2n !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mvv5JtuBpvLKeRJKpKDTMMNdFaCRWJz3AM | Tracked:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj 
@@ -8215,16 +8437,6 @@ Length M_file:  82
 (Tracking Short Position)  Source:  mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ | Tracked:  mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh 
 
 
-divider:  5306  >= obj_ni.amount_trdi:  491
-
-col_amounts:  [208, 73, 208] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  208 , argmax(col_amounts):  0
-
-average_posincr:
-[['mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ' '2046' 'LongPosIncreased' '2046' '0']
- ['mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ' '2767' 'LongPosIncreased' '721' '5']
- ['mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh' '4815' 'OpenShortPosition' '2048'
-  '0']]
-
 ------------------------------------------------------
 
 
@@ -8234,8 +8446,10 @@ Opened contrats:  2256  > Sum amounts traded:  491
 
 'iteration:  7 |addrs_trk:  mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh |status_trki:  ShortPosNettedPartly |amount_trdi:  491 |addrs_srci:  mgKsycSxuzvj1fBAyKkjxVL4t4RF2yJr85 |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	0.0126271409872
-New path for:  mgKsycSxuzvj1fBAyKkjxVL4t4RF2yJr85 ??
+PNL d_amounts > 0:	0.0126271409872 
+
+Looking for New Path for:  mgKsycSxuzvj1fBAyKkjxVL4t4RF2yJr85 !!
+
 
 ------------------------------------------------------
 
@@ -8246,18 +8460,10 @@ Opened contrats:  2256  > Sum amounts traded:  491
 
 'iteration:  9 |addrs_trk:  mgKsycSxuzvj1fBAyKkjxVL4t4RF2yJr85 |status_trki:  ShortPosNetted |amount_trdi:  491 |addrs_srci:  mvv5JtuBpvLKeRJKpKDTMMNdFaCRWJz3AM |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	0.012026221089
-New path for:  mvv5JtuBpvLKeRJKpKDTMMNdFaCRWJz3AM ??
+PNL d_amounts > 0:	0.012026221089 
 
-divider:  4815  >= obj_ni.amount_trdi:  1410
+Looking for New Path for:  mvv5JtuBpvLKeRJKpKDTMMNdFaCRWJz3AM !!
 
-col_amounts:  [599, 211, 599] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  599 , argmax(col_amounts):  0
-
-average_posincr:
-[['mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ' '1446' 'LongPosIncreased' '1446' '0']
- ['mizutr3xg1tE6amhnLLWbmVj3v8NBvJQfJ' '1956' 'LongPosIncreased' '510' '5']
- ['mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh' '3405' 'OpenShortPosition' '1449'
-  '0']]
 
 ------------------------------------------------------
 
@@ -8268,8 +8474,10 @@ Opened contrats:  2256  > Sum amounts traded:  1901
 
 'iteration:  78 |addrs_trk:  mp7XR99HggTe8PsD5kWHBVS4YtKmY13cBh |status_trki:  ShortPosNetted |amount_trdi:  1410 |addrs_srci:  msBEzn8FaySnzppHH2xDwmx9PFedcE7DPE |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	0.0284691278728
-New path for:  msBEzn8FaySnzppHH2xDwmx9PFedcE7DPE ??
+PNL d_amounts > 0:	0.0284691278728 
+
+Looking for New Path for:  msBEzn8FaySnzppHH2xDwmx9PFedcE7DPE !!
+
 idx_new:  [0, 9, 78, 7]
 
 Path:
@@ -8528,8 +8736,19 @@ Opened contrats:  348  = Sum amounts traded:  348
 
 'iteration:  17  |addrs_trk:  myascTK9DnCTmm71xhe6JRseZhmwqvXwEq |status_trki:  LongPosNetted |amount_trdi:  348 |addrs_srci:  n37URSj5zBRxtRMe4faobxXx2QDEctXNRG |status_srci:  OpenLongPosition 
 
-PNL d_amounts = 0:	0.00476490150444
-New path for:  n37URSj5zBRxtRMe4faobxXx2QDEctXNRG ??
+PNL d_amounts = 0:	0.00476490150444 
+
+Looking for New Path for:  n37URSj5zBRxtRMe4faobxXx2QDEctXNRG !!
+
+
+divider:  2667  >= obj_ni.amount_trdi:  585
+
+col_amounts:  [76, 508] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  508 , argmax(col_amounts):  1
+
+average_posincr:
+[['myascTK9DnCTmm71xhe6JRseZhmwqvXwEq' '272' 'OpenLongPosition' '272' '0']
+ ['n37URSj5zBRxtRMe4faobxXx2QDEctXNRG' '2158' 'LongPosIncreased' '1810'
+  '18']]
 
 ------------------------------------------------------
 
@@ -8538,7 +8757,8 @@ Amounts!!!
 amount_trdi:  585  | lives_trki:  0  | lives_srci:  585  | amount_trd_sum:  585
 Opened contrats:  348  < Sum amounts traded:  585 diff_r:  348 
 
-PNL d_amounts < 0:	0.00785255857639
+PNL d_amounts < 0:	0.00785255857639 
+
 amount_trdi 585 lives_trki 0 status_trki:  LongPosNetted
 x_src:  0 y_trk 585
 'iteration:  32 |addrs_trk:  n37URSj5zBRxtRMe4faobxXx2QDEctXNRG |status_trki:  LongPosNetted |amount_trdi:  585 |addrs_srci:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj |status_srci:  OpenLongPosition 
@@ -8550,7 +8770,8 @@ x_src:  0 y_trk 585
 New row added:  ['msGf2me59wKW1WmfVKQce46DkQpH2wYtzj' 'OpenLongPosition' '585'
  'n37URSj5zBRxtRMe4faobxXx2QDEctXNRG' 'LongPosNetted' '0' '237' '17835'] 
 
-New path for:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj ??
+Looking for New Path for:  msGf2me59wKW1WmfVKQce46DkQpH2wYtzj !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  myascTK9DnCTmm71xhe6JRseZhmwqvXwEq | Tracked:  mmmMCa1xw1tT6xTbPuTrVn5isKx7JvytWy 
@@ -9039,16 +9260,17 @@ Length M_file:  74
 (Tracking Short Position)  Source:  mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb | Tracked:  mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny 
 
 
-divider:  5227  >= obj_ni.amount_trdi:  148
+divider:  3502  >= obj_ni.amount_trdi:  148
 
-col_amounts:  [48, 48, 27, 22] , amount_trdi - sum(col_amounts):  3 , max(col_amounts):  48 , argmax(col_amounts):  0
+col_amounts:  [72, 41, 33] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  72 , argmax(col_amounts):  0
 
 average_posincr:
-[['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '1674' 'LongPosIncreased' '1674' '0']
- ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '3351' 'OpenShortPosition' '1677'
+[['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '-1651' 'OpenShortPosition' '1651'
   '0']
- ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '4307' 'ShortPosIncreased' '956' '1']
- ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '5079' 'ShortPosIncreased' '772' '2']]
+ ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '-2667' 'ShortPosIncreased' '942'
+  '1']
+ ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '-3469' 'ShortPosIncreased' '761'
+  '2']]
 
 ------------------------------------------------------
 
@@ -9059,19 +9281,22 @@ Opened contrats:  1725  > Sum amounts traded:  148
 
 'iteration:  31 |addrs_trk:  mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny |status_trki:  ShortPosNettedPartly |amount_trdi:  148 |addrs_srci:  mk2maGSPg9qa6BT8MKHxS2zPLVs3SarMhv |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	-0.000735671552781
-New path for:  mk2maGSPg9qa6BT8MKHxS2zPLVs3SarMhv ??
+PNL d_amounts > 0:	-0.000735671552781 
 
-divider:  5079  >= obj_ni.amount_trdi:  889
+Looking for New Path for:  mk2maGSPg9qa6BT8MKHxS2zPLVs3SarMhv !!
 
-col_amounts:  [293, 293, 167, 135] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  293 , argmax(col_amounts):  0
+
+divider:  3354  >= obj_ni.amount_trdi:  889
+
+col_amounts:  [437, 249, 201] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  437 , argmax(col_amounts):  0
 
 average_posincr:
-[['mnuXb5UGsmDhj4SDqmZoggeNKiFJ2gWXjb' '1380' 'LongPosIncreased' '1380' '0']
- ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '2764' 'OpenShortPosition' '1384'
+[['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '-1212' 'OpenShortPosition' '1212'
   '0']
- ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '3553' 'ShortPosIncreased' '789' '1']
- ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '4190' 'ShortPosIncreased' '637' '2']]
+ ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '-2418' 'ShortPosIncreased' '693'
+  '1']
+ ['mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny' '-3268' 'ShortPosIncreased' '560'
+  '2']]
 
 ------------------------------------------------------
 
@@ -9082,8 +9307,10 @@ Opened contrats:  1725  > Sum amounts traded:  1037
 
 'iteration:  51 |addrs_trk:  mtEYivdPNUL8fm7RLgTbZ7JMZFax8AfXny |status_trki:  ShortPosNettedPartly |amount_trdi:  889 |addrs_srci:  miYr54562idhnBS3mfetpB6FuFfJdBS976 |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	-0.00441900007042
-New path for:  miYr54562idhnBS3mfetpB6FuFfJdBS976 ??
+PNL d_amounts > 0:	-0.00441900007042 
+
+Looking for New Path for:  miYr54562idhnBS3mfetpB6FuFfJdBS976 !!
+
 idx_new:  [0, 51, 31]
 
 Path:
@@ -10422,14 +10649,6 @@ Length M_file:  66
 (Tracking Short Position)  Source:  mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP | Tracked:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri 
 
 
-divider:  654  >= obj_ni.amount_trdi:  165
-
-col_amounts:  [82, 82] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  82 , argmax(col_amounts):  0
-
-average_posincr:
-[['mkXDXSZ8GMCxyeyP6qWEbr5GEfyQTzogsP' '244' 'LongPosIncreased' '244' '0']
- ['n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri' '489' 'OpenShortPosition' '245' '0']]
-
 ------------------------------------------------------
 
 
@@ -10439,8 +10658,10 @@ Opened contrats:  327  > Sum amounts traded:  165
 
 'iteration:  5 |addrs_trk:  n2ThKDmh2rpGgHLRKLHRwRu9fyFuF5Cbri |status_trki:  ShortPosNettedPartly |amount_trdi:  165 |addrs_srci:  mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3 |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	0.00451366780077
-New path for:  mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3 ??
+PNL d_amounts > 0:	0.00451366780077 
+
+Looking for New Path for:  mjXDg7c4aSenrttH6C5BHbFR6Y6VwpcEk3 !!
+
 idx_new:  [0, 5]
 
 Path:
@@ -10860,7 +11081,7 @@ col_amounts:  [442, 1033] , amount_trdi - sum(col_amounts):  1 , max(col_amounts
 
 average_posincr:
 [['n17JYZ4oqA8LH2B7yTxThoBz3rgDh4Z3c5' '111' 'OpenLongPosition' '111' '0']
- ['n17JYZ4oqA8LH2B7yTxThoBz3rgDh4Z3c5' '367' 'LongPosIncreased' '256' '15']]
+ ['n17JYZ4oqA8LH2B7yTxThoBz3rgDh4Z3c5' '809' 'LongPosIncreased' '256' '15']]
 
 ------------------------------------------------------
 
@@ -10869,7 +11090,8 @@ Amounts!!!
 amount_trdi:  1476  | lives_trki:  367  | lives_srci:  4560  | amount_trd_sum:  1476
 Opened contrats:  553  < Sum amounts traded:  1476 diff_r:  553 
 
-PNL d_amounts < 0:	0.00830845157715
+PNL d_amounts < 0:	0.00830845157715 
+
 amount_trdi 1476 lives_trki 367 status_trki:  LongPosNettedPartly
 x_src:  3084 y_trk 1843
 'iteration:  22 |addrs_trk:  n17JYZ4oqA8LH2B7yTxThoBz3rgDh4Z3c5 |status_trki:  LongPosNettedPartly |amount_trdi:  1476 |addrs_srci:  mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ |status_srci:  LongPosIncreased 
@@ -10882,7 +11104,8 @@ New row added:  ['mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ' 'LongPosIncreased' '4560'
  'n17JYZ4oqA8LH2B7yTxThoBz3rgDh4Z3c5' 'LongPosNettedPartly' '367' '923'
  '17960'] 
 
-New path for:  mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ ??
+Looking for New Path for:  mosBbPjdnAznwPdD94QPSS6DqECpTWr9pQ !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  n17JYZ4oqA8LH2B7yTxThoBz3rgDh4Z3c5 | Tracked:  mrE3YCE3VbWwncTrZzrogwGLkwR49jjq1b 
@@ -11094,8 +11317,10 @@ Opened contrats:  2090  > Sum amounts traded:  527
 
 'iteration:  1 |addrs_trk:  mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw |status_trki:  LongPosNettedPartly |amount_trdi:  527 |addrs_srci:  mj8RZ9nmXBw5hcwih2ex2EmAUk8YHDgj7b |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	-0.00186614998416
-New path for:  mj8RZ9nmXBw5hcwih2ex2EmAUk8YHDgj7b ??
+PNL d_amounts > 0:	-0.00186614998416 
+
+Looking for New Path for:  mj8RZ9nmXBw5hcwih2ex2EmAUk8YHDgj7b !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mgE4oWnGwJXwChx2fWSVVES1fe7HraeMEw | Tracked:  mqsggFLsrJG9jwY4h9gPmrjvSFkaFqnmpX 
@@ -11489,9 +11714,9 @@ col_amounts:  [645, 189, 719, 139] , amount_trdi - sum(col_amounts):  2 , max(co
 
 average_posincr:
 [['n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' '822' 'OpenLongPosition' '822' '0']
- ['n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' '1064' 'LongPosIncreased' '242' '9']
- ['n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' '1977' 'LongPosIncreased' '913' '10']
- ['n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' '2154' 'LongPosIncreased' '177' '14']]
+ ['n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' '1709' 'LongPosIncreased' '242' '9']
+ ['n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' '2811' 'LongPosIncreased' '913' '10']
+ ['n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' '4276' 'LongPosIncreased' '177' '14']]
 
 ------------------------------------------------------
 
@@ -11500,7 +11725,8 @@ Amounts!!!
 amount_trdi:  1694  | lives_trki:  2079  | lives_srci:  1694  | amount_trd_sum:  1694
 Opened contrats:  1467  < Sum amounts traded:  1694 diff_r:  1467 
 
-PNL d_amounts < 0:	-0.0123641704728
+PNL d_amounts < 0:	-0.0123641704728 
+
 amount_trdi 1694 lives_trki 2079 status_trki:  LongPosNettedPartly
 x_src:  0 y_trk 3773
 'iteration:  24 |addrs_trk:  n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG |status_trki:  LongPosNettedPartly |amount_trdi:  1694 |addrs_srci:  mmmMCa1xw1tT6xTbPuTrVn5isKx7JvytWy |status_srci:  OpenLongPosition 
@@ -11513,7 +11739,8 @@ New row added:  ['mmmMCa1xw1tT6xTbPuTrVn5isKx7JvytWy' 'OpenLongPosition' '1694'
  'n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG' 'LongPosNettedPartly' '2079' '227'
  '18020'] 
 
-New path for:  mmmMCa1xw1tT6xTbPuTrVn5isKx7JvytWy ??
+Looking for New Path for:  mmmMCa1xw1tT6xTbPuTrVn5isKx7JvytWy !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  n4JKYj1bF8WSQREGgVLqqsMEBmUrEVgLRG | Tracked:  mq6JT3oNA6eH47mb4bfp3pRtfZEUa5vK3J 
@@ -11887,19 +12114,14 @@ Length M_file:  55
 (Tracking Short Position)  Source:  n37URSj5zBRxtRMe4faobxXx2QDEctXNRG | Tracked:  myascTK9DnCTmm71xhe6JRseZhmwqvXwEq 
 
 
-divider:  6793  >= obj_ni.amount_trdi:  102
+divider:  3362  >= obj_ni.amount_trdi:  102
 
-col_amounts:  [34, 1, 14, 34, 15] , amount_trdi - sum(col_amounts):  4 , max(col_amounts):  34 , argmax(col_amounts):  0
+col_amounts:  [70, 31] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  70 , argmax(col_amounts):  0
 
 average_posincr:
-[['n37URSj5zBRxtRMe4faobxXx2QDEctXNRG' '2281' 'LongPosIncreased' '2281' '0']
- ['n37URSj5zBRxtRMe4faobxXx2QDEctXNRG' '2412' 'ShortPosIncreased' '131'
-  '49']
- ['n37URSj5zBRxtRMe4faobxXx2QDEctXNRG' '3378' 'ShortPosIncreased' '966'
-  '50']
- ['myascTK9DnCTmm71xhe6JRseZhmwqvXwEq' '5663' 'OpenShortPosition' '2285'
+[['myascTK9DnCTmm71xhe6JRseZhmwqvXwEq' '-2248' 'OpenShortPosition' '2248'
   '0']
- ['myascTK9DnCTmm71xhe6JRseZhmwqvXwEq' '6691' 'ShortPosIncreased' '1028'
+ ['myascTK9DnCTmm71xhe6JRseZhmwqvXwEq' '-3331' 'ShortPosIncreased' '1012'
   '1']]
 
 ------------------------------------------------------
@@ -11911,17 +12133,23 @@ Opened contrats:  2319  > Sum amounts traded:  102
 
 'iteration:  16 |addrs_trk:  myascTK9DnCTmm71xhe6JRseZhmwqvXwEq |status_trki:  ShortPosNettedPartly |amount_trdi:  102 |addrs_srci:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq |status_srci:  OpenShortPosition 
 
-PNL d_amounts > 0:	-0.00139660906165
-New path for:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq ??
+PNL d_amounts > 0:	-0.00139660906165 
 
-divider:  547  < obj_ni.amount_trdi:  639
+Looking for New Path for:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq !!
 
-col_amounts:  [322, 198, 27] , divider - sum(col_amounts):  0 , max(col_amounts):  322 , argmax(col_amounts):  0
+
+divider:  2866  >= obj_ni.amount_trdi:  639
+
+col_amounts:  [517, 71, 44, 6] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  517 , argmax(col_amounts):  0
 
 average_posincr:
-[['mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq' '0' 'ShortPosIncreased' '0' '17']
- ['mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq' '0' 'ShortPosIncreased' '0' '18']
- ['mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq' '0' 'ShortPosIncreased' '0' '19']]
+[['myascTK9DnCTmm71xhe6JRseZhmwqvXwEq' '-1801' 'OpenShortPosition' '1801'
+  '0']
+ ['mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq' '-353' 'ShortPosIncreased' '251'
+  '17']
+ ['mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq' '-578' 'ShortPosIncreased' '154'
+  '18']
+ ['mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq' '-643' 'ShortPosIncreased' '21' '19']]
 
 ------------------------------------------------------
 
@@ -11932,8 +12160,10 @@ Opened contrats:  2319  > Sum amounts traded:  639
 
 'iteration:  26 |addrs_trk:  mkQLzJBkHoDRAgXTtfbCc9ogoqchjKqSaq |status_trki:  ShortPosNettedPartly |amount_trdi:  639 |addrs_srci:  mwZWFaQmhoA6oGozVDyfpsbRTfexGTnTpc |status_srci:  ShortPosIncreased 
 
-PNL d_amounts > 0:	0.00134039765148
-New path for:  mwZWFaQmhoA6oGozVDyfpsbRTfexGTnTpc ??
+PNL d_amounts > 0:	0.00134039765148 
+
+Looking for New Path for:  mwZWFaQmhoA6oGozVDyfpsbRTfexGTnTpc !!
+
 idx_new:  [0, 16, 26]
 
 Path:
@@ -12452,16 +12682,19 @@ Opened contrats:  2606  > Sum amounts traded:  2223
 
 'iteration:  1 |addrs_trk:  mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA |status_trki:  LongPosNetted |amount_trdi:  2223 |addrs_srci:  mm3ER5CTyzfghVo2beAmW8QGPU3ypwMH2N |status_srci:  OpenLongPosition 
 
-PNL d_amounts > 0:	0.0243042909304
-New path for:  mm3ER5CTyzfghVo2beAmW8QGPU3ypwMH2N ??
+PNL d_amounts > 0:	0.0243042909304 
 
-divider:  1196  >= obj_ni.amount_trdi:  639
+Looking for New Path for:  mm3ER5CTyzfghVo2beAmW8QGPU3ypwMH2N !!
 
-col_amounts:  [206, 432] , amount_trdi - sum(col_amounts):  1 , max(col_amounts):  432 , argmax(col_amounts):  1
+
+divider:  3802  >= obj_ni.amount_trdi:  639
+
+col_amounts:  [437, 64, 136] , amount_trdi - sum(col_amounts):  2 , max(col_amounts):  437 , argmax(col_amounts):  0
 
 average_posincr:
-[['mm3ER5CTyzfghVo2beAmW8QGPU3ypwMH2N' '180' 'LongPosIncreased' '180' '2']
- ['mm3ER5CTyzfghVo2beAmW8QGPU3ypwMH2N' '557' 'LongPosIncreased' '377' '12']]
+[['mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' '3063' 'LongPosIncreased' '2167' '0']
+ ['mm3ER5CTyzfghVo2beAmW8QGPU3ypwMH2N' '2545' 'LongPosIncreased' '322' '2']
+ ['mm3ER5CTyzfghVo2beAmW8QGPU3ypwMH2N' '3283' 'LongPosIncreased' '674' '12']]
 
 ------------------------------------------------------
 
@@ -12472,8 +12705,10 @@ Opened contrats:  2606  > Sum amounts traded:  639
 
 'iteration:  24 |addrs_trk:  mm3ER5CTyzfghVo2beAmW8QGPU3ypwMH2N |status_trki:  LongPosNettedPartly |amount_trdi:  639 |addrs_srci:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg |status_srci:  LongPosIncreased 
 
-PNL d_amounts > 0:	0.0052833245754
-New path for:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg ??
+PNL d_amounts > 0:	0.0052833245754 
+
+Looking for New Path for:  n3C7r5kfzsjsdPuZvU1638KU9DeEc6UVUg !!
+
 
 ------------------------------------------------------
 
@@ -12482,7 +12717,8 @@ Amounts!!!
 amount_trdi:  386  | lives_trki:  0  | lives_srci:  -1676  | amount_trd_sum:  2609
 Opened contrats:  2606  < Sum amounts traded:  2609 diff_r:  383 
 
-PNL d_amounts < 0:	0.0
+PNL d_amounts < 0:	0.0 
+
 amount_trdi 386 lives_trki 0 status_trki:  ShortPosNetted
 x_src:  -2062 y_trk -386
 'iteration:  7 |addrs_trk:  mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA |status_trki:  ShortPosNetted |amount_trdi:  386 |addrs_srci:  mmF8bma9npmauCYQ6ZyJbDyH5S7Y9BNrUQ |status_srci:  ShortPosIncreased 
@@ -12494,7 +12730,8 @@ x_src:  -2062 y_trk -386
 New row added:  ['mmF8bma9npmauCYQ6ZyJbDyH5S7Y9BNrUQ' 'ShortPosIncreased' '-1676'
  'mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA' 'ShortPosNetted' '0' '3' '17822'] 
 
-New path for:  mmF8bma9npmauCYQ6ZyJbDyH5S7Y9BNrUQ ??
+Looking for New Path for:  mmF8bma9npmauCYQ6ZyJbDyH5S7Y9BNrUQ !!
+
 *********************************************************************
 
 (Tracking Short Position)  Source:  mxG8Jbb3BUf6qbmybdXC3MFMyurTdVMcyA | Tracked:  mitfqzUqT1YFy3pAA61Bdh9t7T4vfhTqQY 

@@ -20,7 +20,7 @@ int main()
     file.open("graphInfoSixth.txt");  
     if ( file.is_open() ) {
         while ( !file.eof() ) {
-            file >> address1 >> status1 >> lives1 >> address2 >> status2 >> lives2 >> amount_trade;
+	  file >> address1 >> status1 >> lives1 >> address2 >> status2 >> lives2 >> amount_trade;
             ++numItems;
         }
     }

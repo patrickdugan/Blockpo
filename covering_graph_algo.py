@@ -23,12 +23,9 @@ with open('graphInfoSixth.txt') as file:
 print "Negative or Positive:"
 M_file = negative_for_short(M_file)
 
-bool_new_row = False
 Interval = xrange(1, len(M_file))
-
 path_complex_two_matrix = []
 
-q = 0
 for j in Interval:
 
 	idx_i = [0]
@@ -57,24 +54,18 @@ for j in Interval:
 	obj_short_trk = status_amounts_short_trk(M_filej)
 	bool_track_short = True if obj_short_trk.status_trk in globales.open_incr_short else False
 
-	idx_iter = 0
 	amount_trd_sum = 0
-	average_longincr = []
 
 	if bool_track_long:
 
 		print "(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"        
-		average_longincr.append([obj_long_trk.addrs_trk, obj_long_trk.lives_trk, obj_long_trk.status_trk, obj_long_trk.amount_trd, 0])
-
-		M_file, idx_i, path_complex_two_long = clearing_operator(M_file, obj_long_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two_long, idx_i, index_init, obj_long_trk.addrs_trk, obj_long_trk.amount_trd)
+		M_file, idx_i, path_complex_two_long = clearing_operator(M_file, obj_long_trk, amount_trd_sum, path_complex_two_long, idx_i, index_init, obj_long_trk.addrs_trk, obj_long_trk.amount_trd)
 
 	if bool_track_short:
 
 		print "*********************************************************************\n"
 		print "(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n"
-		average_longincr.append([obj_short_trk.addrs_trk, obj_short_trk.lives_trk, obj_short_trk.status_trk, obj_short_trk.amount_trd, 0])
-
-		M_file, idx_i, path_complex_two_shrt = clearing_operator(M_file, obj_short_trk, idx_iter, average_longincr, amount_trd_sum, path_complex_two_shrt, idx_i, index_init, obj_short_trk.addrs_trk, obj_long_trk.amount_trd)
+		M_file, idx_i, path_complex_two_shrt = clearing_operator(M_file, obj_short_trk, amount_trd_sum, path_complex_two_shrt, idx_i, index_init, obj_short_trk.addrs_trk, obj_long_trk.amount_trd)
 
 	print "idx_new: ", idx_i
 

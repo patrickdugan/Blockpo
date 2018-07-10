@@ -51,4 +51,6 @@ class Graph:
                     dist[node] = dist[i] + weight
  
         for i in self.v:
-            print ("%d" %dist[i]) if dist[i] != float("Inf") else  "Inf"
+            print "Shortest distance from\t'", s, "'\tto\t'", i, "': \t\t", ("%d" %dist[i]) if dist[i] != float("Inf") else  "Inf"
+
+        print "\n"
