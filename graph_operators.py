@@ -13,8 +13,8 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
     average_long_incr  = []
     average_short_incr = []
 
-    average_long_incr.append([obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, 0])
-    average_short_incr.append([obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, 0])
+    average_long_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, obj_trk.matched_price, 0])
+    average_short_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, obj_trk.matched_price, 0])
 
     for i in xrange(index_init+1, len(M_file)):                
 
@@ -25,11 +25,11 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
         if addrs_trk_arg in N_filei and obj_trk_inloop.status_trki == "LongPosIncreased":
 
-            average_long_incr  = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_long_incr, i)
+            average_long_incr, i  = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_long_incr, i)
         
         elif addrs_trk_arg in N_filei and obj_trk_inloop.status_trki == "ShortPosIncreased":
 
-            average_short_incr = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_short_incr, i)
+            average_short_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_short_incr, i)
 
         amount_trd_sum_new = 0
         PNL = 0
@@ -43,6 +43,13 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
             average_long_incr  = average_posincreased(average_long_incr,  obj_trk_inloop.amount_trdi)
             average_short_incr = average_posincreased(average_short_incr, obj_trk_inloop.amount_trdi)
+ 
+            print "\n"
+            for rows in average_short_incr:
+                print "HOLA!! average_short_incr: ", rows
+                path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.lives_srci, obj_trk_inloop.status_srci, rows[3], rows[4], rows[5], obj_trk_inloop.amount_trdi, 0, obj_trk_inloop.matched_pricei, PNL]
+                path_complex_ele_two = dict(zip(globales.key_path, path_complex_value_ele_two))
+                path_complex_two.append(path_complex_ele_two)
 
             amount_trd_sum_b = amount_trd_sum
             amount_trd_sum   = amount_trd_sum + obj_trk_inloop.amount_trdi
@@ -149,16 +156,16 @@ def average_posincreased(average_posincr, trade_amount):
             
         divider = 0
         for row in average_posincr:
-            divider += row[3]
+            divider += row[6]
                         
         residue = 0
         if divider >= trade_amount:
-            col_amounts = [int((float(row[3])/divider)*trade_amount) for row in average_posincr]
+            col_amounts = [int((float(row[6])/divider)*trade_amount) for row in average_posincr]
             residue = abs(trade_amount - np.sum(col_amounts))
             print "\ndivider: ", divider, " >= obj_ni.amount_trdi: ", trade_amount                           
             print '\ncol_amounts: ', col_amounts, ", amount_trdi - sum(col_amounts): ", trade_amount - np.sum(col_amounts), ", max(col_amounts): ", np.amax(col_amounts), ", argmax(col_amounts): ", np.argmax(col_amounts)
         else:
-            col_amounts = [row[3] for row in average_posincr]
+            col_amounts = [row[6] for row in average_posincr]
             residue = 0
             print "\ndivider: ", divider, " < obj_ni.amount_trdi: ", trade_amount                            
             print '\ncol_amounts: ', col_amounts, ", divider - sum(col_amounts): ", divider - np.sum(col_amounts), ", max(col_amounts): ", np.amax(col_amounts), ", argmax(col_amounts): ", np.argmax(col_amounts)
@@ -167,19 +174,17 @@ def average_posincreased(average_posincr, trade_amount):
         last_amount_trade = 0
 
         for row in average_posincr:
-            k += 1
-
-            row[3] = row[3]-(col_amounts[k-1]+residue) if k == np.argmax(col_amounts)+1 else row[3]-col_amounts[k-1]
             
-            amoun_row_one = abs(row[1])-(col_amounts[k-1]+residue)
-            amoun_row_two = abs(row[1])-col_amounts[k-1]
+            k += 1
+            amoun_row_one = row[6]-(col_amounts[k-1]+residue)
+            amoun_row_two = row[6]-col_amounts[k-1]
 
             if 'ShortPosIncreased' in str(average_posincr):
-                row[1] = -amoun_row_one if k == np.argmax(col_amounts)+1 else -amoun_row_two
+                row[4] = -amoun_row_one if k == np.argmax(col_amounts)+1 else -amoun_row_two
             else:
-                row[1] = amoun_row_one if k == np.argmax(col_amounts)+1 else amoun_row_two
+                row[4] =  amoun_row_one if k == np.argmax(col_amounts)+1 else  amoun_row_two
 
-            last_amount_trade += row[3]
+            last_amount_trade += row[6]
 
         print "\naverage_posincr:\n", np.array(average_posincr)
 
@@ -188,9 +193,9 @@ def average_posincreased(average_posincr, trade_amount):
 def vector_pos_incr(obj_trk, obj_trk_inloop, N_filei, average_incr, i):
 
     if obj_trk in N_filei and obj_trk_inloop.status_trki in globales.incr_positions:
-        average_incr.append([obj_trk_inloop.addrs_trki, obj_trk_inloop.lives_trki, obj_trk_inloop.status_trki, obj_trk_inloop.amount_trdi, i])
+        average_incr.append([obj_trk_inloop.addrs_srci, obj_trk_inloop.lives_srci, obj_trk_inloop.status_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.lives_trki, obj_trk_inloop.status_trki, obj_trk_inloop.amount_trdi, obj_trk_inloop.matched_pricei, i])
 
-    return average_incr
+    return average_incr, i
 
 def remove_duplicate_rows_json(path_complex_two, new_l):
 
@@ -213,3 +218,7 @@ def append_fromlist_tolist(path_complex_two_long, path_complex_two):
 def PNL_function(entry_price, exit_price, amount_closed):
 
     return amount_closed*(1/float(entry_price)-1/float(exit_price))
+
+def column(matrix, i):
+    
+    return [row[i] for row in matrix]

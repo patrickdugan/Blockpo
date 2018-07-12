@@ -20,8 +20,14 @@ setglobales.stuff()
 with open('graphInfoSixth.txt') as file:
 	M_file = [[int(digit) if digit.isdigit() else digit for digit in line.split()] for line in file]
 
-print "Negative or Positive:"
+print "Negative or Positive:\n"
 M_file = negative_for_short(M_file)
+
+C_file_l = column(M_file, 2)
+C_file_r = column(M_file, 5)
+
+print np.array(C_file_r)
+print np.array(C_file_l)
 
 Interval = xrange(1, len(M_file))
 path_complex_two_matrix = []

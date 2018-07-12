@@ -102,6 +102,8 @@ bool CMPTally::updateMoney(uint32_t propertyId, int64_t amount, TallyType ttype)
     bool fUpdated = false;
     int64_t now64 = mp_token[propertyId].balance[ttype];
 
+    
+    
     if (isOverflow(now64, amount)) {
         PrintToLog("%s(): ERROR: arithmetic overflow [%d + %d]\n", __func__, now64, amount);
         return false;
