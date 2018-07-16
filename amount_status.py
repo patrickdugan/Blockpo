@@ -29,6 +29,8 @@ class status_amounts:
 
         self.amount_trd = int(v[6])
         self.matched_price = int(v[7])
+        self.lives_src_updated = int(v[8]) 
+        self.lives_trk_updated = int(v[9])       
 
 class status_amounts_long_trk:
 
@@ -52,6 +54,8 @@ class status_amounts_long_trk:
 
         self.amount_trd = int(v[6])
         self.matched_price = int(v[7])
+        self.lives_src_updated = int(v[8]) 
+        self.lives_trk_updated = int(v[9])          
 
 class status_amounts_short_trk:
 
@@ -75,6 +79,8 @@ class status_amounts_short_trk:
 
         self.amount_trd = int(v[6])
         self.matched_price = int(v[7])
+        self.lives_src_updated = int(v[8]) 
+        self.lives_trk_updated = int(v[9])       
 
 class status_amounts_inloop:
 
@@ -97,39 +103,5 @@ class status_amounts_inloop:
 
         self.amount_trdi = int(v[6])
         self.matched_pricei = int(v[7])
-
-def negative_for_short(m):
-
-    for row in m:
-        if "Short" in str(row[1]):
-            row[2] = -row[2]
-            if "Short" in str(row[4]):
-                row[5] = -row[5]
-        elif "Short" in str(row[4]):
-            row[5] = - row[5]
-            if "Short" in str(row[1]):
-                row[2]=-row[2]
-    return m                
-
-def id_newrow(idx_k, idx_i):
-    
-    if len(idx_k) != 0:
-        for l in range(len(idx_k)):
-            idx_i.append(idx_k[l])
-
-    return idx_i
-
-def first_single_path(m):
-
-    bool_single_path = False
-    single_path = []
-    if len(m) == 1:
-
-        PNL_first = 0
-        single_path_value_begin = [m[0][0], int(m[0][2]), m[0][1], m[0][3], int(m[0][5]), m[0][4], int(m[0][6]), m[0][6], m[0][7], PNL_first]
-        single_path_begin = dict(zip(globales.key_path,single_path_value_begin))
-        single_path.append(single_path_begin)
-
-        bool_single_path = True
-
-    return bool_single_path, single_path
+        self.lives_src_updatedi = int(v[8]) 
+        self.lives_trk_updatedi = int(v[9])
