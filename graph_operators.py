@@ -4,6 +4,7 @@ import numpy as np
 import globales
 import setglobales
 from amount_status import*
+from collections import*
 
 globales.init()
 setglobales.stuff()
@@ -51,7 +52,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                 print "Checking traded_short_incr!!: ", trade_amount_incr
                 entry_price_increase = trade_amount_incr
                 path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr, 0]
-                path_complex_ele_two = dict(zip(globales.key_path, path_complex_value_ele_two))
+                path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
                 path_complex_two.append(path_complex_ele_two)
 
             amount_trd_sum_b = amount_trd_sum
@@ -69,7 +70,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                 print "'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trki,  "|amount_trdi: ", obj_trk_inloop.amount_trdi, "|addrs_srci: ", obj_trk_inloop.addrs_srci, "|status_srci: ",obj_trk_inloop.status_srci,"\n"
 
                 path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi, 0]
-                path_complex_ele_two = dict(zip(globales.key_path, path_complex_value_ele_two))
+                path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
                         
                 path_complex_two.append(path_complex_ele_two)
                 idx_i.append(i)
@@ -94,7 +95,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                 print "x_src: ", x_src, "y_trk", y_trk
 
                 path_complex_ele_value_thr = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi, 0]
-                path_complex_ele_thr = dict(zip(globales.key_path, path_complex_ele_value_thr))
+                path_complex_ele_thr = OrderedDict(zip(globales.key_path, path_complex_ele_value_thr))
 
                 path_complex_two.append(path_complex_ele_thr)
                 print "'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trki,  "|amount_trdi: ", obj_trk_inloop.amount_trdi, "|addrs_srci: ", obj_trk_inloop.addrs_srci, "|status_srci: ",obj_trk_inloop.status_srci,"\n"
@@ -126,7 +127,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                 print "PNL d_amounts = 0:\t", PNL, "\n"
 
                 path_complex_ele_value_one = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi, 0]
-                path_complex_ele_one = dict(zip(globales.key_path, path_complex_ele_value_one))                      
+                path_complex_ele_one = OrderedDict(zip(globales.key_path, path_complex_ele_value_one))                      
 
                 path_complex_two.append(path_complex_ele_one)
 
@@ -241,10 +242,9 @@ def first_single_path(m):
     single_path = []
 
     if len(m) == 1:
-    
-        ['addrs_src', 'addrs_trk', 'status_src', 'status_trk', 'entry_price', 'exit_price', 'amount_trd', 'opened_sett']
+        
         single_path_value_begin = [m[0][0], m[0][3], m[0][1], m[0][4], m[0][7], 0, m[0][6], m[0][6]]
-        single_path_begin = dict(zip(globales.key_path,single_path_value_begin))
+        single_path_begin = OrderedDict(zip(globales.key_path,single_path_value_begin))
         single_path.append(single_path_begin)
 
         bool_single_path = True

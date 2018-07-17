@@ -4,6 +4,7 @@ import sys
 import numpy as np
 from graph_operators import*
 import pandas as pd
+from collections import*
 
 import globales
 import setglobales
@@ -36,10 +37,9 @@ N_file = np.insert(N_file, 9, np.array(C_file_trk), 1)
 print "Two new columns for lives contracts to check those closed:\n\n", np.array(N_file)
 print "\n------------------------------------------------------\n"
 
-Interval = xrange(1, len(N_file))
 path_complex_two_matrix = []
 
-for j in Interval:
+for j in range(len(N_file)):
 
 	idx_i = [0]
 	print "N_file:\n\n", np.array(N_file), "\n\nLength N_file: ", len(N_file), "\n"
@@ -54,7 +54,7 @@ for j in Interval:
 
 	index_init = 0
 	N_filej = []
-	N_filej = N_file[:][index_init]
+	N_filej = N_file[:][j]
 
 	path_complex_two_long = []
 	path_complex_two_short = []
@@ -84,22 +84,22 @@ for j in Interval:
 
 	path_complex_two = []
 
-	single_path_value_long  = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.amount_trd, 0]
-	single_path_value_short = [obj_short_trk.addrs_src, obj_short_trk.addrs_trk, obj_short_trk.status_src, obj_short_trk.status_trk, obj_short_trk.matched_price, obj_short_trk.amount_trd, 0]
+	single_path_value_long  = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, 0, obj_long_trk.amount_trd, 0]
+	single_path_value_short = [obj_short_trk.addrs_src, obj_short_trk.addrs_trk, obj_short_trk.status_src, obj_short_trk.status_trk, obj_short_trk.matched_price, 0, obj_short_trk.amount_trd, 0]
 
 	if bool_track_long and bool_track_short:
 		
-		single_path_ele_long = dict(zip(globales.key_path, single_path_value_long))
+		single_path_ele_long = OrderedDict(zip(globales.key_path, single_path_value_long))
 		path_complex_two.append(single_path_ele_long)		
 
 	elif bool_track_long and not bool_track_short:
 		
-		single_path_ele_long = dict(zip(globales.key_path, single_path_value_long))
+		single_path_ele_long = OrderedDict(zip(globales.key_path, single_path_value_long))
 		path_complex_two.append(single_path_ele_long)
 
 	elif bool_track_short and not bool_track_long:
 		
-		single_path_ele_short = dict(zip(globales.key_path, single_path_value_short))
+		single_path_ele_short = OrderedDict(zip(globales.key_path, single_path_value_short))
 		path_complex_two.append(single_path_ele_short)
 
 	path_complex_two = append_fromlist_tolist(path_complex_two_long, path_complex_two)
@@ -107,7 +107,3 @@ for j in Interval:
 
 	print "\nPath:\n", np.array(path_complex_two), "\n"
 	path_complex_two_matrix.append(path_complex_two)
-
-	print "------------------------------------------------------"
-	print "\nRows deleted: ", idx_i
-	N_file = np.delete(N_file, idx_i, 0)
