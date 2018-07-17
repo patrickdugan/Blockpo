@@ -44,14 +44,14 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
             for trade_amount_incr in traded_short_incr:
                 print "Checking traded_short_incr!!: ", trade_amount_incr[0]
                 entry_price_increase = trade_amount_incr[1]
-                path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr[0], 0]
+                path_complex_value_ele_two = [trade_amount_incr[2], trade_amount_incr[3], obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr[0], 0]
                 path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
                 path_complex_two.append(path_complex_ele_two)
 
             for trade_amount_incr in traded_long_incr:
                 print "Checking traded_short_incr!!: ", trade_amount_incr[0]
                 entry_price_increase = trade_amount_incr[1]
-                path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr[0], 0]
+                path_complex_value_ele_two = [trade_amount_incr[2], trade_amount_incr[3], obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr[0], 0]
                 path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
                 path_complex_two.append(path_complex_ele_two)
 
@@ -169,11 +169,17 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
             print "\ndivider: ", divider, " < obj_ni.amount_trdi: ", trade_amount                            
             print '\ncol_amounts: ', col_amounts, ", divider - sum(col_amounts): ", divider - np.sum(col_amounts), ", max(col_amounts): ", np.amax(col_amounts), ", argmax(col_amounts): ", np.argmax(col_amounts)
 
+        column_prices = [int(row[7]) for row in average_posincr]
+        column_src = [row[0] for row in average_posincr]
+        column_trk = [row[3] for row in average_posincr]
         k = 0
         for j in range(len(average_posincr)):
             k += 1
             averaged_amount = col_amounts[k-1]+residue if k == np.argmax(col_amounts)+1 else col_amounts[k-1]
-            amounts_forthepath.append([averaged_amount, row[7]])            
+            prices_intheloop = column_prices[k-1]
+            src_intheloop = column_src[k-1] 
+            trk_intheloop = column_trk[k-1]
+            amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop])            
 
     return amounts_forthepath
 
