@@ -52,9 +52,10 @@ for j in range(len(N_file)):
 		print "Last Single path:\n", np.array(single_path_begin), "\n"
 		break
 
-	index_init = 0
-	N_filej = []
 	N_filej = N_file[:][j]
+
+	if N_filej[8] == 0 and N_filej[9] == 0:
+		continue
 
 	path_complex_two_long = []
 	path_complex_two_short = []
@@ -69,16 +70,16 @@ for j in range(len(N_file)):
 
 	amount_trd_sum = 0
 
-	if bool_track_long:
+	if bool_track_long and N_filej[8] != 0:
 
 		print "(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"        
-		N_file, idx_i, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, idx_i, index_init, obj_long_trk.addrs_trk, obj_long_trk.amount_trd)
+		N_file, idx_i, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, idx_i, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd)
 
-	if bool_track_short:
+	if bool_track_short and N_filej[9] != 0:
 
 		print "*********************************************************************\n"
 		print "(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n"
-		N_file, idx_i, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, index_init, obj_short_trk.addrs_trk, obj_long_trk.amount_trd)
+		N_file, idx_i, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd)
 
 	print "idx_new: ", idx_i
 
@@ -88,17 +89,21 @@ for j in range(len(N_file)):
 	single_path_value_short = [obj_short_trk.addrs_src, obj_short_trk.addrs_trk, obj_short_trk.status_src, obj_short_trk.status_trk, obj_short_trk.matched_price, 0, obj_short_trk.amount_trd, 0]
 
 	if bool_track_long and bool_track_short:
-		
+
+		N_file[:][j][8] = 0
+		N_file[:][j][9] = 0
 		single_path_ele_long = OrderedDict(zip(globales.key_path, single_path_value_long))
 		path_complex_two.append(single_path_ele_long)		
 
 	elif bool_track_long and not bool_track_short:
 		
+		N_file[:][j][8] = 0		
 		single_path_ele_long = OrderedDict(zip(globales.key_path, single_path_value_long))
 		path_complex_two.append(single_path_ele_long)
 
 	elif bool_track_short and not bool_track_long:
 		
+		N_file[:][j][9] = 0
 		single_path_ele_short = OrderedDict(zip(globales.key_path, single_path_value_short))
 		path_complex_two.append(single_path_ele_short)
 

@@ -19,30 +19,23 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
     for i in xrange(index_init+1, len(M_file)):                
 
-        N_filei = []
         N_filei = M_file[:][i]
 
         obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
 
-        if addrs_trk_arg in N_filei and obj_trk_inloop.status_trki == "LongPosIncreased":
-
-            average_long_incr, i  = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_long_incr, i) 
-
-        elif addrs_trk_arg in N_filei and obj_trk_inloop.status_trki == "ShortPosIncreased":
-
-            average_short_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_short_incr, i)
+        average_long_incr, average_short_incr, i, M_file = vector_incr_averages(addrs_trk_arg, N_filei, obj_trk_inloop, average_long_incr, average_short_incr, M_file, i)
 
         amount_trd_sum_new = 0
-        PNL = 0
 
         bool_netted_status_long  = True if obj_trk_inloop.status_trki in globales.netted_status_long  else False
         bool_netted_status_short = True if obj_trk_inloop.status_trki in globales.netted_status_short else False
 
         bool_netted_status = bool_netted_status_long or bool_netted_status_short
+        bool_lasttwo_cols = N_filei[8] != 0 or N_filei[9] != 0
 
         traded_long_incr  = []
         traded_short_incr = []
-        if addrs_trk_arg in N_filei and bool_netted_status:
+        if addrs_trk_arg in N_filei and bool_netted_status and bool_lasttwo_cols:
 
             traded_long_incr  = average_posincreased(average_long_incr,  obj_trk_inloop.amount_trdi, traded_long_incr)
             traded_short_incr = average_posincreased(average_short_incr, obj_trk_inloop.amount_trdi, traded_short_incr)
@@ -66,6 +59,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
             d_amounts = obj_trk.amount_trd - amount_trd_sum
             if d_amounts > 0:
 
+                M_file = update_lasttwo_columns(addrs_trk_arg, obj_trk_inloop, N_filei, M_file, i)                
                 print "Opened contrats: ", obj_trk.amount_trd, " > Sum amounts traded: ", amount_trd_sum, "\n"
                 print "'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trki,  "|amount_trdi: ", obj_trk_inloop.amount_trdi, "|addrs_srci: ", obj_trk_inloop.addrs_srci, "|status_srci: ",obj_trk_inloop.status_srci,"\n"
 
@@ -83,11 +77,9 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
             elif d_amounts < 0:
 
+                M_file = update_lasttwo_columns(addrs_trk_arg, obj_trk_inloop, N_filei, M_file, i)
                 diff_r = abs(obj_trk.amount_trd - amount_trd_sum_b)
                 print "Opened contrats: ", obj_trk.amount_trd, " < Sum amounts traded: ", amount_trd_sum, "diff_r: ", diff_r, "\n"
-
-                PNL = PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi)
-                print "PNL d_amounts < 0:\t", PNL, "\n"
 
                 print "amount_trdi", obj_trk_inloop.amount_trdi, "lives_trki", obj_trk_inloop.lives_trki, "status_trki: ", obj_trk_inloop.status_trki
                 x_src = abs(obj_trk_inloop.amount_trdi - obj_trk_inloop.lives_srci) if "Long" in str(obj_trk_inloop.status_srci) else -abs(obj_trk_inloop.amount_trdi - obj_trk_inloop.lives_srci)
@@ -120,11 +112,9 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     
             elif d_amounts == 0:
 
+                M_file = update_lasttwo_columns(addrs_trk_arg, obj_trk_inloop, N_filei, M_file, i)
                 print "Opened contrats: ", obj_trk.amount_trd, " = Sum amounts traded: ", amount_trd_sum, "\n"
                 print "'iteration: ", i, " |addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trki,  "|amount_trdi: ", obj_trk_inloop.amount_trdi, "|addrs_srci: ", obj_trk_inloop.addrs_srci, "|status_srci: ",obj_trk_inloop.status_srci,"\n"
-
-                PNL = PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi)
-                print "PNL d_amounts = 0:\t", PNL, "\n"
 
                 path_complex_ele_value_one = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, obj_trk.matched_price, obj_trk_inloop.matched_pricei, obj_trk_inloop.amount_trdi, 0]
                 path_complex_ele_one = OrderedDict(zip(globales.key_path, path_complex_ele_value_one))                      
@@ -250,3 +240,29 @@ def first_single_path(m):
         bool_single_path = True
 
     return bool_single_path, single_path
+
+def update_lasttwo_columns(addrs_trk_arg, obj_trk_inloop, N_filei, M_file, i):
+
+    if addrs_trk_arg in N_filei and obj_trk_inloop.status_trki in globales.netted_status_short:
+
+        M_file[:][i][8] = 0
+
+    elif addrs_trk_arg in N_filei and obj_trk_inloop.status_trki in  globales.netted_status_long:
+
+        M_file[:][i][9] = 0
+
+    return M_file
+
+def vector_incr_averages(addrs_trk_arg, N_filei, obj_trk_inloop, average_long_incr, average_short_incr, M_file, i):
+
+    if addrs_trk_arg in N_filei and obj_trk_inloop.status_trki == "LongPosIncreased":
+
+        M_file[:][i][8] = 0
+        average_long_incr, i  = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_long_incr, i) 
+
+    elif addrs_trk_arg in N_filei and obj_trk_inloop.status_trki == "ShortPosIncreased":
+
+        M_file[:][i][9] = 0
+        average_short_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_short_incr, i)
+
+    return average_long_incr, average_short_incr, i, M_file
