@@ -40,20 +40,11 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
             traded_long_incr  = average_posincreased(average_long_incr,  obj_trk_inloop.amount_trdi, traded_long_incr)
             traded_short_incr = average_posincreased(average_short_incr, obj_trk_inloop.amount_trdi, traded_short_incr)
  
-            print "\n"
-            for trade_amount_incr in traded_short_incr:
-                print "Checking traded_short_incr!!: ", trade_amount_incr[0]
-                entry_price_increase = trade_amount_incr[1]
-                path_complex_value_ele_two = [trade_amount_incr[2], trade_amount_incr[3], obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr[0], 0]
-                path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
-                path_complex_two.append(path_complex_ele_two)
+            if len(traded_short_incr) > 0:
+                path_complex_two = long_short_incr_path(traded_short_incr, obj_trk_inloop, path_complex_two)
 
-            for trade_amount_incr in traded_long_incr:
-                print "Checking traded_short_incr!!: ", trade_amount_incr[0]
-                entry_price_increase = trade_amount_incr[1]
-                path_complex_value_ele_two = [trade_amount_incr[2], trade_amount_incr[3], obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr[0], 0]
-                path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
-                path_complex_two.append(path_complex_ele_two)
+            if len(traded_long_incr) > 0:
+                path_complex_two = long_short_incr_path(traded_long_incr, obj_trk_inloop, path_complex_two)
 
             amount_trd_sum_b = amount_trd_sum
             amount_trd_sum   = amount_trd_sum + obj_trk_inloop.amount_trdi
@@ -172,6 +163,9 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
         column_prices = [int(row[7]) for row in average_posincr]
         column_src = [row[0] for row in average_posincr]
         column_trk = [row[3] for row in average_posincr]
+        status_src = [row[2] for row in average_posincr]        
+        status_trk = [row[5] for row in average_posincr]
+
         k = 0
         for j in range(len(average_posincr)):
             k += 1
@@ -179,7 +173,9 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
             prices_intheloop = column_prices[k-1]
             src_intheloop = column_src[k-1] 
             trk_intheloop = column_trk[k-1]
-            amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop])            
+            status_src_inloop = status_src[k-1]
+            status_trk_inloop = status_trk[k-1]
+            amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop, status_src_inloop, status_trk_inloop])            
 
     return amounts_forthepath
 
@@ -277,3 +273,14 @@ def vector_incr_averages(addrs_trk_arg, N_filei, obj_trk_inloop, average_long_in
         average_short_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_short_incr, i)
 
     return average_long_incr, average_short_incr, i, M_file
+
+def long_short_incr_path(traded_short_incr, obj_trk_inloop, path_complex_two):
+
+    for trade_amount_incr in traded_short_incr:
+        print "Checking traded_short_incr!!: ", trade_amount_incr[0]
+        entry_price_increase = trade_amount_incr[1]
+        path_complex_value_ele_two = [trade_amount_incr[2], trade_amount_incr[3], trade_amount_incr[4], trade_amount_incr[5], entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr[0], 0]
+        path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
+        path_complex_two.append(path_complex_ele_two)
+
+    return path_complex_two
