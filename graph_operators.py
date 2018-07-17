@@ -42,9 +42,11 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
  
             if len(traded_short_incr) > 0:
                 path_complex_two = long_short_incr_path(traded_short_incr, obj_trk_inloop, path_complex_two)
+                break
 
             if len(traded_long_incr) > 0:
                 path_complex_two = long_short_incr_path(traded_long_incr, obj_trk_inloop, path_complex_two)
+                break
 
             amount_trd_sum_b = amount_trd_sum
             amount_trd_sum   = amount_trd_sum + obj_trk_inloop.amount_trdi
