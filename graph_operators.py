@@ -42,9 +42,16 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
  
             print "\n"
             for trade_amount_incr in traded_short_incr:
-                print "Checking traded_short_incr!!: ", trade_amount_incr
-                entry_price_increase = trade_amount_incr
-                path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr, 0]
+                print "Checking traded_short_incr!!: ", trade_amount_incr[0]
+                entry_price_increase = trade_amount_incr[1]
+                path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr[0], 0]
+                path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
+                path_complex_two.append(path_complex_ele_two)
+
+            for trade_amount_incr in traded_long_incr:
+                print "Checking traded_short_incr!!: ", trade_amount_incr[0]
+                entry_price_increase = trade_amount_incr[1]
+                path_complex_value_ele_two = [obj_trk_inloop.addrs_srci, obj_trk_inloop.addrs_trki, obj_trk_inloop.status_srci, obj_trk_inloop.status_trki, entry_price_increase, obj_trk_inloop.matched_pricei, trade_amount_incr[0], 0]
                 path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
                 path_complex_two.append(path_complex_ele_two)
 
@@ -166,9 +173,7 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
         for j in range(len(average_posincr)):
             k += 1
             averaged_amount = col_amounts[k-1]+residue if k == np.argmax(col_amounts)+1 else col_amounts[k-1]
-            amounts_forthepath.append(averaged_amount)            
-
-        print "\naverage_posincr:\n", np.array(amounts_forthepath)
+            amounts_forthepath.append([averaged_amount, row[7]])            
 
     return amounts_forthepath
 
