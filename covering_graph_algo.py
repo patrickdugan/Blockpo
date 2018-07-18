@@ -85,26 +85,26 @@ for j in range(len(N_file)):
 
 	path_complex_two = []
 
-	single_path_value_long  = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, 0, obj_long_trk.amount_trd, 0]
-	single_path_value_short = [obj_short_trk.addrs_src, obj_short_trk.addrs_trk, obj_short_trk.status_src, obj_short_trk.status_trk, obj_short_trk.matched_price, 0, obj_short_trk.amount_trd, 0]
+	single_path_value_long  = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.amount_trd, 'Edge Source']
+	single_path_value_short = [obj_short_trk.addrs_src, obj_short_trk.addrs_trk, obj_short_trk.status_src, obj_short_trk.status_trk, obj_short_trk.matched_price, obj_short_trk.amount_trd, 'Edge Source']
 
 	if bool_track_long and bool_track_short:
 
 		N_file[:][j][8] = 0
 		N_file[:][j][9] = 0
-		single_path_ele_long = OrderedDict(zip(globales.key_path, single_path_value_long))
+		single_path_ele_long = OrderedDict(zip(globales.key_path_new, single_path_value_long))
 		path_complex_two.append(single_path_ele_long)		
 
 	elif bool_track_long and not bool_track_short:
 		
 		N_file[:][j][8] = 0		
-		single_path_ele_long = OrderedDict(zip(globales.key_path, single_path_value_long))
+		single_path_ele_long = OrderedDict(zip(globales.key_path_new, single_path_value_long))
 		path_complex_two.append(single_path_ele_long)
 
 	elif bool_track_short and not bool_track_long:
 		
 		N_file[:][j][9] = 0
-		single_path_ele_short = OrderedDict(zip(globales.key_path, single_path_value_short))
+		single_path_ele_short = OrderedDict(zip(globales.key_path_new, single_path_value_short))
 		path_complex_two.append(single_path_ele_short)
 
 	path_complex_two = append_fromlist_tolist(path_complex_two_long, path_complex_two)

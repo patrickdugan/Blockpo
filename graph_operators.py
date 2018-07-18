@@ -13,6 +13,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
     average_long_incr  = []
     average_short_incr = []
+    lives_vector = []
 
     average_long_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, obj_trk.matched_price, 0])
     average_short_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, obj_trk.matched_price, 0])
@@ -35,8 +36,10 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
         traded_long_incr  = []
         traded_short_incr = []
+
         if addrs_trk_arg in N_filei and bool_netted_status and bool_lasttwo_cols:
 
+            lives_vector.append(obj_trk_inloop.lives_trki)
             traded_long_incr  = average_posincreased(average_long_incr,  obj_trk_inloop.amount_trdi, traded_long_incr)
             traded_short_incr = average_posincreased(average_short_incr, obj_trk_inloop.amount_trdi, traded_short_incr)
  
@@ -128,17 +131,10 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     M_file, idx_i, path_complex_two = clearing_operator(M_file, obj_trk, amount_trd_sum_new, path_complex_two, idx_i, i, obj_trk_inloop.addrs_srci, obj_trk_inloop.amount_trdi)                    
 
                 break
-                                
-    total_amount_trade = 0
 
-    for j in range(len(path_complex_two)):                          
-        total_amount_trade += int(path_complex_two[j]['amount_trd'])
-
-    total_next_trades = abs(amount_trd_begining - total_amount_trade)
-    contracts_opened_sett = abs(amount_trd_begining - total_next_trades)
-
-    if total_next_trades < amount_trd_begining and total_next_trades != 0:
-        path_complex_two[0]['opened_sett']=contracts_opened_sett
+    last_lives_contracts = lives_vector[-1] if len(lives_vector) > 0 else 0
+    if last_lives_contracts!= 0:
+        path_complex_two[0]['opened_sett']=abs(last_lives_contracts)
 
     return M_file, list(set(idx_i)), path_complex_two
 
@@ -146,10 +142,20 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
 
     if len(average_posincr) > 1:
             
+        column_prices = []
+        column_src = []
+        column_trk = []
+        column_status_src = []
+        column_status_trk = []
         divider = 0
         for row in average_posincr:
             divider += row[6]
-                        
+            column_prices.append(int(row[7])) 
+            column_src.append(row[0])
+            column_trk.append(row[3]) 
+            column_status_src.append(row[2])
+            column_status_trk.append(row[5])
+
         residue = 0
         if divider >= trade_amount:
             col_amounts = [int((float(row[6])/divider)*trade_amount) for row in average_posincr]
@@ -161,13 +167,7 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
             residue = 0
             print "\ndivider: ", divider, " < obj_ni.amount_trdi: ", trade_amount                            
             print '\ncol_amounts: ', col_amounts, ", divider - sum(col_amounts): ", divider - np.sum(col_amounts), ", max(col_amounts): ", np.amax(col_amounts), ", argmax(col_amounts): ", np.argmax(col_amounts)
-
-        column_prices = [int(row[7]) for row in average_posincr]
-        column_src = [row[0] for row in average_posincr]
-        column_trk = [row[3] for row in average_posincr]
-        status_src = [row[2] for row in average_posincr]        
-        status_trk = [row[5] for row in average_posincr]
-
+ 
         k = 0
         for j in range(len(average_posincr)):
             k += 1
@@ -175,8 +175,8 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
             prices_intheloop = column_prices[k-1]
             src_intheloop = column_src[k-1] 
             trk_intheloop = column_trk[k-1]
-            status_src_inloop = status_src[k-1]
-            status_trk_inloop = status_trk[k-1]
+            status_src_inloop = column_status_src[k-1]
+            status_trk_inloop = column_status_trk[k-1]
             amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop, status_src_inloop, status_trk_inloop])            
 
     return amounts_forthepath
