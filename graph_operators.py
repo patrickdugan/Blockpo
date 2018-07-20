@@ -13,7 +13,6 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
     average_long_incr  = []
     average_short_incr = []
-    lives_vector = []
 
     average_long_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, obj_trk.matched_price, 0])
     average_short_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, obj_trk.matched_price, 0])
@@ -45,8 +44,6 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
         traded_short_incr = []
 
         if addrs_trk_arg in N_filei and bool_netted_status and bool_lasttwo_cols:
-
-            lives_vector.append(obj_trk_inloop.lives_trk)
         
             traded_long_incr  = average_posincreased(average_long_incr,  obj_trk_inloop.amount_trd, traded_long_incr)
         
@@ -152,10 +149,8 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
                 break
 
-    last_lives_contracts = lives_vector[-1] if len(lives_vector) > 0 else 0
-    print "last_lives_contracts for ", addrs_trk_arg, ":", last_lives_contracts
-    if last_lives_contracts!= 0:
-        path_complex_two[0]['opened_sett']=abs(last_lives_contracts)
+    if len(path_complex_two) != 0:
+        path_complex_two[0]['opened_sett']=abs(numberof_lives_contracts_byaddress)
 
     return M_file, list(set(idx_i)), path_complex_two
 
