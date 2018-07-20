@@ -268,7 +268,7 @@ N_file:
 [['n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3' 'OpenLongPosition' '1596' ...,
   '17995' '0' '0']
  ['mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk' 'OpenLongPosition' '582' ...,
-  '18007' '582' '0']
+  '18007' '582' '-2178']
  ['n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW' 'OpenLongPosition' '4391' ...,
   '18988' '4391' '-4391']
  ..., 
@@ -1885,7 +1885,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -1978,7 +1978,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -2161,7 +2161,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -2360,7 +2360,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -2629,7 +2629,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -2850,7 +2850,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -3020,7 +3020,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -3176,7 +3176,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -3398,7 +3398,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -3496,7 +3496,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -3725,7 +3725,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -4009,7 +4009,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -4462,7 +4462,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -4741,7 +4741,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -4848,7 +4848,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -4892,7 +4892,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -5002,7 +5002,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -5026,7 +5026,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -5069,7 +5069,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -5138,7 +5138,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -5206,7 +5206,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -5267,7 +5267,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -5416,7 +5416,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -5624,7 +5624,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
   '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -5813,9 +5813,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -5913,9 +5913,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6006,9 +6006,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6115,9 +6115,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6139,9 +6139,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6332,9 +6332,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6421,9 +6421,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6445,9 +6445,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6478,9 +6478,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6517,9 +6517,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6619,9 +6619,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6703,9 +6703,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6773,9 +6773,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6889,9 +6889,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -6981,9 +6981,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7109,9 +7109,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7194,9 +7194,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7273,9 +7273,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7334,9 +7334,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7545,9 +7545,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7569,9 +7569,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7649,9 +7649,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7691,9 +7691,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7738,9 +7738,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -7922,9 +7922,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8071,9 +8071,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8220,9 +8220,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8413,9 +8413,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8539,9 +8539,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8579,9 +8579,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8627,9 +8627,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8732,9 +8732,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8762,9 +8762,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8801,9 +8801,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8848,9 +8848,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8918,9 +8918,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -8999,9 +8999,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9144,9 +9144,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9231,9 +9231,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9272,9 +9272,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9337,9 +9337,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9414,9 +9414,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9483,9 +9483,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9557,9 +9557,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9590,9 +9590,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9628,9 +9628,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9700,9 +9700,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9807,9 +9807,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9831,9 +9831,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9878,9 +9878,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9902,9 +9902,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9932,9 +9932,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9956,9 +9956,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -9986,9 +9986,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10025,9 +10025,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10073,9 +10073,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10114,9 +10114,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10240,9 +10240,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10319,9 +10319,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10433,9 +10433,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10472,9 +10472,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10496,9 +10496,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10526,9 +10526,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10565,9 +10565,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10612,9 +10612,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10721,9 +10721,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10830,9 +10830,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10917,9 +10917,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -10983,9 +10983,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11007,9 +11007,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11040,9 +11040,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11079,9 +11079,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11165,9 +11165,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11245,9 +11245,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11319,9 +11319,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11392,9 +11392,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11625,9 +11625,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11702,9 +11702,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11833,9 +11833,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11857,9 +11857,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11881,9 +11881,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11905,9 +11905,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11935,9 +11935,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11974,9 +11974,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -11998,9 +11998,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12022,9 +12022,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12055,9 +12055,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12094,9 +12094,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12124,9 +12124,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12213,9 +12213,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12308,9 +12308,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12332,9 +12332,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12365,9 +12365,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12424,9 +12424,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12454,9 +12454,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12478,9 +12478,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12565,9 +12565,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12619,9 +12619,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12643,9 +12643,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12676,9 +12676,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12782,9 +12782,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12873,9 +12873,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12897,9 +12897,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12921,9 +12921,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12951,9 +12951,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -12990,9 +12990,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -13014,9 +13014,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -13044,9 +13044,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -13131,9 +13131,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -13224,9 +13224,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -13262,9 +13262,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -13286,9 +13286,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' 'LongPosNettedPartly' '1286' ...,
-  '18676' '0' '3235']
+  '18676' '1286' '3235']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -13366,7 +13366,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13420,7 +13420,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13444,7 +13444,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13474,7 +13474,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13498,7 +13498,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13528,7 +13528,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13552,7 +13552,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13576,7 +13576,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13606,7 +13606,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13636,7 +13636,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13675,7 +13675,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13714,7 +13714,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13753,7 +13753,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13786,7 +13786,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13825,7 +13825,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13855,7 +13855,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13894,7 +13894,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13927,7 +13927,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13960,7 +13960,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -13999,7 +13999,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14029,7 +14029,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14053,7 +14053,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14086,7 +14086,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14125,7 +14125,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14158,7 +14158,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14188,7 +14188,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14212,7 +14212,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14245,7 +14245,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14278,7 +14278,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14311,7 +14311,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14344,7 +14344,7 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
@@ -14383,9 +14383,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14416,9 +14416,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14455,9 +14455,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14494,9 +14494,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14527,9 +14527,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14560,9 +14560,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14599,9 +14599,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14632,9 +14632,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14671,9 +14671,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14710,9 +14710,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14743,9 +14743,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14782,9 +14782,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14821,9 +14821,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14860,9 +14860,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14893,9 +14893,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14932,9 +14932,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -14971,9 +14971,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15010,9 +15010,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15049,9 +15049,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15088,9 +15088,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15127,9 +15127,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15160,9 +15160,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15193,9 +15193,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15226,9 +15226,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15259,9 +15259,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15292,9 +15292,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15325,9 +15325,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15358,9 +15358,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15397,9 +15397,9 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
   '21275' '-3066' '2297']] 
 
@@ -15436,11 +15436,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15475,11 +15475,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15514,11 +15514,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15547,11 +15547,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15586,11 +15586,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15625,11 +15625,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15655,11 +15655,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15685,11 +15685,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15709,11 +15709,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15742,11 +15742,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15781,11 +15781,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15811,11 +15811,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15835,11 +15835,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15868,11 +15868,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15907,11 +15907,11 @@ N_file:
   '18988' '0' '0']
  ..., 
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
-  '15793' '-3036' '0']
+  '15793' '-3036' '-318']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15942,9 +15942,9 @@ N_file:
  ['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' 'ShortPosIncreased' '-3036' ...,
   '15793' '-3036' '0']
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
-  '18676' '0' '1286']
+  '18676' '3235' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
@@ -15974,7 +15974,7 @@ N_file:
  ['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' 'LongPosIncreased' '3235' ...,
   '18676' '0' '1286']
  ['mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS' 'ShortPosIncreased' '-3066' ...,
-  '21275' '-3066' '0']] 
+  '21275' '-3066' '2297']] 
 
 Length N_file:  225 
 
