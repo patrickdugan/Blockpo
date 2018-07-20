@@ -916,13 +916,13 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                             Status_b1  = "ShortPosNetted"; 
                             lives_maker1   = 0;
                             Status_s1  = "LongPosNettedPartly"; 
-                            lives_taker1   = possitive_sell - negative_buy;
-                            nCouldBuy1 = lives_taker1;
+                            lives_taker1 = possitive_sell - negative_buy;
+                            nCouldBuy1 = negative_buy;
 
                             Status_b2  = "OpenLongPosition"; 
-                            lives_maker2   = nCouldBuy - negative_buy;
+                            lives_maker2  = nCouldBuy - negative_buy;
                             Status_s2  = "LongPosNettedPartly"; 
-                            lives_taker2   = lives_taker1 - lives_maker2;
+                            lives_taker2  = lives_taker1 - lives_maker2;
                             nCouldBuy2 = lives_maker2;
 
                     } else if ( Status_taker == "LongPosNetted" ) {
@@ -1155,7 +1155,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                             lives_taker1   = 0;
                             Status_s1  = "LongPosNettedPartly"; 
                             lives_maker1   = possitive_sell - negative_buy;
-                            nCouldBuy1 = lives_taker1;
+                            nCouldBuy1 = negative_buy;
 
                             Status_b2  = "OpenLongPosition"; 
                             lives_taker2   = nCouldBuy - negative_buy;

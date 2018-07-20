@@ -77,11 +77,9 @@ for j in range(len(N_file)):
 
 	if bool_track_short and N_filej[9] != 0:
 
-		print "*********************************************************************\n"
+		print "\n*********************************************************************\n"
 		print "(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n"
 		N_file, idx_i, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd)
-
-	print "idx_new: ", idx_i
 
 	path_complex_two = []
 
