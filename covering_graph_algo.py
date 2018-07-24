@@ -21,8 +21,7 @@ setglobales.stuff()
 
 print "\n------------------------------------------------------\n"
 
-with open('graphInfoSixth.txt') as file:
-	M_file = [[int(digit) if digit.isdigit() else digit for digit in line.split()] for line in file]
+M_file = opening_filetxt("graphInfoSixth.txt")
 
 M_file = negative_for_short(M_file)
 

@@ -29,7 +29,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
         obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
 
-        average_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_incr, i, index_init)
+        average_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_incr, i, index_init, M_file)
 
         amount_trd_sum_new = 0
 
@@ -40,7 +40,9 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
         traded_position_incr  = []
 
         if addrs_trk_arg in N_filei and bool_netted_status and bool_lasttwo_cols:
-        
+    
+            print "average_incr: ", average_incr
+
             traded_position_incr  = average_posincreased(average_incr, obj_trk_inloop.amount_trd, traded_position_incr)
 
             if len(traded_position_incr) > 0:
@@ -262,12 +264,25 @@ def update_lasttwo_columns(addrs_trk_arg, obj_trk_inloop, N_filei, M_file, i):
 
     return M_file
 
-def vector_pos_incr(obj_trk, obj_trk_inloop, N_filei, average_incr, i, index_init):
+def vector_pos_incr(obj_trk, obj_trk_inloop, N_filei, average_incr, i, index_init, M_file):
 
     if obj_trk in N_filei and obj_trk_inloop.status_trk in globales.incr_positions:
         average_incr.append([obj_trk_inloop.addrs_src, obj_trk_inloop.lives_src, obj_trk_inloop.status_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.lives_trk, obj_trk_inloop.status_trk, obj_trk_inloop.amount_trd, obj_trk_inloop.matched_price, i])
 
     return average_incr, i
+
+def reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr):
+
+    M_file = opening_filetxt("graphInfoSixth.txt") 
+    for j in xrange(index_init, 0, -1):
+        M_filej = M_file[:][j-1]
+        obj_trk_inloop = status_amounts_open_incr_pos(M_filej, addrs_trk_arg)
+        if obj_trk_inloop.addrs_trk in M_filej:
+            row_path = [obj_trk_inloop.addrs_src, obj_trk_inloop.lives_src, obj_trk_inloop.status_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.lives_trk, obj_trk_inloop.status_trk, obj_trk_inloop.amount_trd, obj_trk_inloop.matched_price, j-1]
+            average_incr.insert(0, row_path)
+
+    print np.array(average_incr)
+    return average_incr
 
 def long_short_incr_path(traded_short_incr, obj_trk_inloop, path_complex_two):
 
@@ -303,17 +318,27 @@ def boolean_for_netted_status(obj_trk_inloop):
 
 def livecontracts_byaddress(addrs_trk_arg, numberof_lives_contracts_byaddress):
 
-    counting_lives = []
+    K_file = opening_filetxt("graphInfoSixth.txt")
 
-    with open('graphInfoFifth.txt') as file:
-        K_file = [[int(digit) if digit.isdigit() else digit for digit in line.split()] for line in file]
+    numberof_lives_contracts_byaddress = tracking_lastlive_byaddrs(K_file, addrs_trk_arg, numberof_lives_contracts_byaddress)
+
+    print "numberof_lives_contracts_byaddress: ", numberof_lives_contracts_byaddress
+
+    return numberof_lives_contracts_byaddress
+
+def tracking_lastlive_byaddrs(K_file, addrs_trk_arg, numberof_lives_contracts_byaddress):
 
     for j in range(len(K_file)):
         K_filej = K_file[:][j]
         obj_stillopened = status_for_contracts_stillopened(K_filej, addrs_trk_arg)
         if addrs_trk_arg in K_filej:
-            counting_lives.append(obj_stillopened.lives_trk)
-
-    numberof_lives_contracts_byaddress = counting_lives[-1]
+            numberof_lives_contracts_byaddress = obj_stillopened.lives_trk
 
     return numberof_lives_contracts_byaddress
+
+def opening_filetxt(namefile):
+
+    with open(namefile, "r") as file:
+        M_file = [[int(digit) if digit.isdigit() else digit for digit in line.split()] for line in file]
+
+    return M_file
