@@ -13,7 +13,6 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
     average_incr  = []
     average_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, obj_trk.matched_price, 0])
-    # average_incr = reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr)
 
     howmany_netted = 0
     numberof_lives_contracts_byaddress = 0
@@ -45,12 +44,16 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
             average_incr = reverseiterator_incr_pos(index_init, obj_trk_inloop.addrs_trk, average_incr)            
             print "\n\naverage_incr:\n", np.array(average_incr), "\n\nindex loop: ", i, "addrs increasing", obj_trk_inloop.addrs_trk
             traded_position_incr  = average_posincreased(average_incr, obj_trk_inloop.amount_trd, traded_position_incr)
+            print "len(traded_position_incr): ", len(traded_position_incr), ", opened contracts in the loop: ", obj_trk.amount_trd             
 
             if len(traded_position_incr) > 0:
+                print "\ntraded_position_incr:\n", np.array(traded_position_incr)
                 path_complex_two = long_short_incr_path(traded_position_incr, obj_trk_inloop, path_complex_two)
+                print "\npath_complex_two:\n", np.array(path_complex_two)
+                print "\n------------------------------------------------------\n"
                 if howmany_netted == 1:
                     print "\nhowmany_netted: ", howmany_netted
-                    break
+                continue
 
             amount_trd_sum_b = amount_trd_sum
             amount_trd_sum   = amount_trd_sum + obj_trk_inloop.amount_trd
