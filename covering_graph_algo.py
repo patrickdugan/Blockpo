@@ -71,37 +71,25 @@ for j in range(len(N_file)):
 
 	if ( bool_track_long and N_filej[8] != 0 ) and ( bool_track_short and N_filej[9] != 0 ):
 
-		print "(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"        
+		print "\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"
+                print "Row where were opened the contracts: ", j, "!!"
 		N_file, idx_i, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, idx_i, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0)
 
 		print "\n*********************************************************************\n"
 		print "(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n"
 		N_file, idx_i, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1)
 
+                N_file[:][j][8] = 0
+		N_file[:][j][9] = 0
+
+                print "\nFirst row update:\n", N_file[:][j]
+
 	path_complex_two = []
 
-	single_path_value_long  = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.amount_trd, 'Edge Source']
-	single_path_value_short = [obj_short_trk.addrs_src, obj_short_trk.addrs_trk, obj_short_trk.status_src, obj_short_trk.status_trk, obj_short_trk.matched_price, obj_short_trk.amount_trd, 'Edge Source']
+	single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.amount_trd, 'Edge Source']
+        single_path_value_ele = OrderedDict(zip(globales.key_path_new, single_path_value))
 
-	if bool_track_long and bool_track_short:
-
-		N_file[:][j][8] = 0
-		N_file[:][j][9] = 0
-		single_path_ele_long = OrderedDict(zip(globales.key_path_new, single_path_value_long))
-		path_complex_two.append(single_path_ele_long)		
-
-	elif bool_track_long and not bool_track_short:
-		
-		N_file[:][j][8] = 0		
-		single_path_ele_long = OrderedDict(zip(globales.key_path_new, single_path_value_long))
-		path_complex_two.append(single_path_ele_long)
-
-	elif bool_track_short and not bool_track_long:
-		
-		N_file[:][j][9] = 0
-		single_path_ele_short = OrderedDict(zip(globales.key_path_new, single_path_value_short))
-		path_complex_two.append(single_path_ele_short)
-
+	path_complex_two.append(single_path_value_ele)		
 	path_complex_two = append_fromlist_tolist(path_complex_two_long, path_complex_two)
 	path_complex_two = append_fromlist_tolist(path_complex_two_short, path_complex_two)
 
