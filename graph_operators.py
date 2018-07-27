@@ -17,7 +17,8 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
     howmany_netted = 0
     numberof_lives_contracts_byaddress = 0
 
-    howmany_netted, average_incr =  howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file, addrs_trk_arg, average_incr)
+    howmany_netted, average_incr =  howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file, addrs_trk_arg, index_long_short, average_incr)
+    print "HOLA!! average_incr: ", average_incr
     numberof_lives_contracts_byaddress = livecontracts_byaddress(addrs_trk_arg, index_init, obj_trk.amount_trd, numberof_lives_contracts_byaddress)
 
     print "\n------------------------------------------------------\n"
@@ -54,9 +55,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                 
                 balance_incr += obj_trk_inloop.amount_trd
                 diff_amount_incr = obj_trk.amount_trd - amount_trd_sum_b
-
-                print "HOLA!!", balance_incr, obj_trk.amount_trd
-
+                
                 if balance_incr <= obj_trk.amount_trd:
                     print "Netted event in the row: ", i, "!!"
                     M_file = update_lasttwo_columns(obj_trk_inloop, N_filei, M_file, i)
@@ -300,9 +299,11 @@ def update_lasttwo_columns(obj_trk_inloop, N_filei, M_file, i):
 
     return M_file
 
-def vector_pos_incr(obj_trk, obj_trk_inloop, N_filei, average_incr, i, index_init, M_file):
+def vector_pos_incr(addrs_trk, obj_trk_inloop, N_filei, average_incr, i, index_init, M_file, index_long_short):
 
-    if obj_trk in N_filei and obj_trk_inloop.status_trk in globales.incr_positions:
+    globales.incr_positions = globales.open_incr_long if index_long_short == 0 else globales.open_incr_short
+    
+    if addrs_trk in N_filei and obj_trk_inloop.status_trk in globales.incr_positions:
         average_incr.append([obj_trk_inloop.addrs_src, obj_trk_inloop.lives_src, obj_trk_inloop.status_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.lives_trk, obj_trk_inloop.status_trk, obj_trk_inloop.amount_trd, obj_trk_inloop.matched_price, i])
 
     return average_incr, i
@@ -329,21 +330,20 @@ def long_short_incr_path(traded_short_incr, obj_trk_inloop, path_complex_two):
 
     return path_complex_two
 
-def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file, addrs_trk_arg, average_incr):
+def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file, addrs_trk_arg, index_long_short, average_incr):
 
     for i in xrange(index_init+1, len(M_file)):
 
         N_filei = M_file[:][i]
         
         obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
-        average_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_incr, i, index_init, M_file)        
+        average_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_incr, i, index_init, M_file, index_long_short)        
         bool_netted_status = boolean_for_netted_status(obj_trk_inloop)
 
         if addrs_trk_arg in N_filei and bool_netted_status:
             howmany_netted += 1
 
     average_incr = reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr)            
-    #print "\n\nindex init: ", index_init, "addrs increasing: ", addrs_trk_arg
 
     return howmany_netted, average_incr
 
@@ -368,7 +368,7 @@ def tracking_lastlive_byaddrs(K_file, index_init, opened_init, addrs_trk_arg, nu
     for j in xrange(index_init+1, len(K_file)):
         K_filej = K_file[:][j]
         obj_stillopened = status_for_contracts_stillopened(K_filej, addrs_trk_arg)
-        if addrs_trk_arg in K_filej:
+        if addrs_trk_arg in K_filej and obj_stillopened.status_trk in globales.all_netted_status:
             counting += K_filej[6]
             if opened_init - counting >= 0:
                 print "\nTrade amount: ", K_filej[6], ", Sum amount trade: ", counting, ", Contracts opened: ", opened_init, ", Lives contracts: ", obj_stillopened.lives_trk

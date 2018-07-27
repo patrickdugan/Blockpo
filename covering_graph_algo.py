@@ -23,9 +23,23 @@ print "\n------------------------------------------------------\n"
 
 M_file = opening_filetxt("graphInfoSixth.txt")
 
+sum_for_opening = 0
+for row in M_file:
+	if row[1] in globales.open_incr_long_short and row[4] in globales.open_incr_long_short:
+	        sum_for_opening += row[6]
+
+sum_for_netting = 0
+for row in M_file:
+	if row[1] in globales.all_netted_status and row[4] in globales.all_netted_status:
+	        sum_for_netting += row[6]
+
+opened_atsett = sum_for_opening-sum_for_netting
+
+print "opened_atsett:", opened_atsett
+
 M_file = negative_for_short(M_file)
 
-print "Negative or Positive signs for Short or Longs respectively:\n\n", np.array(M_file)
+print "\n\nNegative or Positive signs for Short or Longs respectively:\n\n", np.array(M_file)
 print "\n------------------------------------------------------\n"
 
 Last_cols = [777 for row in M_file]
@@ -52,10 +66,7 @@ for j in range(len(N_file)):
 		break
 
 	N_filej = N_file[:][j]
-
-	if N_filej[8] == 0 and N_filej[9] == 0:
-		continue
-
+        
 	path_complex_two_long = []
 	path_complex_two_short = []
 
@@ -69,7 +80,7 @@ for j in range(len(N_file)):
 
 	amount_trd_sum = 0
 
-	if ( bool_track_long and N_filej[8] != 0 ) and ( bool_track_short and N_filej[9] != 0 ):
+	if bool_track_long and bool_track_short:
 
 		print "\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n"
                 print "Row where were opened the contracts: ", j, "!!"
@@ -84,14 +95,26 @@ for j in range(len(N_file)):
 
                 print "\nFirst row update:\n", N_file[:][j]
 
-	path_complex_two = []
+	path_complex_main = []
 
 	single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.amount_trd, 'Edge Source']
         single_path_value_ele = OrderedDict(zip(globales.key_path_new, single_path_value))
 
-	path_complex_two.append(single_path_value_ele)		
-	path_complex_two = append_fromlist_tolist(path_complex_two_long, path_complex_two)
-	path_complex_two = append_fromlist_tolist(path_complex_two_short, path_complex_two)
+	path_complex_main.append(single_path_value_ele)		
+	path_complex_main = append_fromlist_tolist(path_complex_two_long, path_complex_main)
+	path_complex_main = append_fromlist_tolist(path_complex_two_short, path_complex_main)
 
-	print "\nPath:\n", np.array(path_complex_two), "\n"
-	path_complex_two_matrix.append(path_complex_two)
+	print "\nPath:\n", np.array(path_complex_main), "\n"
+	path_complex_two_matrix.append(path_complex_main)
+
+sum_opened_sett = 0
+for row_out in path_complex_two_matrix:
+        for row_ins in row_out:
+                if 'Edge Source' not in str(row_ins) and row_ins['opened_sett'] !=0:
+                        sum_opened_sett += row_ins['opened_sett']
+
+print "sum_opened_sett: ", sum_opened_sett
+print "\nDifference looked for Zero Netted: ", abs(sum_opened_sett-opened_atsett)
+
+
+                        
