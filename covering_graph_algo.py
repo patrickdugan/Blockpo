@@ -23,18 +23,8 @@ print "\n------------------------------------------------------\n"
 
 M_file = opening_filetxt("graphInfoSixth.txt")
 
-sum_for_opening = 0
-for row in M_file:
-	if row[1] in globales.open_incr_long_short and row[4] in globales.open_incr_long_short:
-	        sum_for_opening += row[6]
-
-sum_for_netting = 0
-for row in M_file:
-	if row[1] in globales.all_netted_status and row[4] in globales.all_netted_status:
-	        sum_for_netting += row[6]
-
-opened_atsett = sum_for_opening-sum_for_netting
-
+opened_atsett = 0
+opened_atsett = difference_bet_openedandnetted(M_file, opened_atsett)
 print "opened_atsett:", opened_atsett
 
 M_file = negative_for_short(M_file)
@@ -108,10 +98,7 @@ for j in range(len(N_file)):
 	path_complex_two_matrix.append(path_complex_main)
 
 sum_opened_sett = 0
-for row_out in path_complex_two_matrix:
-        for row_ins in row_out:
-                if 'Edge Source' not in str(row_ins) and row_ins['opened_sett'] !=0:
-                        sum_opened_sett += row_ins['opened_sett']
+sum_opened_sett = suming_opened_contracts(path_complex_two_matrix, sum_opened_sett)
 
 print "sum_opened_sett: ", sum_opened_sett
 print "\nDifference looked for Zero Netted: ", abs(sum_opened_sett-opened_atsett)
