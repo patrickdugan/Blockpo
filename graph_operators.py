@@ -12,7 +12,7 @@ setglobales.stuff()
 def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, index_init, addrs_trk_arg, amount_trd_begining, index_long_short):
 
     average_incr  = []
-    average_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, obj_trk.matched_price, 0])
+    average_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk, obj_trk.lives_trk, obj_trk.status_trk, obj_trk.amount_trd, obj_trk.matched_price, index_init])
 
     howmany_netted = 0
     numberof_lives_contracts_byaddress = 0
@@ -289,9 +289,9 @@ def update_lasttwo_columns(obj_trk_inloop, N_filei, M_file, i):
 
 def vector_pos_incr(addrs_trk, obj_trk_inloop, N_filei, average_incr, i, index_init, M_file, index_long_short):
 
-    globales.incr_positions = globales.open_incr_long if index_long_short == 0 else globales.open_incr_short
-    
+    globales.incr_positions = globales.open_incr_long if index_long_short == 0 else globales.open_incr_short    
     if addrs_trk in N_filei and obj_trk_inloop.status_trk in globales.incr_positions:
+        print "Position increase in the row: ", i
         average_incr.append([obj_trk_inloop.addrs_src, obj_trk_inloop.lives_src, obj_trk_inloop.status_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.lives_trk, obj_trk_inloop.status_trk, obj_trk_inloop.amount_trd, obj_trk_inloop.matched_price, i])
 
     return average_incr, i
@@ -323,17 +323,17 @@ def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file
     for i in xrange(index_init+1, len(M_file)):
 
         N_filei = M_file[:][i]
-        
+
         obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
-        average_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, N_filei, average_incr, i, index_init, M_file, index_long_short)        
+        average_incr, i = vector_pos_incr(addrs_trk_arg, obj_trk_inloop, M_file[:][i-1], average_incr, i-1, index_init, M_file, index_long_short)        
         bool_netted_status = boolean_for_netted_status(obj_trk_inloop)
 
-        if addrs_trk_arg in N_filei and bool_netted_status:
-            print "HELLO!! i, index_init", i, index_init
-            howmany_netted += 1
+        if addrs_trk_arg in N_filei:
+            if bool_netted_status:
+                howmany_netted += 1
 
     average_incr = reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr)            
-
+    
     return howmany_netted, average_incr
 
 def boolean_for_netted_status(obj_trk_inloop):
