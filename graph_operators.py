@@ -66,7 +66,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     traded_position_incr  = average_posincreased(average_incr, amount_selected, traded_position_incr)
                     print "\nbalance_incr: ", balance_incr, "<= opened contracts: ", balance_increasing
                     print "\ntraded_position_incr:\n", np.array(traded_position_incr)
-                    path_complex_two = long_short_incr_path(traded_position_incr, obj_trk_inloop, path_complex_two)
+                    path_complex_two = long_short_incr_path(traded_position_incr, obj_trk_inloop, path_complex_two, index_init)
                     print "\npath_complex_two:\n", np.array(path_complex_two)
                     print "\n------------------------------------------------------\n"
 
@@ -308,9 +308,9 @@ def reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr):
 
     return average_incr
 
-def long_short_incr_path(traded_short_incr, obj_trk_inloop, path_complex_two):
+def long_short_incr_path(traded_pos_incr, obj_trk_inloop, path_complex_two, index_init):
 
-    for trade_amount_incr in traded_short_incr:
+    for trade_amount_incr in traded_pos_incr:
         entry_price_increase = trade_amount_incr[1]
         path_complex_value_ele_two = [trade_amount_incr[2], trade_amount_incr[3], trade_amount_incr[4], trade_amount_incr[5], entry_price_increase, obj_trk_inloop.matched_price, trade_amount_incr[0], 0]
         path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
@@ -329,6 +329,7 @@ def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file
         bool_netted_status = boolean_for_netted_status(obj_trk_inloop)
 
         if addrs_trk_arg in N_filei and bool_netted_status:
+            print "HELLO!! i, index_init", i, index_init
             howmany_netted += 1
 
     average_incr = reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr)            

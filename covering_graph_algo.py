@@ -49,8 +49,7 @@ for j in range(len(N_file)):
 	bool_N_file, single_path_begin = first_single_path(N_file)
 
 	if bool_N_file:        
-
-		print "###################################################################################\n"
+                print "###################################################################################\n"
 		print "Source: ", N_file[0][3], "; Tracked: ", N_file[0][0], "\n"
 		print "Last Single path:\n", np.array(single_path_begin), "\n"
 		break

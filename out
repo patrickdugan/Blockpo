@@ -73,6 +73,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk | Tracked:  n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3 
 
 Row where were opened the contracts:  0 !!
+HELLO!! i, index_init 125 0
+HELLO!! i, index_init 126 0
 
 Checking here average_incr:
 [['mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk' '-1596' 'OpenShortPosition'
@@ -109,6 +111,9 @@ OrderedDict([('addrs_src', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('addrs_trk', 
 
 Looking for New Path for:  mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo !!
 
+HELLO!! i, index_init 138 125
+HELLO!! i, index_init 139 125
+HELLO!! i, index_init 140 125
 
 Checking here average_incr:
 [['mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo' '805' 'OpenLongPosition'
@@ -281,6 +286,8 @@ Lives contracts for n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3 :	0
 
 (Tracking Short Position)  Source:  n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3 | Tracked:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk 
 
+HELLO!! i, index_init 171 0
+HELLO!! i, index_init 179 0
 
 Checking here average_incr:
 [['n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3' '1596' 'OpenLongPosition'
@@ -421,6 +428,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk | Tracked:  mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk 
 
 Row where were opened the contracts:  1 !!
+HELLO!! i, index_init 123 1
+HELLO!! i, index_init 124 1
 
 Checking here average_incr:
 [['mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk' '-2178' 'ShortPosIncreased'
@@ -557,6 +566,8 @@ Lives contracts for mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk :	2799
 
 (Tracking Short Position)  Source:  mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk | Tracked:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk 
 
+HELLO!! i, index_init 171 1
+HELLO!! i, index_init 179 1
 
 Checking here average_incr:
 [['n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3' '1596' 'OpenLongPosition'
@@ -697,6 +708,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG | Tracked:  n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW 
 
 Row where were opened the contracts:  2 !!
+HELLO!! i, index_init 55 2
 
 Checking here average_incr:
 [['mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG' '-4391' 'OpenShortPosition'
@@ -737,6 +749,9 @@ Lives contracts for n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW :	4023
 
 (Tracking Short Position)  Source:  n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW | Tracked:  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG 
 
+HELLO!! i, index_init 33 2
+HELLO!! i, index_init 215 2
+HELLO!! i, index_init 216 2
 
 Checking here average_incr:
 [['n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW' '4391' 'OpenLongPosition'
@@ -916,6 +931,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG | Tracked:  mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf 
 
 Row where were opened the contracts:  3 !!
+HELLO!! i, index_init 223 3
 
 Checking here average_incr:
 [['mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG' '-4508' 'ShortPosIncreased'
@@ -994,6 +1010,9 @@ Lives contracts for mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf :	1286
 
 (Tracking Short Position)  Source:  mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf | Tracked:  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG 
 
+HELLO!! i, index_init 33 3
+HELLO!! i, index_init 215 3
+HELLO!! i, index_init 216 3
 
 Checking here average_incr:
 [['n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW' '4391' 'OpenLongPosition'
@@ -1176,6 +1195,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo | Tracked:  miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y 
 
 Row where were opened the contracts:  4 !!
+HELLO!! i, index_init 80 4
 
 Checking here average_incr:
 [['mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo' '-756' 'OpenShortPosition'
@@ -1211,6 +1231,7 @@ OrderedDict([('addrs_src', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('addrs_trk', 
 
 Looking for New Path for:  mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4 !!
 
+HELLO!! i, index_init 156 80
 
 Checking here average_incr:
 [['mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4' '533' 'OpenLongPosition'
@@ -1291,6 +1312,7 @@ Lives contracts for miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y :	0
 
 (Tracking Short Position)  Source:  miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y | Tracked:  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo 
 
+HELLO!! i, index_init 201 4
 
 Checking here average_incr:
 [['miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y' '756' 'OpenLongPosition'
@@ -1384,6 +1406,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo | Tracked:  mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg 
 
 Row where were opened the contracts:  5 !!
+HELLO!! i, index_init 76 5
+HELLO!! i, index_init 77 5
 
 Checking here average_incr:
 [['mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo' '-2083' 'ShortPosIncreased'
@@ -1484,6 +1508,7 @@ Lives contracts for mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg :	0
 
 (Tracking Short Position)  Source:  mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg | Tracked:  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo 
 
+HELLO!! i, index_init 201 5
 
 Checking here average_incr:
 [['miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y' '756' 'OpenLongPosition'
@@ -1576,6 +1601,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA | Tracked:  mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h 
 
 Row where were opened the contracts:  6 !!
+HELLO!! i, index_init 119 6
+HELLO!! i, index_init 120 6
 
 Checking here average_incr:
 [['mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA' '-967' 'OpenShortPosition'
@@ -1692,6 +1719,8 @@ Lives contracts for mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h :	0
 
 (Tracking Short Position)  Source:  mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h | Tracked:  mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA 
 
+HELLO!! i, index_init 53 6
+HELLO!! i, index_init 154 6
 
 Checking here average_incr:
 [['mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h' '967' 'OpenLongPosition'
@@ -1728,6 +1757,8 @@ OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 
 
 Looking for New Path for:  mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr !!
 
+HELLO!! i, index_init 137 53
+HELLO!! i, index_init 138 53
 
 Checking here average_incr:
 [['mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr' '-821' 'OpenShortPosition'
@@ -1860,6 +1891,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mmhoD4AVt1PrbGZMfJJy43YUsjmjQqBeHp | Tracked:  n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN 
 
 Row where were opened the contracts:  7 !!
+HELLO!! i, index_init 133 7
 
 Checking here average_incr:
 [['mmhoD4AVt1PrbGZMfJJy43YUsjmjQqBeHp' '-274' 'OpenShortPosition'
@@ -1928,6 +1960,7 @@ Lives contracts for n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN :	0
 
 (Tracking Short Position)  Source:  n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN | Tracked:  mmhoD4AVt1PrbGZMfJJy43YUsjmjQqBeHp 
 
+HELLO!! i, index_init 96 7
 
 Checking here average_incr:
 [['n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN' '274' 'OpenLongPosition'
@@ -2001,6 +2034,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A | Tracked:  mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj 
 
 Row where were opened the contracts:  8 !!
+HELLO!! i, index_init 42 8
 
 Checking here average_incr:
 [['mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A' '-3005' 'OpenShortPosition'
@@ -2059,6 +2093,8 @@ Lives contracts for mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj :	2082
 
 (Tracking Short Position)  Source:  mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj | Tracked:  mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A 
 
+HELLO!! i, index_init 28 8
+HELLO!! i, index_init 29 8
 
 Checking here average_incr:
 [['mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj' '3005' 'OpenLongPosition'
@@ -2118,6 +2154,7 @@ OrderedDict([('addrs_src', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('addrs_trk', 
 
 Looking for New Path for:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH !!
 
+HELLO!! i, index_init 119 29
 
 Checking here average_incr:
 [['n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH' '648' 'OpenLongPosition'
@@ -2258,6 +2295,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV | Tracked:  mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj 
 
 Row where were opened the contracts:  9 !!
+HELLO!! i, index_init 42 9
 
 Checking here average_incr:
 [['mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj' '3005' 'OpenLongPosition'
@@ -2316,6 +2354,8 @@ Lives contracts for mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj :	2082
 
 (Tracking Short Position)  Source:  mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj | Tracked:  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV 
 
+HELLO!! i, index_init 168 9
+HELLO!! i, index_init 169 9
 
 Checking here average_incr:
 [['mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj' '3462' 'LongPosIncreased'
@@ -2450,6 +2490,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV | Tracked:  mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5 
 
 Row where were opened the contracts:  10 !!
+HELLO!! i, index_init 41 10
 
 Checking here average_incr:
 [['n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV' '-980' 'ShortPosIncreased'
@@ -2508,6 +2549,8 @@ Lives contracts for mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5 :	586
 
 (Tracking Short Position)  Source:  mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5 | Tracked:  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV 
 
+HELLO!! i, index_init 168 10
+HELLO!! i, index_init 169 10
 
 Checking here average_incr:
 [['mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj' '3462' 'LongPosIncreased'
@@ -2642,6 +2685,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW | Tracked:  n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo 
 
 Row where were opened the contracts:  11 !!
+HELLO!! i, index_init 66 11
+HELLO!! i, index_init 67 11
 
 Checking here average_incr:
 [['mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW' '-1973' 'OpenShortPosition'
@@ -2678,6 +2723,8 @@ OrderedDict([('addrs_src', 'mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8'), ('addrs_trk', 
 
 Looking for New Path for:  mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8 !!
 
+HELLO!! i, index_init 136 66
+HELLO!! i, index_init 137 66
 
 Checking here average_incr:
 [['mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8' '901' 'OpenLongPosition'
@@ -2828,6 +2875,9 @@ Lives contracts for n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo :	0
 
 (Tracking Short Position)  Source:  n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo | Tracked:  mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW 
 
+HELLO!! i, index_init 114 11
+HELLO!! i, index_init 219 11
+HELLO!! i, index_init 220 11
 
 Checking here average_incr:
 [['n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo' '1973' 'OpenLongPosition'
@@ -3018,6 +3068,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW | Tracked:  mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL 
 
 Row where were opened the contracts:  12 !!
+HELLO!! i, index_init 83 12
+HELLO!! i, index_init 151 12
 
 Checking here average_incr:
 [['mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW' '-2259' 'ShortPosIncreased'
@@ -3154,6 +3206,9 @@ Lives contracts for mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL :	0
 
 (Tracking Short Position)  Source:  mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL | Tracked:  mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW 
 
+HELLO!! i, index_init 114 12
+HELLO!! i, index_init 219 12
+HELLO!! i, index_init 220 12
 
 Checking here average_incr:
 [['n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo' '1973' 'OpenLongPosition'
@@ -3346,6 +3401,9 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK | Tracked:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH 
 
 Row where were opened the contracts:  13 !!
+HELLO!! i, index_init 27 13
+HELLO!! i, index_init 28 13
+HELLO!! i, index_init 119 13
 
 Checking here average_incr:
 [['n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK' '-648' 'OpenShortPosition'
@@ -3382,6 +3440,7 @@ OrderedDict([('addrs_src', 'mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5'), ('addrs_trk', 
 
 Looking for New Path for:  mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5 !!
 
+HELLO!! i, index_init 41 27
 
 Checking here average_incr:
 [['mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5' '523' 'OpenLongPosition'
@@ -3468,6 +3527,7 @@ Lives contracts for n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH :	0
 
 (Tracking Short Position)  Source:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH | Tracked:  n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK 
 
+HELLO!! i, index_init 91 13
 
 Checking here average_incr:
 [['n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH' '648' 'OpenLongPosition'
@@ -3503,6 +3563,7 @@ OrderedDict([('addrs_src', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('addrs_trk', 
 
 Looking for New Path for:  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs !!
 
+HELLO!! i, index_init 143 91
 
 Checking here average_incr:
 [['n2aqGQHubcYZgkQexfAypTk7KW8nytmFps' '1415' 'LongPosIncreased'
@@ -3610,6 +3671,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM | Tracked:  mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg 
 
 Row where were opened the contracts:  14 !!
+HELLO!! i, index_init 76 14
+HELLO!! i, index_init 77 14
 
 Checking here average_incr:
 [['mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg' '1327' 'OpenLongPosition'
@@ -3710,6 +3773,8 @@ Lives contracts for mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg :	0
 
 (Tracking Short Position)  Source:  mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg | Tracked:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM 
 
+HELLO!! i, index_init 120 14
+HELLO!! i, index_init 121 14
 
 Checking here average_incr:
 [['mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg' '1794' 'LongPosIncreased'
@@ -3846,6 +3911,9 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM | Tracked:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE 
 
 Row where were opened the contracts:  15 !!
+HELLO!! i, index_init 46 15
+HELLO!! i, index_init 47 15
+HELLO!! i, index_init 57 15
 
 Checking here average_incr:
 [['n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM' '-1009' 'ShortPosIncreased'
@@ -4017,6 +4085,8 @@ Lives contracts for mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE :	0
 
 (Tracking Short Position)  Source:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE | Tracked:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM 
 
+HELLO!! i, index_init 120 15
+HELLO!! i, index_init 121 15
 
 Checking here average_incr:
 [['mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg' '1794' 'LongPosIncreased'
@@ -4158,6 +4228,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz | Tracked:  mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy 
 
 Row where were opened the contracts:  16 !!
+HELLO!! i, index_init 116 16
+HELLO!! i, index_init 117 16
 
 Checking here average_incr:
 [['mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz' '-1851' 'OpenShortPosition'
@@ -4243,6 +4315,11 @@ Lives contracts for mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy :	0
 
 (Tracking Short Position)  Source:  mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy | Tracked:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz 
 
+HELLO!! i, index_init 79 16
+HELLO!! i, index_init 83 16
+HELLO!! i, index_init 84 16
+HELLO!! i, index_init 104 16
+HELLO!! i, index_init 105 16
 
 Checking here average_incr:
 [['mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy' '1851' 'OpenLongPosition'
@@ -4521,6 +4598,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz | Tracked:  n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz 
 
 Row where were opened the contracts:  17 !!
+HELLO!! i, index_init 26 17
 
 Checking here average_incr:
 [['mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz' '-3099' 'ShortPosIncreased'
@@ -4579,6 +4657,11 @@ Lives contracts for n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz :	655
 
 (Tracking Short Position)  Source:  n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz | Tracked:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz 
 
+HELLO!! i, index_init 79 17
+HELLO!! i, index_init 83 17
+HELLO!! i, index_init 84 17
+HELLO!! i, index_init 104 17
+HELLO!! i, index_init 105 17
 
 Checking here average_incr:
 [['mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy' '1851' 'OpenLongPosition'
@@ -4857,6 +4940,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 | Tracked:  mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL 
 
 Row where were opened the contracts:  18 !!
+HELLO!! i, index_init 146 18
 
 Checking here average_incr:
 [['mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4' '-1967' 'OpenShortPosition'
@@ -4897,6 +4981,11 @@ Lives contracts for mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL :	575
 
 (Tracking Short Position)  Source:  mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL | Tracked:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 
 
+HELLO!! i, index_init 130 18
+HELLO!! i, index_init 131 18
+HELLO!! i, index_init 133 18
+HELLO!! i, index_init 134 18
+HELLO!! i, index_init 222 18
 
 Checking here average_incr:
 [['mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL' '1967' 'OpenLongPosition'
@@ -5227,6 +5316,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 | Tracked:  mzCRtGxm3VzLS9rii5sUciHAR2WqSfuJVt 
 
 Row where were opened the contracts:  19 !!
+HELLO!! i, index_init 128 19
 
 Checking here average_incr:
 [['mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4' '-4481' 'ShortPosIncreased'
@@ -5261,6 +5351,7 @@ OrderedDict([('addrs_src', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('addrs_trk', 
 
 Looking for New Path for:  mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b !!
 
+HELLO!! i, index_init 145 128
 
 Checking here average_incr:
 [['mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b' '465' 'OpenLongPosition'
@@ -5332,6 +5423,11 @@ Lives contracts for mzCRtGxm3VzLS9rii5sUciHAR2WqSfuJVt :	2076
 
 (Tracking Short Position)  Source:  mzCRtGxm3VzLS9rii5sUciHAR2WqSfuJVt | Tracked:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 
 
+HELLO!! i, index_init 130 19
+HELLO!! i, index_init 131 19
+HELLO!! i, index_init 133 19
+HELLO!! i, index_init 134 19
+HELLO!! i, index_init 222 19
 
 Checking here average_incr:
 [['mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL' '1967' 'OpenLongPosition'
@@ -5665,6 +5761,10 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 | Tracked:  msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy 
 
 Row where were opened the contracts:  20 !!
+HELLO!! i, index_init 85 20
+HELLO!! i, index_init 86 20
+HELLO!! i, index_init 87 20
+HELLO!! i, index_init 88 20
 
 Checking here average_incr:
 [['mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4' '-4753' 'ShortPosIncreased'
@@ -5892,6 +5992,11 @@ Lives contracts for msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy :	0
 
 (Tracking Short Position)  Source:  msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy | Tracked:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 
 
+HELLO!! i, index_init 130 20
+HELLO!! i, index_init 131 20
+HELLO!! i, index_init 133 20
+HELLO!! i, index_init 134 20
+HELLO!! i, index_init 222 20
 
 Checking here average_incr:
 [['mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL' '1967' 'OpenLongPosition'
@@ -6233,6 +6338,9 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mvmN7CxduEb4Wdz2wv2gw74QakZahFhWia | Tracked:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE 
 
 Row where were opened the contracts:  21 !!
+HELLO!! i, index_init 46 21
+HELLO!! i, index_init 47 21
+HELLO!! i, index_init 57 21
 
 Checking here average_incr:
 [['mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE' '542' 'OpenLongPosition'
@@ -6404,6 +6512,7 @@ Lives contracts for mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE :	0
 
 (Tracking Short Position)  Source:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE | Tracked:  mvmN7CxduEb4Wdz2wv2gw74QakZahFhWia 
 
+HELLO!! i, index_init 164 21
 
 Checking here average_incr:
 [['mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE' '2496' 'LongPosIncreased'
@@ -6510,6 +6619,9 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q | Tracked:  mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv 
 
 Row where were opened the contracts:  22 !!
+HELLO!! i, index_init 96 22
+HELLO!! i, index_init 97 22
+HELLO!! i, index_init 98 22
 
 Checking here average_incr:
 [['mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q' '-945' 'OpenShortPosition'
@@ -6611,6 +6723,7 @@ OrderedDict([('addrs_src', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('addrs_trk', 
 
 Looking for New Path for:  mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b !!
 
+HELLO!! i, index_init 145 98
 
 Checking here average_incr:
 [['mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b' '465' 'OpenLongPosition'
@@ -6645,6 +6758,7 @@ OrderedDict([('addrs_src', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('addrs_trk', 
 
 Looking for New Path for:  mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf !!
 
+HELLO!! i, index_init 223 145
 
 Checking here average_incr:
 [['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' '117' 'OpenLongPosition'
@@ -6721,6 +6835,9 @@ Lives contracts for mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv :	0
 
 (Tracking Short Position)  Source:  mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv | Tracked:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q 
 
+HELLO!! i, index_init 39 22
+HELLO!! i, index_init 40 22
+HELLO!! i, index_init 51 22
 
 Checking here average_incr:
 [['mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv' '945' 'OpenLongPosition'
@@ -6906,6 +7023,9 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q | Tracked:  mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer 
 
 Row where were opened the contracts:  23 !!
+HELLO!! i, index_init 36 23
+HELLO!! i, index_init 37 23
+HELLO!! i, index_init 43 23
 
 Checking here average_incr:
 [['mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q' '-2137' 'ShortPosIncreased'
@@ -7054,6 +7174,9 @@ Lives contracts for mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer :	0
 
 (Tracking Short Position)  Source:  mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer | Tracked:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q 
 
+HELLO!! i, index_init 39 23
+HELLO!! i, index_init 40 23
+HELLO!! i, index_init 51 23
 
 Checking here average_incr:
 [['mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv' '945' 'OpenLongPosition'
@@ -7237,6 +7360,9 @@ Length N_file:  225
 (Tracking Long Position)  Source:  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z | Tracked:  mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN 
 
 Row where were opened the contracts:  24 !!
+HELLO!! i, index_init 113 24
+HELLO!! i, index_init 114 24
+HELLO!! i, index_init 115 24
 
 Checking here average_incr:
 [['msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z' '-3546' 'OpenShortPosition'
@@ -7275,6 +7401,8 @@ OrderedDict([('addrs_src', 'mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk'), ('addrs_trk', 
 
 Looking for New Path for:  mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk !!
 
+HELLO!! i, index_init 123 113
+HELLO!! i, index_init 124 113
 
 Checking here average_incr:
 [['mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk' '582' 'OpenLongPosition'
@@ -7461,6 +7589,8 @@ Lives contracts for mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN :	1249
 
 (Tracking Short Position)  Source:  mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN | Tracked:  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z 
 
+HELLO!! i, index_init 199 24
+HELLO!! i, index_init 200 24
 
 Checking here average_incr:
 [['mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN' '3546' 'OpenLongPosition'
@@ -7604,6 +7734,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z | Tracked:  mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi 
 
 Row where were opened the contracts:  25 !!
+HELLO!! i, index_init 141 25
+HELLO!! i, index_init 142 25
 
 Checking here average_incr:
 [['msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z' '-4064' 'ShortPosIncreased'
@@ -7758,6 +7890,8 @@ Lives contracts for mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi :	2609
 
 (Tracking Short Position)  Source:  mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi | Tracked:  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z 
 
+HELLO!! i, index_init 199 25
+HELLO!! i, index_init 200 25
 
 Checking here average_incr:
 [['mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN' '3546' 'OpenLongPosition'
@@ -7996,6 +8130,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH | Tracked:  mw7ji8ihjwC58Lmy4gGxtJ2nwnVNGC3CHa 
 
 Row where were opened the contracts:  30 !!
+HELLO!! i, index_init 213 30
 
 Checking here average_incr:
 [['n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH' '-2333' 'ShortPosIncreased'
@@ -8058,6 +8193,7 @@ Lives contracts for mw7ji8ihjwC58Lmy4gGxtJ2nwnVNGC3CHa :	868
 
 (Tracking Short Position)  Source:  mw7ji8ihjwC58Lmy4gGxtJ2nwnVNGC3CHa | Tracked:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH 
 
+HELLO!! i, index_init 119 30
 
 Checking here average_incr:
 [['n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH' '648' 'OpenLongPosition'
@@ -8180,6 +8316,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH | Tracked:  muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV 
 
 Row where were opened the contracts:  31 !!
+HELLO!! i, index_init 162 31
 
 Checking here average_incr:
 [['n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH' '-3302' 'ShortPosIncreased'
@@ -8240,6 +8377,7 @@ Lives contracts for muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV :	0
 
 (Tracking Short Position)  Source:  muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV | Tracked:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH 
 
+HELLO!! i, index_init 119 31
 
 Checking here average_incr:
 [['n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH' '648' 'OpenLongPosition'
@@ -8362,6 +8500,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH | Tracked:  muKche6ScPjP3SpApndqXc34NF22mPupA6 
 
 Row where were opened the contracts:  32 !!
+HELLO!! i, index_init 112 32
 
 Checking here average_incr:
 [['n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH' '-4436' 'ShortPosIncreased'
@@ -8420,6 +8559,7 @@ Lives contracts for muKche6ScPjP3SpApndqXc34NF22mPupA6 :	931
 
 (Tracking Short Position)  Source:  muKche6ScPjP3SpApndqXc34NF22mPupA6 | Tracked:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH 
 
+HELLO!! i, index_init 119 32
 
 Checking here average_incr:
 [['n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH' '648' 'OpenLongPosition'
@@ -8567,6 +8707,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n2aqGQHubcYZgkQexfAypTk7KW8nytmFps | Tracked:  mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii 
 
 Row where were opened the contracts:  34 !!
+HELLO!! i, index_init 129 34
+HELLO!! i, index_init 130 34
 
 Checking here average_incr:
 [['n2aqGQHubcYZgkQexfAypTk7KW8nytmFps' '-2579' 'ShortPosIncreased'
@@ -8737,6 +8879,8 @@ Lives contracts for mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii :	2272
 
 (Tracking Short Position)  Source:  mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii | Tracked:  n2aqGQHubcYZgkQexfAypTk7KW8nytmFps 
 
+HELLO!! i, index_init 73 34
+HELLO!! i, index_init 74 34
 
 Checking here average_incr:
 [['mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii' '408' 'OpenLongPosition'
@@ -8775,6 +8919,8 @@ New row added:  ['mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW' 'ShortPosIncreased' '-2930
 
 Looking for New Path for:  mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW !!
 
+HELLO!! i, index_init 148 73
+HELLO!! i, index_init 149 73
 
 Checking here average_incr:
 [['n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN' '1085' 'LongPosIncreased'
@@ -8924,6 +9070,10 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH | Tracked:  mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8 
 
 Row where were opened the contracts:  35 !!
+HELLO!! i, index_init 149 35
+HELLO!! i, index_init 150 35
+HELLO!! i, index_init 151 35
+HELLO!! i, index_init 152 35
 
 Checking here average_incr:
 [['n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH' '-2274' 'OpenShortPosition'
@@ -9114,6 +9264,9 @@ Lives contracts for mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8 :	832
 
 (Tracking Short Position)  Source:  mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8 | Tracked:  n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH 
 
+HELLO!! i, index_init 42 35
+HELLO!! i, index_init 176 35
+HELLO!! i, index_init 177 35
 
 Checking here average_incr:
 [['mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8' '2274' 'OpenLongPosition'
@@ -9330,6 +9483,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer | Tracked:  mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii 
 
 Row where were opened the contracts:  38 !!
+HELLO!! i, index_init 129 38
+HELLO!! i, index_init 130 38
 
 Checking here average_incr:
 [['mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii' '408' 'OpenLongPosition'
@@ -9500,6 +9655,7 @@ Lives contracts for mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii :	2272
 
 (Tracking Short Position)  Source:  mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii | Tracked:  mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer 
 
+HELLO!! i, index_init 43 38
 
 Checking here average_incr:
 [['mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer' '1192' 'OpenLongPosition'
@@ -9814,6 +9970,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mjZqA3zqzfzVGkc5dmDc5gjnHDkQbuDqdz | Tracked:  mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi 
 
 Row where were opened the contracts:  45 !!
+HELLO!! i, index_init 141 45
+HELLO!! i, index_init 142 45
 
 Checking here average_incr:
 [['mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi' '518' 'OpenLongPosition'
@@ -10072,6 +10230,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE | Tracked:  muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa 
 
 Row where were opened the contracts:  48 !!
+HELLO!! i, index_init 214 48
+HELLO!! i, index_init 215 48
 
 Checking here average_incr:
 [['muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa' '2391' 'OpenLongPosition'
@@ -10188,6 +10348,7 @@ Lives contracts for muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa :	549
 
 (Tracking Short Position)  Source:  muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa | Tracked:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE 
 
+HELLO!! i, index_init 57 48
 
 Checking here average_incr:
 [['mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE' '542' 'OpenLongPosition'
@@ -10314,6 +10475,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2 | Tracked:  mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4 
 
 Row where were opened the contracts:  49 !!
+HELLO!! i, index_init 156 49
 
 Checking here average_incr:
 [['mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2' '-533' 'OpenShortPosition'
@@ -10410,6 +10572,8 @@ Lives contracts for mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4 :	1808
 
 (Tracking Short Position)  Source:  mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4 | Tracked:  mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2 
 
+HELLO!! i, index_init 182 49
+HELLO!! i, index_init 183 49
 
 Checking here average_incr:
 [['mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4' '533' 'OpenLongPosition'
@@ -10553,6 +10717,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o | Tracked:  muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa 
 
 Row where were opened the contracts:  50 !!
+HELLO!! i, index_init 214 50
+HELLO!! i, index_init 215 50
 
 Checking here average_incr:
 [['muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa' '2391' 'OpenLongPosition'
@@ -10669,6 +10835,8 @@ Lives contracts for muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa :	549
 
 (Tracking Short Position)  Source:  muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa | Tracked:  mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o 
 
+HELLO!! i, index_init 115 50
+HELLO!! i, index_init 116 50
 
 Checking here average_incr:
 [['muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa' '3001' 'LongPosIncreased'
@@ -10876,6 +11044,8 @@ Lives contracts for mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q :	0
 
 (Tracking Short Position)  Source:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q | Tracked:  mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o 
 
+HELLO!! i, index_init 115 52
+HELLO!! i, index_init 116 52
 
 Checking here average_incr:
 [['muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa' '3001' 'LongPosIncreased'
@@ -11018,6 +11188,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mfsBw2T3yqvVfHaseLnuza4ADk4aGZDxSn | Tracked:  mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk 
 
 Row where were opened the contracts:  54 !!
+HELLO!! i, index_init 123 54
+HELLO!! i, index_init 124 54
 
 Checking here average_incr:
 [['mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk' '582' 'OpenLongPosition'
@@ -11154,6 +11326,7 @@ Lives contracts for mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk :	2799
 
 (Tracking Short Position)  Source:  mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk | Tracked:  mfsBw2T3yqvVfHaseLnuza4ADk4aGZDxSn 
 
+HELLO!! i, index_init 175 54
 
 Checking here average_incr:
 [['mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk' '2429' 'LongPosIncreased'
@@ -11280,6 +11453,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota | Tracked:  mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf 
 
 Row where were opened the contracts:  56 !!
+HELLO!! i, index_init 64 56
 
 Checking here average_incr:
 [['mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota' '-206' 'OpenShortPosition'
@@ -11315,6 +11489,7 @@ OrderedDict([('addrs_src', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('addrs_trk', 
 
 Looking for New Path for:  mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4 !!
 
+HELLO!! i, index_init 156 64
 
 Checking here average_incr:
 [['mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4' '533' 'OpenLongPosition'
@@ -11376,6 +11551,7 @@ Lives contracts for mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf :	0
 
 (Tracking Short Position)  Source:  mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf | Tracked:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota 
 
+HELLO!! i, index_init 102 56
 
 Checking here average_incr:
 [['mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf' '206' 'OpenLongPosition'
@@ -11542,6 +11718,7 @@ Lives contracts for mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE :	0
 
 (Tracking Short Position)  Source:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE | Tracked:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota 
 
+HELLO!! i, index_init 102 58
 
 Checking here average_incr:
 [['mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf' '206' 'OpenLongPosition'
@@ -11641,6 +11818,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota | Tracked:  mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8 
 
 Row where were opened the contracts:  59 !!
+HELLO!! i, index_init 136 59
+HELLO!! i, index_init 137 59
 
 Checking here average_incr:
 [['mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota' '-3132' 'ShortPosIncreased'
@@ -11741,6 +11920,7 @@ Lives contracts for mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8 :	1578
 
 (Tracking Short Position)  Source:  mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8 | Tracked:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota 
 
+HELLO!! i, index_init 102 59
 
 Checking here average_incr:
 [['mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf' '206' 'OpenLongPosition'
@@ -11844,6 +12024,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 | Tracked:  n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X 
 
 Row where were opened the contracts:  60 !!
+HELLO!! i, index_init 218 60
+HELLO!! i, index_init 219 60
 
 Checking here average_incr:
 [['n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3' '-834' 'OpenShortPosition'
@@ -11938,6 +12120,10 @@ Lives contracts for n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X :	476
 
 (Tracking Short Position)  Source:  n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X | Tracked:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 
 
+HELLO!! i, index_init 126 60
+HELLO!! i, index_init 127 60
+HELLO!! i, index_init 132 60
+HELLO!! i, index_init 141 60
 
 Checking here average_incr:
 [['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' '834' 'OpenLongPosition'
@@ -12269,6 +12455,10 @@ Lives contracts for n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz :	0
 
 (Tracking Short Position)  Source:  n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz | Tracked:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 
 
+HELLO!! i, index_init 126 61
+HELLO!! i, index_init 127 61
+HELLO!! i, index_init 132 61
+HELLO!! i, index_init 141 61
 
 Checking here average_incr:
 [['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' '834' 'OpenLongPosition'
@@ -12577,6 +12767,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 | Tracked:  mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y 
 
 Row where were opened the contracts:  62 !!
+HELLO!! i, index_init 167 62
+HELLO!! i, index_init 168 62
 
 Checking here average_incr:
 [['n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3' '-2197' 'ShortPosIncreased'
@@ -12671,6 +12863,10 @@ Lives contracts for mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y :	0
 
 (Tracking Short Position)  Source:  mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y | Tracked:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 
 
+HELLO!! i, index_init 126 62
+HELLO!! i, index_init 127 62
+HELLO!! i, index_init 132 62
+HELLO!! i, index_init 141 62
 
 Checking here average_incr:
 [['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' '834' 'OpenLongPosition'
@@ -12981,6 +13177,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 | Tracked:  mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV 
 
 Row where were opened the contracts:  63 !!
+HELLO!! i, index_init 70 63
+HELLO!! i, index_init 85 63
 
 Checking here average_incr:
 [['n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3' '-2409' 'ShortPosIncreased'
@@ -13081,6 +13279,10 @@ Lives contracts for mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV :	0
 
 (Tracking Short Position)  Source:  mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV | Tracked:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 
 
+HELLO!! i, index_init 126 63
+HELLO!! i, index_init 127 63
+HELLO!! i, index_init 132 63
+HELLO!! i, index_init 141 63
 
 Checking here average_incr:
 [['n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X' '834' 'OpenLongPosition'
@@ -13417,6 +13619,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf | Tracked:  mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4 
 
 Row where were opened the contracts:  65 !!
+HELLO!! i, index_init 156 65
 
 Checking here average_incr:
 [['mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4' '533' 'OpenLongPosition'
@@ -13698,6 +13901,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo | Tracked:  n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN 
 
 Row where were opened the contracts:  69 !!
+HELLO!! i, index_init 133 69
 
 Checking here average_incr:
 [['n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN' '274' 'OpenLongPosition'
@@ -13848,6 +14052,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV | Tracked:  mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h 
 
 Row where were opened the contracts:  71 !!
+HELLO!! i, index_init 119 71
+HELLO!! i, index_init 120 71
 
 Checking here average_incr:
 [['mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h' '967' 'OpenLongPosition'
@@ -13964,6 +14170,7 @@ Lives contracts for mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h :	0
 
 (Tracking Short Position)  Source:  mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h | Tracked:  mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV 
 
+HELLO!! i, index_init 85 71
 
 Checking here average_incr:
 [['mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV' '212' 'OpenLongPosition'
@@ -14068,6 +14275,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW | Tracked:  n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN 
 
 Row where were opened the contracts:  72 !!
+HELLO!! i, index_init 133 72
 
 Checking here average_incr:
 [['n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN' '274' 'OpenLongPosition'
@@ -14136,6 +14344,8 @@ Lives contracts for n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN :	0
 
 (Tracking Short Position)  Source:  n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN | Tracked:  mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW 
 
+HELLO!! i, index_init 148 72
+HELLO!! i, index_init 149 72
 
 Checking here average_incr:
 [['n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN' '1085' 'LongPosIncreased'
@@ -14326,6 +14536,7 @@ Lives contracts for n2aqGQHubcYZgkQexfAypTk7KW8nytmFps :	0
 
 (Tracking Short Position)  Source:  n2aqGQHubcYZgkQexfAypTk7KW8nytmFps | Tracked:  n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh 
 
+HELLO!! i, index_init 87 75
 
 Checking here average_incr:
 [['n2aqGQHubcYZgkQexfAypTk7KW8nytmFps' '129' 'OpenLongPosition'
@@ -14447,6 +14658,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg | Tracked:  n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS 
 
 Row where were opened the contracts:  78 !!
+HELLO!! i, index_init 172 78
+HELLO!! i, index_init 173 78
 
 Checking here average_incr:
 [['n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS' '45' 'OpenLongPosition'
@@ -14655,6 +14868,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y | Tracked:  mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4 
 
 Row where were opened the contracts:  81 !!
+HELLO!! i, index_init 156 81
 
 Checking here average_incr:
 [['mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4' '533' 'OpenLongPosition'
@@ -14806,6 +15020,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91 | Tracked:  mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii 
 
 Row where were opened the contracts:  82 !!
+HELLO!! i, index_init 129 82
+HELLO!! i, index_init 130 82
 
 Checking here average_incr:
 [['mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii' '408' 'OpenLongPosition'
@@ -14976,6 +15192,7 @@ Lives contracts for mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii :	2272
 
 (Tracking Short Position)  Source:  mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii | Tracked:  mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91 
 
+HELLO!! i, index_init 165 82
 
 Checking here average_incr:
 [['mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii' '3667' 'LongPosIncreased'
@@ -15330,6 +15547,7 @@ Lives contracts for n2aqGQHubcYZgkQexfAypTk7KW8nytmFps :	0
 
 (Tracking Short Position)  Source:  n2aqGQHubcYZgkQexfAypTk7KW8nytmFps | Tracked:  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs 
 
+HELLO!! i, index_init 143 90
 
 Checking here average_incr:
 [['n2aqGQHubcYZgkQexfAypTk7KW8nytmFps' '1415' 'LongPosIncreased'
@@ -15476,6 +15694,7 @@ Lives contracts for n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK :	0
 
 (Tracking Short Position)  Source:  n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK | Tracked:  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs 
 
+HELLO!! i, index_init 143 92
 
 Checking here average_incr:
 [['n2aqGQHubcYZgkQexfAypTk7KW8nytmFps' '1415' 'LongPosIncreased'
@@ -15517,6 +15736,8 @@ New row added:  ['n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e' 'OpenShortPosition' '-3040
 
 Looking for New Path for:  n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e !!
 
+HELLO!! i, index_init 202 143
+HELLO!! i, index_init 203 143
 
 Checking here average_incr:
 [['n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e' '-3040' 'OpenShortPosition'
@@ -15676,6 +15897,8 @@ Lives contracts for n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh :	0
 
 (Tracking Short Position)  Source:  n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh | Tracked:  motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5 
 
+HELLO!! i, index_init 146 93
+HELLO!! i, index_init 153 93
 
 Checking here average_incr:
 [['n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh' '4519' 'LongPosIncreased'
@@ -15808,6 +16031,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5 | Tracked:  mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi 
 
 Row where were opened the contracts:  94 !!
+HELLO!! i, index_init 141 94
+HELLO!! i, index_init 142 94
 
 Checking here average_incr:
 [['mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi' '518' 'OpenLongPosition'
@@ -15962,6 +16187,8 @@ Lives contracts for mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi :	2609
 
 (Tracking Short Position)  Source:  mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi | Tracked:  motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5 
 
+HELLO!! i, index_init 146 94
+HELLO!! i, index_init 153 94
 
 Checking here average_incr:
 [['n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh' '4519' 'LongPosIncreased'
@@ -16243,6 +16470,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv | Tracked:  mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b 
 
 Row where were opened the contracts:  99 !!
+HELLO!! i, index_init 145 99
 
 Checking here average_incr:
 [['mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b' '465' 'OpenLongPosition'
@@ -16400,6 +16628,8 @@ Lives contracts for n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK :	0
 
 (Tracking Short Position)  Source:  n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK | Tracked:  n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ 
 
+HELLO!! i, index_init 188 100
+HELLO!! i, index_init 192 100
 
 Checking here average_incr:
 [['n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK' '3890' 'LongPosIncreased'
@@ -16572,6 +16802,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ | Tracked:  mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y 
 
 Row where were opened the contracts:  101 !!
+HELLO!! i, index_init 104 101
 
 Checking here average_incr:
 [['n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ' '-993' 'ShortPosIncreased'
@@ -16613,6 +16844,8 @@ Lives contracts for mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y :	0
 
 (Tracking Short Position)  Source:  mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y | Tracked:  n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ 
 
+HELLO!! i, index_init 188 101
+HELLO!! i, index_init 192 101
 
 Checking here average_incr:
 [['n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK' '3890' 'LongPosIncreased'
@@ -16952,6 +17185,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y | Tracked:  mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi 
 
 Row where were opened the contracts:  107 !!
+HELLO!! i, index_init 141 107
+HELLO!! i, index_init 142 107
 
 Checking here average_incr:
 [['mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi' '518' 'OpenLongPosition'
@@ -17210,6 +17445,8 @@ Lives contracts for ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB :	0
 
 (Tracking Short Position)  Source:  ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB | Tracked:  mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn 
 
+HELLO!! i, index_init 173 109
+HELLO!! i, index_init 174 109
 
 Checking here average_incr:
 [['ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB' '1115' 'OpenLongPosition'
@@ -17333,6 +17570,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb | Tracked:  mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi 
 
 Row where were opened the contracts:  110 !!
+HELLO!! i, index_init 141 110
+HELLO!! i, index_init 142 110
 
 Checking here average_incr:
 [['mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi' '518' 'OpenLongPosition'
@@ -17487,6 +17726,7 @@ Lives contracts for mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi :	2609
 
 (Tracking Short Position)  Source:  mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi | Tracked:  mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb 
 
+HELLO!! i, index_init 185 110
 
 Checking here average_incr:
 [['mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi' '3963' 'LongPosIncreased'
@@ -17585,6 +17825,8 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb | Tracked:  mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk 
 
 Row where were opened the contracts:  111 !!
+HELLO!! i, index_init 123 111
+HELLO!! i, index_init 124 111
 
 Checking here average_incr:
 [['mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk' '582' 'OpenLongPosition'
@@ -17721,6 +17963,7 @@ Lives contracts for mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk :	2799
 
 (Tracking Short Position)  Source:  mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk | Tracked:  mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb 
 
+HELLO!! i, index_init 185 111
 
 Checking here average_incr:
 [['mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi' '3963' 'LongPosIncreased'
@@ -18476,6 +18719,9 @@ Length N_file:  225
 (Tracking Long Position)  Source:  n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN | Tracked:  n1sL7zSNkU6GhfyoTTefTczJak279BFpjA 
 
 Row where were opened the contracts:  135 !!
+HELLO!! i, index_init 153 135
+HELLO!! i, index_init 154 135
+HELLO!! i, index_init 155 135
 
 Checking here average_incr:
 [['n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN' '-2186' 'ShortPosIncreased'
@@ -18894,6 +19140,8 @@ Lives contracts for mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs :	0
 
 (Tracking Short Position)  Source:  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs | Tracked:  n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e 
 
+HELLO!! i, index_init 202 144
+HELLO!! i, index_init 203 144
 
 Checking here average_incr:
 [['mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs' '825' 'OpenLongPosition'
@@ -19070,6 +19318,7 @@ Length N_file:  225
 (Tracking Long Position)  Source:  mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk | Tracked:  mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf 
 
 Row where were opened the contracts:  147 !!
+HELLO!! i, index_init 223 147
 
 Checking here average_incr:
 [['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' '117' 'OpenLongPosition'
@@ -19148,6 +19397,7 @@ Lives contracts for mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf :	1286
 
 (Tracking Short Position)  Source:  mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf | Tracked:  mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk 
 
+HELLO!! i, index_init 210 147
 
 Checking here average_incr:
 [['mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf' '2705' 'LongPosIncreased'
