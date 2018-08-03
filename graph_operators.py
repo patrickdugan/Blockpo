@@ -50,6 +50,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
             amount_trd_sum   = amount_trd_sum + obj_trk_inloop.amount_trd
             amount_trd_sum_l = amount_trd_sum 
 
+            many_netted_incr = 0
             if len(average_incr) > 1:
 
                 balance_incr += obj_trk_inloop.amount_trd
@@ -67,6 +68,12 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     print "\nbalance_incr: ", balance_incr, "<= opened contracts: ", balance_increasing
                     print "\ntraded_position_incr:\n", np.array(traded_position_incr)
                     path_complex_two = long_short_incr_path(traded_position_incr, obj_trk_inloop, path_complex_two, index_init)
+
+                    count_h = 0
+                    for rows in path_complex_two: 
+                        count_h += rows['amount_trd']
+
+                    many_netted_incr += count_h
                     print "\npath_complex_two:\n", np.array(path_complex_two)
                     print "\n------------------------------------------------------\n"
 
@@ -180,6 +187,7 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
         column_trk = []
         column_status_src = []
         column_status_trk = []
+        column_idx = []
         divider = 0
         for row in average_posincr:
             divider += row[6]
@@ -188,6 +196,7 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
             column_trk.append(row[3]) 
             column_status_src.append(row[2])
             column_status_trk.append(row[5])
+            column_idx.append(row[8])
 
         residue = 0
 
@@ -211,7 +220,8 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
             trk_intheloop = column_trk[k-1]
             status_src_inloop = column_status_src[k-1]
             status_trk_inloop = column_status_trk[k-1]
-            amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop, status_src_inloop, status_trk_inloop])            
+            idx = column_idx[k-1]
+            amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop, status_src_inloop, status_trk_inloop, idx])            
 
     return amounts_forthepath
 
@@ -290,10 +300,13 @@ def update_lasttwo_columns(obj_trk_inloop, N_filei, M_file, i):
 def long_short_incr_path(traded_pos_incr, obj_trk_inloop, path_complex_two, index_init):
 
     for trade_amount_incr in traded_pos_incr:
-        entry_price_increase = trade_amount_incr[1]
-        path_complex_value_ele_two = [trade_amount_incr[2], trade_amount_incr[3], trade_amount_incr[4], trade_amount_incr[5], entry_price_increase, obj_trk_inloop.matched_price, trade_amount_incr[0], 0]
-        path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
-        path_complex_two.append(path_complex_ele_two)
+        if trade_amount_incr[6] >= index_init:
+            entry_price_increase = trade_amount_incr[1]
+            path_complex_value_ele_two = [trade_amount_incr[2], trade_amount_incr[3], trade_amount_incr[4], trade_amount_incr[5], entry_price_increase, obj_trk_inloop.matched_price, trade_amount_incr[0], 0]
+            path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
+            path_complex_two.append(path_complex_ele_two)
+        else:
+            continue
 
     return path_complex_two
 
