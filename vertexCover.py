@@ -1,5 +1,6 @@
 import itertools
 
+
 class Vertex_Cover:
 
     def __init__(self, graph):
@@ -28,12 +29,13 @@ class Vertex_Cover:
 
         return minimum_vertex_cover
 
+
 if __name__ == '__main__':
-    graph =[[0, 1, 1, 1, 1],
-            [1, 0, 0, 0, 1],
-            [1, 0, 0, 1, 1],
-            [1, 0, 1, 0, 1],
-            [1, 1, 1, 1, 0]]
+    graph = [[0, 1, 1, 1, 1],
+             [1, 0, 0, 0, 1],
+             [1, 0, 0, 1, 1],
+             [1, 0, 1, 0, 1],
+             [1, 1, 1, 1, 0]]
     ins = Vertex_Cover(graph)
 
     print 'the minimum vertex-cover is:', Vertex_Cover.vertex_cover_naive(ins)

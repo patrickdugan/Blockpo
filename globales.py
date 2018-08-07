@@ -1,5 +1,6 @@
 #! /usr/bin/python
 
+
 def init():
 
     global key_path
@@ -8,5 +9,5 @@ def init():
     global open_incr_short
     global open_incr_long
     global open_incr_long_short
-    global all_netted_status 
+    global all_netted_status
     global incr_positions

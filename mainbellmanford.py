@@ -9,6 +9,6 @@ g.addEdge(1, 4, 2)
 g.addEdge(3, 2, 5)
 g.addEdge(3, 1, 1)
 g.addEdge(4, 3, 3)
- 
-#Print the solution
+
+# Print the solution
 g.BellmanFord(0)

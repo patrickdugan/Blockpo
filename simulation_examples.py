@@ -28,9 +28,9 @@
 # #########################################################
 # # How to use "insert" and "append"
 # a = ['x', 'y', 'z']
-# print a  
+# print a
 # a.insert(0, 'Start')
-# print a  
+# print a
 # a.insert(len(a), 'End')
 # print a
 # print "--------------------------------------------------"
@@ -38,11 +38,11 @@
 # print a.pop()
 # print a
 # print "--------------------------------------------------"
-# b = [1, 'x', 2]  
+# b = [1, 'x', 2]
 # b.append('y')
-# print(b)  
+# print(b)
 # b.append(3)
-# print(b)  
+# print(b)
 
 # print "/////////////////////////////////////////////////////Ejemplo #3: Position in the graph:"
 
@@ -65,7 +65,7 @@
 # print c
 
 # with open('statusbyaddrres.txt', 'w') as f:
-#     print >> f, c 
+#     print >> f, c
 
 # print "LAST//////////////////////////////////////////////////////////////////////////////////////////"
 
@@ -73,14 +73,14 @@
 # print "a: ", a
 # # In the following line 1 is the index before which to insert, 0 is the axis.
 # b = np.insert(a, 1, np.array((1, 1)), 0)
-# print "np.insert(a, 1, np.array((1, 1)), 0):\n", b   
+# print "np.insert(a, 1, np.array((1, 1)), 0):\n", b
 # print "np.insert(a, 1, np.array((1, 1)), 1):\n", np.insert(a, 1, np.array((1, 1)), 1)
 
 print "//////////////////////////////////////////////////////////////////////////////////////////"
 
 l = [{'a': 123, 'b': 1234},
-        {'a': 3222, 'b': 1234},
-        {'a': 123, 'b': 1234}]
+     {'a': 3222, 'b': 1234},
+     {'a': 123, 'b': 1234}]
 
 seen = set()
 new_l = []
