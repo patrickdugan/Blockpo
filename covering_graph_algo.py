@@ -11,26 +11,26 @@ import setglobales
 
 sys.stdout = open('out', 'w')
 
-print "###################################################################################\n"
-print "\n#------------------------'Definitions'---------------------------------#\n"            
-print "Path Simple:\tThe netting event of the tracked address that receives the contracts happens at the begining\n"
-print "Path Complex:\tThe netting event of the tracked address that receives the contracts happens after the contracts are\n\t\t\t\topened or keep open contracts at the end date"
+print("###################################################################################\n")
+print("\n#------------------------'Definitions'---------------------------------#\n")            
+print("Path Simple:\tThe netting event of the tracked address that receives the contracts happens at the begining\n")
+print("Path Complex:\tThe netting event of the tracked address that receives the contracts happens after the contracts are\n\t\t\t\topened or keep open contracts at the end date")
 
 globales.init()
 setglobales.stuff()
 
-print "\n------------------------------------------------------\n"
+print("\n------------------------------------------------------\n")
 
 M_file = opening_filetxt("graphInfoSixth.txt")
 
 opened_atsett = 0
 opened_atsett = difference_bet_openedandnetted(M_file, opened_atsett)
-print "opened_atsett:", opened_atsett
+print("opened_atsett:", opened_atsett)
 
 M_file = negative_for_short(M_file)
 
-print "\n\nNegative or Positive signs for Short or Longs respectively:\n\n", np.array(M_file)
-print "\n------------------------------------------------------\n"
+print("\n\nNegative or Positive signs for Short or Longs respectively:\n\n", np.array(M_file))
+print("\n------------------------------------------------------\n")
 
 Last_cols = [777 for row in M_file]
 
