@@ -67,6 +67,7 @@ for j in range(len(N_file)):
     bool_track_short = True if obj_short_trk.status_trk in globales.open_incr_short else False
 
     amount_trd_sum = 0
+    diff_trdamount = 0
 
     if bool_track_long and bool_track_short:
 
@@ -74,12 +75,12 @@ for j in range(len(N_file)):
               obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n")
         print("Row where were opened the contracts:", j, "!!")
         N_file, idx_i, path_complex_two_long = clearing_operator(
-            N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, idx_i, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0)
+            N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, idx_i, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount)
         print("\n*********************************************************************\n")
         print("(Tracking Short Position)", " Source: ",
               obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n")
         N_file, idx_i, path_complex_two_short = clearing_operator(
-            N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1)
+            N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount)
         N_file[:][j][8] = 0
         N_file[:][j][9] = 0
         print("\nFirst row update:\n", N_file[:][j])

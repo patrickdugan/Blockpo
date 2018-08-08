@@ -10,7 +10,7 @@ from collections import*
 globales.init()
 setglobales.stuff()
 
-def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, index_init, addrs_trk_arg, amount_trd_begining, index_long_short):
+def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, index_init, addrs_trk_arg, amount_trd_begining, index_long_short, diff_newtrdamount):
 
     average_incr = []
     average_incr.append([obj_trk.addrs_src, obj_trk.lives_src, obj_trk.status_src, obj_trk.addrs_trk,
@@ -21,8 +21,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
     howmany_netted, average_incr = howmany_netted_events_and_vectorwithincrs(
         howmany_netted, index_init, M_file, addrs_trk_arg, index_long_short, average_incr)
-    print("\nChecking here average_incr:\n", np.array(
-        average_incr), "\nlen(average_incr): ", len(average_incr))
+    print("\nChecking here average_incr:\n", np.array(average_incr), "\nlen(average_incr): ", len(average_incr))
 
     balance_increasing = 0
     balance_increasing = total_balance_incr(average_incr, balance_increasing)
@@ -47,7 +46,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
         bool_netted_status = boolean_for_netted_status(obj_trk_inloop)
 
         traded_position_incr = []
-
+            
         if addrs_trk_arg in N_filei and bool_netted_status:
 
             amount_trd_sum_b = amount_trd_sum
@@ -68,6 +67,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     traded_position_incr = average_posincreased(average_incr, amount_selected, traded_position_incr)
                     print("\nbalance_incr: ", balance_incr, "<= opened contracts: ", balance_increasing)
                     print("\ntraded_position_incr:\n", np.array(traded_position_incr))
+                    print("\nChecking the index_init: ", index_init)
                     path_complex_two = long_short_incr_path(traded_position_incr, obj_trk_inloop, path_complex_two, index_init, i)
 
                     count_h = 0
@@ -81,12 +81,15 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
                     if path_complex_two[-1]['status_src'] in globales.open_incr_long_short:
                         print("Can be %s a new source??" %(path_complex_two[-1]['addrs_src']))
-                        print("Trade amount on this edge: ", path_complex_two[-1]['amount_trd'])
                         idx_long_or_short = 0 if obj_trk_inloop.status_src in globales.open_incr_long else 1
                         addrs_trk_incr = path_complex_two[-1]['addrs_src']
                         obj_trk_incr = status_amounts_inloop(N_filei, addrs_trk_incr)
+                        print("Trade amount on this edge path: ", path_complex_two[-1]['amount_trd'])
+                        print("Trade amount on this edge matrix: ", obj_trk_incr.amount_trd)
+                        diff_newtrdamount = obj_trk_incr.amount_trd-path_complex_two[-1]['amount_trd']
+                        print("\ndiff_newtrdamount: ", diff_newtrdamount)
                         M_file, idx_i, path_complex_incrs = clearing_operator(
-                            M_file, obj_trk_incr, amount_trd_sum_new, path_complex_incrs, idx_i, i, addrs_trk_incr, path_complex_two[-1]['amount_trd'], idx_long_or_short)
+                            M_file, obj_trk_incr, amount_trd_sum_new, path_complex_incrs, idx_i, i, addrs_trk_incr, path_complex_two[-1]['amount_trd'], idx_long_or_short, diff_newtrdamount)
 
                     continue
 
@@ -121,10 +124,10 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
                 if bool_src:
                     idx_long_or_short = 0 if obj_trk_inloop.status_trk in globales.open_incr_long else 1
-                    print("\nLooking for New Path for: ",
+                    print("\nLooking New Path for: ",
                           obj_trk_inloop.addrs_src, "!!\n")
                     M_file, idx_i, path_complex_first = clearing_operator(
-                        M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_first, idx_i, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short)
+                        M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_first, idx_i, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short, diff_newtrdamount)
                 continue
 
             elif d_amounts < 0:
@@ -167,10 +170,10 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
                 if bool_src:
                     idx_long_or_short = 0 if obj_trk_inloop.status_trk in globales.open_incr_long else 1
-                    print("\nLooking for New Path for: ",
+                    print("\nLooking New Path for: ",
                           obj_trk_inloop.addrs_src, "!!\n")
                     M_file, idx_i, path_complex_secnd = clearing_operator(
-                        M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_secnd, idx_i, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short)
+                        M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_secnd, idx_i, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short, diff_newtrdamount)
                 else:
                     break
 
@@ -200,10 +203,10 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
                 if bool_src:
                     idx_long_or_short = 0 if obj_trk_inloop.status_trk in globales.open_incr_long else 1
-                    print("\nLooking for New Path for: ",
+                    print("\nLooking New Path for: ",
                           obj_trk_inloop.addrs_src, "!!\n")
                     M_file, idx_i, path_complex_third = clearing_operator(
-                        M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_third, idx_i, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short)
+                        M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_third, idx_i, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short, diff_newtrdamount)
                 break
 
     if len(path_complex_two) != 0:
@@ -367,17 +370,13 @@ def updating_withzero(addrs, N_filei, M_file, i):
 
 def long_short_incr_path(traded_pos_incr, obj_trk_inloop, path_complex_two, index_init, i):
 
-    print("\nChecking trade_amount_incr last amount >= index_init: ",
-          traded_pos_incr[-1][6], index_init, i)
-    print("Row with netted event: ", obj_trk_inloop.addrs_src,
-          obj_trk_inloop.amount_trd, obj_trk_inloop.addrs_trk)
-
-    entry_price_increase = traded_pos_incr[-1][1]
-    path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src,
-                                  obj_trk_inloop.status_trk, entry_price_increase, obj_trk_inloop.matched_price, traded_pos_incr[-1][0], 0]
-    path_complex_ele_two = OrderedDict(
-        zip(globales.key_path, path_complex_value_ele_two))
-    path_complex_two.append(path_complex_ele_two)
+    for rows in traded_pos_incr:
+        if rows[-1] == index_init:
+            path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, rows[1], obj_trk_inloop.matched_price, rows[0], 0]
+            path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
+            path_complex_two.append(path_complex_ele_two)
+        else:
+            continue
 
     return path_complex_two
 
