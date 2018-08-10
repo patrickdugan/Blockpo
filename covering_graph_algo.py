@@ -85,25 +85,41 @@ for j in range(len(N_file)):
         N_file[:][j][9] = 0
         print("\nFirst row update:\n", N_file[:][j])
 
-        path_complex_main = []
-        single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src,
-                             obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.amount_trd, 'Edge Source']
-        single_path_value_ele = OrderedDict(
-            zip(globales.key_path_new, single_path_value))
+    path_complex_main = []
+    single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.matched_price, 0, 0, obj_long_trk.amount_trd]
+    single_path_value_ele = OrderedDict(zip(globales.key_path, single_path_value))
+    
+    path_complex_main = append_fromlist_tolist(path_complex_two_long, path_complex_main)
+    path_complex_main = append_fromlist_tolist(path_complex_two_short, path_complex_main)
 
-    path_complex_main.append(single_path_value_ele)
-    path_complex_main = append_fromlist_tolist(
-        path_complex_two_long, path_complex_main)
-    path_complex_main = append_fromlist_tolist(
-        path_complex_two_short, path_complex_main)
+    print("\nComputing lives contracts:")
+    print("Main addresses opening contracts: ", single_path_value_ele['addrs_src'], single_path_value_ele['addrs_trk'], "\n")
 
+    openedfor_first_adrrs = single_path_value_ele['amount_trd']
+    sum_amountsfor_src_first = 0
+    sum_amountsfor_trk_first = 0
+    
+    for j in range(len(path_complex_main)):
+        pathj = path_complex_main[j]
+        if pathj['addrs_trk'] == single_path_value_ele['addrs_src']:
+            sum_amountsfor_src_first += pathj['amount_trd']
+                
+        if pathj['addrs_trk'] == single_path_value_ele['addrs_trk']:
+            sum_amountsfor_trk_first += pathj['amount_trd']
+            if pathj['status_src'] in globales.open_incr_long_short:
+                lookingforlives_insidepath(j, path_complex_main, pathj['addrs_src'])
+
+    print("\nLives contracts for ", single_path_value_ele['addrs_src'], "here:", "openedfor_first_adrrs - sum_amountsfor_src = ", openedfor_first_adrrs, "-", sum_amountsfor_src_first, "=", int(openedfor_first_adrrs-sum_amountsfor_src_first))
+
+    print("\nLives contracts for ", single_path_value_ele['addrs_trk'], "here:", "openedfor_first_adrrs - sum_amountsfor_src = ", openedfor_first_adrrs, "-", sum_amountsfor_trk_first, "=", int(openedfor_first_adrrs-sum_amountsfor_trk_first))
+    
+    path_complex_main.insert(0, single_path_value_ele)
     print("\nPath:\n", np.array(path_complex_main), "\n")
     path_complex_two_matrix.append(path_complex_main)
 
-sum_opened_sett = 0
-sum_opened_sett = suming_opened_contracts(
-    path_complex_two_matrix, sum_opened_sett)
+#sum_opened_sett = 0
+#sum_opened_sett = suming_opened_contracts(path_complex_two_matrix, sum_opened_sett)
 
-print("sum_opened_sett: ", sum_opened_sett)
-print("\nDifference looked for Zero Netted: ",
-      abs(sum_opened_sett-opened_atsett))
+#print("sum_opened_sett: ", sum_opened_sett)
+#print("\nDifference looked for Zero Netted: ",
+#      abs(sum_opened_sett-opened_atsett))
