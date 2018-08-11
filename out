@@ -485,6 +485,10 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3 
 
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 85.53)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 95.7)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 985.08)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19086), ('exit_price', 18676), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 684.18)]) mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
 
 Lives contracts for  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk here: openedfor_first_adrrs - sum_amountsfor_src =  1596 - 1596.0 = 0
 
@@ -973,6 +977,10 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk 
 
+OrderedDict([('addrs_src', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1647)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19086), ('exit_price', 18676), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1324.88)]) mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 12.23)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 13.68)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
 
 Lives contracts for  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk here: openedfor_first_adrrs - sum_amountsfor_src =  582 - 582.0 = 0
 
@@ -1441,6 +1449,12 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW 
 
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 21661), ('exit_price', 14584), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 296)]) n2aqGQHubcYZgkQexfAypTk7KW8nytmFps
+OrderedDict([('addrs_src', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('addrs_trk', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14584), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 296.0)]) n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh
+OrderedDict([('addrs_src', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('addrs_trk', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 21661), ('exit_price', 14584), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1913.76)]) n2aqGQHubcYZgkQexfAypTk7KW8nytmFps
+OrderedDict([('addrs_src', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('addrs_trk', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14584), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2051)]) mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW
+OrderedDict([('addrs_src', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('addrs_trk', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14584), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 656.91)]) mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW
+OrderedDict([('addrs_src', 'myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ'), ('addrs_trk', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 19108), ('exit_price', 20655), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1440)]) mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk
 
 Lives contracts for  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG here: openedfor_first_adrrs - sum_amountsfor_src =  4391 - 4391.0 = 0
 
@@ -1960,6 +1974,12 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf 
 
+OrderedDict([('addrs_src', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('addrs_trk', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 21661), ('exit_price', 14584), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2283)]) n2aqGQHubcYZgkQexfAypTk7KW8nytmFps
+OrderedDict([('addrs_src', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('addrs_trk', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14584), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 684.9)]) mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW
+OrderedDict([('addrs_src', 'myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ'), ('addrs_trk', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 19108), ('exit_price', 20655), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1440)]) mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk
+OrderedDict([('addrs_src', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('addrs_trk', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14584), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1598.1)]) mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 21661), ('exit_price', 14584), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 296)]) n2aqGQHubcYZgkQexfAypTk7KW8nytmFps
+OrderedDict([('addrs_src', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('addrs_trk', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14584), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 296.0)]) n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh
 
 Lives contracts for  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG here: openedfor_first_adrrs - sum_amountsfor_src =  117 - 117.0 = 0
 
@@ -2189,6 +2209,7 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y 
 
+OrderedDict([('addrs_src', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('addrs_trk', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 12067), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 186.21)]) mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4
 
 Lives contracts for  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo here: openedfor_first_adrrs - sum_amountsfor_src =  756 - 421.73 = 334
 
@@ -2643,6 +2664,12 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg 
 
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 425)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNetted'), ('entry_price', 15604), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 318)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 230.91)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 877.22)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 15620), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 667)]) n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
+OrderedDict([('addrs_src', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15620), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 15.95)]) n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
 
 Lives contracts for  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo here: openedfor_first_adrrs - sum_amountsfor_src =  1327 - 740.27 = 586
 
@@ -2902,6 +2929,8 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h 
 
+OrderedDict([('addrs_src', 'mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8'), ('addrs_trk', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 11894), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 678)]) mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr
+OrderedDict([('addrs_src', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('addrs_trk', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 11894), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 143)]) mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr
 
 Lives contracts for  mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA here: openedfor_first_adrrs - sum_amountsfor_src =  967 - 967 = 0
 
@@ -3263,6 +3292,7 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj 
 
+OrderedDict([('addrs_src', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('addrs_trk', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 13613), ('exit_price', 19914), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 201.94)]) n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH
 
 Lives contracts for  mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A here: openedfor_first_adrrs - sum_amountsfor_src =  3005 - 1233 = 1772
 
@@ -3858,6 +3888,10 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5 
 
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNetted'), ('entry_price', 15604), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 318)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 35.76)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 135.86)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 42.45)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
 
 Lives contracts for  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV here: openedfor_first_adrrs - sum_amountsfor_src =  523 - 523.0 = 0
 
@@ -4338,6 +4372,11 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo 
 
+OrderedDict([('addrs_src', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('addrs_trk', 'mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 12534), ('exit_price', 18498), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 142.62)]) mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8
+OrderedDict([('addrs_src', 'motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18498), ('exit_price', 11608), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 38.29)]) n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
+OrderedDict([('addrs_src', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18498), ('exit_price', 11894), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 9.7)]) n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
+OrderedDict([('addrs_src', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18498), ('exit_price', 11894), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 12.5)]) n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 12534), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 431.68)]) mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8
 
 Lives contracts for  mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW here: openedfor_first_adrrs - sum_amountsfor_src =  1973 - 3063.26 = -1090
 
@@ -5185,6 +5224,14 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH 
 
+OrderedDict([('addrs_src', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('addrs_trk', 'mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 13530), ('exit_price', 15604), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 215.71)]) mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNetted'), ('entry_price', 15604), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 318)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 34.53)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 131.16)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 40.99)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('addrs_trk', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14734), ('exit_price', 20129), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 648.0)]) mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs
+OrderedDict([('addrs_src', 'mrmJFkFG7T6GZaCiNAstKmZrkcogix9wWG'), ('addrs_trk', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 20129), ('exit_price', 20522), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 78.31)]) n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e
+OrderedDict([('addrs_src', 'mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r'), ('addrs_trk', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 20129), ('exit_price', 20522), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 513.82)]) n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e
 
 Lives contracts for  n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK here: openedfor_first_adrrs - sum_amountsfor_src =  648 - 648 = 0
 
@@ -5674,6 +5721,12 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg 
 
+OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1360)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 425)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNetted'), ('entry_price', 15604), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 318)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15604), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 139.63)]) msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
+OrderedDict([('addrs_src', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 15620), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 667)]) n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
+OrderedDict([('addrs_src', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15620), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 5.71)]) n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
 
 Lives contracts for  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM here: openedfor_first_adrrs - sum_amountsfor_src =  467 - 467.0 = 0
 
@@ -6421,6 +6474,14 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE 
 
+OrderedDict([('addrs_src', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('addrs_trk', 'muKche6ScPjP3SpApndqXc34NF22mPupA6'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 13944), ('exit_price', 21820), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 3.56)]) muKche6ScPjP3SpApndqXc34NF22mPupA6
+OrderedDict([('addrs_src', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21820), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 0.29)]) mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
+OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21820), ('exit_price', 18493), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1.35)]) mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
+OrderedDict([('addrs_src', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('addrs_trk', 'muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 14011), ('exit_price', 13667), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2254)]) muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa
+OrderedDict([('addrs_src', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('addrs_trk', 'muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 14011), ('exit_price', 13667), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 65.57)]) muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa
+OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 12415), ('exit_price', 14751), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 8.27)]) mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota
+OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1166)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
 
 Lives contracts for  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM here: openedfor_first_adrrs - sum_amountsfor_src =  542 - 542.0 = 0
 
@@ -6844,6 +6905,7 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy 
 
+OrderedDict([('addrs_src', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('addrs_trk', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15623), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 45.92)]) mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL
 
 Lives contracts for  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz here: openedfor_first_adrrs - sum_amountsfor_src =  1851 - 1851.0 = 0
 
@@ -7620,6 +7682,15 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz 
 
+OrderedDict([('addrs_src', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 15055), ('exit_price', 14416), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 111.53)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 69.21)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 13.17)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1166)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15055), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15055), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 74.67)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('addrs_trk', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('status_src', 'LongPosNetted'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 41.86)]) mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn
+OrderedDict([('addrs_src', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('addrs_trk', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 6.09)]) mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn
+OrderedDict([('addrs_src', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('addrs_trk', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15623), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 33.89)]) mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL
 
 Lives contracts for  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz here: openedfor_first_adrrs - sum_amountsfor_src =  1248 - 1248.0 = 0
 
@@ -8052,6 +8123,8 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL 
 
+OrderedDict([('addrs_src', 'mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 18493), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 48)]) mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
+OrderedDict([('addrs_src', 'mrqAkdnv8VRsUxasZtmbSfK7bCMGfhcKwP'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 18493), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 736)]) mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
 
 Lives contracts for  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 here: openedfor_first_adrrs - sum_amountsfor_src =  1967 - 1835.39 = 131
 
@@ -8611,6 +8684,10 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 mzCRtGxm3VzLS9rii5sUciHAR2WqSfuJVt 
 
+OrderedDict([('addrs_src', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('addrs_trk', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21127), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 158.82)]) mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b
+OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19086), ('exit_price', 18676), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 90.73)]) mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
+OrderedDict([('addrs_src', 'mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 18493), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 48)]) mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
+OrderedDict([('addrs_src', 'mrqAkdnv8VRsUxasZtmbSfK7bCMGfhcKwP'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 18493), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 736)]) mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
 
 Lives contracts for  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 here: openedfor_first_adrrs - sum_amountsfor_src =  2514 - 2345.8 = 168
 
@@ -9220,6 +9297,8 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy 
 
+OrderedDict([('addrs_src', 'mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 18493), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 48)]) mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
+OrderedDict([('addrs_src', 'mrqAkdnv8VRsUxasZtmbSfK7bCMGfhcKwP'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 18493), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 736)]) mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
 
 Lives contracts for  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 here: openedfor_first_adrrs - sum_amountsfor_src =  272 - 253.8 = 18
 
@@ -9919,6 +9998,14 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mvmN7CxduEb4Wdz2wv2gw74QakZahFhWia mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE 
 
+OrderedDict([('addrs_src', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('addrs_trk', 'muKche6ScPjP3SpApndqXc34NF22mPupA6'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 13944), ('exit_price', 21820), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 12.46)]) muKche6ScPjP3SpApndqXc34NF22mPupA6
+OrderedDict([('addrs_src', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21820), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1.03)]) mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
+OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21820), ('exit_price', 18493), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 4.72)]) mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
+OrderedDict([('addrs_src', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('addrs_trk', 'muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 14011), ('exit_price', 13667), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2254)]) muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa
+OrderedDict([('addrs_src', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('addrs_trk', 'muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 14011), ('exit_price', 13667), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 126.9)]) muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa
+OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 12415), ('exit_price', 14751), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 29.05)]) mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota
+OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1166)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
 
 Lives contracts for  mvmN7CxduEb4Wdz2wv2gw74QakZahFhWia here: openedfor_first_adrrs - sum_amountsfor_src =  1954 - 1090 = 864
 
@@ -10697,6 +10784,17 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv 
 
+OrderedDict([('addrs_src', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('addrs_trk', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21127), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 380)]) mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b
+OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19086), ('exit_price', 18676), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 251.5)]) mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
+OrderedDict([('addrs_src', 'n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14416), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 141.21)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14416), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 26.86)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1166)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15055), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14416), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 152.34)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('addrs_trk', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('status_src', 'LongPosNetted'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 80.18)]) mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn
+OrderedDict([('addrs_src', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('addrs_trk', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 11.66)]) mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn
+OrderedDict([('addrs_src', 'mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14416), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1034)]) mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
+OrderedDict([('addrs_src', 'mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14416), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 194.12)]) mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
 
 Lives contracts for  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q here: openedfor_first_adrrs - sum_amountsfor_src =  945 - 945.0 = 0
 
@@ -11755,6 +11853,23 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer 
 
+OrderedDict([('addrs_src', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('addrs_trk', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21592), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 386.64)]) mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8
+OrderedDict([('addrs_src', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('addrs_trk', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21592), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 4.71)]) mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8
+OrderedDict([('addrs_src', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('addrs_trk', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21592), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 32.61)]) mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8
+OrderedDict([('addrs_src', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('addrs_trk', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21592), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1.51)]) mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8
+OrderedDict([('addrs_src', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21820), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 19.26)]) mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
+OrderedDict([('addrs_src', 'mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14416), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1034)]) mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
+OrderedDict([('addrs_src', 'mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14416), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 233.44)]) mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
+OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21820), ('exit_price', 18493), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 88.63)]) mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
+OrderedDict([('addrs_src', 'n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14416), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 161.89)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14416), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 30.79)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1166)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15055), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14416), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 174.64)]) ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
+OrderedDict([('addrs_src', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('addrs_trk', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('status_src', 'LongPosNetted'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 90.32)]) mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn
+OrderedDict([('addrs_src', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('addrs_trk', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15055), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 13.14)]) mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn
+OrderedDict([('addrs_src', 'mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14416), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1034)]) mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
+OrderedDict([('addrs_src', 'mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14416), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 233.44)]) mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
 
 Lives contracts for  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q here: openedfor_first_adrrs - sum_amountsfor_src =  1192 - 1192.0 = 0
 
@@ -12325,6 +12440,12 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN 
 
+OrderedDict([('addrs_src', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('addrs_trk', 'mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18007), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 135.72)]) mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk
+OrderedDict([('addrs_src', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('addrs_trk', 'mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18007), ('exit_price', 15070), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 189.03)]) mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk
+OrderedDict([('addrs_src', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1647)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19086), ('exit_price', 18676), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1324.88)]) mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 19.49)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 21.81)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
 
 Lives contracts for  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z here: openedfor_first_adrrs - sum_amountsfor_src =  3546 - 1403.05 = 2142
 
@@ -13394,6 +13515,8 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH muKche6ScPjP3SpApndqXc34NF22mPupA6 
 
+OrderedDict([('addrs_src', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21820), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 21.62)]) mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
+OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21820), ('exit_price', 18493), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 99.49)]) mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
 
 Lives contracts for  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH here: openedfor_first_adrrs - sum_amountsfor_src =  1134 - 261.38 = 872
 
@@ -13860,6 +13983,10 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n2aqGQHubcYZgkQexfAypTk7KW8nytmFps mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii 
 
+OrderedDict([('addrs_src', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('addrs_trk', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14584), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 684.9)]) mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW
+OrderedDict([('addrs_src', 'myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ'), ('addrs_trk', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 19108), ('exit_price', 20655), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1440)]) mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk
+OrderedDict([('addrs_src', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('addrs_trk', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14584), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1598.1)]) mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW
+OrderedDict([('addrs_src', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('addrs_trk', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14584), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 296.0)]) n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh
 
 Lives contracts for  n2aqGQHubcYZgkQexfAypTk7KW8nytmFps here: openedfor_first_adrrs - sum_amountsfor_src =  408 - 2579 = -2171
 
@@ -15434,6 +15561,9 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa 
 
+OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 12415), ('exit_price', 14751), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2.9)]) mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota
+OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1166)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
 
 Lives contracts for  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE here: openedfor_first_adrrs - sum_amountsfor_src =  230 - 10.13 = 219
 
@@ -16539,6 +16669,10 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mfsBw2T3yqvVfHaseLnuza4ADk4aGZDxSn mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk 
 
+OrderedDict([('addrs_src', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1647)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19086), ('exit_price', 18676), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1324.88)]) mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 32.73)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 36.62)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
 
 Lives contracts for  mfsBw2T3yqvVfHaseLnuza4ADk4aGZDxSn here: openedfor_first_adrrs - sum_amountsfor_src =  1847 - 916 = 931
 
@@ -16877,6 +17011,9 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf 
 
+OrderedDict([('addrs_src', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('addrs_trk', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 12067), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 125.44)]) mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4
+OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1166)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
 
 Lives contracts for  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota here: openedfor_first_adrrs - sum_amountsfor_src =  206 - 54.85 = 151
 
@@ -17146,6 +17283,8 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE 
 
+OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 380.97)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
 
 Lives contracts for  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota here: openedfor_first_adrrs - sum_amountsfor_src =  1795 - 515.86 = 1279
 
@@ -17586,6 +17725,11 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8 
 
+OrderedDict([('addrs_src', 'motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18498), ('exit_price', 11608), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 22.49)]) n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
+OrderedDict([('addrs_src', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18498), ('exit_price', 11894), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 5.7)]) n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
+OrderedDict([('addrs_src', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18498), ('exit_price', 11894), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 7.34)]) n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
+OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
+OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 14751), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 228.39)]) n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
 
 Lives contracts for  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota here: openedfor_first_adrrs - sum_amountsfor_src =  901 - 258.94 = 642
 
@@ -17977,6 +18121,7 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X 
 
+OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15073), ('exit_price', 21891), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 658)]) mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH
 
 Lives contracts for  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 here: openedfor_first_adrrs - sum_amountsfor_src =  834 - 834.0 = 0
 
@@ -18304,6 +18449,7 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz 
 
+OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15073), ('exit_price', 21891), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 658)]) mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH
 
 Lives contracts for  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 here: openedfor_first_adrrs - sum_amountsfor_src =  639 - 639.0 = 0
 
@@ -18693,6 +18839,12 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y 
 
+OrderedDict([('addrs_src', 'n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3'), ('addrs_trk', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('status_src', 'LongPosNetted'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 16708), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 119.61)]) n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3
+OrderedDict([('addrs_src', 'n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3'), ('addrs_trk', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 16708), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 191.14)]) n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3
+OrderedDict([('addrs_src', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('addrs_trk', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 16708), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 197.76)]) n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3
+OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15073), ('exit_price', 21891), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 658)]) mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH
+OrderedDict([('addrs_src', 'mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi'), ('addrs_trk', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNetted'), ('entry_price', 16708), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 215.49)]) n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3
+OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15073), ('exit_price', 21891), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 658)]) mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH
 
 Lives contracts for  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 here: openedfor_first_adrrs - sum_amountsfor_src =  724 - 724.0 = 0
 
@@ -19165,6 +19317,9 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV 
 
+OrderedDict([('addrs_src', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('addrs_trk', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 22178), ('exit_price', 19989), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 500)]) mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h
+OrderedDict([('addrs_src', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('addrs_trk', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 22178), ('exit_price', 19914), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 21.9)]) mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h
+OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15073), ('exit_price', 21891), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 658)]) mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH
 
 Lives contracts for  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 here: openedfor_first_adrrs - sum_amountsfor_src =  212 - 212.01 = 0
 
@@ -20077,6 +20232,7 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN 
 
+OrderedDict([('addrs_src', 'myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ'), ('addrs_trk', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 19108), ('exit_price', 20655), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1440)]) mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk
 
 Lives contracts for  mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW here: openedfor_first_adrrs - sum_amountsfor_src =  647 - 647.0 = 0
 
@@ -21431,6 +21587,8 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs n2aqGQHubcYZgkQexfAypTk7KW8nytmFps 
 
+OrderedDict([('addrs_src', 'mrmJFkFG7T6GZaCiNAstKmZrkcogix9wWG'), ('addrs_trk', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 20129), ('exit_price', 20522), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 108.44)]) n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e
+OrderedDict([('addrs_src', 'mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r'), ('addrs_trk', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 20129), ('exit_price', 20522), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 711.53)]) n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e
 
 Lives contracts for  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs here: openedfor_first_adrrs - sum_amountsfor_src =  1286 - 1286.0 = 0
 
@@ -21674,6 +21832,8 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK 
 
+OrderedDict([('addrs_src', 'mrmJFkFG7T6GZaCiNAstKmZrkcogix9wWG'), ('addrs_trk', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 20129), ('exit_price', 20522), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 140.01)]) n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e
+OrderedDict([('addrs_src', 'mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r'), ('addrs_trk', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 20129), ('exit_price', 20522), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 918.69)]) n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e
 
 Lives contracts for  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs here: openedfor_first_adrrs - sum_amountsfor_src =  1106 - 3040 = -1934
 
@@ -22460,6 +22620,7 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b 
 
+OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19086), ('exit_price', 18676), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 27.96)]) mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
 
 Lives contracts for  mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv here: openedfor_first_adrrs - sum_amountsfor_src =  145 - 0 = 145
 
@@ -24105,6 +24266,10 @@ First row update:
 Computing lives contracts:
 Main addresses opening contracts:  mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk 
 
+OrderedDict([('addrs_src', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1647)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19086), ('exit_price', 18676), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1324.88)]) mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 15.76)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
+OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15070), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 17.64)]) mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
 
 Lives contracts for  mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb here: openedfor_first_adrrs - sum_amountsfor_src =  771 - 771.0 = 0
 

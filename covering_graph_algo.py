@@ -103,11 +103,11 @@ for j in range(len(N_file)):
         pathj = path_complex_main[j]
         if pathj['addrs_trk'] == single_path_value_ele['addrs_src']:
             sum_amountsfor_src_first += pathj['amount_trd']
+            lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'])
                 
         if pathj['addrs_trk'] == single_path_value_ele['addrs_trk']:
             sum_amountsfor_trk_first += pathj['amount_trd']
-            if pathj['status_src'] in globales.open_incr_long_short:
-                lookingforlives_insidepath(j, path_complex_main, pathj['addrs_src'])
+            lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'])
 
     print("\nLives contracts for ", single_path_value_ele['addrs_src'], "here:", "openedfor_first_adrrs - sum_amountsfor_src = ", openedfor_first_adrrs, "-", sum_amountsfor_src_first, "=", int(openedfor_first_adrrs-sum_amountsfor_src_first))
 
@@ -117,9 +117,3 @@ for j in range(len(N_file)):
     print("\nPath:\n", np.array(path_complex_main), "\n")
     path_complex_two_matrix.append(path_complex_main)
 
-#sum_opened_sett = 0
-#sum_opened_sett = suming_opened_contracts(path_complex_two_matrix, sum_opened_sett)
-
-#print("sum_opened_sett: ", sum_opened_sett)
-#print("\nDifference looked for Zero Netted: ",
-#      abs(sum_opened_sett-opened_atsett))

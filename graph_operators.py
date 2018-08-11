@@ -517,9 +517,14 @@ def total_balance_incr(average_incr, balance_increasing):
 
     return balance_increasing
 
-def lookingforlives_insidepath(j, path_complex_main, addrs_totrk):
-    
-    for i in range(j+1, len(path_complex_main)):
-        pathi = path_complex_main[i]
-        if addrs_totrk in pathi:
-            print(pathi, addrs_totrk)
+def lookingforlives_insidepath(j, path_complex_main, status_src, addrs_src):
+
+    howmany_closed = 0
+    open_contracts = path_complex_main[j]['amount_trd']
+    if status_src in globales.open_incr_long_short:
+        for i in range(j+1, len(path_complex_main)):
+            if addrs_src == path_complex_main[i]['addrs_trk']:
+                print(path_complex_main[i], addrs_src)
+                howmany_closed += path_complex_main[i]['amount_trd']
+                lookingforlives_insidepath(i, path_complex_main, path_complex_main[i]['status_src'], path_complex_main[i]['addrs_src'])
+                
