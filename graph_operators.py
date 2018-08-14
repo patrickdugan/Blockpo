@@ -520,13 +520,22 @@ def total_balance_incr(average_incr, balance_increasing):
 def lookingforlives_insidepath(j, path_complex_main, status_src, addrs_src, amount_trd):
 
     if status_src in globales.open_incr_long_short:
+        
         howmany_closed = 0
         index_i = 0
+        count_netted = 0
         for i in range(j+1, len(path_complex_main)):
             if addrs_src == path_complex_main[i]['addrs_trk'] and path_complex_main[i]['status_trk'] in globales.all_netted_status:
-                print(path_complex_main[i], addrs_src)
+                count_netted += 1
                 index_i = i
                 howmany_closed += path_complex_main[i]['amount_trd']
-                lookingforlives_insidepath(i, path_complex_main, path_complex_main[i]['status_src'], path_complex_main[i]['addrs_src'], path_complex_main[i]['amount_trd'])
-        if howmany_closed !=0 and index_i != 0:
-            print("\nhowmnay_closed: ", howmany_closed, "amount_trd: ", amount_trd, "index_i: ", index_i)
+                path_complex_main = lookingforlives_insidepath(i, path_complex_main, path_complex_main[i]['status_src'], path_complex_main[i]['addrs_src'], path_complex_main[i]['amount_trd'])
+
+        if count_netted == 0:
+            path_complex_main[j]['lives_src'] = float("{0:.2f}".format(path_complex_main[j]['amount_trd']))
+        elif count_netted != 0 and howmany_closed != 0:
+            path_complex_main[index_i]['lives_trk'] = float("{0:.2f}".format(amount_trd-howmany_closed))
+
+        print("HELLO!! ", path_complex_main[j])
+        
+    return path_complex_main

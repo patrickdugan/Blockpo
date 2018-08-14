@@ -128,3 +128,24 @@ class status_for_contracts_stillopened:
             self.lives_src = int(v[2])
 
         self.amount_trd = int(v[6])
+
+class status_amounts_inthepath:
+
+    def __init__(self, v, addrs_trk):
+
+        if addrs_trk == v['addrs_trk']:
+            self.status_trk = v['status_trk']
+            self.status_src = v['status_src']
+            self.addrs_trk = v['addrs_trk']
+            self.addrs_src = v['addrs_src']
+            self.lives_trk = int(v['lives_trk'])
+            self.lives_src = int(v['lives_src'])
+        else:
+            self.status_trk = v['status_src']
+            self.status_src = v['status_trk']
+            self.addrs_trk = v['addrs_src']
+            self.addrs_src = v['addrs_trk']
+            self.lives_trk = int(v['lives_src'])
+            self.lives_src = int(v['lives_trk'])
+
+        self.amount_trd = int(v['amount_trd'])

@@ -106,12 +106,12 @@ for j in range(len(N_file)):
         if pathj['addrs_trk'] == single_path_value_ele['addrs_src']:
             sum_amountsfor_src_first += pathj['amount_trd']
             index_src_first = j
-            lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'])
+            path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'])
                 
         if pathj['addrs_trk'] == single_path_value_ele['addrs_trk']:
             sum_amountsfor_trk_first += pathj['amount_trd']
             index_trk_first = j
-            lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'])
+            path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'])
 
     print("\nLives contracts for ", single_path_value_ele['addrs_src'], "here:", "openedfor_first_adrrs - sum_amountsfor_src = ", openedfor_first_adrrs, "-", sum_amountsfor_src_first, "=", int(openedfor_first_adrrs-sum_amountsfor_src_first))
     print("\nindex_src_first", index_src_first)
@@ -121,7 +121,7 @@ for j in range(len(N_file)):
 
     for index in range(len(path_complex_main)):
         if index == index_src_first:
-            path_complex_main[index]['lives_src'] = int(openedfor_first_adrrs-sum_amountsfor_src_first)
+            path_complex_main[index]['lives_trk'] = int(openedfor_first_adrrs-sum_amountsfor_src_first)
         elif index == index_trk_first:
             path_complex_main[index]['lives_trk'] = int(openedfor_first_adrrs-sum_amountsfor_trk_first)        
     
