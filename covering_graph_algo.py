@@ -31,10 +31,10 @@ M_file = negative_for_short(M_file)
 print("\n\nNegative or Positive signs for Short or Longs respectively:\n\n", np.array(M_file))
 print("\n------------------------------------------------------\n")
 
-Last_cols = [777 for row in M_file]
+CTRD = column(M_file, 6)
 
-N_file = np.insert(M_file, 8, Last_cols, 1)
-N_file = np.insert(N_file, 9, Last_cols, 1)
+N_file = np.insert(M_file, 8, CTRD, 1)
+N_file = np.insert(N_file, 9, CTRD, 1)
 
 print("Two new columns for lives contracts to check those closed:\n\n", np.array(N_file))
 print("\n------------------------------------------------------\n")
