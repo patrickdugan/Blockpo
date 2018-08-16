@@ -20,6 +20,8 @@ class status_amounts_long_trk:
             self.addrs_src = v[3]
             self.status_src = v[4]
             self.lives_src = int(v[5])
+            self.lives_trk_updated = float(v[8])
+            self.lives_src_updated = float(v[9])
         else:
             self.addrs_trk = v[3]
             self.status_trk = v[4]
@@ -27,12 +29,11 @@ class status_amounts_long_trk:
             self.addrs_src = v[0]
             self.status_src = v[1]
             self.lives_src = int(v[2])
-
+            self.lives_trk_updated = float(v[9])
+            self.lives_src_updated = float(v[8])
+            
         self.amount_trd = int(v[6])
         self.matched_price = int(v[7])
-        self.lives_src_updated = int(v[8])
-        self.lives_trk_updated = int(v[9])
-
 
 class status_amounts_short_trk:
 
@@ -46,6 +47,8 @@ class status_amounts_short_trk:
             self.addrs_src = v[3]
             self.status_src = v[4]
             self.lives_src = int(v[5])
+            self.lives_trk_updated = float(v[8])
+            self.lives_src_updated = float(v[9])
         else:
             self.addrs_trk = v[3]
             self.status_trk = v[4]
@@ -53,12 +56,11 @@ class status_amounts_short_trk:
             self.addrs_src = v[0]
             self.status_src = v[1]
             self.lives_src = int(v[2])
+            self.lives_trk_updated = float(v[9])
+            self.lives_src_updated = float(v[8])
 
         self.amount_trd = int(v[6])
         self.matched_price = int(v[7])
-        self.lives_src_updated = int(v[8])
-        self.lives_trk_updated = int(v[9])
-
 
 class status_amounts_open_incr_pos:
 
@@ -94,6 +96,8 @@ class status_amounts_inloop:
             self.addrs_src = v[3]
             self.lives_trk = int(v[2])
             self.lives_src = int(v[5])
+            self.lives_trk_updated = float(v[8])
+            self.lives_src_updated = float(v[9])
         else:
             self.status_trk = v[4]
             self.status_src = v[1]
@@ -101,12 +105,11 @@ class status_amounts_inloop:
             self.addrs_src = v[0]
             self.lives_trk = int(v[5])
             self.lives_src = int(v[2])
+            self.lives_trk_updated = float(v[9])
+            self.lives_src_updated = float(v[8])
 
         self.amount_trd = int(v[6])
         self.matched_price = int(v[7])
-        self.lives_src_updated = int(v[8])
-        self.lives_trk_updated = int(v[9])
-
 
 class status_for_contracts_stillopened:
 

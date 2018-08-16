@@ -19,7 +19,6 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
     numberof_lives_contracts_byaddress = 0
 
     howmany_netted, average_incr = howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file, addrs_trk_arg, index_long_short, average_incr, diff_newtrdamount)
-    print("\nChecking here average_incr:\n", np.array(average_incr), "\nlen(average_incr): ", len(average_incr))
 
     balance_increasing = 0
     balance_increasing = total_balance_incr(average_incr, balance_increasing)
@@ -59,10 +58,10 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
                     print("\nChecking balance_incr: ", balance_incr)
                     print("\nNew netted event for ", addrs_trk_arg, " in the row: ", i+1, "!!")
-                    print("\nRow update:\n", M_file[:][i])
                     amount_selected = obj_trk_inloop.amount_trd
                     print("\namount_selected", amount_selected, ", diff_newtrdamount", diff_newtrdamount)
-                    traded_position_incr = average_posincreased_float(average_incr, amount_selected, traded_position_incr)
+                    print("\nChecking here average_incr:\n", np.array(average_incr), "\nlen(average_incr): ", len(average_incr))
+                    traded_position_incr = average_posincreased_float(average_incr, amount_selected, traded_position_incr, M_file, addrs_trk_arg)
                     print("\nbalance_incr: ", balance_incr, "<= opened contracts: ", balance_increasing)
                     print("\ntraded_position_incr:\n", np.array(traded_position_incr))
                     print("\nChecking the index_init: ", index_init)
@@ -71,7 +70,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     many_netted_incr += path_complex_fourh[-1]['amount_trd']
 
                     print("many_netted_incr!!: ", many_netted_incr)
-                    print("\npath_complex_fourh\n", np.array(path_complex_fourh))
+                    print("\nChecking path_complex_fourh:\n\n", np.array(path_complex_fourh))
                     print("obj_trk.amount_trd: ", obj_trk.amount_trd)
                     print("\n------------------------------------------------------\n")
 
@@ -220,7 +219,7 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
     return amounts_forthepath
 
 
-def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath):
+def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath, M_file, addrs_trk_arg):
 
     if len(average_posincr) > 1:
 
@@ -241,12 +240,12 @@ def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath
             column_status_trk.append(row[5])
             column_idx.append(row[8])
 
-        col_amounts = [float("{0:.2f}".format(
-            (float(row[6])/divider)*trade_amount)) for row in average_posincr]
+        col_amounts = [float("{0:.2f}".format((float(row[6])/divider)*trade_amount)) for row in average_posincr]
         print('\ncol_amounts: ', col_amounts)
 
         k = 0
         for j in range(len(average_posincr)):
+
             k += 1
             averaged_amount = col_amounts[k-1]
             prices_intheloop = column_prices[k-1]
@@ -255,8 +254,15 @@ def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath
             status_src_inloop = column_status_src[k-1]
             status_trk_inloop = column_status_trk[k-1]
             idx = column_idx[k-1]
-            amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop,
-                                       trk_intheloop, status_src_inloop, status_trk_inloop, idx])
+
+            obj_path = status_amounts_inloop(M_file[:][idx], addrs_trk_arg)
+            if obj_path.addrs_trk == M_file[:][idx][0]:
+                M_file[:][idx][8] = float(M_file[:][idx][8])-averaged_amount
+            else:
+                M_file[:][idx][9] = float(M_file[:][idx][9])-averaged_amount
+            print("Updating row ", idx, ": ", M_file[:][idx], "addrs_trk_arg: ", addrs_trk_arg)
+                
+            amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop, status_src_inloop, status_trk_inloop, idx])
 
     return amounts_forthepath
 
