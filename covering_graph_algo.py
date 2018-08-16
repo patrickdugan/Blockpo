@@ -92,8 +92,7 @@ for j in range(len(N_file)):
     path_complex_main = append_fromlist_tolist(path_complex_two_long, path_complex_main)
     path_complex_main = append_fromlist_tolist(path_complex_two_short, path_complex_main)
 
-    print("\nComputing lives contracts:")
-    print("Main addresses opening contracts: ", single_path_value_ele['addrs_src'], single_path_value_ele['addrs_trk'], "\n")
+    print("\nMain addresses opening contracts: ", single_path_value_ele['addrs_src'], single_path_value_ele['addrs_trk'])
 
     openedfor_first_adrrs = single_path_value_ele['amount_trd']
     sum_amountsfor_src_first = 0
@@ -113,12 +112,6 @@ for j in range(len(N_file)):
             index_trk_first = j
             path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'])
 
-    print("\nLives contracts for ", single_path_value_ele['addrs_src'], "here:", "openedfor_first_adrrs - sum_amountsfor_src = ", openedfor_first_adrrs, "-", sum_amountsfor_src_first, "=", int(openedfor_first_adrrs-sum_amountsfor_src_first))
-    print("\nindex_src_first", index_src_first)
-    
-    print("\nLives contracts for ", single_path_value_ele['addrs_trk'], "here:", "openedfor_first_adrrs - sum_amountsfor_src = ", openedfor_first_adrrs, "-", sum_amountsfor_trk_first, "=", int(openedfor_first_adrrs-sum_amountsfor_trk_first))
-    print("\nindex_trk_first", index_trk_first)
-
     for index in range(len(path_complex_main)):
         if index == index_src_first:
             path_complex_main[index]['lives_trk'] = int(openedfor_first_adrrs-sum_amountsfor_src_first)
@@ -126,6 +119,19 @@ for j in range(len(N_file)):
             path_complex_main[index]['lives_trk'] = int(openedfor_first_adrrs-sum_amountsfor_trk_first)        
     
     path_complex_main.insert(0, single_path_value_ele)
+
+    contracts_opened = 0
+    contracts_closed = 0
+    contracts_lives = 0
+    for row in path_complex_main:
+        if row['status_src'] in globales.open_incr_long_short and row['status_trk'] in globales.open_incr_long_short:
+            contracts_opened += row['amount_trd']
+        if row['status_src'] in globales.all_netted_status and row['status_trk'] in globales.all_netted_status:
+            contracts_closed += row['amount_trd']
+        contracts_lives += row['lives_src']+row['lives_trk']
+
+    print("\nChecking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives = ", (2*contracts_opened - contracts_closed)-contracts_lives)
+    
     print("\nPath:\n", np.array(path_complex_main), "\n")
     path_complex_two_matrix.append(path_complex_main)
 
