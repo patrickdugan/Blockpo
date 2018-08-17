@@ -62,8 +62,8 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     print("\nNew netted event for ", addrs_trk_arg, " in the row: ", i+1, "!!")
                     amount_selected = obj_trk_inloop.amount_trd
                     print("\namount_selected", amount_selected, ", diff_newtrdamount", diff_newtrdamount)
-                    print("\nChecking here average_incr:\n", np.array(average_incr), "\nlen(average_incr): ", len(average_incr))
-                    traded_position_incr, col_amounts = average_posincreased_float(average_incr, amount_selected, traded_position_incr, M_file, addrs_trk_arg, col_amounts)
+                    print("\nChecking here average_incr:\n", np.array(average_incr), "\nlen(average_incr): ", len(average_incr), "\n")
+                    traded_position_incr, col_amounts, M_file = average_posincreased_float(average_incr, amount_selected, traded_position_incr, M_file, addrs_trk_arg, col_amounts)
                     print('\ncol_amounts: ', col_amounts)
 
                     print("\nbalance_incr: ", balance_incr, "<= opened contracts: ", balance_increasing)
@@ -74,7 +74,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     many_netted_incr += path_complex_fourh[-1]['amount_trd']
                     print("many_netted_incr!!: ", many_netted_incr)
                     print("\nChecking path_complex_fourh:\n\n", np.array(path_complex_fourh))
-                    print("obj_trk.amount_trd: ", obj_trk.amount_trd)
+                    print("\nobj_trk.amount_trd: ", obj_trk.amount_trd)
                     print("\n------------------------------------------------------\n")
 
                     if path_complex_fourh[-1]['status_src'] in globales.open_incr_long_short:
@@ -259,14 +259,15 @@ def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath
 
             obj_path = status_amounts_inloop(M_file[:][idx], addrs_trk_arg)
             if obj_path.addrs_trk == M_file[:][idx][0]:
-                M_file[:][idx][8] = float(M_file[:][idx][8])-averaged_amount
+                M_file[:][idx][8] = float("{0:.2f}".format((float(M_file[:][idx][8])-averaged_amount)))
             else:
-                M_file[:][idx][9] = float(M_file[:][idx][9])-averaged_amount
+                M_file[:][idx][9] = float("{0:.2f}".format(float(M_file[:][idx][9])-averaged_amount))
+
             print("Updating row ", idx, ": ", M_file[:][idx], "addrs_trk_arg: ", addrs_trk_arg)
                 
             amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop, status_src_inloop, status_trk_inloop, idx])
 
-    return amounts_forthepath, col_amounts
+    return amounts_forthepath, col_amounts, M_file
 
 def remove_duplicate_rows_json(path_complex_two, new_l):
 
@@ -328,10 +329,8 @@ def first_single_path(m):
 
     if len(m) == 1:
 
-        single_path_value_begin = [
-            m[0][0], m[0][3], m[0][1], m[0][4], m[0][7], 0, m[0][2], m[0][5], m[0][6]]
-        single_path_begin = OrderedDict(
-            zip(globales.key_path, single_path_value_begin))
+        single_path_value_begin = [m[0][0], m[0][3], m[0][1], m[0][4], m[0][7], 0, m[0][2], m[0][5], m[0][6]]
+        single_path_begin = OrderedDict(zip(globales.key_path, single_path_value_begin))
         single_path.append(single_path_begin)
 
         bool_single_path = True
