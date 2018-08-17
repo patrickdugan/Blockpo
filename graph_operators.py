@@ -34,6 +34,8 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
     path_complex_incrs = []
 
     many_netted_incr = 0
+    col_amounts = []
+    
     for i in range(index_init+1, len(M_file)):
 
         N_filei = M_file[:][i]
@@ -61,14 +63,15 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     amount_selected = obj_trk_inloop.amount_trd
                     print("\namount_selected", amount_selected, ", diff_newtrdamount", diff_newtrdamount)
                     print("\nChecking here average_incr:\n", np.array(average_incr), "\nlen(average_incr): ", len(average_incr))
-                    traded_position_incr = average_posincreased_float(average_incr, amount_selected, traded_position_incr, M_file, addrs_trk_arg)
+                    traded_position_incr, col_amounts = average_posincreased_float(average_incr, amount_selected, traded_position_incr, M_file, addrs_trk_arg, col_amounts)
+                    print('\ncol_amounts: ', col_amounts)
+
                     print("\nbalance_incr: ", balance_incr, "<= opened contracts: ", balance_increasing)
                     print("\ntraded_position_incr:\n", np.array(traded_position_incr))
                     print("\nChecking the index_init: ", index_init)
                     path_complex_fourh = long_short_incr_path(traded_position_incr, obj_trk_inloop, path_complex_fourh, index_init, i)
 
                     many_netted_incr += path_complex_fourh[-1]['amount_trd']
-
                     print("many_netted_incr!!: ", many_netted_incr)
                     print("\nChecking path_complex_fourh:\n\n", np.array(path_complex_fourh))
                     print("obj_trk.amount_trd: ", obj_trk.amount_trd)
@@ -219,7 +222,7 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
     return amounts_forthepath
 
 
-def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath, M_file, addrs_trk_arg):
+def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath, M_file, addrs_trk_arg, col_amounts):
 
     if len(average_posincr) > 1:
 
@@ -241,7 +244,6 @@ def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath
             column_idx.append(row[8])
 
         col_amounts = [float("{0:.2f}".format((float(row[6])/divider)*trade_amount)) for row in average_posincr]
-        print('\ncol_amounts: ', col_amounts)
 
         k = 0
         for j in range(len(average_posincr)):
@@ -264,8 +266,7 @@ def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath
                 
             amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop, status_src_inloop, status_trk_inloop, idx])
 
-    return amounts_forthepath
-
+    return amounts_forthepath, col_amounts
 
 def remove_duplicate_rows_json(path_complex_two, new_l):
 
