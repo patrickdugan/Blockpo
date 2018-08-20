@@ -483,7 +483,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3192.0 - 483.53 ) - 2708.47 = 2708.47 - 2708.47 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('addrs_trk', 'n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 17995), ('exit_price', 17995), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1596), ('edge_row', 0)])
@@ -908,7 +909,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1164.0 - 12.23 ) - 1151.77 = 1151.77 - 1151.77 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('addrs_trk', 'mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 18007), ('exit_price', 18007), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 582), ('edge_row', 1)])
@@ -1276,7 +1278,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 8782.0 - 2563.5 ) - 6218.5 = 6218.5 - 6218.5 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('addrs_trk', 'n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 18988), ('exit_price', 18988), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 4391), ('edge_row', 2)])
@@ -1580,7 +1583,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 234.0 - 58.5 ) - 175.5 = 175.5 - 175.5 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19086), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 117), ('edge_row', 3)])
@@ -1784,7 +1788,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1512.0 - 0.0 ) - 1512.0 = 1512.0 - 1512.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo'), ('addrs_trk', 'miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 12246), ('exit_price', 12246), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 756), ('edge_row', 4)])
@@ -2195,7 +2200,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2654.0 - 230.91 ) - 2423.09 = 2423.09 - 2423.09 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo'), ('addrs_trk', 'mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 12343), ('exit_price', 12343), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1327), ('edge_row', 5)])
@@ -2462,7 +2468,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1934.0 - 1934.0 ) - 0.0 = 0.0 - 0.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('addrs_trk', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 22178), ('exit_price', 22178), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 967), ('edge_row', 6)])
@@ -2596,7 +2603,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mmhoD4AVt1PrbGZMfJJy43YUsjmjQqBeHp n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 548.0 - 548.0 ) - 0.0 = 0.0 - 0.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mmhoD4AVt1PrbGZMfJJy43YUsjmjQqBeHp'), ('addrs_trk', 'n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14512), ('exit_price', 14512), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 274), ('edge_row', 7)])
@@ -2830,7 +2838,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 6010.0 - 1544.77 ) - 4465.23 = 4465.23 - 4465.23 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A'), ('addrs_trk', 'mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 13467), ('exit_price', 13467), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 3005), ('edge_row', 8)])
@@ -3032,7 +3041,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 914.0 - 493.68 ) - 420.32 = 420.32 - 420.32 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV'), ('addrs_trk', 'mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 13467), ('exit_price', 13467), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 457), ('edge_row', 9)])
@@ -3428,7 +3438,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1046.0 - 434.7 ) - 611.3 = 611.3 - 611.3 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV'), ('addrs_trk', 'mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 13530), ('exit_price', 13530), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 523), ('edge_row', 10)])
@@ -3896,7 +3907,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3946.0 - 2036.93 ) - 1909.07 = 1909.07 - 1909.07 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW'), ('addrs_trk', 'n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19155), ('exit_price', 19155), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1973), ('edge_row', 11)])
@@ -4192,7 +4204,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 572.0 - 323.19 ) - 248.81 = 248.81 - 248.81 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW'), ('addrs_trk', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19195), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 286), ('edge_row', 12)])
@@ -4735,7 +4748,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1296.0 - 220.52 ) - 1075.48 = 1075.48 - 1075.48 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK'), ('addrs_trk', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19914), ('exit_price', 19914), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 648), ('edge_row', 13)])
@@ -5148,7 +5162,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 934.0 - 371.05 ) - 562.95 = 562.95 - 562.95 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('addrs_trk', 'mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 12343), ('exit_price', 12343), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 467), ('edge_row', 14)])
@@ -5892,7 +5907,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1084.0 - 269.93 ) - 814.07 = 814.07 - 814.07 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('addrs_trk', 'mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 12415), ('exit_price', 12415), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 542), ('edge_row', 15)])
@@ -6315,7 +6331,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3702.0 - 1483.09 ) - 2218.91 = 2218.91 - 2218.91 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz'), ('addrs_trk', 'mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 16517), ('exit_price', 16517), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1851), ('edge_row', 16)])
@@ -7111,7 +7128,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2496.0 - 528.32 ) - 1967.68 = 1967.68 - 1967.68 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz'), ('addrs_trk', 'n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 16608), ('exit_price', 16608), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1248), ('edge_row', 17)])
@@ -7541,7 +7559,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3934.0 - 2419.99 ) - 1514.01 = 1514.01 - 1514.01 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15279), ('exit_price', 15279), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1967), ('edge_row', 18)])
@@ -8100,7 +8119,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 mzCRtGxm3VzLS9rii5sUciHAR2WqSfuJVt
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 5028.0 - 1313.86 ) - 3714.14 = 3714.14 - 3714.14 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'mzCRtGxm3VzLS9rii5sUciHAR2WqSfuJVt'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15353), ('exit_price', 15353), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2514), ('edge_row', 19)])
@@ -8733,7 +8753,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 544.0 - 228.69 ) - 315.31 = 315.31 - 315.31 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15604), ('exit_price', 15604), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 272), ('edge_row', 20)])
@@ -9404,7 +9425,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mvmN7CxduEb4Wdz2wv2gw74QakZahFhWia mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3908.0 - 4.72 ) - 3903.28 = 3903.28 - 3903.28 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mvmN7CxduEb4Wdz2wv2gw74QakZahFhWia'), ('addrs_trk', 'mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 12415), ('exit_price', 12415), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1954), ('edge_row', 21)])
@@ -10131,7 +10153,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1890.0 - 951.74 ) - 938.26 = 938.26 - 938.26 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('addrs_trk', 'mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 17229), ('exit_price', 17229), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 945), ('edge_row', 22)])
@@ -11207,7 +11230,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  19.26
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2384.0 - 1324.3 ) - 1040.44 = 1059.7 - 1040.44 = 19.26
 
 Path:
  [OrderedDict([('addrs_src', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('addrs_trk', 'mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 17266), ('exit_price', 17266), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1192), ('edge_row', 23)])
@@ -11709,7 +11733,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 7092.0 - 1334.49 ) - 5757.51 = 5757.51 - 5757.51 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z'), ('addrs_trk', 'mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 17314), ('exit_price', 17314), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 3546), ('edge_row', 24)])
@@ -12037,7 +12062,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1036.0 - 93.72 ) - 942.28 = 942.28 - 942.28 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z'), ('addrs_trk', 'mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 17577), ('exit_price', 17577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 518), ('edge_row', 25)])
@@ -12067,12 +12093,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15055), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 593), ('edge_row', 26)])] 
+ [] 
 
 N_file:
 
@@ -12095,12 +12117,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('addrs_trk', 'mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 13530), ('exit_price', 13530), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 503), ('edge_row', 27)])] 
+ [] 
 
 N_file:
 
@@ -12123,12 +12141,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  145.0
-
 Path:
- [OrderedDict([('addrs_src', 'mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A'), ('addrs_trk', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 13613), ('exit_price', 13613), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 145), ('edge_row', 28)])] 
+ [] 
 
 N_file:
 
@@ -12151,12 +12165,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mtEWpc9Q2kqkuDSvVypJTAom7qFAiJZ67A'), ('addrs_trk', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 13613), ('exit_price', 13613), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1088), ('edge_row', 29)])] 
+ [] 
 
 N_file:
 
@@ -12300,7 +12310,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH mw7ji8ihjwC58Lmy4gGxtJ2nwnVNGC3CHa
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2490.0 - 286.97 ) - 2203.03 = 2203.03 - 2203.03 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('addrs_trk', 'mw7ji8ihjwC58Lmy4gGxtJ2nwnVNGC3CHa'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 13744), ('exit_price', 13744), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1245), ('edge_row', 30)])
@@ -12449,7 +12460,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1938.0 - 223.35 ) - 1714.65 = 1714.65 - 1714.65 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('addrs_trk', 'muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 13895), ('exit_price', 13895), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 969), ('edge_row', 31)])
@@ -12799,7 +12811,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH muKche6ScPjP3SpApndqXc34NF22mPupA6
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2268.0 - 360.87 ) - 1907.13 = 1907.13 - 1907.13 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('addrs_trk', 'muKche6ScPjP3SpApndqXc34NF22mPupA6'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 13944), ('exit_price', 13944), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1134), ('edge_row', 32)])
@@ -12829,12 +12842,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG n2aqGQHubcYZgkQexfAypTk7KW8nytmFps
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('addrs_trk', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 21661), ('exit_price', 21661), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2171), ('edge_row', 33)])] 
+ [] 
 
 N_file:
 
@@ -13075,7 +13084,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n2aqGQHubcYZgkQexfAypTk7KW8nytmFps mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 816.0 - 143.06 ) - 672.94 = 672.94 - 672.94 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 21820), ('exit_price', 21820), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 408), ('edge_row', 34)])
@@ -13413,7 +13423,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 4548.0 - 3017.23 ) - 1530.77 = 1530.77 - 1530.77 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 21592), ('exit_price', 21592), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2274), ('edge_row', 35)])
@@ -13446,12 +13457,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer'), ('addrs_trk', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21592), ('exit_price', 21592), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 815), ('edge_row', 36)])] 
+ [] 
 
 N_file:
 
@@ -13474,12 +13481,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'LongPosNetted'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21820), ('exit_price', 21820), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 377), ('edge_row', 37)])] 
+ [] 
 
 N_file:
 
@@ -13773,7 +13776,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3530.0 - 618.86 ) - 2911.14 = 2911.14 - 2911.14 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21820), ('exit_price', 21820), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1765), ('edge_row', 38)])
@@ -13802,12 +13806,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  593.0
-
 Path:
- [OrderedDict([('addrs_src', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 14416), ('exit_price', 14416), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 593), ('edge_row', 39)])] 
+ [] 
 
 N_file:
 
@@ -13830,12 +13830,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 14416), ('exit_price', 14416), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 835), ('edge_row', 40)])] 
+ [] 
 
 N_file:
 
@@ -13858,12 +13854,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5 msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mm6nXJZgnqs29hMnBFs28zmcMnPfmRoGS5'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 15604), ('exit_price', 15604), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 440), ('edge_row', 41)])] 
+ [] 
 
 N_file:
 
@@ -13886,12 +13878,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1380.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mzHvSG2GWXzYghuU8zLH3oLNBe5htsUKhj'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19555), ('exit_price', 19555), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1380), ('edge_row', 42)])] 
+ [] 
 
 N_file:
 
@@ -13914,12 +13902,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer mjZqA3zqzfzVGkc5dmDc5gjnHDkQbuDqdz
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer'), ('addrs_trk', 'mjZqA3zqzfzVGkc5dmDc5gjnHDkQbuDqdz'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 17266), ('exit_price', 17266), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1765), ('edge_row', 43)])] 
+ [] 
 
 N_file:
 
@@ -13960,10 +13944,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mjZqA3zqzfzVGkc5dmDc5gjnHDkQbuDqdz mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1294.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1294.0 - 0.0 ) - 1294.0 = 1294.0 - 1294.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mjZqA3zqzfzVGkc5dmDc5gjnHDkQbuDqdz'), ('addrs_trk', 'mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 17266), ('exit_price', 17266), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 647), ('edge_row', 44)])] 
+ [OrderedDict([('addrs_src', 'mjZqA3zqzfzVGkc5dmDc5gjnHDkQbuDqdz'), ('addrs_trk', 'mt62xZBU6u3n8JKxFL1WMnKJTrCuLz8uer'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 17266), ('exit_price', 17266), ('lives_src', 647), ('lives_trk', 647), ('amount_trd', 647), ('edge_row', 44)])] 
 
 N_file:
 
@@ -14166,7 +14151,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mjZqA3zqzfzVGkc5dmDc5gjnHDkQbuDqdz mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1424.0 - 128.82 ) - 1295.18 = 1295.18 - 1295.18 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mjZqA3zqzfzVGkc5dmDc5gjnHDkQbuDqdz'), ('addrs_trk', 'mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 17577), ('exit_price', 17577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 712), ('edge_row', 45)])
@@ -14194,12 +14180,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE muKche6ScPjP3SpApndqXc34NF22mPupA6
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE'), ('addrs_trk', 'muKche6ScPjP3SpApndqXc34NF22mPupA6'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 13944), ('exit_price', 13944), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 105), ('edge_row', 46)])] 
+ [] 
 
 N_file:
 
@@ -14222,12 +14204,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE'), ('addrs_trk', 'muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa'), ('status_src', 'LongPosNetted'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14011), ('exit_price', 14011), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2391), ('edge_row', 47)])] 
+ [] 
 
 N_file:
 
@@ -14563,7 +14541,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 460.0 - 172.75 ) - 287.25 = 287.25 - 287.25 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE'), ('addrs_trk', 'muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14011), ('exit_price', 14011), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 230), ('edge_row', 48)])
@@ -14770,7 +14749,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2 mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1066.0 - 0.0 ) - 1066.0 = 1066.0 - 1066.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2'), ('addrs_trk', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 12067), ('exit_price', 12067), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 533), ('edge_row', 49)])
@@ -15054,7 +15034,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 760.0 - 665.41 ) - 94.59 = 94.59 - 94.59 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('addrs_trk', 'muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14011), ('exit_price', 14011), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 380), ('edge_row', 50)])
@@ -15084,12 +15065,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'ShortPosNetted'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 14416), ('exit_price', 14416), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 709), ('edge_row', 51)])] 
+ [] 
 
 N_file:
 
@@ -15189,7 +15166,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  983.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1966.0 - 748.61 ) - 234.39 = 1217.39 - 234.39 = 983.0
 
 Path:
  [OrderedDict([('addrs_src', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('addrs_trk', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14416), ('exit_price', 14416), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 983), ('edge_row', 52)])
@@ -15216,12 +15194,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('addrs_trk', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 11894), ('exit_price', 11894), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 821), ('edge_row', 53)])] 
+ [] 
 
 N_file:
 
@@ -15548,7 +15522,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mfsBw2T3yqvVfHaseLnuza4ADk4aGZDxSn mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3694.0 - 32.73 ) - 3661.27 = 3661.27 - 3661.27 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mfsBw2T3yqvVfHaseLnuza4ADk4aGZDxSn'), ('addrs_trk', 'mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 18007), ('exit_price', 18007), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1847), ('edge_row', 54)])
@@ -15579,12 +15554,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  368.0
-
 Path:
- [OrderedDict([('addrs_src', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('addrs_trk', 'n2pa9zoNQaBrD9jMaH7Tr1zh9hbbmxmCNW'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15055), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 368), ('edge_row', 55)])] 
+ [] 
 
 N_file:
 
@@ -15803,7 +15774,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 412.0 - 0.0 ) - 412.0 = 412.0 - 412.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota'), ('addrs_trk', 'mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 12199), ('exit_price', 12199), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 206), ('edge_row', 56)])
@@ -15832,12 +15804,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE'), ('addrs_trk', 'mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota'), ('status_src', 'ShortPosNetted'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 12415), ('exit_price', 12415), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 230), ('edge_row', 57)])] 
+ [] 
 
 N_file:
 
@@ -16022,7 +15990,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1795.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3590.0 - 0.0 ) - 1795.0 = 3590.0 - 1795.0 = 1795.0
 
 Path:
  [OrderedDict([('addrs_src', 'mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota'), ('addrs_trk', 'mftggsoNzH5Hv3TjzMpjfst8NMbWH1bWkE'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 12415), ('exit_price', 12415), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1795), ('edge_row', 58)])
@@ -16470,7 +16439,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1802.0 - 274.51 ) - 1527.49 = 1527.49 - 1527.49 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota'), ('addrs_trk', 'mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 12534), ('exit_price', 12534), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 901), ('edge_row', 59)])
@@ -16849,7 +16819,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1668.0 - 386.02 ) - 1281.98 = 1281.98 - 1281.98 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('addrs_trk', 'n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15933), ('exit_price', 15933), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 834), ('edge_row', 60)])
@@ -17189,7 +17160,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1278.0 - 295.76 ) - 982.24 = 982.24 - 982.24 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('addrs_trk', 'n3TgSNTtw7mxiHkcNHqrFfZAs5EboLyVTz'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 16608), ('exit_price', 16608), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 639), ('edge_row', 61)])
@@ -17577,7 +17549,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  56.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1448.0 - 1003.1 ) - 388.9 = 444.9 - 388.9 = 56.0
 
 Path:
  [OrderedDict([('addrs_src', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('addrs_trk', 'mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 16708), ('exit_price', 16708), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 724), ('edge_row', 62)])
@@ -18086,7 +18059,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 424.0 - 168.31 ) - 255.69 = 255.69 - 255.69 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('addrs_trk', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 16710), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 212), ('edge_row', 63)])
@@ -18119,12 +18093,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf'), ('addrs_trk', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('status_src', 'LongPosNetted'), ('status_trk', 'LongPosIncreased'), ('entry_price', 12067), ('exit_price', 12067), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 206), ('edge_row', 64)])] 
+ [] 
 
 N_file:
 
@@ -18260,7 +18230,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  288.57
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 664.0 - 0.0 ) - 375.43 = 664.0 - 375.43 = 288.57
 
 Path:
  [OrderedDict([('addrs_src', 'mjWTbxuHWaV9SLevt4MNdyHxAiZj3AiMmf'), ('addrs_trk', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 12067), ('exit_price', 12067), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 332), ('edge_row', 65)])
@@ -18287,12 +18258,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo'), ('addrs_trk', 'mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 12534), ('exit_price', 12534), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1579), ('edge_row', 66)])] 
+ [] 
 
 N_file:
 
@@ -18315,12 +18282,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo'), ('addrs_trk', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('status_src', 'LongPosNetted'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14416), ('exit_price', 14416), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 394), ('edge_row', 67)])] 
+ [] 
 
 N_file:
 
@@ -18361,10 +18324,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2148.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2148.0 - 0.0 ) - 2148.0 = 2148.0 - 2148.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo'), ('addrs_trk', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14416), ('exit_price', 14416), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1074), ('edge_row', 68)])] 
+ [OrderedDict([('addrs_src', 'n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo'), ('addrs_trk', 'mwcWYi9coyfZwMvHwNEXu1dFTm9RvBSZ1q'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14416), ('exit_price', 14416), ('lives_src', 1074), ('lives_trk', 1074), ('amount_trd', 1074), ('edge_row', 68)])] 
 
 N_file:
 
@@ -18462,7 +18426,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 328.0 - 164.0 ) - 164.0 = 164.0 - 164.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n3sTqghHCzLDpeoZD9esfzYoao2wRRGhSo'), ('addrs_trk', 'n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14512), ('exit_price', 14512), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 164), ('edge_row', 69)])
@@ -18489,12 +18454,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('status_src', 'LongPosNetted'), ('status_trk', 'LongPosIncreased'), ('entry_price', 22178), ('exit_price', 22178), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 212), ('edge_row', 70)])] 
+ [] 
 
 N_file:
 
@@ -18705,7 +18666,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 716.0 - 521.89 ) - 194.11 = 194.11 - 194.11 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 22178), ('exit_price', 22178), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 358), ('edge_row', 71)])
@@ -18920,7 +18882,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1294.0 - 1099.9 ) - 194.1 = 194.1 - 194.1 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('addrs_trk', 'n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14512), ('exit_price', 14512), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 647), ('edge_row', 72)])
@@ -18949,12 +18912,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n2aqGQHubcYZgkQexfAypTk7KW8nytmFps mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('addrs_trk', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 14584), ('exit_price', 14584), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2283), ('edge_row', 73)])] 
+ [] 
 
 N_file:
 
@@ -18977,12 +18936,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n2aqGQHubcYZgkQexfAypTk7KW8nytmFps n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('addrs_trk', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 14584), ('exit_price', 14584), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 296), ('edge_row', 74)])] 
+ [] 
 
 N_file:
 
@@ -19032,10 +18987,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh n2aqGQHubcYZgkQexfAypTk7KW8nytmFps
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  258.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 258.0 - 0.0 ) - 258.0 = 258.0 - 258.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14584), ('exit_price', 14584), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 129), ('edge_row', 75)])] 
+ [OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14584), ('exit_price', 14584), ('lives_src', 129), ('lives_trk', 129), ('amount_trd', 129), ('edge_row', 75)])] 
 
 N_file:
 
@@ -19058,12 +19014,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 15604), ('exit_price', 15604), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1749), ('edge_row', 76)])] 
+ [] 
 
 N_file:
 
@@ -19086,12 +19038,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'LongPosNetted'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15620), ('exit_price', 15620), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 45), ('edge_row', 77)])] 
+ [] 
 
 N_file:
 
@@ -19234,7 +19182,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2450.0 - 643.37 ) - 1806.63 = 1806.63 - 1806.63 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 15620), ('exit_price', 15620), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1225), ('edge_row', 78)])
@@ -19262,12 +19211,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz'), ('addrs_trk', 'mrHn3ZwiX5YZXqa5nh49E59T6ruAooj7hg'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 15623), ('exit_price', 15623), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 499), ('edge_row', 79)])] 
+ [] 
 
 N_file:
 
@@ -19290,12 +19235,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y'), ('addrs_trk', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('status_src', 'LongPosNetted'), ('status_trk', 'LongPosIncreased'), ('entry_price', 12067), ('exit_price', 12067), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 756), ('edge_row', 80)])] 
+ [] 
 
 N_file:
 
@@ -19427,7 +19368,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  374.62
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 862.0 - 0.0 ) - 487.38 = 862.0 - 487.38 = 374.62
 
 Path:
  [OrderedDict([('addrs_src', 'miNdGXaBt3wyA5PBC5yj5iDAFKxSgQRq4y'), ('addrs_trk', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 12067), ('exit_price', 12067), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 431), ('edge_row', 81)])
@@ -19678,7 +19620,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91 mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2234.0 - 391.65 ) - 1842.35 = 1842.35 - 1842.35 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21820), ('exit_price', 21820), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1117), ('edge_row', 82)])
@@ -19707,12 +19650,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  286.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz'), ('addrs_trk', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 15623), ('exit_price', 15623), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 286), ('edge_row', 83)])] 
+ [] 
 
 N_file:
 
@@ -19735,12 +19674,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz'), ('addrs_trk', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 15623), ('exit_price', 15623), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 173), ('edge_row', 84)])] 
+ [] 
 
 N_file:
 
@@ -19763,12 +19698,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  358.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 16710), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 358), ('edge_row', 85)])] 
+ [] 
 
 N_file:
 
@@ -19791,12 +19722,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('addrs_trk', 'mmEayy6JpRKGWn2YEDvSCGZkxGApqbTkQV'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'OpenLongPosition'), ('entry_price', 16710), ('exit_price', 16710), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1360), ('edge_row', 86)])] 
+ [] 
 
 N_file:
 
@@ -19819,12 +19746,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  425.0
-
 Path:
- [OrderedDict([('addrs_src', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('addrs_trk', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 16850), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 425), ('edge_row', 87)])] 
+ [] 
 
 N_file:
 
@@ -19847,12 +19770,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('addrs_trk', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('status_src', 'LongPosNetted'), ('status_trk', 'OpenLongPosition'), ('entry_price', 16850), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 318), ('edge_row', 88)])] 
+ [] 
 
 N_file:
 
@@ -19893,10 +19812,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  3976.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3976.0 - 0.0 ) - 3976.0 = 3976.0 - 3976.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('addrs_trk', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 16850), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1988), ('edge_row', 89)])] 
+ [OrderedDict([('addrs_src', 'msYMBYKUXAZmNV6ZmagdqHVF2k3opDDxTy'), ('addrs_trk', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 16850), ('exit_price', 16850), ('lives_src', 1988), ('lives_trk', 1988), ('amount_trd', 1988), ('edge_row', 89)])] 
 
 N_file:
 
@@ -20112,7 +20032,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs n2aqGQHubcYZgkQexfAypTk7KW8nytmFps
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1286.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2572.0 - 0.0 ) - 1286.0 = 2572.0 - 1286.0 = 1286.0
 
 Path:
  [OrderedDict([('addrs_src', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('addrs_trk', 'n2aqGQHubcYZgkQexfAypTk7KW8nytmFps'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14584), ('exit_price', 14584), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1286), ('edge_row', 90)])
@@ -20141,12 +20062,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK'), ('addrs_trk', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('status_src', 'ShortPosNetted'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 14734), ('exit_price', 14734), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 648), ('edge_row', 91)])] 
+ [] 
 
 N_file:
 
@@ -20198,10 +20115,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2212.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2212.0 - 0.0 ) - 2212.0 = 2212.0 - 2212.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('addrs_trk', 'n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14734), ('exit_price', 14734), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1106), ('edge_row', 92)])] 
+ [OrderedDict([('addrs_src', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('addrs_trk', 'n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14734), ('exit_price', 14734), ('lives_src', 1106), ('lives_trk', 1106), ('amount_trd', 1106), ('edge_row', 92)])] 
 
 N_file:
 
@@ -20339,7 +20257,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5 n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 4426.0 - 1309.04 ) - 3116.96 = 3116.96 - 3116.96 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5'), ('addrs_trk', 'n2DfRbjRXBDNqcxaCPaXcydtEBRNBhhcdh'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 16850), ('exit_price', 16850), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2213), ('edge_row', 93)])
@@ -20642,7 +20561,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5 mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2228.0 - 860.51 ) - 1367.49 = 1367.49 - 1367.49 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5'), ('addrs_trk', 'mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 17577), ('exit_price', 17577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1114), ('edge_row', 94)])
@@ -20690,10 +20610,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  miwhjvia3Trz7eR7GaVaXYPYj87DLSECUS n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  4360.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 4360.0 - 0.0 ) - 4360.0 = 4360.0 - 4360.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'miwhjvia3Trz7eR7GaVaXYPYj87DLSECUS'), ('addrs_trk', 'n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14734), ('exit_price', 14734), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2180), ('edge_row', 95)])] 
+ [OrderedDict([('addrs_src', 'miwhjvia3Trz7eR7GaVaXYPYj87DLSECUS'), ('addrs_trk', 'n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14734), ('exit_price', 14734), ('lives_src', 2180), ('lives_trk', 2180), ('amount_trd', 2180), ('edge_row', 95)])] 
 
 N_file:
 
@@ -20716,12 +20637,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmhoD4AVt1PrbGZMfJJy43YUsjmjQqBeHp mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  274.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmhoD4AVt1PrbGZMfJJy43YUsjmjQqBeHp'), ('addrs_trk', 'mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 21104), ('exit_price', 21104), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 274), ('edge_row', 96)])] 
+ [] 
 
 N_file:
 
@@ -20744,12 +20661,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv mmhoD4AVt1PrbGZMfJJy43YUsjmjQqBeHp
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv'), ('addrs_trk', 'mmhoD4AVt1PrbGZMfJJy43YUsjmjQqBeHp'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'OpenLongPosition'), ('entry_price', 21104), ('exit_price', 21104), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 206), ('edge_row', 97)])] 
+ [] 
 
 N_file:
 
@@ -20772,12 +20685,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv'), ('addrs_trk', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('status_src', 'LongPosNetted'), ('status_trk', 'OpenLongPosition'), ('entry_price', 21127), ('exit_price', 21127), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 465), ('edge_row', 98)])] 
+ [] 
 
 N_file:
 
@@ -20964,7 +20873,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  98.27
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 290.0 - 0.0 ) - 191.73 = 290.0 - 191.73 = 98.27
 
 Path:
  [OrderedDict([('addrs_src', 'mq2or9hqZ8GYYSunjzV9ip7t2nr675qBgv'), ('addrs_trk', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21127), ('exit_price', 21127), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 145), ('edge_row', 99)])
@@ -21159,7 +21069,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1208.0 - 0.0 ) - 1208.0 = 1208.0 - 1208.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'n11VcAdkSCJwGwAb2UPvckKNyxFyuDowGK'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 14734), ('exit_price', 14734), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 604), ('edge_row', 100)])
@@ -21377,7 +21288,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 778.0 - 389.0 ) - 389.0 = 389.0 - 389.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14734), ('exit_price', 14734), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 389), ('edge_row', 101)])
@@ -21406,12 +21318,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mybyhgNYkUeFYn4tGp55ZJNidV1rCUQota'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 14751), ('exit_price', 14751), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 834), ('edge_row', 102)])] 
+ [] 
 
 N_file:
 
@@ -21434,12 +21342,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 15055), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 70), ('edge_row', 103)])] 
+ [] 
 
 N_file:
 
@@ -21462,12 +21366,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  389.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz'), ('addrs_trk', 'mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 15623), ('exit_price', 15623), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 389), ('edge_row', 104)])] 
+ [] 
 
 N_file:
 
@@ -21490,12 +21390,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz'), ('addrs_trk', 'mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 15623), ('exit_price', 15623), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1752), ('edge_row', 105)])] 
+ [] 
 
 N_file:
 
@@ -21536,10 +21432,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2096.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2096.0 - 0.0 ) - 2096.0 = 2096.0 - 2096.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y'), ('addrs_trk', 'mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15623), ('exit_price', 15623), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1048), ('edge_row', 106)])] 
+ [OrderedDict([('addrs_src', 'mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y'), ('addrs_trk', 'mmBV1YGdEDm1HP9jHuNxHHjcvvsdoemhaz'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15623), ('exit_price', 15623), ('lives_src', 1048), ('lives_trk', 1048), ('amount_trd', 1048), ('edge_row', 106)])] 
 
 N_file:
 
@@ -21738,7 +21635,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2898.0 - 262.16 ) - 2635.84 = 2635.84 - 2635.84 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mizmjDSSodKzEQFD2qv7UaS4RpmdZWZj8y'), ('addrs_trk', 'mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 17577), ('exit_price', 17577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1449), ('edge_row', 107)])
@@ -21766,12 +21664,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('addrs_trk', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 15055), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 397), ('edge_row', 108)])] 
+ [] 
 
 N_file:
 
@@ -21866,7 +21760,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2230.0 - 667.0 ) - 1563.0 = 1563.0 - 1563.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15055), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1115), ('edge_row', 109)])
@@ -22125,7 +22020,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 340.0 - 30.76 ) - 309.24 = 309.24 - 309.24 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb'), ('addrs_trk', 'mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 17577), ('exit_price', 17577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 170), ('edge_row', 110)])
@@ -22483,7 +22379,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1542.0 - 15.76 ) - 1526.24 = 1526.24 - 1526.24 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb'), ('addrs_trk', 'mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 18007), ('exit_price', 18007), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 771), ('edge_row', 111)])
@@ -22514,12 +22411,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  muKche6ScPjP3SpApndqXc34NF22mPupA6 mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'muKche6ScPjP3SpApndqXc34NF22mPupA6'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21820), ('exit_price', 21820), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 308), ('edge_row', 112)])] 
+ [] 
 
 N_file:
 
@@ -22542,12 +22435,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN'), ('addrs_trk', 'mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 18007), ('exit_price', 18007), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 982), ('edge_row', 113)])] 
+ [] 
 
 N_file:
 
@@ -22570,12 +22459,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  277.0
-
 Path:
- [OrderedDict([('addrs_src', 'mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW'), ('addrs_trk', 'mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18073), ('exit_price', 18073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 277), ('edge_row', 114)])] 
+ [] 
 
 N_file:
 
@@ -22598,12 +22483,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1038.0
-
 Path:
- [OrderedDict([('addrs_src', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('addrs_trk', 'mvBRufiZuFyYvymCSEEzcoMPG1NsWFDWXN'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18206), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1038), ('edge_row', 115)])] 
+ [] 
 
 N_file:
 
@@ -22626,12 +22507,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1034.0
-
 Path:
- [OrderedDict([('addrs_src', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('addrs_trk', 'mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18206), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1034), ('edge_row', 116)])] 
+ [] 
 
 N_file:
 
@@ -22654,12 +22531,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'LongPosNetted'), ('status_trk', 'OpenLongPosition'), ('entry_price', 18206), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 817), ('edge_row', 117)])] 
+ [] 
 
 N_file:
 
@@ -22700,10 +22573,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  830.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 830.0 - 0.0 ) - 830.0 = 830.0 - 830.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 18206), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 415), ('edge_row', 118)])] 
+ [OrderedDict([('addrs_src', 'mqV9e5epidnBgde2SA8hUAi8Cs9iUWaJBy'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 18206), ('exit_price', 18206), ('lives_src', 415), ('lives_trk', 415), ('amount_trd', 415), ('edge_row', 118)])] 
 
 N_file:
 
@@ -22726,12 +22600,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1037.0
-
 Path:
- [OrderedDict([('addrs_src', 'n46mYwYWDKkJuuUrhPQU4H8atLnYoTGayH'), ('addrs_trk', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19914), ('exit_price', 19914), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1037), ('edge_row', 119)])] 
+ [] 
 
 N_file:
 
@@ -22754,12 +22624,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  500.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('addrs_trk', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 19989), ('exit_price', 19989), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 500), ('edge_row', 120)])] 
+ [] 
 
 N_file:
 
@@ -22782,12 +22648,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('addrs_trk', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 19989), ('exit_price', 19989), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 509), ('edge_row', 121)])] 
+ [] 
 
 N_file:
 
@@ -22830,10 +22692,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2806.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2806.0 - 0.0 ) - 2806.0 = 2806.0 - 2806.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('addrs_trk', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19989), ('exit_price', 19989), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1403), ('edge_row', 122)])] 
+ [OrderedDict([('addrs_src', 'mg5tRVm24HcKejKRR4HVUNYW8XPuTdzz5h'), ('addrs_trk', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19989), ('exit_price', 19989), ('lives_src', 1403), ('lives_trk', 1403), ('amount_trd', 1403), ('edge_row', 122)])] 
 
 N_file:
 
@@ -22856,12 +22719,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk'), ('addrs_trk', 'ms7jXzMmYr7Cb1uAZ8scGw6yWraF9LHmLB'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 15055), ('exit_price', 15055), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 578), ('edge_row', 123)])] 
+ [] 
 
 N_file:
 
@@ -22884,12 +22743,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mhcFP7eKZKfmX1j6Xq6YqbCWQYpSw3cfVk'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15070), ('exit_price', 15070), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 805), ('edge_row', 124)])] 
+ [] 
 
 N_file:
 
@@ -22912,12 +22767,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3 mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 15070), ('exit_price', 15070), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1198), ('edge_row', 125)])] 
+ [] 
 
 N_file:
 
@@ -22940,12 +22791,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  398.0
-
 Path:
- [OrderedDict([('addrs_src', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('addrs_trk', 'n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 15073), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 398), ('edge_row', 126)])] 
+ [] 
 
 N_file:
 
@@ -22968,12 +22815,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('addrs_trk', 'n2H9nut4kQHBu8H2G6RX8gH8eh3WWM54z3'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 15073), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 636), ('edge_row', 127)])] 
+ [] 
 
 N_file:
 
@@ -22996,12 +22839,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mzCRtGxm3VzLS9rii5sUciHAR2WqSfuJVt mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mzCRtGxm3VzLS9rii5sUciHAR2WqSfuJVt'), ('addrs_trk', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21127), ('exit_price', 21127), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 438), ('edge_row', 128)])] 
+ [] 
 
 N_file:
 
@@ -23024,12 +22863,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('addrs_trk', 'mgYr4qJ3Yc61amKcdZx7SukQxgK5iWM87o'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 18206), ('exit_price', 18206), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 304), ('edge_row', 129)])] 
+ [] 
 
 N_file:
 
@@ -23052,12 +22887,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1399.0
-
 Path:
- [OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18493), ('exit_price', 18493), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1399), ('edge_row', 130)])] 
+ [] 
 
 N_file:
 
@@ -23080,12 +22911,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 18493), ('exit_price', 18493), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 784), ('edge_row', 131)])] 
+ [] 
 
 N_file:
 
@@ -23108,12 +22935,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 15073), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 658), ('edge_row', 132)])] 
+ [] 
 
 N_file:
 
@@ -23136,12 +22959,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1085.0
-
 Path:
- [OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 18493), ('exit_price', 18493), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1085), ('edge_row', 133)])] 
+ [] 
 
 N_file:
 
@@ -23164,12 +22983,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4 n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('addrs_trk', 'n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 18493), ('exit_price', 18493), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 183), ('edge_row', 134)])] 
+ [] 
 
 N_file:
 
@@ -23366,7 +23181,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 4006.0 - 649.37 ) - 3356.63 = 3356.63 - 3356.63 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'n3XJvzwCwWqPDdc2yCkqKGFceMcKeVWhfN'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 18498), ('exit_price', 18498), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2003), ('edge_row', 135)])
@@ -23395,12 +23211,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8 n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 18498), ('exit_price', 18498), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 224), ('edge_row', 136)])] 
+ [] 
 
 N_file:
 
@@ -23423,12 +23235,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  678.0
-
 Path:
- [OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mktkVFwZngFw5RCVJ3xW2MKwhtWA5zA7q8'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18577), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 678), ('edge_row', 137)])] 
+ [] 
 
 N_file:
 
@@ -23451,12 +23259,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  143.0
-
 Path:
- [OrderedDict([('addrs_src', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('addrs_trk', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 18577), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 143), ('edge_row', 138)])] 
+ [] 
 
 N_file:
 
@@ -23479,12 +23283,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('addrs_trk', 'mkQ6aEQMvw5vb2iMH5YX1uMVPvZHCjzDgr'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'OpenLongPosition'), ('entry_price', 18577), ('exit_price', 18577), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 160), ('edge_row', 139)])] 
+ [] 
 
 N_file:
 
@@ -23507,12 +23307,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mkcNfMd3rXvVkFXdEeCeu567aqsxE9gXHo'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19086), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1647), ('edge_row', 140)])] 
+ [] 
 
 N_file:
 
@@ -23535,12 +23331,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3 mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  717.0
-
 Path:
- [OrderedDict([('addrs_src', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('addrs_trk', 'mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 15073), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 717), ('edge_row', 141)])] 
+ [] 
 
 N_file:
 
@@ -23563,12 +23355,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mwrvdn1LLArFYw7c1MJESPn2T8tMDKxXFi'), ('addrs_trk', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15073), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 637), ('edge_row', 142)])] 
+ [] 
 
 N_file:
 
@@ -23591,12 +23379,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('addrs_trk', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 20129), ('exit_price', 20129), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 3040), ('edge_row', 143)])] 
+ [] 
 
 N_file:
 
@@ -23672,7 +23456,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  825.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1650.0 - 0.0 ) - 825.0 = 1650.0 - 825.0 = 825.0
 
 Path:
  [OrderedDict([('addrs_src', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('addrs_trk', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 20129), ('exit_price', 20129), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 825), ('edge_row', 144)])
@@ -23699,12 +23484,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19086), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 380), ('edge_row', 145)])] 
+ [] 
 
 N_file:
 
@@ -23727,12 +23508,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5 mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1392.0
-
 Path:
- [OrderedDict([('addrs_src', 'motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5'), ('addrs_trk', 'mgtJu71W3m86X8XMvTLndpRcdp6sFPN5VL'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 11608), ('exit_price', 11608), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1392), ('edge_row', 146)])] 
+ [] 
 
 N_file:
 
@@ -23899,7 +23676,8 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1122.0 - 0.0 ) - 1122.0 = 1122.0 - 1122.0 = 0.0
 
 Path:
  [OrderedDict([('addrs_src', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('addrs_trk', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19086), ('exit_price', 19086), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 561), ('edge_row', 147)])
@@ -23927,12 +23705,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('addrs_trk', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 19108), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 879), ('edge_row', 148)])] 
+ [] 
 
 N_file:
 
@@ -23955,12 +23729,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2051.0
-
 Path:
- [OrderedDict([('addrs_src', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('addrs_trk', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19108), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2051), ('edge_row', 149)])] 
+ [] 
 
 N_file:
 
@@ -23983,12 +23753,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8 mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('addrs_trk', 'mg51ZbZAa91WoxMehQMcSinYjJcNxWcsoW'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19108), ('exit_price', 19108), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 25), ('edge_row', 150)])] 
+ [] 
 
 N_file:
 
@@ -24011,12 +23777,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  173.0
-
 Path:
- [OrderedDict([('addrs_src', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('addrs_trk', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 19195), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 173), ('edge_row', 151)])] 
+ [] 
 
 N_file:
 
@@ -24039,12 +23801,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8 mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mxnx2EBrYFNd8C2bvbteEnZgRxJJx9F6h8'), ('addrs_trk', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19195), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 8), ('edge_row', 152)])] 
+ [] 
 
 N_file:
 
@@ -24067,12 +23825,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5 n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  576.0
-
 Path:
- [OrderedDict([('addrs_src', 'motZmEFxmdRQxVyMoFYMcFr5ur1tWh8Do5'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 11608), ('exit_price', 11608), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 576), ('edge_row', 153)])] 
+ [] 
 
 N_file:
 
@@ -24095,12 +23849,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA n1sL7zSNkU6GhfyoTTefTczJak279BFpjA
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  146.0
-
 Path:
- [OrderedDict([('addrs_src', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('addrs_trk', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('status_src', 'ShortPosNetted'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 11894), ('exit_price', 11894), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 146), ('edge_row', 154)])] 
+ [] 
 
 N_file:
 
@@ -24123,12 +23873,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n1sL7zSNkU6GhfyoTTefTczJak279BFpjA mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n1sL7zSNkU6GhfyoTTefTczJak279BFpjA'), ('addrs_trk', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'OpenLongPosition'), ('entry_price', 11894), ('exit_price', 11894), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 188), ('edge_row', 155)])] 
+ [] 
 
 N_file:
 
@@ -24151,12 +23897,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4 mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('addrs_trk', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19195), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 450), ('edge_row', 156)])] 
+ [] 
 
 N_file:
 
@@ -24203,10 +23945,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv min3smNmY6UEzYqorveN3Y9kPGx5TLNMF6
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1844.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1844.0 - 0.0 ) - 1844.0 = 1844.0 - 1844.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'min3smNmY6UEzYqorveN3Y9kPGx5TLNMF6'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 20990), ('exit_price', 20990), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 922), ('edge_row', 157)])] 
+ [OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'min3smNmY6UEzYqorveN3Y9kPGx5TLNMF6'), ('status_src', 'OpenShortPosition'), ('status_trk', 'OpenLongPosition'), ('entry_price', 20990), ('exit_price', 20990), ('lives_src', 922), ('lives_trk', 922), ('amount_trd', 922), ('edge_row', 157)])] 
 
 N_file:
 
@@ -24251,10 +23994,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  262.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 262.0 - 0.0 ) - 262.0 = 262.0 - 262.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21127), ('exit_price', 21127), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 131), ('edge_row', 158)])] 
+ [OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mmt53oH49enuqvJse8L2kxgvNqGSpaxE4b'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21127), ('exit_price', 21127), ('lives_src', 131), ('lives_trk', 131), ('amount_trd', 131), ('edge_row', 158)])] 
 
 N_file:
 
@@ -24297,10 +24041,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  30.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 30.0 - 0.0 ) - 30.0 = 30.0 - 30.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21820), ('exit_price', 21820), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 15), ('edge_row', 159)])] 
+ [OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mv9wSoogNxTRGpefQhKFKkrjzooPJMnZii'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21820), ('exit_price', 21820), ('lives_src', 15), ('lives_trk', 15), ('amount_trd', 15), ('edge_row', 159)])] 
 
 N_file:
 
@@ -24323,12 +24068,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('addrs_trk', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('status_src', 'ShortPosNetted'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 21891), ('exit_price', 21891), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 658), ('edge_row', 160)])] 
+ [] 
 
 N_file:
 
@@ -24369,10 +24110,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1204.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1204.0 - 0.0 ) - 1204.0 = 1204.0 - 1204.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 21891), ('exit_price', 21891), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 602), ('edge_row', 161)])] 
+ [OrderedDict([('addrs_src', 'muu1oCkAN9EFPVmQjVzqmu7gDTxU5FmBXv'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 21891), ('exit_price', 21891), ('lives_src', 602), ('lives_trk', 602), ('amount_trd', 602), ('edge_row', 161)])] 
 
 N_file:
 
@@ -24395,12 +24137,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV'), ('addrs_trk', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('status_src', 'LongPosNetted'), ('status_trk', 'LongPosIncreased'), ('entry_price', 11894), ('exit_price', 11894), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 969), ('edge_row', 162)])] 
+ [] 
 
 N_file:
 
@@ -24445,10 +24183,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1248.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1248.0 - 0.0 ) - 1248.0 = 1248.0 - 1248.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV'), ('addrs_trk', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 11894), ('exit_price', 11894), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 624), ('edge_row', 163)])] 
+ [OrderedDict([('addrs_src', 'muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV'), ('addrs_trk', 'mmBbu6QCVkKa7HMN1GL5ZbPi4eDJ7JKbJA'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 11894), ('exit_price', 11894), ('lives_src', 624), ('lives_trk', 624), ('amount_trd', 624), ('edge_row', 163)])] 
 
 N_file:
 
@@ -24471,12 +24210,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mvmN7CxduEb4Wdz2wv2gw74QakZahFhWia muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mvmN7CxduEb4Wdz2wv2gw74QakZahFhWia'), ('addrs_trk', 'muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 11909), ('exit_price', 11909), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1090), ('edge_row', 164)])] 
+ [] 
 
 N_file:
 
@@ -24499,12 +24234,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91 muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91'), ('addrs_trk', 'muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV'), ('status_src', 'ShortPosNetted'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 11913), ('exit_price', 11913), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1117), ('edge_row', 165)])] 
+ [] 
 
 N_file:
 
@@ -24547,10 +24278,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  420.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 420.0 - 0.0 ) - 420.0 = 420.0 - 420.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV'), ('addrs_trk', 'mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 11913), ('exit_price', 11913), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 210), ('edge_row', 166)])] 
+ [OrderedDict([('addrs_src', 'muaiDUDT2NZhmeqTP6qMKo5BH6YJ29fUhV'), ('addrs_trk', 'mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 11913), ('exit_price', 11913), ('lives_src', 210), ('lives_trk', 210), ('amount_trd', 210), ('edge_row', 166)])] 
 
 N_file:
 
@@ -24573,12 +24305,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y'), ('addrs_trk', 'n1QQ4DhiQSqqVHJGsABcQ5VKDhrfwhDyk3'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 15073), ('exit_price', 15073), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 56), ('edge_row', 167)])] 
+ [] 
 
 N_file:
 
@@ -24601,12 +24329,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  668.0
-
 Path:
- [OrderedDict([('addrs_src', 'n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV'), ('addrs_trk', 'mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 15203), ('exit_price', 15203), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 668), ('edge_row', 168)])] 
+ [] 
 
 N_file:
 
@@ -24629,12 +24353,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV'), ('addrs_trk', 'mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 15203), ('exit_price', 15203), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 312), ('edge_row', 169)])] 
+ [] 
 
 N_file:
 
@@ -24675,10 +24395,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  6460.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 6460.0 - 0.0 ) - 6460.0 = 6460.0 - 6460.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y'), ('addrs_trk', 'n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15203), ('exit_price', 15203), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 3230), ('edge_row', 170)])] 
+ [OrderedDict([('addrs_src', 'mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y'), ('addrs_trk', 'n2JaRuwGeHaeqJZMdFPMePouAGcLNoy2QV'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15203), ('exit_price', 15203), ('lives_src', 3230), ('lives_trk', 3230), ('amount_trd', 3230), ('edge_row', 170)])] 
 
 N_file:
 
@@ -24701,12 +24422,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('addrs_trk', 'mgwrcVagETrhQcCFnceW6VpkpjXyN28s3Y'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 15241), ('exit_price', 15241), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 380), ('edge_row', 171)])] 
+ [] 
 
 N_file:
 
@@ -24729,12 +24446,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('addrs_trk', 'mz1Y5BjwwG9AhtLd8m2yp5NSDs5vvgQ7HL'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19195), ('exit_price', 19195), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 603), ('edge_row', 172)])] 
+ [] 
 
 N_file:
 
@@ -24757,12 +24470,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  667.0
-
 Path:
- [OrderedDict([('addrs_src', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'LongPosNetted'), ('entry_price', 19289), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 667), ('edge_row', 173)])] 
+ [] 
 
 N_file:
 
@@ -24785,12 +24494,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mnonAdZ5yXXWnoBXMcDCX7oPwVUcpGkTFn'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 19289), ('exit_price', 19289), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 97), ('edge_row', 174)])] 
+ [] 
 
 N_file:
 
@@ -24813,12 +24518,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mfsBw2T3yqvVfHaseLnuza4ADk4aGZDxSn n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mfsBw2T3yqvVfHaseLnuza4ADk4aGZDxSn'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 19314), ('exit_price', 19314), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 916), ('edge_row', 175)])] 
+ [] 
 
 N_file:
 
@@ -24841,12 +24542,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'n3tk5qb1E72ZCBTiLhx4unzX1bZg3zEvaS'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 19555), ('exit_price', 19555), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 50), ('edge_row', 176)])] 
+ [] 
 
 N_file:
 
@@ -24869,12 +24566,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH mrH7q8E48nCkFUwV3q7JsvwP7Cs8UTaiUH
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('addrs_trk', 'mrH7q8E48nCkFUwV3q7JsvwP7Cs8UTaiUH'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 19555), ('exit_price', 19555), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 844), ('edge_row', 177)])] 
+ [] 
 
 N_file:
 
@@ -24917,10 +24610,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mrH7q8E48nCkFUwV3q7JsvwP7Cs8UTaiUH n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  3430.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3430.0 - 0.0 ) - 3430.0 = 3430.0 - 3430.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mrH7q8E48nCkFUwV3q7JsvwP7Cs8UTaiUH'), ('addrs_trk', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19555), ('exit_price', 19555), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1715), ('edge_row', 178)])] 
+ [OrderedDict([('addrs_src', 'mrH7q8E48nCkFUwV3q7JsvwP7Cs8UTaiUH'), ('addrs_trk', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19555), ('exit_price', 19555), ('lives_src', 1715), ('lives_trk', 1715), ('amount_trd', 1715), ('edge_row', 178)])] 
 
 N_file:
 
@@ -24943,12 +24637,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('addrs_trk', 'mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 15241), ('exit_price', 15241), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1798), ('edge_row', 179)])] 
+ [] 
 
 N_file:
 
@@ -24995,10 +24685,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1142.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1142.0 - 0.0 ) - 1142.0 = 1142.0 - 1142.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM'), ('addrs_trk', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15241), ('exit_price', 15241), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 571), ('edge_row', 180)])] 
+ [OrderedDict([('addrs_src', 'mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM'), ('addrs_trk', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15241), ('exit_price', 15241), ('lives_src', 571), ('lives_trk', 571), ('amount_trd', 571), ('edge_row', 180)])] 
 
 N_file:
 
@@ -25041,10 +24732,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  202.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 202.0 - 0.0 ) - 202.0 = 202.0 - 202.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM'), ('addrs_trk', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19555), ('exit_price', 19555), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 101), ('edge_row', 181)])] 
+ [OrderedDict([('addrs_src', 'mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM'), ('addrs_trk', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19555), ('exit_price', 19555), ('lives_src', 101), ('lives_trk', 101), ('amount_trd', 101), ('edge_row', 181)])] 
 
 N_file:
 
@@ -25067,12 +24759,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2 mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2'), ('addrs_trk', 'mtpsetPE214jRQ11Pog3TF2CXqnLyBaQYM'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 19697), ('exit_price', 19697), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 440), ('edge_row', 182)])] 
+ [] 
 
 N_file:
 
@@ -25095,12 +24783,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2 mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2'), ('addrs_trk', 'mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 19697), ('exit_price', 19697), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 93), ('edge_row', 183)])] 
+ [] 
 
 N_file:
 
@@ -25143,10 +24827,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  4428.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 4428.0 - 0.0 ) - 4428.0 = 4428.0 - 4428.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg'), ('addrs_trk', 'mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19697), ('exit_price', 19697), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2214), ('edge_row', 184)])] 
+ [OrderedDict([('addrs_src', 'mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg'), ('addrs_trk', 'mk5TjM7GbPsd1J7UkNXqYwgaxp5RNu4Hc2'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19697), ('exit_price', 19697), ('lives_src', 2214), ('lives_trk', 2214), ('amount_trd', 2214), ('edge_row', 184)])] 
 
 N_file:
 
@@ -25169,12 +24854,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb'), ('addrs_trk', 'mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg'), ('status_src', 'ShortPosNetted'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 19778), ('exit_price', 19778), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 941), ('edge_row', 185)])] 
+ [] 
 
 N_file:
 
@@ -25215,10 +24896,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2868.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2868.0 - 0.0 ) - 2868.0 = 2868.0 - 2868.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg'), ('addrs_trk', 'mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19778), ('exit_price', 19778), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1434), ('edge_row', 186)])] 
+ [OrderedDict([('addrs_src', 'mxmbFcobQQH8m7JY6FrMFfoGLT6WNtffQg'), ('addrs_trk', 'mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19778), ('exit_price', 19778), ('lives_src', 1434), ('lives_trk', 1434), ('amount_trd', 1434), ('edge_row', 186)])] 
 
 N_file:
 
@@ -25259,10 +24941,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  5014.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 5014.0 - 0.0 ) - 5014.0 = 5014.0 - 5014.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19778), ('exit_price', 19778), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2507), ('edge_row', 187)])] 
+ [OrderedDict([('addrs_src', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('addrs_trk', 'mtd1VLLgnsMmYuJXycWEFiKTQKiGJebcNb'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19778), ('exit_price', 19778), ('lives_src', 2507), ('lives_trk', 2507), ('amount_trd', 2507), ('edge_row', 187)])] 
 
 N_file:
 
@@ -25285,12 +24968,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'msHGScD9c1MTYYZYx17t38uPvo9Bf1bpMo'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 19809), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1166), ('edge_row', 188)])] 
+ [] 
 
 N_file:
 
@@ -25331,10 +25010,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mqGXnfAABDNkqWL165wPJVHXHSiYLWxYZf mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  3568.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3568.0 - 0.0 ) - 3568.0 = 3568.0 - 3568.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mqGXnfAABDNkqWL165wPJVHXHSiYLWxYZf'), ('addrs_trk', 'mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 11913), ('exit_price', 11913), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1784), ('edge_row', 189)])] 
+ [OrderedDict([('addrs_src', 'mqGXnfAABDNkqWL165wPJVHXHSiYLWxYZf'), ('addrs_trk', 'mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 11913), ('exit_price', 11913), ('lives_src', 1784), ('lives_trk', 1784), ('amount_trd', 1784), ('edge_row', 189)])] 
 
 N_file:
 
@@ -25375,10 +25055,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mgYPHe6YgEkQNbQyvdgxNbL1xvLP1voRnn mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1786.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1786.0 - 0.0 ) - 1786.0 = 1786.0 - 1786.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mgYPHe6YgEkQNbQyvdgxNbL1xvLP1voRnn'), ('addrs_trk', 'mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 11913), ('exit_price', 11913), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 893), ('edge_row', 190)])] 
+ [OrderedDict([('addrs_src', 'mgYPHe6YgEkQNbQyvdgxNbL1xvLP1voRnn'), ('addrs_trk', 'mr4Si39ZTFWu3Ve8MDtQSmsg6DDAbq5C91'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 11913), ('exit_price', 11913), ('lives_src', 893), ('lives_trk', 893), ('amount_trd', 893), ('edge_row', 190)])] 
 
 N_file:
 
@@ -25417,10 +25098,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mgYPHe6YgEkQNbQyvdgxNbL1xvLP1voRnn mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2364.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2364.0 - 0.0 ) - 2364.0 = 2364.0 - 2364.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mgYPHe6YgEkQNbQyvdgxNbL1xvLP1voRnn'), ('addrs_trk', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 12067), ('exit_price', 12067), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1182), ('edge_row', 191)])] 
+ [OrderedDict([('addrs_src', 'mgYPHe6YgEkQNbQyvdgxNbL1xvLP1voRnn'), ('addrs_trk', 'mhFYt1kw4JzcKenPZLayJ2ppP7T6Tdytz4'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 12067), ('exit_price', 12067), ('lives_src', 1182), ('lives_trk', 1182), ('amount_trd', 1182), ('edge_row', 191)])] 
 
 N_file:
 
@@ -25443,12 +25125,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ miipb79yetkGXrvv2SxpS2bxwbtRamY1im
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('addrs_trk', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 19809), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 731), ('edge_row', 192)])] 
+ [] 
 
 N_file:
 
@@ -25491,10 +25169,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  miipb79yetkGXrvv2SxpS2bxwbtRamY1im n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  218.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 218.0 - 0.0 ) - 218.0 = 218.0 - 218.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19809), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 109), ('edge_row', 193)])] 
+ [OrderedDict([('addrs_src', 'miipb79yetkGXrvv2SxpS2bxwbtRamY1im'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 19809), ('exit_price', 19809), ('lives_src', 109), ('lives_trk', 109), ('amount_trd', 109), ('edge_row', 193)])] 
 
 N_file:
 
@@ -25535,10 +25214,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mrKBsHsMBHSueb4LAwLyjNKaYF7hKYtZAy n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  4194.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 4194.0 - 0.0 ) - 4194.0 = 4194.0 - 4194.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mrKBsHsMBHSueb4LAwLyjNKaYF7hKYtZAy'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19809), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2097), ('edge_row', 194)])] 
+ [OrderedDict([('addrs_src', 'mrKBsHsMBHSueb4LAwLyjNKaYF7hKYtZAy'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19809), ('exit_price', 19809), ('lives_src', 2097), ('lives_trk', 2097), ('amount_trd', 2097), ('edge_row', 194)])] 
 
 N_file:
 
@@ -25579,10 +25259,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mzmK7Xe44yQhiNKAsT1KNHmey6t9FFcuW8 n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  578.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 578.0 - 0.0 ) - 578.0 = 578.0 - 578.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mzmK7Xe44yQhiNKAsT1KNHmey6t9FFcuW8'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19809), ('exit_price', 19809), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 289), ('edge_row', 195)])] 
+ [OrderedDict([('addrs_src', 'mzmK7Xe44yQhiNKAsT1KNHmey6t9FFcuW8'), ('addrs_trk', 'n4Pv187BR3AuidomM7uCiUtZX2aeirwHTJ'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19809), ('exit_price', 19809), ('lives_src', 289), ('lives_trk', 289), ('amount_trd', 289), ('edge_row', 195)])] 
 
 N_file:
 
@@ -25623,10 +25304,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mzmK7Xe44yQhiNKAsT1KNHmey6t9FFcuW8 n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  734.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 734.0 - 0.0 ) - 734.0 = 734.0 - 734.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mzmK7Xe44yQhiNKAsT1KNHmey6t9FFcuW8'), ('addrs_trk', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19989), ('exit_price', 19989), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 367), ('edge_row', 196)])] 
+ [OrderedDict([('addrs_src', 'mzmK7Xe44yQhiNKAsT1KNHmey6t9FFcuW8'), ('addrs_trk', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19989), ('exit_price', 19989), ('lives_src', 367), ('lives_trk', 367), ('amount_trd', 367), ('edge_row', 196)])] 
 
 N_file:
 
@@ -25669,10 +25351,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n2FF8NLw6hRSm7haTqTrwE8yQjhhuH2yRd n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1502.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1502.0 - 0.0 ) - 1502.0 = 1502.0 - 1502.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'n2FF8NLw6hRSm7haTqTrwE8yQjhhuH2yRd'), ('addrs_trk', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19989), ('exit_price', 19989), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 751), ('edge_row', 197)])] 
+ [OrderedDict([('addrs_src', 'n2FF8NLw6hRSm7haTqTrwE8yQjhhuH2yRd'), ('addrs_trk', 'n3L722ut3FyeS4xR5GzqoDka9bySLvpXMM'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 19989), ('exit_price', 19989), ('lives_src', 751), ('lives_trk', 751), ('amount_trd', 751), ('edge_row', 197)])] 
 
 N_file:
 
@@ -25713,10 +25396,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n2FF8NLw6hRSm7haTqTrwE8yQjhhuH2yRd mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1294.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1294.0 - 0.0 ) - 1294.0 = 1294.0 - 1294.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'n2FF8NLw6hRSm7haTqTrwE8yQjhhuH2yRd'), ('addrs_trk', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 20129), ('exit_price', 20129), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 647), ('edge_row', 198)])] 
+ [OrderedDict([('addrs_src', 'n2FF8NLw6hRSm7haTqTrwE8yQjhhuH2yRd'), ('addrs_trk', 'mnZSpwQ8nB9cEdSFZEw6D1oYMECAVo6cYs'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'LongPosIncreased'), ('entry_price', 20129), ('exit_price', 20129), ('lives_src', 647), ('lives_trk', 647), ('amount_trd', 647), ('edge_row', 198)])] 
 
 N_file:
 
@@ -25739,12 +25423,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z n2FF8NLw6hRSm7haTqTrwE8yQjhhuH2yRd
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z'), ('addrs_trk', 'n2FF8NLw6hRSm7haTqTrwE8yQjhhuH2yRd'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 20194), ('exit_price', 20194), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1393), ('edge_row', 199)])] 
+ [] 
 
 N_file:
 
@@ -25767,12 +25447,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z mrmJFkFG7T6GZaCiNAstKmZrkcogix9wWG
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'msrBiroukmZzzL1BuHWTjVqGHZ2vKgFX4Z'), ('addrs_trk', 'mrmJFkFG7T6GZaCiNAstKmZrkcogix9wWG'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 20194), ('exit_price', 20194), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 215), ('edge_row', 200)])] 
+ [] 
 
 N_file:
 
@@ -25795,12 +25471,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo mrmJFkFG7T6GZaCiNAstKmZrkcogix9wWG
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mu9L3Cgom5HpLbcJzhSKeozdhdiWtG6Myo'), ('addrs_trk', 'mrmJFkFG7T6GZaCiNAstKmZrkcogix9wWG'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 20196), ('exit_price', 20196), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1162), ('edge_row', 201)])] 
+ [] 
 
 N_file:
 
@@ -25823,12 +25495,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e mrmJFkFG7T6GZaCiNAstKmZrkcogix9wWG
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('addrs_trk', 'mrmJFkFG7T6GZaCiNAstKmZrkcogix9wWG'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 20522), ('exit_price', 20522), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 178), ('edge_row', 202)])] 
+ [] 
 
 N_file:
 
@@ -25851,12 +25519,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n1XfaDhxXiKDHdb6xf8FXo1xPxPjDvDB5e'), ('addrs_trk', 'mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'OpenShortPosition'), ('entry_price', 20522), ('exit_price', 20522), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1168), ('edge_row', 203)])] 
+ [] 
 
 N_file:
 
@@ -25879,12 +25543,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8 mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('addrs_trk', 'mvpq3ekroNZvtMMBvmYdcWAe9UFFCJp73r'), ('status_src', 'ShortPosNettedPartly'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 20568), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 48), ('edge_row', 204)])] 
+ [] 
 
 N_file:
 
@@ -25907,12 +25567,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8 mrqAkdnv8VRsUxasZtmbSfK7bCMGfhcKwP
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('addrs_trk', 'mrqAkdnv8VRsUxasZtmbSfK7bCMGfhcKwP'), ('status_src', 'ShortPosNetted'), ('status_trk', 'OpenShortPosition'), ('entry_price', 20568), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 736), ('edge_row', 205)])] 
+ [] 
 
 N_file:
 
@@ -25955,10 +25611,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mrqAkdnv8VRsUxasZtmbSfK7bCMGfhcKwP mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  5254.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 5254.0 - 0.0 ) - 5254.0 = 5254.0 - 5254.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mrqAkdnv8VRsUxasZtmbSfK7bCMGfhcKwP'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 20568), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2627), ('edge_row', 206)])] 
+ [OrderedDict([('addrs_src', 'mrqAkdnv8VRsUxasZtmbSfK7bCMGfhcKwP'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 20568), ('exit_price', 20568), ('lives_src', 2627), ('lives_trk', 2627), ('amount_trd', 2627), ('edge_row', 206)])] 
 
 N_file:
 
@@ -25999,10 +25656,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1538.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1538.0 - 0.0 ) - 1538.0 = 1538.0 - 1538.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21891), ('exit_price', 21891), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 769), ('edge_row', 207)])] 
+ [OrderedDict([('addrs_src', 'mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS'), ('addrs_trk', 'mvr9JA8xdNoadKv5fB4Y7NReh5jYrfBTeH'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 21891), ('exit_price', 21891), ('lives_src', 769), ('lives_trk', 769), ('amount_trd', 769), ('edge_row', 207)])] 
 
 N_file:
 
@@ -26043,10 +25701,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mysrrWNYWRAAiEioumynsGoPuACKWSJmtH mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1608.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1608.0 - 0.0 ) - 1608.0 = 1608.0 - 1608.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mysrrWNYWRAAiEioumynsGoPuACKWSJmtH'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 20568), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 804), ('edge_row', 208)])] 
+ [OrderedDict([('addrs_src', 'mysrrWNYWRAAiEioumynsGoPuACKWSJmtH'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 20568), ('exit_price', 20568), ('lives_src', 804), ('lives_trk', 804), ('amount_trd', 804), ('edge_row', 208)])] 
 
 N_file:
 
@@ -26089,10 +25748,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  258.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 258.0 - 0.0 ) - 258.0 = 258.0 - 258.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 20568), ('exit_price', 20568), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 129), ('edge_row', 209)])] 
+ [OrderedDict([('addrs_src', 'myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ'), ('addrs_trk', 'mhhukg4n4MoCncDn3WWVXQAMFW7TuJ9GM8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 20568), ('exit_price', 20568), ('lives_src', 129), ('lives_trk', 129), ('amount_trd', 129), ('edge_row', 209)])] 
 
 N_file:
 
@@ -26115,12 +25775,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('addrs_trk', 'myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ'), ('status_src', 'ShortPosNetted'), ('status_trk', 'ShortPosIncreased'), ('entry_price', 20655), ('exit_price', 20655), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1440), ('edge_row', 210)])] 
+ [] 
 
 N_file:
 
@@ -26161,10 +25817,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  3898.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 3898.0 - 0.0 ) - 3898.0 = 3898.0 - 3898.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ'), ('addrs_trk', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 20655), ('exit_price', 20655), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1949), ('edge_row', 211)])] 
+ [OrderedDict([('addrs_src', 'myHziaxEw8an15BchPJvqoEcmK4WbNxmBJ'), ('addrs_trk', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 20655), ('exit_price', 20655), ('lives_src', 1949), ('lives_trk', 1949), ('amount_trd', 1949), ('edge_row', 211)])] 
 
 N_file:
 
@@ -26207,10 +25864,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n2N29t426dqJQUJbsKnYoS4jjFK3Nmhx5R mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2810.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2810.0 - 0.0 ) - 2810.0 = 2810.0 - 2810.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'n2N29t426dqJQUJbsKnYoS4jjFK3Nmhx5R'), ('addrs_trk', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 20655), ('exit_price', 20655), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1405), ('edge_row', 212)])] 
+ [OrderedDict([('addrs_src', 'n2N29t426dqJQUJbsKnYoS4jjFK3Nmhx5R'), ('addrs_trk', 'mqsCFasb3GYr94kSSjWJujkvW3eA5Jhvqk'), ('status_src', 'OpenShortPosition'), ('status_trk', 'LongPosIncreased'), ('entry_price', 20655), ('exit_price', 20655), ('lives_src', 1405), ('lives_trk', 1405), ('amount_trd', 1405), ('edge_row', 212)])] 
 
 N_file:
 
@@ -26233,12 +25891,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mw7ji8ihjwC58Lmy4gGxtJ2nwnVNGC3CHa mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mw7ji8ihjwC58Lmy4gGxtJ2nwnVNGC3CHa'), ('addrs_trk', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 13199), ('exit_price', 13199), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 377), ('edge_row', 213)])] 
+ [] 
 
 N_file:
 
@@ -26261,12 +25915,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa'), ('addrs_trk', 'mh4AnHvUnpvAKoNogyTBKddDfmTDYBLGWk'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 13667), ('exit_price', 13667), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 198), ('edge_row', 214)])] 
+ [] 
 
 N_file:
 
@@ -26289,12 +25939,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2254.0
-
 Path:
- [OrderedDict([('addrs_src', 'muPpvkuqYkw616uQoJqrN8PDVqVAVdsvpa'), ('addrs_trk', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 13667), ('exit_price', 13667), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2254), ('edge_row', 215)])] 
+ [] 
 
 N_file:
 
@@ -26317,12 +25963,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n2N29t426dqJQUJbsKnYoS4jjFK3Nmhx5R mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n2N29t426dqJQUJbsKnYoS4jjFK3Nmhx5R'), ('addrs_trk', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 14832), ('exit_price', 14832), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 83), ('edge_row', 216)])] 
+ [] 
 
 N_file:
 
@@ -26363,10 +26005,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n2N29t426dqJQUJbsKnYoS4jjFK3Nmhx5R mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  2364.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 2364.0 - 0.0 ) - 2364.0 = 2364.0 - 2364.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'n2N29t426dqJQUJbsKnYoS4jjFK3Nmhx5R'), ('addrs_trk', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14832), ('exit_price', 14832), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1182), ('edge_row', 217)])] 
+ [OrderedDict([('addrs_src', 'n2N29t426dqJQUJbsKnYoS4jjFK3Nmhx5R'), ('addrs_trk', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 14832), ('exit_price', 14832), ('lives_src', 1182), ('lives_trk', 1182), ('amount_trd', 1182), ('edge_row', 217)])] 
 
 N_file:
 
@@ -26389,12 +26032,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X'), ('addrs_trk', 'mqgS4zihLJwRiZzoVej4U1qTuFD8u5jATG'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 15793), ('exit_price', 15793), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 358), ('edge_row', 218)])] 
+ [] 
 
 N_file:
 
@@ -26417,12 +26056,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1506.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X'), ('addrs_trk', 'mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW'), ('status_src', 'LongPosNetted'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15793), ('exit_price', 15793), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1506), ('edge_row', 219)])] 
+ [] 
 
 N_file:
 
@@ -26445,12 +26080,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X'), ('addrs_trk', 'mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNetted'), ('entry_price', 15793), ('exit_price', 15793), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1506), ('edge_row', 220)])] 
+ [] 
 
 N_file:
 
@@ -26491,10 +26122,11 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  1092.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 1092.0 - 0.0 ) - 1092.0 = 1092.0 - 1092.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X'), ('addrs_trk', 'mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15793), ('exit_price', 15793), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 546), ('edge_row', 221)])] 
+ [OrderedDict([('addrs_src', 'n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X'), ('addrs_trk', 'mtEqQTTR4smFarhaMQVzThkS9bA7ahQTJW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 15793), ('exit_price', 15793), ('lives_src', 546), ('lives_trk', 546), ('amount_trd', 546), ('edge_row', 221)])] 
 
 N_file:
 
@@ -26517,12 +26149,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'n3pJzkNJTSGyvGnvfkrtTje3Ta5HfcRh6X'), ('addrs_trk', 'mfjPUaiGy5qjaoijS7Q7iV2FjzUGXRr2u4'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 15793), ('exit_price', 15793), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 984), ('edge_row', 222)])] 
+ [] 
 
 N_file:
 
@@ -26545,12 +26173,8 @@ Length N_file:  225
 ###################################################################################
 
 
-Main addresses opening contracts:  mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH
-
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  0.0
-
 Path:
- [OrderedDict([('addrs_src', 'mwXjtrp6ddCy6R5BNVRRNpo75BG1zTA9hf'), ('addrs_trk', 'n3xLyJCwpkcjUfvRh8GYdeMp7zuuxi3cqH'), ('status_src', 'LongPosNettedPartly'), ('status_trk', 'LongPosIncreased'), ('entry_price', 18676), ('exit_price', 18676), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 1419), ('edge_row', 223)])] 
+ [] 
 
 N_file:
 
@@ -26589,8 +26213,9 @@ Two last columns for Edge source updated:
 
 Main addresses opening contracts:  mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS n1khwNVQbqBPZ8LWqoJkJuprCJqwca5Lgp
 
-Checking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives =  4594.0
+Checking Zero Netted by Path:
+(contracts_opened - contracts_closed)-contracts_lives =  ( 4594.0 - 0.0 ) - 4594.0 = 4594.0 - 4594.0 = 0.0
 
 Path:
- [OrderedDict([('addrs_src', 'mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS'), ('addrs_trk', 'n1khwNVQbqBPZ8LWqoJkJuprCJqwca5Lgp'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 21275), ('exit_price', 21275), ('lives_src', 0), ('lives_trk', 0), ('amount_trd', 2297), ('edge_row', 224)])] 
+ [OrderedDict([('addrs_src', 'mtVTCmMWRV8CPvdZQBVburqAqQhbGnYpBS'), ('addrs_trk', 'n1khwNVQbqBPZ8LWqoJkJuprCJqwca5Lgp'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'OpenLongPosition'), ('entry_price', 21275), ('exit_price', 21275), ('lives_src', 2297), ('lives_trk', 2297), ('amount_trd', 2297), ('edge_row', 224)])] 
 
