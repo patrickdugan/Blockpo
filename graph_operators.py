@@ -90,14 +90,10 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                         print("Can be %s a new source??" %(path_complex_fourh[-1]['addrs_src']))
                         idx_long_or_short = 0 if obj_trk_inloop.status_src in globales.open_incr_long else 1
                         addrs_trk_incr = path_complex_fourh[-1]['addrs_src']
-                        obj_trk_incr = status_amounts_inloop(
-                            N_filei, addrs_trk_incr)
-                        print("\nTrade amount on this edge path: ",
-                              path_complex_fourh[-1]['amount_trd'])
-                        print("Trade amount on this edge matrix: ",
-                              obj_trk_incr.amount_trd)
-                        diff_newtrdamount = obj_trk_incr.amount_trd - \
-                            path_complex_fourh[-1]['amount_trd']
+                        obj_trk_incr = status_amounts_inloop(N_filei, addrs_trk_incr)
+                        print("\nTrade amount on this edge path: ", path_complex_fourh[-1]['amount_trd'])
+                        print("Trade amount on this edge matrix: ", obj_trk_incr.amount_trd)
+                        diff_newtrdamount = obj_trk_incr.amount_trd - path_complex_fourh[-1]['amount_trd']
                         print("diff_newtrdamount: ", diff_newtrdamount)
                         M_file, idx_i, path_complex_incrs = clearing_operator(M_file, obj_trk_incr, amount_trd_sum_new, path_complex_incrs, idx_i, i, addrs_trk_incr, path_complex_fourh[-1]['amount_trd'], idx_long_or_short, diff_newtrdamount)
                     ###################################################################################
@@ -135,10 +131,8 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
             elif d_amounts == 0:
 
                 print("\nRow update:\n", M_file[:][i])
-                print("\nOpened contrats: ", amount_trd_begining,
-                      " = Sum amounts traded: ", amount_trd_sum, "\n")
-                print("'iteration: ", i, " |addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ",
-                      obj_trk_inloop.amount_trd, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
+                print("\nOpened contrats: ", amount_trd_begining, " = Sum amounts traded: ", amount_trd_sum, "\n")
+                print("'iteration: ", i, " |addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", obj_trk_inloop.amount_trd, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
 
                 path_complex_ele_value_one = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.amount_trd, i]
                 path_complex_ele_one = OrderedDict(zip(globales.key_path, path_complex_ele_value_one))
@@ -151,20 +145,14 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
                 if bool_src:
                     idx_long_or_short = 0 if obj_trk_inloop.status_trk in globales.open_incr_long else 1
-                    print("\nLooking New Path for: ",
-                          obj_trk_inloop.addrs_src, "!!\n")
-                    M_file, idx_i, path_complex_third = clearing_operator(
-                        M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_third, idx_i, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short, diff_newtrdamount)
+                    print("\nLooking New Path for: ", obj_trk_inloop.addrs_src, "!!\n")
+                    M_file, idx_i, path_complex_third = clearing_operator(M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_third, idx_i, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short, diff_newtrdamount)
                 break
 
-    path_complex_two = append_fromlist_tolist(
-        path_complex_first, path_complex_two)
-    path_complex_two = append_fromlist_tolist(
-        path_complex_third, path_complex_two)
-    path_complex_two = append_fromlist_tolist(
-        path_complex_fourh, path_complex_two)
-    path_complex_two = append_fromlist_tolist(
-        path_complex_incrs, path_complex_two)
+    path_complex_two = append_fromlist_tolist(path_complex_first, path_complex_two)
+    path_complex_two = append_fromlist_tolist(path_complex_third, path_complex_two)
+    path_complex_two = append_fromlist_tolist(path_complex_fourh, path_complex_two)
+    path_complex_two = append_fromlist_tolist(path_complex_incrs, path_complex_two)
 
     return M_file, list(set(idx_i)), path_complex_two
 
@@ -258,13 +246,14 @@ def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath
             status_trk_inloop = column_status_trk[k-1]
             idx = column_idx[k-1]
 
+            #print("Row before updating: ", idx+1, ": ", M_file[:][idx], "addrs_trk_arg: ", addrs_trk_arg)
             obj_path = status_amounts_inloop(M_file[:][idx], addrs_trk_arg)
             if obj_path.addrs_trk == M_file[:][idx][0]:
                 M_file[:][idx][8] = float("{0:.2f}".format((float(M_file[:][idx][8])-averaged_amount)))
             else:
                 M_file[:][idx][9] = float("{0:.2f}".format(float(M_file[:][idx][9])-averaged_amount))
-                
-            print("Updating row ", idx+1, ": ", M_file[:][idx], "addrs_trk_arg: ", addrs_trk_arg)
+            print("Updating row: ", idx+1, ": ", M_file[:][idx], "addrs_trk_arg: ", addrs_trk_arg)
+            
             amounts_forthepath.append([averaged_amount, prices_intheloop, src_intheloop, trk_intheloop, status_src_inloop, status_trk_inloop, idx])
 
     return amounts_forthepath, col_amounts, M_file
@@ -505,7 +494,7 @@ def lookingforlives_insidepath(j, path_complex_main, status_src, addrs_src, amou
                 index_i = i
                 howmany_closed += path_complex_main[i]['amount_trd']
                 path_complex_main = lookingforlives_insidepath(i, path_complex_main, path_complex_main[i]['status_src'], path_complex_main[i]['addrs_src'], path_complex_main[i]['amount_trd'])
-
+                
         if count_netted == 0:
             path_complex_main[j]['lives_src'] = float("{0:.2f}".format(path_complex_main[j]['amount_trd']))
         elif count_netted != 0 and howmany_closed != 0:

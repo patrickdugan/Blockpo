@@ -105,20 +105,21 @@ for j in range(len(N_file)):
         if pathj['addrs_trk'] == single_path_value_ele['addrs_src']:
             sum_amountsfor_src_first += pathj['amount_trd']
             index_src_first = j
-            # Checking here if the address to the right opened or increased postion #
+            # Checking here if the address to the left of the path open or increase a position #
             path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'])
         # Looking for netted events for the address to the right #                
         if pathj['addrs_trk'] == single_path_value_ele['addrs_trk']:
             sum_amountsfor_trk_first += pathj['amount_trd']
             index_trk_first = j
-            # Checking here if the address to the left opened or increased postion #
+            
+            # Checking here if the address to the left of the path open or increase a position #
             path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'])
 
     for index in range(len(path_complex_main)):
         if index == index_src_first:
-            path_complex_main[index]['lives_trk'] = int(openedfor_first_adrrs-sum_amountsfor_src_first)
+            path_complex_main[index]['lives_trk'] = float("{0:.2f}".format(openedfor_first_adrrs-sum_amountsfor_src_first))
         elif index == index_trk_first:
-            path_complex_main[index]['lives_trk'] = int(openedfor_first_adrrs-sum_amountsfor_trk_first)        
+            path_complex_main[index]['lives_trk'] = float("{0:.2f}".format(openedfor_first_adrrs-sum_amountsfor_trk_first))        
 
     path_complex_main.insert(0, single_path_value_ele)
     ###################################################################################
@@ -133,7 +134,7 @@ for j in range(len(N_file)):
             contracts_closed += row['amount_trd']
         contracts_lives += row['lives_src']+row['lives_trk']
 
-    print("\nChecking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives = ", (2*contracts_opened - contracts_closed)-contracts_lives)
+    print("\nChecking Zero Netted by Path: (contracts_opened - contracts_closed)-contracts_lives = ", abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)-contracts_lives))))
     ###################################################################################
     
     print("\nPath:\n", np.array(path_complex_main), "\n")
