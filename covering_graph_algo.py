@@ -33,13 +33,13 @@ print("Two new columns for lives contracts to check those closed:\n\n", np.array
 print("\n------------------------------------------------------\n")
 
 path_complex_two_matrix = []
+counter_nonzero_netted = 0
 
 for j in range(len(N_file)):
 
     ###################################################################################
     # When we found the last Edge which means "len(N_file) = 1" . The clearing algo Finish #
     idx_i = [0]
-    print("N_file:\n\n", np.array(N_file), "\n\nLength N_file: ", len(N_file), "\n")
     bool_N_file, single_path_begin = first_single_path(N_file)
 
     if bool_N_file:
@@ -48,13 +48,13 @@ for j in range(len(N_file)):
         print("Last Single path:\n", np.array(single_path_begin), "\n")
         break
     ###################################################################################
-
+    
     N_filej = N_file[:][j]
     path_complex_two_long = []
     path_complex_two_short = []
 
-    print("###################################################################################\n")
-    
+    print("###################################################################################\n")    
+
     ###################################################################################
     # Status to determinate if an edge could be a source #
     obj_long_trk = status_amounts_long_trk(N_filej)
@@ -70,6 +70,8 @@ for j in range(len(N_file)):
     # If an Edge can be a source: "clearing_operator" look for all netted events in the path #
     path_complex_main = []
     if bool_track_long and bool_track_short:
+        
+        print("N_file:\n\n", np.array(N_file), "\n\nLength N_file: ", len(N_file), "\n")
 
         print("\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n")
         print("Row where were opened the contracts:", j, "!!")
@@ -79,9 +81,9 @@ for j in range(len(N_file)):
         print("(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n")
         N_file, idx_i, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount)
 
-        N_file[:][j][8] = 0
-        N_file[:][j][9] = 0
-        print("\nTwo last columns for Edge source updated:\n", N_file[:][j])
+        #N_file[:][j][8] = 0
+        #N_file[:][j][9] = 0
+        #print("\nTwo last columns for Edge source updated:\n", N_file[:][j])
 
         ###################################################################################
         # Joining all the single paths in just one" #
@@ -138,10 +140,14 @@ for j in range(len(N_file)):
             path_complex_main[0]['lives_trk'] = path_complex_main[0]['amount_trd']
             path_complex_main[0]['lives_src'] = path_complex_main[0]['amount_trd']
             contracts_lives = path_complex_main[0]['lives_trk'] + path_complex_main[0]['lives_src'] 
-            
+
         print("\nChecking Zero Netted by Path:\n(contracts_opened - contracts_closed)-contracts_lives = ", "(", abs(float("{0:.2f}".format(2*contracts_opened))), "-", abs(float("{0:.2f}".format(contracts_closed))), ") -", abs(float("{0:.2f}".format(contracts_lives))), "=", abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)))), "-", abs(float("{0:.2f}".format(contracts_lives))),"=", abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)-contracts_lives))))
         ###################################################################################
-        
-    print("\nPath:\n", np.array(path_complex_main), "\n")
-    path_complex_two_matrix.append(path_complex_main)
 
+        if abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)-contracts_lives))) !=0:
+            counter_nonzero_netted += 1
+            print(counter_nonzero_netted, ": Warning!! There is no zero netted on this path")
+
+    if len(path_complex_main) > 0:
+        print("\nPath:\n", np.array(path_complex_main), "\n")
+        path_complex_two_matrix.append(path_complex_main)
