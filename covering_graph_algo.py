@@ -33,27 +33,21 @@ print("Two new columns for lives contracts to check those closed:\n\n", np.array
 print("\n------------------------------------------------------\n")
 
 path_complex_two_matrix = []
-
+k=0
 for j in range(len(N_file)):
 
-    ###################################################################################
-    # When we found the last Edge which means "len(N_file) = 1" . The clearing algo Finish #
-    idx_i = [0]
-    print("N_file:\n\n", np.array(N_file), "\n\nLength N_file: ", len(N_file), "\n")
+    print("###################################################################################\n")
     bool_N_file, single_path_begin = first_single_path(N_file)
-
     if bool_N_file:
-        print("###################################################################################\n")
         print("Source: ", N_file[0][3], "; Tracked: ", N_file[0][0], "\n")
         print("Last Single path:\n", np.array(single_path_begin), "\n")
+        print("###################################################################################\n")
         break
     ###################################################################################
 
     N_filej = N_file[:][j]
     path_complex_two_long = []
     path_complex_two_short = []
-
-    print("###################################################################################\n")
     
     ###################################################################################
     # Status to determinate if an edge could be a source #
@@ -71,6 +65,10 @@ for j in range(len(N_file)):
     path_complex_main = []
     if bool_track_long and bool_track_short:
 
+        # When we found the last Edge which means "len(N_file) = 1" . The clearing algo Finish #
+        idx_i = [0]
+        print("N_file:\n\n", np.array(N_file), "\n\nLength N_file: ", len(N_file), "\n")
+
         print("\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n")
         print("Row where were opened the contracts:", j, "!!")
         N_file, idx_i, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, idx_i, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, 0)
@@ -79,9 +77,9 @@ for j in range(len(N_file)):
         print("(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n")
         N_file, idx_i, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, 0)
 
-        N_file[:][j][8] = 0
-        N_file[:][j][9] = 0
-        print("\nTwo last columns for Edge source updated:\n", N_file[:][j])
+        #N_file[:][j][8] = 0
+        #N_file[:][j][9] = 0
+        #print("\nTwo last columns for Edge source updated:\n", N_file[:][j])
 
         ###################################################################################
         # Joining all the single paths in just one" #
@@ -107,13 +105,13 @@ for j in range(len(N_file)):
                 sum_amountsfor_src_first += pathj['amount_trd']
                 index_src_first = j
                 # Checking here if the address to the left of the path open or increase a position #
-                path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'])
+                path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'], N_file)
                 # Looking for netted events for the address to the right #                
             if pathj['addrs_trk'] == single_path_value_ele['addrs_trk']:
                 sum_amountsfor_trk_first += pathj['amount_trd']
                 index_trk_first = j
                 # Checking here if the address to the left of the path open or increase a position #
-                path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'])
+                path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'], N_file)
 
         for index in range(len(path_complex_main)):
             if index == index_src_first:
@@ -141,7 +139,11 @@ for j in range(len(N_file)):
             
         print("\nChecking Zero Netted by Path:\n(contracts_opened - contracts_closed)-contracts_lives = ", "(", abs(float("{0:.2f}".format(2*contracts_opened))), "-", abs(float("{0:.2f}".format(contracts_closed))), ") -", abs(float("{0:.2f}".format(contracts_lives))), "=", abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)))), "-", abs(float("{0:.2f}".format(contracts_lives))),"=", abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)-contracts_lives))))
         ###################################################################################
-        
-    print("\nPath:\n", np.array(path_complex_main), "\n")
-    path_complex_two_matrix.append(path_complex_main)
+
+    if len(path_complex_main)!=0:
+        if abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)-contracts_lives))) != 0:
+            k += 1
+            print(k, ": Warning!! There is no zero netted event in the path")
+        print("\nPath:\n", np.array(path_complex_main), "\n")
+        path_complex_two_matrix.append(path_complex_main)
 
