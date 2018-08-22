@@ -24,7 +24,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
     ###################################################################################
     
     balance_increasing = 0
-    balance_increasing = total_balance_incr(average_incr, balance_increasing)
+    balance_increasing = total_balance_incr(average_incr, balance_increasing, addrs_trk_arg)
 
     numberof_lives_contracts_byaddress = livecontracts_byaddress(addrs_trk_arg, index_init, balance_increasing, numberof_lives_contracts_byaddress)
 
@@ -62,16 +62,17 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
                 balance_incr += obj_trk_inloop.amount_trd
 
+                print("\nChecking balance_incr: %d, balance_increasing: %d" %(balance_incr, balance_increasing))
                 if balance_incr <= balance_increasing:
 
-                    print("\nChecking balance_incr: ", balance_incr)
                     print("\nNew netted event for ", addrs_trk_arg, " in the row: ", i+1, "!!")
                     amount_selected = obj_trk_inloop.amount_trd
                     print("\namount_selected", amount_selected, ", diff_newtrdamount", diff_newtrdamount)
                     print("\nChecking here average_incr:\n", np.array(average_incr), "\nlen(average_incr): ", len(average_incr), "\n")
                     ###################################################################################
                     # Here we calculate the weighted average vector for the paths #
-                    traded_position_incr, col_amounts, M_file = average_posincreased_float(average_incr, amount_selected, traded_position_incr, M_file, addrs_trk_arg, col_amounts, index_init)
+                    print("Checking here balance_increasing: ", balance_increasing)
+                    traded_position_incr, col_amounts, M_file = average_posincreased_float(average_incr, amount_selected, traded_position_incr, M_file, addrs_trk_arg, col_amounts, index_init, balance_increasing)
                     print('\ncol_amounts: ', col_amounts)
                     ###################################################################################
                     # Here is chosen the row in the weighted average vector designed for the path #
@@ -107,9 +108,9 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                         print("diff_newtrdamount: ", diff_newtrdamount)
                         M_file, idx_i, path_complex_incrs = clearing_operator(M_file, obj_trk_incr, amount_trd_sum_new, path_complex_incrs, idx_i, i, addrs_trk_incr, path_complex_fourh[-1]['amount_trd'], idx_long_or_short, diff_newtrdamount)
                         print("\n------------------------------------------------------\n")
-                    ###################################################################################
                     continue
-
+                    ###################################################################################
+                
             print("\nAmounts!!!\n\namount_trdi: ", obj_trk_inloop.amount_trd, " | lives_trki: ", obj_trk_inloop.lives_trk,
                   " | lives_srci: ", obj_trk_inloop.lives_src, " | amount_trd_sum: ", amount_trd_sum)
             bool_src = obj_trk_inloop.status_src in globales.open_incr_long or obj_trk_inloop.status_src in globales.open_incr_short
@@ -219,8 +220,7 @@ def average_posincreased(average_posincr, trade_amount, amounts_forthepath):
 
     return amounts_forthepath
 
-
-def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath, M_file, addrs_trk_arg, col_amounts, q):
+def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath, M_file, addrs_trk_arg, col_amounts, q, balance_increasing):
 
     if len(average_posincr) > 1:
 
@@ -230,10 +230,10 @@ def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath
         column_status_src = []
         column_status_trk = []
         column_idx = []
-        divider = 0
-
+        divider = balance_increasing
+        #divider += row[6]
+            
         for row in average_posincr:
-            divider += row[6]
             column_prices.append(int(row[7]))
             column_src.append(row[0])
             column_trk.append(row[3])
@@ -418,8 +418,7 @@ def boolean_for_netted_status(obj_trk_inloop):
 def livecontracts_byaddress(addrs_trk_arg, index_init, opened_init, numberof_lives_contracts_byaddress):
 
     K_file = opening_filetxt("graphInfoSixth.txt")
-    numberof_lives_contracts_byaddress = tracking_lastlive_byaddrs(
-        K_file, index_init, opened_init, addrs_trk_arg, numberof_lives_contracts_byaddress)
+    numberof_lives_contracts_byaddress = tracking_lastlive_byaddrs(K_file, index_init, opened_init, addrs_trk_arg, numberof_lives_contracts_byaddress)
 
     return numberof_lives_contracts_byaddress
 
@@ -432,9 +431,9 @@ def tracking_lastlive_byaddrs(K_file, index_init, opened_init, addrs_trk_arg, nu
         obj_stillopened = status_for_contracts_stillopened(K_filej, addrs_trk_arg)
         if addrs_trk_arg in K_filej and obj_stillopened.status_trk in globales.all_netted_status:
             counting += K_filej[6]
-            if opened_init - counting >= 0:
-                print("\nTrade amount: ", K_filej[6], ", Sum amount trade: ", counting,
+            print("\nTrade amount: ", K_filej[6], ", Sum amount trade: ", counting,
                       ", Opened contracts: ", opened_init, ", Lives contracts: ", obj_stillopened.lives_trk)
+            if opened_init - counting >= 0:
                 numberof_lives_contracts_byaddress = obj_stillopened.lives_trk
             else:
                 break
@@ -476,10 +475,10 @@ def difference_bet_openedandnetted(M_file, opened_atsett):
     return opened_atsett
 
 
-def total_balance_incr(average_incr, balance_increasing):
+def total_balance_incr(average_incr, balance_increasing, addrs_trk_arg):
 
     for row in average_incr:
-        balance_increasing += row[6]
+        balance_increasing = row[1] if addrs_trk_arg == row[0] else row[4]
 
     return balance_increasing
 
