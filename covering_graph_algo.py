@@ -36,7 +36,6 @@ path_complex_two_matrix = []
 k=0
 for j in range(len(N_file)):
 
-    print("###################################################################################\n")
     bool_N_file, single_path_begin = first_single_path(N_file)
     if bool_N_file:
         print("Source: ", N_file[0][3], "; Tracked: ", N_file[0][0], "\n")
@@ -65,6 +64,7 @@ for j in range(len(N_file)):
     path_complex_main = []
     if bool_track_long and bool_track_short:
 
+        print("###################################################################################\n")
         # When we found the last Edge which means "len(N_file) = 1" . The clearing algo Finish #
         idx_i = [0]
         print("N_file:\n\n", np.array(N_file), "\n\nLength N_file: ", len(N_file), "\n")
@@ -97,29 +97,42 @@ for j in range(len(N_file)):
         index_src_first = 0
         sum_amountsfor_trk_first = 0
         index_trk_first = 0
+        counter_src = 0
+        counter_trk = 0
     
         for j in range(len(path_complex_main)):
             pathj = path_complex_main[j]
             # Looking for netted events for the address to the left #
             if pathj['addrs_trk'] == single_path_value_ele['addrs_src']:
+                counter_src += 1
                 sum_amountsfor_src_first += pathj['amount_trd']
                 index_src_first = j
                 # Checking here if the address to the left of the path open or increase a position #
                 path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'], N_file)
                 # Looking for netted events for the address to the right #                
             if pathj['addrs_trk'] == single_path_value_ele['addrs_trk']:
+                counter_trk += 1
                 sum_amountsfor_trk_first += pathj['amount_trd']
                 index_trk_first = j
                 # Checking here if the address to the left of the path open or increase a position #
                 path_complex_main = lookingforlives_insidepath(j, path_complex_main, pathj['status_src'], pathj['addrs_src'], pathj['amount_trd'], N_file)
-
+        ###################################################################################
+        # Copying lives contracts after netted events #
         for index in range(len(path_complex_main)):
-            if index == index_src_first:
+            if index == index_src_first and counter_src != 0:
                 path_complex_main[index]['lives_trk'] = float("{0:.2f}".format(openedfor_first_adrrs-sum_amountsfor_src_first))
-            elif index == index_trk_first:
+            elif index == index_trk_first and counter_trk != 0:
                 path_complex_main[index]['lives_trk'] = float("{0:.2f}".format(openedfor_first_adrrs-sum_amountsfor_trk_first))
-            
+
+        print("counter_src: ", counter_src, "counter_trk", counter_trk)            
         path_complex_main.insert(0, single_path_value_ele)
+
+        ###################################################################################
+        # Just in case the tracked address never netted #
+        if counter_trk == 0:
+            path_complex_main[0]['lives_trk'] = openedfor_first_adrrs
+        elif counter_src == 0:
+            path_complex_main[0]['lives_src'] = openedfor_first_adrrs
         ###################################################################################
         # Function to check Zero Netted events by Path #
         contracts_opened = 0

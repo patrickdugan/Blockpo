@@ -17,7 +17,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
     howmany_netted = 0
     numberof_lives_contracts_byaddress = 0
-    print("Checking here first row of average_incr: ", average_incr)
+    print("Checking here first row of average_incr:\n", np.array(average_incr))
     ###################################################################################
     # Vector for increased Positions and Total of Netted evente by address #
     howmany_netted, average_incr = howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file, addrs_trk_arg, index_long_short, average_incr, diff_newtrdamount)
@@ -377,9 +377,8 @@ def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file
 
         N_filei = M_file[:][i]
         obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
-        position_direction = globales.open_incr_long if index_long_short == 0 else globales.open_incr_short
         if addrs_trk_arg in N_filei:
-            if obj_trk_inloop.status_trk in position_direction:
+            if obj_trk_inloop.status_trk in globales.open_incr_long_short:
                 print("\nPosition increase in the row: ", i+1, "\tIteration: ", i)
                 average_incr.append([obj_trk_inloop.addrs_src, obj_trk_inloop.lives_src, obj_trk_inloop.status_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.lives_trk, obj_trk_inloop.status_trk, obj_trk_inloop.amount_trd, obj_trk_inloop.matched_price, i])
             else:
@@ -498,14 +497,15 @@ def total_balance_incr(average_incr, balance_increasing, last_balance, addrs_trk
     return balance_increasing, last_balance
 
 def lookingforlives_insidepath(j, path_complex_main, status_src, addrs_src, amount_trd, N_file):            
-        
+
+    netted_status_trk = globales.netted_status_long if status_src in globales.open_incr_long else globales.netted_status_short
     if status_src in globales.open_incr_long_short:
         
         howmany_closed = 0
         index_i = 0
         count_netted = 0
         for i in range(j+1, len(path_complex_main)):
-            if addrs_src == path_complex_main[i]['addrs_trk'] and path_complex_main[i]['status_trk'] in globales.all_netted_status:
+            if addrs_src == path_complex_main[i]['addrs_trk'] and path_complex_main[i]['status_trk'] in netted_status_trk:
                 count_netted += 1
                 index_i = i
                 howmany_closed += path_complex_main[i]['amount_trd']
