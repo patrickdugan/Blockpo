@@ -60,25 +60,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
 
                 balance_incr += obj_trk_inloop.amount_trd
 
-                if balance_incr == balance_increasing:
-
-                    print("\nChecking balance_incr: ", balance_incr)
-                    print("\nNew netted event for ", addrs_trk_arg, " in the row: ", i+1, "!!")
-                    amount_selected = obj_trk_inloop.amount_trd
-                    print("\namount_selected", amount_selected, ", diff_newtrdamount", diff_newtrdamount)
-                    print("\nChecking here average_incr:\n", np.array(average_incr), "\nlen(average_incr): ", len(average_incr), "\n")
-                    ###################################################################################
-                    # Here we calculate the weighted average vector for the paths #
-                    traded_position_incr, col_amounts, M_file = average_posincreased_float(average_incr, amount_selected, traded_position_incr, M_file, addrs_trk_arg, col_amounts, index_init, amount_inthepath, balance_increasing)
-                    print('\ncol_amounts: ', col_amounts)
-                    ###################################################################################
-
-                    print("\nbalance_incr: ", balance_incr, "<= opened contracts: ", balance_increasing)
-                    print("\ntraded_position_incr:\n", np.array(traded_position_incr))
-                    print("\nChecking the index_init: ", index_init)
-                    path_complex_fourh = long_short_incr_path_allnetted(traded_position_incr, obj_trk_inloop, path_complex_fourh, index_init, i)
-
-                elif balance_incr < balance_increasing:
+                if balance_incr <= balance_increasing:
 
                     print("\nChecking balance_incr: ", balance_incr)
                     print("\nNew netted event for ", addrs_trk_arg, " in the row: ", i+1, "!!")
@@ -261,7 +243,7 @@ def average_posincreased_float(average_posincr, trade_amount, amounts_forthepath
                 print("amount_inthepath = ", amount_inthepath, "<", "amount_trd: ", trade_amount, "\n")
                 row[6] = amount_inthepath
 
-        col_amounts = [float("{0:.2f}".format((float(row[6])/divider)*trade_amount)) for row in average_posincr]
+        col_amounts = [(float(row[6])/divider)*trade_amount for row in average_posincr]
                 
         k = 0
         for j in range(len(average_posincr)):
@@ -389,15 +371,6 @@ def long_short_incr_path(traded_pos_incr, obj_trk_inloop, path_complex_two, inde
 
     return path_complex_two
 
-def long_short_incr_path_allnetted(traded_pos_incr, obj_trk_inloop, path_complex_two, index_init, i):
-
-    for rows in traded_pos_incr:
-        path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, rows[1], obj_trk_inloop.matched_price, 0, 0, rows[0], i]
-        path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
-        path_complex_two.append(path_complex_ele_two)
-        
-    return path_complex_two
-                                                              
 def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file, addrs_trk_arg, index_long_short, average_incr, diff_newtrdamount):
 
     for i in range(index_init+1, len(M_file)):

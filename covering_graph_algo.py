@@ -4,6 +4,7 @@ import sys
 import numpy as np
 from graph_operators import*
 from collections import*
+from time import sleep
 
 import globales
 import setglobales
@@ -120,13 +121,12 @@ for j in range(len(N_file)):
         # Copying lives contracts after netted events #
         for index in range(len(path_complex_main)):
             if index == index_src_first and counter_src != 0:
-                path_complex_main[index]['lives_trk'] = float("{0:.2f}".format(openedfor_first_adrrs-sum_amountsfor_src_first))
+                path_complex_main[index]['lives_trk'] = float("{0:.2f}".format(abs(openedfor_first_adrrs-sum_amountsfor_src_first)))
             elif index == index_trk_first and counter_trk != 0:
-                path_complex_main[index]['lives_trk'] = float("{0:.2f}".format(openedfor_first_adrrs-sum_amountsfor_trk_first))
+                path_complex_main[index]['lives_trk'] = float("{0:.2f}".format(abs(openedfor_first_adrrs-sum_amountsfor_trk_first)))
 
         print("counter_src: ", counter_src, "counter_trk", counter_trk)            
         path_complex_main.insert(0, single_path_value_ele)
-
         ###################################################################################
         # Just in case the tracked address never netted #
         if counter_trk == 0:
@@ -138,6 +138,7 @@ for j in range(len(N_file)):
         contracts_opened = 0
         contracts_closed = 0
         contracts_lives = 0
+
         for row in path_complex_main:
             if row['status_src'] in globales.open_incr_long_short and row['status_trk'] in globales.open_incr_long_short:
                 contracts_opened += row['amount_trd']
@@ -150,11 +151,11 @@ for j in range(len(N_file)):
             path_complex_main[0]['lives_src'] = path_complex_main[0]['amount_trd']
             contracts_lives = path_complex_main[0]['lives_trk'] + path_complex_main[0]['lives_src'] 
             
-        print("\nChecking Zero Netted by Path:\n(contracts_opened - contracts_closed)-contracts_lives = ", "(", abs(float("{0:.2f}".format(2*contracts_opened))), "-", abs(float("{0:.2f}".format(contracts_closed))), ") -", abs(float("{0:.2f}".format(contracts_lives))), "=", abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)))), "-", abs(float("{0:.2f}".format(contracts_lives))),"=", abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)-contracts_lives))))
+        print("\nChecking Zero Netted by Path:\n(contracts_opened - contracts_closed)-contracts_lives = ", "(", abs(float("{0:.1f}".format(2*contracts_opened))), "-", abs(float("{0:.1f}".format(contracts_closed))), ") -", abs(float("{0:.1f}".format(contracts_lives))), "=", abs(float("{0:.1f}".format((2*contracts_opened - contracts_closed)))), "-", abs(float("{0:.1f}".format(contracts_lives))),"=", abs(float("{0:.1f}".format((2*contracts_opened - contracts_closed)-contracts_lives))))
         ###################################################################################
 
     if len(path_complex_main)!=0:
-        if abs(float("{0:.2f}".format((2*contracts_opened - contracts_closed)-contracts_lives))) != 0:
+        if abs(float("{0:.1f}".format((2*contracts_opened - contracts_closed)-contracts_lives))) != 0:
             k += 1
             print(k, ": Warning!! There is no zero netted event in the path")
         print("\nPath:\n", np.array(path_complex_main), "\n")
