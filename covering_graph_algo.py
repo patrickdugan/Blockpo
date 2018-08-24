@@ -9,7 +9,7 @@ from time import sleep
 import globales
 import setglobales
 
-sys.stdout = open('out', 'w')
+sys.stdout = open('out.txt', 'w')
 
 print("###################################################################################\n")
 print("\n#------------------------'Definitions'---------------------------------#\n")
