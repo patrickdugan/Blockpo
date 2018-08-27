@@ -29,7 +29,7 @@ printf "\n________________________________________\n"
 printf "Base address to work with:\n"
 printf $ADDRBase
 
-N=300
+N=100
 
 amountbitcoin_baseaddr=40
 amountbitcoin_manyaddr=0.02
@@ -126,54 +126,54 @@ printf "Looking info of Contracts:\n"
 # Price: 11000-11200, Amount Buy 80 Addrs: 100-5000 | Amount Sell 100 Addrs: 100-5000, Price: 11100-11300 | Amount Buy 100 Addrs: 100-5000, Price: 11000-11200;
 printf "\n________________________________________\n"
 printf "Setting the first price of market:\n"
-./omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[1]} ${CONTRACT} 100 1 1 11000 1
-./omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[2]} ${CONTRACT} 100 1 1 11000 2
+./omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[1]} ${CONTRACT} 100 1 1 6800 1
+./omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[2]} ${CONTRACT} 100 1 1 6800 2
 ./omnicore-cli -datadir=$DATADIR --regtest generate 1
 
 
 TRATradeBuy=()
-for (( i=1; i<=${N}/2+30; i++ ))
-do      
-        printf "Market Price of contract now:\n"
-        TRA=$(./omnicore-cli -datadir=$DATADIR --regtest omni_getmarketprice ${CONTRACT})
-        PRIC=`echo "$TRA" | jq '.['"$marketPrice"']'`
-        PRIC=${PRIC%.*}
-	PRIC=${PRIC#\"}
-        printf $PRIC
-        echo "${i},${PRIC}" >> prices.csv
-	printf "\n////////////////////////////////////////\n"
-	printf "Amount for sale Buyer #$i\n"	
-	AMOUNT=$[ ( $RANDOM % 100 ) + 1 ]
-        printf "Random Amount:\n" 
-	printf $AMOUNT
-	ACTION=$[ ( $RANDOM % 2 ) + 1 ]
-        printf "Random Action:\n" 
-        printf $ACTION
-        SIGN=$[ ( $RANDOM % 2 ) + 1 ]
-        printf "Random SIGN:\n" 
-        printf $SIGN
-        DELTA=$[  ( $RANDOM % 10 ) + 1 ]
-        if [[ $SIGN -eq 1 ]]
-        then
-           PRICE=$[ ( $PRIC + $DELTA ) ]
-        else
-           PRICE=$[ ( $PRIC - $DELTA ) ]
-        fi
-	printf $PRICE
-	#printf "\n________________________________________\n"
-	#printf "Buying orders with the address #$i\n"
-#	Structure: "omni_tradecontract Adrress|PropertyId1|Amount1|PropertyId2|Amount2|Price|Action\n"
-#	#TRATradeBuy[$i]=$(
-        ./omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$i]} ${CONTRACT} ${AMOUNT} 1 1 ${PRICE} ${ACTION}
-	./omnicore-cli -datadir=$DATADIR --regtest generate 1
+for (( j=1; i<=3; j++ ))
+do
+   for (( i=1; i<=${N}; i++ ))
+   do      
+           printf "Market Price of contract now:\n"
+           TRA=$(./omnicore-cli -datadir=$DATADIR --regtest omni_getmarketprice ${CONTRACT})
+           PRIC=`echo "$TRA" | jq '.['"$marketPrice"']'`
+           PRIC=${PRIC%.*}
+	   PRIC=${PRIC#\"}
+           printf $PRIC
+           echo "${i},${PRIC}" >> prices.csv
+	   printf "\n////////////////////////////////////////\n"
+	   printf "Amount for sale Buyer #$i\n"	
+	   AMOUNT=$[ ( $RANDOM % 100 ) + 1 ]
+           printf "Random Amount:\n" 
+	   printf $AMOUNT
+	   ACTION=$[ ( $RANDOM % 2 ) + 1 ]
+           printf "Random Action:\n" 
+           printf $ACTION
+           SIGN=$[ ( $RANDOM % 2 ) + 1 ]
+           printf "Random SIGN:\n" 
+           printf $SIGN
+           DELTA=1 # tick is 1.
+           if [[ $SIGN -eq 1 ]]
+           then
+              PRICE=$[ ( $PRIC + $DELTA ) ]
+           else
+              PRICE=$[ ( $PRIC - $DELTA ) ]
+           fi
+	   printf $PRICE
+	   #printf "\n________________________________________\n"
+	   #printf "Buying orders with the address #$i\n"
+           #Structure: "omni_tradecontract Adrress|PropertyId1|Amount1|PropertyId2|Amount2|Price|Action\n"
+           #TRATradeBuy[$i]=$(
+           ./omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$i]} ${CONTRACT} ${AMOUNT} 1 1 ${PRICE} ${ACTION}
+	   ./omnicore-cli -datadir=$DATADIR --regtest generate 1
 
-	#printf "\n________________________________________\n"
-	#printf "Checking confirmation of transaction Buying #$i: confirmation = 1 and valid = true\n"
-	#./omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction ${TRATradeBuy[$i]}
-        # printf "Market Price of contract now:\n"
-        
-
-
+	   #printf "\n________________________________________\n"
+	   #printf "Checking confirmation of transaction Buying #$i: confirmation = 1 and valid = true\n"
+	   #./omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction ${TRATradeBuy[$i]}
+           # printf "Market Price of contract now:\n"
+    done
 done
 
 
