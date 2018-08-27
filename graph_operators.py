@@ -78,7 +78,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                     print('\ncol_amounts: ', col_amounts)
                     ###################################################################################
 
-                    print("\nbalance_incr: ", balance_incr, "<= opened contracts: ", balance_increasing)
+                    print("\n total netted: ", balance_incr, "<= opened contracts: ", balance_increasing)
                     print("\ntraded_position_incr:\n", np.array(traded_position_incr))
                     print("\nChecking the index_init: ", index_init)
                     path_complex_fourh = long_short_incr_path(traded_position_incr, obj_trk_inloop, path_complex_fourh, index_init, i)

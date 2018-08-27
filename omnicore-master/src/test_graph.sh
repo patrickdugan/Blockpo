@@ -1,7 +1,7 @@
 rm graphInfo*
 
 NUL=/dev/null
-DATADIR=/home/daniel/.bitcoin
+DATADIR=/home/lihki/.bitcoin
 printf "\n//////////////////////////////////////////\n"
 printf "Cleaning the regtest folder\n"
 rm -r ~/.bitcoin/regtest
