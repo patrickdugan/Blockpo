@@ -78,10 +78,6 @@ for j in range(len(N_file)):
         print("(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n")
         N_file, idx_i, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd)
 
-        #N_file[:][j][8] = 0
-        #N_file[:][j][9] = 0
-        #print("\nTwo last columns for Edge source updated:\n", N_file[:][j])
-
         ###################################################################################
         # Joining all the single paths in just one" #
         single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.matched_price, 0, 0, obj_long_trk.amount_trd, j]
@@ -160,4 +156,3 @@ for j in range(len(N_file)):
             print(k, ": Warning!! There is no zero netted event in the path")
         print("\nPath:\n", np.array(path_complex_main), "\n")
         path_complex_two_matrix.append(path_complex_main)
-

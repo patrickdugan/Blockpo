@@ -53,7 +53,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
         if addrs_trk_arg in N_filei and bool_netted_status:
 
             amount_trdw = (float(scalar_w)/total_trdsincr)*obj_trk_inloop.amount_trd
-            print("HOLA!!", scalar_w, total_trdsincr, obj_trk_inloop.amount_trd)
+            print("\nreal trade amount = ", obj_trk_inloop.amount_trd, "\n")
 
             amount_trd_sum_b = amount_trd_sum
             amount_trd_sum = amount_trd_sum + amount_trdw
@@ -390,7 +390,7 @@ def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file
     print("\naverage_incr before checking (amount_inthepath < amount_trd_begining):\n", np.array(average_incr))
     if amount_inthepath < amount_trd_begining:
 
-        print("\nOJO!! amount_inthepath = ", amount_inthepath, " < amount_trd_begining = ", amount_trd_begining)
+        print("\nChecking real amount and amount in the path!! amount_inthepath = ", amount_inthepath, " < amount_trd_begining = ", amount_trd_begining)
         scalar_w = (float(amount_inthepath)/amount_trd_begining)*total_trdsincr
         print("\nscalar_w = ", scalar_w)
         for row in average_incr:
