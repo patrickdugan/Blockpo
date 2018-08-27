@@ -55,6 +55,8 @@
 using std::runtime_error;
 using namespace mastercore;
 
+extern volatile uint64_t marketP [10];
+
 /**
  * Throws a JSONRPCError, depending on error code.
  */
@@ -213,18 +215,6 @@ bool ContractBalanceToJSON(const std::string& address, uint32_t property, UniVal
   }
 }
 
-///////////////////////////////////////////////
-/** New things for Contract */
-bool PositionToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
-{
-    int64_t longPosition  = getMPbalance(address, property, POSSITIVE_BALANCE);
-    int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
-
-    balance_obj.push_back(Pair("longPosition", FormatIndivisibleMP(longPosition)));
-    balance_obj.push_back(Pair("shortPosition", FormatIndivisibleMP(shortPosition)));
-
-    return true;
-}
 // Obtains details of a fee distribution
 UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
 {
@@ -1048,6 +1038,19 @@ UniValue omni_getcontract_balance(const UniValue& params, bool fHelp)
     return balanceObj;
 }
 
+/** New things for Future Contract */
+bool PositionToJSON(const std::string& address, uint32_t property, UniValue& balance_obj, bool divisible)
+{
+    int64_t longPosition  = getMPbalance(address, property, POSSITIVE_BALANCE);
+    int64_t shortPosition = getMPbalance(address, property, NEGATIVE_BALANCE);
+    int64_t liqPrice = getMPbalance(address, property, LIQUIDATION_PRICE);
+    balance_obj.push_back(Pair("longPosition", FormatByType(longPosition,1)));
+    balance_obj.push_back(Pair("shortPosition", FormatByType(shortPosition,1)));
+    balance_obj.push_back(Pair("liquidationPrice", FormatByType(liqPrice,2)));
+
+    return true;
+}
+
 ///////////////////////////////////////////////
 /** New things for Contract */
 UniValue omni_getposition(const UniValue& params, bool fHelp)
@@ -1077,6 +1080,35 @@ UniValue omni_getposition(const UniValue& params, bool fHelp)
 
     return balanceObj;
 }
+
+///////////////////////////////////////////////
+/** New things for Contract */
+UniValue omni_getmarketprice(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "omni_getmarketprice \" contractid\n"
+            "\nReturns the market price (last match price) of a give future contract.\n"
+            "\nArguments:\n"
+            "1. contractid           (number, required) the future contract identifier\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"marketprice\" : \"n.nnnnnnnn\",   (number) market price \n"
+            "}\n"
+            "\nExamples:\n"
+            + HelpExampleCli("omni_getmarketprice", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
+            + HelpExampleRpc("omni_getmarketprice", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
+        );
+
+        int contractId = static_cast<int>(ParsePropertyId(params[0]));
+        UniValue balanceObj(UniValue::VOBJ);
+        balanceObj.push_back(Pair("marketPrice", FormatMP(1,marketP[contractId])));
+
+        return balanceObj;
+
+
+}
+
 
 UniValue omni_getallbalancesforid(const UniValue& params, bool fHelp)
 {
@@ -2655,6 +2687,7 @@ static const CRPCCommand commands[] =
     { "omni layer (data retrieval)", "omni_getcontract_orderbook",     &omni_getcontract_orderbook,      false },
     { "omni layer (data retrieval)", "omni_getposition",               &omni_getposition,                false },
     { "omni layer (data retrieval)", "omni_getcontract_balance",       &omni_getcontract_balance,        false },
+    { "omni layer (data retrieval)", "omni_getmarketprice",            &omni_getmarketprice,             false },
     ///////////////////////////////////////////////
     { "omni layer (data retrieval)", "omni_gettrade",                  &omni_gettrade,                   false },
     { "omni layer (data retrieval)", "omni_getsto",                    &omni_getsto,                     false },

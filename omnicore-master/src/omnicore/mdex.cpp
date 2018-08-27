@@ -44,6 +44,7 @@ extern uint32_t notionalSize;
 extern uint32_t marginRequirementContract;
 extern uint32_t collateralCurrency;
 extern volatile uint64_t marketPrice;
+extern volatile uint64_t marketP[10];
 ///////////////////////////////
 
 //! Number of digits of unit price
@@ -1319,6 +1320,8 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               nCouldBuy3);
             ///////////////////////////////////////
             marketPrice = pold->getEffectivePrice();
+            int index = static_cast<int>(property_traded);
+            marketP[index] = marketPrice;
             // PrintToConsole("marketPrice: %d\n", FormatContractShortMP(marketPrice));
 
             t_tradelistdb->marginLogic(property_traded); //checking margin

@@ -1000,7 +1000,7 @@ UniValue omni_tradecontract(const UniValue& params, bool fHelp)
     uint32_t propertyIdForSale = ParsePropertyId(params[1]);
     int64_t amountForSale = ParseAmountContract(params[2], isPropertyContract(propertyIdForSale));
     uint32_t propertyIdDesired = ParsePropertyId(params[3]);
-    int64_t amountDesired = ParseAmountContract(params[4], isPropertyContract(propertyIdDesired));
+    int64_t amountDesired = ParseAmountContract(params[4], isPropertyContract(propertyIdForSale));
     uint64_t effective_price = ParseEffectivePrice(params[5]);
     uint8_t trading_action = ParseContractDexAction(params[6]);
 

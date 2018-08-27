@@ -1,227 +1,539 @@
-mthr88tCUByWNrrGiV5vxfWMYXvQHuB3kA	 OpenLongPosition	 2647	 mmoUrs9ARfwaTY869xjhhVs8wePg58kVJb	 OpenShortPosition	 2647	 2647
-n22acCuq7assnRegLpnt7ABmonNUcEV6Tr	 OpenLongPosition	 1961	 mjq2gyoG5tK9quxpkqGnzaTbDXmpWQkJ4H	 OpenShortPosition	 1961	 1961
-myPWgKxEtLzZ8TMFPuECWvdw5MwmnoRmTw	 OpenLongPosition	 124	 mjq2gyoG5tK9quxpkqGnzaTbDXmpWQkJ4H	 ShortPosIncreased	 2085	 124
-mwFdTzzPepbJn8QZde1MqE8ZFBYVrhEehS	 OpenLongPosition	 1405	 mjq2gyoG5tK9quxpkqGnzaTbDXmpWQkJ4H	 ShortPosIncreased	 3490	 1405
-mtMM8voZ2nq8rH6HDHQ69bKPFHrjCHTSVg	 OpenLongPosition	 1296	 mjq2gyoG5tK9quxpkqGnzaTbDXmpWQkJ4H	 ShortPosIncreased	 4786	 1296
-mqnXbk5uBfVhF5YoaimDEg3ZDmb6qLCK9N	 OpenLongPosition	 2105	 n3D2EmDNaVyeJbfGvdjPLuyaa7GPmsUNd4	 OpenShortPosition	 2105	 2105
-mrUGT1haNL3Ts6WErDdFWrXSxVvsQ3DLCi	 OpenLongPosition	 1648	 n3D2EmDNaVyeJbfGvdjPLuyaa7GPmsUNd4	 ShortPosIncreased	 3753	 1648
-mvqMhEMRqWMHE3UtRbtoRrrkaAJp1EueTM	 OpenLongPosition	 403	 n3D2EmDNaVyeJbfGvdjPLuyaa7GPmsUNd4	 ShortPosIncreased	 4156	 403
-mmoUrs9ARfwaTY869xjhhVs8wePg58kVJb	 ShortPosNettedPartly	 2143	 n3D2EmDNaVyeJbfGvdjPLuyaa7GPmsUNd4	 ShortPosIncreased	 4660	 504
-n4QsB5r92PpQ5sqjncC9xQqAbJXHzB9rTR	 OpenLongPosition	 1729	 n4ERmUhge6XKtvctXYvtiswPgSdQqwdeVC	 OpenShortPosition	 1729	 1729
-mqMGdFenqRumyYSrERRvZG6naWZZjyaz1a	 OpenLongPosition	 1088	 n4ERmUhge6XKtvctXYvtiswPgSdQqwdeVC	 ShortPosIncreased	 2817	 1088
-n35jKmn6VHnDWC38yXnifrdXawdrCgp1Kw	 OpenLongPosition	 2115	 n4ERmUhge6XKtvctXYvtiswPgSdQqwdeVC	 ShortPosIncreased	 4932	 2115
-mtCfguT9wTAUFWS2hPFSKTFfeep8p8Y15D	 OpenLongPosition	 1168	 mmQpkb8Xgvc9nHEDUNEEyb1x2Drik5caxT	 OpenShortPosition	 1168	 1168
-msseTTv6B3XTdLecB26sreJAUF93REF19f	 OpenLongPosition	 1542	 mmQpkb8Xgvc9nHEDUNEEyb1x2Drik5caxT	 ShortPosIncreased	 2710	 1542
-mo2xpeb6yD1GEwimSxcunmhgyjgXmrFKGu	 OpenLongPosition	 1879	 mmQpkb8Xgvc9nHEDUNEEyb1x2Drik5caxT	 ShortPosIncreased	 4589	 1879
-mmoUrs9ARfwaTY869xjhhVs8wePg58kVJb	 ShortPosNettedPartly	 1485	 mo2xpeb6yD1GEwimSxcunmhgyjgXmrFKGu	 LongPosNettedPartly	 1221	 658
-mgBrVNmXqrk9HTYAPZJVMVnCD6k4ATicDn	 OpenLongPosition	 403	 mvqMhEMRqWMHE3UtRbtoRrrkaAJp1EueTM	 LongPosNetted	 0	 403
-mgBrVNmXqrk9HTYAPZJVMVnCD6k4ATicDn	 LongPosIncreased	 3564	 mvqMhEMRqWMHE3UtRbtoRrrkaAJp1EueTM	 OpenShortPosition	 3161	 3161
-mtWkpjk91HbFs78t6wxqJXkn5b2U93CVZd	 OpenLongPosition	 724	 mvqMhEMRqWMHE3UtRbtoRrrkaAJp1EueTM	 ShortPosIncreased	 3885	 724
-mo2xpeb6yD1GEwimSxcunmhgyjgXmrFKGu	 LongPosIncreased	 2181	 mgEujLeWD2yg7zexRqDyhhTqvoMj5nMCBN	 OpenShortPosition	 960	 960
-mp5z2J9hftx9RQLBwhBE7WBmvasLdxszjy	 OpenLongPosition	 1227	 mgEujLeWD2yg7zexRqDyhhTqvoMj5nMCBN	 ShortPosIncreased	 2187	 1227
-mp5z2J9hftx9RQLBwhBE7WBmvasLdxszjy	 LongPosIncreased	 1351	 myPWgKxEtLzZ8TMFPuECWvdw5MwmnoRmTw	 LongPosNetted	 0	 124
-mp5z2J9hftx9RQLBwhBE7WBmvasLdxszjy	 LongPosIncreased	 1976	 myPWgKxEtLzZ8TMFPuECWvdw5MwmnoRmTw	 OpenShortPosition	 625	 625
-mtWkpjk91HbFs78t6wxqJXkn5b2U93CVZd	 LongPosIncreased	 1145	 myPWgKxEtLzZ8TMFPuECWvdw5MwmnoRmTw	 ShortPosIncreased	 1046	 421
-n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 OpenLongPosition	 152	 mqHqzkycKSezcinCHPBMTZjEjbbZ5DcP1F	 OpenShortPosition	 152	 152
-mh443vZ6aZZqurxrArnTdSgKLLcJGWHoHT	 OpenLongPosition	 818	 mpjy86G1Zo3D8RtuFKrYqu8UgmMevcSwTh	 OpenShortPosition	 818	 818
-mmQpkb8Xgvc9nHEDUNEEyb1x2Drik5caxT	 ShortPosNettedPartly	 4138	 mpjy86G1Zo3D8RtuFKrYqu8UgmMevcSwTh	 ShortPosIncreased	 1269	 451
-n3n7ZfuA1nHJyNwTRWaYgNQNHgNT7Qa8g9	 OpenLongPosition	 1961	 n22acCuq7assnRegLpnt7ABmonNUcEV6Tr	 LongPosNetted	 0	 1961
-n3n7ZfuA1nHJyNwTRWaYgNQNHgNT7Qa8g9	 LongPosIncreased	 2127	 n22acCuq7assnRegLpnt7ABmonNUcEV6Tr	 OpenShortPosition	 166	 166
-mtWkpjk91HbFs78t6wxqJXkn5b2U93CVZd	 LongPosIncreased	 2550	 mwFdTzzPepbJn8QZde1MqE8ZFBYVrhEehS	 LongPosNetted	 0	 1405
-mtWkpjk91HbFs78t6wxqJXkn5b2U93CVZd	 LongPosIncreased	 3110	 mwFdTzzPepbJn8QZde1MqE8ZFBYVrhEehS	 OpenShortPosition	 560	 560
-miyUJs6WpsRcTYyk4ZmCug7hFNeHxvLVHY	 OpenLongPosition	 661	 n4EUCWzRBrCjSrQTs5FFnQbapCG88PubFG	 OpenShortPosition	 661	 661
-mu7AcybU4tqB7gZHNuPtXujfJDZ7uUiMeu	 OpenLongPosition	 1048	 n4EUCWzRBrCjSrQTs5FFnQbapCG88PubFG	 ShortPosIncreased	 1709	 1048
-mkf51QwBeFU9E3WMTCtrbSPgoQqodSLDgx	 OpenLongPosition	 146	 n4EUCWzRBrCjSrQTs5FFnQbapCG88PubFG	 ShortPosIncreased	 1855	 146
-mmoUrs9ARfwaTY869xjhhVs8wePg58kVJb	 ShortPosNettedPartly	 189	 mtMM8voZ2nq8rH6HDHQ69bKPFHrjCHTSVg	 LongPosNetted	 0	 1296
-mmoUrs9ARfwaTY869xjhhVs8wePg58kVJb	 ShortPosNetted	 0	 mtMM8voZ2nq8rH6HDHQ69bKPFHrjCHTSVg	 OpenShortPosition	 189	 189
-mmoUrs9ARfwaTY869xjhhVs8wePg58kVJb	 OpenLongPosition	 686	 mtMM8voZ2nq8rH6HDHQ69bKPFHrjCHTSVg	 ShortPosIncreased	 875	 686
-muFfzrAb3FyJHy4gQBi7UYM2bkh7P4vsNB	 OpenLongPosition	 2070	 mtMM8voZ2nq8rH6HDHQ69bKPFHrjCHTSVg	 ShortPosIncreased	 2945	 2070
-mthr88tCUByWNrrGiV5vxfWMYXvQHuB3kA	 LongPosIncreased	 2793	 mkf51QwBeFU9E3WMTCtrbSPgoQqodSLDgx	 LongPosNetted	 0	 146
-mthr88tCUByWNrrGiV5vxfWMYXvQHuB3kA	 LongPosIncreased	 3189	 mkf51QwBeFU9E3WMTCtrbSPgoQqodSLDgx	 OpenShortPosition	 396	 396
-mkmCFnFx8BeN1WdAYNaeskmdsiVwohpiFr	 OpenLongPosition	 2361	 mkf51QwBeFU9E3WMTCtrbSPgoQqodSLDgx	 ShortPosIncreased	 2757	 2361
-mpsYcdMQKtM9bNJbHVfijVJf1xWCxeBGmT	 OpenLongPosition	 3027	 msZCSGUc1u35roT5BbfvRuUT2r9SUZDxpq	 OpenShortPosition	 3027	 3027
-muFfzrAb3FyJHy4gQBi7UYM2bkh7P4vsNB	 LongPosIncreased	 2676	 n1KVwWYuDy5eni4eqqVhXHS4hWYHsxrh2X	 OpenShortPosition	 606	 606
-mwRFvxeUogL8tDD1SwQAtkUMiUkw4STyAr	 OpenLongPosition	 1484	 n1KVwWYuDy5eni4eqqVhXHS4hWYHsxrh2X	 ShortPosIncreased	 2090	 1484
-mtWkpjk91HbFs78t6wxqJXkn5b2U93CVZd	 LongPosIncreased	 3262	 mkJMWtTuYRTLc9gHT65BonwaQLLEVSjrv4	 OpenShortPosition	 152	 152
-msSAUmbSwu7wxQ7icEqj9YqLKUZgnJSLkC	 OpenLongPosition	 1123	 mkJMWtTuYRTLc9gHT65BonwaQLLEVSjrv4	 ShortPosIncreased	 1275	 1123
-n3D2EmDNaVyeJbfGvdjPLuyaa7GPmsUNd4	 ShortPosNettedPartly	 2313	 mkJMWtTuYRTLc9gHT65BonwaQLLEVSjrv4	 ShortPosIncreased	 3622	 2347
-mojBPxTYUcVrxGBXRSr3EMec3xbiWZCDxL	 OpenLongPosition	 3482	 mpsFYBrsLYahQ31CapufQiAva8WnZZfceE	 OpenShortPosition	 3482	 3482
-n3D2EmDNaVyeJbfGvdjPLuyaa7GPmsUNd4	 ShortPosNettedPartly	 2208	 mpW8FL7wje2X8pjJWSbd57a63pis2uXdk5	 OpenShortPosition	 105	 105
-n4ERmUhge6XKtvctXYvtiswPgSdQqwdeVC	 ShortPosNettedPartly	 4298	 mpW8FL7wje2X8pjJWSbd57a63pis2uXdk5	 ShortPosIncreased	 739	 634
-n2AF2enyGM95HuM7k56N6JFxQzMWb2w76V	 OpenLongPosition	 2704	 mpW8FL7wje2X8pjJWSbd57a63pis2uXdk5	 ShortPosIncreased	 3443	 2704
-mojBPxTYUcVrxGBXRSr3EMec3xbiWZCDxL	 LongPosIncreased	 4142	 msYoosUUomA2khPGerSJwzqTxAEwLy8ry1	 OpenShortPosition	 660	 660
-mzKEAJe5BRteemGt25vXMUq4xmmaQJS95J	 OpenLongPosition	 1719	 mh7hp9eHg6rw11pqbLidGaUZ6f2Lv85C9w	 OpenShortPosition	 1719	 1719
-mpsYcdMQKtM9bNJbHVfijVJf1xWCxeBGmT	 LongPosIncreased	 3968	 ms3tUm3TWTuR6uMchmjuyJVN9V6bjstmFh	 OpenShortPosition	 941	 941
-mxcreWoZsfQzdNf8UYAN5zBYQq3ApYoHKu	 OpenLongPosition	 901	 mpsYcdMQKtM9bNJbHVfijVJf1xWCxeBGmT	 LongPosNettedPartly	 3067	 901
-mpqNzLhjtCTepYabixP7CcD7hwFMbkzmU4	 OpenLongPosition	 747	 mpsYcdMQKtM9bNJbHVfijVJf1xWCxeBGmT	 LongPosNettedPartly	 2320	 747
-mrYQDTToiCRN4XpZReibd1zb1uyKiAMgSH	 OpenLongPosition	 3189	 mthr88tCUByWNrrGiV5vxfWMYXvQHuB3kA	 LongPosNetted	 0	 3189
-mrYQDTToiCRN4XpZReibd1zb1uyKiAMgSH	 LongPosIncreased	 3753	 mthr88tCUByWNrrGiV5vxfWMYXvQHuB3kA	 OpenShortPosition	 564	 564
-mpsYcdMQKtM9bNJbHVfijVJf1xWCxeBGmT	 LongPosIncreased	 2358	 myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 OpenShortPosition	 38	 38
-mkf51QwBeFU9E3WMTCtrbSPgoQqodSLDgx	 ShortPosNettedPartly	 2522	 mqpDh7KXwaHVHqJwFUj2ytLJLJuwf29zQV	 OpenShortPosition	 235	 235
-mwRFvxeUogL8tDD1SwQAtkUMiUkw4STyAr	 LongPosIncreased	 1931	 mtQoU2a1dXhNVSeoRj1dsB3cm9EHc6aQ7m	 OpenShortPosition	 447	 447
-n2AF2enyGM95HuM7k56N6JFxQzMWb2w76V	 LongPosIncreased	 3982	 mwRFvxeUogL8tDD1SwQAtkUMiUkw4STyAr	 LongPosNettedPartly	 653	 1278
-mpjy86G1Zo3D8RtuFKrYqu8UgmMevcSwTh	 ShortPosNetted	 0	 mtWkpjk91HbFs78t6wxqJXkn5b2U93CVZd	 LongPosNettedPartly	 1993	 1993
-mpjy86G1Zo3D8RtuFKrYqu8UgmMevcSwTh	 OpenLongPosition	 1055	 mtWkpjk91HbFs78t6wxqJXkn5b2U93CVZd	 LongPosNettedPartly	 938	 1055
-n3n7ZfuA1nHJyNwTRWaYgNQNHgNT7Qa8g9	 LongPosIncreased	 3669	 msseTTv6B3XTdLecB26sreJAUF93REF19f	 LongPosNetted	 0	 1542
-n3n7ZfuA1nHJyNwTRWaYgNQNHgNT7Qa8g9	 LongPosIncreased	 4184	 msseTTv6B3XTdLecB26sreJAUF93REF19f	 OpenShortPosition	 515	 515
-myP5yp4sbZMZQHRnBQcicnKESjJaJ21FDK	 OpenLongPosition	 2902	 msseTTv6B3XTdLecB26sreJAUF93REF19f	 ShortPosIncreased	 3417	 2902
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 ShortPosNetted	 0	 n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 OpenShortPosition	 38	 38
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 OpenLongPosition	 871	 n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 ShortPosIncreased	 909	 871
-mkf51QwBeFU9E3WMTCtrbSPgoQqodSLDgx	 ShortPosNettedPartly	 1275	 mz3bn1uG1RmgfTUWhQWQdEzHDfGeP73BRE	 OpenShortPosition	 1247	 1247
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 LongPosIncreased	 1959	 mqMGdFenqRumyYSrERRvZG6naWZZjyaz1a	 LongPosNetted	 0	 1088
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 LongPosIncreased	 2488	 mqMGdFenqRumyYSrERRvZG6naWZZjyaz1a	 OpenShortPosition	 529	 529
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 LongPosIncreased	 2496	 miyUJs6WpsRcTYyk4ZmCug7hFNeHxvLVHY	 LongPosNettedPartly	 653	 8
-msveq1PstTs6L46SR92LvZ99Dz4FidmXPN	 OpenLongPosition	 653	 miyUJs6WpsRcTYyk4ZmCug7hFNeHxvLVHY	 LongPosNetted	 0	 653
-msveq1PstTs6L46SR92LvZ99Dz4FidmXPN	 LongPosIncreased	 4207	 miyUJs6WpsRcTYyk4ZmCug7hFNeHxvLVHY	 OpenShortPosition	 3554	 3554
-mznRKFz3GPKvu1RzbfY1kUrPRAQKT1MvbX	 OpenLongPosition	 858	 miyUJs6WpsRcTYyk4ZmCug7hFNeHxvLVHY	 ShortPosIncreased	 4412	 858
-n2AF2enyGM95HuM7k56N6JFxQzMWb2w76V	 LongPosIncreased	 5077	 muFfzrAb3FyJHy4gQBi7UYM2bkh7P4vsNB	 LongPosNettedPartly	 1581	 1095
-n4ckXyowqABNzVLDhnXeBrm1C1qzLRejRN	 OpenLongPosition	 1581	 muFfzrAb3FyJHy4gQBi7UYM2bkh7P4vsNB	 LongPosNetted	 0	 1581
-n4ckXyowqABNzVLDhnXeBrm1C1qzLRejRN	 LongPosIncreased	 2030	 muFfzrAb3FyJHy4gQBi7UYM2bkh7P4vsNB	 OpenShortPosition	 449	 449
-mmQpkb8Xgvc9nHEDUNEEyb1x2Drik5caxT	 ShortPosNettedPartly	 3124	 muFfzrAb3FyJHy4gQBi7UYM2bkh7P4vsNB	 ShortPosIncreased	 1463	 1014
-mkJMWtTuYRTLc9gHT65BonwaQLLEVSjrv4	 ShortPosNettedPartly	 3515	 moks9mUK6bA62TAsUGMQk69PXRz91XSUAp	 OpenShortPosition	 107	 107
-ms3tUm3TWTuR6uMchmjuyJVN9V6bjstmFh	 ShortPosNetted	 0	 moks9mUK6bA62TAsUGMQk69PXRz91XSUAp	 ShortPosIncreased	 1048	 941
-ms3tUm3TWTuR6uMchmjuyJVN9V6bjstmFh	 OpenLongPosition	 1743	 moks9mUK6bA62TAsUGMQk69PXRz91XSUAp	 ShortPosIncreased	 2791	 1743
-mznRKFz3GPKvu1RzbfY1kUrPRAQKT1MvbX	 LongPosIncreased	 3741	 msL7nY77MMjpaYbNr3iiJTRKEnkiUAne3E	 OpenShortPosition	 2883	 2883
-mqHqzkycKSezcinCHPBMTZjEjbbZ5DcP1F	 ShortPosNetted	 0	 msL7nY77MMjpaYbNr3iiJTRKEnkiUAne3E	 ShortPosIncreased	 3035	 152
-mqHqzkycKSezcinCHPBMTZjEjbbZ5DcP1F	 OpenLongPosition	 58	 msL7nY77MMjpaYbNr3iiJTRKEnkiUAne3E	 ShortPosIncreased	 3093	 58
-mmQpkb8Xgvc9nHEDUNEEyb1x2Drik5caxT	 ShortPosNettedPartly	 2972	 n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 LongPosNetted	 0	 152
-mmQpkb8Xgvc9nHEDUNEEyb1x2Drik5caxT	 ShortPosNettedPartly	 2938	 n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 OpenShortPosition	 34	 34
-mz3bn1uG1RmgfTUWhQWQdEzHDfGeP73BRE	 ShortPosNetted	 0	 n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 ShortPosIncreased	 1281	 1247
-mz3bn1uG1RmgfTUWhQWQdEzHDfGeP73BRE	 OpenLongPosition	 581	 n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 ShortPosIncreased	 1862	 581
-n3ngHLaGiGTjiD7JhpDi56agn9qqoTM2yo	 OpenLongPosition	 720	 n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 ShortPosIncreased	 2582	 720
-mrYQDTToiCRN4XpZReibd1zb1uyKiAMgSH	 LongPosIncreased	 3946	 n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 ShortPosIncreased	 2775	 193
-ms3tUm3TWTuR6uMchmjuyJVN9V6bjstmFh	 LongPosIncreased	 2900	 n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 ShortPosIncreased	 3932	 1157
-mvtGTZ2nSNBFdrfJKwtLuXdWs5T5hc9jip	 OpenLongPosition	 617	 n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 ShortPosIncreased	 4549	 617
-mvtGTZ2nSNBFdrfJKwtLuXdWs5T5hc9jip	 LongPosIncreased	 924	 msveq1PstTs6L46SR92LvZ99Dz4FidmXPN	 LongPosNettedPartly	 3900	 307
-n35jKmn6VHnDWC38yXnifrdXawdrCgp1Kw	 LongPosIncreased	 2684	 msveq1PstTs6L46SR92LvZ99Dz4FidmXPN	 LongPosNettedPartly	 3331	 569
-mzM8jiFfdBkavhynKue36wpoGwaTjEvh7r	 OpenLongPosition	 488	 msveq1PstTs6L46SR92LvZ99Dz4FidmXPN	 LongPosNettedPartly	 2843	 488
-n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 ShortPosNettedPartly	 165	 msveq1PstTs6L46SR92LvZ99Dz4FidmXPN	 LongPosNettedPartly	 2099	 744
-msZCSGUc1u35roT5BbfvRuUT2r9SUZDxpq	 ShortPosNettedPartly	 2313	 mpqNzLhjtCTepYabixP7CcD7hwFMbkzmU4	 LongPosNettedPartly	 33	 714
-mn4Lxow4kXJFKDo9gGdPBWnYgJhqZfhfXw	 OpenLongPosition	 33	 mpqNzLhjtCTepYabixP7CcD7hwFMbkzmU4	 LongPosNetted	 0	 33
-mn4Lxow4kXJFKDo9gGdPBWnYgJhqZfhfXw	 LongPosIncreased	 639	 mpqNzLhjtCTepYabixP7CcD7hwFMbkzmU4	 OpenShortPosition	 606	 606
-myP5yp4sbZMZQHRnBQcicnKESjJaJ21FDK	 LongPosIncreased	 4972	 mtREqvJVxLvyp7LGyUy5Xgo4GNtNdqhQp3	 OpenShortPosition	 2070	 2070
-mh7hp9eHg6rw11pqbLidGaUZ6f2Lv85C9w	 ShortPosNettedPartly	 1616	 mtREqvJVxLvyp7LGyUy5Xgo4GNtNdqhQp3	 ShortPosIncreased	 2173	 103
-my1LWpf7ApoRL5b3Wh2pDQCvo3CSo2xCn6	 OpenLongPosition	 750	 mtREqvJVxLvyp7LGyUy5Xgo4GNtNdqhQp3	 ShortPosIncreased	 2923	 750
-mqpDh7KXwaHVHqJwFUj2ytLJLJuwf29zQV	 ShortPosNetted	 0	 mznRKFz3GPKvu1RzbfY1kUrPRAQKT1MvbX	 LongPosNettedPartly	 3506	 3506
-mqpDh7KXwaHVHqJwFUj2ytLJLJuwf29zQV	 OpenLongPosition	 308	 mznRKFz3GPKvu1RzbfY1kUrPRAQKT1MvbX	 LongPosNettedPartly	 3198	 308
-mtMM8voZ2nq8rH6HDHQ69bKPFHrjCHTSVg	 ShortPosNettedPartly	 1969	 msKwGJEmNP8EdGfbHY6DZBSc29yAh416RZ	 OpenShortPosition	 976	 976
-mpjy86G1Zo3D8RtuFKrYqu8UgmMevcSwTh	 LongPosIncreased	 2325	 murBR8zMEbrqqhQKcw2J8hkyH2ubGNHDK2	 OpenShortPosition	 1270	 1270
-mqHqzkycKSezcinCHPBMTZjEjbbZ5DcP1F	 LongPosIncreased	 1125	 murBR8zMEbrqqhQKcw2J8hkyH2ubGNHDK2	 ShortPosIncreased	 2337	 1067
-mqHqzkycKSezcinCHPBMTZjEjbbZ5DcP1F	 LongPosIncreased	 1754	 mkmCFnFx8BeN1WdAYNaeskmdsiVwohpiFr	 LongPosNettedPartly	 1732	 629
-n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 ShortPosNetted	 0	 n4QsB5r92PpQ5sqjncC9xQqAbJXHzB9rTR	 LongPosNettedPartly	 1564	 1564
-n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 OpenLongPosition	 882	 n4QsB5r92PpQ5sqjncC9xQqAbJXHzB9rTR	 LongPosNettedPartly	 682	 882
-mpqNzLhjtCTepYabixP7CcD7hwFMbkzmU4	 ShortPosNetted	 0	 mmrE2QVeYzNEvEkkd3hCpg8n1cib6rEkuV	 OpenShortPosition	 606	 606
-mpqNzLhjtCTepYabixP7CcD7hwFMbkzmU4	 OpenLongPosition	 2308	 mmrE2QVeYzNEvEkkd3hCpg8n1cib6rEkuV	 ShortPosIncreased	 2914	 2308
-murBR8zMEbrqqhQKcw2J8hkyH2ubGNHDK2	 ShortPosNettedPartly	 1006	 mmrE2QVeYzNEvEkkd3hCpg8n1cib6rEkuV	 ShortPosIncreased	 4245	 1331
-n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 LongPosIncreased	 1611	 mtCfguT9wTAUFWS2hPFSKTFfeep8p8Y15D	 LongPosNettedPartly	 439	 729
-mtQoU2a1dXhNVSeoRj1dsB3cm9EHc6aQ7m	 ShortPosNettedPartly	 8	 mtCfguT9wTAUFWS2hPFSKTFfeep8p8Y15D	 LongPosNetted	 0	 439
-mtQoU2a1dXhNVSeoRj1dsB3cm9EHc6aQ7m	 ShortPosNetted	 0	 mtCfguT9wTAUFWS2hPFSKTFfeep8p8Y15D	 OpenShortPosition	 8	 8
-mtQoU2a1dXhNVSeoRj1dsB3cm9EHc6aQ7m	 OpenLongPosition	 1702	 mtCfguT9wTAUFWS2hPFSKTFfeep8p8Y15D	 ShortPosIncreased	 1710	 1702
-mtQoU2a1dXhNVSeoRj1dsB3cm9EHc6aQ7m	 LongPosIncreased	 3403	 mojBPxTYUcVrxGBXRSr3EMec3xbiWZCDxL	 LongPosNettedPartly	 2441	 1701
-mtMM8voZ2nq8rH6HDHQ69bKPFHrjCHTSVg	 ShortPosNettedPartly	 1809	 mrUGT1haNL3Ts6WErDdFWrXSxVvsQ3DLCi	 LongPosNettedPartly	 1488	 160
-mmrE2QVeYzNEvEkkd3hCpg8n1cib6rEkuV	 ShortPosNettedPartly	 2757	 mrUGT1haNL3Ts6WErDdFWrXSxVvsQ3DLCi	 LongPosNetted	 0	 1488
-mmrE2QVeYzNEvEkkd3hCpg8n1cib6rEkuV	 ShortPosNettedPartly	 956	 mrUGT1haNL3Ts6WErDdFWrXSxVvsQ3DLCi	 OpenShortPosition	 1801	 1801
-mtQoU2a1dXhNVSeoRj1dsB3cm9EHc6aQ7m	 LongPosIncreased	 3801	 mu7AcybU4tqB7gZHNuPtXujfJDZ7uUiMeu	 LongPosNettedPartly	 650	 398
-msYoosUUomA2khPGerSJwzqTxAEwLy8ry1	 ShortPosNettedPartly	 10	 mu7AcybU4tqB7gZHNuPtXujfJDZ7uUiMeu	 LongPosNetted	 0	 650
-msYoosUUomA2khPGerSJwzqTxAEwLy8ry1	 ShortPosNetted	 0	 mu7AcybU4tqB7gZHNuPtXujfJDZ7uUiMeu	 OpenShortPosition	 10	 10
-msYoosUUomA2khPGerSJwzqTxAEwLy8ry1	 OpenLongPosition	 29	 mu7AcybU4tqB7gZHNuPtXujfJDZ7uUiMeu	 ShortPosIncreased	 39	 29
-mzKEAJe5BRteemGt25vXMUq4xmmaQJS95J	 LongPosIncreased	 1844	 mu7AcybU4tqB7gZHNuPtXujfJDZ7uUiMeu	 ShortPosIncreased	 164	 125
-mrV8GuDs12Xrd9Vdt5o4Bz39Scv7XLy2iU	 OpenLongPosition	 559	 mu7AcybU4tqB7gZHNuPtXujfJDZ7uUiMeu	 ShortPosIncreased	 723	 559
-mmrE2QVeYzNEvEkkd3hCpg8n1cib6rEkuV	 ShortPosNettedPartly	 664	 mn4Lxow4kXJFKDo9gGdPBWnYgJhqZfhfXw	 LongPosNettedPartly	 347	 292
-mpW8FL7wje2X8pjJWSbd57a63pis2uXdk5	 ShortPosNettedPartly	 3096	 mn4Lxow4kXJFKDo9gGdPBWnYgJhqZfhfXw	 LongPosNetted	 0	 347
-mpW8FL7wje2X8pjJWSbd57a63pis2uXdk5	 ShortPosNettedPartly	 1115	 mn4Lxow4kXJFKDo9gGdPBWnYgJhqZfhfXw	 OpenShortPosition	 1981	 1981
-mjq2gyoG5tK9quxpkqGnzaTbDXmpWQkJ4H	 ShortPosNettedPartly	 4322	 n35jKmn6VHnDWC38yXnifrdXawdrCgp1Kw	 LongPosNettedPartly	 2220	 464
-mjNp7RuzxtXsGeWyMcZwhQRSX27qAyxuA6	 OpenLongPosition	 929	 n35jKmn6VHnDWC38yXnifrdXawdrCgp1Kw	 LongPosNettedPartly	 1291	 929
-n3yEeM6CHD7srfMGjGBGLCXNqDqyAsqrvh	 ShortPosNettedPartly	 3320	 n35jKmn6VHnDWC38yXnifrdXawdrCgp1Kw	 LongPosNettedPartly	 62	 1229
-n4EUCWzRBrCjSrQTs5FFnQbapCG88PubFG	 ShortPosNettedPartly	 1793	 n35jKmn6VHnDWC38yXnifrdXawdrCgp1Kw	 LongPosNetted	 0	 62
-n4EUCWzRBrCjSrQTs5FFnQbapCG88PubFG	 ShortPosNettedPartly	 1550	 n35jKmn6VHnDWC38yXnifrdXawdrCgp1Kw	 OpenShortPosition	 243	 243
-mrV8GuDs12Xrd9Vdt5o4Bz39Scv7XLy2iU	 LongPosIncreased	 1309	 my1LWpf7ApoRL5b3Wh2pDQCvo3CSo2xCn6	 LongPosNetted	 0	 750
-mrV8GuDs12Xrd9Vdt5o4Bz39Scv7XLy2iU	 LongPosIncreased	 2383	 my1LWpf7ApoRL5b3Wh2pDQCvo3CSo2xCn6	 OpenShortPosition	 1074	 1074
-mtREqvJVxLvyp7LGyUy5Xgo4GNtNdqhQp3	 ShortPosNettedPartly	 1073	 mqnXbk5uBfVhF5YoaimDEg3ZDmb6qLCK9N	 LongPosNettedPartly	 255	 1850
-mrV8GuDs12Xrd9Vdt5o4Bz39Scv7XLy2iU	 LongPosIncreased	 3086	 mjNp7RuzxtXsGeWyMcZwhQRSX27qAyxuA6	 LongPosNettedPartly	 226	 703
-mpW8FL7wje2X8pjJWSbd57a63pis2uXdk5	 ShortPosNettedPartly	 889	 mjNp7RuzxtXsGeWyMcZwhQRSX27qAyxuA6	 LongPosNetted	 0	 226
-mpW8FL7wje2X8pjJWSbd57a63pis2uXdk5	 ShortPosNettedPartly	 798	 mjNp7RuzxtXsGeWyMcZwhQRSX27qAyxuA6	 OpenShortPosition	 91	 91
-mqHqzkycKSezcinCHPBMTZjEjbbZ5DcP1F	 LongPosIncreased	 3126	 mzKEAJe5BRteemGt25vXMUq4xmmaQJS95J	 LongPosNettedPartly	 472	 1372
-mir66PfT6bsgzctduqVKoPWPHFGywA3gNn	 OpenLongPosition	 472	 mzKEAJe5BRteemGt25vXMUq4xmmaQJS95J	 LongPosNetted	 0	 472
-mir66PfT6bsgzctduqVKoPWPHFGywA3gNn	 LongPosIncreased	 2441	 mzKEAJe5BRteemGt25vXMUq4xmmaQJS95J	 OpenShortPosition	 1969	 1969
-mkHbWLBYqYbFH5tZKsBa5svbwEWGsAAS71	 OpenLongPosition	 113	 mzKEAJe5BRteemGt25vXMUq4xmmaQJS95J	 ShortPosIncreased	 2082	 113
-mpW8FL7wje2X8pjJWSbd57a63pis2uXdk5	 ShortPosNetted	 0	 n4ckXyowqABNzVLDhnXeBrm1C1qzLRejRN	 LongPosNettedPartly	 1232	 1232
-mpW8FL7wje2X8pjJWSbd57a63pis2uXdk5	 OpenLongPosition	 1231	 n4ckXyowqABNzVLDhnXeBrm1C1qzLRejRN	 LongPosNettedPartly	 1	 1231
-msL7nY77MMjpaYbNr3iiJTRKEnkiUAne3E	 ShortPosNettedPartly	 3092	 n4ckXyowqABNzVLDhnXeBrm1C1qzLRejRN	 LongPosNetted	 0	 1
-msL7nY77MMjpaYbNr3iiJTRKEnkiUAne3E	 ShortPosNettedPartly	 1291	 n4ckXyowqABNzVLDhnXeBrm1C1qzLRejRN	 OpenShortPosition	 1801	 1801
-mqpDh7KXwaHVHqJwFUj2ytLJLJuwf29zQV	 LongPosIncreased	 1166	 n4ckXyowqABNzVLDhnXeBrm1C1qzLRejRN	 ShortPosIncreased	 2659	 858
-mqpDh7KXwaHVHqJwFUj2ytLJLJuwf29zQV	 LongPosIncreased	 4097	 n2PZoXhtyzDtMNLZ9D767QN2dCPooBUkVk	 OpenShortPosition	 2931	 2931
-mn4Lxow4kXJFKDo9gGdPBWnYgJhqZfhfXw	 ShortPosNetted	 0	 mtsD9j1inqvvEKtxbyfUiGUiESyatPsYbq	 OpenShortPosition	 1981	 1981
-mn4Lxow4kXJFKDo9gGdPBWnYgJhqZfhfXw	 OpenLongPosition	 1331	 mtsD9j1inqvvEKtxbyfUiGUiESyatPsYbq	 ShortPosIncreased	 3312	 1331
-mqpDh7KXwaHVHqJwFUj2ytLJLJuwf29zQV	 LongPosIncreased	 4621	 n3DWR6tVJMpAvGPpxmv4uS33SG3smrcbUq	 OpenShortPosition	 524	 524
-n1KVwWYuDy5eni4eqqVhXHS4hWYHsxrh2X	 ShortPosNettedPartly	 1526	 n3DWR6tVJMpAvGPpxmv4uS33SG3smrcbUq	 ShortPosIncreased	 1088	 564
-mkHbWLBYqYbFH5tZKsBa5svbwEWGsAAS71	 LongPosIncreased	 886	 n3n7ZfuA1nHJyNwTRWaYgNQNHgNT7Qa8g9	 LongPosNettedPartly	 3411	 773
-n1KVwWYuDy5eni4eqqVhXHS4hWYHsxrh2X	 ShortPosNettedPartly	 640	 mkHbWLBYqYbFH5tZKsBa5svbwEWGsAAS71	 LongPosNetted	 0	 886
-n1KVwWYuDy5eni4eqqVhXHS4hWYHsxrh2X	 ShortPosNettedPartly	 189	 mkHbWLBYqYbFH5tZKsBa5svbwEWGsAAS71	 OpenShortPosition	 451	 451
-mkf51QwBeFU9E3WMTCtrbSPgoQqodSLDgx	 ShortPosNettedPartly	 48	 mvkhXPD4Cr2MXsLr6cKNHVU8Vr2RPaPNDE	 OpenShortPosition	 1227	 1227
-n4EUCWzRBrCjSrQTs5FFnQbapCG88PubFG	 ShortPosNetted	 0	 mvkhXPD4Cr2MXsLr6cKNHVU8Vr2RPaPNDE	 ShortPosIncreased	 2777	 1550
-n4EUCWzRBrCjSrQTs5FFnQbapCG88PubFG	 OpenLongPosition	 1466	 mvkhXPD4Cr2MXsLr6cKNHVU8Vr2RPaPNDE	 ShortPosIncreased	 4243	 1466
-mojBPxTYUcVrxGBXRSr3EMec3xbiWZCDxL	 LongPosIncreased	 3191	 miak8Yh4s2Sf8ZcWHxtXpMfbeGeYR17yai	 OpenShortPosition	 750	 750
-mn4Lxow4kXJFKDo9gGdPBWnYgJhqZfhfXw	 LongPosIncreased	 1536	 miak8Yh4s2Sf8ZcWHxtXpMfbeGeYR17yai	 ShortPosIncreased	 955	 205
-murBR8zMEbrqqhQKcw2J8hkyH2ubGNHDK2	 ShortPosNettedPartly	 665	 miak8Yh4s2Sf8ZcWHxtXpMfbeGeYR17yai	 ShortPosIncreased	 1296	 341
-n2PZoXhtyzDtMNLZ9D767QN2dCPooBUkVk	 ShortPosNettedPartly	 2720	 miak8Yh4s2Sf8ZcWHxtXpMfbeGeYR17yai	 ShortPosIncreased	 1507	 211
-n2PZoXhtyzDtMNLZ9D767QN2dCPooBUkVk	 ShortPosNettedPartly	 1658	 mk9ygbqHpxnW7rBy7pzN77Wqv6NF99khrs	 OpenShortPosition	 1062	 1062
-mtREqvJVxLvyp7LGyUy5Xgo4GNtNdqhQp3	 ShortPosNettedPartly	 404	 mvUGA9NM33cAXsy73mjN18w8G4C6Q5brCq	 OpenShortPosition	 669	 669
-mgEujLeWD2yg7zexRqDyhhTqvoMj5nMCBN	 ShortPosNettedPartly	 161	 mvUGA9NM33cAXsy73mjN18w8G4C6Q5brCq	 ShortPosIncreased	 2695	 2026
-n4EUCWzRBrCjSrQTs5FFnQbapCG88PubFG	 LongPosIncreased	 2307	 miPXuhyYpsbdjYM4fADwi27ygmj47JsRvU	 OpenShortPosition	 841	 841
-mgEujLeWD2yg7zexRqDyhhTqvoMj5nMCBN	 ShortPosNetted	 0	 miPXuhyYpsbdjYM4fADwi27ygmj47JsRvU	 ShortPosIncreased	 1002	 161
-mgEujLeWD2yg7zexRqDyhhTqvoMj5nMCBN	 OpenLongPosition	 326	 miPXuhyYpsbdjYM4fADwi27ygmj47JsRvU	 ShortPosIncreased	 1328	 326
-mxcreWoZsfQzdNf8UYAN5zBYQq3ApYoHKu	 LongPosNetted	 0	 mmoUrs9ARfwaTY869xjhhVs8wePg58kVJb	 LongPosIncreased	 1587	 901
-mxcreWoZsfQzdNf8UYAN5zBYQq3ApYoHKu	 OpenShortPosition	 757	 mmoUrs9ARfwaTY869xjhhVs8wePg58kVJb	 LongPosIncreased	 2344	 757
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 LongPosNettedPartly	 2149	 mmoUrs9ARfwaTY869xjhhVs8wePg58kVJb	 LongPosIncreased	 2691	 347
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 LongPosNettedPartly	 1892	 mjq2gyoG5tK9quxpkqGnzaTbDXmpWQkJ4H	 ShortPosNettedPartly	 4065	 257
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 LongPosNetted	 0	 n3D2EmDNaVyeJbfGvdjPLuyaa7GPmsUNd4	 ShortPosNettedPartly	 316	 316
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 OpenShortPosition	 316	 n3D2EmDNaVyeJbfGvdjPLuyaa7GPmsUNd4	 ShortPosNetted	 0	 316
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 ShortPosIncreased	 1023	 n3D2EmDNaVyeJbfGvdjPLuyaa7GPmsUNd4	 OpenLongPosition	 707	 707
-myMDfYhWKcyisnmbGMr1DbMPfLApVbTpDo	 ShortPosIncreased	 1197	 n4ERmUhge6XKtvctXYvtiswPgSdQqwdeVC	 ShortPosNettedPartly	 4124	 174
-mtREqvJVxLvyp7LGyUy5Xgo4GNtNdqhQp3	 ShortPosIncreased	 442	 n4ERmUhge6XKtvctXYvtiswPgSdQqwdeVC	 ShortPosNettedPartly	 4086	 38
-myP5yp4sbZMZQHRnBQcicnKESjJaJ21FDK	 LongPosNettedPartly	 886	 n4ERmUhge6XKtvctXYvtiswPgSdQqwdeVC	 ShortPosNetted	 0	 0
-myP5yp4sbZMZQHRnBQcicnKESjJaJ21FDK	 LongPosNettedPartly	 545	 n4ERmUhge6XKtvctXYvtiswPgSdQqwdeVC	 OpenLongPosition	 341	 341
-mrVT36z7mGoLc4irE89x13zwEZzymixGwt	 OpenShortPosition	 110	 n4ERmUhge6XKtvctXYvtiswPgSdQqwdeVC	 LongPosIncreased	 451	 110
-mrVT36z7mGoLc4irE89x13zwEZzymixGwt	 ShortPosIncreased	 882	 mvqMhEMRqWMHE3UtRbtoRrrkaAJp1EueTM	 ShortPosNettedPartly	 3113	 772
-mrVT36z7mGoLc4irE89x13zwEZzymixGwt	 ShortPosIncreased	 1928	 myPWgKxEtLzZ8TMFPuECWvdw5MwmnoRmTw	 ShortPosNetted	 0	 1046
-mrVT36z7mGoLc4irE89x13zwEZzymixGwt	 ShortPosIncreased	 2654	 myPWgKxEtLzZ8TMFPuECWvdw5MwmnoRmTw	 OpenLongPosition	 726	 726
-mrVT36z7mGoLc4irE89x13zwEZzymixGwt	 ShortPosIncreased	 3171	 mwFdTzzPepbJn8QZde1MqE8ZFBYVrhEehS	 ShortPosNettedPartly	 43	 517
-mh443vZ6aZZqurxrArnTdSgKLLcJGWHoHT	 LongPosNettedPartly	 775	 mwFdTzzPepbJn8QZde1MqE8ZFBYVrhEehS	 ShortPosNetted	 0	 43
-mh443vZ6aZZqurxrArnTdSgKLLcJGWHoHT	 LongPosNetted	 0	 mwFdTzzPepbJn8QZde1MqE8ZFBYVrhEehS	 OpenLongPosition	 775	 775
-mh443vZ6aZZqurxrArnTdSgKLLcJGWHoHT	 OpenShortPosition	 484	 mwFdTzzPepbJn8QZde1MqE8ZFBYVrhEehS	 LongPosIncreased	 1259	 484
-mh443vZ6aZZqurxrArnTdSgKLLcJGWHoHT	 ShortPosIncreased	 823	 msYoosUUomA2khPGerSJwzqTxAEwLy8ry1	 LongPosIncreased	 368	 339
-mh443vZ6aZZqurxrArnTdSgKLLcJGWHoHT	 ShortPosIncreased	 1233	 mqpDh7KXwaHVHqJwFUj2ytLJLJuwf29zQV	 LongPosIncreased	 5031	 410
-mh443vZ6aZZqurxrArnTdSgKLLcJGWHoHT	 ShortPosIncreased	 2158	 mtQoU2a1dXhNVSeoRj1dsB3cm9EHc6aQ7m	 LongPosIncreased	 4726	 925
-mh443vZ6aZZqurxrArnTdSgKLLcJGWHoHT	 ShortPosIncreased	 2608	 mwRFvxeUogL8tDD1SwQAtkUMiUkw4STyAr	 LongPosIncreased	 1103	 450
-n2AF2enyGM95HuM7k56N6JFxQzMWb2w76V	 LongPosNettedPartly	 3450	 mwRFvxeUogL8tDD1SwQAtkUMiUkw4STyAr	 LongPosIncreased	 2730	 1627
-n2AF2enyGM95HuM7k56N6JFxQzMWb2w76V	 LongPosNettedPartly	 1683	 mtWkpjk91HbFs78t6wxqJXkn5b2U93CVZd	 LongPosIncreased	 2705	 1767
-n2AF2enyGM95HuM7k56N6JFxQzMWb2w76V	 LongPosNettedPartly	 392	 msseTTv6B3XTdLecB26sreJAUF93REF19f	 ShortPosNettedPartly	 2126	 1291
-msSAUmbSwu7wxQ7icEqj9YqLKUZgnJSLkC	 LongPosNettedPartly	 270	 msseTTv6B3XTdLecB26sreJAUF93REF19f	 ShortPosNettedPartly	 1273	 853
-mgBrVNmXqrk9HTYAPZJVMVnCD6k4ATicDn	 LongPosNettedPartly	 2771	 n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 LongPosIncreased	 2404	 793
-mpDyQTaaE9zFBTGUWQ4EPcCftBv2twh7zc	 OpenShortPosition	 203	 n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 LongPosIncreased	 2607	 203
-n3ngHLaGiGTjiD7JhpDi56agn9qqoTM2yo	 LongPosNetted	 0	 n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 LongPosIncreased	 3327	 720
-n3ngHLaGiGTjiD7JhpDi56agn9qqoTM2yo	 OpenShortPosition	 2573	 n1pJi3pTXvAfdhhh5SQ84R82UwKm6yfHaL	 LongPosIncreased	 5900	 2573
-n3ngHLaGiGTjiD7JhpDi56agn9qqoTM2yo	 ShortPosIncreased	 3102	 mqMGdFenqRumyYSrERRvZG6naWZZjyaz1a	 ShortPosNetted	 0	 529
-n3ngHLaGiGTjiD7JhpDi56agn9qqoTM2yo	 ShortPosIncreased	 4020	 mqMGdFenqRumyYSrERRvZG6naWZZjyaz1a	 OpenLongPosition	 918	 918
-n3ngHLaGiGTjiD7JhpDi56agn9qqoTM2yo	 ShortPosIncreased	 4208	 msL7nY77MMjpaYbNr3iiJTRKEnkiUAne3E	 ShortPosNettedPartly	 1103	 188
-mvtGTZ2nSNBFdrfJKwtLuXdWs5T5hc9jip	 LongPosNetted	 0	 msL7nY77MMjpaYbNr3iiJTRKEnkiUAne3E	 ShortPosNettedPartly	 179	 179
-mvtGTZ2nSNBFdrfJKwtLuXdWs5T5hc9jip	 OpenShortPosition	 179	 msL7nY77MMjpaYbNr3iiJTRKEnkiUAne3E	 ShortPosNetted	 0	 179
-mvtGTZ2nSNBFdrfJKwtLuXdWs5T5hc9jip	 ShortPosIncreased	 1422	 msL7nY77MMjpaYbNr3iiJTRKEnkiUAne3E	 OpenLongPosition	 1243	 1243
-mkdJT18C2DoVZwk6JfBr1d7N3ZjNp1ofRu	 OpenShortPosition	 2865	 mrV8GuDs12Xrd9Vdt5o4Bz39Scv7XLy2iU	 LongPosIncreased	 5951	 2865
-mkdJT18C2DoVZwk6JfBr1d7N3ZjNp1ofRu	 ShortPosIncreased	 3777	 mrUGT1haNL3Ts6WErDdFWrXSxVvsQ3DLCi	 ShortPosNettedPartly	 889	 912
-mqAirsZY515SGRvPbgSGiRJdXKdLPzJKHQ	 OpenShortPosition	 889	 mrUGT1haNL3Ts6WErDdFWrXSxVvsQ3DLCi	 ShortPosNetted	 0	 889
-mqAirsZY515SGRvPbgSGiRJdXKdLPzJKHQ	 ShortPosIncreased	 2145	 mrUGT1haNL3Ts6WErDdFWrXSxVvsQ3DLCi	 OpenLongPosition	 1256	 1256
-mkHbWLBYqYbFH5tZKsBa5svbwEWGsAAS71	 ShortPosIncreased	 983	 mrUGT1haNL3Ts6WErDdFWrXSxVvsQ3DLCi	 LongPosIncreased	 1788	 532
-mkHbWLBYqYbFH5tZKsBa5svbwEWGsAAS71	 ShortPosIncreased	 1712	 mzKEAJe5BRteemGt25vXMUq4xmmaQJS95J	 ShortPosNettedPartly	 1353	 729
-mjp5eKsNdsbYmA1WnL3KSiXfd8dGZArdpM	 OpenShortPosition	 1353	 mzKEAJe5BRteemGt25vXMUq4xmmaQJS95J	 ShortPosNetted	 0	 1353
-mjp5eKsNdsbYmA1WnL3KSiXfd8dGZArdpM	 ShortPosIncreased	 2772	 mzKEAJe5BRteemGt25vXMUq4xmmaQJS95J	 OpenLongPosition	 1419	 1419
-mjp5eKsNdsbYmA1WnL3KSiXfd8dGZArdpM	 ShortPosIncreased	 3358	 mvkhXPD4Cr2MXsLr6cKNHVU8Vr2RPaPNDE	 ShortPosNettedPartly	 3657	 586
-n2DeiRj2GQCCwJrApERrjNZ355SiQoFrzn	 OpenShortPosition	 3041	 mvkhXPD4Cr2MXsLr6cKNHVU8Vr2RPaPNDE	 ShortPosNettedPartly	 616	 3041
-mxPNxQNAZMqyHiho61tWbryAwHszmDZXRS	 OpenShortPosition	 95	 mvkhXPD4Cr2MXsLr6cKNHVU8Vr2RPaPNDE	 ShortPosNettedPartly	 521	 95
-mxPNxQNAZMqyHiho61tWbryAwHszmDZXRS	 ShortPosIncreased	 2372	 mwyFzQbWotFc7p94651veFgA47uYGTYz13	 OpenLongPosition	 2277	 2277
-mjnYTeZLSyZKES52jWSn4Ln84FaSC8w3X3	 OpenShortPosition	 1856	 mwyFzQbWotFc7p94651veFgA47uYGTYz13	 LongPosIncreased	 4133	 1856
-mjnYTeZLSyZKES52jWSn4Ln84FaSC8w3X3	 ShortPosIncreased	 3595	 mqSbmqBWkzv3fkyACaNiE5CJbJckuCs42h	 OpenLongPosition	 1739	 1739
-n3U2fW3JQwDAGz1sqhEQBabBaQAvesFVgk	 OpenShortPosition	 793	 mqSbmqBWkzv3fkyACaNiE5CJbJckuCs42h	 LongPosIncreased	 2532	 793
-mrL3jhdgTLEXMHhkZcfzB1evYQnwwaZ2ue	 OpenShortPosition	 953	 mqSbmqBWkzv3fkyACaNiE5CJbJckuCs42h	 LongPosIncreased	 3485	 953
-mjFwFKZB7B2qCxuACvaTi8nNGTmsF6Ycum	 OpenShortPosition	 129	 mqSbmqBWkzv3fkyACaNiE5CJbJckuCs42h	 LongPosIncreased	 3614	 129
+mkQB1um7eYmEf5Z3aHd58tSdGC4JLB5tHx	 OpenLongPosition	 10000000000	 n4MZBK7yVZcvVuT7NLpnvfFvA7TJXGbvM2	 OpenShortPosition	 10000000000	 10000000000	 11000
+msqNM7sXP7TyoCAPF81eEHDwBt7319j6w1	 OpenShortPosition	 10000000000	 mkeYosaxC7QcYYbjdqqwBDbWrwaDzmQFeT	 OpenLongPosition	 10000000000	 10000000000	 10994
+n4ATqA5WjNZjg9XC5mUPYcpd3xknxJSCTp	 OpenLongPosition	 1000000000	 mm38iqWMPAs1H2i626R8RpJGdZgCV4aGbQ	 OpenShortPosition	 1000000000	 1000000000	 10996
+mztf8oWbdNDJJH4QvtWPqACptijopACeVt	 OpenShortPosition	 4200000000	 n1BtaYAyebkvTZQF9mC7Kn6NhzggzMkLN5	 OpenLongPosition	 4200000000	 4200000000	 11001
+n4ATqA5WjNZjg9XC5mUPYcpd3xknxJSCTp	 LongPosIncreased	 2200000000	 mfcNtY2L7zqGVLfzjS4DebVb9qR5iCNkfy	 OpenShortPosition	 1200000000	 1200000000	 10996
+mfcNtY2L7zqGVLfzjS4DebVb9qR5iCNkfy	 ShortPosIncreased	 2400000000	 mtpBarbaEoqrkzz9PgTfa3Kg4RQB4QTLJe	 OpenLongPosition	 1200000000	 1200000000	 10992
+mr29zZMws9wBtpfPVmS6uGoxyFZtLY2D62	 OpenShortPosition	 3500000000	 moUFePrThCgdGwFnhf28Y2Pm6Kg252AZip	 OpenLongPosition	 3500000000	 3500000000	 10994
+mtpBarbaEoqrkzz9PgTfa3Kg4RQB4QTLJe	 LongPosIncreased	 2100000000	 mvC32gtvsJy2o3VURc1kjac92CXjhMvfJb	 OpenShortPosition	 900000000	 900000000	 10992
+mxKsYQU9rFkthidaki5vbNdahMNu6FEqMF	 OpenLongPosition	 900000000	 miECP4D9Bqsa6nLT2nLG8xJQNMGQtxpqCi	 OpenShortPosition	 900000000	 900000000	 10989
+mtpBarbaEoqrkzz9PgTfa3Kg4RQB4QTLJe	 LongPosIncreased	 3300000000	 miECP4D9Bqsa6nLT2nLG8xJQNMGQtxpqCi	 ShortPosIncreased	 2100000000	 1200000000	 10992
+mtpBarbaEoqrkzz9PgTfa3Kg4RQB4QTLJe	 LongPosIncreased	 5600000000	 msLoJWN9ym28BV4wqnMRzgoumiaLjSUxSf	 OpenShortPosition	 2300000000	 2300000000	 10992
+msLoJWN9ym28BV4wqnMRzgoumiaLjSUxSf	 ShortPosIncreased	 7800000000	 msBqyUxkSasd2fFuNp7NX4UHZUJWKu7ebH	 OpenLongPosition	 5500000000	 5500000000	 10987
+mr29zZMws9wBtpfPVmS6uGoxyFZtLY2D62	 ShortPosIncreased	 3900000000	 msBqyUxkSasd2fFuNp7NX4UHZUJWKu7ebH	 LongPosIncreased	 5900000000	 400000000	 10994
+mr29zZMws9wBtpfPVmS6uGoxyFZtLY2D62	 ShortPosIncreased	 4800000000	 mqWoc5pb41QJ4eYd71ad2PTemwBgCCcJDP	 OpenLongPosition	 900000000	 900000000	 10994
+mh2Fkp849BpHHBeKpVTBB5ypDLy4g3uGaC	 OpenShortPosition	 2400000000	 mqWoc5pb41QJ4eYd71ad2PTemwBgCCcJDP	 LongPosIncreased	 3300000000	 2400000000	 10998
+mgZsLaqbTUuSNFbXEzGAGDM4EP7zzDGzxh	 OpenShortPosition	 1100000000	 mqWoc5pb41QJ4eYd71ad2PTemwBgCCcJDP	 LongPosIncreased	 4400000000	 1100000000	 10999
+mv7yqSrR6THY9mchEzkWRLoDbxH2iAC53a	 OpenLongPosition	 7200000000	 mtJ1z1kRkQMCYGPFTeTkFcCyKuUsGqquhK	 OpenShortPosition	 7200000000	 7200000000	 10995
+myNXRu2gSgaPfoPVfNTBMqW2T4wEiFB2NL	 OpenLongPosition	 4100000000	 mnVA3iH1Hh5p4i6aS5AuSuHjxhSeJybNXL	 OpenShortPosition	 4100000000	 4100000000	 10997
+myYcLtLfLWyKBWhHzrXFHe2f8ziyaNPNDY	 OpenLongPosition	 2700000000	 mnVA3iH1Hh5p4i6aS5AuSuHjxhSeJybNXL	 ShortPosIncreased	 6800000000	 2700000000	 10998
+mgZsLaqbTUuSNFbXEzGAGDM4EP7zzDGzxh	 ShortPosIncreased	 2900000000	 mitpnkFY8aunJVghDVrb7mgBMsCK6sfbWS	 OpenLongPosition	 1800000000	 1800000000	 10999
+mztf8oWbdNDJJH4QvtWPqACptijopACeVt	 ShortPosIncreased	 4800000000	 mitpnkFY8aunJVghDVrb7mgBMsCK6sfbWS	 LongPosIncreased	 2400000000	 600000000	 11001
+mztf8oWbdNDJJH4QvtWPqACptijopACeVt	 ShortPosIncreased	 5700000000	 mpf9ej3GVWiKnJVzUFxg1BQFpZaXvnKJ3Z	 OpenLongPosition	 900000000	 900000000	 11001
+mrxwBmnb5z2vugGbrxoMV51nGr4k3jFQjM	 OpenShortPosition	 1400000000	 mpf9ej3GVWiKnJVzUFxg1BQFpZaXvnKJ3Z	 LongPosIncreased	 2300000000	 1400000000	 11001
+mqjj11TY4WQtcJxXiMYuAnrS9TDsWo9yFh	 OpenShortPosition	 7300000000	 mpf9ej3GVWiKnJVzUFxg1BQFpZaXvnKJ3Z	 LongPosIncreased	 9600000000	 7300000000	 11004
+mqjj11TY4WQtcJxXiMYuAnrS9TDsWo9yFh	 ShortPosIncreased	 9800000000	 n1Z72an72nW84G1s61HUcx2PLnj9RzVdJy	 OpenLongPosition	 2500000000	 2500000000	 11004
+mnNJrH1SiUvU5RwD54pbAMCUBKsFvPjjKW	 OpenShortPosition	 800000000	 n1Z72an72nW84G1s61HUcx2PLnj9RzVdJy	 LongPosIncreased	 3300000000	 800000000	 11006
+mnNJrH1SiUvU5RwD54pbAMCUBKsFvPjjKW	 ShortPosIncreased	 8100000000	 mowWXeoQ94mKfx8aEDuQRRoxYY7QW2GVRD	 OpenLongPosition	 7300000000	 7300000000	 11006
+mkQB1um7eYmEf5Z3aHd58tSdGC4JLB5tHx	 LongPosNettedPartly	 9800000000	 mowWXeoQ94mKfx8aEDuQRRoxYY7QW2GVRD	 LongPosIncreased	 7500000000	 200000000	 11008
+mugvRDtsFxcrHJ1RQLDb7WMcn5g6YHrkKd	 OpenShortPosition	 3900000000	 mmqHEhApLyXFGxwUnvNWsN69MbAk81GQen	 OpenLongPosition	 3900000000	 3900000000	 11001
+mkQB1um7eYmEf5Z3aHd58tSdGC4JLB5tHx	 LongPosNettedPartly	 4600000000	 mmqHEhApLyXFGxwUnvNWsN69MbAk81GQen	 LongPosIncreased	 9100000000	 5200000000	 11008
+mstuHAhKWVsHTtg2SCFvVHyd7trnR8t6Qv	 OpenLongPosition	 4700000000	 mmKuUooVVXv4gjz5hFccoRT58JUGYdbCJg	 OpenShortPosition	 4700000000	 4700000000	 11003
+mrwXVnSqjRM9JjTp9YPR3DKmmiYwz6HfeT	 OpenLongPosition	 400000000	 mmKuUooVVXv4gjz5hFccoRT58JUGYdbCJg	 ShortPosIncreased	 5100000000	 400000000	 11003
+mybKBUQULjdfAoc5GgqS8oSSbw6762z7ep	 OpenLongPosition	 1700000000	 mmKuUooVVXv4gjz5hFccoRT58JUGYdbCJg	 ShortPosIncreased	 6800000000	 1700000000	 11004
+mjbzGYj7YFoabQEVJa5ZBcqbHuYdncFE8R	 OpenLongPosition	 1400000000	 mxV5svQRdbip9T6z1zWUUhboMbP9XiF315	 OpenShortPosition	 1400000000	 1400000000	 11000
+mybKBUQULjdfAoc5GgqS8oSSbw6762z7ep	 LongPosIncreased	 4900000000	 mxV5svQRdbip9T6z1zWUUhboMbP9XiF315	 ShortPosIncreased	 4600000000	 3200000000	 11004
+miEq3LmWKsbHM9ktLJqRR4i6Sw7wcXYFzR	 OpenLongPosition	 1300000000	 mpnjmb5Hgg2zg5MiWSfaWfHTXDX8jk5nte	 OpenShortPosition	 1300000000	 1300000000	 10998
+mv7yqSrR6THY9mchEzkWRLoDbxH2iAC53a	 LongPosIncreased	 8000000000	 mnvNgbm1Ffe4yDzbey3Sj9Bcyc1VFdQGqs	 OpenShortPosition	 800000000	 800000000	 10995
+mxd1JiT4ZX7Q2nXQVV9yg6ykGf1WTRpFWb	 OpenLongPosition	 3300000000	 mnvNgbm1Ffe4yDzbey3Sj9Bcyc1VFdQGqs	 ShortPosIncreased	 4100000000	 3300000000	 10995
+miEq3LmWKsbHM9ktLJqRR4i6Sw7wcXYFzR	 LongPosIncreased	 3200000000	 mjDZnPDxYieYHFUggMg8Qziq85CcqFhgLh	 OpenShortPosition	 1900000000	 1900000000	 10998
+mnth24wgndt1Uugjkzppyw6DSLwgZ6xCtS	 OpenLongPosition	 200000000	 mrhi1vHy36w5mon1UF8jMoXHxr8zshUetE	 OpenShortPosition	 200000000	 200000000	 10991
+mnth24wgndt1Uugjkzppyw6DSLwgZ6xCtS	 LongPosIncreased	 4800000000	 myCaXViQqJfRAYQp1yekFAaCs4uKq3rN7C	 OpenShortPosition	 4600000000	 4600000000	 10991
+mxd1JiT4ZX7Q2nXQVV9yg6ykGf1WTRpFWb	 LongPosIncreased	 7500000000	 mnsA9KnVVLa6WBcxnxCiLe3GtG9nisExZQ	 OpenShortPosition	 4200000000	 4200000000	 10995
+mhMiM7Vy3voaeSmmhYs828Wqf2oS64gKZr	 OpenLongPosition	 3700000000	 mnsA9KnVVLa6WBcxnxCiLe3GtG9nisExZQ	 ShortPosIncreased	 7900000000	 3700000000	 10996
+mjjMyxV5vBv4hN1Gq5HuGeqrEGtCaQVdBZ	 OpenLongPosition	 3900000000	 myoCzEjNsZy71uHRy4fXrRPxeLr21ubcmW	 OpenShortPosition	 3900000000	 3900000000	 10990
+mhMiM7Vy3voaeSmmhYs828Wqf2oS64gKZr	 LongPosIncreased	 7000000000	 mh2SZFA9EQHE6ZGs8jCyLWTbETuhxo4znV	 OpenShortPosition	 3300000000	 3300000000	 10996
+mgq7rxUdX9TYgZBosCYMSDD2ytcd4nUuif	 OpenLongPosition	 5400000000	 mh2SZFA9EQHE6ZGs8jCyLWTbETuhxo4znV	 ShortPosIncreased	 8700000000	 5400000000	 10996
+mjjMyxV5vBv4hN1Gq5HuGeqrEGtCaQVdBZ	 LongPosIncreased	 5300000000	 mfsjeWUeUbNwiBdJF7Tv9WYD1MdqzzSC5v	 OpenShortPosition	 1400000000	 1400000000	 10990
+mnth24wgndt1Uugjkzppyw6DSLwgZ6xCtS	 LongPosIncreased	 5700000000	 mfsjeWUeUbNwiBdJF7Tv9WYD1MdqzzSC5v	 ShortPosIncreased	 2300000000	 900000000	 10991
+mnth24wgndt1Uugjkzppyw6DSLwgZ6xCtS	 LongPosIncreased	 6700000000	 mjce7AZiRcwnbSM6oXsYcq4VugZzdyWyP5	 OpenShortPosition	 1000000000	 1000000000	 10991
+mgq7rxUdX9TYgZBosCYMSDD2ytcd4nUuif	 LongPosIncreased	 8500000000	 mjce7AZiRcwnbSM6oXsYcq4VugZzdyWyP5	 ShortPosIncreased	 4100000000	 3100000000	 10996
+mv9LH9f8EAchrsak4Fmy9zUTedV4ym2sEU	 OpenLongPosition	 4400000000	 mjce7AZiRcwnbSM6oXsYcq4VugZzdyWyP5	 ShortPosIncreased	 8500000000	 4400000000	 10997
+mn4jKdn99N9YSwo837K8HWm1jtW7WAnSeJ	 OpenShortPosition	 600000000	 mqGEWRuDccT1HnHKAhCB1ce49p87ePkxz9	 OpenLongPosition	 600000000	 600000000	 11005
+mr3k8gviu6sCX1hVgry4m3SiqYomsyVhES	 OpenShortPosition	 500000000	 mwTrz72SSpzNVUJRJmUgbDz42dj7fsPyqt	 OpenLongPosition	 500000000	 500000000	 11007
+mkQB1um7eYmEf5Z3aHd58tSdGC4JLB5tHx	 LongPosNettedPartly	 2600000000	 mwTrz72SSpzNVUJRJmUgbDz42dj7fsPyqt	 LongPosIncreased	 2500000000	 2000000000	 11008
+mkQB1um7eYmEf5Z3aHd58tSdGC4JLB5tHx	 LongPosNettedPartly	 1900000000	 mhvJgE5YwUUCmmb6f6UPACbkTwFVrmUy5B	 OpenLongPosition	 700000000	 700000000	 11008
+migehdmxi8nJP6gBsLtRpPwiqcWX7NQpCg	 OpenShortPosition	 6200000000	 mhvJgE5YwUUCmmb6f6UPACbkTwFVrmUy5B	 LongPosIncreased	 6900000000	 6200000000	 11008
+n4MZBK7yVZcvVuT7NLpnvfFvA7TJXGbvM2	 ShortPosIncreased	 10600000000	 mhvJgE5YwUUCmmb6f6UPACbkTwFVrmUy5B	 LongPosIncreased	 7500000000	 600000000	 11009
+mv2FmoHCRxc7LLMSgbH7QLkstDnwkQWLrs	 OpenShortPosition	 500000000	 myk7H1okiCNLMWAfXYhofr2eh47wyDbutY	 OpenLongPosition	 500000000	 500000000	 11008
+mv2FmoHCRxc7LLMSgbH7QLkstDnwkQWLrs	 ShortPosIncreased	 7300000000	 n4LqPuPxTn4FPpXTZTUABE93TtiiTCrGt5	 OpenLongPosition	 6800000000	 6800000000	 11008
+myh8p3tqzaFxTwGHdLdiyANd3Xfnc8BuBc	 OpenLongPosition	 2100000000	 mt6iG3yzwcMR6PXmH9TPbQmPA5e1v9xJJd	 OpenShortPosition	 2100000000	 2100000000	 10999
+mv9LH9f8EAchrsak4Fmy9zUTedV4ym2sEU	 LongPosIncreased	 6900000000	 myEdCTLC5ZUjgttRBZEXvU15Tbqq57BMCu	 OpenShortPosition	 2500000000	 2500000000	 10997
+miEq3LmWKsbHM9ktLJqRR4i6Sw7wcXYFzR	 LongPosIncreased	 7900000000	 myEdCTLC5ZUjgttRBZEXvU15Tbqq57BMCu	 ShortPosIncreased	 7200000000	 4700000000	 10998
+mybKBUQULjdfAoc5GgqS8oSSbw6762z7ep	 LongPosIncreased	 5800000000	 n3MbufZowHorfRNk2HKZqEBaFW5wPS7huX	 OpenShortPosition	 900000000	 900000000	 11004
+mqGEWRuDccT1HnHKAhCB1ce49p87ePkxz9	 LongPosIncreased	 3800000000	 n3MbufZowHorfRNk2HKZqEBaFW5wPS7huX	 ShortPosIncreased	 4100000000	 3200000000	 11005
+n29PNRb1Ss8QJokn3nXZk2LfnNdyEgn3TY	 OpenLongPosition	 3700000000	 mqH6VLHnHaD2YgzVkXYYVCauQELQeUEM1y	 OpenShortPosition	 3700000000	 3700000000	 11006
+mv2FmoHCRxc7LLMSgbH7QLkstDnwkQWLrs	 ShortPosIncreased	 8600000000	 moMfB7hqqHSMny1cx8abBYmi5CcgXF5hDG	 OpenLongPosition	 1300000000	 1300000000	 11008
+n4MZBK7yVZcvVuT7NLpnvfFvA7TJXGbvM2	 ShortPosIncreased	 14000000000	 moMfB7hqqHSMny1cx8abBYmi5CcgXF5hDG	 LongPosIncreased	 4700000000	 3400000000	 11009
+muYQXmgDznM1YfCQZiYe4r9xN1iXKWaLKg	 OpenShortPosition	 3300000000	 moMfB7hqqHSMny1cx8abBYmi5CcgXF5hDG	 LongPosIncreased	 8000000000	 3300000000	 11010
+mpXw6h7mdLeKH4HZ9rX2hSat3taRHTE8QA	 OpenShortPosition	 200000000	 moMfB7hqqHSMny1cx8abBYmi5CcgXF5hDG	 LongPosIncreased	 8200000000	 200000000	 11010
+mqGEWRuDccT1HnHKAhCB1ce49p87ePkxz9	 LongPosIncreased	 9400000000	 mpWNoYhnc7W9sgxuXCi6a8goE5numNApZq	 OpenShortPosition	 5600000000	 5600000000	 11005
+miU3nhS9eeRRzGiL4BxmPcURGN2WmsgCme	 OpenLongPosition	 1000000000	 mpWNoYhnc7W9sgxuXCi6a8goE5numNApZq	 ShortPosIncreased	 6600000000	 1000000000	 11005
+mpXw6h7mdLeKH4HZ9rX2hSat3taRHTE8QA	 ShortPosIncreased	 2500000000	 mkDvRYrBzyQiZUNXtDFhXjCAHcMNvvcYuy	 OpenLongPosition	 2300000000	 2300000000	 11010
+mwsEoKfzQKeudYybQGh9uxkQLgbWPtFpLZ	 OpenShortPosition	 5800000000	 mkDvRYrBzyQiZUNXtDFhXjCAHcMNvvcYuy	 LongPosIncreased	 8100000000	 5800000000	 11010
+mhGzYPzp6aBQyyDicKvH54cTCcEmqm3GcG	 OpenShortPosition	 1000000000	 mkDvRYrBzyQiZUNXtDFhXjCAHcMNvvcYuy	 LongPosIncreased	 9100000000	 1000000000	 11011
+mgdXb8TMzEdoXeVrKLTVPuFv4pjYkUbrq5	 OpenLongPosition	 6500000000	 msW87uDiDjkjnx3g9dBKBPMtkaDZkvMheF	 OpenShortPosition	 6500000000	 6500000000	 11001
+mfqxrGWKZf5nZqe59vhW4ZouVAgCPMLmyj	 OpenLongPosition	 1900000000	 msW87uDiDjkjnx3g9dBKBPMtkaDZkvMheF	 ShortPosIncreased	 8400000000	 1900000000	 11001
+mvbxZiUVkxqmj5KkH5yCXJRzvyv12DPkZm	 OpenLongPosition	 100000000	 msW87uDiDjkjnx3g9dBKBPMtkaDZkvMheF	 ShortPosIncreased	 8500000000	 100000000	 11002
+miEq3LmWKsbHM9ktLJqRR4i6Sw7wcXYFzR	 LongPosIncreased	 8000000000	 msbfxrqrzNuZEZ2YRNfhpKZ1M6745q68hJ	 OpenShortPosition	 100000000	 100000000	 10998
+myh8p3tqzaFxTwGHdLdiyANd3Xfnc8BuBc	 LongPosIncreased	 4200000000	 msbfxrqrzNuZEZ2YRNfhpKZ1M6745q68hJ	 ShortPosIncreased	 2200000000	 2100000000	 10999
+mvbxZiUVkxqmj5KkH5yCXJRzvyv12DPkZm	 LongPosIncreased	 5000000000	 msbfxrqrzNuZEZ2YRNfhpKZ1M6745q68hJ	 ShortPosIncreased	 7100000000	 4900000000	 11002
+mhGzYPzp6aBQyyDicKvH54cTCcEmqm3GcG	 ShortPosIncreased	 1100000000	 mg1esvZBPMFkA9Eu49HDK3PbBGTN7PyLpL	 OpenLongPosition	 100000000	 100000000	 11011
+mvj8Qs9XgjaYTWmCBsVB1u12HroH38XdwQ	 OpenLongPosition	 6600000000	 mjVc33bZenDBKprJTNgvS8r9ewSpmQBsh7	 OpenShortPosition	 6600000000	 6600000000	 11003
+mwxcn1WqNxzHomm6NFk47UrvNMWM9M1a6a	 OpenLongPosition	 700000000	 mjVc33bZenDBKprJTNgvS8r9ewSpmQBsh7	 ShortPosIncreased	 7300000000	 700000000	 11003
+miU3nhS9eeRRzGiL4BxmPcURGN2WmsgCme	 LongPosIncreased	 2900000000	 mti36LQerLY4tbkgzt3HuFy7vVvD51brv6	 OpenShortPosition	 1900000000	 1900000000	 11005
+n29PNRb1Ss8QJokn3nXZk2LfnNdyEgn3TY	 LongPosIncreased	 6400000000	 mti36LQerLY4tbkgzt3HuFy7vVvD51brv6	 ShortPosIncreased	 4600000000	 2700000000	 11006
+mmioCDM6F7yEsQxBcVtKPQJdvimYiyRTte	 OpenLongPosition	 2800000000	 mti36LQerLY4tbkgzt3HuFy7vVvD51brv6	 ShortPosIncreased	 7400000000	 2800000000	 11006
+mvbxZiUVkxqmj5KkH5yCXJRzvyv12DPkZm	 LongPosIncreased	 7900000000	 mzW8qeMW6cTkd3XVMavFLgNuvRjZD2Maqq	 OpenShortPosition	 2900000000	 2900000000	 11002
+n2mLSTNxvvdNZztHfwsC8zhGKwsqwat8UE	 OpenLongPosition	 1200000000	 mzW8qeMW6cTkd3XVMavFLgNuvRjZD2Maqq	 ShortPosIncreased	 4100000000	 1200000000	 11002
+mwxcn1WqNxzHomm6NFk47UrvNMWM9M1a6a	 LongPosIncreased	 3700000000	 mzW8qeMW6cTkd3XVMavFLgNuvRjZD2Maqq	 ShortPosIncreased	 7100000000	 3000000000	 11003
+mmioCDM6F7yEsQxBcVtKPQJdvimYiyRTte	 LongPosIncreased	 4700000000	 mzW8qeMW6cTkd3XVMavFLgNuvRjZD2Maqq	 ShortPosIncreased	 9000000000	 1900000000	 11006
+n3wZn9uFZM441ADqfyoFFKoHW4rXnAiSE6	 OpenShortPosition	 2500000000	 n1jNMczFAWR8xL1Kx7Ejq2GTk8UPAVWGjU	 OpenLongPosition	 2500000000	 2500000000	 11008
+monp1xNGWryWajefrW63w3ZGLwSNqD98Hr	 OpenLongPosition	 6500000000	 mgRJN1m214fP2rDJD8tqM3qNXNZYdAdLHD	 OpenShortPosition	 6500000000	 6500000000	 11005
+n3wZn9uFZM441ADqfyoFFKoHW4rXnAiSE6	 ShortPosIncreased	 6000000000	 mhrW7qu5fMSkYReufxKKna6FcbXyonEtf8	 OpenLongPosition	 3500000000	 3500000000	 11008
+mqKMDz4yBRN5ufH7mwVaBXrzbTWCrGdbhZ	 OpenShortPosition	 3700000000	 mhrW7qu5fMSkYReufxKKna6FcbXyonEtf8	 LongPosIncreased	 7200000000	 3700000000	 11010
+mhGzYPzp6aBQyyDicKvH54cTCcEmqm3GcG	 ShortPosIncreased	 3300000000	 n4dB8aaLQFa6tAWQzfgrxQHPTzyBvPoces	 OpenLongPosition	 2200000000	 2200000000	 11011
+mhGzYPzp6aBQyyDicKvH54cTCcEmqm3GcG	 ShortPosIncreased	 3800000000	 mrajeHA78KvixcAaT6xhiegqndGhJDGX9R	 OpenLongPosition	 500000000	 500000000	 11011
+mz46TbeE9tNhNj6art95Tp7VaBEE5ofPbz	 OpenShortPosition	 2200000000	 mrajeHA78KvixcAaT6xhiegqndGhJDGX9R	 LongPosIncreased	 2700000000	 2200000000	 11011
+mmZrAj1rXvUMkQgzjouR12W6znanxMR5fa	 OpenShortPosition	 8700000000	 n3VGHTtWpwrGhFLtbjrNBRtSjW1xzNnbEs	 OpenLongPosition	 8700000000	 8700000000	 11011
+mtatMDzXKZXxDopwPeuPVhhV3W2wesmdsZ	 OpenShortPosition	 700000000	 n3VGHTtWpwrGhFLtbjrNBRtSjW1xzNnbEs	 LongPosIncreased	 9400000000	 700000000	 11014
+mtatMDzXKZXxDopwPeuPVhhV3W2wesmdsZ	 ShortPosIncreased	 7300000000	 mz2u4sHLAfZijGz2Z3SJ4qDT2JzbTqaS7R	 OpenLongPosition	 6600000000	 6600000000	 11014
+n1RNT7npNuouUsEWRc9dYCPriQLQVZxzfr	 OpenShortPosition	 1900000000	 mz2u4sHLAfZijGz2Z3SJ4qDT2JzbTqaS7R	 LongPosIncreased	 8500000000	 1900000000	 11015
+mr7epbMPGcTw6hYkZg3NJ4w6YHxhawCMWA	 OpenShortPosition	 6700000000	 mhTev74f9igjc9MPpWp6o6XzRgwnEUZCUf	 OpenLongPosition	 6700000000	 6700000000	 11013
+mr7epbMPGcTw6hYkZg3NJ4w6YHxhawCMWA	 ShortPosIncreased	 7300000000	 mvjZTSg41aqdXqhKgBtY9FNKZmxP6tSoiw	 OpenLongPosition	 600000000	 600000000	 11013
+n1RNT7npNuouUsEWRc9dYCPriQLQVZxzfr	 ShortPosIncreased	 3600000000	 mvjZTSg41aqdXqhKgBtY9FNKZmxP6tSoiw	 LongPosIncreased	 2300000000	 1700000000	 11015
+mn1cx1t96CqtjseU35tmif72rQpj6bGTJ9	 OpenShortPosition	 3400000000	 mvjZTSg41aqdXqhKgBtY9FNKZmxP6tSoiw	 LongPosIncreased	 5700000000	 3400000000	 11015
+mn1cx1t96CqtjseU35tmif72rQpj6bGTJ9	 ShortPosIncreased	 4300000000	 mkHncHLBjjD6qRhoKwoWFAaoeVxMDYtTh3	 OpenLongPosition	 900000000	 900000000	 11015
+mn93EcuFceY7YsY9hjR8Dozs8nKbtkuhTm	 OpenShortPosition	 100000000	 mkHncHLBjjD6qRhoKwoWFAaoeVxMDYtTh3	 LongPosIncreased	 1000000000	 100000000	 11016
+mhrW7qu5fMSkYReufxKKna6FcbXyonEtf8	 LongPosIncreased	 9900000000	 mys45vN3a5vWkn69cDbyzfreCRH4wCb3Vf	 OpenShortPosition	 2700000000	 2700000000	 11010
+msjTPoKKKmqSeKKMVjCEBeKpHwpSxPDuow	 OpenLongPosition	 900000000	 mys45vN3a5vWkn69cDbyzfreCRH4wCb3Vf	 ShortPosIncreased	 3600000000	 900000000	 11014
+mtPFENkCcx2HuoQC8jxwGo8C39ecvbbL2c	 OpenLongPosition	 5000000000	 mwvpeJRmTk8Xt12c4jVPuD3pnU6UDdpBTB	 OpenShortPosition	 5000000000	 5000000000	 11004
+msjTPoKKKmqSeKKMVjCEBeKpHwpSxPDuow	 LongPosIncreased	 1800000000	 mt79J7cFDSnMoSFPef1QFR2hTPr23WgUKz	 OpenShortPosition	 900000000	 900000000	 11014
+mqp31oU6mzdBxDsSyLguL6yQ4egmRs3zLQ	 OpenShortPosition	 5000000000	 myE4bKx6KgE91gHAWnp1QUUNuyHy5WnFhf	 OpenLongPosition	 5000000000	 5000000000	 11013
+mtPFENkCcx2HuoQC8jxwGo8C39ecvbbL2c	 LongPosIncreased	 5300000000	 mmb7GiCpnwvMdaXesrZVxrKpgZMAwy8L9g	 OpenShortPosition	 300000000	 300000000	 11004
+mhkdse2UZxSGVW77yVD84uXbbTkEVSuK6P	 OpenLongPosition	 5100000000	 mmb7GiCpnwvMdaXesrZVxrKpgZMAwy8L9g	 ShortPosIncreased	 5400000000	 5100000000	 11004
+monp1xNGWryWajefrW63w3ZGLwSNqD98Hr	 LongPosIncreased	 7300000000	 mmb7GiCpnwvMdaXesrZVxrKpgZMAwy8L9g	 ShortPosIncreased	 6200000000	 800000000	 11005
+mzvGupA7oaeAHx8FGy965GW1Yshnyg5Nd6	 OpenLongPosition	 600000000	 mmb7GiCpnwvMdaXesrZVxrKpgZMAwy8L9g	 ShortPosIncreased	 6800000000	 600000000	 11005
+mjGxt8hVRo159LHm3TxYfDXcxqYNTqAjug	 OpenLongPosition	 1200000000	 micJrusVFSbhWdLCmunkxNpQ8z5GQf2FAu	 OpenShortPosition	 1200000000	 1200000000	 11001
+mmTbUvHxPzZYWczLonWF73xus9iezSUyfE	 OpenLongPosition	 6600000000	 micJrusVFSbhWdLCmunkxNpQ8z5GQf2FAu	 ShortPosIncreased	 7800000000	 6600000000	 11001
+mosvM3wkhbMfyPZxHT8b8jFcSuW1pZRA5Y	 OpenLongPosition	 5600000000	 mghYthweTMmdDXHf1yHEW5AwRP9uXQ9M93	 OpenShortPosition	 5600000000	 5600000000	 11003
+mmTbUvHxPzZYWczLonWF73xus9iezSUyfE	 LongPosIncreased	 8300000000	 n2Tujatn2WDNvZJnjfcds8Mjw9jtdnvB4G	 OpenShortPosition	 1700000000	 1700000000	 11001
+mrAsqcbuBKvuj1w6dfNSto8Gb6fLY4Ysng	 OpenLongPosition	 3400000000	 n2Tujatn2WDNvZJnjfcds8Mjw9jtdnvB4G	 ShortPosIncreased	 5100000000	 3400000000	 11002
+mosvM3wkhbMfyPZxHT8b8jFcSuW1pZRA5Y	 LongPosIncreased	 6100000000	 n2Tujatn2WDNvZJnjfcds8Mjw9jtdnvB4G	 ShortPosIncreased	 5600000000	 500000000	 11003
+mzvGupA7oaeAHx8FGy965GW1Yshnyg5Nd6	 LongPosIncreased	 1000000000	 n2Tujatn2WDNvZJnjfcds8Mjw9jtdnvB4G	 ShortPosIncreased	 6000000000	 400000000	 11005
+mzvGupA7oaeAHx8FGy965GW1Yshnyg5Nd6	 LongPosIncreased	 2200000000	 mwp4uuMq5bXRTEWKE7HHPJ94LvWonQXuxr	 OpenShortPosition	 1200000000	 1200000000	 11005
+moZ1sUWpkUu6LipDhRw57Cu8dFvdieh5RK	 OpenLongPosition	 1200000000	 mwp4uuMq5bXRTEWKE7HHPJ94LvWonQXuxr	 ShortPosIncreased	 2400000000	 1200000000	 11005
+miTi7FhGJPPD2d3SNA5a1jzHnBVMX2Lb5H	 OpenLongPosition	 100000000	 mwp4uuMq5bXRTEWKE7HHPJ94LvWonQXuxr	 ShortPosIncreased	 2500000000	 100000000	 11005
+mfxF2jptdFhuijMtJY1ZXfH8KpDB5LmNri	 OpenLongPosition	 5700000000	 mqG762fgV74Tjy6TmyzSBr5uFzum3LgvUB	 OpenShortPosition	 5700000000	 5700000000	 11010
+mt79J7cFDSnMoSFPef1QFR2hTPr23WgUKz	 ShortPosIncreased	 7100000000	 mjCQoDjKsJu8SCTbscNpbEs8GKoSsfuqu9	 OpenLongPosition	 6200000000	 6200000000	 11014
+myE4bKx6KgE91gHAWnp1QUUNuyHy5WnFhf	 LongPosIncreased	 9600000000	 n2AFQNDP5G6zKfcpETPWSjQjtA7a5ZtfJT	 OpenShortPosition	 4600000000	 4600000000	 11013
+miTi7FhGJPPD2d3SNA5a1jzHnBVMX2Lb5H	 LongPosIncreased	 4600000000	 mpwqSMmJg565PEFYSxniHmG9x9HeoMbe69	 OpenShortPosition	 4500000000	 4500000000	 11005
+n2AFQNDP5G6zKfcpETPWSjQjtA7a5ZtfJT	 ShortPosIncreased	 4900000000	 n3EQtgLaRDLPKsyK55feBCVVRMS6CghRqk	 OpenLongPosition	 300000000	 300000000	 11012
+mt79J7cFDSnMoSFPef1QFR2hTPr23WgUKz	 ShortPosIncreased	 9300000000	 n3EQtgLaRDLPKsyK55feBCVVRMS6CghRqk	 LongPosIncreased	 2500000000	 2200000000	 11014
+msj1gUPTEBskz9ga13vGxvgouuhxuW88wL	 OpenShortPosition	 1100000000	 n3EQtgLaRDLPKsyK55feBCVVRMS6CghRqk	 LongPosIncreased	 3600000000	 1100000000	 11015
+mn93EcuFceY7YsY9hjR8Dozs8nKbtkuhTm	 ShortPosIncreased	 1000000000	 n1p7sHTsXk7mhbyZr23sf36fwhr1QAAxGT	 OpenLongPosition	 900000000	 900000000	 11016
+n2qYaDwahgupTnYCUQXFhkYtvV7SNvBJSK	 OpenShortPosition	 900000000	 n1p7sHTsXk7mhbyZr23sf36fwhr1QAAxGT	 LongPosIncreased	 1800000000	 900000000	 11016
+n2qYaDwahgupTnYCUQXFhkYtvV7SNvBJSK	 ShortPosIncreased	 2900000000	 mnDzZGWDKKKAGXQh2Uoy7TLdhZmxGGnAcW	 OpenLongPosition	 2000000000	 2000000000	 11016
+muim6ZmUFGQRZRWu63wsCXwLNcwhHXivnH	 OpenLongPosition	 5400000000	 ms3KA3Y7iPVJvU5Nu8F5Cy6zrv8QtzzRNA	 OpenShortPosition	 5400000000	 5400000000	 11014
+n2qYaDwahgupTnYCUQXFhkYtvV7SNvBJSK	 ShortPosIncreased	 6400000000	 moN5gwcnbdATbs5NEAk4C6qa6uNad4ra9f	 OpenLongPosition	 3500000000	 3500000000	 11016
+mrQEj1121M8f9iv6dJcPJfg7onyJ8babk8	 OpenLongPosition	 4100000000	 ms6TEsTYs24R4wJKDTqrZWnVkbeEjWrqf6	 OpenShortPosition	 4100000000	 4100000000	 11013
+mfxF2jptdFhuijMtJY1ZXfH8KpDB5LmNri	 LongPosIncreased	 6300000000	 mgfzHtfBJur6eDLgh7ZA1z7Eo9sEToYgxW	 OpenShortPosition	 600000000	 600000000	 11010
+mgqJF8VVVHfoCfhuAzJ6hDA2KMHCxittHA	 OpenLongPosition	 2000000000	 mfs6ZJZMBrNzuoy5sw4d5sDkkFjqTeET6w	 OpenShortPosition	 2000000000	 2000000000	 11000
+mgqJF8VVVHfoCfhuAzJ6hDA2KMHCxittHA	 LongPosIncreased	 3700000000	 mj3uhCUK6Q4mKxR7bs7pPA8BbBV5WTZ8xe	 OpenShortPosition	 1700000000	 1700000000	 11000
+mfo2nZJqjYtdk1G9Yec6V4oFn4QNHa8fTm	 OpenLongPosition	 5100000000	 mj3uhCUK6Q4mKxR7bs7pPA8BbBV5WTZ8xe	 ShortPosIncreased	 6800000000	 5100000000	 11000
+n3pyxd1kSZXAdXca2zEBu94NzL5KbCfDk6	 OpenLongPosition	 1000000000	 mj3uhCUK6Q4mKxR7bs7pPA8BbBV5WTZ8xe	 ShortPosIncreased	 7800000000	 1000000000	 11003
+n3pyxd1kSZXAdXca2zEBu94NzL5KbCfDk6	 LongPosIncreased	 1900000000	 mmpye6Uf1EonPDsumWNcTh4wV9Fpkqv4a5	 OpenShortPosition	 900000000	 900000000	 11003
+miTi7FhGJPPD2d3SNA5a1jzHnBVMX2Lb5H	 LongPosIncreased	 5300000000	 mmpye6Uf1EonPDsumWNcTh4wV9Fpkqv4a5	 ShortPosIncreased	 1600000000	 700000000	 11005
+mmioCDM6F7yEsQxBcVtKPQJdvimYiyRTte	 LongPosIncreased	 5200000000	 mmpye6Uf1EonPDsumWNcTh4wV9Fpkqv4a5	 ShortPosIncreased	 2100000000	 500000000	 11006
+mryszY2fLRqeybjd45A9VLJjcjdMMEdCMA	 OpenLongPosition	 3000000000	 mmpye6Uf1EonPDsumWNcTh4wV9Fpkqv4a5	 ShortPosIncreased	 5100000000	 3000000000	 11007
+mryszY2fLRqeybjd45A9VLJjcjdMMEdCMA	 LongPosIncreased	 4000000000	 mmuEuVGeMK2Djz6GCNJuvpmdm6oL3mKQYj	 OpenShortPosition	 1000000000	 1000000000	 11007
+mgp1VWct4hyYqv4nzHzN2XGApvigJGSyz8	 OpenLongPosition	 2500000000	 mmuEuVGeMK2Djz6GCNJuvpmdm6oL3mKQYj	 ShortPosIncreased	 3500000000	 2500000000	 11007
+mxMXakW8qZKuug17uZQykVvKNSQa5GoKdd	 OpenShortPosition	 3000000000	 mn2fEkvwCHt2t38gJZKJbkAMQB9yQKzdEB	 OpenLongPosition	 3000000000	 3000000000	 11070
+mxMXakW8qZKuug17uZQykVvKNSQa5GoKdd	 ShortPosIncreased	 5600000000	 n3FAY7rCKrgnc4wWLURnnLwovtnyyyzjD2	 OpenLongPosition	 2600000000	 2600000000	 11070
+mjEw28v7H6ZShPw9DZWyLvw8bKNewKTFqK	 OpenShortPosition	 3900000000	 n3FAY7rCKrgnc4wWLURnnLwovtnyyyzjD2	 LongPosIncreased	 6500000000	 3900000000	 11142.2
+n3NTVYKkUYtuG3xNhKQr3J16FjvnvhoYN2	 OpenShortPosition	 2900000000	 mmtFCxfoHN7ZeH7gTxEUo7hnMMdonJdeM8	 OpenLongPosition	 2900000000	 2900000000	 11187.1
+n3NTVYKkUYtuG3xNhKQr3J16FjvnvhoYN2	 ShortPosIncreased	 5600000000	 miwCsxmRRBhhjdTMups7aD5JzL3BmUkbUb	 OpenLongPosition	 2700000000	 2700000000	 11187.1
+msLdPcb6Ndf8d8a1CVHJVDEdF6CeGZfem2	 OpenShortPosition	 5100000000	 miwCsxmRRBhhjdTMups7aD5JzL3BmUkbUb	 LongPosIncreased	 7800000000	 5100000000	 11196
+n3FAY7rCKrgnc4wWLURnnLwovtnyyyzjD2	 LongPosIncreased	 7200000000	 mhA2cNMdeaLkjkPz6F9acMPJ6TGvneY1fC	 OpenShortPosition	 700000000	 700000000	 11159.5
+mhA2cNMdeaLkjkPz6F9acMPJ6TGvneY1fC	 ShortPosIncreased	 7500000000	 mtR2oe4QMxLoUXh1uZYFfcv4vc3142q1wz	 OpenLongPosition	 6800000000	 6800000000	 11142.1
+mhA2cNMdeaLkjkPz6F9acMPJ6TGvneY1fC	 ShortPosIncreased	 8800000000	 mkEesFEfFaazbx9sWWRr7VVXCJdQCkLFPT	 OpenLongPosition	 1300000000	 1300000000	 11142.1
+mmZazSqgYcr1i63eLN9AfvspSCC6QaZJCq	 OpenShortPosition	 7000000000	 mkEesFEfFaazbx9sWWRr7VVXCJdQCkLFPT	 LongPosIncreased	 8300000000	 7000000000	 11171.3
+n49JeJk5RxME2HBoYCPtbkH2yAy5ZqCCGM	 OpenLongPosition	 400000000	 moR9ZcpErnBreCYjvZT5mbzxLxdcGi9M6g	 OpenShortPosition	 400000000	 400000000	 11152.4
+mxUCd2tRrCV8PXK8yhzdcfSKU9TiVNc8xP	 OpenLongPosition	 8400000000	 msVqrpaq4KG41VWerffsFgAtxtWBYG4yCL	 OpenShortPosition	 8400000000	 8400000000	 11129.9
+n49JeJk5RxME2HBoYCPtbkH2yAy5ZqCCGM	 LongPosIncreased	 1400000000	 msVqrpaq4KG41VWerffsFgAtxtWBYG4yCL	 ShortPosIncreased	 9400000000	 1000000000	 11152.4
+n49JeJk5RxME2HBoYCPtbkH2yAy5ZqCCGM	 LongPosIncreased	 4200000000	 mgxoU9BcynaPDrgZkBrx4nXBo2B9nwoW8P	 OpenShortPosition	 2800000000	 2800000000	 11152.4
+miMu5JGkq9SD1me3fNxJPetqdgvhLGmCXp	 OpenShortPosition	 2000000000	 mr2WFXMWXD4okYrWt21ooJ1XfWyfcBQ2LE	 OpenLongPosition	 2000000000	 2000000000	 11080.9
+myLF3xWhfcQbnauVyNT9s2qzeNr4LtJt2j	 OpenShortPosition	 3500000000	 mh7T4cyBCTyuqaUB8tzXFFepvxnK49ogRm	 OpenLongPosition	 3500000000	 3500000000	 11074
+n3exkjByfrYqo5KbWkjk6eXQdwoydWCQND	 OpenLongPosition	 4700000000	 mxnyJ4Khbw9b5b1C2LDE5N8nf8FKgwwE1y	 OpenShortPosition	 4700000000	 4700000000	 11064.8
+n4JfRhpxYCNpTsmWftAKGVtWULNgWoYvrc	 OpenLongPosition	 800000000	 mxnyJ4Khbw9b5b1C2LDE5N8nf8FKgwwE1y	 ShortPosIncreased	 5500000000	 800000000	 11065.1
+n4JfRhpxYCNpTsmWftAKGVtWULNgWoYvrc	 LongPosIncreased	 3200000000	 mpZ5iMEgMGLbg6NuUnsLdN6ekdxe9CpmsN	 OpenShortPosition	 2400000000	 2400000000	 11065.1
+ms59dNsY9eCFn2KXWmsaJSRevmab4BxcKP	 OpenLongPosition	 1000000000	 mpZ5iMEgMGLbg6NuUnsLdN6ekdxe9CpmsN	 ShortPosIncreased	 3400000000	 1000000000	 11066.7
+mpZ5iMEgMGLbg6NuUnsLdN6ekdxe9CpmsN	 ShortPosIncreased	 6100000000	 mzRNsXaDrhBcA9Po4qEYyCPTLR2dmAetot	 OpenLongPosition	 2700000000	 2700000000	 11000
+moLgHChk1uqXtTMuUPg96kr7UFCrXsugzR	 OpenShortPosition	 3300000000	 mzRNsXaDrhBcA9Po4qEYyCPTLR2dmAetot	 LongPosIncreased	 6000000000	 3300000000	 11000
+moLgHChk1uqXtTMuUPg96kr7UFCrXsugzR	 ShortPosIncreased	 4200000000	 mzgBmSaXCSfY2gNr6MRmZexgacNQ8T2BJy	 OpenLongPosition	 900000000	 900000000	 11000
+mzgBmSaXCSfY2gNr6MRmZexgacNQ8T2BJy	 LongPosIncreased	 3000000000	 mySmAmndeJiPxvw7uqPjZ86XntYtcpSwKt	 OpenShortPosition	 2100000000	 2100000000	 11037
+mySmAmndeJiPxvw7uqPjZ86XntYtcpSwKt	 ShortPosIncreased	 3200000000	 mrfHU6FasQVzjiaYNYZueoTGCmTtHnrCxZ	 OpenLongPosition	 1100000000	 1100000000	 11028.5
+mySmAmndeJiPxvw7uqPjZ86XntYtcpSwKt	 ShortPosIncreased	 3300000000	 mwzaVfgcWVEAJLiYHcQGqkKnW5k6KR13az	 OpenLongPosition	 100000000	 100000000	 11028.5
+mySmAmndeJiPxvw7uqPjZ86XntYtcpSwKt	 ShortPosIncreased	 5200000000	 n3TDuDPCEuYsFQ5yh1yH1UMHAnfivnjdiT	 OpenLongPosition	 1900000000	 1900000000	 11028.5
+mySmAmndeJiPxvw7uqPjZ86XntYtcpSwKt	 ShortPosIncreased	 5900000000	 mzyyo5kaoquZ4cXiGWMW3WEqyxUE5rpjVC	 OpenLongPosition	 700000000	 700000000	 11028.5
+mg8y8X7cy6NoyVNU4BHaCvC41sLdUSC6cT	 OpenShortPosition	 700000000	 mzyyo5kaoquZ4cXiGWMW3WEqyxUE5rpjVC	 LongPosIncreased	 1400000000	 700000000	 11045.3
+n3dT4LQyn2SuXFjrGLeeBAf3AGK853Nw2f	 OpenShortPosition	 2000000000	 miD2dTb58EBsWJdaC5mafeesuRs9fpSm7f	 OpenLongPosition	 2000000000	 2000000000	 11053
+mmxu3HDiZBfdr7pHueXGJuCpKMS9YsbGg2	 OpenShortPosition	 2500000000	 miD2dTb58EBsWJdaC5mafeesuRs9fpSm7f	 LongPosIncreased	 4500000000	 2500000000	 11053
+mmxu3HDiZBfdr7pHueXGJuCpKMS9YsbGg2	 ShortPosIncreased	 3800000000	 mikS9sGx3LpMvaXjFAfmvyQmUK9ZNxkjYb	 OpenLongPosition	 1300000000	 1300000000	 11053
+mvX1Eb6AWyVAg3Bv7hGgNT5iU7siCmPiWq	 OpenShortPosition	 3500000000	 mikS9sGx3LpMvaXjFAfmvyQmUK9ZNxkjYb	 LongPosIncreased	 4800000000	 3500000000	 11053
+mrgNuogTtU6CUcvy73U1y74oUfWRi8qQ1D	 OpenShortPosition	 2200000000	 mikS9sGx3LpMvaXjFAfmvyQmUK9ZNxkjYb	 LongPosIncreased	 7000000000	 2200000000	 11055
+mikS9sGx3LpMvaXjFAfmvyQmUK9ZNxkjYb	 LongPosIncreased	 7200000000	 mtQ88SUfC1cdDjqYebtQVGC1Pc5Kkq3T8Q	 OpenShortPosition	 200000000	 200000000	 11060.1
+mu1XBDdhjwnFdKWQA4WikRY3PHBwFLeXCW	 OpenLongPosition	 5500000000	 mheLeNCvAnece59am3qisn1Uvydwhuo81D	 OpenShortPosition	 5500000000	 5500000000	 11015.9
+mq2CsGKrzzHTjnaS4f6P9oFnqTiXjcqmt9	 OpenLongPosition	 7100000000	 miVyyeswgr7qRbjuTpjzomekeRZKujw5po	 OpenShortPosition	 7100000000	 7100000000	 11013.1
+mpCjKnJ5zb2biTKdr1A6ukEWfMSHdRhpTw	 OpenLongPosition	 9200000000	 mxprcXMt9saL1J9AREqVZHJMwpYcSZbZph	 OpenShortPosition	 9200000000	 9200000000	 10951.3
+mpCjKnJ5zb2biTKdr1A6ukEWfMSHdRhpTw	 LongPosIncreased	 9800000000	 msHNdg9tE5Nyp3JD663kqgNdjpsvR1PQPC	 OpenShortPosition	 600000000	 600000000	 10951.3
+mg5aFXFQMK3DAaeJDPpwDENXJgGo2TeF5f	 OpenLongPosition	 500000000	 msHNdg9tE5Nyp3JD663kqgNdjpsvR1PQPC	 ShortPosIncreased	 1100000000	 500000000	 10963
+mjRkqqBaSSDgVFzhTKsq55DzFx4wiAkCP3	 OpenLongPosition	 1800000000	 msHNdg9tE5Nyp3JD663kqgNdjpsvR1PQPC	 ShortPosIncreased	 2900000000	 1800000000	 10993.2
+mkRhFXmwRAJPVP8q2mcMhQCsfkfpqvhERt	 OpenLongPosition	 4800000000	 msUW6mR43TLn4Psu6VfDRDmvLbm2Y39WXB	 OpenShortPosition	 4800000000	 4800000000	 10919.1
+myfHN6hK6ZmkLoJfBRFcisY395WrBYBMsh	 OpenLongPosition	 2700000000	 mogxS8K4KSvQF4bAaf6FN5pfQYSBrbB1t8	 OpenShortPosition	 2700000000	 2700000000	 10886.9
+mjxLixaS1cMT9w6TdE5i15kXo1XPgTc3Gx	 OpenLongPosition	 400000000	 mogxS8K4KSvQF4bAaf6FN5pfQYSBrbB1t8	 ShortPosIncreased	 3100000000	 400000000	 10888.3
+mjxLixaS1cMT9w6TdE5i15kXo1XPgTc3Gx	 LongPosIncreased	 1100000000	 mzDPYZJfdfLRui1ZFRNtoRZFiMVMXHJ9bR	 OpenShortPosition	 700000000	 700000000	 10888.3
+mjxLixaS1cMT9w6TdE5i15kXo1XPgTc3Gx	 LongPosIncreased	 5100000000	 mmamuQZn5Ui5b8BYorQxfY9iQmsdDBwqeM	 OpenShortPosition	 4000000000	 4000000000	 10888.3
+mkRhFXmwRAJPVP8q2mcMhQCsfkfpqvhERt	 LongPosIncreased	 7200000000	 mmamuQZn5Ui5b8BYorQxfY9iQmsdDBwqeM	 ShortPosIncreased	 6400000000	 2400000000	 10919.1
+mjRkqqBaSSDgVFzhTKsq55DzFx4wiAkCP3	 LongPosIncreased	 3600000000	 mmamuQZn5Ui5b8BYorQxfY9iQmsdDBwqeM	 ShortPosIncreased	 8200000000	 1800000000	 10993.2
+mtoAw3MZYsqfoteQYavK8nV3D9YudrwDMe	 OpenLongPosition	 1700000000	 mjfxeec5osgFV2gFqG7faAiej51EUeUHMp	 OpenShortPosition	 1700000000	 1700000000	 10855
+mkpetWVZW5NVndcU2WyZXPvqyLD5WiaW81	 OpenLongPosition	 1300000000	 mjfxeec5osgFV2gFqG7faAiej51EUeUHMp	 ShortPosIncreased	 3000000000	 1300000000	 10859.4
+mjRkqqBaSSDgVFzhTKsq55DzFx4wiAkCP3	 LongPosIncreased	 7900000000	 mjfxeec5osgFV2gFqG7faAiej51EUeUHMp	 ShortPosIncreased	 7300000000	 4300000000	 10993.2
+mq2CsGKrzzHTjnaS4f6P9oFnqTiXjcqmt9	 LongPosIncreased	 7200000000	 mjfxeec5osgFV2gFqG7faAiej51EUeUHMp	 ShortPosIncreased	 7400000000	 100000000	 11013.1
+mq2CsGKrzzHTjnaS4f6P9oFnqTiXjcqmt9	 LongPosIncreased	 7900000000	 mujJuptY1H24buNBkbFr9nLUofG7EsxLcP	 OpenShortPosition	 700000000	 700000000	 11013.1
+mu1XBDdhjwnFdKWQA4WikRY3PHBwFLeXCW	 LongPosIncreased	 8200000000	 mujJuptY1H24buNBkbFr9nLUofG7EsxLcP	 ShortPosIncreased	 3400000000	 2700000000	 11015.9
+mnDyo2u4V4osQFvzLdhMTd7iurHAUAH6fU	 OpenLongPosition	 3600000000	 mujJuptY1H24buNBkbFr9nLUofG7EsxLcP	 ShortPosIncreased	 7000000000	 3600000000	 11024.1
+mnDyo2u4V4osQFvzLdhMTd7iurHAUAH6fU	 LongPosIncreased	 9400000000	 muBLKZ9NoNoxBPSauEWLfcyeSQfPGskKdZ	 OpenShortPosition	 5800000000	 5800000000	 11024.1
+mzHhx2KpYwgWi2VnxHnNv2rtNZfEvQRKvj	 OpenLongPosition	 2000000000	 muBLKZ9NoNoxBPSauEWLfcyeSQfPGskKdZ	 ShortPosIncreased	 7800000000	 2000000000	 11027.5
+mzHhx2KpYwgWi2VnxHnNv2rtNZfEvQRKvj	 LongPosIncreased	 4500000000	 mioXwnrmRqKxWrGgb8ZGeiwoMgxTt7cSWm	 OpenShortPosition	 2500000000	 2500000000	 11027.5
+mrBSKShFUhvRQjQ1t8pciEPxghgowTT7Sz	 OpenLongPosition	 4400000000	 mnr54EJJQpGxGg7PWsf6E5oAge7CQUjWt5	 OpenShortPosition	 4400000000	 4400000000	 10846.5
+mzHhx2KpYwgWi2VnxHnNv2rtNZfEvQRKvj	 LongPosIncreased	 5900000000	 mnr54EJJQpGxGg7PWsf6E5oAge7CQUjWt5	 ShortPosIncreased	 5800000000	 1400000000	 11027.5
+mzHhx2KpYwgWi2VnxHnNv2rtNZfEvQRKvj	 LongPosIncreased	 6500000000	 moaB6AUG8BGdbJoCSKEKUrTUkdtWdFS21h	 OpenShortPosition	 600000000	 600000000	 11027.5
+mtDZoUx54ZZ4upmTMVMjqrFQBbyE4UyU1y	 OpenLongPosition	 500000000	 moaB6AUG8BGdbJoCSKEKUrTUkdtWdFS21h	 ShortPosIncreased	 1100000000	 500000000	 11034.9
+mtDZoUx54ZZ4upmTMVMjqrFQBbyE4UyU1y	 LongPosIncreased	 8000000000	 mySUAyiU7JuXtBrMTTC92iCewftqzgy3Hx	 OpenShortPosition	 7500000000	 7500000000	 11034.9
+mzidYnna8m3U22P8cXLGkSrV5DkSLwbXxh	 OpenLongPosition	 2000000000	 mySUAyiU7JuXtBrMTTC92iCewftqzgy3Hx	 ShortPosIncreased	 9500000000	 2000000000	 11045.5
+mjXdGowbDWVF8kpb2b32kou6m9h5XCL5F5	 OpenLongPosition	 400000000	 mqbFt2EY3EiMYXuHUPyP96EthdsH5TLnzN	 OpenShortPosition	 400000000	 400000000	 10946.8
+mjXdGowbDWVF8kpb2b32kou6m9h5XCL5F5	 LongPosIncreased	 8800000000	 mk1EHpn3chAWLZJ2ejDoa1cbTtX3hEYc5h	 OpenShortPosition	 8400000000	 8400000000	 10946.8
+mzidYnna8m3U22P8cXLGkSrV5DkSLwbXxh	 LongPosIncreased	 2700000000	 mk1EHpn3chAWLZJ2ejDoa1cbTtX3hEYc5h	 ShortPosIncreased	 9100000000	 700000000	 11045.5
+mw79JAwcgHgTH3qHbN641vik7VuqvyS3Jv	 OpenLongPosition	 4200000000	 mnKWiqj4iBWP4ez9fxaj2KngWmq5cZBVpn	 OpenShortPosition	 4200000000	 4200000000	 10927.9
+mzidYnna8m3U22P8cXLGkSrV5DkSLwbXxh	 LongPosIncreased	 9400000000	 mjYbqXnzByb7vouuMWfW2LBQdyRC8ugaPV	 OpenShortPosition	 6700000000	 6700000000	 11045.5
+mzyyo5kaoquZ4cXiGWMW3WEqyxUE5rpjVC	 LongPosIncreased	 3600000000	 mjYbqXnzByb7vouuMWfW2LBQdyRC8ugaPV	 ShortPosIncreased	 8900000000	 2200000000	 11047.3
+mrZgHfzgu6uJBKHPoBK8hxDFxBEueJwAML	 OpenLongPosition	 5300000000	 mviHzUUoR4s7kyaRmCQGhfFaPRSsLPAomh	 OpenShortPosition	 5300000000	 5300000000	 10962.8
+mrZgHfzgu6uJBKHPoBK8hxDFxBEueJwAML	 LongPosIncreased	 8000000000	 mr89L68krSiJgduwwkLeCNPouqzGmvuCb8	 OpenShortPosition	 2700000000	 2700000000	 10962.8
+mzyyo5kaoquZ4cXiGWMW3WEqyxUE5rpjVC	 LongPosIncreased	 5000000000	 mr89L68krSiJgduwwkLeCNPouqzGmvuCb8	 ShortPosIncreased	 4100000000	 1400000000	 11047.3
+mikS9sGx3LpMvaXjFAfmvyQmUK9ZNxkjYb	 LongPosIncreased	 9400000000	 mr89L68krSiJgduwwkLeCNPouqzGmvuCb8	 ShortPosIncreased	 6300000000	 2200000000	 11060.1
+mr89L68krSiJgduwwkLeCNPouqzGmvuCb8	 ShortPosIncreased	 9600000000	 muWasHvYUsT2yPskD4t2W7yec1kMVpttDf	 OpenLongPosition	 3300000000	 3300000000	 10940.9
+mr89L68krSiJgduwwkLeCNPouqzGmvuCb8	 ShortPosIncreased	 10000000000	 mrynb1frdypH21d4AdmiAfQDh6VEU4gGuB	 OpenLongPosition	 400000000	 400000000	 10940.9
+mqe9aDASWrs7FZnq6M8iT5bEcomvuM7xKi	 OpenShortPosition	 3200000000	 mrynb1frdypH21d4AdmiAfQDh6VEU4gGuB	 LongPosIncreased	 3600000000	 3200000000	 10969.2
+n3ByLYhvvoXiHgTU3W9NvsJEvmuyweXyWA	 OpenLongPosition	 6800000000	 mg7vtUDaWmTm3ERzU2oTYGJNDfJi6SFDfc	 OpenShortPosition	 6800000000	 6800000000	 10951.7
+n3ByLYhvvoXiHgTU3W9NvsJEvmuyweXyWA	 LongPosIncreased	 8400000000	 mvAwzqxjH4DR99XQMDVXe2pS6pNmAVpc2F	 OpenShortPosition	 1600000000	 1600000000	 10951.7
+mt2oTkBovgpb5LkeYHv5x6oGZ9wfWKJsf2	 OpenLongPosition	 2700000000	 mvAwzqxjH4DR99XQMDVXe2pS6pNmAVpc2F	 ShortPosIncreased	 4300000000	 2700000000	 10953.1
+mw79JAwcgHgTH3qHbN641vik7VuqvyS3Jv	 LongPosIncreased	 7900000000	 muLWFp9hnuKtUbcYxEN5N4PyiU9kz4v5HV	 OpenShortPosition	 3700000000	 3700000000	 10927.9
+mkSjC8YWMpg973qPUHiBRWwciQ91NQszEj	 OpenLongPosition	 3200000000	 muLWFp9hnuKtUbcYxEN5N4PyiU9kz4v5HV	 ShortPosIncreased	 6900000000	 3200000000	 10928
+mkSjC8YWMpg973qPUHiBRWwciQ91NQszEj	 LongPosIncreased	 8500000000	 msXGsgGTcnKHSDSsn5JSU2PJndscYd69KS	 OpenShortPosition	 5300000000	 5300000000	 10928
+mgZxLJLKurMcPTta9D5ZiMHKVZJ7kcgJ2C	 OpenLongPosition	 3200000000	 msXGsgGTcnKHSDSsn5JSU2PJndscYd69KS	 ShortPosIncreased	 8500000000	 3200000000	 10928
+mgZxLJLKurMcPTta9D5ZiMHKVZJ7kcgJ2C	 LongPosIncreased	 3800000000	 msfMXMeM7CgKveJoj5jRPKKixWaEomW6KL	 OpenShortPosition	 600000000	 600000000	 10928
+mfnE5cotyXGv7HTxd2CZDvFuvN7axK1WTH	 OpenLongPosition	 2900000000	 msU3QjVBHSct3nqGyPgaQ6CqbiJNaUP4iz	 OpenShortPosition	 2900000000	 2900000000	 10926.8
+mt2oTkBovgpb5LkeYHv5x6oGZ9wfWKJsf2	 LongPosIncreased	 3100000000	 mwQoyor6hDCX87Sr6BXv6LhLVK6zoeaewr	 OpenShortPosition	 400000000	 400000000	 10953.1
+n1vRsFapwBPvL4QTf7FoMp1ehVS7zrVCPB	 OpenShortPosition	 3200000000	 msVuJLuPodNryiPsoPr69DnbC3kpL2Q41U	 OpenLongPosition	 3200000000	 3200000000	 10979.2
+n1vRsFapwBPvL4QTf7FoMp1ehVS7zrVCPB	 ShortPosIncreased	 8300000000	 mzCnd4EpUiPg8HbmXzYmxNexL1ZKiybRXD	 OpenLongPosition	 5100000000	 5100000000	 10979.2
+mgcVFwcNZW7UXWb1ghXEEVAbWtRjv5A1hj	 OpenShortPosition	 2500000000	 mzCnd4EpUiPg8HbmXzYmxNexL1ZKiybRXD	 LongPosIncreased	 7600000000	 2500000000	 10990.8
+mu4rdKVFu9r2UV1jf1ZeAQVmSCrgnqm1YY	 OpenShortPosition	 3500000000	 myyPJaaM69zczbyvUhYuSMwBKfcDE6cMDR	 OpenLongPosition	 3500000000	 3500000000	 11002.4
+mzCnd4EpUiPg8HbmXzYmxNexL1ZKiybRXD	 LongPosIncreased	 9500000000	 n1Gfq6qYn1n8cvWjiPWf2UxWyoeogbwka1	 OpenShortPosition	 1900000000	 1900000000	 11000
+msEseYBeo3fWZgNSDPo6XuPRpjGLjrBi21	 OpenShortPosition	 6500000000	 mwocAhcsVe64M14coMVjfaHpmQfTBSd7Mk	 OpenLongPosition	 6500000000	 6500000000	 10979.6
+msEseYBeo3fWZgNSDPo6XuPRpjGLjrBi21	 ShortPosIncreased	 6700000000	 mqW4n3LBXJWMgNjvNMBYwMUkr9gM82kbzD	 OpenLongPosition	 200000000	 200000000	 10979.6
+muFkEMimsHqptWV9258ibuYDC22eeoy44n	 OpenLongPosition	 4500000000	 mqEcJQy8yHF6yrmDbZtTiB2jUAqvcQCtVJ	 OpenShortPosition	 4500000000	 4500000000	 10959.5
+n3ZbhvjfjRJH3x82TMqq53MbFoTBHDFmw9	 OpenLongPosition	 2600000000	 mwCxH6jVnVwATzsVXqXqnwo3mej4nrpcEc	 OpenShortPosition	 2600000000	 2600000000	 10970.2
+mhVB5DVHcu35NHJUMUhzd18j7tAoRYuS13	 OpenLongPosition	 6200000000	 mwCxH6jVnVwATzsVXqXqnwo3mej4nrpcEc	 ShortPosIncreased	 8800000000	 6200000000	 10974.5
+mk5vNzWbuM234Zq2VjogzUUshHfoh2aPw6	 OpenLongPosition	 900000000	 mwCxH6jVnVwATzsVXqXqnwo3mej4nrpcEc	 ShortPosIncreased	 9700000000	 900000000	 10975
+mmUoYwbcK2wjybTq58FFJAnAT7suyj3y3k	 OpenLongPosition	 1800000000	 mrmabFEXDvEQmxJDvj6rnkp2tcCePWjS65	 OpenShortPosition	 1800000000	 1800000000	 10945.9
+mmUoYwbcK2wjybTq58FFJAnAT7suyj3y3k	 LongPosIncreased	 2900000000	 mhCQ5fTTp4jybi5vmLEg4wivJhMMwUkTKg	 OpenShortPosition	 1100000000	 1100000000	 10945.9
+mmUoYwbcK2wjybTq58FFJAnAT7suyj3y3k	 LongPosIncreased	 6400000000	 mt2MGA2DpdQt3zDEUm2P1JqMrJ7fkpVawV	 OpenShortPosition	 3500000000	 3500000000	 10945.9
+mt2oTkBovgpb5LkeYHv5x6oGZ9wfWKJsf2	 LongPosIncreased	 5200000000	 mt2MGA2DpdQt3zDEUm2P1JqMrJ7fkpVawV	 ShortPosIncreased	 5600000000	 2100000000	 10953.1
+mjuxKkp2ydshpHygcy9mWkmxKh1KhEahxh	 OpenLongPosition	 300000000	 mt2MGA2DpdQt3zDEUm2P1JqMrJ7fkpVawV	 ShortPosIncreased	 5900000000	 300000000	 10955.5
+mjuxKkp2ydshpHygcy9mWkmxKh1KhEahxh	 LongPosIncreased	 2800000000	 mssqYxHodAYLGMvADxwn19fzgFGVQqap8T	 OpenShortPosition	 2500000000	 2500000000	 10955.5
+mfzpZQDN7cB9obv6Mdy4J48YcLmMr38xDP	 OpenLongPosition	 1000000000	 mssqYxHodAYLGMvADxwn19fzgFGVQqap8T	 ShortPosIncreased	 3500000000	 1000000000	 10957.6
+mfnE5cotyXGv7HTxd2CZDvFuvN7axK1WTH	 LongPosIncreased	 8700000000	 mqrwDaYKNy3SyAxe8ZH3bSNrD6QUY4r531	 OpenShortPosition	 5800000000	 5800000000	 10926.8
+mgZxLJLKurMcPTta9D5ZiMHKVZJ7kcgJ2C	 LongPosIncreased	 6500000000	 mqrwDaYKNy3SyAxe8ZH3bSNrD6QUY4r531	 ShortPosIncreased	 8500000000	 2700000000	 10928
+mfzpZQDN7cB9obv6Mdy4J48YcLmMr38xDP	 LongPosIncreased	 1900000000	 mqrwDaYKNy3SyAxe8ZH3bSNrD6QUY4r531	 ShortPosIncreased	 9400000000	 900000000	 10957.6
+mqxUyDkFKLttqRp27uQj4hDjmeqFmMQjVc	 OpenLongPosition	 700000000	 n42mFeqvrMcVoMMgdsxyT3ykcA72KFoGEF	 OpenShortPosition	 700000000	 700000000	 10914.9
+miqXXeEZUvEVBGwiScaf8C7BsXNafcG2kU	 OpenLongPosition	 2400000000	 mkHSdmEQNsb32WvpDSzS3v2nYEhkPZ1TP1	 OpenShortPosition	 2400000000	 2400000000	 10883.1
+my3erRe7S2HthNpGSKyRHgcNkvMqpe9cnv	 OpenLongPosition	 800000000	 mkHSdmEQNsb32WvpDSzS3v2nYEhkPZ1TP1	 ShortPosIncreased	 3200000000	 800000000	 10890.4
+mngKQz9famtjb6GBZWZMdnbLhw6mgiZA7D	 OpenLongPosition	 4600000000	 mr85ENomgEiv2HJafSEpprZLpTQnAFU8TW	 OpenShortPosition	 4600000000	 4600000000	 10898.3
+mngKQz9famtjb6GBZWZMdnbLhw6mgiZA7D	 LongPosIncreased	 5100000000	 n15RGBgJvsnqLs7iiiYRheZcYxqJtqD2Mq	 OpenShortPosition	 500000000	 500000000	 10898.3
+n3GMgsCv6CSo7HLrUVrmazFJevxEvP5tha	 OpenLongPosition	 1100000000	 n15RGBgJvsnqLs7iiiYRheZcYxqJtqD2Mq	 ShortPosIncreased	 1600000000	 1100000000	 10900
+mfzpZQDN7cB9obv6Mdy4J48YcLmMr38xDP	 LongPosIncreased	 5600000000	 mg86d3aXPCJfYLJL5w1AkLvAargvDKymXc	 OpenShortPosition	 3700000000	 3700000000	 10957.6
+muFkEMimsHqptWV9258ibuYDC22eeoy44n	 LongPosIncreased	 4600000000	 mg86d3aXPCJfYLJL5w1AkLvAargvDKymXc	 ShortPosIncreased	 3800000000	 100000000	 10959.5
+mqxUyDkFKLttqRp27uQj4hDjmeqFmMQjVc	 LongPosIncreased	 1900000000	 mqtt7HSLxvf6J5aUcLKMudjsbWuYRCmpQC	 OpenShortPosition	 1200000000	 1200000000	 10914.9
+muFkEMimsHqptWV9258ibuYDC22eeoy44n	 LongPosIncreased	 7100000000	 mqtt7HSLxvf6J5aUcLKMudjsbWuYRCmpQC	 ShortPosIncreased	 3700000000	 2500000000	 10959.5
+mk5vNzWbuM234Zq2VjogzUUshHfoh2aPw6	 LongPosIncreased	 2800000000	 mqtt7HSLxvf6J5aUcLKMudjsbWuYRCmpQC	 ShortPosIncreased	 5600000000	 1900000000	 10975
+mtUA4NEUPscZPyWeBRnyPhZSbJ28kvUDkc	 OpenLongPosition	 800000000	 mnz6Z3ttLTjv7wR8zsLKJsLrT9WdbhQoVH	 OpenShortPosition	 800000000	 800000000	 10911.3
+n1JqrzSA3tVWTdzkZSBshyhAdhv4UoBsPZ	 OpenLongPosition	 3100000000	 mnz6Z3ttLTjv7wR8zsLKJsLrT9WdbhQoVH	 ShortPosIncreased	 3900000000	 3100000000	 10912.7
+mk5vNzWbuM234Zq2VjogzUUshHfoh2aPw6	 LongPosIncreased	 5700000000	 mnz6Z3ttLTjv7wR8zsLKJsLrT9WdbhQoVH	 ShortPosIncreased	 6800000000	 2900000000	 10975
+mnMhnyqz7icrb72t8k15nTiTSpcZtPkyqF	 OpenLongPosition	 3300000000	 mg3pFaExrrEgfLbt3K4oiN4DEnNs8YqwZw	 OpenShortPosition	 3300000000	 3300000000	 10867.5
+mhSbgxeAvhiSAaSNGyTKKDFLzY4QkWjMXm	 OpenLongPosition	 2000000000	 mg3pFaExrrEgfLbt3K4oiN4DEnNs8YqwZw	 ShortPosIncreased	 5300000000	 2000000000	 10869
+n3DFMxsJDNrz94zrJFNoMoB6C2CAm1n9jQ	 OpenLongPosition	 200000000	 mg3pFaExrrEgfLbt3K4oiN4DEnNs8YqwZw	 ShortPosIncreased	 5500000000	 200000000	 10870
+mz6YjTw6CdXAvrHp1tqXSsmGD76S2zxgM2	 OpenLongPosition	 200000000	 mg3pFaExrrEgfLbt3K4oiN4DEnNs8YqwZw	 ShortPosIncreased	 5700000000	 200000000	 10876
+mxroH45kBwVCAwdH7tydHKqPmXU3pRCeJc	 OpenLongPosition	 2900000000	 miKrY5vurEyVBwZaywBZKeNCq6gMfwjo3C	 OpenShortPosition	 2900000000	 2900000000	 10842.5
+mz6YjTw6CdXAvrHp1tqXSsmGD76S2zxgM2	 LongPosIncreased	 1400000000	 miKrY5vurEyVBwZaywBZKeNCq6gMfwjo3C	 ShortPosIncreased	 4100000000	 1200000000	 10876
+mz6YjTw6CdXAvrHp1tqXSsmGD76S2zxgM2	 LongPosIncreased	 1500000000	 mnK3aiXTNkLxKpFPsND2qzdouyLWPQkqRQ	 OpenShortPosition	 100000000	 100000000	 10876
+my3erRe7S2HthNpGSKyRHgcNkvMqpe9cnv	 LongPosIncreased	 4100000000	 mnK3aiXTNkLxKpFPsND2qzdouyLWPQkqRQ	 ShortPosIncreased	 3400000000	 3300000000	 10890.4
+my3erRe7S2HthNpGSKyRHgcNkvMqpe9cnv	 LongPosIncreased	 5500000000	 n1DL3KbtmKnrY9m5AAQUhbeabmKwE2g2qs	 OpenShortPosition	 1400000000	 1400000000	 10890.4
+n2TcpAzhSwjU9be7bxBiRbbtK1oyEmCtet	 OpenLongPosition	 4500000000	 n1DL3KbtmKnrY9m5AAQUhbeabmKwE2g2qs	 ShortPosIncreased	 5900000000	 4500000000	 10893.8
+n3GMgsCv6CSo7HLrUVrmazFJevxEvP5tha	 LongPosIncreased	 2200000000	 n1DL3KbtmKnrY9m5AAQUhbeabmKwE2g2qs	 ShortPosIncreased	 7000000000	 1100000000	 10900
+n3GMgsCv6CSo7HLrUVrmazFJevxEvP5tha	 LongPosIncreased	 4200000000	 muMvLdKdoveXSsMHyYFUH4YsRZ6Ev2Wg8C	 OpenShortPosition	 2000000000	 2000000000	 10900
+n3GMgsCv6CSo7HLrUVrmazFJevxEvP5tha	 LongPosIncreased	 5800000000	 mtNBUigduUDHf1eyRshnHBF5rL7QxpKNAy	 OpenShortPosition	 1600000000	 1600000000	 10900
+n3gKCpxkR57EYLC8Adxkw9gaM3unMwkDXm	 OpenLongPosition	 2500000000	 mtNBUigduUDHf1eyRshnHBF5rL7QxpKNAy	 ShortPosIncreased	 4100000000	 2500000000	 10902.3
+n3gKCpxkR57EYLC8Adxkw9gaM3unMwkDXm	 LongPosIncreased	 3700000000	 n17CZBZDrnsMZFqnDc47rjmbhv1TANGuLq	 OpenShortPosition	 1200000000	 1200000000	 10902.3
+mwfo7G1fH1i957ua1SioxNwkv5fBnihdNp	 OpenLongPosition	 2900000000	 n17CZBZDrnsMZFqnDc47rjmbhv1TANGuLq	 ShortPosIncreased	 4100000000	 2900000000	 10902.4
+mk5vNzWbuM234Zq2VjogzUUshHfoh2aPw6	 LongPosIncreased	 7700000000	 mfjyZHrNWG2ij7jL3uUXsqYi4N3KF785xW	 OpenShortPosition	 2000000000	 2000000000	 10975
+mrynb1frdypH21d4AdmiAfQDh6VEU4gGuB	 LongPosIncreased	 4000000000	 mfjyZHrNWG2ij7jL3uUXsqYi4N3KF785xW	 ShortPosIncreased	 2400000000	 400000000	 10976.9
+mqW4n3LBXJWMgNjvNMBYwMUkr9gM82kbzD	 LongPosIncreased	 1200000000	 mfjyZHrNWG2ij7jL3uUXsqYi4N3KF785xW	 ShortPosIncreased	 3400000000	 1000000000	 10979.6
+mqW4n3LBXJWMgNjvNMBYwMUkr9gM82kbzD	 LongPosIncreased	 8100000000	 mm4WAMsZ9kws1v8kgAExCWFaZLUBMMVtnA	 OpenShortPosition	 6900000000	 6900000000	 10979.6
+n1Gfq6qYn1n8cvWjiPWf2UxWyoeogbwka1	 ShortPosIncreased	 9100000000	 n2wBN7gcS3XnJXiQYFpyAURwLQ7QzCvvau	 OpenLongPosition	 7200000000	 7200000000	 10989.6
+mkpg6X34XxSgP6p7H3GK5CJpbxVqiwQfcu	 OpenShortPosition	 200000000	 n2wBN7gcS3XnJXiQYFpyAURwLQ7QzCvvau	 LongPosIncreased	 7400000000	 200000000	 10996.3
+mkpg6X34XxSgP6p7H3GK5CJpbxVqiwQfcu	 ShortPosIncreased	 400000000	 mhWNeP2uArqsDt3dTKpBG6Jt42XPfaUS2E	 OpenLongPosition	 200000000	 200000000	 10996.3
+mkpg6X34XxSgP6p7H3GK5CJpbxVqiwQfcu	 ShortPosIncreased	 5500000000	 n2wneQweebhGnzUQLSi7P7yEkH4ZVMYWnh	 OpenLongPosition	 5100000000	 5100000000	 10996.3
+mu4rdKVFu9r2UV1jf1ZeAQVmSCrgnqm1YY	 ShortPosIncreased	 3900000000	 n2wneQweebhGnzUQLSi7P7yEkH4ZVMYWnh	 LongPosIncreased	 5500000000	 400000000	 11002.4
+mhFPXVbkxB8p5qWvT7pHZXXgDBmoTguQh1	 OpenShortPosition	 6300000000	 mtp2waGLPc27zfbMU1jDVegyQpoMzKzrrG	 OpenLongPosition	 6300000000	 6300000000	 11000
+n2waCxtqn6KrjukmDbfWx8ZqKXsPSobbPy	 OpenShortPosition	 2200000000	 mycWR4wBdeZLqc23yrpTCBnQmox8mEnpWs	 OpenLongPosition	 2200000000	 2200000000	 10987.4
+mttPTa5gyU1oK4Ud7hqhX3G2W9mCTNutBy	 OpenShortPosition	 5100000000	 n1ndXYC8mzVpPDv5RyV77rLZyb19h9uAQS	 OpenLongPosition	 5100000000	 5100000000	 10991.6
+ms4SiBW2FwSL31FyUFWxBGNqaishyEER5X	 OpenShortPosition	 200000000	 mrECZVEeC8np6L6ZpcZM7PU6BDcdsqCzGN	 OpenLongPosition	 200000000	 200000000	 11070
+myPkEGau3yQ9hVkp9oLJWH3cncbwv3vTrh	 OpenShortPosition	 2700000000	 mrECZVEeC8np6L6ZpcZM7PU6BDcdsqCzGN	 LongPosIncreased	 2900000000	 2700000000	 11132.1
+mpcg4v5RgvcHvGwXUPAsUHeAu9RCb64fdE	 OpenShortPosition	 4300000000	 mrECZVEeC8np6L6ZpcZM7PU6BDcdsqCzGN	 LongPosIncreased	 7200000000	 4300000000	 11142.2
+mzPUqMuyrz21pRK45kTdAytxMsyxnnYTYh	 OpenShortPosition	 2200000000	 ms4jB6XvrNmZBguM5GUXKa3HQQL6g5n7Mg	 OpenLongPosition	 2200000000	 2200000000	 11187.1
+ms4jB6XvrNmZBguM5GUXKa3HQQL6g5n7Mg	 LongPosIncreased	 2300000000	 mkuYX1ZmrXmB5sZFnDPnxbu4HT8DRNhzd4	 OpenShortPosition	 100000000	 100000000	 11196
+ms4jB6XvrNmZBguM5GUXKa3HQQL6g5n7Mg	 LongPosIncreased	 4200000000	 mptpeqN37H1YoPL3e7Kh4Mm41Fwv6C6jgY	 OpenShortPosition	 1900000000	 1900000000	 11196
+mrECZVEeC8np6L6ZpcZM7PU6BDcdsqCzGN	 LongPosIncreased	 8400000000	 n33iKjjm4jQehhLiB5NvsVSGU4cXqEDB1t	 OpenShortPosition	 1200000000	 1200000000	 11159.5
+mvdPGLHJ8KTtzeLMpWzFH2BM7JaVLcgiEM	 OpenLongPosition	 5000000000	 n33iKjjm4jQehhLiB5NvsVSGU4cXqEDB1t	 ShortPosIncreased	 6200000000	 5000000000	 11171.3
+mptpeqN37H1YoPL3e7Kh4Mm41Fwv6C6jgY	 ShortPosIncreased	 5200000000	 mtv8Rtvi5BS3pWet7sTDFP2mqBzD1XKqGW	 OpenLongPosition	 3300000000	 3300000000	 11196
+mptpeqN37H1YoPL3e7Kh4Mm41Fwv6C6jgY	 ShortPosIncreased	 7800000000	 mprzP42QkDMdsTtsKNKg5AAcLbHJhWo6xk	 OpenLongPosition	 2600000000	 2600000000	 11196
+mmkMSxyTJDQoDCnpotrhHYkiD4TA3erZjM	 OpenLongPosition	 1600000000	 miftdhYXpWqM4f3ShpXdyu78saZzhEBgnJ	 OpenShortPosition	 1600000000	 1600000000	 11152.4
+n1YmyQmP3HAqu55M9KHFrMzYcYjwaeZB7G	 OpenLongPosition	 3300000000	 miftdhYXpWqM4f3ShpXdyu78saZzhEBgnJ	 ShortPosIncreased	 4900000000	 3300000000	 11161.4
+mgXVShjrbsKjXyDtP4UxGwFQix5ZZ8ZCjH	 OpenLongPosition	 900000000	 mqWZeaaubBkDhf7Y1P7r7py3CPsks6uYXY	 OpenShortPosition	 900000000	 900000000	 11111.1
+mqTAFxvXuz5hLJB9t4sroYZ1asHaN4dce4	 OpenLongPosition	 4200000000	 mqWZeaaubBkDhf7Y1P7r7py3CPsks6uYXY	 ShortPosIncreased	 5100000000	 4200000000	 11129.9
+n1YmyQmP3HAqu55M9KHFrMzYcYjwaeZB7G	 LongPosIncreased	 3900000000	 mqWZeaaubBkDhf7Y1P7r7py3CPsks6uYXY	 ShortPosIncreased	 5700000000	 600000000	 11161.4
+mvdPGLHJ8KTtzeLMpWzFH2BM7JaVLcgiEM	 LongPosIncreased	 5700000000	 mqWZeaaubBkDhf7Y1P7r7py3CPsks6uYXY	 ShortPosIncreased	 6400000000	 700000000	 11171.3
+mvdPGLHJ8KTtzeLMpWzFH2BM7JaVLcgiEM	 LongPosIncreased	 7100000000	 my3ymWG9G2fNRTK4k3FKHHNw2tv1M6dvhi	 OpenShortPosition	 1400000000	 1400000000	 11171.3
+my3ymWG9G2fNRTK4k3FKHHNw2tv1M6dvhi	 ShortPosIncreased	 3300000000	 n1dboLCdWCD6hMZQ579VMvWv2U4a7jwRoC	 OpenLongPosition	 1900000000	 1900000000	 11080.9
+n1cu3RhkDwXTc5hUpjc5mvVXKgfxTgMtRw	 OpenLongPosition	 9500000000	 mjZRuWQBsAuMVZiSiVkx3oKmKEN4MdirdZ	 OpenShortPosition	 9500000000	 9500000000	 11065.1
+mxsuMg8iifEqj66LUdy2vcAoTFfywLRSqq	 OpenLongPosition	 6900000000	 mhYJuJyr3gGC4xZt7zQdnXa3xhGFVJLuKk	 OpenShortPosition	 6900000000	 6900000000	 11000
+mtUkiiY3JvwXXbkq4SbbAGEKtSX1pL1SyN	 OpenLongPosition	 400000000	 mhYJuJyr3gGC4xZt7zQdnXa3xhGFVJLuKk	 ShortPosIncreased	 7300000000	 400000000	 11012
+mmzVCAeYFLhCbs3xYoGrcx8f48tM8SSJij	 OpenLongPosition	 100000000	 n2EuisFdgxLDsBkys4Ka4m3hPdaCFsyNZX	 OpenShortPosition	 100000000	 100000000	 11045.3
+mmzVCAeYFLhCbs3xYoGrcx8f48tM8SSJij	 LongPosIncreased	 700000000	 mwmagpqGDRpZK4i2mbxtUPQEYHwWheHj1H	 OpenShortPosition	 600000000	 600000000	 11045.3
+mmzVCAeYFLhCbs3xYoGrcx8f48tM8SSJij	 LongPosIncreased	 2300000000	 mnTd1pkPTxYKJMCfQeb1Paf8f5EGk79zbR	 OpenShortPosition	 1600000000	 1600000000	 11045.3
+mq5G2amDV1sqU5FXYa5F8PcW8uYCVFEJEx	 OpenLongPosition	 400000000	 mnTd1pkPTxYKJMCfQeb1Paf8f5EGk79zbR	 ShortPosIncreased	 2000000000	 400000000	 11066.7
+mq5G2amDV1sqU5FXYa5F8PcW8uYCVFEJEx	 LongPosIncreased	 1900000000	 n44GfmZvhWwgKKWoQPRVGBBxyKE3SB2uNg	 OpenShortPosition	 1500000000	 1500000000	 11066.7
+mmBrY3n83DsEqV4dnEEirqhSb7wUAYZZn1	 OpenShortPosition	 4500000000	 msRQvRwbcxzsQu3vQPHxrVcsgPbhcHgrYV	 OpenLongPosition	 4500000000	 4500000000	 11069.9
+mncSmuUufMCGkbTZJ8yEgg8mZ4d1iCrtSP	 OpenShortPosition	 1300000000	 msRQvRwbcxzsQu3vQPHxrVcsgPbhcHgrYV	 LongPosIncreased	 5800000000	 1300000000	 11074
+my3ymWG9G2fNRTK4k3FKHHNw2tv1M6dvhi	 ShortPosIncreased	 6000000000	 msRQvRwbcxzsQu3vQPHxrVcsgPbhcHgrYV	 LongPosIncreased	 8500000000	 2700000000	 11080.9
+mq5G2amDV1sqU5FXYa5F8PcW8uYCVFEJEx	 LongPosIncreased	 2400000000	 mkBfdGL2mnueiGZvTqtShVSMEC13fZRDZ4	 OpenShortPosition	 500000000	 500000000	 11066.7
+mkBfdGL2mnueiGZvTqtShVSMEC13fZRDZ4	 ShortPosIncreased	 2900000000	 n3ZAcp7Un1XHRQD9RcNPxntK7if72sYz18	 OpenLongPosition	 2400000000	 2400000000	 11047.3
+mmnYP1fiqinXCMxbEPr6mD7ibjzfAyXJKL	 OpenShortPosition	 4100000000	 mo4fRZtQUD7uZfQN4DaJDQJN2rxfi31wew	 OpenLongPosition	 4100000000	 4100000000	 11045.5
+mkBfdGL2mnueiGZvTqtShVSMEC13fZRDZ4	 ShortPosIncreased	 3700000000	 mo4fRZtQUD7uZfQN4DaJDQJN2rxfi31wew	 LongPosIncreased	 4900000000	 800000000	 11047.3
+n4prwDuaoqqV7fv5sxzn5rstN2tRWP8irG	 OpenShortPosition	 200000000	 minQzZgDvZKip7GWBesHCCoFM7NsSKNMHQ	 OpenLongPosition	 200000000	 200000000	 11053
+mijntjRHTfE47Cp8B7T95NexooYKtHSYLF	 OpenShortPosition	 7500000000	 minQzZgDvZKip7GWBesHCCoFM7NsSKNMHQ	 LongPosIncreased	 7700000000	 7500000000	 11053
+mugqGxCBSaSkjxk7idvYTXetqWPkSpXsfe	 OpenLongPosition	 1700000000	 n4WpwT5gq8BZTzy8WNNif45VjHhMdHbYzE	 OpenShortPosition	 1700000000	 1700000000	 11024.1
+mvV5bkrVg1LRxGrWPoJMq6NPAQSBn2UC8V	 OpenLongPosition	 7800000000	 n15Gk5aBFk2P1k6krd6tndzogu8QPRq8jr	 OpenShortPosition	 7800000000	 7800000000	 11051
+mugqGxCBSaSkjxk7idvYTXetqWPkSpXsfe	 LongPosIncreased	 2800000000	 n3kmFhUiuU7y4YX1eWShGmMKZA55W3j2Z8	 OpenShortPosition	 1100000000	 1100000000	 11024.1
+muJgkExyanXdYHmxEGXSi55RbrQnpFvQmT	 OpenLongPosition	 3400000000	 n3kmFhUiuU7y4YX1eWShGmMKZA55W3j2Z8	 ShortPosIncreased	 4500000000	 3400000000	 11026.6
+miv9bwP3qVzhikdNutATpjaGh116Fo6z7A	 OpenLongPosition	 500000000	 n3kmFhUiuU7y4YX1eWShGmMKZA55W3j2Z8	 ShortPosIncreased	 5000000000	 500000000	 11027.5
+mtUkiiY3JvwXXbkq4SbbAGEKtSX1pL1SyN	 LongPosIncreased	 6800000000	 mfecbEnakb9MdX7dXBUkPib17TN9vr1Efb	 OpenShortPosition	 6400000000	 6400000000	 11012
+mr5Pj8sRrLBFnj8RVuTS3htsdLPNo8ei87	 OpenLongPosition	 1300000000	 mg9GtVfFtUkmWqVtkH5EHv3URXLxtjnAq1	 OpenShortPosition	 1300000000	 1300000000	 10951.3
+mkkWmXFQHxBdvo3b4uvcngcb3ZjRnuKzNV	 OpenLongPosition	 8100000000	 n2HKW4fwXTS21mo9q3Y2HqQtUGzZYtrHe5	 OpenShortPosition	 8100000000	 8100000000	 10900
+mp2UcugEd4n8j18XS58MLQtqXH988DzH2e	 OpenLongPosition	 100000000	 mp2fjEUrJ2jssro2aShjv9pa59JeajzrTy	 OpenShortPosition	 100000000	 100000000	 10886.9
+mnEqHEXt9ZELjCPGKpnnQdF7P6eh3Vt6bu	 OpenLongPosition	 800000000	 mzWvEVrFwV36hLEzBTY6xDMCRMM2ec3PBi	 OpenShortPosition	 800000000	 800000000	 10863.8
+moygU1Td9xmKGj69nmd29Rmc9VKJyqb6ky	 OpenLongPosition	 5200000000	 mzWvEVrFwV36hLEzBTY6xDMCRMM2ec3PBi	 ShortPosIncreased	 6000000000	 5200000000	 10868.4
+mmnfzt3LfFm8ZoiRpBQUoLqADSsjPKuphE	 OpenLongPosition	 1700000000	 mvTfFDU8HkAAyHQ1pep2Ucp4FPuEbfqLYS	 OpenShortPosition	 1700000000	 1700000000	 10855
+msT4B9iU4XZyHFeiGsb7yBSZSzNvFCbRJD	 OpenLongPosition	 200000000	 mzBCwcuho4n91qqtgSGDVugNzrEZLTVmd5	 OpenShortPosition	 200000000	 200000000	 10842
+mmnfzt3LfFm8ZoiRpBQUoLqADSsjPKuphE	 LongPosIncreased	 7500000000	 mkjMXtCi6y18PUeXVmheePYS3FSFFZy2NH	 OpenShortPosition	 5800000000	 5800000000	 10855
+mjGJLWoY9eRRQKpoUpkzjhVZ4U3qfmjqbV	 OpenLongPosition	 6500000000	 mmam4zYEVKpbJJgTHHvzMFXiB3Epp7V37C	 OpenShortPosition	 6500000000	 6500000000	 10846.5
+mp2UcugEd4n8j18XS58MLQtqXH988DzH2e	 LongPosIncreased	 700000000	 mw7nJiz6qv4qY7Zj5sx24sSB5yFcycJbLy	 OpenShortPosition	 600000000	 600000000	 10886.9
+mkkWmXFQHxBdvo3b4uvcngcb3ZjRnuKzNV	 LongPosIncreased	 9500000000	 mw7nJiz6qv4qY7Zj5sx24sSB5yFcycJbLy	 ShortPosIncreased	 2000000000	 1400000000	 10900
+mngxRvJ5WKeAeaoT3M5xAa9jk4QXrJPqgk	 OpenLongPosition	 1500000000	 mw7nJiz6qv4qY7Zj5sx24sSB5yFcycJbLy	 ShortPosIncreased	 3500000000	 1500000000	 10919.1
+mr5Pj8sRrLBFnj8RVuTS3htsdLPNo8ei87	 LongPosIncreased	 3900000000	 n1f6tXJY4jd9s8Z5HbAasGsp5dvzRau1gf	 OpenShortPosition	 2600000000	 2600000000	 10951.3
+mngxRvJ5WKeAeaoT3M5xAa9jk4QXrJPqgk	 LongPosIncreased	 5300000000	 mifK3pizS2ezQBrq39AdCkgCcf42rWm7fs	 OpenShortPosition	 3800000000	 3800000000	 10919.1
+mngxRvJ5WKeAeaoT3M5xAa9jk4QXrJPqgk	 LongPosIncreased	 7300000000	 mjYdo51dXjHhQXqDT4nmZYQ1tCDWv3BrWm	 OpenShortPosition	 2000000000	 2000000000	 10919.1
+mhADc5U3S8nqTUrGthRv8JcHc4V6yZ5cr3	 OpenLongPosition	 1900000000	 mjYdo51dXjHhQXqDT4nmZYQ1tCDWv3BrWm	 ShortPosIncreased	 3900000000	 1900000000	 10938.7
+mr5Pj8sRrLBFnj8RVuTS3htsdLPNo8ei87	 LongPosIncreased	 7600000000	 mjYdo51dXjHhQXqDT4nmZYQ1tCDWv3BrWm	 ShortPosIncreased	 7600000000	 3700000000	 10951.3
+mr5Pj8sRrLBFnj8RVuTS3htsdLPNo8ei87	 LongPosIncreased	 9900000000	 mrFjMEcMNrmCQxvZwqaX6Lvt4bYVo8HHnk	 OpenShortPosition	 2300000000	 2300000000	 10951.3
+mqPaNFVyDJ4DCSP2Fub7SJ1Wx2GMxRdhXq	 OpenLongPosition	 2400000000	 mrFjMEcMNrmCQxvZwqaX6Lvt4bYVo8HHnk	 ShortPosIncreased	 4700000000	 2400000000	 10963
+mqPaNFVyDJ4DCSP2Fub7SJ1Wx2GMxRdhXq	 LongPosIncreased	 3700000000	 mn25vYkfS2YaARRYb4ppdCgVqNhf4VdDe6	 OpenShortPosition	 1300000000	 1300000000	 10963
+mqxkuZGNh38weTVGV93JXkiLyK9TvAGd5v	 OpenLongPosition	 2600000000	 mn25vYkfS2YaARRYb4ppdCgVqNhf4VdDe6	 ShortPosIncreased	 3900000000	 2600000000	 10993.2
+mtUkiiY3JvwXXbkq4SbbAGEKtSX1pL1SyN	 LongPosIncreased	 7100000000	 mn25vYkfS2YaARRYb4ppdCgVqNhf4VdDe6	 ShortPosIncreased	 4200000000	 300000000	 11012
+mtUkiiY3JvwXXbkq4SbbAGEKtSX1pL1SyN	 LongPosIncreased	 7300000000	 mmjkkeH8yLeeR6MwsRU4wVjiAaqt5N2Skd	 OpenShortPosition	 200000000	 200000000	 11012
+n1bcpgZa2hMsEsNf31LxehoTThBa8Ztua9	 OpenLongPosition	 1000000000	 mmjkkeH8yLeeR6MwsRU4wVjiAaqt5N2Skd	 ShortPosIncreased	 1200000000	 1000000000	 11013.3
+miv9bwP3qVzhikdNutATpjaGh116Fo6z7A	 LongPosIncreased	 2500000000	 mkMo4CXpYJ8fZe9RhX6PxXF6dUuNpbPrPk	 OpenShortPosition	 2000000000	 2000000000	 11027.5
+miv9bwP3qVzhikdNutATpjaGh116Fo6z7A	 LongPosIncreased	 3900000000	 mfXFeTX5BU87J64tibsqzDmHjRqim2Ambu	 OpenShortPosition	 1400000000	 1400000000	 11027.5
+mfXFeTX5BU87J64tibsqzDmHjRqim2Ambu	 ShortPosIncreased	 4600000000	 miXDKjmy7n5C52grTp25hAhYTEUr5a6Aes	 OpenLongPosition	 3200000000	 3200000000	 10940.8
+mfXFeTX5BU87J64tibsqzDmHjRqim2Ambu	 ShortPosIncreased	 5500000000	 mg6NfYNVVQu5GYyFqapSK59YcWNkQin2XH	 OpenLongPosition	 900000000	 900000000	 10940.8
+mfvbjf2mFA6YGr83iy4VwJLU9ngKV5JBJN	 OpenShortPosition	 6900000000	 mg6NfYNVVQu5GYyFqapSK59YcWNkQin2XH	 LongPosIncreased	 7800000000	 6900000000	 10940.9
+mfvbjf2mFA6YGr83iy4VwJLU9ngKV5JBJN	 ShortPosIncreased	 9400000000	 msJtZ7vNCQueVvbAxzgXC3yvjrygJuz4Vb	 OpenLongPosition	 2500000000	 2500000000	 10940.9
+n399XRopYoEFBPUDRkhZrBnzqjtzBB1d3M	 OpenShortPosition	 6400000000	 msJtZ7vNCQueVvbAxzgXC3yvjrygJuz4Vb	 LongPosIncreased	 8900000000	 6400000000	 10969.2
+mnBtoG978oSF8mRNFXSZhqpZhZiCvawXNr	 OpenLongPosition	 4000000000	 mrBfhBSUkBMDQGcuEzyXkA6W8Fs1QXGK4M	 OpenShortPosition	 4000000000	 4000000000	 10953.1
+mgPtzYPfVK7UmgPNuAAqC4CWVoao9xpWVb	 OpenLongPosition	 6900000000	 mhKH4W7Jm4EMRhL7CjjhwUu7tbZaMKdZSn	 OpenShortPosition	 6900000000	 6900000000	 10902.4
+n1SdfufHmjM3zMoth1KSDHuSAqnKvsrZKd	 OpenLongPosition	 6500000000	 myfEq698D1kz3wrSmGcCxhHMBv9S9jwTsS	 OpenShortPosition	 6500000000	 6500000000	 10918.1
+mn6TSvwiz49xNdz1FEJdjcbZZZVsqxY79b	 OpenLongPosition	 600000000	 myfEq698D1kz3wrSmGcCxhHMBv9S9jwTsS	 ShortPosIncreased	 7100000000	 600000000	 10927.9
+mn6TSvwiz49xNdz1FEJdjcbZZZVsqxY79b	 LongPosIncreased	 6500000000	 miSrFqA3wi2PnyMctUj9Vb2SX8VN5SXKyr	 OpenShortPosition	 5900000000	 5900000000	 10927.9
+mn6TSvwiz49xNdz1FEJdjcbZZZVsqxY79b	 LongPosIncreased	 9700000000	 muuFU4nui4nmZAphiUQCcXRyxR7Lj9cJqS	 OpenShortPosition	 3200000000	 3200000000	 10927.9
+mycDfAUgahZomcE1pwozANDhMbTMwqdQon	 OpenLongPosition	 1600000000	 muuFU4nui4nmZAphiUQCcXRyxR7Lj9cJqS	 ShortPosIncreased	 4800000000	 1600000000	 10927.9
+msHDqpoqipvWhRvAdyD85hTDFV5hNKMD7U	 OpenLongPosition	 3700000000	 muuFU4nui4nmZAphiUQCcXRyxR7Lj9cJqS	 ShortPosIncreased	 8500000000	 3700000000	 10932.7
+msHDqpoqipvWhRvAdyD85hTDFV5hNKMD7U	 LongPosIncreased	 4900000000	 mfn8iJaK1uEtHQUueoEABzzrYgNWnwNPob	 OpenShortPosition	 1200000000	 1200000000	 10932.7
+mkbKVEC7VG91EdCrUr153E3QKvUK9bmc1h	 OpenLongPosition	 3600000000	 mfn8iJaK1uEtHQUueoEABzzrYgNWnwNPob	 ShortPosIncreased	 4800000000	 3600000000	 10938.3
+mnBtoG978oSF8mRNFXSZhqpZhZiCvawXNr	 LongPosIncreased	 6400000000	 mfn8iJaK1uEtHQUueoEABzzrYgNWnwNPob	 ShortPosIncreased	 7200000000	 2400000000	 10953.1
+mnyRc1Bg8DQHSjwoerqtEjnTkwm1fZg5Zt	 OpenLongPosition	 4300000000	 n2prmeowFcTWT3uVvLumA5KWUVQNqfFmyE	 OpenShortPosition	 4300000000	 4300000000	 10908.9
+mnSadZFWvMcyRfKTd2a9B9iaBhAQN5bZvo	 OpenLongPosition	 800000000	 n2prmeowFcTWT3uVvLumA5KWUVQNqfFmyE	 ShortPosIncreased	 5100000000	 800000000	 10912.7
+mwtbHFbiQV5QC4LCsEToM95WgyWgwbZR4S	 OpenLongPosition	 2600000000	 n2prmeowFcTWT3uVvLumA5KWUVQNqfFmyE	 ShortPosIncreased	 7700000000	 2600000000	 10945.9
+moj7DGkYrZ5YmAtgmVf9YLfM7w7mGhjrJV	 OpenLongPosition	 800000000	 mqYsu9kLRcN6Q3QANTx5YKg8JzzgLzWMgj	 OpenShortPosition	 800000000	 800000000	 10904.7
+mwtbHFbiQV5QC4LCsEToM95WgyWgwbZR4S	 LongPosIncreased	 6700000000	 mqYsu9kLRcN6Q3QANTx5YKg8JzzgLzWMgj	 ShortPosIncreased	 4900000000	 4100000000	 10945.9
+msJtZ7vNCQueVvbAxzgXC3yvjrygJuz4Vb	 LongPosIncreased	 9200000000	 mqYsu9kLRcN6Q3QANTx5YKg8JzzgLzWMgj	 ShortPosIncreased	 5200000000	 300000000	 10976.9
+mqYsu9kLRcN6Q3QANTx5YKg8JzzgLzWMgj	 ShortPosIncreased	 6200000000	 n2pcVYHESSrRePwAYSpRBPYeEdjVqwXqVJ	 OpenLongPosition	 1000000000	 1000000000	 10902.5
+mqYsu9kLRcN6Q3QANTx5YKg8JzzgLzWMgj	 ShortPosIncreased	 6300000000	 n4LG6Bh57FqjmdPoK8Mc4j7oYp3SXHuDsE	 OpenLongPosition	 100000000	 100000000	 10902.5
+n2B15jVB1w78CHxKVDF1fr9eyGBbkudMq7	 OpenShortPosition	 4500000000	 n4LG6Bh57FqjmdPoK8Mc4j7oYp3SXHuDsE	 LongPosIncreased	 4600000000	 4500000000	 10911.3
+n2B15jVB1w78CHxKVDF1fr9eyGBbkudMq7	 ShortPosIncreased	 5800000000	 mgquNWR13jBytJb8JLug1PPpLiPMjMB7jH	 OpenLongPosition	 1300000000	 1300000000	 10911.3
+n2Ye98To2XMz95rQm5LBMQNN3zEckuyosn	 OpenShortPosition	 800000000	 mo4gaiTaoDRkrthWoMDNaP2covRp2b6BVp	 OpenLongPosition	 800000000	 800000000	 10979.2
+msAG5NggwqVUVPt8UsiBUwf125vfVoysyd	 OpenShortPosition	 100000000	 mo4gaiTaoDRkrthWoMDNaP2covRp2b6BVp	 LongPosIncreased	 900000000	 100000000	 10992
+muz3ZCuYpAdFeLDUWmZ7PRhgETKAzVKq7s	 OpenLongPosition	 1200000000	 mtacL3x7NcfyfkRfRLdonu3pDzCBFUBD89	 OpenShortPosition	 1200000000	 1200000000	 10975
+mgqKF5sRfFDc2NEQfC6H1Bbp22RJVdp6RJ	 OpenLongPosition	 5100000000	 mtacL3x7NcfyfkRfRLdonu3pDzCBFUBD89	 ShortPosIncreased	 6300000000	 5100000000	 10979.6
+mgqKF5sRfFDc2NEQfC6H1Bbp22RJVdp6RJ	 LongPosIncreased	 5200000000	 n4SnCBVSR8XB7sK7Cg9LvdfzA8GnLH1fkG	 OpenShortPosition	 100000000	 100000000	 10979.6
+mwixRwThKwEuF1fBuk7fWE4xhC4Nahw5j2	 OpenLongPosition	 4600000000	 n4SnCBVSR8XB7sK7Cg9LvdfzA8GnLH1fkG	 ShortPosIncreased	 4700000000	 4600000000	 10979.6
+mwixRwThKwEuF1fBuk7fWE4xhC4Nahw5j2	 LongPosIncreased	 5200000000	 mzMX6FFgwKpSo4CDbzYe2PG2uC67mpxNtx	 OpenShortPosition	 600000000	 600000000	 10979.6
+mnHZu1kvv6sJ9wQJhscSgBJY1jj7wU32JR	 OpenLongPosition	 8900000000	 n2tC3uydtToAn3VoJRQ592DN1YRoZkv2ZY	 OpenShortPosition	 8900000000	 8900000000	 10949.1
+moH1YXHptq5qPBuzXSptmvvH3EcyNcRy9u	 OpenLongPosition	 3700000000	 muctn3q74Hbj37RsoVwMgDSGyQWaEzhfnv	 OpenShortPosition	 3700000000	 3700000000	 10939.4
+moH1YXHptq5qPBuzXSptmvvH3EcyNcRy9u	 LongPosIncreased	 9000000000	 mji9jcgVan4tTwSTmvcjnoEm7tccX4AeUG	 OpenShortPosition	 5300000000	 5300000000	 10939.4
+mnHZu1kvv6sJ9wQJhscSgBJY1jj7wU32JR	 LongPosIncreased	 9600000000	 mji9jcgVan4tTwSTmvcjnoEm7tccX4AeUG	 ShortPosIncreased	 6000000000	 700000000	 10949.1
+movHDt8QexV9o8BHS6DKSM8e29KnHey8rK	 OpenLongPosition	 2200000000	 moMuNn9RN1pmKB7ymeXyAbX4SKZ7GatiTz	 OpenShortPosition	 2200000000	 2200000000	 10902.3
+miCFbBcvHoEPBqnPiJo3rRZn2p53jpxE3z	 OpenLongPosition	 5800000000	 mzLCA4mGPUxuo4FDWPaZjMJQQuBtgcUMDv	 OpenShortPosition	 5800000000	 5800000000	 10883.1
+mmJua8Jsk2Ne3wLbx55XTVnUD1iMu5Wvu4	 OpenLongPosition	 500000000	 mzLCA4mGPUxuo4FDWPaZjMJQQuBtgcUMDv	 ShortPosIncreased	 6300000000	 500000000	 10889.2
+mmJua8Jsk2Ne3wLbx55XTVnUD1iMu5Wvu4	 LongPosIncreased	 6800000000	 mvnL7DqThXeU2pwJ24agdNtkRUhKJV6Q3E	 OpenShortPosition	 6300000000	 6300000000	 10889.2
+mwHcUir2GkbBFktrj8mFUaXx2ETErWgsPq	 OpenLongPosition	 2100000000	 mvnL7DqThXeU2pwJ24agdNtkRUhKJV6Q3E	 ShortPosIncreased	 8400000000	 2100000000	 10890.4
+movHDt8QexV9o8BHS6DKSM8e29KnHey8rK	 LongPosIncreased	 6700000000	 mtnreQuQfRJcRk9fEJD8YbgC5VpVH9nKHY	 OpenShortPosition	 4500000000	 4500000000	 10902.3
+mgPtzYPfVK7UmgPNuAAqC4CWVoao9xpWVb	 LongPosIncreased	 7000000000	 mtnreQuQfRJcRk9fEJD8YbgC5VpVH9nKHY	 ShortPosIncreased	 4600000000	 100000000	 10902.4
+mgrbW1SfxMuAUKgionErNJ2WSFeSRenrxM	 OpenLongPosition	 7600000000	 mz9aiTT9pPEzR9CAZzLUEhL8ahfkF4Ap8u	 OpenShortPosition	 7600000000	 7600000000	 10914.9
+msPdYqA8W5cKfRq171ACCcJGpL8KfTj8xR	 OpenLongPosition	 100000000	 mz9aiTT9pPEzR9CAZzLUEhL8ahfkF4Ap8u	 ShortPosIncreased	 7700000000	 100000000	 10914.9
+msPdYqA8W5cKfRq171ACCcJGpL8KfTj8xR	 LongPosIncreased	 8200000000	 n2pAatkQn7HpL7guSYkmgnbjEZ54aZHNR6	 OpenShortPosition	 8100000000	 8100000000	 10914.9
+msbVPVvrvoXArMbXYGYnu8GxgLrLanHq38	 OpenLongPosition	 1400000000	 n2pAatkQn7HpL7guSYkmgnbjEZ54aZHNR6	 ShortPosIncreased	 9500000000	 1400000000	 10914.9
+mwHcUir2GkbBFktrj8mFUaXx2ETErWgsPq	 LongPosIncreased	 3600000000	 mrqYupqsKLFZLFF7vshFNXAMosaX5AVyEN	 OpenShortPosition	 1500000000	 1500000000	 10890.4
+mtRtxm9tojgjJFFcYUH6goY8VHAe1RugVq	 OpenLongPosition	 1600000000	 mxAxsPTZ7UCZmAwcvTxj5Hc5eZZe7QJpS4	 OpenShortPosition	 1600000000	 1600000000	 10867.5
+moygU1Td9xmKGj69nmd29Rmc9VKJyqb6ky	 LongPosIncreased	 5400000000	 mxAxsPTZ7UCZmAwcvTxj5Hc5eZZe7QJpS4	 ShortPosIncreased	 1800000000	 200000000	 10868.4
+mwHcUir2GkbBFktrj8mFUaXx2ETErWgsPq	 LongPosIncreased	 6300000000	 mxAxsPTZ7UCZmAwcvTxj5Hc5eZZe7QJpS4	 ShortPosIncreased	 4500000000	 2700000000	 10890.4
+moJKpZAxYD4wxUKXQ9BUCh7an6mgR8bry2	 OpenLongPosition	 2900000000	 mxAxsPTZ7UCZmAwcvTxj5Hc5eZZe7QJpS4	 ShortPosIncreased	 7400000000	 2900000000	 10894.4
+mgPtzYPfVK7UmgPNuAAqC4CWVoao9xpWVb	 LongPosIncreased	 7500000000	 mxAxsPTZ7UCZmAwcvTxj5Hc5eZZe7QJpS4	 ShortPosIncreased	 7900000000	 500000000	 10902.4
+msT4B9iU4XZyHFeiGsb7yBSZSzNvFCbRJD	 LongPosIncreased	 2100000000	 mwvc3B63TAQJTPPjqgs8dLQoBgtsphM8qx	 OpenShortPosition	 1900000000	 1900000000	 10842
+mq26mcf63TayXFpJ4LGyk8R2M6pCgEhd6B	 OpenLongPosition	 1400000000	 mwvc3B63TAQJTPPjqgs8dLQoBgtsphM8qx	 ShortPosIncreased	 3300000000	 1400000000	 10842
+msWuLaBEJbbyFiuB3fHJFwYSBgwiik5d7q	 OpenLongPosition	 2300000000	 mxD432KaxAgpm1tgqWRchV6egm3rbTDjew	 OpenShortPosition	 2300000000	 2300000000	 10846.1
+mgPtzYPfVK7UmgPNuAAqC4CWVoao9xpWVb	 LongPosIncreased	 9200000000	 mxmTcA52UBkZi1JQP4UbATs3UyE5DX42sy	 OpenShortPosition	 1700000000	 1700000000	 10902.4
+msbVPVvrvoXArMbXYGYnu8GxgLrLanHq38	 LongPosIncreased	 5800000000	 mxmTcA52UBkZi1JQP4UbATs3UyE5DX42sy	 ShortPosIncreased	 6100000000	 4400000000	 10914.9
+n3TVgyQdC27WiJW2bc6dEbC8EjFjpYwVH6	 OpenLongPosition	 200000000	 mxmTcA52UBkZi1JQP4UbATs3UyE5DX42sy	 ShortPosIncreased	 6300000000	 200000000	 10916.1
+n3TVgyQdC27WiJW2bc6dEbC8EjFjpYwVH6	 LongPosIncreased	 6100000000	 mp8rYSgtzqZiHVjKxUb1QabF2jfEKtxF43	 OpenShortPosition	 5900000000	 5900000000	 10916.1
+mnHZu1kvv6sJ9wQJhscSgBJY1jj7wU32JR	 LongPosIncreased	 9800000000	 mp8rYSgtzqZiHVjKxUb1QabF2jfEKtxF43	 ShortPosIncreased	 6100000000	 200000000	 10949.1
+mrRetsrXRE2a9EbhsuyrunEuC6yi7dmYn5	 OpenLongPosition	 2800000000	 mp8rYSgtzqZiHVjKxUb1QabF2jfEKtxF43	 ShortPosIncreased	 8900000000	 2800000000	 10955.5
+mrRetsrXRE2a9EbhsuyrunEuC6yi7dmYn5	 LongPosIncreased	 8700000000	 mtF3fK3Z6ctHFd7RfpFW7JZMTxCNKRUL5e	 OpenShortPosition	 5900000000	 5900000000	 10955.5
+mxmbDpDUjVoEfAM9RmdJMhboCEW1qnsPM5	 OpenLongPosition	 3400000000	 mtF3fK3Z6ctHFd7RfpFW7JZMTxCNKRUL5e	 ShortPosIncreased	 9300000000	 3400000000	 10957.5
+mwixRwThKwEuF1fBuk7fWE4xhC4Nahw5j2	 LongPosIncreased	 8000000000	 n2GuEZJ25gvE4qU1jHUxg4u9ozGNtcBdoP	 OpenShortPosition	 2800000000	 2800000000	 10979.6
+mooJ6aV54opqmQUeYDcsSX4ENWpSftzn2E	 OpenLongPosition	 4200000000	 n2GuEZJ25gvE4qU1jHUxg4u9ozGNtcBdoP	 ShortPosIncreased	 7000000000	 4200000000	 10979.6
+mooJ6aV54opqmQUeYDcsSX4ENWpSftzn2E	 LongPosIncreased	 7500000000	 msvRzEnetZw5ksSzdxyYDPSN4tqw878vmP	 OpenShortPosition	 3300000000	 3300000000	 10979.6
+mfmx3cYx3yuoQrNrARQe1sYGfHHZfv4g8T	 OpenLongPosition	 2100000000	 msvRzEnetZw5ksSzdxyYDPSN4tqw878vmP	 ShortPosIncreased	 5400000000	 2100000000	 10989.6
+mo4gaiTaoDRkrthWoMDNaP2covRp2b6BVp	 LongPosIncreased	 1800000000	 mrgk2MHtZKvzeHV3AxP3doW5q3UjgnXXJV	 OpenShortPosition	 900000000	 900000000	 11000
+n1QSVAZiUA19DiFiqqKWVzdDnAt5y7e6bg	 OpenLongPosition	 9100000000	 mrgk2MHtZKvzeHV3AxP3doW5q3UjgnXXJV	 ShortPosIncreased	 10000000000	 9100000000	 11002.4
+mj53uVMbyDe52q8qFLvvJWzeapp9As82RU	 OpenShortPosition	 1100000000	 mynNF5BdDQYKHAex3A1zpdF43mbN8qrdib	 OpenLongPosition	 1100000000	 1100000000	 11025
+mj53uVMbyDe52q8qFLvvJWzeapp9As82RU	 ShortPosIncreased	 3100000000	 mnZU8ShD6RqaWxoadW5biApSUsCotWf3iF	 OpenLongPosition	 2000000000	 2000000000	 11025
+n1QSVAZiUA19DiFiqqKWVzdDnAt5y7e6bg	 LongPosIncreased	 9300000000	 n1TrkDRnLWE5ubsNUyhc99Ys3kA5zKbgM1	 OpenShortPosition	 200000000	 200000000	 11002.4
+mt5JGd2cu312EDpK2L85jahuwNgLsdTjCG	 OpenLongPosition	 800000000	 n1TrkDRnLWE5ubsNUyhc99Ys3kA5zKbgM1	 ShortPosIncreased	 1000000000	 800000000	 11023
+mnZU8ShD6RqaWxoadW5biApSUsCotWf3iF	 LongPosIncreased	 4000000000	 n1TrkDRnLWE5ubsNUyhc99Ys3kA5zKbgM1	 ShortPosIncreased	 3000000000	 2000000000	 11025
+mnZU8ShD6RqaWxoadW5biApSUsCotWf3iF	 LongPosIncreased	 5500000000	 mvwKeC3XbCkZd2cvY1E47kJkiN5oDvcPV9	 OpenShortPosition	 1500000000	 1500000000	 11025
+mnZU8ShD6RqaWxoadW5biApSUsCotWf3iF	 LongPosIncreased	 5700000000	 mn7UTHbdfKURHhKbPWhPawVWQnLXkaorav	 OpenShortPosition	 200000000	 200000000	 11025
+mkJufmk9nuogdCAj3A4nXUcECm5VfgVV7B	 OpenLongPosition	 500000000	 mwgT7iv38ZpFtGpfvkgBC3wrK5VLje4TnM	 OpenShortPosition	 500000000	 500000000	 10996.3
+mwgT7iv38ZpFtGpfvkgBC3wrK5VLje4TnM	 ShortPosIncreased	 5600000000	 mh5QHZuDyyAj1YumjL31MbKQLVZZDS2GVK	 OpenLongPosition	 5100000000	 5100000000	 10995
+mjTEXMCjSaJFke6332vkqXyDZVnfDsrKti	 OpenLongPosition	 3600000000	 n4CPg8grqidVbocE9VZexUmmpkSp65Dfc5	 OpenShortPosition	 3600000000	 3600000000	 10978.5
+mwa8wsMoMXNHKtjDBDietr1S2yzVA8q5Zf	 OpenLongPosition	 3600000000	 n4CPg8grqidVbocE9VZexUmmpkSp65Dfc5	 ShortPosIncreased	 7200000000	 3600000000	 10987.4
+mpFQKiLWtUjQt9cjKppgbQFyx7L2txrkEC	 OpenLongPosition	 2800000000	 n4CPg8grqidVbocE9VZexUmmpkSp65Dfc5	 ShortPosIncreased	 10000000000	 2800000000	 10989.4
+mwgT7iv38ZpFtGpfvkgBC3wrK5VLje4TnM	 ShortPosIncreased	 8700000000	 mnP66PYqGeWsTkiRcGPAjD7rTRmpobiLfg	 OpenLongPosition	 3100000000	 3100000000	 10995
+mwgT7iv38ZpFtGpfvkgBC3wrK5VLje4TnM	 ShortPosIncreased	 9800000000	 mvFZoBAM2XXFuHxKQsffuiMtHvphHnyreq	 OpenLongPosition	 1100000000	 1100000000	 10995
+mn7UTHbdfKURHhKbPWhPawVWQnLXkaorav	 ShortPosIncreased	 4200000000	 mvFZoBAM2XXFuHxKQsffuiMtHvphHnyreq	 LongPosIncreased	 5100000000	 4000000000	 10996.3
+mnS3KFHZBqtchreVFcyncLy3dbUXzATB7t	 OpenShortPosition	 2600000000	 movekYVNS15ATRSpSD44jERAL22KnUvFA4	 OpenLongPosition	 2600000000	 2600000000	 11025.8
+mnS3KFHZBqtchreVFcyncLy3dbUXzATB7t	 ShortPosIncreased	 5100000000	 mkw4ejFPSW2Uq4UBn1oE4uC12G3MFdrLiH	 OpenLongPosition	 2500000000	 2500000000	 11025.8
+mnCJRxLWC1XKHEfQXrYHUxqoaaZ7Womtxa	 OpenShortPosition	 900000000	 mkw4ejFPSW2Uq4UBn1oE4uC12G3MFdrLiH	 LongPosIncreased	 3400000000	 900000000	 11031.7
+n15Gk5aBFk2P1k6krd6tndzogu8QPRq8jr	 ShortPosIncreased	 8800000000	 mkw4ejFPSW2Uq4UBn1oE4uC12G3MFdrLiH	 LongPosIncreased	 4400000000	 1000000000	 11034.9
+mxEaYtTSG5ZDog2yCNgfKpTtHCyDWD15Kb	 OpenShortPosition	 1400000000	 myQgQgJFUqiTXgQAwCT41wyMK7wV6YdTk4	 OpenLongPosition	 1400000000	 1400000000	 11051.6
+mkw4ejFPSW2Uq4UBn1oE4uC12G3MFdrLiH	 LongPosIncreased	 5000000000	 mhKbAdLoDCeFGsgbwqpPtZfgJ4MAZXPwXo	 OpenShortPosition	 600000000	 600000000	 11049.5
+mkw4ejFPSW2Uq4UBn1oE4uC12G3MFdrLiH	 LongPosIncreased	 6900000000	 mrRLbtkhDfFcBicy6TxrSffNjhenC2vuAf	 OpenShortPosition	 1900000000	 1900000000	 11049.5
+mrRLbtkhDfFcBicy6TxrSffNjhenC2vuAf	 ShortPosIncreased	 4600000000	 mqSaY41WRdcLhqMrum57iUZXrHHS2hLyvz	 OpenLongPosition	 2700000000	 2700000000	 11049.2
+mrRLbtkhDfFcBicy6TxrSffNjhenC2vuAf	 ShortPosIncreased	 5000000000	 myeFq6kS5grCPtW8T1sAheMA9Y6enJF4kF	 OpenLongPosition	 400000000	 400000000	 11049.2
+miKVa32b5yJxMQR5ipDXdBwRgisGvb3CFk	 OpenLongPosition	 1400000000	 n1qwhYWjVhpCMyjZikU5jwhJEHLMVHMqgC	 OpenShortPosition	 1400000000	 1400000000	 11036.3
+mvQS8MhHDvxN5c611LiHe3vGaR6og38Wsn	 OpenLongPosition	 3400000000	 n1qwhYWjVhpCMyjZikU5jwhJEHLMVHMqgC	 ShortPosIncreased	 4800000000	 3400000000	 11047
+mxWJ1KW19YoNKWiAY4XN2PpuprdgztqQA2	 OpenLongPosition	 1100000000	 n14kET844ULs3nwQ4K6a6Co1eMbRX1kosi	 OpenShortPosition	 1100000000	 1100000000	 11031.4
+mqp7FH6dxuxnhCGJcG3oa4Ax4Ufw8eY5qC	 OpenLongPosition	 5000000000	 n14kET844ULs3nwQ4K6a6Co1eMbRX1kosi	 ShortPosIncreased	 6100000000	 5000000000	 11031.4
+n4aSQxfVoMyXQW1q7XPLEQbcrQeJHsXqKj	 OpenLongPosition	 4100000000	 mgYUtDwBk8sj4kQpU6CD9iD5HppHtw3vUx	 OpenShortPosition	 4100000000	 4100000000	 10987.5
+mqVk9tJWVUN5qSFmtUZcxASst6hSPm8MmS	 OpenLongPosition	 5100000000	 mtrMKrSh3sF1Kug5SPfybCWmXaHYh6RTga	 OpenShortPosition	 5100000000	 5100000000	 10991.6
+mkBMmp4F2TJCDeQeWUK7T7SSPdWG3Jfs93	 OpenLongPosition	 2600000000	 mtrMKrSh3sF1Kug5SPfybCWmXaHYh6RTga	 ShortPosIncreased	 7700000000	 2600000000	 10992.5
+mgvyyqqY2ewejpQeRifXhdmmyBsiLhsJ24	 OpenLongPosition	 200000000	 mtrMKrSh3sF1Kug5SPfybCWmXaHYh6RTga	 ShortPosIncreased	 7900000000	 200000000	 11007.9
+mgvyyqqY2ewejpQeRifXhdmmyBsiLhsJ24	 LongPosIncreased	 700000000	 mxEGoFAEmxa3uYWpoZr3nVzFeqDbYd7Ewv	 OpenShortPosition	 500000000	 500000000	 11007.9
+mmaTFbbGGEvvdS3AJuRQLbhaPrq5q2iZhf	 OpenLongPosition	 2800000000	 mhhpY6HdH7VuNdYF2sT2k8jVCWTZYp2K2J	 OpenShortPosition	 2800000000	 2800000000	 11015
+mqp7FH6dxuxnhCGJcG3oa4Ax4Ufw8eY5qC	 LongPosIncreased	 6300000000	 mhhpY6HdH7VuNdYF2sT2k8jVCWTZYp2K2J	 ShortPosIncreased	 4100000000	 1300000000	 11031.4
+mvQS8MhHDvxN5c611LiHe3vGaR6og38Wsn	 LongPosIncreased	 3500000000	 mhhpY6HdH7VuNdYF2sT2k8jVCWTZYp2K2J	 ShortPosIncreased	 4200000000	 100000000	 11047
+mvQS8MhHDvxN5c611LiHe3vGaR6og38Wsn	 LongPosIncreased	 5500000000	 n2Tr1CheQ7XpYErfX8Y1JSaZFqHZGs9TWJ	 OpenShortPosition	 2000000000	 2000000000	 11047
+n2Tr1CheQ7XpYErfX8Y1JSaZFqHZGs9TWJ	 ShortPosIncreased	 5400000000	 mgLAdxLh21koRjuZwdpEJyFNmPH4q1783o	 OpenLongPosition	 3400000000	 3400000000	 11014.4
+msuDwkqEpv9hUnxTSRvgvMFcZjMEyBrnUQ	 OpenShortPosition	 2300000000	 mgLAdxLh21koRjuZwdpEJyFNmPH4q1783o	 LongPosIncreased	 5700000000	 2300000000	 11031.9
+msuDwkqEpv9hUnxTSRvgvMFcZjMEyBrnUQ	 ShortPosIncreased	 8800000000	 mucGeyaVrA9Go3z39aNeFPj7hrYoQzXM6x	 OpenLongPosition	 6500000000	 6500000000	 11031.9
+msuDwkqEpv9hUnxTSRvgvMFcZjMEyBrnUQ	 ShortPosIncreased	 9000000000	 my1XLV2vSjjxmyDeLajpYQJD69vqyyd1Tf	 OpenLongPosition	 200000000	 200000000	 11031.9
+mo3NAuzuiSrN3U8GR4pZNFQtGWZLLwCfuE	 OpenShortPosition	 5400000000	 my1XLV2vSjjxmyDeLajpYQJD69vqyyd1Tf	 LongPosIncreased	 5600000000	 5400000000	 11042.2
+mrRLbtkhDfFcBicy6TxrSffNjhenC2vuAf	 ShortPosIncreased	 6800000000	 my1XLV2vSjjxmyDeLajpYQJD69vqyyd1Tf	 LongPosIncreased	 7400000000	 1800000000	 11049.2
+mvHuq4xJiEmCH8spr7mMboBTvsCA3DqJmd	 OpenShortPosition	 400000000	 my1XLV2vSjjxmyDeLajpYQJD69vqyyd1Tf	 LongPosIncreased	 7800000000	 400000000	 11050
+mvHuq4xJiEmCH8spr7mMboBTvsCA3DqJmd	 ShortPosIncreased	 6900000000	 mtSE2wH1sY9AdGjoRMus2p2tcR5heXUjDk	 OpenLongPosition	 6500000000	 6500000000	 11050
+mvHuq4xJiEmCH8spr7mMboBTvsCA3DqJmd	 ShortPosIncreased	 7900000000	 mwMCcrH1ZsiFiPJwAev7p4ZJuN1afBYRAk	 OpenLongPosition	 1000000000	 1000000000	 11050
+mxEaYtTSG5ZDog2yCNgfKpTtHCyDWD15Kb	 ShortPosIncreased	 2700000000	 mwMCcrH1ZsiFiPJwAev7p4ZJuN1afBYRAk	 LongPosIncreased	 2300000000	 1300000000	 11051.6
+n3SUUdotSG4pvryjaQ3H2hxgVh2T8EXs7H	 OpenShortPosition	 2400000000	 mwMCcrH1ZsiFiPJwAev7p4ZJuN1afBYRAk	 LongPosIncreased	 4700000000	 2400000000	 11052.5
+n3SUUdotSG4pvryjaQ3H2hxgVh2T8EXs7H	 ShortPosIncreased	 9600000000	 msF2VotTAiBPmyfrSjaPSm4bTkBc36WyY3	 OpenLongPosition	 7200000000	 7200000000	 11052.5
+mijntjRHTfE47Cp8B7T95NexooYKtHSYLF	 ShortPosIncreased	 7600000000	 msF2VotTAiBPmyfrSjaPSm4bTkBc36WyY3	 LongPosIncreased	 7300000000	 100000000	 11053
+mijntjRHTfE47Cp8B7T95NexooYKtHSYLF	 ShortPosIncreased	 9700000000	 mpFZz4SzMEPmSB5retLJgYMgAG8C98S2Yr	 OpenLongPosition	 2100000000	 2100000000	 11053
+mkttHhu3PuhvAE3ffKaaPXXX5vQEkwwUuJ	 OpenShortPosition	 5400000000	 mpFZz4SzMEPmSB5retLJgYMgAG8C98S2Yr	 LongPosIncreased	 7500000000	 5400000000	 11053
+mkttHhu3PuhvAE3ffKaaPXXX5vQEkwwUuJ	 ShortPosIncreased	 6700000000	 ms2LgNJcXRnaLe3Du1XM5jiAtJhFdcy3di	 OpenLongPosition	 1300000000	 1300000000	 11053
+mkttHhu3PuhvAE3ffKaaPXXX5vQEkwwUuJ	 ShortPosIncreased	 7700000000	 mx8qcugKGk6C3xwQro4B2xYFH7zQC5bm37	 OpenLongPosition	 1000000000	 1000000000	 11053
+mkttHhu3PuhvAE3ffKaaPXXX5vQEkwwUuJ	 ShortPosIncreased	 8800000000	 msM6CmhV6yWN3VLjthA9BBvPCLJDWP92o8	 OpenLongPosition	 1100000000	 1100000000	 11053
+my4XmbYnT4eoC6uTqj6T7p13Xp6LjxAjvh	 OpenShortPosition	 3400000000	 msM6CmhV6yWN3VLjthA9BBvPCLJDWP92o8	 LongPosIncreased	 4500000000	 3400000000	 11057
+mg81bfK3d7KUswPqGSsJsMCRkaxCmbFwqu	 OpenShortPosition	 200000000	 msM6CmhV6yWN3VLjthA9BBvPCLJDWP92o8	 LongPosIncreased	 4700000000	 200000000	 11058.2
+mg81bfK3d7KUswPqGSsJsMCRkaxCmbFwqu	 ShortPosIncreased	 1000000000	 myPUTEk416GzDkfLomFgHEQnj3pwq2NrQu	 OpenLongPosition	 800000000	 800000000	 11058.2
+n1HkTmFv99Upt6jqWSwYayxJGwi2TpnJKt	 OpenShortPosition	 300000000	 myPUTEk416GzDkfLomFgHEQnj3pwq2NrQu	 LongPosIncreased	 1100000000	 300000000	 11059
+n1HkTmFv99Upt6jqWSwYayxJGwi2TpnJKt	 ShortPosIncreased	 5000000000	 mswX6cq37mLK2KKshQZi2JCWzVZPLJRJzg	 OpenLongPosition	 4700000000	 4700000000	 11059
+mtFUgbZvGUwry34j5JyW8b5E7yM17y3EhM	 OpenShortPosition	 300000000	 mswX6cq37mLK2KKshQZi2JCWzVZPLJRJzg	 LongPosIncreased	 5000000000	 300000000	 11068.5
+msoCB6RtUuQVJBVA2hwPsKQeBAgY7evWcR	 OpenShortPosition	 4000000000	 mswX6cq37mLK2KKshQZi2JCWzVZPLJRJzg	 LongPosIncreased	 9000000000	 4000000000	 11078.6
+my3ymWG9G2fNRTK4k3FKHHNw2tv1M6dvhi	 ShortPosIncreased	 6400000000	 mswX6cq37mLK2KKshQZi2JCWzVZPLJRJzg	 LongPosIncreased	 9400000000	 400000000	 11080.9
+my3ymWG9G2fNRTK4k3FKHHNw2tv1M6dvhi	 ShortPosIncreased	 9200000000	 mpKqsofSvxQ9X9ZquwRyyzsCKkHiSUrG35	 OpenLongPosition	 2800000000	 2800000000	 11080.9
+mzV3cqfCjHkrYyKU2VCyRc7skNNzSN9rCC	 OpenShortPosition	 2300000000	 mpKqsofSvxQ9X9ZquwRyyzsCKkHiSUrG35	 LongPosIncreased	 5100000000	 2300000000	 11080.9
+mzV3cqfCjHkrYyKU2VCyRc7skNNzSN9rCC	 ShortPosIncreased	 5400000000	 mnvWPyCzgWdC9BgCmLWje8LdYtqf3ZXkQo	 OpenLongPosition	 3100000000	 3100000000	 11080.9
+n37AYr4QVEyLSYVWPwPvK2zSQsXZF1bVEz	 OpenShortPosition	 5400000000	 mnvWPyCzgWdC9BgCmLWje8LdYtqf3ZXkQo	 LongPosIncreased	 8500000000	 5400000000	 11080.9
+n37AYr4QVEyLSYVWPwPvK2zSQsXZF1bVEz	 ShortPosIncreased	 9900000000	 n1z11SNMHFhanRxtaY4HE94gkjNZJw4JSv	 OpenLongPosition	 4500000000	 4500000000	 11080.9
+n198dsPKQeydwmr9UzzNHENiXAXCKsJFkW	 OpenShortPosition	 100000000	 n1z11SNMHFhanRxtaY4HE94gkjNZJw4JSv	 LongPosIncreased	 4600000000	 100000000	 11081
+n21M8tYrTvYahqnxLwkK2nBGs57BAoBpEP	 OpenShortPosition	 3900000000	 n1z11SNMHFhanRxtaY4HE94gkjNZJw4JSv	 LongPosIncreased	 8500000000	 3900000000	 11085.5
+n21M8tYrTvYahqnxLwkK2nBGs57BAoBpEP	 ShortPosIncreased	 4600000000	 mo5WeGdaqyPYyJpDbn8KwzLaeqsL3ztbc6	 OpenLongPosition	 700000000	 700000000	 11085.5
+n21M8tYrTvYahqnxLwkK2nBGs57BAoBpEP	 ShortPosIncreased	 8800000000	 n24QhdjxrX53ndYnNpSyWJ5uz7GxJw6HkT	 OpenLongPosition	 4200000000	 4200000000	 11085.5
+mpRvL6xHpMSD9gKzqqHaBhepGWb7ZEw3rh	 OpenShortPosition	 1300000000	 n24QhdjxrX53ndYnNpSyWJ5uz7GxJw6HkT	 LongPosIncreased	 5500000000	 1300000000	 11085.9
+mpRvL6xHpMSD9gKzqqHaBhepGWb7ZEw3rh	 ShortPosIncreased	 4300000000	 myNXcMr7ubDJBcpMiqczDeCi21Wgc7NvE8	 OpenLongPosition	 3000000000	 3000000000	 11085.9
+mpRvL6xHpMSD9gKzqqHaBhepGWb7ZEw3rh	 ShortPosIncreased	 9700000000	 mnhhQggy2LhPUkB89R9eyWSbFEyKdicfGT	 OpenLongPosition	 5400000000	 5400000000	 11085.9
+mu2vzPqdVYaHU6CwMBpU7M7JWig2dsXKNH	 OpenShortPosition	 1700000000	 mnhhQggy2LhPUkB89R9eyWSbFEyKdicfGT	 LongPosIncreased	 7100000000	 1700000000	 11089
+mu2vzPqdVYaHU6CwMBpU7M7JWig2dsXKNH	 ShortPosIncreased	 5700000000	 n124iXucNExPhZSPTwDPGr3wGXEwVPcL9W	 OpenLongPosition	 4000000000	 4000000000	 11089
+mu2vzPqdVYaHU6CwMBpU7M7JWig2dsXKNH	 ShortPosIncreased	 8400000000	 mkdsqgxNDba373nBTxTfu7Ch7XUnjeBiG6	 OpenLongPosition	 2700000000	 2700000000	 11089
+n1a9k2HRyhV17eh367gRXGCGBh47cZs2eF	 OpenShortPosition	 2500000000	 mkdsqgxNDba373nBTxTfu7Ch7XUnjeBiG6	 LongPosIncreased	 5200000000	 2500000000	 11089.3
+n1a9k2HRyhV17eh367gRXGCGBh47cZs2eF	 ShortPosIncreased	 3100000000	 morKpQhPav8QixoxzVSrkTXkMpJU5Kdhee	 OpenLongPosition	 600000000	 600000000	 11089.3
+mqxJrF7kTQ2DrC7dCCvRb9RqaMqNcN2ni8	 OpenShortPosition	 1300000000	 morKpQhPav8QixoxzVSrkTXkMpJU5Kdhee	 LongPosIncreased	 1900000000	 1300000000	 11101.7
+mx2UmXCgSLX8AvoRryt1HnNohBFMjHwaqC	 OpenShortPosition	 100000000	 morKpQhPav8QixoxzVSrkTXkMpJU5Kdhee	 LongPosIncreased	 2000000000	 100000000	 11108.5
+mx2UmXCgSLX8AvoRryt1HnNohBFMjHwaqC	 ShortPosIncreased	 6600000000	 n3SGud1apfsERkWhs7tt8sGwrMMQfDyvYT	 OpenLongPosition	 6500000000	 6500000000	 11108.5
+mgXLUQxZ5ttbinfFaJ6SYLDB6U8Ni6Vomn	 OpenShortPosition	 500000000	 n3SGud1apfsERkWhs7tt8sGwrMMQfDyvYT	 LongPosIncreased	 7000000000	 500000000	 11108.5
+mw1E9ki5jEs39GSF6GLtS6UmdxZ8utXoXt	 OpenShortPosition	 1100000000	 n3SGud1apfsERkWhs7tt8sGwrMMQfDyvYT	 LongPosIncreased	 8100000000	 1100000000	 11109
+mw1E9ki5jEs39GSF6GLtS6UmdxZ8utXoXt	 ShortPosIncreased	 2100000000	 mjYyM6N5UXPcWNcaBJdg6DLTcbrAtM63ii	 OpenLongPosition	 1000000000	 1000000000	 11109
+mg1rnbbAvm7gADRhAJPPVSVbfsWa76C589	 OpenShortPosition	 3600000000	 mjYyM6N5UXPcWNcaBJdg6DLTcbrAtM63ii	 LongPosIncreased	 4600000000	 3600000000	 11113.5
+n4MQ5i1uwGnJYL9kteMDd8NuHKeEkSGavm	 OpenLongPosition	 6000000000	 mvr3z9v9kEQVkdqqFHdxRJbe42GWi3Q3fU	 OpenShortPosition	 6000000000	 6000000000	 11098.1
+mnxYYGpHM4s7DXh5fZtvhfRQ7sjzpEfVeP	 OpenLongPosition	 200000000	 mvr3z9v9kEQVkdqqFHdxRJbe42GWi3Q3fU	 ShortPosIncreased	 6200000000	 200000000	 11107.2
+mnxYYGpHM4s7DXh5fZtvhfRQ7sjzpEfVeP	 LongPosIncreased	 3500000000	 mvzTGnMmHXEy8yGc1Q5XcfzwsktrfwmPaJ	 OpenShortPosition	 3300000000	 3300000000	 11107.2
+mg1rnbbAvm7gADRhAJPPVSVbfsWa76C589	 ShortPosIncreased	 5200000000	 mi4Sx8zofwpEcrmJUAnsBJd5FdKjDh6JiL	 OpenLongPosition	 1600000000	 1600000000	 11113.5
+mg1rnbbAvm7gADRhAJPPVSVbfsWa76C589	 ShortPosIncreased	 9700000000	 myJknqNJ5uJVv6XxdcyWKS2vJ4edjQndjC	 OpenLongPosition	 4500000000	 4500000000	 11113.5
+mrs2Atq84gnzr3PcuyiM3N1JwjNauCqxQ2	 OpenShortPosition	 3700000000	 myJknqNJ5uJVv6XxdcyWKS2vJ4edjQndjC	 LongPosIncreased	 8200000000	 3700000000	 11113.5
+mrs2Atq84gnzr3PcuyiM3N1JwjNauCqxQ2	 ShortPosIncreased	 6000000000	 mpTcNXx6HgdkkRGY7Ca6eRf5cVgWj1q6dN	 OpenLongPosition	 2300000000	 2300000000	 11113.5
+miT1Bt3SYzH1JRhWuxu8CA8PZNdFpWSgaS	 OpenShortPosition	 800000000	 mpTcNXx6HgdkkRGY7Ca6eRf5cVgWj1q6dN	 LongPosIncreased	 3100000000	 800000000	 11114.5
+miT1Bt3SYzH1JRhWuxu8CA8PZNdFpWSgaS	 ShortPosIncreased	 3600000000	 mtwdETdev7DtPCHUksyjdYshg5nyKR36Y8	 OpenLongPosition	 2800000000	 2800000000	 11114.5
+mswyoWbejeF8Cu1tqGysyyBpSE5DiTbzNz	 OpenShortPosition	 3200000000	 mtwdETdev7DtPCHUksyjdYshg5nyKR36Y8	 LongPosIncreased	 6000000000	 3200000000	 11116.6
+moQtg5xxKZZypskLxaiKpjs5cZ3VFxMT7J	 OpenShortPosition	 500000000	 mtwdETdev7DtPCHUksyjdYshg5nyKR36Y8	 LongPosIncreased	 6500000000	 500000000	 11129.8
+moQtg5xxKZZypskLxaiKpjs5cZ3VFxMT7J	 ShortPosIncreased	 2400000000	 mxTEgSszyByxdnazG6AxQ1iBWDmBL3jZwi	 OpenLongPosition	 1900000000	 1900000000	 11129.8
+moQtg5xxKZZypskLxaiKpjs5cZ3VFxMT7J	 ShortPosIncreased	 8200000000	 mnakDJbKGpcSZ7jm4vqgxATB435skhYWVK	 OpenLongPosition	 5800000000	 5800000000	 11129.8
+n1EkdYGnPBNkFgBVA9VsbMcPj8toFANEAJ	 OpenShortPosition	 2100000000	 mnakDJbKGpcSZ7jm4vqgxATB435skhYWVK	 LongPosIncreased	 7900000000	 2100000000	 11134.5
