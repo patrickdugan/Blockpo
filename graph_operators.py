@@ -102,6 +102,7 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                         diff_newtrdamount = obj_trk_incr.amount_trd - path_complex_fourh[-1]['amount_trd']
                         print("diff_newtrdamount: ", diff_newtrdamount)
                         M_file, idx_i, path_complex_incrs = clearing_operator(M_file, obj_trk_incr, amount_trd_sum_new, path_complex_incrs, idx_i, i, addrs_trk_incr, obj_trk_incr.amount_trd, idx_long_or_short, diff_newtrdamount, path_complex_fourh[-1]['amount_trd'])
+                        print("---------------------------------------------------------------------")
                     ###################################################################################
                     continue
 
@@ -119,8 +120,9 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                 print("\nOpened contrats: ", amount_trd_begining, " > Sum amounts traded: ", amount_trd_sum, "\n")
                 print("'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", amount_trdw, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
                 print("amount_trdw: ", amount_trdw, "obj_trk.amount_trd: ", obj_trk.amount_trd, "amount_inthepath: ", amount_inthepath)
-                    
-                path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, amount_trdw, i]
+
+                pnl_trk = PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_price, amount_trdw)
+                path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, amount_trdw, i, pnl_trk]
                 path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
 
                 print("(d_amounts > 0) path_complex_ele_two: \n\n", path_complex_ele_two)
@@ -140,7 +142,8 @@ def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, idx_i, 
                 print("\nOpened contrats: ", amount_trd_begining, " = Sum amounts traded: ", amount_trd_sum, "\n")
                 print("'iteration: ", i, " |addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", obj_trk_inloop.amount_trd, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
 
-                path_complex_ele_value_one = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, amount_trdw, i]
+                pnl_trk = PNL_function(obj_trk.matched_price, obj_trk_inloop.matched_price, amount_trdw)
+                path_complex_ele_value_one = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, amount_trdw, i, pnl_trk]
                 path_complex_ele_one = OrderedDict(zip(globales.key_path, path_complex_ele_value_one))
 
                 print("(d_amounts = 0) path_complex_ele_one:\n\n", path_complex_ele_one, "\n")
@@ -317,7 +320,7 @@ def first_single_path(m):
 
     if len(m) == 1:
 
-        single_path_value_begin = [m[0][0], m[0][3], m[0][1], m[0][4], m[0][7], 0, m[0][2], m[0][5], m[0][6], len(m)]
+        single_path_value_begin = [m[0][0], m[0][3], m[0][1], m[0][4], m[0][7], 0, m[0][2], m[0][5], m[0][6], len(m), 0]
         single_path_begin = OrderedDict(zip(globales.key_path, single_path_value_begin))
         single_path.append(single_path_begin)
 
@@ -350,7 +353,8 @@ def long_short_incr_path(traded_pos_incr, obj_trk_inloop, path_complex_two, inde
     for rows in traded_pos_incr:
         print("rows[-1] = ", rows[-1], "index_init = ", index_init)
         if rows[-1] == index_init:
-            path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, rows[1], obj_trk_inloop.matched_price, 0, 0, rows[0], i]
+            pnl_trk = PNL_function(obj_trk_inloop.matched_price, rows[1], rows[0])
+            path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, rows[1], obj_trk_inloop.matched_price, 0, 0, rows[0], i, pnl_trk]
             path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
             path_complex_two.append(path_complex_ele_two)
         else:
@@ -367,12 +371,10 @@ def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file
         if addrs_trk_arg in N_filei:
             if obj_trk_inloop.status_trk in globales.open_incr_long_short:
                 print("\nPosition increase in the row: ", i+1, "\tIteration: ", i)
-                average_incr.append([obj_trk_inloop.addrs_src, obj_trk_inloop.lives_src, obj_trk_inloop.status_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.lives_trk, obj_trk_inloop.status_trk, obj_trk_inloop.amount_trd, obj_trk_inloop.matched_price, i])
-            else:
+                average_incr.append([obj_trk_inloop.addrs_src, obj_trk_inloop.lives_src, obj_trk_inloop.status_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.lives_trk, obj_trk_inloop.status_trk, obj_trk_inloop.amount_trd, obj_trk_inloop.matched_price, i])                
+            elif obj_trk_inloop.status_trk in globales.all_netted_status:
                 break
-        else:
-            continue
-
+            
     for i in range(index_init+1, len(M_file)):
         N_filei = M_file[:][i]
         obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
@@ -408,15 +410,14 @@ def reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr, diff_newtr
     M_file = opening_filetxt("graphInfoSixth.txt")
     for j in range(index_init, 0, -1):
         M_filej = M_file[:][j-1]
-        obj_trk_inloop = status_amounts_open_incr_pos(M_filej, addrs_trk_arg)
+        obj_trk_inloop = status_amounts_inloop_matrix(M_filej, addrs_trk_arg)
         if addrs_trk_arg in M_filej:
             if obj_trk_inloop.status_trk in globales.open_incr_long_short:
+                print("\nPosition increase in the row: ", j, "\tIteration: ", j-1)
                 row_path = [obj_trk_inloop.addrs_src, obj_trk_inloop.lives_src, obj_trk_inloop.status_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.lives_trk, obj_trk_inloop.status_trk, obj_trk_inloop.amount_trd, obj_trk_inloop.matched_price, j-1]
                 average_incr.insert(0, row_path)
-            else:
+            elif obj_trk_inloop.status_trk in globales.all_netted_status:
                 break
-        else:
-            continue
 
     return average_incr
 

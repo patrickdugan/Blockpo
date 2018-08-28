@@ -63,24 +63,27 @@ for j in range(len(N_file)):
     ###################################################################################
     # If an Edge can be a source: "clearing_operator" look for all netted events in the path #
     path_complex_main = []
+    counting = 0 
     if bool_track_long and bool_track_short:
 
+        counting +=1
         print("###################################################################################\n")
         # When we found the last Edge which means "len(N_file) = 1" . The clearing algo Finish #
         idx_i = [0]
         print("N_file:\n\n", np.array(N_file), "\n\nLength N_file: ", len(N_file), "\n")
 
-        print("\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n")
+        print("\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "| Row: ", j, "\n")
         print("Row where were opened the contracts:", j, "!!")
         N_file, idx_i, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, idx_i, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, obj_long_trk.amount_trd)
         
         print("\n*********************************************************************\n")
-        print("(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n")
+        print("(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "| Row: ", j, "\n")
         N_file, idx_i, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd)
 
         ###################################################################################
         # Joining all the single paths in just one" #
-        single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.matched_price, 0, 0, obj_long_trk.amount_trd, j]
+        pnl_trk = PNL_function(obj_long_trk.matched_price, obj_long_trk.matched_price, obj_long_trk.amount_trd)
+        single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.matched_price, 0, 0, obj_long_trk.amount_trd, j, pnl_trk]
         single_path_value_ele = OrderedDict(zip(globales.key_path, single_path_value))
         path_complex_main = append_fromlist_tolist(path_complex_two_long, path_complex_main)
         path_complex_main = append_fromlist_tolist(path_complex_two_short, path_complex_main)
