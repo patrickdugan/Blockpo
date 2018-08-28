@@ -279,16 +279,13 @@ def append_fromlist_tolist(path_complex_two_long, path_complex_two):
 
     return path_complex_two
 
-
 def PNL_function(entry_price, exit_price, amount_closed):
 
     return amount_closed*(1/float(entry_price)-1/float(exit_price))
 
-
 def column(matrix, i):
 
     return [row[i] for row in matrix]
-
 
 def negative_for_short(m):
 
@@ -302,7 +299,6 @@ def negative_for_short(m):
             if "Short" in str(row[1]):
                 row[2] = -row[2]
     return m
-
 
 def id_newrow(idx_k, idx_i):
 
@@ -353,7 +349,7 @@ def long_short_incr_path(traded_pos_incr, obj_trk_inloop, path_complex_two, inde
     for rows in traded_pos_incr:
         print("rows[-1] = ", rows[-1], "index_init = ", index_init)
         if rows[-1] == index_init:
-            pnl_trk = PNL_function(obj_trk_inloop.matched_price, rows[1], rows[0])
+            pnl_trk = PNL_function(rows[1], obj_trk_inloop.matched_price, rows[0])
             path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, rows[1], obj_trk_inloop.matched_price, 0, 0, rows[0], i, pnl_trk]
             path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
             path_complex_two.append(path_complex_ele_two)
