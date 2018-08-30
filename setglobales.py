@@ -5,7 +5,7 @@ import globales
 
 def stuff():
 
-    globales.key_path = ['addrs_src', 'addrs_trk', 'status_src', 'status_trk', 'entry_price', 'exit_price', 'lives_src', 'lives_trk', 'amount_trd', 'edge_row', 'pnl_trk']
+    globales.key_path = ['addrs_src', 'addrs_trk', 'status_src', 'status_trk', 'entry_price', 'exit_price', 'lives_src', 'lives_trk', 'amount_trd', 'edge_row']
     globales.key_path_new = ['addrs_src', 'addrs_trk', 'status_src', 'status_trk', 'entry_price', 'amount_trd', 'Status']
     globales.netted_status_long = ["LongPosNetted", "LongPosNettedPartly"]
     globales.netted_status_short = ["ShortPosNetted", "ShortPosNettedPartly"]
