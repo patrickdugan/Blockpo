@@ -56,7 +56,7 @@ using std::runtime_error;
 using namespace mastercore;
 
 extern volatile uint64_t marketP [10];
-
+extern volatile int64_t twap;
 /**
  * Throws a JSONRPCError, depending on error code.
  */
@@ -1109,6 +1109,32 @@ UniValue omni_getmarketprice(const UniValue& params, bool fHelp)
 
 }
 
+UniValue omni_gettwap(const UniValue& params, bool fHelp)
+{
+    if (fHelp)
+        throw runtime_error(
+            "omni_getTwap \" \n"
+            "\nReturns the Time averaged weight price of the future contract tested.\n"
+            "\nArguments:\n"
+            "1. contractid           (number, required) the future contract identifier\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"twap\" : \"n.nnnnnnnn\",   (number)  \n"
+            "}\n"
+            "\nExamples:\n"
+            + HelpExampleCli("omni_getTwap", "\"\" ")
+            + HelpExampleRpc("omni_getTwap", "\"\" ")
+        );
+
+        UniValue balanceObj(UniValue::VOBJ);
+        balanceObj.push_back(Pair("twap:", FormatMP(1,twap)));
+
+        return balanceObj;
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 UniValue omni_getallbalancesforid(const UniValue& params, bool fHelp)
 {
@@ -2688,6 +2714,7 @@ static const CRPCCommand commands[] =
     { "omni layer (data retrieval)", "omni_getposition",               &omni_getposition,                false },
     { "omni layer (data retrieval)", "omni_getcontract_balance",       &omni_getcontract_balance,        false },
     { "omni layer (data retrieval)", "omni_getmarketprice",            &omni_getmarketprice,             false },
+    { "omni layer (data retrieval)" ,"omni_gettwap",                   &omni_gettwap,                    false },
     ///////////////////////////////////////////////
     { "omni layer (data retrieval)", "omni_gettrade",                  &omni_gettrade,                   false },
     { "omni layer (data retrieval)", "omni_getsto",                    &omni_getsto,                     false },

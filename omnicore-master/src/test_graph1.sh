@@ -1,10 +1,10 @@
 rm graphInfo*
 
 NUL=/dev/null
-DATADIR=/home/lihki/.bitcoin
+DATADIR=/home/daniel/.bitcoin
 printf "\n//////////////////////////////////////////\n"
 printf "Cleaning the regtest folder\n"
-rm -r ~/.bitcoin/regtest
+rm -r /home/daniel/.bitcoin/regtest
 
 printf "\n________________________________________\n"
 printf "Preparing a test environment...\n"
@@ -131,9 +131,8 @@ printf "Setting the first price of market:\n"
 ./omnicore-cli -datadir=$DATADIR --regtest generate 1
 
 
-TRATradeBuy=()
-for (( j=1; i<=3; j++ ))
-do
+for (( j=1; j<=3; j++ ))
+do 
    for (( i=1; i<=${N}; i++ ))
    do      
            printf "Market Price of contract now:\n"
@@ -142,24 +141,50 @@ do
            PRIC=${PRIC%.*}
 	   PRIC=${PRIC#\"}
            printf $PRIC
+           TRA1=$(./omnicore-cli -datadir=$DATADIR --regtest omni_gettwap)
+           TWAP=`echo "$TRA1" | jq '.['"$twap"']'`
+           TWAP=${TWAP%.*}
+           TWAP=${TWAP#\"}
+           printf "Twap now:\n"
+           printf $TWAP
+           if [ $TWAP -eq 0 ]
+           then
+               TWAP=6800
+           fi
            echo "${i},${PRIC}" >> prices.csv
+           echo "${i},${TWAP}" >> twap.csv
 	   printf "\n////////////////////////////////////////\n"
 	   printf "Amount for sale Buyer #$i\n"	
 	   AMOUNT=$[ ( $RANDOM % 100 ) + 1 ]
            printf "Random Amount:\n" 
 	   printf $AMOUNT
-	   ACTION=$[ ( $RANDOM % 2 ) + 1 ]
-           printf "Random Action:\n" 
-           printf $ACTION
            SIGN=$[ ( $RANDOM % 2 ) + 1 ]
            printf "Random SIGN:\n" 
            printf $SIGN
            DELTA=1 # tick is 1.
-           if [[ $SIGN -eq 1 ]]
+           ACTION=$[ ($RANDOM % 2) + 1]
+           if [ $SIGN -eq 1 ] && [ $j -lt 3 ] 
            then
+              printf "first or second loop, + delta"
               PRICE=$[ ( $PRIC + $DELTA ) ]
-           else
+           elif [ $SIGN -eq 2 ] && [ $j -lt 3 ]
+           then
+              printf "first or second loop, - delta"
               PRICE=$[ ( $PRIC - $DELTA ) ]
+           fi
+           if [ $j -eq 3 ]
+            then
+             OPTION=$[ ( $RANDOM % 4 ) + 1 ]
+             printf "third loop"
+             printf $OPTION
+             printf "\n"
+             if [ $OPTION -eq 1 ]
+              then
+                 printf "OPTION EQUAL TO 1"
+                 PRICE=$[ ( $PRIC + $DELTA ) ]
+             else
+                  PRICE=$[ ( $PRIC - $DELTA*2 ) ]
+             fi
            fi
 	   printf $PRICE
 	   #printf "\n________________________________________\n"
@@ -168,7 +193,6 @@ do
            #TRATradeBuy[$i]=$(
            ./omnicore-cli -datadir=$DATADIR --regtest omni_tradecontract ${ADDRess[$i]} ${CONTRACT} ${AMOUNT} 1 1 ${PRICE} ${ACTION}
 	   ./omnicore-cli -datadir=$DATADIR --regtest generate 1
-
 	   #printf "\n________________________________________\n"
 	   #printf "Checking confirmation of transaction Buying #$i: confirmation = 1 and valid = true\n"
 	   #./omnicore-cli -datadir=$DATADIR --regtest omni_gettransaction ${TRATradeBuy[$i]}

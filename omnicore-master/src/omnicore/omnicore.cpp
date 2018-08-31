@@ -94,6 +94,10 @@ using std::pair;
 using std::string;
 using std::vector;
 
+extern std::vector<int64_t> prices;
+extern int64_t twap;
+extern int64_t avg;
+extern volatile uint64_t marketP[10];
 using namespace mastercore;
 
 CCriticalSection cs_tally;
@@ -4297,7 +4301,7 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
 
 /////////////////////////////////
 /** New things for Contract */
-void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amount_maker, uint64_t amount_taker, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew, int64_t nCouldBuy, int64_t lives_s0, int64_t lives_s1, int64_t lives_s2, int64_t lives_s3, int64_t lives_b0, int64_t lives_b1, int64_t lives_b2, int64_t lives_b3, string Status_maker1, string Status_taker1, string Status_maker2, string Status_taker2, string Status_maker3, string Status_taker3, int64_t nCouldBuy0, int64_t nCouldBuy1, int64_t nCouldBuy2, int64_t nCouldBuy3)
+void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amount_maker, uint64_t amount_taker, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew, int64_t nCouldBuy, int64_t lives_s0, int64_t lives_s1, int64_t lives_s2, int64_t lives_s3, int64_t lives_b0, int64_t lives_b1, int64_t lives_b2, int64_t lives_b3, string Status_maker1, string Status_taker1, string Status_maker2, string Status_taker2, string Status_maker3, string Status_taker3, int64_t nCouldBuy0, int64_t nCouldBuy1, int64_t nCouldBuy2, int64_t nCouldBuy3, int64_t blockTime)
 {
     if (!pdb) return;
 
@@ -4332,7 +4336,14 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     bool status_bool1 = s_status1 == "OpenShortPosByLongPosNetted" || s_status1 == "OpenLongPosByShortPosNetted";
     bool status_bool2 = s_status2 == "OpenShortPosByLongPosNetted" || s_status2 == "OpenLongPosByShortPosNetted";
 
+    const string lineOutSeven = strprintf("%s\t %s\t %d\t %s\t %s\t %d\t %d\t %d %d\t ", address1, s_status1, lives_maker, address2, s_status2, lives_taker, FormatContractMP(nCouldBuy), FormatContractShortMP(effective_price), blockTime);
     ///////////////////////////////////////////////////
+
+    std::fstream fileSeven;
+    fileSeven.open ("allmatches.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+    saveDataGraphs(fileSeven, lineOutSeven);
+    fileSeven.close();
+
 
     std::fstream fileSixth;
     fileSixth.open ("graphInfoSixth.txt", std::fstream::in | std::fstream::out | std::fstream::app);
@@ -4496,6 +4507,34 @@ void CMPTradeList::printAll()
   }
 
   delete it;
+}
+
+void mastercore::GetTwap(int64_t marketPrice, int blockHeight, int index)
+{
+  double sum = 0;
+  int64_t factor = 100000000;
+  PrintToConsole("blockheight: %d,blockHeight\n");
+  prices.push_back(marketPrice);
+  if (blockHeight % 10 == 0) { // each 3 blocks
+      PrintToConsole("choosen block: %d\n",blockHeight);
+      for(std::vector<int64_t>::iterator it = prices.begin(); it != prices.end(); ++it){
+          sum += (*it ) ;
+      }
+      avg = static_cast<int64_t>( sum / prices.size() );
+      double avgr = static_cast<double> ( sum / factor*prices.size()) ;
+      const string lineOut = strprintf("avg each 3 blocks :%d | twap : %d", avg, twap); 
+      sum = 0;
+      prices.clear();
+      //std::fstream file;
+      //file.open ("twap.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+      //saveDataGraphs(file, lineOut);
+      //file.close();
+  }
+  if (avg == 0) {
+      twap = 6800;
+  } else {
+      twap = (avg + marketP[index]) / 2;
+  }
 }
 
 // global wrapper, block numbers are inclusive, if ending_block is 0 top of the chain will be used
