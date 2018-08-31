@@ -131,6 +131,7 @@ class status_for_contracts_stillopened:
             self.lives_src = int(v[2])
 
         self.amount_trd = int(v[6])
+        self.matched_price = int(v[7])
 
 class status_amounts_inthepath:
 

@@ -2,6 +2,13 @@
 
 import globales
 
+def opening_filetxt(namefile):
+
+	with open(namefile, "r") as file:
+		M_file = [[int(digit) if digit.isdigit()
+				   else digit for digit in line.split()] for line in file]
+
+	return M_file
 
 def stuff():
 
@@ -14,3 +21,5 @@ def stuff():
     globales.open_incr_long_short = ["OpenLongPosition", "LongPosIncreased", "OpenShortPosition", "ShortPosIncreased"]
     globales.all_netted_status = ["LongPosNetted", "LongPosNettedPartly", "ShortPosNetted", "ShortPosNettedPartly"]
     globales.incr_positions = ["LongPosIncreased", "ShortPosIncreased"]
+    globales.addresses_vector = opening_filetxt("graphInfoAddresses.txt")
+    globales.database_matrix = opening_filetxt("graphInfoSixth.txt")

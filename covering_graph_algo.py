@@ -23,7 +23,7 @@ setglobales.stuff()
 
 print("\n------------------------------------------------------\n")
 
-M_file = opening_filetxt("graphInfoSixth.txt")
+M_file = globales.database_matrix
 
 M_file = negative_for_short(M_file)
 print("\n\nNegative or Positive signs for Short or Longs respectively:\n\n", np.array(M_file))

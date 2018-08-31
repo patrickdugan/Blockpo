@@ -278,10 +278,17 @@ def append_fromlist_tolist(path_complex_two_long, path_complex_two):
 	return path_complex_two
 
 
-def PNL_function(entry_price, exit_price, amount_closed):
+def PNL_function(entry_price, exit_price, amount_closed, obj_addressj):
 
-	return amount_closed*(1/float(entry_price)-1/float(exit_price))
+	PNL = 0
 
+	if 'Long' in obj_addressj.status_trk:
+		PNL = amount_closed*(1/float(entry_price)-1/float(exit_price))
+
+	elif 'Short' in obj_addressj.status_trk:
+		PNL = amount_closed*(1/float(exit_price)-1/float(entry_price))
+
+	return PNL
 
 def column(matrix, i):
 
@@ -406,9 +413,8 @@ def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file
 
 def reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr, diff_newtrdamount):
 
-	M_file = opening_filetxt("graphInfoSixth.txt")
 	for j in range(index_init, 0, -1):
-		M_filej = M_file[:][j-1]
+		M_filej = globales.database_matrix[:][j-1]
 		obj_trk_inloop = status_amounts_open_incr_pos(M_filej, addrs_trk_arg)
 		if addrs_trk_arg in M_filej:
 			if obj_trk_inloop.status_trk in globales.open_incr_long_short:
@@ -432,12 +438,9 @@ def boolean_for_netted_status(obj_trk_inloop):
 
 def livecontracts_byaddress(addrs_trk_arg, index_init, opened_init, numberof_lives_contracts_byaddress):
 
-	K_file = opening_filetxt("graphInfoSixth.txt")
-	numberof_lives_contracts_byaddress = tracking_lastlive_byaddrs(
-		K_file, index_init, opened_init, addrs_trk_arg, numberof_lives_contracts_byaddress)
+	numberof_lives_contracts_byaddress = tracking_lastlive_byaddrs(globales.database_matrix, index_init, opened_init, addrs_trk_arg, numberof_lives_contracts_byaddress)
 
 	return numberof_lives_contracts_byaddress
-
 
 def tracking_lastlive_byaddrs(K_file, index_init, opened_init, addrs_trk_arg, numberof_lives_contracts_byaddress):
 
@@ -456,16 +459,6 @@ def tracking_lastlive_byaddrs(K_file, index_init, opened_init, addrs_trk_arg, nu
 				break
 
 	return numberof_lives_contracts_byaddress
-
-
-def opening_filetxt(namefile):
-
-	with open(namefile, "r") as file:
-		M_file = [[int(digit) if digit.isdigit()
-				   else digit for digit in line.split()] for line in file]
-
-	return M_file
-
 
 def suming_opened_contracts(path_complex_two_matrix, sum_opened_sett):
 
@@ -533,10 +526,8 @@ def total_pnl(path_complex_two_matrix):
 		for elem in row :
 			matchMatrix.append(elem)
 
-	address = opening_filetxt("graphInfoAddresses.txt")
-
 	pnl_total = 0
-	for trackAddress in address:
+	for trackAddress in globales.addresses_vector:
 
 		pnl = 0
 		items = [item for item in matchMatrix if item["addrs_trk"] == trackAddress[0]]
@@ -648,5 +639,41 @@ def checking_pathcontaining_livesnonzero(path_complex_main):
 
 		if sum_oflives != 0:
 			print("This path has ", sum_oflives, " lives contracts !!", "Edge source: ", path_complex_main[0]['edge_row'])
+			calculate_pnltrk_bypath(path_complex_main)
 		else:
 			print("This path does not have lives contracts!!", "Edge source: ", path_complex_main[0]['edge_row'])
+
+def listof_addresses_bypath(path_complex_main):
+
+	list_address_inthepath = []
+	for row in path_complex_main:
+		if row['addrs_src'] not in list_address_inthepath:
+			list_address_inthepath.append(row['addrs_src'])
+		if row['addrs_trk'] not in list_address_inthepath:
+			list_address_inthepath.append(row['addrs_trk'])
+
+	return list_address_inthepath
+
+def calculate_pnltrk_bypath(path_complex_main):
+
+	list_address_inthepath = listof_addresses_bypath(path_complex_main)
+	print("\nlist_address_inthepath: ", list_address_inthepath)	
+	
+	for j in range(len(list_address_inthepath)):
+		
+		addressj = list_address_inthepath[j]
+		addressj_pnlinthepathv = []
+
+		for row in path_complex_main:
+			if addressj == row['addrs_trk']:
+				obj_addressj = status_for_contracts_stillopened(globales.database_matrix[:][row['edge_row']], addressj)
+				print('\nAddress for PNL in the path!!: ', addressj, ' status: ', obj_addressj.status_trk, '\nentry price = ', row['entry_price'], ' exit price = ', row['exit_price'], ' amount_trd = ', row['amount_trd'], ' edge_row = ', row['edge_row'])
+				addressj_pnlinthepathv.append(addressj)
+				PNL_trk = PNL_function(row['entry_price'], row['exit_price'], row['amount_trd'], obj_addressj)
+				print('PNL_trk for: ', addressj, " = ", PNL_trk)
+
+		for row in path_complex_main:
+			if addressj == row['addrs_src'] and row['addrs_src'] not in addressj_pnlinthepathv:
+				obj_addressj = status_for_contracts_stillopened(globales.database_matrix[:][row['edge_row']], addressj)
+				if "Netted" not in obj_addressj.status_trk:
+					print('\nAddress for PNL in the settlement!!: ', addressj, ' status: ', obj_addressj.status_trk, '\nRow = ', row, '\namount_trd = ', obj_addressj.amount_trd, 'entry_price = ', obj_addressj.matched_price)
