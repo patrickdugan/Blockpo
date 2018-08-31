@@ -269,7 +269,7 @@ public:
 
     /////////////////////////////////
     /** New things for Contract */
-    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amount_maker, uint64_t amount_taker, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew, int64_t nCouldBuy, int64_t lives_s0, int64_t lives_s1, int64_t lives_s2, int64_t lives_s3, int64_t lives_b0, int64_t lives_b1, int64_t lives_b2, int64_t lives_b3, string Status_maker1, string Status_taker1, string Status_maker2, string Status_taker2, string Status_maker3, string Status_taker3, int64_t nCouldBuy0, int64_t nCouldBuy1, int64_t nCouldBuy2, int64_t nCouldBuy3);
+    void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, uint64_t effective_price, uint64_t amount_maker, uint64_t amount_taker, int blockNum1, int blockNum2, string s_status1, string s_status2, int64_t lives_maker, int64_t lives_taker, uint32_t property_traded, string tradeStatus, uint64_t pricepold, uint64_t pricepnew, int64_t nCouldBuy, int64_t lives_s0, int64_t lives_s1, int64_t lives_s2, int64_t lives_s3, int64_t lives_b0, int64_t lives_b1, int64_t lives_b2, int64_t lives_b3, string Status_maker1, string Status_taker1, string Status_maker2, string Status_taker2, string Status_maker3, string Status_taker3, int64_t nCouldBuy0, int64_t nCouldBuy1, int64_t nCouldBuy2, int64_t nCouldBuy3, int64_t blockTime);
     // void recordMatchedTrade(const uint256 txid1, const uint256 txid2, string address1, string address2, unsigned int prop1, unsigned int prop2, uint64_t amount1, uint64_t amount2, int blockNum, int64_t fee, string t_status, std::vector<uint256> &vecTxid);
     /////////////////////////////////
 
@@ -396,6 +396,7 @@ int mastercore_save_state( CBlockIndex const *pBlockIndex );
 
 namespace mastercore
 {
+  void GetTwap(int64_t marketPrice, int blockHeight, int index);
   extern std::unordered_map<std::string, CMPTally> mp_tally_map;
   /////////////////////////////////////////
   /*New property type No 3 Contract*/

@@ -45,6 +45,7 @@ extern uint32_t marginRequirementContract;
 extern uint32_t collateralCurrency;
 extern volatile uint64_t marketPrice;
 extern volatile uint64_t marketP[10];
+int64_t count = 0;
 ///////////////////////////////
 
 //! Number of digits of unit price
@@ -1281,7 +1282,7 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
             PrintToConsole("SMaker2: %s | lives_maker2: %d | STaker2: %s | lives_taker2: %d | nCouldBuy2: %d\n", Status_maker2, lives_maker2, Status_taker2, lives_taker2, nCouldBuy2);
             PrintToConsole("SMaker3: %s | lives_maker3: %d | STaker3: %s | lives_taker3: %d | nCouldBuy3: %d\n", Status_maker3, lives_maker3, Status_taker3, lives_taker3, nCouldBuy3);            
             ///////////////////////////////////////////////////
-
+            count++;
             t_tradelistdb->recordMatchedTrade(pold->getHash(),
                                               pnew->getHash(),
                                               pold->getAddr(),
@@ -1317,11 +1318,13 @@ MatchReturnType x_Trade(CMPContractDex* const pnew)
                                               nCouldBuy0,
                                               nCouldBuy1,
                                               nCouldBuy2, 
-                                              nCouldBuy3);
+                                              nCouldBuy3,
+                                              count); // needed to order in time the matches
             ///////////////////////////////////////
             marketPrice = pold->getEffectivePrice();
             int index = static_cast<int>(property_traded);
             marketP[index] = marketPrice;
+            GetTwap(marketPrice, pnew->getBlock(), index);
             // PrintToConsole("marketPrice: %d\n", FormatContractShortMP(marketPrice));
 
             t_tradelistdb->marginLogic(property_traded); //checking margin

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string>
-
+#include <vector>
 using namespace std;
 
 volatile uint64_t marketPrice;
@@ -10,3 +10,6 @@ uint32_t collateralCurrency;
 uint32_t marginRequirementContract;
 double percentLiqPrice;
 volatile uint64_t marketP[10]; // using a simple array to get market prices
+vector<int64_t> prices;
+volatile int64_t twap;
+volatile int64_t avg;

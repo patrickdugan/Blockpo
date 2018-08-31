@@ -207,6 +207,13 @@ namespace mastercore
 	{
         bool operator()(const CMPContractDex &lhs, const CMPContractDex &rhs) const;
 	};
+       
+
+        struct orders
+        {
+          int64_t price;
+          int64_t amount;
+        };
 
 	typedef std::set<CMPContractDex, ContractDex_compare> cd_Set;
 	typedef std::map<uint64_t, cd_Set> cd_PricesMap;
