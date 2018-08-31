@@ -627,7 +627,9 @@ def warning_ifthereisno_zeronetted(path_complex_main, contracts_opened, contract
 		if abs(float("{0:.1f}".format((2*contracts_opened - contracts_closed)-contracts_lives))) != 0:
 			k += 1
 			print(k, ": Warning!! There is no zero netted event in the path")
+		print('\n...........................................................')
 		print("\nPath:\n", np.array(path_complex_main), "\n")
+		print('...........................................................\n')
 
 def checking_pathcontaining_livesnonzero(path_complex_main):
 
@@ -657,23 +659,27 @@ def listof_addresses_bypath(path_complex_main):
 def calculate_pnltrk_bypath(path_complex_main):
 
 	list_address_inthepath = listof_addresses_bypath(path_complex_main)
-	print("\nlist_address_inthepath: ", list_address_inthepath)	
-	
+	total_pnl_zerolives = 0	
 	for j in range(len(list_address_inthepath)):
 		
 		addressj = list_address_inthepath[j]
 		addressj_pnlinthepathv = []
 
+		# Here is calculated the PNL when an exit price exists #
 		for row in path_complex_main:
 			if addressj == row['addrs_trk']:
 				obj_addressj = status_for_contracts_stillopened(globales.database_matrix[:][row['edge_row']], addressj)
 				print('\nAddress for PNL in the path!!: ', addressj, ' status: ', obj_addressj.status_trk, '\nentry price = ', row['entry_price'], ' exit price = ', row['exit_price'], ' amount_trd = ', row['amount_trd'], ' edge_row = ', row['edge_row'])
 				addressj_pnlinthepathv.append(addressj)
 				PNL_trk = PNL_function(row['entry_price'], row['exit_price'], row['amount_trd'], obj_addressj)
+				total_pnl_zerolives += PNL_trk
 				print('PNL_trk for: ', addressj, " = ", PNL_trk)
 
+		# Here are counted the addresses with lives contracts #
 		for row in path_complex_main:
 			if addressj == row['addrs_src'] and row['addrs_src'] not in addressj_pnlinthepathv:
 				obj_addressj = status_for_contracts_stillopened(globales.database_matrix[:][row['edge_row']], addressj)
 				if "Netted" not in obj_addressj.status_trk:
 					print('\nAddress for PNL in the settlement!!: ', addressj, ' status: ', obj_addressj.status_trk, '\nRow = ', row, '\namount_trd = ', obj_addressj.amount_trd, 'entry_price = ', obj_addressj.matched_price)
+
+	print('\nThis path has PNL = ', total_pnl_zerolives)
