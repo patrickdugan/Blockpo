@@ -853,15 +853,15 @@ PNL_trk for:  n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8  =  23.81343498581226
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mgjNojkGivMuVxBxsFTRAfSaDDDpEgNwoN'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6800), ('exit_price', 6796), ('lives_src', 2300000000.0), ('lives_trk', 0), ('amount_trd', 2300000000.0), ('edge_row', 68)]) 
-amount_trd =  2300000000 entry_price =  6796
+amount_trd =  2300000000.0 entry_price =  6796
 
 Address for PNL in the settlement!!:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb'), ('addrs_trk', 'mgjNojkGivMuVxBxsFTRAfSaDDDpEgNwoN'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6800), ('exit_price', 6796), ('lives_src', 200000000.0), ('lives_trk', 0), ('amount_trd', 200000000.0), ('edge_row', 69)]) 
-amount_trd =  200000000 entry_price =  6796
+amount_trd =  200000000.0 entry_price =  6796
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mgjNojkGivMuVxBxsFTRAfSaDDDpEgNwoN'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6800), ('exit_price', 6794), ('lives_src', 200000000.0), ('lives_trk', 6200000000.0), ('amount_trd', 200000000.0), ('edge_row', 180)]) 
-amount_trd =  200000000 entry_price =  6794
+amount_trd =  200000000.0 entry_price =  6794
 
 Address for PNL in the path!!:  mnxK7Az7Uu1UfJVB3knezZCccRFWfuKaBr  status:  ShortPosNettedPartly 
 entry price =  6797  exit price =  6798  amount_trd =  124137931.03448276  edge_row =  129
@@ -873,15 +873,17 @@ PNL_trk for:  mnxK7Az7Uu1UfJVB3knezZCccRFWfuKaBr  =  -3.8060435036427935
 
 Address for PNL in the settlement!!:  mzXekvVWRAKsDQTqFgueGDdN4xU8qBnGJR  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mzXekvVWRAKsDQTqFgueGDdN4xU8qBnGJR'), ('addrs_trk', 'mnBNU2qJeXh2EDpn7onuEpsJwskbNjL86c'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6800), ('exit_price', 6797), ('lives_src', 2600000000.0), ('lives_trk', 0), ('amount_trd', 2600000000.0), ('edge_row', 71)]) 
-amount_trd =  2600000000 entry_price =  6797
+amount_trd =  2600000000.0 entry_price =  6797
 
 Address for PNL in the settlement!!:  msJmk6FFfnpD2fwdXLrwUU4QFBXr5HmPFa  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'msJmk6FFfnpD2fwdXLrwUU4QFBXr5HmPFa'), ('addrs_trk', 'mnBNU2qJeXh2EDpn7onuEpsJwskbNjL86c'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6800), ('exit_price', 6795), ('lives_src', 2300000000.0), ('lives_trk', 0), ('amount_trd', 2300000000.0), ('edge_row', 182)]) 
-amount_trd =  2300000000 entry_price =  6795
+amount_trd =  2300000000.0 entry_price =  6795
 
 Address for PNL in the settlement!!:  mobiVuCuRhwG9haTvbsm6WLFjvuuHQhCYM  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mobiVuCuRhwG9haTvbsm6WLFjvuuHQhCYM'), ('addrs_trk', 'mnxK7Az7Uu1UfJVB3knezZCccRFWfuKaBr'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6798), ('lives_src', 124137931.03), ('lives_trk', 0), ('amount_trd', 124137931.03448276), ('edge_row', 129)]) 
-amount_trd =  1200000000 entry_price =  6798
+amount_trd =  124137931.03448276 entry_price =  6798
+
+Exit price in this path =  6796.408012003524
 
 This path has PNL =  311.6414736186639
 ###################################################################################
@@ -1115,7 +1117,9 @@ PNL_trk for:  mpGU8KisWScxkMB8d1QnkUVT3TWF61Tte5  =  -19.477988185255686
 
 Address for PNL in the settlement!!:  mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D'), ('addrs_trk', 'mpGU8KisWScxkMB8d1QnkUVT3TWF61Tte5'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6799), ('exit_price', 6796), ('lives_src', 300000000.0), ('lives_trk', 300000000.0), ('amount_trd', 300000000.0), ('edge_row', 183)]) 
-amount_trd =  1900000000 entry_price =  6796
+amount_trd =  300000000.0 entry_price =  6796
+
+Exit price in this path =  6795.999999891764
 
 This path has PNL =  32.47095768946164
 ###################################################################################
@@ -1453,11 +1457,13 @@ PNL_trk for:  mkb7FHqgqUvD7rAQBQGxXaDkzZLQDaL8Dv  =  -2.1642208157968827
 
 Address for PNL in the settlement!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob'), ('addrs_trk', 'mkb7FHqgqUvD7rAQBQGxXaDkzZLQDaL8Dv'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6798), ('exit_price', 6797), ('lives_src', 100000000.0), ('lives_trk', 0.0), ('amount_trd', 100000000.0), ('edge_row', 125)]) 
-amount_trd =  100000000 entry_price =  6797
+amount_trd =  100000000.0 entry_price =  6797
 
 Address for PNL in the settlement!!:  muHxFvpDPSKG6dDVRahniX2WMSDFTdDwyU  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'muHxFvpDPSKG6dDVRahniX2WMSDFTdDwyU'), ('addrs_trk', 'mtxJsKdPhbScW4g7TQ8oHGZCjfpq8KYgzK'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6795), ('lives_src', 8333333.33), ('lives_trk', 0), ('amount_trd', 8333333.333333333), ('edge_row', 93)]) 
-amount_trd =  300000000 entry_price =  6795
+amount_trd =  8333333.333333333 entry_price =  6795
+
+Exit price in this path =  6797.181818134578
 
 This path has PNL =  4.33035264335059
 ###################################################################################
@@ -1845,11 +1851,13 @@ PNL_trk for:  mpGU8KisWScxkMB8d1QnkUVT3TWF61Tte5  =  -103.882603654697
 
 Address for PNL in the settlement!!:  mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D'), ('addrs_trk', 'mpGU8KisWScxkMB8d1QnkUVT3TWF61Tte5'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6799), ('exit_price', 6796), ('lives_src', 1600000000.0), ('lives_trk', 1600000000.0), ('amount_trd', 1600000000.0), ('edge_row', 183)]) 
-amount_trd =  1900000000 entry_price =  6796
+amount_trd =  1600000000.0 entry_price =  6796
 
 Address for PNL in the settlement!!:  muHxFvpDPSKG6dDVRahniX2WMSDFTdDwyU  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'muHxFvpDPSKG6dDVRahniX2WMSDFTdDwyU'), ('addrs_trk', 'mtxJsKdPhbScW4g7TQ8oHGZCjfpq8KYgzK'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6799), ('exit_price', 6795), ('lives_src', 266666666.67), ('lives_trk', 0), ('amount_trd', 266666666.66666666), ('edge_row', 93)]) 
-amount_trd =  300000000 entry_price =  6795
+amount_trd =  266666666.66666666 entry_price =  6795
+
+Exit price in this path =  6796.199999870117
 
 This path has PNL =  173.17844101046205
 ###################################################################################
@@ -2548,7 +2556,9 @@ PNL_trk for:  mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye  =  0.15892369703371975
 
 Address for PNL in the settlement!!:  muHxFvpDPSKG6dDVRahniX2WMSDFTdDwyU  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'muHxFvpDPSKG6dDVRahniX2WMSDFTdDwyU'), ('addrs_trk', 'mtxJsKdPhbScW4g7TQ8oHGZCjfpq8KYgzK'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6795), ('lives_src', 25000000.0), ('lives_trk', 0), ('amount_trd', 25000000.0), ('edge_row', 93)]) 
-amount_trd =  300000000 entry_price =  6795
+amount_trd =  25000000.0 entry_price =  6795
+
+Exit price in this path =  6795.000000365601
 
 This path has PNL =  9.140055307759434
 ###################################################################################
@@ -3097,6 +3107,8 @@ Address for PNL in the path!!:  mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye  status:  Lon
 entry price =  6795  exit price =  6804  amount_trd =  111120323.0463111  edge_row =  220
 PNL_trk for:  mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye  =  21.631280985145185
 
+Exit price in this path =  6797.999999982655
+
 This path has PNL =  -60.70660565630142
 ###################################################################################
 
@@ -3386,11 +3398,13 @@ PNL_trk for:  n2GrrdBvBokzCMQZhV4fbysQpX1XJCgoeW  =  54.137379968237646
 
 Address for PNL in the settlement!!:  mth3M1EYjhDzkQM3h8CKVcCNdMDNTXoS4i  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mth3M1EYjhDzkQM3h8CKVcCNdMDNTXoS4i'), ('addrs_trk', 'mvNiYkuHu67aiqo4QvnANULhMi4LRtQEYB'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 300000000.0), ('lives_trk', 0.0), ('amount_trd', 300000000.0), ('edge_row', 82)]) 
-amount_trd =  300000000 entry_price =  6794
+amount_trd =  300000000.0 entry_price =  6794
 
 Address for PNL in the settlement!!:  mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu'), ('addrs_trk', 'n2GrrdBvBokzCMQZhV4fbysQpX1XJCgoeW'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6793), ('exit_price', 6798), ('lives_src', 500000000.0), ('lives_trk', 0.0), ('amount_trd', 500000000.0), ('edge_row', 193)]) 
-amount_trd =  500000000 entry_price =  6798
+amount_trd =  500000000.0 entry_price =  6798
+
+Exit price in this path =  6797.9999998916965
 
 This path has PNL =  -43.321371732810995
 ###################################################################################
@@ -3809,7 +3823,9 @@ PNL_trk for:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  =  11.49892717021652
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 177002288.33), ('lives_trk', 217848970.25), ('amount_trd', 177002288.32951942), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  177002288.32951942 entry_price =  6794
+
+Exit price in this path =  6794.00000004666
 
 This path has PNL =  8.258937277705561
 ###################################################################################
@@ -4416,11 +4432,13 @@ PNL_trk for:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  =  6.709453846961727
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6799), ('lives_src', 237951807.23), ('lives_trk', 5425301204.82), ('amount_trd', 237951807.22891566), ('edge_row', 198)]) 
-amount_trd =  500000000 entry_price =  6799
+amount_trd =  237951807.22891566 entry_price =  6799
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6799), ('exit_price', 6794), ('lives_src', 61985163.23), ('lives_trk', 275824923.03), ('amount_trd', 61985163.227418244), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  61985163.227418244 entry_price =  6794
+
+Exit price in this path =  6797.966696352955
 
 This path has PNL =  -149.31938595892524
 ###################################################################################
@@ -4737,7 +4755,9 @@ PNL_trk for:  mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D  =  0.0
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6794), ('lives_src', 205263157.89), ('lives_trk', 252631578.95), ('amount_trd', 205263157.89473686), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  205263157.89473686 entry_price =  6794
+
+Exit price in this path =  6794.000000073304
 
 This path has PNL =  15.046705383882575
 ###################################################################################
@@ -5080,7 +5100,9 @@ PNL_trk for:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  =  199.13762585308305
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6794), ('lives_src', 786842105.26), ('lives_trk', 968421052.63), ('amount_trd', 786842105.263158), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  786842105.263158 entry_price =  6794
+
+Exit price in this path =  6794.000000289742
 
 This path has PNL =  227.98138873196532
 ###################################################################################
@@ -5387,7 +5409,9 @@ PNL_trk for:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  =  0.0
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6794), ('lives_src', 307894736.84), ('lives_trk', 378947368.42), ('amount_trd', 307894736.84210527), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  307894736.84210527 entry_price =  6794
+
+Exit price in this path =  6794.000000036657
 
 This path has PNL =  11.286689822171327
 ###################################################################################
@@ -5690,7 +5714,9 @@ PNL_trk for:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  =  0.0
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'mh2TDBiprn8yXHzo5WAFs8fBdEruCExziW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6800), ('lives_src', 73770491.8), ('lives_trk', 0), ('amount_trd', 73770491.80327868), ('edge_row', 200)]) 
-amount_trd =  3000000000 entry_price =  6800
+amount_trd =  73770491.80327868 entry_price =  6800
+
+Exit price in this path =  6799.999999859326
 
 This path has PNL =  -10.377617554459766
 ###################################################################################
@@ -6432,19 +6458,21 @@ PNL_trk for:  ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk  =  -4.476841705188007
 
 Address for PNL in the settlement!!:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E'), ('addrs_trk', 'myzjz6cCt5NVyD8qNjaork1SqVduuLzTLo'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6801), ('lives_src', 1100000000.0), ('lives_trk', 3200000000.0), ('amount_trd', 1100000000.0), ('edge_row', 202)]) 
-amount_trd =  1100000000 entry_price =  6801
+amount_trd =  1100000000.0 entry_price =  6801
 
 Address for PNL in the settlement!!:  mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 5825242.72), ('lives_trk', 0), ('amount_trd', 5825242.718446601), ('edge_row', 257)]) 
-amount_trd =  200000000 entry_price =  6796
+amount_trd =  5825242.718446601 entry_price =  6796
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 206796116.5), ('lives_trk', 64077669.9), ('amount_trd', 206796116.50485438), ('edge_row', 258)]) 
-amount_trd =  7100000000 entry_price =  6796
+amount_trd =  206796116.50485438 entry_price =  6796
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'mh2TDBiprn8yXHzo5WAFs8fBdEruCExziW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6800), ('lives_src', 1352459016.39), ('lives_trk', 0), ('amount_trd', 1352459016.3934426), ('edge_row', 200)]) 
-amount_trd =  3000000000 entry_price =  6800
+amount_trd =  1352459016.3934426 entry_price =  6800
+
+Exit price in this path =  6793.73671739258
 
 This path has PNL =  57.83489246895675
 ###################################################################################
@@ -6955,7 +6983,7 @@ PNL_trk for:  muHxFvpDPSKG6dDVRahniX2WMSDFTdDwyU  =  0.0
 
 Address for PNL in the settlement!!:  mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu'), ('addrs_trk', 'muHxFvpDPSKG6dDVRahniX2WMSDFTdDwyU'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6795), ('lives_src', 1900000000.0), ('lives_trk', 0), ('amount_trd', 1900000000.0), ('edge_row', 88)]) 
-amount_trd =  1900000000 entry_price =  6795
+amount_trd =  1900000000.0 entry_price =  6795
 
 Address for PNL in the path!!:  mvNveRFmfES3ghr18xdBcNmrxdDpdXjhfo  status:  LongPosNetted 
 entry price =  6795  exit price =  6798  amount_trd =  1200000000.0  edge_row =  186
@@ -6963,11 +6991,13 @@ PNL_trk for:  mvNveRFmfES3ghr18xdBcNmrxdDpdXjhfo  =  77.93488150976968
 
 Address for PNL in the settlement!!:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb'), ('addrs_trk', 'mvNveRFmfES3ghr18xdBcNmrxdDpdXjhfo'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6795), ('exit_price', 6798), ('lives_src', 1200000000.0), ('lives_trk', 0.0), ('amount_trd', 1200000000.0), ('edge_row', 186)]) 
-amount_trd =  2000000000 entry_price =  6798
+amount_trd =  1200000000.0 entry_price =  6798
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'mh2TDBiprn8yXHzo5WAFs8fBdEruCExziW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6800), ('lives_src', 909836065.57), ('lives_trk', 0), ('amount_trd', 909836065.5737705), ('edge_row', 200)]) 
-amount_trd =  3000000000 entry_price =  6800
+amount_trd =  909836065.5737705 entry_price =  6800
+
+Exit price in this path =  6794.5666167893205
 
 This path has PNL =  -50.05573499523412
 ###################################################################################
@@ -7266,7 +7296,9 @@ PNL_trk for:  mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd  =  0.0
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'mh2TDBiprn8yXHzo5WAFs8fBdEruCExziW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6800), ('lives_src', 24590163.93), ('lives_trk', 0), ('amount_trd', 24590163.93442623), ('edge_row', 200)]) 
-amount_trd =  3000000000 entry_price =  6800
+amount_trd =  24590163.93442623 entry_price =  6800
+
+Exit price in this path =  6799.999999859326
 
 This path has PNL =  -3.459205851486589
 ###################################################################################
@@ -7479,7 +7511,9 @@ PNL_trk for:  mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd  =  0.0
 
 Address for PNL in the settlement!!:  mobiVuCuRhwG9haTvbsm6WLFjvuuHQhCYM  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mobiVuCuRhwG9haTvbsm6WLFjvuuHQhCYM'), ('addrs_trk', 'n31BHmwpjGzZqSN4u6Jf8dXrYHjWPnPQfH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 2100000000.0), ('lives_trk', 0.0), ('amount_trd', 2100000000.0), ('edge_row', 227)]) 
-amount_trd =  2500000000 entry_price =  6796
+amount_trd =  2100000000.0 entry_price =  6796
+
+Exit price in this path =  6796.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -8217,15 +8251,17 @@ PNL_trk for:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  =  0.2928376743719478
 
 Address for PNL in the settlement!!:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E'), ('addrs_trk', 'myikARibeZsevmorc2WrMmw66PrDJFhGSn'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6796), ('exit_price', 6795), ('lives_src', 133333333.33), ('lives_trk', 0.0), ('amount_trd', 133333333.33333333), ('edge_row', 99)]) 
-amount_trd =  2900000000 entry_price =  6795
+amount_trd =  133333333.33333333 entry_price =  6795
 
 Address for PNL in the settlement!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob'), ('addrs_trk', 'mtxJsKdPhbScW4g7TQ8oHGZCjfpq8KYgzK'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 36781609.2), ('lives_trk', -0.0), ('amount_trd', 36781609.1954023), ('edge_row', 223)]) 
-amount_trd =  800000000 entry_price =  6797
+amount_trd =  36781609.1954023 entry_price =  6797
 
 Address for PNL in the settlement!!:  mobiVuCuRhwG9haTvbsm6WLFjvuuHQhCYM  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mobiVuCuRhwG9haTvbsm6WLFjvuuHQhCYM'), ('addrs_trk', 'n31BHmwpjGzZqSN4u6Jf8dXrYHjWPnPQfH'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 400000000.0), ('lives_trk', 0.0), ('amount_trd', 400000000.0), ('edge_row', 227)]) 
-amount_trd =  2500000000 entry_price =  6796
+amount_trd =  400000000.0 entry_price =  6796
+
+Exit price in this path =  6796.419999971388
 
 This path has PNL =  -6.577271935781198
 ###################################################################################
@@ -8879,11 +8915,13 @@ PNL_trk for:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  =  29.28376743719477
 
 Address for PNL in the settlement!!:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E'), ('addrs_trk', 'myikARibeZsevmorc2WrMmw66PrDJFhGSn'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 1333333333.33), ('lives_trk', 0.0), ('amount_trd', 1333333333.3333333), ('edge_row', 99)]) 
-amount_trd =  2900000000 entry_price =  6795
+amount_trd =  1333333333.3333333 entry_price =  6795
 
 Address for PNL in the settlement!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob'), ('addrs_trk', 'mtxJsKdPhbScW4g7TQ8oHGZCjfpq8KYgzK'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 367816091.95), ('lives_trk', 0.0), ('amount_trd', 367816091.954023), ('edge_row', 223)]) 
-amount_trd =  800000000 entry_price =  6797
+amount_trd =  367816091.954023 entry_price =  6797
+
+Exit price in this path =  6798.1599999451855
 
 This path has PNL =  -126.011637703654
 ###################################################################################
@@ -9669,15 +9707,17 @@ PNL_trk for:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  =  33.84105374460821
 
 Address for PNL in the settlement!!:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E'), ('addrs_trk', 'myikARibeZsevmorc2WrMmw66PrDJFhGSn'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 1433333333.33), ('lives_trk', 0.0), ('amount_trd', 1433333333.3333333), ('edge_row', 99)]) 
-amount_trd =  2900000000 entry_price =  6795
+amount_trd =  1433333333.3333333 entry_price =  6795
 
 Address for PNL in the settlement!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob'), ('addrs_trk', 'mtxJsKdPhbScW4g7TQ8oHGZCjfpq8KYgzK'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 395402298.85), ('lives_trk', 0.0), ('amount_trd', 395402298.85057473), ('edge_row', 223)]) 
-amount_trd =  800000000 entry_price =  6797
+amount_trd =  395402298.85057473 entry_price =  6797
 
 Address for PNL in the settlement!!:  mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz'), ('addrs_trk', 'n2GrrdBvBokzCMQZhV4fbysQpX1XJCgoeW'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6793), ('lives_src', 3969230769.23), ('lives_trk', 0), ('amount_trd', 3969230769.2307696), ('edge_row', 79)]) 
-amount_trd =  4800000000 entry_price =  6793
+amount_trd =  3969230769.2307696 entry_price =  6793
+
+Exit price in this path =  6790.921847358743
 
 This path has PNL =  239.4184658657736
 ###################################################################################
@@ -10123,15 +10163,17 @@ PNL_trk for:  mkE8DLZ65671pi42WfkJRXSx2yST33Zw9F  =  -19.986242969310418
 
 Address for PNL in the settlement!!:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E'), ('addrs_trk', 'mkE8DLZ65671pi42WfkJRXSx2yST33Zw9F'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 438461538.46), ('lives_trk', 0), ('amount_trd', 438461538.46153843), ('edge_row', 103)]) 
-amount_trd =  1900000000 entry_price =  6795
+amount_trd =  438461538.46153843 entry_price =  6795
 
 Address for PNL in the settlement!!:  mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd'), ('addrs_trk', 'mkE8DLZ65671pi42WfkJRXSx2yST33Zw9F'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 461538461.54), ('lives_trk', 0.0), ('amount_trd', 461538461.5384615), ('edge_row', 104)]) 
-amount_trd =  2000000000 entry_price =  6795
+amount_trd =  461538461.5384615 entry_price =  6795
 
 Address for PNL in the settlement!!:  mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz'), ('addrs_trk', 'n2GrrdBvBokzCMQZhV4fbysQpX1XJCgoeW'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6793), ('lives_src', 830769230.77), ('lives_trk', 0), ('amount_trd', 830769230.7692308), ('edge_row', 79)]) 
-amount_trd =  4800000000 entry_price =  6793
+amount_trd =  830769230.7692308 entry_price =  6793
+
+Exit price in this path =  6818.999999436728
 
 This path has PNL =  38.99612281050051
 ###################################################################################
@@ -10934,11 +10976,11 @@ PNL_trk for:  mkE8DLZ65671pi42WfkJRXSx2yST33Zw9F  =  -99.91651475611496
 
 Address for PNL in the settlement!!:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E'), ('addrs_trk', 'mkE8DLZ65671pi42WfkJRXSx2yST33Zw9F'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6795), ('lives_src', 1461538461.54), ('lives_trk', 0), ('amount_trd', 1461538461.5384614), ('edge_row', 103)]) 
-amount_trd =  1900000000 entry_price =  6795
+amount_trd =  1461538461.5384614 entry_price =  6795
 
 Address for PNL in the settlement!!:  mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd'), ('addrs_trk', 'mkE8DLZ65671pi42WfkJRXSx2yST33Zw9F'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6798), ('exit_price', 6795), ('lives_src', 1538461538.46), ('lives_trk', 0.0), ('amount_trd', 1538461538.4615383), ('edge_row', 104)]) 
-amount_trd =  2000000000 entry_price =  6795
+amount_trd =  1538461538.4615383 entry_price =  6795
 
 Address for PNL in the path!!:  n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW  status:  ShortPosNettedPartly 
 entry price =  6796  exit price =  6799  amount_trd =  144578313.25301206  edge_row =  196
@@ -10962,11 +11004,13 @@ PNL_trk for:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  =  0.9675546326334811
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6799), ('lives_src', 90361445.78), ('lives_trk', 2060240963.86), ('amount_trd', 90361445.78313252), ('edge_row', 198)]) 
-amount_trd =  500000000 entry_price =  6799
+amount_trd =  90361445.78313252 entry_price =  6799
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6799), ('exit_price', 6794), ('lives_src', 8938735.28), ('lives_trk', 129451222.77), ('amount_trd', 8938735.283556549), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  8938735.283556549 entry_price =  6794
+
+Exit price in this path =  6794.878475214428
 
 This path has PNL =  -124.3428320502007
 ###################################################################################
@@ -11311,7 +11355,9 @@ PNL_trk for:  msH8sURm5Q7Fvv6tHWSKACaXD8j8MKxezi  =  48.67348843994259
 
 Address for PNL in the settlement!!:  mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6'), ('addrs_trk', 'msH8sURm5Q7Fvv6tHWSKACaXD8j8MKxezi'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6801), ('lives_src', 562500000.0), ('lives_trk', 1237500000.0), ('amount_trd', 562500000.0), ('edge_row', 208)]) 
-amount_trd =  2500000000 entry_price =  6801
+amount_trd =  562500000.0 entry_price =  6801
+
+Exit price in this path =  6800.999999948325
 
 This path has PNL =  29.06690836797208
 ###################################################################################
@@ -11505,6 +11551,8 @@ PNL_trk for:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  =  148.67539895234546
 Address for PNL in the path!!:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  status:  LongPosNetted 
 entry price =  6796  exit price =  6802  amount_trd =  2454545454.5454545  edge_row =  210
 PNL_trk for:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  =  318.59014061216885
+
+Exit price in this path =  6796.000000129796
 
 This path has PNL =  467.2655395645143
 ###################################################################################
@@ -11852,7 +11900,9 @@ PNL_trk for:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  =  70.7978090249264
 
 Address for PNL in the settlement!!:  mnLCXYJTMCy3XTPBfcTaFcMWfNwNY641Rv  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnLCXYJTMCy3XTPBfcTaFcMWfNwNY641Rv'), ('addrs_trk', 'mhphJZ1TnqQZqtaNtKqotxroKkiiW4jDXQ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6801), ('lives_src', 183908045.98), ('lives_trk', 395402298.85), ('amount_trd', 183908045.9770115), ('edge_row', 214)]) 
-amount_trd =  2000000000 entry_price =  6801
+amount_trd =  183908045.9770115 entry_price =  6801
+
+Exit price in this path =  6801.000000430455
 
 This path has PNL =  79.16413993318804
 ###################################################################################
@@ -12584,15 +12634,17 @@ PNL_trk for:  ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk  =  -7.461402841980012
 
 Address for PNL in the settlement!!:  mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6'), ('addrs_trk', 'mnLCXYJTMCy3XTPBfcTaFcMWfNwNY641Rv'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6795), ('exit_price', 6801), ('lives_src', 1500000000.0), ('lives_trk', 0.0), ('amount_trd', 1500000000.0), ('edge_row', 212)]) 
-amount_trd =  1500000000 entry_price =  6801
+amount_trd =  1500000000.0 entry_price =  6801
 
 Address for PNL in the settlement!!:  mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 9708737.86), ('lives_trk', 0), ('amount_trd', 9708737.864077669), ('edge_row', 257)]) 
-amount_trd =  200000000 entry_price =  6796
+amount_trd =  9708737.864077669 entry_price =  6796
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 344660194.17), ('lives_trk', 106796116.5), ('amount_trd', 344660194.1747573), ('edge_row', 258)]) 
-amount_trd =  7100000000 entry_price =  6796
+amount_trd =  344660194.1747573 entry_price =  6796
+
+Exit price in this path =  6800.044502546531
 
 This path has PNL =  132.16135122578245
 ###################################################################################
@@ -13034,11 +13086,13 @@ PNL_trk for:  mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1  =  8.549649408889447
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6802), ('lives_src', 56451612.9), ('lives_trk', 643548387.1), ('amount_trd', 56451612.9032258), ('edge_row', 215)]) 
-amount_trd =  1500000000 entry_price =  6802
+amount_trd =  56451612.9032258 entry_price =  6802
 
 Address for PNL in the settlement!!:  mnLCXYJTMCy3XTPBfcTaFcMWfNwNY641Rv  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnLCXYJTMCy3XTPBfcTaFcMWfNwNY641Rv'), ('addrs_trk', 'mhphJZ1TnqQZqtaNtKqotxroKkiiW4jDXQ'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6801), ('lives_src', 160919540.23), ('lives_trk', 345977011.49), ('amount_trd', 160919540.22988504), ('edge_row', 214)]) 
-amount_trd =  2000000000 entry_price =  6801
+amount_trd =  160919540.22988504 entry_price =  6801
+
+Exit price in this path =  6800.459627130996
 
 This path has PNL =  -20.705266220631593
 ###################################################################################
@@ -13386,11 +13440,13 @@ PNL_trk for:  mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1  =  61.757766205883385
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6802), ('lives_src', 475806451.61), ('lives_trk', 5424193548.39), ('amount_trd', 475806451.61290324), ('edge_row', 215)]) 
-amount_trd =  1500000000 entry_price =  6802
+amount_trd =  475806451.61290324 entry_price =  6802
 
 Address for PNL in the settlement!!:  mju9HzuScgjkRqrRQhDse9nvQBVZFcQbQF  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mju9HzuScgjkRqrRQhDse9nvQBVZFcQbQF'), ('addrs_trk', 'mrS7HkRm9g1wnK8tskm7vchAt4giamWeXR'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 6796), ('exit_price', 6798), ('lives_src', 5900000000.0), ('lives_trk', 0.0), ('amount_trd', 5900000000.0), ('edge_row', 118)]) 
-amount_trd =  5900000000 entry_price =  6798
+amount_trd =  5900000000.0 entry_price =  6798
+
+Exit price in this path =  6797.649122771316
 
 This path has PNL =  -193.65786775912574
 ###################################################################################
@@ -13699,7 +13755,9 @@ PNL_trk for:  mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1  =  35.58922120339042
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6802), ('lives_src', 274193548.39), ('lives_trk', 3125806451.61), ('amount_trd', 274193548.38709676), ('edge_row', 215)]) 
-amount_trd =  1500000000 entry_price =  6802
+amount_trd =  274193548.38709676 entry_price =  6802
+
+Exit price in this path =  6795.473684221913
 
 This path has PNL =  35.58922120339042
 ###################################################################################
@@ -14106,7 +14164,9 @@ PNL_trk for:  mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1  =  0.34881128142970536
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6802), ('lives_src', 4032258.06), ('lives_trk', 95967741.94), ('amount_trd', 4032258.064516129), ('edge_row', 215)]) 
-amount_trd =  1500000000 entry_price =  6802
+amount_trd =  4032258.064516129 entry_price =  6802
+
+Exit price in this path =  6794.990253413669
 
 This path has PNL =  6.8433847405771795
 ###################################################################################
@@ -14256,6 +14316,8 @@ PNL_trk for:  mzkDHNGqacDPiDWzeqxkvJ5vUoZsHL75Md  =  -69.72555190953848
 Address for PNL in the path!!:  mx8PqXWsWmwqBgUjcycjDZYyWVgS8ZbqTw  status:  OpenLongPosition 
 entry price =  6796  exit price =  6796  amount_trd =  1300000000  edge_row =  30
 PNL_trk for:  mx8PqXWsWmwqBgUjcycjDZYyWVgS8ZbqTw  =  0.0
+
+Exit price in this path =  0
 
 This path has PNL =  -69.72555190953848
 ###################################################################################
@@ -14418,6 +14480,8 @@ PNL_trk for:  mzkDHNGqacDPiDWzeqxkvJ5vUoZsHL75Md  =  -53.63503993041421
 Address for PNL in the path!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  OpenLongPosition 
 entry price =  6796  exit price =  6796  amount_trd =  1000000000  edge_row =  31
 PNL_trk for:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  =  0.0
+
+Exit price in this path =  0
 
 This path has PNL =  -53.63503993041421
 ###################################################################################
@@ -14662,6 +14726,8 @@ PNL_trk for:  mjLuMfhS9KzD27bqFLTgDDwGFZ78eZUbki  =  -7.624781139099643
 Address for PNL in the path!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  LongPosIncreased 
 entry price =  6797  exit price =  6797  amount_trd =  700000000  edge_row =  32
 PNL_trk for:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  =  0.0
+
+Exit price in this path =  0
 
 This path has PNL =  -7.624781139099643
 ###################################################################################
@@ -15067,7 +15133,9 @@ PNL_trk for:  mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1  =  36.844806468056284
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6802), ('lives_src', 425925925.93), ('lives_trk', 1874074074.07), ('amount_trd', 425925925.9259259), ('edge_row', 215)]) 
-amount_trd =  1500000000 entry_price =  6802
+amount_trd =  425925925.9259259 entry_price =  6802
+
+Exit price in this path =  6801.999999855447
 
 This path has PNL =  61.56903291720005
 ###################################################################################
@@ -15360,7 +15428,9 @@ PNL_trk for:  mopNPpxuP99GQaizujGRy9r8DsML7RtP4v  =  12.985324894781296
 
 Address for PNL in the settlement!!:  mnxK7Az7Uu1UfJVB3knezZCccRFWfuKaBr  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mnxK7Az7Uu1UfJVB3knezZCccRFWfuKaBr'), ('addrs_trk', 'mopNPpxuP99GQaizujGRy9r8DsML7RtP4v'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6798), ('lives_src', 600000000.0), ('lives_trk', 0.0), ('amount_trd', 600000000.0), ('edge_row', 135)]) 
-amount_trd =  600000000 entry_price =  6798
+amount_trd =  600000000.0 entry_price =  6798
+
+Exit price in this path =  6797.9999999587935
 
 This path has PNL =  24.724226449143767
 ###################################################################################
@@ -15826,11 +15896,13 @@ PNL_trk for:  mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4  =  -2.29740003573699
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 138775510.2), ('lives_trk', 0), ('amount_trd', 138775510.20408162), ('edge_row', 234)]) 
-amount_trd =  1700000000 entry_price =  6796
+amount_trd =  138775510.20408162 entry_price =  6796
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 106122448.98), ('lives_trk', 555102040.82), ('amount_trd', 106122448.97959185), ('edge_row', 235)]) 
-amount_trd =  1300000000 entry_price =  6796
+amount_trd =  106122448.97959185 entry_price =  6796
+
+Exit price in this path =  6796.00000005723
 
 This path has PNL =  -14.015727977704733
 ###################################################################################
@@ -16314,7 +16386,9 @@ PNL_trk for:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  =  5.179672124957
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6798), ('lives_src', 79753846.15), ('lives_trk', 418707692.31), ('amount_trd', 79753846.15384616), ('edge_row', 273)]) 
-amount_trd =  1600000000 entry_price =  6798
+amount_trd =  79753846.15384616 entry_price =  6798
+
+Exit price in this path =  6798.000000315209
 
 This path has PNL =  -25.13916020201468
 ###################################################################################
@@ -16643,11 +16717,13 @@ PNL_trk for:  my5gTLde7GfWHjo8LGrgRXtXNW2xbiTpPP  =  47.62686997162452
 
 Address for PNL in the settlement!!:  msUZEtk7SihVrbVHUj2XczN5g2KRqkSLqt  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'msUZEtk7SihVrbVHUj2XczN5g2KRqkSLqt'), ('addrs_trk', 'my5gTLde7GfWHjo8LGrgRXtXNW2xbiTpPP'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNetted'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 2200000000.0), ('lives_trk', 0.0), ('amount_trd', 2200000000.0), ('edge_row', 130)]) 
-amount_trd =  2200000000 entry_price =  6797
+amount_trd =  2200000000.0 entry_price =  6797
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'my3CLmXPNpW3U2yNWRWW5zwjq5tiy1C248'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 870833333.33), ('lives_trk', 1054166666.67), ('amount_trd', 870833333.3333333), ('edge_row', 244)]) 
-amount_trd =  3800000000 entry_price =  6797
+amount_trd =  870833333.3333333 entry_price =  6797
+
+Exit price in this path =  6796.999999978351
 
 This path has PNL =  28.77456727452315
 ###################################################################################
@@ -17259,15 +17335,17 @@ PNL_trk for:  mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4  =  0.0
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 406176726.01), ('lives_trk', 0), ('amount_trd', 406176726.0095528), ('edge_row', 234)]) 
-amount_trd =  1700000000 entry_price =  6796
+amount_trd =  406176726.0095528 entry_price =  6796
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 310605731.65), ('lives_trk', 1624706904.04), ('amount_trd', 310605731.65436393), ('edge_row', 235)]) 
-amount_trd =  1300000000 entry_price =  6796
+amount_trd =  310605731.65436393 entry_price =  6796
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'my3CLmXPNpW3U2yNWRWW5zwjq5tiy1C248'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 1227083333.33), ('lives_trk', 1485416666.67), ('amount_trd', 1227083333.3333333), ('edge_row', 244)]) 
-amount_trd =  3800000000 entry_price =  6797
+amount_trd =  1227083333.3333333 entry_price =  6797
+
+Exit price in this path =  6798.404627084284
 
 This path has PNL =  -26.56460834591557
 ###################################################################################
@@ -17612,7 +17690,9 @@ PNL_trk for:  mfYHfasVVrEhF9DchCDq5VnVs6AuavqVF2  =  45.43526988550861
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'mfYHfasVVrEhF9DchCDq5VnVs6AuavqVF2'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6800), ('lives_src', 700000000.0), ('lives_trk', 0.0), ('amount_trd', 700000000.0), ('edge_row', 245)]) 
-amount_trd =  4700000000 entry_price =  6800
+amount_trd =  700000000.0 entry_price =  6800
+
+Exit price in this path =  6799.999999945985
 
 This path has PNL =  37.810488746408964
 ###################################################################################
@@ -18056,11 +18136,13 @@ PNL_trk for:  mfYHfasVVrEhF9DchCDq5VnVs6AuavqVF2  =  201.21333806439526
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'mfYHfasVVrEhF9DchCDq5VnVs6AuavqVF2'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6800), ('lives_src', 3100000000.0), ('lives_trk', 0.0), ('amount_trd', 3100000000.0), ('edge_row', 245)]) 
-amount_trd =  4700000000 entry_price =  6800
+amount_trd =  3100000000.0 entry_price =  6800
 
 Address for PNL in the settlement!!:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj'), ('addrs_trk', 'n3838DZJTsmdErFXwGdgamkPnvUMktGQ31'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6802), ('lives_src', 319393939.39), ('lives_trk', 2216969696.97), ('amount_trd', 319393939.3939394), ('edge_row', 211)]) 
-amount_trd =  1700000000 entry_price =  6802
+amount_trd =  319393939.3939394 entry_price =  6802
+
+Exit price in this path =  6799.770270232252
 
 This path has PNL =  105.71590141418642
 ###################################################################################
@@ -18452,11 +18534,13 @@ PNL_trk for:  mnvKPc8v6iA55oQwi3UdRpkAAQBHgE24FF  =  20.424733351275663
 
 Address for PNL in the settlement!!:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'myt86xFBrtouVYx9fVNHVg198b1W8mxGfY'), ('addrs_trk', 'mnvKPc8v6iA55oQwi3UdRpkAAQBHgE24FF'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6804), ('lives_src', 134939759.04), ('lives_trk', 5465060240.96), ('amount_trd', 134939759.03614458), ('edge_row', 248)]) 
-amount_trd =  200000000 entry_price =  6804
+amount_trd =  134939759.03614458 entry_price =  6804
 
 Address for PNL in the settlement!!:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj'), ('addrs_trk', 'n3838DZJTsmdErFXwGdgamkPnvUMktGQ31'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6802), ('lives_src', 576969696.97), ('lives_trk', 4004848484.85), ('amount_trd', 576969696.969697), ('edge_row', 211)]) 
-amount_trd =  1700000000 entry_price =  6802
+amount_trd =  576969696.969697 entry_price =  6802
+
+Exit price in this path =  6801.389453865001
 
 This path has PNL =  -152.08676511361773
 ###################################################################################
@@ -19149,19 +19233,21 @@ PNL_trk for:  mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4  =  0.0
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 825455927.05), ('lives_trk', 0), ('amount_trd', 825455927.0516716), ('edge_row', 234)]) 
-amount_trd =  1700000000 entry_price =  6796
+amount_trd =  825455927.0516716 entry_price =  6796
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 631231003.04), ('lives_trk', 3301823708.21), ('amount_trd', 631231003.0395136), ('edge_row', 235)]) 
-amount_trd =  1300000000 entry_price =  6796
+amount_trd =  631231003.0395136 entry_price =  6796
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 588461538.46), ('lives_trk', 0), ('amount_trd', 588461538.4615384), ('edge_row', 249)]) 
-amount_trd =  1700000000 entry_price =  6797
+amount_trd =  588461538.4615384 entry_price =  6797
 
 Address for PNL in the settlement!!:  mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 415384615.38), ('lives_trk', 5296153846.15), ('amount_trd', 415384615.3846154), ('edge_row', 250)]) 
-amount_trd =  1200000000 entry_price =  6797
+amount_trd =  415384615.3846154 entry_price =  6797
+
+Exit price in this path =  6793.783224955058
 
 This path has PNL =  -21.73184101852098
 ###################################################################################
@@ -19665,15 +19751,17 @@ PNL_trk for:  n3G5J5svvv9ZEeUyNKF6wkresGwGX9XvbB  =  0.0
 
 Address for PNL in the settlement!!:  mtpTfLEeHFp4f7zNBmiikfzyaiPQr6p8SF  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mtpTfLEeHFp4f7zNBmiikfzyaiPQr6p8SF'), ('addrs_trk', 'n3G5J5svvv9ZEeUyNKF6wkresGwGX9XvbB'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 1766197183.1), ('lives_trk', 0), ('amount_trd', 1766197183.0985916), ('edge_row', 236)]) 
-amount_trd =  5700000000 entry_price =  6796
+amount_trd =  1766197183.0985916 entry_price =  6796
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 205494505.49), ('lives_trk', 0), ('amount_trd', 205494505.4945055), ('edge_row', 249)]) 
-amount_trd =  1700000000 entry_price =  6797
+amount_trd =  205494505.4945055 entry_price =  6797
 
 Address for PNL in the settlement!!:  mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 145054945.05), ('lives_trk', 1849450549.45), ('amount_trd', 145054945.05494505), ('edge_row', 250)]) 
-amount_trd =  1200000000 entry_price =  6797
+amount_trd =  145054945.05494505 entry_price =  6797
+
+Exit price in this path =  6795.752375230857
 
 This path has PNL =  -7.5888968636105005
 ###################################################################################
@@ -20134,11 +20222,13 @@ PNL_trk for:  mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78  =  -57.51766017433009
 
 Address for PNL in the settlement!!:  mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT'), ('addrs_trk', 'mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 214634146.34), ('lives_trk', 0), ('amount_trd', 214634146.34146342), ('edge_row', 151)]) 
-amount_trd =  800000000 entry_price =  6794
+amount_trd =  214634146.34146342 entry_price =  6794
 
 Address for PNL in the settlement!!:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj'), ('addrs_trk', 'n3838DZJTsmdErFXwGdgamkPnvUMktGQ31'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6802), ('lives_src', 113333333.33), ('lives_trk', 786666666.67), ('amount_trd', 113333333.33333333), ('edge_row', 211)]) 
-amount_trd =  1700000000 entry_price =  6802
+amount_trd =  113333333.33333333 entry_price =  6802
+
+Exit price in this path =  6785.04976026948
 
 This path has PNL =  -105.34752256656827
 ###################################################################################
@@ -21039,7 +21129,7 @@ PNL_trk for:  mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78  =  -156.86634592999116
 
 Address for PNL in the settlement!!:  mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT'), ('addrs_trk', 'mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 585365853.66), ('lives_trk', 0), ('amount_trd', 585365853.6585366), ('edge_row', 151)]) 
-amount_trd =  800000000 entry_price =  6794
+amount_trd =  585365853.6585366 entry_price =  6794
 
 Address for PNL in the path!!:  n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW  status:  ShortPosNettedPartly 
 entry price =  6796  exit price =  6799  amount_trd =  20622986.03651987  edge_row =  196
@@ -21055,7 +21145,7 @@ PNL_trk for:  n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW  =  -0.8368630799250563
 
 Address for PNL in the settlement!!:  mpB25qnk5SGHtrKxFMNSscHxG5LrzD6MxH  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mpB25qnk5SGHtrKxFMNSscHxG5LrzD6MxH'), ('addrs_trk', 'mwqFPWo6h1A6KcFmqcuHBGibvA4nsL7Cp3'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 6797), ('exit_price', 6800), ('lives_src', 428571428.57), ('lives_trk', 0.0), ('amount_trd', 428571428.57142854), ('edge_row', 206)]) 
-amount_trd =  500000000 entry_price =  6800
+amount_trd =  428571428.57142854 entry_price =  6800
 
 Address for PNL in the path!!:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  status:  ShortPosNettedPartly 
 entry price =  6799  exit price =  6794  amount_trd =  125913.420314554  edge_row =  265
@@ -21067,11 +21157,13 @@ PNL_trk for:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  =  0.019686671057399723
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6799), ('lives_src', 12889366.27), ('lives_trk', 37379162.19), ('amount_trd', 12889366.272824919), ('edge_row', 198)]) 
-amount_trd =  500000000 entry_price =  6799
+amount_trd =  12889366.272824919 entry_price =  6799
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6799), ('exit_price', 6794), ('lives_src', 181874.94), ('lives_trk', 20315197.68), ('amount_trd', 181874.94045435576), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  181874.94045435576 entry_price =  6794
+
+Exit price in this path =  6775.660055781708
 
 This path has PNL =  -227.67093863197022
 ###################################################################################
@@ -22132,7 +22224,7 @@ PNL_trk for:  mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519  =  -2.497912760749538
 
 Address for PNL in the settlement!!:  n23EYnVijmuNLHBxZVFVLQaWeXG3ZsANAi  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n23EYnVijmuNLHBxZVFVLQaWeXG3ZsANAi'), ('addrs_trk', 'mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 384615384.62), ('lives_trk', 0), ('amount_trd', 384615384.61538464), ('edge_row', 155)]) 
-amount_trd =  4000000000 entry_price =  6795
+amount_trd =  384615384.61538464 entry_price =  6795
 
 Address for PNL in the path!!:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  status:  LongPosNettedPartly 
 entry price =  6796  exit price =  6798  amount_trd =  1479289.9408284023  edge_row =  273
@@ -22140,7 +22232,7 @@ PNL_trk for:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  =  0.0640396233991097
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6798), ('lives_src', 1479289.94), ('lives_trk', 113905325.44), ('amount_trd', 1479289.9408284023), ('edge_row', 273)]) 
-amount_trd =  1600000000 entry_price =  6798
+amount_trd =  1479289.9408284023 entry_price =  6798
 
 Address for PNL in the path!!:  n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW  status:  ShortPosNettedPartly 
 entry price =  6796  exit price =  6799  amount_trd =  572860.7232366632  edge_row =  196
@@ -22156,7 +22248,7 @@ PNL_trk for:  n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW  =  -0.023246196664584898
 
 Address for PNL in the settlement!!:  mpB25qnk5SGHtrKxFMNSscHxG5LrzD6MxH  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mpB25qnk5SGHtrKxFMNSscHxG5LrzD6MxH'), ('addrs_trk', 'mwqFPWo6h1A6KcFmqcuHBGibvA4nsL7Cp3'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 6797), ('exit_price', 6800), ('lives_src', 71428571.43), ('lives_trk', 0.0), ('amount_trd', 71428571.42857142), ('edge_row', 206)]) 
-amount_trd =  500000000 entry_price =  6800
+amount_trd =  71428571.42857142 entry_price =  6800
 
 Address for PNL in the path!!:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  status:  ShortPosNettedPartly 
 entry price =  6799  exit price =  6794  amount_trd =  97.1554169093781  edge_row =  265
@@ -22168,11 +22260,13 @@ PNL_trk for:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  =  1.519033260601831e-05
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6799), ('lives_src', 358037.95), ('lives_trk', 24847833.87), ('amount_trd', 358037.9520229144), ('edge_row', 198)]) 
-amount_trd =  500000000 entry_price =  6799
+amount_trd =  358037.9520229144 entry_price =  6799
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6799), ('exit_price', 6794), ('lives_src', 140.34), ('lives_trk', 572623.23), ('amount_trd', 140.33560220243504), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  140.33560220243504 entry_price =  6794
+
+Exit price in this path =  6793.873280157907
 
 This path has PNL =  -23.348531600652006
 ###################################################################################
@@ -22591,7 +22685,7 @@ PNL_trk for:  mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519  =  -23.480379951045652
 
 Address for PNL in the settlement!!:  n23EYnVijmuNLHBxZVFVLQaWeXG3ZsANAi  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n23EYnVijmuNLHBxZVFVLQaWeXG3ZsANAi'), ('addrs_trk', 'mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 3615384615.38), ('lives_trk', 0), ('amount_trd', 3615384615.3846154), ('edge_row', 155)]) 
-amount_trd =  4000000000 entry_price =  6795
+amount_trd =  3615384615.3846154 entry_price =  6795
 
 Address for PNL in the path!!:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  status:  LongPosNettedPartly 
 entry price =  6796  exit price =  6798  amount_trd =  130710059.17159763  edge_row =  273
@@ -22599,7 +22693,9 @@ PNL_trk for:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  =  5.658541123545333
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6798), ('lives_src', 130710059.17), ('lives_trk', 953905325.44), ('amount_trd', 130710059.17159763), ('edge_row', 273)]) 
-amount_trd =  1600000000 entry_price =  6798
+amount_trd =  130710059.17159763 entry_price =  6798
+
+Exit price in this path =  6804.443148505243
 
 This path has PNL =  -174.3807420870986
 ###################################################################################
@@ -22815,7 +22911,9 @@ PNL_trk for:  mhUUSLCDtFSLgirdu6QNTTXPyqGwuZMvpm  =  0.0
 
 Address for PNL in the settlement!!:  mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95'), ('addrs_trk', 'mhUUSLCDtFSLgirdu6QNTTXPyqGwuZMvpm'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6797), ('lives_src', 64556962.03), ('lives_trk', 5035443037.97), ('amount_trd', 64556962.025316454), ('edge_row', 159)]) 
-amount_trd =  100000000 entry_price =  6797
+amount_trd =  64556962.025316454 entry_price =  6797
+
+Exit price in this path =  6797.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -23316,7 +23414,7 @@ PNL_trk for:  mhUUSLCDtFSLgirdu6QNTTXPyqGwuZMvpm  =  0.0
 
 Address for PNL in the settlement!!:  mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95'), ('addrs_trk', 'mhUUSLCDtFSLgirdu6QNTTXPyqGwuZMvpm'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6797), ('lives_src', 31645569.62), ('lives_trk', 2468354430.38), ('amount_trd', 31645569.620253164), ('edge_row', 159)]) 
-amount_trd =  100000000 entry_price =  6797
+amount_trd =  31645569.620253164 entry_price =  6797
 
 Address for PNL in the path!!:  n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk  status:  ShortPosNettedPartly 
 entry price =  6795  exit price =  6797  amount_trd =  233516483.51648352  edge_row =  249
@@ -23328,11 +23426,13 @@ PNL_trk for:  n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk  =  -7.1379439176108646
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 233516483.52), ('lives_trk', 0), ('amount_trd', 233516483.51648352), ('edge_row', 249)]) 
-amount_trd =  1700000000 entry_price =  6797
+amount_trd =  233516483.51648352 entry_price =  6797
 
 Address for PNL in the settlement!!:  mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 164835164.84), ('lives_trk', 2101648351.65), ('amount_trd', 164835164.83516484), ('edge_row', 250)]) 
-amount_trd =  1200000000 entry_price =  6797
+amount_trd =  164835164.83516484 entry_price =  6797
+
+Exit price in this path =  6797.00000024818
 
 This path has PNL =  91.00878494953851
 ###################################################################################
@@ -23551,7 +23651,9 @@ PNL_trk for:  mhUUSLCDtFSLgirdu6QNTTXPyqGwuZMvpm  =  0.0
 
 Address for PNL in the settlement!!:  mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95'), ('addrs_trk', 'mhUUSLCDtFSLgirdu6QNTTXPyqGwuZMvpm'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6797), ('lives_src', 3797468.35), ('lives_trk', 296202531.65), ('amount_trd', 3797468.35443038), ('edge_row', 159)]) 
-amount_trd =  100000000 entry_price =  6797
+amount_trd =  3797468.35443038 entry_price =  6797
+
+Exit price in this path =  6797.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -24000,11 +24102,13 @@ PNL_trk for:  ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk  =  -4.476841705188007
 
 Address for PNL in the settlement!!:  mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 5825242.72), ('lives_trk', 0), ('amount_trd', 5825242.718446601), ('edge_row', 257)]) 
-amount_trd =  200000000 entry_price =  6796
+amount_trd =  5825242.718446601 entry_price =  6796
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 206796116.5), ('lives_trk', 64077669.9), ('amount_trd', 206796116.50485438), ('edge_row', 258)]) 
-amount_trd =  7100000000 entry_price =  6796
+amount_trd =  206796116.50485438 entry_price =  6796
+
+Exit price in this path =  6799.433333274883
 
 This path has PNL =  -5.1073827904257545
 ###################################################################################
@@ -24473,11 +24577,13 @@ PNL_trk for:  mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye  =  86.57642390746376
 
 Address for PNL in the settlement!!:  myDJLDSLrNSemJ7ZVok2rvtjZ7EevxMJcq  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'myDJLDSLrNSemJ7ZVok2rvtjZ7EevxMJcq'), ('addrs_trk', 'mpMLRqCsRbsRpgrUM8aGrQVGrN4nMxuY9g'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6799), ('lives_src', 81333333.33), ('lives_trk', 3090666666.67), ('amount_trd', 81333333.33333334), ('edge_row', 169)]) 
-amount_trd =  100000000 entry_price =  6799
+amount_trd =  81333333.33333334 entry_price =  6799
 
 Address for PNL in the settlement!!:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'myt86xFBrtouVYx9fVNHVg198b1W8mxGfY'), ('addrs_trk', 'mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6804), ('lives_src', 667411764.71), ('lives_trk', 1157421176.47), ('amount_trd', 667411764.7058825), ('edge_row', 220)]) 
-amount_trd =  3100000000 entry_price =  6804
+amount_trd =  667411764.7058825 entry_price =  6804
+
+Exit price in this path =  6796.096557945451
 
 This path has PNL =  296.56720781807775
 ###################################################################################
@@ -24998,11 +25104,13 @@ PNL_trk for:  mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye  =  19.869998929581843
 
 Address for PNL in the settlement!!:  myDJLDSLrNSemJ7ZVok2rvtjZ7EevxMJcq  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'myDJLDSLrNSemJ7ZVok2rvtjZ7EevxMJcq'), ('addrs_trk', 'mpMLRqCsRbsRpgrUM8aGrQVGrN4nMxuY9g'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6799), ('lives_src', 18666666.67), ('lives_trk', 709333333.33), ('amount_trd', 18666666.666666668), ('edge_row', 169)]) 
-amount_trd =  100000000 entry_price =  6799
+amount_trd =  18666666.666666668 entry_price =  6799
 
 Address for PNL in the settlement!!:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'myt86xFBrtouVYx9fVNHVg198b1W8mxGfY'), ('addrs_trk', 'mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6804), ('lives_src', 153176470.59), ('lives_trk', 460715294.12), ('amount_trd', 153176470.58823532), ('edge_row', 220)]) 
-amount_trd =  3100000000 entry_price =  6804
+amount_trd =  153176470.58823532 entry_price =  6804
+
+Exit price in this path =  6803.456869282152
 
 This path has PNL =  -46.83889623503015
 ###################################################################################
@@ -25292,11 +25400,13 @@ PNL_trk for:  n3G5J5svvv9ZEeUyNKF6wkresGwGX9XvbB  =  0.0
 
 Address for PNL in the settlement!!:  mtpTfLEeHFp4f7zNBmiikfzyaiPQr6p8SF  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mtpTfLEeHFp4f7zNBmiikfzyaiPQr6p8SF'), ('addrs_trk', 'n3G5J5svvv9ZEeUyNKF6wkresGwGX9XvbB'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 3291549295.77), ('lives_trk', 0), ('amount_trd', 3291549295.774648), ('edge_row', 236)]) 
-amount_trd =  5700000000 entry_price =  6796
+amount_trd =  3291549295.774648 entry_price =  6796
 
 Address for PNL in the settlement!!:  mqGJUHh4iFXXvAmBnPKhtftyBJZiVz13sN  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqGJUHh4iFXXvAmBnPKhtftyBJZiVz13sN'), ('addrs_trk', 'mohJi2te188SvCWF5wgBt4in34sRbpe8bP'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 4100000000.0), ('lives_trk', 0.0), ('amount_trd', 4100000000.0), ('edge_row', 170)]) 
-amount_trd =  4100000000 entry_price =  6797
+amount_trd =  4100000000.0 entry_price =  6797
+
+Exit price in this path =  6801.071428461642
 
 This path has PNL =  -88.75916676530024
 ###################################################################################
@@ -25656,11 +25766,13 @@ PNL_trk for:  myha2aAYNVrwnqJKFtmykGvVdQDCWifXhm  =  -98.53002300754159
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'myha2aAYNVrwnqJKFtmykGvVdQDCWifXhm'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 2383333333.33), ('lives_trk', 0), ('amount_trd', 2383333333.3333335), ('edge_row', 260)]) 
-amount_trd =  3300000000 entry_price =  6794
+amount_trd =  2383333333.3333335 entry_price =  6794
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'myha2aAYNVrwnqJKFtmykGvVdQDCWifXhm'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 1516666666.67), ('lives_trk', 0.0), ('amount_trd', 1516666666.6666667), ('edge_row', 261)]) 
-amount_trd =  2100000000 entry_price =  6794
+amount_trd =  1516666666.6666667 entry_price =  6794
+
+Exit price in this path =  6794.000000128964
 
 This path has PNL =  -502.9576129169835
 ###################################################################################
@@ -25946,11 +26058,13 @@ PNL_trk for:  myha2aAYNVrwnqJKFtmykGvVdQDCWifXhm  =  -37.896162695208304
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'myha2aAYNVrwnqJKFtmykGvVdQDCWifXhm'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 916666666.67), ('lives_trk', 0), ('amount_trd', 916666666.6666667), ('edge_row', 260)]) 
-amount_trd =  3300000000 entry_price =  6794
+amount_trd =  916666666.6666667 entry_price =  6794
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'myha2aAYNVrwnqJKFtmykGvVdQDCWifXhm'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 583333333.33), ('lives_trk', 0.0), ('amount_trd', 583333333.3333334), ('edge_row', 261)]) 
-amount_trd =  2100000000 entry_price =  6794
+amount_trd =  583333333.3333334 entry_price =  6794
+
+Exit price in this path =  0
 
 This path has PNL =  -97.44727550196421
 ###################################################################################
@@ -26195,7 +26309,9 @@ PNL_trk for:  n3G5J5svvv9ZEeUyNKF6wkresGwGX9XvbB  =  0.0
 
 Address for PNL in the settlement!!:  mtpTfLEeHFp4f7zNBmiikfzyaiPQr6p8SF  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mtpTfLEeHFp4f7zNBmiikfzyaiPQr6p8SF'), ('addrs_trk', 'n3G5J5svvv9ZEeUyNKF6wkresGwGX9XvbB'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 642253521.13), ('lives_trk', 0), ('amount_trd', 642253521.1267606), ('edge_row', 236)]) 
-amount_trd =  5700000000 entry_price =  6796
+amount_trd =  642253521.1267606 entry_price =  6796
+
+Exit price in this path =  6796.000000000001
 
 This path has PNL =  0.0
 ###################################################################################
@@ -26303,6 +26419,8 @@ amount_trd =  5500000000 entry_price =  6796
 Address for PNL in the path!!:  mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95  status:  OpenLongPosition 
 entry price =  6796  exit price =  6796  amount_trd =  5500000000  edge_row =  58
 PNL_trk for:  mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95  =  0.0
+
+Exit price in this path =  6796.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -26651,11 +26769,13 @@ PNL_trk for:  mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R  =  -4.87988978083163
 
 Address for PNL in the settlement!!:  mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN'), ('addrs_trk', 'mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 2742131979.7), ('lives_trk', 0), ('amount_trd', 2742131979.6954317), ('edge_row', 267)]) 
-amount_trd =  7300000000 entry_price =  6795
+amount_trd =  2742131979.6954317 entry_price =  6795
 
 Address for PNL in the settlement!!:  mkCzTm2bLwyzoeH2DKfM7J2D26FRuMouLu  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mkCzTm2bLwyzoeH2DKfM7J2D26FRuMouLu'), ('addrs_trk', 'mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 112690355.33), ('lives_trk', 4507614213.2), ('amount_trd', 112690355.32994924), ('edge_row', 269)]) 
-amount_trd =  300000000 entry_price =  6795
+amount_trd =  112690355.32994924 entry_price =  6795
+
+Exit price in this path =  6798.256198319552
 
 This path has PNL =  -125.25050437467851
 ###################################################################################
@@ -27170,15 +27290,17 @@ PNL_trk for:  mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R  =  -1.714555868940843
 
 Address for PNL in the settlement!!:  mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN'), ('addrs_trk', 'mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 963451776.65), ('lives_trk', 0), ('amount_trd', 963451776.6497462), ('edge_row', 267)]) 
-amount_trd =  7300000000 entry_price =  6795
+amount_trd =  963451776.6497462 entry_price =  6795
 
 Address for PNL in the settlement!!:  mkCzTm2bLwyzoeH2DKfM7J2D26FRuMouLu  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mkCzTm2bLwyzoeH2DKfM7J2D26FRuMouLu'), ('addrs_trk', 'mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 39593908.63), ('lives_trk', 1583756345.18), ('amount_trd', 39593908.62944163), ('edge_row', 269)]) 
-amount_trd =  300000000 entry_price =  6795
+amount_trd =  39593908.62944163 entry_price =  6795
 
 Address for PNL in the settlement!!:  mobiVuCuRhwG9haTvbsm6WLFjvuuHQhCYM  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mobiVuCuRhwG9haTvbsm6WLFjvuuHQhCYM'), ('addrs_trk', 'mnxK7Az7Uu1UfJVB3knezZCccRFWfuKaBr'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6798), ('lives_src', 1075862068.97), ('lives_trk', 0), ('amount_trd', 1075862068.9655173), ('edge_row', 129)]) 
-amount_trd =  1200000000 entry_price =  6798
+amount_trd =  1075862068.9655173 entry_price =  6798
+
+Exit price in this path =  6839.324998622894
 
 This path has PNL =  -100.2766751802006
 ###################################################################################
@@ -27488,11 +27610,13 @@ PNL_trk for:  mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95  =  0.0
 
 Address for PNL in the settlement!!:  mhhRWDD48gxwVh4qZM2GSmegg9wcWy8824  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhhRWDD48gxwVh4qZM2GSmegg9wcWy8824'), ('addrs_trk', 'mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 357894736.84), ('lives_trk', 0), ('amount_trd', 357894736.84210527), ('edge_row', 177)]) 
-amount_trd =  3400000000 entry_price =  6797
+amount_trd =  357894736.84210527 entry_price =  6797
 
 Address for PNL in the settlement!!:  mkqufnQ9pS5PX1QW7GU8iGrp9nKnUQ8Hvf  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mkqufnQ9pS5PX1QW7GU8iGrp9nKnUQ8Hvf'), ('addrs_trk', 'mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 21052631.58), ('lives_trk', 621052631.58), ('amount_trd', 21052631.57894737), ('edge_row', 184)]) 
-amount_trd =  200000000 entry_price =  6797
+amount_trd =  21052631.57894737 entry_price =  6797
+
+Exit price in this path =  6796.999999978352
 
 This path has PNL =  -8.203671382672166
 ###################################################################################
@@ -27792,11 +27916,13 @@ PNL_trk for:  myDJLDSLrNSemJ7ZVok2rvtjZ7EevxMJcq  =  0.0
 
 Address for PNL in the settlement!!:  mhhRWDD48gxwVh4qZM2GSmegg9wcWy8824  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhhRWDD48gxwVh4qZM2GSmegg9wcWy8824'), ('addrs_trk', 'mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 214736842.11), ('lives_trk', 0), ('amount_trd', 214736842.10526317), ('edge_row', 177)]) 
-amount_trd =  3400000000 entry_price =  6797
+amount_trd =  214736842.10526317 entry_price =  6797
 
 Address for PNL in the settlement!!:  mkqufnQ9pS5PX1QW7GU8iGrp9nKnUQ8Hvf  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mkqufnQ9pS5PX1QW7GU8iGrp9nKnUQ8Hvf'), ('addrs_trk', 'mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 12631578.95), ('lives_trk', 372631578.95), ('amount_trd', 12631578.94736842), ('edge_row', 184)]) 
-amount_trd =  200000000 entry_price =  6797
+amount_trd =  12631578.94736842 entry_price =  6797
+
+Exit price in this path =  6796.999999978352
 
 This path has PNL =  -4.9222028296033
 ###################################################################################
@@ -28269,19 +28395,21 @@ PNL_trk for:  mnvKPc8v6iA55oQwi3UdRpkAAQBHgE24FF  =  11.25610094741419
 
 Address for PNL in the settlement!!:  mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL'), ('addrs_trk', 'mkCzTm2bLwyzoeH2DKfM7J2D26FRuMouLu'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNetted'), ('entry_price', 6796), ('exit_price', 6796), ('lives_src', 4700000000.0), ('lives_trk', 0.0), ('amount_trd', 4700000000.0), ('edge_row', 160)]) 
-amount_trd =  4700000000 entry_price =  6796
+amount_trd =  4700000000.0 entry_price =  6796
 
 Address for PNL in the settlement!!:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'myt86xFBrtouVYx9fVNHVg198b1W8mxGfY'), ('addrs_trk', 'mnvKPc8v6iA55oQwi3UdRpkAAQBHgE24FF'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6804), ('lives_src', 65060240.96), ('lives_trk', 2634939759.04), ('amount_trd', 65060240.96385542), ('edge_row', 248)]) 
-amount_trd =  200000000 entry_price =  6804
+amount_trd =  65060240.96385542 entry_price =  6804
 
 Address for PNL in the settlement!!:  mhhRWDD48gxwVh4qZM2GSmegg9wcWy8824  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhhRWDD48gxwVh4qZM2GSmegg9wcWy8824'), ('addrs_trk', 'mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 2648421052.63), ('lives_trk', 0), ('amount_trd', 2648421052.631579), ('edge_row', 177)]) 
-amount_trd =  3400000000 entry_price =  6797
+amount_trd =  2648421052.631579 entry_price =  6797
 
 Address for PNL in the settlement!!:  mkqufnQ9pS5PX1QW7GU8iGrp9nKnUQ8Hvf  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mkqufnQ9pS5PX1QW7GU8iGrp9nKnUQ8Hvf'), ('addrs_trk', 'mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 155789473.68), ('lives_trk', 4595789473.68), ('amount_trd', 155789473.6842105), ('edge_row', 184)]) 
-amount_trd =  200000000 entry_price =  6797
+amount_trd =  155789473.6842105 entry_price =  6797
+
+Exit price in this path =  6794.835337286638
 
 This path has PNL =  -49.45106728435984
 ###################################################################################
@@ -28648,11 +28776,13 @@ PNL_trk for:  n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8  =  10.824288629914664
 
 Address for PNL in the settlement!!:  mhhRWDD48gxwVh4qZM2GSmegg9wcWy8824  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhhRWDD48gxwVh4qZM2GSmegg9wcWy8824'), ('addrs_trk', 'mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 178947368.42), ('lives_trk', 0), ('amount_trd', 178947368.42105263), ('edge_row', 177)]) 
-amount_trd =  3400000000 entry_price =  6797
+amount_trd =  178947368.42105263 entry_price =  6797
 
 Address for PNL in the settlement!!:  mkqufnQ9pS5PX1QW7GU8iGrp9nKnUQ8Hvf  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mkqufnQ9pS5PX1QW7GU8iGrp9nKnUQ8Hvf'), ('addrs_trk', 'mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 10526315.79), ('lives_trk', 310526315.79), ('amount_trd', 10526315.789473685), ('edge_row', 184)]) 
-amount_trd =  200000000 entry_price =  6797
+amount_trd =  10526315.789473685 entry_price =  6797
+
+Exit price in this path =  6797.00000003548
 
 This path has PNL =  6.722452938578581
 ###################################################################################
@@ -29136,11 +29266,13 @@ PNL_trk for:  mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1  =  0.34881128142970536
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6802), ('lives_src', 4032258.06), ('lives_trk', 95967741.94), ('amount_trd', 4032258.064516129), ('edge_row', 215)]) 
-amount_trd =  1500000000 entry_price =  6802
+amount_trd =  4032258.064516129 entry_price =  6802
 
 Address for PNL in the settlement!!:  mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz'), ('addrs_trk', 'miGgnf5an994puQr59adJoHYoP7sgHH5C6'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 2327631578.95), ('lives_trk', 572368421.05), ('amount_trd', 2327631578.9473686), ('edge_row', 272)]) 
-amount_trd =  6100000000 entry_price =  6797
+amount_trd =  2327631578.9473686 entry_price =  6797
+
+Exit price in this path =  6796.991323209603
 
 This path has PNL =  -93.9512708658333
 ###################################################################################
@@ -29377,7 +29509,9 @@ PNL_trk for:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  =  54.83499842331272
 
 Address for PNL in the settlement!!:  mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz'), ('addrs_trk', 'miGgnf5an994puQr59adJoHYoP7sgHH5C6'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 1284210526.32), ('lives_trk', 315789473.68), ('amount_trd', 1284210526.3157895), ('edge_row', 272)]) 
-amount_trd =  6100000000 entry_price =  6797
+amount_trd =  1284210526.3157895 entry_price =  6797
+
+Exit price in this path =  6796.999999999396
 
 This path has PNL =  -0.7758460491896031
 ###################################################################################
@@ -29505,6 +29639,8 @@ Address for PNL in the path!!:  msJmk6FFfnpD2fwdXLrwUU4QFBXr5HmPFa  status:  Lon
 entry price =  6797  exit price =  6795  amount_trd =  700000000.0  edge_row =  181
 PNL_trk for:  msJmk6FFfnpD2fwdXLrwUU4QFBXr5HmPFa  =  -30.312468503454134
 
+Exit price in this path =  6796.999999956696
+
 This path has PNL =  -30.312468503454134
 ###################################################################################
 
@@ -29608,6 +29744,8 @@ amount_trd =  4100000000 entry_price =  6796
 Address for PNL in the path!!:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  status:  LongPosIncreased 
 entry price =  6796  exit price =  6796  amount_trd =  4100000000  edge_row =  73
 PNL_trk for:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  =  0.0
+
+Exit price in this path =  6796.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -29891,7 +30029,9 @@ PNL_trk for:  mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye  =  244.0474186567755
 
 Address for PNL in the settlement!!:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'myt86xFBrtouVYx9fVNHVg198b1W8mxGfY'), ('addrs_trk', 'mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6804), ('lives_src', 1253676470.59), ('lives_trk', 1698529411.76), ('amount_trd', 1253676470.5882354), ('edge_row', 220)]) 
-amount_trd =  3100000000 entry_price =  6804
+amount_trd =  1253676470.5882354 entry_price =  6804
+
+Exit price in this path =  6792.342857317129
 
 This path has PNL =  740.0147533463515
 ###################################################################################
@@ -30005,6 +30145,8 @@ amount_trd =  3200000000 entry_price =  6794
 Address for PNL in the path!!:  mth3M1EYjhDzkQM3h8CKVcCNdMDNTXoS4i  status:  OpenLongPosition 
 entry price =  6794  exit price =  6794  amount_trd =  3200000000  edge_row =  77
 PNL_trk for:  mth3M1EYjhDzkQM3h8CKVcCNdMDNTXoS4i  =  0.0
+
+Exit price in this path =  6794.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -30121,6 +30263,8 @@ Address for PNL in the path!!:  mth3M1EYjhDzkQM3h8CKVcCNdMDNTXoS4i  status:  Lon
 entry price =  6794  exit price =  6794  amount_trd =  1800000000  edge_row =  78
 PNL_trk for:  mth3M1EYjhDzkQM3h8CKVcCNdMDNTXoS4i  =  0.0
 
+Exit price in this path =  0
+
 This path has PNL =  -6.49648503346428
 ###################################################################################
 
@@ -30199,6 +30343,8 @@ amount_trd =  500000000 entry_price =  6794
 Address for PNL in the path!!:  mth3M1EYjhDzkQM3h8CKVcCNdMDNTXoS4i  status:  LongPosIncreased 
 entry price =  6794  exit price =  6794  amount_trd =  500000000  edge_row =  83
 PNL_trk for:  mth3M1EYjhDzkQM3h8CKVcCNdMDNTXoS4i  =  0.0
+
+Exit price in this path =  6794.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -30291,6 +30437,8 @@ amount_trd =  4700000000 entry_price =  6794
 Address for PNL in the path!!:  mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT  status:  OpenLongPosition 
 entry price =  6794  exit price =  6794  amount_trd =  4700000000  edge_row =  84
 PNL_trk for:  mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT  =  0.0
+
+Exit price in this path =  6794.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -30853,7 +31001,7 @@ PNL_trk for:  mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye  =  39.93503214383598
 
 Address for PNL in the settlement!!:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'myt86xFBrtouVYx9fVNHVg198b1W8mxGfY'), ('addrs_trk', 'mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6804), ('lives_src', 205147058.82), ('lives_trk', 277941176.47), ('amount_trd', 205147058.8235294), ('edge_row', 220)]) 
-amount_trd =  3100000000 entry_price =  6804
+amount_trd =  205147058.8235294 entry_price =  6804
 
 Address for PNL in the path!!:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  status:  ShortPosNettedPartly 
 entry price =  6797  exit price =  6794  amount_trd =  157551487.4141876  edge_row =  265
@@ -30865,7 +31013,9 @@ PNL_trk for:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  =  14.78433493313553
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 227574370.71), ('lives_trk', 280091533.18), ('amount_trd', 227574370.70938215), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  227574370.70938215 entry_price =  6794
+
+Exit price in this path =  6702.528026837547
 
 This path has PNL =  117.30670811948043
 ###################################################################################
@@ -31279,7 +31429,9 @@ PNL_trk for:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  =  124.8454949909222
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6794), ('lives_src', 1921739130.43), ('lives_trk', 2365217391.3), ('amount_trd', 1921739130.434782), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  1921739130.434782 entry_price =  6794
+
+Exit price in this path =  6793.99999998336
 
 This path has PNL =  -31.975861312073206
 ###################################################################################
@@ -31579,7 +31731,9 @@ PNL_trk for:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  =  0.0
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'mh2TDBiprn8yXHzo5WAFs8fBdEruCExziW'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6800), ('lives_src', 639344262.3), ('lives_trk', 0), ('amount_trd', 639344262.295082), ('edge_row', 200)]) 
-amount_trd =  3000000000 entry_price =  6800
+amount_trd =  639344262.295082 entry_price =  6800
+
+Exit price in this path =  6799.999999887477
 
 This path has PNL =  -71.94089438282505
 ###################################################################################
@@ -31675,6 +31829,8 @@ amount_trd =  800000000 entry_price =  6795
 Address for PNL in the path!!:  mvNveRFmfES3ghr18xdBcNmrxdDpdXjhfo  status:  LongPosIncreased 
 entry price =  6795  exit price =  6795  amount_trd =  800000000  edge_row =  91
 PNL_trk for:  mvNveRFmfES3ghr18xdBcNmrxdDpdXjhfo  =  0.0
+
+Exit price in this path =  6795.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -31973,11 +32129,13 @@ PNL_trk for:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  =  6.232955949495023
 
 Address for PNL in the settlement!!:  mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu'), ('addrs_trk', 'mm13L6wzFrctyp8XHaf2TCJvuudpFCPoEh'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6795), ('exit_price', 6798), ('lives_src', 400000000.0), ('lives_trk', 0.0), ('amount_trd', 400000000.0), ('edge_row', 190)]) 
-amount_trd =  400000000 entry_price =  6798
+amount_trd =  400000000.0 entry_price =  6798
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6798), ('lives_src', 288000000.0), ('lives_trk', 1512000000.0), ('amount_trd', 288000000.0), ('edge_row', 273)]) 
-amount_trd =  1600000000 entry_price =  6798
+amount_trd =  288000000.0 entry_price =  6798
+
+Exit price in this path =  6793.634920707776
 
 This path has PNL =  110.15759736639555
 ###################################################################################
@@ -32238,7 +32396,9 @@ PNL_trk for:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  =  0.0
 
 Address for PNL in the settlement!!:  mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78'), ('addrs_trk', 'mfnG512bCgLPb6FsyAoRqoxbgE9a1n5rYV'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6794), ('lives_src', 526086956.52), ('lives_trk', 884782608.7), ('amount_trd', 526086956.5217391), ('edge_row', 153)]) 
-amount_trd =  2200000000 entry_price =  6794
+amount_trd =  526086956.5217391 entry_price =  6794
+
+Exit price in this path =  6794.000000108291
 
 This path has PNL =  56.97031567448293
 ###################################################################################
@@ -32705,15 +32865,17 @@ PNL_trk for:  mz3NXiUrKJKcab57xMfPGBTE9kAgKYasL4  =  -93.03154103567894
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'mz3NXiUrKJKcab57xMfPGBTE9kAgKYasL4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6794), ('lives_src', 318181818.18), ('lives_trk', 0), ('amount_trd', 318181818.1818182), ('edge_row', 263)]) 
-amount_trd =  400000000 entry_price =  6794
+amount_trd =  318181818.1818182 entry_price =  6794
 
 Address for PNL in the settlement!!:  msUZEtk7SihVrbVHUj2XczN5g2KRqkSLqt  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'msUZEtk7SihVrbVHUj2XczN5g2KRqkSLqt'), ('addrs_trk', 'mz3NXiUrKJKcab57xMfPGBTE9kAgKYasL4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6794), ('lives_src', 3738636363.64), ('lives_trk', 0), ('amount_trd', 3738636363.6363635), ('edge_row', 264)]) 
-amount_trd =  4700000000 entry_price =  6794
+amount_trd =  3738636363.6363635 entry_price =  6794
 
 Address for PNL in the settlement!!:  mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78'), ('addrs_trk', 'mfnG512bCgLPb6FsyAoRqoxbgE9a1n5rYV'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6794), ('lives_src', 1673913043.48), ('lives_trk', 2815217391.3), ('amount_trd', 1673913043.478261), ('edge_row', 153)]) 
-amount_trd =  2200000000 entry_price =  6794
+amount_trd =  1673913043.478261 entry_price =  6794
+
+Exit price in this path =  6794.000000036715
 
 This path has PNL =  -87.48859897719242
 ###################################################################################
@@ -32808,6 +32970,8 @@ amount_trd =  100000000 entry_price =  6795
 Address for PNL in the path!!:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  status:  LongPosIncreased 
 entry price =  6795  exit price =  6795  amount_trd =  100000000  edge_row =  100
 PNL_trk for:  n4726BKgsDNEPp5iBJwtVHqWFaxGzYJY2E  =  0.0
+
+Exit price in this path =  6795.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -33331,11 +33495,13 @@ PNL_trk for:  n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM  =  27.581941368956535
 
 Address for PNL in the settlement!!:  n1rdJcSr85XdtwsnYuMhTdxrmajgNko359  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'n1rdJcSr85XdtwsnYuMhTdxrmajgNko359'), ('addrs_trk', 'n2XkaJ2NSTEq2v5EN67cAPShgopAY1cjRW'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6799), ('lives_src', 482456140.35), ('lives_trk', 482456140.35), ('amount_trd', 482456140.35087717), ('edge_row', 198)]) 
-amount_trd =  500000000 entry_price =  6799
+amount_trd =  482456140.35087717 entry_price =  6799
 
 Address for PNL in the settlement!!:  mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mosYa4nKjPQEbfZnHzadCCkdn9snJBKxfs'), ('addrs_trk', 'n2E1BTpwwhzjbzFjbGZrQXW7C389CHKMzM'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6799), ('exit_price', 6794), ('lives_src', 254815246.8), ('lives_trk', 340704022.29), ('amount_trd', 254815246.7965852), ('edge_row', 266)]) 
-amount_trd =  3900000000 entry_price =  6794
+amount_trd =  254815246.7965852 entry_price =  6794
+
+Exit price in this path =  6797.271902944712
 
 This path has PNL =  -279.0950685100279
 ###################################################################################
@@ -33420,6 +33586,8 @@ amount_trd =  300000000 entry_price =  6795
 Address for PNL in the path!!:  mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd  status:  LongPosIncreased 
 entry price =  6795  exit price =  6795  amount_trd =  300000000  edge_row =  105
 PNL_trk for:  mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd  =  0.0
+
+Exit price in this path =  6795.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -33854,11 +34022,13 @@ PNL_trk for:  mz3NXiUrKJKcab57xMfPGBTE9kAgKYasL4  =  -23.92239626631744
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'mz3NXiUrKJKcab57xMfPGBTE9kAgKYasL4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6794), ('lives_src', 81818181.82), ('lives_trk', 0), ('amount_trd', 81818181.81818183), ('edge_row', 263)]) 
-amount_trd =  400000000 entry_price =  6794
+amount_trd =  81818181.81818183 entry_price =  6794
 
 Address for PNL in the settlement!!:  msUZEtk7SihVrbVHUj2XczN5g2KRqkSLqt  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'msUZEtk7SihVrbVHUj2XczN5g2KRqkSLqt'), ('addrs_trk', 'mz3NXiUrKJKcab57xMfPGBTE9kAgKYasL4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6794), ('lives_src', 961363636.36), ('lives_trk', 0), ('amount_trd', 961363636.3636363), ('edge_row', 264)]) 
-amount_trd =  4700000000 entry_price =  6794
+amount_trd =  961363636.3636363 entry_price =  6794
+
+Exit price in this path =  6794.000000088806
 
 This path has PNL =  -92.64050287692694
 ###################################################################################
@@ -34181,7 +34351,9 @@ PNL_trk for:  mrgsJGDkEgGZBWwkwt71TG3gFKpuJWXM5N  =  44.309392133511054
 
 Address for PNL in the settlement!!:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb'), ('addrs_trk', 'mrgsJGDkEgGZBWwkwt71TG3gFKpuJWXM5N'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6798), ('lives_src', 1023529411.76), ('lives_trk', 1876470588.24), ('amount_trd', 1023529411.7647059), ('edge_row', 176)]) 
-amount_trd =  1200000000 entry_price =  6798
+amount_trd =  1023529411.7647059 entry_price =  6798
+
+Exit price in this path =  6797.99999999375
 
 This path has PNL =  6.3977596268778
 ###################################################################################
@@ -34489,7 +34661,9 @@ PNL_trk for:  mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd  =  0.0
 
 Address for PNL in the settlement!!:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj'), ('addrs_trk', 'n3838DZJTsmdErFXwGdgamkPnvUMktGQ31'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6802), ('lives_src', 61818181.82), ('lives_trk', 429090909.09), ('amount_trd', 61818181.81818182), ('edge_row', 211)]) 
-amount_trd =  1700000000 entry_price =  6802
+amount_trd =  61818181.81818182 entry_price =  6802
+
+Exit price in this path =  6801.999999581283
 
 This path has PNL =  -25.884341171432578
 ###################################################################################
@@ -34787,7 +34961,9 @@ PNL_trk for:  mo22kJTBiyzD9UHvu5jV69XYDYYrMUCbQf  =  0.0
 
 Address for PNL in the settlement!!:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj'), ('addrs_trk', 'n3838DZJTsmdErFXwGdgamkPnvUMktGQ31'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6802), ('lives_src', 350303030.3), ('lives_trk', 2431515151.52), ('amount_trd', 350303030.3030303), ('edge_row', 211)]) 
-amount_trd =  1700000000 entry_price =  6802
+amount_trd =  350303030.3030303 entry_price =  6802
+
+Exit price in this path =  6801.999999581284
 
 This path has PNL =  -146.6779333047846
 ###################################################################################
@@ -35203,11 +35379,13 @@ PNL_trk for:  mrgsJGDkEgGZBWwkwt71TG3gFKpuJWXM5N  =  7.639550367846734
 
 Address for PNL in the settlement!!:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb'), ('addrs_trk', 'mrgsJGDkEgGZBWwkwt71TG3gFKpuJWXM5N'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6798), ('lives_src', 176470588.24), ('lives_trk', 323529411.76), ('amount_trd', 176470588.23529413), ('edge_row', 176)]) 
-amount_trd =  1200000000 entry_price =  6798
+amount_trd =  176470588.23529413 entry_price =  6798
 
 Address for PNL in the settlement!!:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj'), ('addrs_trk', 'n3838DZJTsmdErFXwGdgamkPnvUMktGQ31'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6802), ('lives_src', 51515151.52), ('lives_trk', 357575757.58), ('amount_trd', 51515151.515151516), ('edge_row', 211)]) 
-amount_trd =  1700000000 entry_price =  6802
+amount_trd =  51515151.515151516 entry_price =  6802
+
+Exit price in this path =  6796.350927333593
 
 This path has PNL =  -10.846544210884048
 ###################################################################################
@@ -35739,11 +35917,13 @@ PNL_trk for:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  =  18.992131124842338
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6798), ('lives_src', 292430769.23), ('lives_trk', 1535261538.46), ('amount_trd', 292430769.2307693), ('edge_row', 273)]) 
-amount_trd =  1600000000 entry_price =  6798
+amount_trd =  292430769.2307693 entry_price =  6798
 
 Address for PNL in the settlement!!:  mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj  status:  OpenShortPosition 
 Row =  OrderedDict([('addrs_src', 'mhhyxvVQquazKPxBUBEQNrW8JrJAqZjjTj'), ('addrs_trk', 'n3838DZJTsmdErFXwGdgamkPnvUMktGQ31'), ('status_src', 'OpenShortPosition'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6802), ('lives_src', 226666666.67), ('lives_trk', 1573333333.33), ('amount_trd', 226666666.66666666), ('edge_row', 211)]) 
-amount_trd =  1700000000 entry_price =  6802
+amount_trd =  226666666.66666666 entry_price =  6802
+
+Exit price in this path =  6784.2133515186715
 
 This path has PNL =  -101.9252690497697
 ###################################################################################
@@ -35965,7 +36145,9 @@ PNL_trk for:  msH8sURm5Q7Fvv6tHWSKACaXD8j8MKxezi  =  64.89798458659011
 
 Address for PNL in the settlement!!:  mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6'), ('addrs_trk', 'msH8sURm5Q7Fvv6tHWSKACaXD8j8MKxezi'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6801), ('lives_src', 750000000.0), ('lives_trk', 1650000000.0), ('amount_trd', 750000000.0), ('edge_row', 208)]) 
-amount_trd =  2500000000 entry_price =  6801
+amount_trd =  750000000.0 entry_price =  6801
+
+Exit price in this path =  6795.181818221151
 
 This path has PNL =  64.89798458659011
 ###################################################################################
@@ -36182,7 +36364,9 @@ PNL_trk for:  msH8sURm5Q7Fvv6tHWSKACaXD8j8MKxezi  =  102.75514226210102
 
 Address for PNL in the settlement!!:  mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6'), ('addrs_trk', 'msH8sURm5Q7Fvv6tHWSKACaXD8j8MKxezi'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6801), ('lives_src', 1187500000.0), ('lives_trk', 2612500000.0), ('amount_trd', 1187500000.0), ('edge_row', 208)]) 
-amount_trd =  2500000000 entry_price =  6801
+amount_trd =  1187500000.0 entry_price =  6801
+
+Exit price in this path =  6795.18181822115
 
 This path has PNL =  102.75514226210102
 ###################################################################################
@@ -36499,7 +36683,9 @@ PNL_trk for:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  =  17.26557374985667
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6798), ('lives_src', 265846153.85), ('lives_trk', 1395692307.69), ('amount_trd', 265846153.8461539), ('edge_row', 273)]) 
-amount_trd =  1600000000 entry_price =  6798
+amount_trd =  265846153.8461539 entry_price =  6798
+
+Exit price in this path =  6795.693399563374
 
 This path has PNL =  -18.714957184867494
 ###################################################################################
@@ -36599,6 +36785,8 @@ amount_trd =  2900000000 entry_price =  6798
 Address for PNL in the path!!:  mrS7HkRm9g1wnK8tskm7vchAt4giamWeXR  status:  OpenLongPosition 
 entry price =  6798  exit price =  6798  amount_trd =  2900000000  edge_row =  119
 PNL_trk for:  mrS7HkRm9g1wnK8tskm7vchAt4giamWeXR  =  0.0
+
+Exit price in this path =  6798.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -36897,7 +37085,9 @@ PNL_trk for:  mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1  =  2.0928676885782322
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6802), ('lives_src', 24193548.39), ('lives_trk', 275806451.61), ('amount_trd', 24193548.387096774), ('edge_row', 215)]) 
-amount_trd =  1500000000 entry_price =  6802
+amount_trd =  24193548.387096774 entry_price =  6802
+
+Exit price in this path =  6797.649122814605
 
 This path has PNL =  2.0928676885782322
 ###################################################################################
@@ -37141,7 +37331,9 @@ PNL_trk for:  mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1  =  67.28182050688538
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6802), ('lives_src', 777777777.78), ('lives_trk', 3422222222.22), ('amount_trd', 777777777.7777778), ('edge_row', 215)]) 
-amount_trd =  1500000000 entry_price =  6802
+amount_trd =  777777777.7777778 entry_price =  6802
+
+Exit price in this path =  6797.090909110569
 
 This path has PNL =  67.28182050688538
 ###################################################################################
@@ -37260,6 +37452,8 @@ amount_trd =  2200000000 entry_price =  6797
 Address for PNL in the path!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  LongPosIncreased 
 entry price =  6797  exit price =  6797  amount_trd =  2200000000  edge_row =  124
 PNL_trk for:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  =  0.0
+
+Exit price in this path =  6797.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -37382,6 +37576,8 @@ amount_trd =  600000000 entry_price =  6797
 Address for PNL in the path!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  LongPosIncreased 
 entry price =  6797  exit price =  6797  amount_trd =  600000000  edge_row =  126
 PNL_trk for:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  =  0.0
+
+Exit price in this path =  6797.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -37563,7 +37759,9 @@ PNL_trk for:  mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1  =  129.7577966918504
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mt7wV8aNCoqPf7RLdf5icRszVVqLpmw8t1'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6802), ('lives_src', 1500000000.0), ('lives_trk', 100000000.0), ('amount_trd', 1500000000.0), ('edge_row', 215)]) 
-amount_trd =  1500000000 entry_price =  6802
+amount_trd =  1500000000.0 entry_price =  6802
+
+Exit price in this path =  6738.000001297578
 
 This path has PNL =  129.7577966918504
 ###################################################################################
@@ -38071,7 +38269,7 @@ PNL_trk for:  msUZEtk7SihVrbVHUj2XczN5g2KRqkSLqt  =  0.0
 
 Address for PNL in the settlement!!:  mopNPpxuP99GQaizujGRy9r8DsML7RtP4v  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mopNPpxuP99GQaizujGRy9r8DsML7RtP4v'), ('addrs_trk', 'my5gTLde7GfWHjo8LGrgRXtXNW2xbiTpPP'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6797), ('lives_src', 1313432835.82), ('lives_trk', 0), ('amount_trd', 1313432835.8208954), ('edge_row', 233)]) 
-amount_trd =  2200000000 entry_price =  6797
+amount_trd =  1313432835.8208954 entry_price =  6797
 
 Address for PNL in the path!!:  n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8  status:  ShortPosNettedPartly 
 entry price =  6797  exit price =  6796  amount_trd =  649253731.3432834  edge_row =  252
@@ -38083,7 +38281,9 @@ PNL_trk for:  n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8  =  4.164568759768161
 
 Address for PNL in the settlement!!:  mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78'), ('addrs_trk', 'n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 649253731.34), ('lives_trk', 0), ('amount_trd', 649253731.3432834), ('edge_row', 252)]) 
-amount_trd =  2700000000 entry_price =  6796
+amount_trd =  649253731.3432834 entry_price =  6796
+
+Exit price in this path =  6796.669201530197
 
 This path has PNL =  18.219988323985707
 ###################################################################################
@@ -38595,7 +38795,7 @@ PNL_trk for:  mx8PqXWsWmwqBgUjcycjDZYyWVgS8ZbqTw  =  0.0
 
 Address for PNL in the settlement!!:  mopNPpxuP99GQaizujGRy9r8DsML7RtP4v  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mopNPpxuP99GQaizujGRy9r8DsML7RtP4v'), ('addrs_trk', 'my5gTLde7GfWHjo8LGrgRXtXNW2xbiTpPP'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6797), ('lives_src', 886567164.18), ('lives_trk', 0), ('amount_trd', 886567164.1791044), ('edge_row', 233)]) 
-amount_trd =  2200000000 entry_price =  6797
+amount_trd =  886567164.1791044 entry_price =  6797
 
 Address for PNL in the path!!:  n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8  status:  ShortPosNettedPartly 
 entry price =  6797  exit price =  6796  amount_trd =  438246268.65671635  edge_row =  252
@@ -38607,7 +38807,9 @@ PNL_trk for:  n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8  =  2.811083912843509
 
 Address for PNL in the settlement!!:  mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78'), ('addrs_trk', 'n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 438246268.66), ('lives_trk', 0), ('amount_trd', 438246268.65671635), ('edge_row', 252)]) 
-amount_trd =  2700000000 entry_price =  6796
+amount_trd =  438246268.65671635 entry_price =  6796
+
+Exit price in this path =  6796.669201530197
 
 This path has PNL =  12.298492118690353
 ###################################################################################
@@ -38807,7 +39009,9 @@ PNL_trk for:  mwGHmxT4fKx5orjE9p9P71aisAt3q2L8bJ  =  -82.26459358735144
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mwGHmxT4fKx5orjE9p9P71aisAt3q2L8bJ'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 3800000000.0), ('lives_trk', 0.0), ('amount_trd', 3800000000.0), ('edge_row', 231)]) 
-amount_trd =  3800000000 entry_price =  6796
+amount_trd =  3800000000.0 entry_price =  6796
+
+Exit price in this path =  6800.454545336456
 
 This path has PNL =  -129.89847266420793
 ###################################################################################
@@ -38892,6 +39096,8 @@ amount_trd =  800000000 entry_price =  6798
 Address for PNL in the path!!:  mnxK7Az7Uu1UfJVB3knezZCccRFWfuKaBr  status:  LongPosIncreased 
 entry price =  6798  exit price =  6798  amount_trd =  800000000  edge_row =  136
 PNL_trk for:  mnxK7Az7Uu1UfJVB3knezZCccRFWfuKaBr  =  0.0
+
+Exit price in this path =  6798.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -39164,7 +39370,9 @@ PNL_trk for:  mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye  =  106.44642283704556
 
 Address for PNL in the settlement!!:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'myt86xFBrtouVYx9fVNHVg198b1W8mxGfY'), ('addrs_trk', 'mqCzp7dSoo9U8sKr7uTciKsXPkqnWyd3Ye'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6804), ('lives_src', 820588235.29), ('lives_trk', 1111764705.88), ('amount_trd', 820588235.2941176), ('edge_row', 220)]) 
-amount_trd =  3100000000 entry_price =  6804
+amount_trd =  820588235.2941176 entry_price =  6804
+
+Exit price in this path =  6796.2285715447015
 
 This path has PNL =  322.7730240865253
 ###################################################################################
@@ -39512,11 +39720,13 @@ PNL_trk for:  mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4  =  -5.456325084875351
 
 Address for PNL in the settlement!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP'), ('addrs_trk', 'mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 329591836.73), ('lives_trk', 0), ('amount_trd', 329591836.7346939), ('edge_row', 234)]) 
-amount_trd =  1700000000 entry_price =  6796
+amount_trd =  329591836.7346939 entry_price =  6796
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'mvD8Pn3KvsKKdnYReJ6kMhAM8DzBTaZYb4'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 252040816.33), ('lives_trk', 1318367346.94), ('amount_trd', 252040816.32653064), ('edge_row', 235)]) 
-amount_trd =  1300000000 entry_price =  6796
+amount_trd =  252040816.32653064 entry_price =  6796
+
+Exit price in this path =  6797.441176461037
 
 This path has PNL =  -12.591519426635426
 ###################################################################################
@@ -39612,6 +39822,8 @@ amount_trd =  1100000000 entry_price =  6796
 Address for PNL in the path!!:  mghAbBJN9g3t9LUMjinxTgrgfmsr9Qa9un  status:  LongPosIncreased 
 entry price =  6796  exit price =  6796  amount_trd =  1100000000  edge_row =  141
 PNL_trk for:  mghAbBJN9g3t9LUMjinxTgrgfmsr9Qa9un  =  0.0
+
+Exit price in this path =  6796.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -39892,7 +40104,9 @@ PNL_trk for:  mx8PqXWsWmwqBgUjcycjDZYyWVgS8ZbqTw  =  0.0
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'my3CLmXPNpW3U2yNWRWW5zwjq5tiy1C248'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6797), ('lives_src', 712500000.0), ('lives_trk', 862500000.0), ('amount_trd', 712500000.0), ('edge_row', 244)]) 
-amount_trd =  3800000000 entry_price =  6797
+amount_trd =  712500000.0 entry_price =  6797
+
+Exit price in this path =  6797.000000006837
 
 This path has PNL =  4.870929883461598
 ###################################################################################
@@ -40171,7 +40385,9 @@ PNL_trk for:  mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95  =  0.0
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'my3CLmXPNpW3U2yNWRWW5zwjq5tiy1C248'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6797), ('lives_src', 989583333.33), ('lives_trk', 1197916666.67), ('amount_trd', 989583333.3333333), ('edge_row', 244)]) 
-amount_trd =  3800000000 entry_price =  6797
+amount_trd =  989583333.3333333 entry_price =  6797
+
+Exit price in this path =  6797.000000006837
 
 This path has PNL =  6.765180393696665
 ###################################################################################
@@ -40271,6 +40487,8 @@ amount_trd =  600000000 entry_price =  6796
 Address for PNL in the path!!:  mghAbBJN9g3t9LUMjinxTgrgfmsr9Qa9un  status:  LongPosIncreased 
 entry price =  6796  exit price =  6796  amount_trd =  600000000  edge_row =  144
 PNL_trk for:  mghAbBJN9g3t9LUMjinxTgrgfmsr9Qa9un  =  0.0
+
+Exit price in this path =  6796.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -40493,7 +40711,9 @@ PNL_trk for:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  =  4.6176837778984705
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6798), ('lives_src', 106666666.67), ('lives_trk', 693333333.33), ('amount_trd', 106666666.66666667), ('edge_row', 273)]) 
-amount_trd =  1600000000 entry_price =  6798
+amount_trd =  106666666.66666667 entry_price =  6798
+
+Exit price in this path =  6795.692307698967
 
 This path has PNL =  4.6176837778984705
 ###################################################################################
@@ -40858,11 +41078,13 @@ PNL_trk for:  mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6  =  0.0
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 495054945.05), ('lives_trk', 0), ('amount_trd', 495054945.05494505), ('edge_row', 249)]) 
-amount_trd =  1700000000 entry_price =  6797
+amount_trd =  495054945.05494505 entry_price =  6797
 
 Address for PNL in the settlement!!:  mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 349450549.45), ('lives_trk', 4455494505.49), ('amount_trd', 349450549.4505495), ('edge_row', 250)]) 
-amount_trd =  1200000000 entry_price =  6797
+amount_trd =  349450549.4505495 entry_price =  6797
+
+Exit price in this path =  6796.999999956695
 
 This path has PNL =  -36.57006600455966
 ###################################################################################
@@ -41340,15 +41562,17 @@ PNL_trk for:  mfYHfasVVrEhF9DchCDq5VnVs6AuavqVF2  =  97.38994935723781
 
 Address for PNL in the settlement!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9'), ('addrs_trk', 'mfYHfasVVrEhF9DchCDq5VnVs6AuavqVF2'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNetted'), ('entry_price', 6795), ('exit_price', 6800), ('lives_src', 900000000.0), ('lives_trk', 0.0), ('amount_trd', 900000000.0), ('edge_row', 245)]) 
-amount_trd =  4700000000 entry_price =  6800
+amount_trd =  900000000.0 entry_price =  6800
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 84065934.07), ('lives_trk', 0), ('amount_trd', 84065934.06593406), ('edge_row', 249)]) 
-amount_trd =  1700000000 entry_price =  6797
+amount_trd =  84065934.06593406 entry_price =  6797
 
 Address for PNL in the settlement!!:  mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 59340659.34), ('lives_trk', 756593406.59), ('amount_trd', 59340659.34065934), ('edge_row', 250)]) 
-amount_trd =  1200000000 entry_price =  6797
+amount_trd =  59340659.34065934 entry_price =  6797
+
+Exit price in this path =  6800.568627330467
 
 This path has PNL =  91.17993814891636
 ###################################################################################
@@ -41693,11 +41917,13 @@ PNL_trk for:  n23EYnVijmuNLHBxZVFVLQaWeXG3ZsANAi  =  0.0
 
 Address for PNL in the settlement!!:  my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'my7aZWCQ7keAckgzjh2dXL1J9EwSk8WTGr'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 93406593.41), ('lives_trk', 0), ('amount_trd', 93406593.40659341), ('edge_row', 249)]) 
-amount_trd =  1700000000 entry_price =  6797
+amount_trd =  93406593.40659341 entry_price =  6797
 
 Address for PNL in the settlement!!:  mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP'), ('addrs_trk', 'n18sH2D1tcjRgRXHiz8d3k3RzdhvJzHgSk'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6795), ('exit_price', 6797), ('lives_src', 65934065.93), ('lives_trk', 840659340.66), ('amount_trd', 65934065.93406594), ('edge_row', 250)]) 
-amount_trd =  1200000000 entry_price =  6797
+amount_trd =  65934065.93406594 entry_price =  6797
+
+Exit price in this path =  6796.999999956697
 
 This path has PNL =  -6.900012453690502
 ###################################################################################
@@ -41830,6 +42056,8 @@ amount_trd =  3400000000 entry_price =  6794
 Address for PNL in the path!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  OpenLongPosition 
 entry price =  6794  exit price =  6794  amount_trd =  3400000000  edge_row =  154
 PNL_trk for:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  =  0.0
+
+Exit price in this path =  6794.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -42105,11 +42333,13 @@ PNL_trk for:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  =  9.004483366902017
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6798), ('lives_src', 208000000.0), ('lives_trk', 1092000000.0), ('amount_trd', 208000000.0), ('edge_row', 273)]) 
-amount_trd =  1600000000 entry_price =  6798
+amount_trd =  208000000.0 entry_price =  6798
 
 Address for PNL in the settlement!!:  mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP'), ('addrs_trk', 'mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 1300000000.0), ('lives_trk', 0.0), ('amount_trd', 1300000000.0), ('edge_row', 253)]) 
-amount_trd =  3800000000 entry_price =  6797
+amount_trd =  1300000000.0 entry_price =  6797
+
+Exit price in this path =  6796.809523791998
 
 This path has PNL =  -19.13866707087611
 ###################################################################################
@@ -42300,7 +42530,9 @@ PNL_trk for:  mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D  =  0.0
 
 Address for PNL in the settlement!!:  mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mhSZAykkvKCUgAStSVFpHqvAEwghsaNQJP'), ('addrs_trk', 'mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNetted'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 2500000000.0), ('lives_trk', 0.0), ('amount_trd', 2500000000.0), ('edge_row', 253)]) 
-amount_trd =  3800000000 entry_price =  6797
+amount_trd =  2500000000.0 entry_price =  6797
+
+Exit price in this path =  6796.999999978351
 
 This path has PNL =  -54.12144314957332
 ###################################################################################
@@ -42457,6 +42689,8 @@ Address for PNL in the path!!:  mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL  status:  Lon
 entry price =  6796  exit price =  6796  amount_trd =  100000000  edge_row =  161
 PNL_trk for:  mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL  =  0.0
 
+Exit price in this path =  0
+
 This path has PNL =  0.014533522935353408
 ###################################################################################
 
@@ -42540,6 +42774,8 @@ amount_trd =  2600000000 entry_price =  6797
 Address for PNL in the path!!:  mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95  status:  LongPosIncreased 
 entry price =  6797  exit price =  6797  amount_trd =  2600000000  edge_row =  162
 PNL_trk for:  mxXm3yTH28D7Ym4X2fHbyygfh9sVXfHo95  =  0.0
+
+Exit price in this path =  6797.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -42978,11 +43214,13 @@ PNL_trk for:  ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk  =  -20.89192795754403
 
 Address for PNL in the settlement!!:  mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 27184466.02), ('lives_trk', 0), ('amount_trd', 27184466.019417472), ('edge_row', 257)]) 
-amount_trd =  200000000 entry_price =  6796
+amount_trd =  27184466.019417472 entry_price =  6796
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 965048543.69), ('lives_trk', 299029126.21), ('amount_trd', 965048543.6893204), ('edge_row', 258)]) 
-amount_trd =  7100000000 entry_price =  6796
+amount_trd =  965048543.6893204 entry_price =  6796
+
+Exit price in this path =  6799.433333274884
 
 This path has PNL =  -23.834453021986853
 ###################################################################################
@@ -43418,11 +43656,13 @@ PNL_trk for:  ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk  =  -102.96735921932415
 
 Address for PNL in the settlement!!:  mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 133980582.52), ('lives_trk', 0), ('amount_trd', 133980582.52427183), ('edge_row', 257)]) 
-amount_trd =  200000000 entry_price =  6796
+amount_trd =  133980582.52427183 entry_price =  6796
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 4756310679.61), ('lives_trk', 1473786407.77), ('amount_trd', 4756310679.61165), ('edge_row', 258)]) 
-amount_trd =  7100000000 entry_price =  6796
+amount_trd =  4756310679.61165 entry_price =  6796
+
+Exit price in this path =  6799.433333274882
 
 This path has PNL =  -117.46980417979233
 ###################################################################################
@@ -43857,11 +44097,13 @@ PNL_trk for:  ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk  =  -13.430525115564018
 
 Address for PNL in the settlement!!:  mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqrdEx8tTNeRcAdN375P3L12Jq71RKeiXL'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 17475728.16), ('lives_trk', 0), ('amount_trd', 17475728.155339804), ('edge_row', 257)]) 
-amount_trd =  200000000 entry_price =  6796
+amount_trd =  17475728.155339804 entry_price =  6796
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'ms5FprZeK72PWAGAMtN8BZiRfZNiGfEYGk'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 620388349.51), ('lives_trk', 192233009.71), ('amount_trd', 620388349.5145631), ('edge_row', 258)]) 
-amount_trd =  7100000000 entry_price =  6796
+amount_trd =  620388349.5145631 entry_price =  6796
+
+Exit price in this path =  6799.433333274882
 
 This path has PNL =  -15.32214837127726
 ###################################################################################
@@ -44047,7 +44289,9 @@ PNL_trk for:  mohJi2te188SvCWF5wgBt4in34sRbpe8bP  =  -36.050185755893665
 
 Address for PNL in the settlement!!:  mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN'), ('addrs_trk', 'mohJi2te188SvCWF5wgBt4in34sRbpe8bP'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 832500000.0), ('lives_trk', 2867500000.0), ('amount_trd', 832500000.0), ('edge_row', 259)]) 
-amount_trd =  900000000 entry_price =  6795
+amount_trd =  832500000.0 entry_price =  6795
+
+Exit price in this path =  6797.580645148718
 
 This path has PNL =  -36.050185755893665
 ###################################################################################
@@ -44306,7 +44550,9 @@ PNL_trk for:  mohJi2te188SvCWF5wgBt4in34sRbpe8bP  =  -2.9229880342616488
 
 Address for PNL in the settlement!!:  mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN'), ('addrs_trk', 'mohJi2te188SvCWF5wgBt4in34sRbpe8bP'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 67500000.0), ('lives_trk', 232500000.0), ('amount_trd', 67500000.0), ('edge_row', 259)]) 
-amount_trd =  900000000 entry_price =  6795
+amount_trd =  67500000.0 entry_price =  6795
+
+Exit price in this path =  6795.000000327742
 
 This path has PNL =  -22.122580081329083
 ###################################################################################
@@ -44416,6 +44662,8 @@ amount_trd =  100000000 entry_price =  6798
 Address for PNL in the path!!:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  status:  LongPosIncreased 
 entry price =  6798  exit price =  6798  amount_trd =  100000000  edge_row =  173
 PNL_trk for:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  =  0.0
+
+Exit price in this path =  6798.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -44830,11 +45078,13 @@ PNL_trk for:  mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R  =  -6.1328344542884
 
 Address for PNL in the settlement!!:  mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN'), ('addrs_trk', 'mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 3446192893.4), ('lives_trk', 0), ('amount_trd', 3446192893.4010153), ('edge_row', 267)]) 
-amount_trd =  7300000000 entry_price =  6795
+amount_trd =  3446192893.4010153 entry_price =  6795
 
 Address for PNL in the settlement!!:  mkCzTm2bLwyzoeH2DKfM7J2D26FRuMouLu  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mkCzTm2bLwyzoeH2DKfM7J2D26FRuMouLu'), ('addrs_trk', 'mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 141624365.48), ('lives_trk', 5664974619.29), ('amount_trd', 141624365.4822335), ('edge_row', 269)]) 
-amount_trd =  300000000 entry_price =  6795
+amount_trd =  141624365.4822335 entry_price =  6795
+
+Exit price in this path =  6795.000000209765
 
 This path has PNL =  -752.5967711191594
 ###################################################################################
@@ -45182,11 +45432,13 @@ PNL_trk for:  mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R  =  -0.26377782599089894
 
 Address for PNL in the settlement!!:  mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mihazSJhjizuuYJhGiMWLYQ4uhVYe7fMyN'), ('addrs_trk', 'mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 148223350.25), ('lives_trk', 0), ('amount_trd', 148223350.2538071), ('edge_row', 267)]) 
-amount_trd =  7300000000 entry_price =  6795
+amount_trd =  148223350.2538071 entry_price =  6795
 
 Address for PNL in the settlement!!:  mkCzTm2bLwyzoeH2DKfM7J2D26FRuMouLu  status:  OpenLongPosition 
 Row =  OrderedDict([('addrs_src', 'mkCzTm2bLwyzoeH2DKfM7J2D26FRuMouLu'), ('addrs_trk', 'mjbk9U8cMQyaVdastudGD8GWXAtiTWLX3R'), ('status_src', 'OpenLongPosition'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6795), ('lives_src', 6091370.56), ('lives_trk', 243654822.34), ('amount_trd', 6091370.558375635), ('edge_row', 269)]) 
-amount_trd =  300000000 entry_price =  6795
+amount_trd =  6091370.558375635 entry_price =  6795
+
+Exit price in this path =  6798.25619831955
 
 This path has PNL =  -6.770297533766405
 ###################################################################################
@@ -45389,7 +45641,9 @@ PNL_trk for:  mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D  =  0.0
 
 Address for PNL in the settlement!!:  mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mietRe4i1zT9mF2KZi1rug57SVNAPJBMPz'), ('addrs_trk', 'miGgnf5an994puQr59adJoHYoP7sgHH5C6'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6796), ('exit_price', 6797), ('lives_src', 2488157894.74), ('lives_trk', 611842105.26), ('amount_trd', 2488157894.736842), ('edge_row', 272)]) 
-amount_trd =  6100000000 entry_price =  6797
+amount_trd =  2488157894.736842 entry_price =  6797
+
+Exit price in this path =  6796.999999978351
 
 This path has PNL =  -53.86507841886481
 ###################################################################################
@@ -45578,7 +45832,9 @@ PNL_trk for:  mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy  =  5.194129957912519
 
 Address for PNL in the settlement!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  LongPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9'), ('addrs_trk', 'mtowGWJqu3mgfXwKsV6ajg4bfQRGJVJzpy'), ('status_src', 'LongPosIncreased'), ('status_trk', 'LongPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6798), ('lives_src', 240000000.0), ('lives_trk', 1260000000.0), ('amount_trd', 240000000.0), ('edge_row', 273)]) 
-amount_trd =  1600000000 entry_price =  6798
+amount_trd =  240000000.0 entry_price =  6798
+
+Exit price in this path =  6796.809523813647
 
 This path has PNL =  5.194129957912519
 ###################################################################################
@@ -45658,6 +45914,8 @@ amount_trd =  3300000000 entry_price =  6798
 Address for PNL in the path!!:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  status:  LongPosIncreased 
 entry price =  6798  exit price =  6798  amount_trd =  3300000000  edge_row =  187
 PNL_trk for:  n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb  =  0.0
+
+Exit price in this path =  6798.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -45756,6 +46014,8 @@ Address for PNL in the path!!:  mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu  status:  Lon
 entry price =  6798  exit price =  6798  amount_trd =  400000000  edge_row =  188
 PNL_trk for:  mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu  =  0.0
 
+Exit price in this path =  6798.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -45840,6 +46100,8 @@ Address for PNL in the path!!:  mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu  status:  Lon
 entry price =  6798  exit price =  6798  amount_trd =  2000000000  edge_row =  191
 PNL_trk for:  mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu  =  0.0
 
+Exit price in this path =  6798.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -45913,6 +46175,8 @@ amount_trd =  2000000000 entry_price =  6798
 Address for PNL in the path!!:  mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu  status:  LongPosIncreased 
 entry price =  6798  exit price =  6798  amount_trd =  2000000000  edge_row =  194
 PNL_trk for:  mx5oyT9RjGt9vJdhZqznzuLEyvZhbkWzVu  =  0.0
+
+Exit price in this path =  6798.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -46001,6 +46265,8 @@ Address for PNL in the path!!:  mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D  status:  Lon
 entry price =  6799  exit price =  6799  amount_trd =  700000000  edge_row =  199
 PNL_trk for:  mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D  =  0.0
 
+Exit price in this path =  6799.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -46082,6 +46348,8 @@ amount_trd =  7400000000 entry_price =  6800
 Address for PNL in the path!!:  mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT  status:  LongPosIncreased 
 entry price =  6800  exit price =  6800  amount_trd =  7400000000  edge_row =  203
 PNL_trk for:  mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT  =  0.0
+
+Exit price in this path =  6800.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -46168,6 +46436,8 @@ Address for PNL in the path!!:  mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT  status:  Lon
 entry price =  6800  exit price =  6800  amount_trd =  700000000  edge_row =  204
 PNL_trk for:  mvFcRFTFpaiuKS6toZzcHDLuzi2EZhJwMT  =  0.0
 
+Exit price in this path =  6800.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -46253,6 +46523,8 @@ amount_trd =  3600000000 entry_price =  6801
 Address for PNL in the path!!:  mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd  status:  LongPosIncreased 
 entry price =  6801  exit price =  6801  amount_trd =  3600000000  edge_row =  205
 PNL_trk for:  mq1YYJcGk2LXQ84BdcCkAubpLXHNPd4axd  =  0.0
+
+Exit price in this path =  6801.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -46343,6 +46615,8 @@ Address for PNL in the path!!:  mwqFPWo6h1A6KcFmqcuHBGibvA4nsL7Cp3  status:  Ope
 entry price =  6800  exit price =  6800  amount_trd =  600000000  edge_row =  207
 PNL_trk for:  mwqFPWo6h1A6KcFmqcuHBGibvA4nsL7Cp3  =  0.0
 
+Exit price in this path =  6800.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -46421,6 +46695,8 @@ amount_trd =  800000000 entry_price =  6801
 Address for PNL in the path!!:  mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6  status:  LongPosIncreased 
 entry price =  6801  exit price =  6801  amount_trd =  800000000  edge_row =  213
 PNL_trk for:  mwnyAm7JjHMkGmL6EbgMZJrQCJ9psPown6  =  0.0
+
+Exit price in this path =  6801.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -46541,6 +46817,8 @@ Address for PNL in the path!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  Lon
 entry price =  6802  exit price =  6802  amount_trd =  400000000  edge_row =  216
 PNL_trk for:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  =  0.0
 
+Exit price in this path =  6802.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -46619,6 +46897,8 @@ amount_trd =  2900000000 entry_price =  6803
 Address for PNL in the path!!:  mma4WQVyxRgy8C1DrT7Gy3KS3HRgDpRWYC  status:  LongPosIncreased 
 entry price =  6803  exit price =  6803  amount_trd =  2900000000  edge_row =  217
 PNL_trk for:  mma4WQVyxRgy8C1DrT7Gy3KS3HRgDpRWYC  =  0.0
+
+Exit price in this path =  6803.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -46710,6 +46990,8 @@ amount_trd =  3200000000 entry_price =  6803
 Address for PNL in the path!!:  mx8PqXWsWmwqBgUjcycjDZYyWVgS8ZbqTw  status:  LongPosIncreased 
 entry price =  6803  exit price =  6803  amount_trd =  3200000000  edge_row =  218
 PNL_trk for:  mx8PqXWsWmwqBgUjcycjDZYyWVgS8ZbqTw  =  0.0
+
+Exit price in this path =  6803.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -46811,6 +47093,8 @@ Address for PNL in the path!!:  mx8PqXWsWmwqBgUjcycjDZYyWVgS8ZbqTw  status:  Lon
 entry price =  6803  exit price =  6803  amount_trd =  3500000000  edge_row =  221
 PNL_trk for:  mx8PqXWsWmwqBgUjcycjDZYyWVgS8ZbqTw  =  0.0
 
+Exit price in this path =  6803.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -46901,6 +47185,8 @@ amount_trd =  2200000000 entry_price =  6804
 Address for PNL in the path!!:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  status:  LongPosIncreased 
 entry price =  6804  exit price =  6804  amount_trd =  2200000000  edge_row =  222
 PNL_trk for:  myt86xFBrtouVYx9fVNHVg198b1W8mxGfY  =  0.0
+
+Exit price in this path =  6804.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -47001,6 +47287,8 @@ amount_trd =  7100000000 entry_price =  6797
 Address for PNL in the path!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  LongPosIncreased 
 entry price =  6797  exit price =  6797  amount_trd =  7100000000  edge_row =  224
 PNL_trk for:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  =  0.0
+
+Exit price in this path =  6797.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -47110,6 +47398,8 @@ Address for PNL in the path!!:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  status:  Lon
 entry price =  6797  exit price =  6797  amount_trd =  1000000000  edge_row =  225
 PNL_trk for:  mpw6JbayVghPUzcV9URgEHNPSV2sQKVeob  =  0.0
 
+Exit price in this path =  6797.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -47207,6 +47497,8 @@ amount_trd =  2200000000 entry_price =  6796
 Address for PNL in the path!!:  mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D  status:  LongPosIncreased 
 entry price =  6796  exit price =  6796  amount_trd =  2200000000  edge_row =  226
 PNL_trk for:  mvY23Gbc7ZC8zqQHMCVTF3o3GD1Ew2mf3D  =  0.0
+
+Exit price in this path =  6796.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -47307,6 +47599,8 @@ amount_trd =  700000000 entry_price =  6796
 Address for PNL in the path!!:  n31BHmwpjGzZqSN4u6Jf8dXrYHjWPnPQfH  status:  OpenLongPosition 
 entry price =  6796  exit price =  6796  amount_trd =  700000000  edge_row =  228
 PNL_trk for:  n31BHmwpjGzZqSN4u6Jf8dXrYHjWPnPQfH  =  0.0
+
+Exit price in this path =  6796.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -47425,6 +47719,8 @@ Address for PNL in the path!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  Lon
 entry price =  6796  exit price =  6796  amount_trd =  900000000  edge_row =  229
 PNL_trk for:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  =  0.0
 
+Exit price in this path =  6796.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -47513,6 +47809,8 @@ amount_trd =  2100000000 entry_price =  6796
 Address for PNL in the path!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 entry price =  6796  exit price =  6796  amount_trd =  2100000000  edge_row =  232
 PNL_trk for:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  =  0.0
+
+Exit price in this path =  6796.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -47780,7 +48078,9 @@ PNL_trk for:  my5gTLde7GfWHjo8LGrgRXtXNW2xbiTpPP  =  0.0
 
 Address for PNL in the settlement!!:  mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78'), ('addrs_trk', 'n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6797), ('exit_price', 6796), ('lives_src', 600000000.0), ('lives_trk', 0), ('amount_trd', 600000000.0), ('edge_row', 252)]) 
-amount_trd =  2700000000 entry_price =  6796
+amount_trd =  600000000.0 entry_price =  6796
+
+Exit price in this path =  6796.000000028063
 
 This path has PNL =  16.837782313200588
 ###################################################################################
@@ -48043,7 +48343,9 @@ PNL_trk for:  myDJLDSLrNSemJ7ZVok2rvtjZ7EevxMJcq  =  0.0
 
 Address for PNL in the settlement!!:  mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78'), ('addrs_trk', 'n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6798), ('exit_price', 6796), ('lives_src', 787500000.0), ('lives_trk', 0), ('amount_trd', 787500000.0), ('edge_row', 252)]) 
-amount_trd =  2700000000 entry_price =  6796
+amount_trd =  787500000.0 entry_price =  6796
+
+Exit price in this path =  6796.000000056118
 
 This path has PNL =  44.19267678066895
 ###################################################################################
@@ -48334,7 +48636,9 @@ PNL_trk for:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  =  0.0
 
 Address for PNL in the settlement!!:  mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mqCtmdhxpR1yuoymdscVR1dhYdFNtVAo78'), ('addrs_trk', 'n1Uew7vyj7nb37i3BpwVYAAPJyfqon8ak8'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6800), ('exit_price', 6796), ('lives_src', 225000000.0), ('lives_trk', 0), ('amount_trd', 225000000.0), ('edge_row', 252)]) 
-amount_trd =  2700000000 entry_price =  6796
+amount_trd =  225000000.0 entry_price =  6796
+
+Exit price in this path =  6796.0000001122025
 
 This path has PNL =  25.245530819745476
 ###################################################################################
@@ -48420,6 +48724,8 @@ amount_trd =  7300000000 entry_price =  6801
 Address for PNL in the path!!:  msUZEtk7SihVrbVHUj2XczN5g2KRqkSLqt  status:  LongPosIncreased 
 entry price =  6801  exit price =  6801  amount_trd =  7300000000  edge_row =  242
 PNL_trk for:  msUZEtk7SihVrbVHUj2XczN5g2KRqkSLqt  =  0.0
+
+Exit price in this path =  6801.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -48520,6 +48826,8 @@ Address for PNL in the path!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  Lon
 entry price =  6800  exit price =  6800  amount_trd =  1500000000  edge_row =  246
 PNL_trk for:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  =  0.0
 
+Exit price in this path =  6800.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -48601,6 +48909,8 @@ amount_trd =  700000000 entry_price =  6802
 Address for PNL in the path!!:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  status:  LongPosIncreased 
 entry price =  6802  exit price =  6802  amount_trd =  700000000  edge_row =  247
 PNL_trk for:  mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP  =  0.0
+
+Exit price in this path =  6802.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -48705,6 +49015,8 @@ Address for PNL in the path!!:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  status:  Lon
 entry price =  6796  exit price =  6796  amount_trd =  200000000  edge_row =  251
 PNL_trk for:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  =  0.0
 
+Exit price in this path =  6796.0
+
 This path has PNL =  0.0
 ###################################################################################
 
@@ -48783,6 +49095,8 @@ amount_trd =  3900000000 entry_price =  6797
 Address for PNL in the path!!:  mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519  status:  OpenLongPosition 
 entry price =  6797  exit price =  6797  amount_trd =  3900000000  edge_row =  254
 PNL_trk for:  mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519  =  0.0
+
+Exit price in this path =  6797.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -48868,6 +49182,8 @@ amount_trd =  500000000 entry_price =  6797
 Address for PNL in the path!!:  mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519  status:  LongPosIncreased 
 entry price =  6797  exit price =  6797  amount_trd =  500000000  edge_row =  255
 PNL_trk for:  mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519  =  0.0
+
+Exit price in this path =  6797.0
 
 This path has PNL =  0.0
 ###################################################################################
@@ -48996,7 +49312,9 @@ PNL_trk for:  mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9  =  0.0
 
 Address for PNL in the settlement!!:  mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8  status:  ShortPosIncreased 
 Row =  OrderedDict([('addrs_src', 'mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8'), ('addrs_trk', 'myha2aAYNVrwnqJKFtmykGvVdQDCWifXhm'), ('status_src', 'ShortPosIncreased'), ('status_trk', 'ShortPosNettedPartly'), ('entry_price', 6794), ('exit_price', 6796), ('lives_src', 400000000.0), ('lives_trk', 1300000000.0), ('amount_trd', 400000000.0), ('edge_row', 271)]) 
-amount_trd =  400000000 entry_price =  6796
+amount_trd =  400000000.0 entry_price =  6796
+
+Exit price in this path =  6795.9999999566835
 
 This path has PNL =  -17.32650922992539
 ###################################################################################
@@ -49085,5 +49403,8 @@ Address for PNL in the path!!:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  status:  Lon
 entry price =  6796  exit price =  6796  amount_trd =  1800000000  edge_row =  270
 PNL_trk for:  mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9  =  0.0
 
+Exit price in this path =  6796.0
+
 This path has PNL =  0.0
-Total PNL =  72.20921079880848
+
+Price Settlement Union =  6797.859873349026

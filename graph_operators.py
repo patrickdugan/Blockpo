@@ -517,40 +517,6 @@ def lookingforlives_insidepath(j, path_complex_main, status_src, addrs_src, amou
 		
 	return path_complex_main
 
-###################################################################################
-# Routine to count the total PNL #
-def total_pnl(path_complex_two_matrix):
-
-	matchMatrix = []
-	for row in path_complex_two_matrix:
-		for elem in row :
-			matchMatrix.append(elem)
-
-	pnl_total = 0
-	for trackAddress in globales.addresses_vector:
-
-		pnl = 0
-		items = [item for item in matchMatrix if item["addrs_trk"] == trackAddress[0]]
-		items.sort(key=lambda x: x["edge_row"], reverse=False)
-
-		for item in items:
-			addr_src = item["addrs_src"]
-			addr_trk = item["addrs_trk"]
-			status_trk = item["status_trk"]
-			entry_price = item["entry_price"]
-			exit_price = item["exit_price"]
-			amount = item["amount_trd"]
-
-			if(re.search('long', status_trk, re.IGNORECASE)):
-				pnl += float(amount)*(1/float(entry_price)-1/float(exit_price))
-
-			if(re.search('short', status_trk, re.IGNORECASE)):
-				pnl += float(amount)*(1/float(exit_price)-1/float(entry_price))
-
-	pnl_total += pnl
-
-	return pnl_total
-###################################################################################
 def calculating_livescontracts(path_complex_main, single_path_value_ele, N_file):
 
 	print("\nMain addresses opening contracts: ", single_path_value_ele['addrs_src'], single_path_value_ele['addrs_trk'])
@@ -634,6 +600,7 @@ def warning_ifthereisno_zeronetted(path_complex_main, contracts_opened, contract
 def checking_pathcontaining_livesnonzero(path_complex_main):
 
 	sum_oflives = 0
+	PNL_total = 0
 
 	if len(path_complex_main) != 0:
 		for row in path_complex_main:
@@ -641,9 +608,13 @@ def checking_pathcontaining_livesnonzero(path_complex_main):
 
 		if sum_oflives != 0:
 			print("This path has ", sum_oflives, " lives contracts !!", "Edge source: ", path_complex_main[0]['edge_row'])
-			calculate_pnltrk_bypath(path_complex_main)
+			exit_price_desired, PNL_trk, gamma_p, gamma_q = calculate_pnltrk_bypath(path_complex_main)
 		else:
 			print("This path does not have lives contracts!!", "Edge source: ", path_complex_main[0]['edge_row'])
+
+	PNL_total = PNL_trk
+
+	return sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q
 
 def listof_addresses_bypath(path_complex_main):
 
@@ -659,11 +630,20 @@ def listof_addresses_bypath(path_complex_main):
 def calculate_pnltrk_bypath(path_complex_main):
 
 	list_address_inthepath = listof_addresses_bypath(path_complex_main)
-	total_pnl_zerolives = 0	
+	total_pnl_zerolives = 0
+	sum_alpha_beta_i = 0
+	sum_alpha_beta_j = 0 
+	sum_alpha_i = 0
+	sum_alpha_j = 0 
+	exit_price_desired = 0
+	addressj_pnlinthepathv = []
+
+
+	gamma_p = 0
+	gamma_q = 0
 	for j in range(len(list_address_inthepath)):
 		
 		addressj = list_address_inthepath[j]
-		addressj_pnlinthepathv = []
 
 		# Here is calculated the PNL when an exit price exists #
 		for row in path_complex_main:
@@ -680,6 +660,20 @@ def calculate_pnltrk_bypath(path_complex_main):
 			if addressj == row['addrs_src'] and row['addrs_src'] not in addressj_pnlinthepathv:
 				obj_addressj = status_for_contracts_stillopened(globales.database_matrix[:][row['edge_row']], addressj)
 				if "Netted" not in obj_addressj.status_trk:
-					print('\nAddress for PNL in the settlement!!: ', addressj, ' status: ', obj_addressj.status_trk, '\nRow = ', row, '\namount_trd = ', obj_addressj.amount_trd, 'entry_price = ', obj_addressj.matched_price)
+					print('\nAddress for PNL in the settlement!!: ', addressj, ' status: ', obj_addressj.status_trk, '\nRow = ', row, '\namount_trd = ', row['amount_trd'], 'entry_price = ', obj_addressj.matched_price)
+					if "Long" in obj_addressj.status_trk:
+						sum_alpha_beta_i += float(row['amount_trd'])*obj_addressj.matched_price
+						sum_alpha_i += row['amount_trd']
+					if "Short" in obj_addressj.status_trk:
+						sum_alpha_beta_j += float(row['amount_trd'])*obj_addressj.matched_price
+						sum_alpha_j += row['amount_trd']
 
+	if sum_alpha_i != sum_alpha_j:
+		exit_price_desired = float(total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j)/(sum_alpha_j - sum_alpha_i)
+		gamma_p = total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j
+		gamma_q = sum_alpha_j - sum_alpha_i
+
+	print("\nExit price in this path = ", exit_price_desired)
 	print('\nThis path has PNL = ', total_pnl_zerolives)
+
+	return exit_price_desired, PNL_trk, gamma_p, gamma_q
