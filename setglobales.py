@@ -23,3 +23,4 @@ def stuff():
     globales.incr_positions = ["LongPosIncreased", "ShortPosIncreased"]
     globales.addresses_vector = opening_filetxt("graphInfoAddresses.txt")
     globales.database_matrix = opening_filetxt("graphInfoSixth.txt")
+    globales.lives_data = ['address', 'lives_contracts', 'entry_price']

@@ -12,3 +12,4 @@ def init():
     global incr_positions
     global addresses_vector
     global database_matrix
+    global lives_data

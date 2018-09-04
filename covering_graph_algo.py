@@ -41,6 +41,9 @@ k=0
 sum_gamma_p = 0
 sum_gamma_q = 0
 price_settlement_union = 0
+
+listof_longlives  = []
+listof_shortlives = []
  
 for j in range(len(N_file)):
 
@@ -67,17 +70,19 @@ for j in range(len(N_file)):
 
 	if bool_track_long and bool_track_short:
 
+		listof_longlives_ele  = []
+		listof_shortlives_ele = []
+
 		print("###################################################################################\n")
-		idx_i = [0]
 		print("N_file:\n\n", np.array(N_file), "\n\nLength N_file: ", len(N_file), "\n")
 
 		print("\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n")
 		print("Row where were opened the contracts:", j, "!!")
-		N_file, idx_i, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, idx_i, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, obj_long_trk.amount_trd)
+		N_file, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, obj_long_trk.amount_trd)
 		
 		print("\n*********************************************************************\n")
 		print("(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n")
-		N_file, idx_i, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, idx_i, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd)
+		N_file, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd)
 
 		single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.matched_price, 0, 0, obj_long_trk.amount_trd, j]
 		single_path_value_ele = OrderedDict(zip(globales.key_path, single_path_value))
@@ -93,7 +98,13 @@ for j in range(len(N_file)):
 
 		sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(path_complex_main)	
 
+		listof_longlives_ele, listof_shortlives_ele = obtaining_arraysfor_liveslongshort(path_complex_main, listof_longlives_ele, listof_shortlives_ele)
+		print('Checking on this Path:\nlistof_longlives:\n', np.array(listof_longlives_ele), '\nlistof_shortlives:\n', np.array(listof_shortlives_ele))
+
 	path_complex_two_matrix.append(path_complex_main)
+
+	listof_shortlives = append_fromlist_tolist(listof_shortlives_ele, listof_shortlives)
+	listof_longlives  = append_fromlist_tolist(listof_longlives_ele, listof_longlives)
 
 	sum_gamma_p += gamma_p
 	sum_gamma_q += gamma_q
@@ -101,3 +112,9 @@ for j in range(len(N_file)):
 	price_settlement_union = float(sum_gamma_p)/sum_gamma_q
 
 print('\nPrice Settlement Union = ', price_settlement_union)
+print('\nArray with Lives for Longs:\n', np.array(listof_longlives))
+print('\nArray with Lives for Shorts:\n', np.array(listof_shortlives))
+
+sumof_lives_longs, sumof_lives_shorts = counting_livesfor_longshort(listof_longlives, listof_shortlives)
+
+print('\nsumof_lives_shorts = ', sumof_lives_shorts, '\t sumof_lives_longs', sumof_lives_longs, 'Difference = ', abs(sumof_lives_shorts-sumof_lives_longs))
