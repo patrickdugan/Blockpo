@@ -12,7 +12,7 @@ def opening_filetxt(namefile):
 
 def stuff():
 
-    globales.key_path = ['addrs_src', 'addrs_trk', 'status_src', 'status_trk', 'entry_price', 'exit_price', 'lives_src', 'lives_trk', 'amount_trd', 'edge_row']
+    globales.key_path = ['addrs_src', 'addrs_trk', 'status_src', 'status_trk', 'entry_price', 'exit_price', 'lives_src', 'lives_trk', 'amount_trd', 'edge_row', 'path_number']
     globales.key_path_new = ['addrs_src', 'addrs_trk', 'status_src', 'status_trk', 'entry_price', 'amount_trd', 'Status']
     globales.netted_status_long = ["LongPosNetted", "LongPosNettedPartly"]
     globales.netted_status_short = ["ShortPosNetted", "ShortPosNettedPartly"]
@@ -23,4 +23,4 @@ def stuff():
     globales.incr_positions = ["LongPosIncreased", "ShortPosIncreased"]
     globales.addresses_vector = opening_filetxt("graphInfoAddresses.txt")
     globales.database_matrix = opening_filetxt("graphInfoSixth.txt")
-    globales.lives_data = ['address', 'lives_contracts', 'entry_price']
+    globales.lives_data = ['address', 'status', 'lives_contracts', 'entry_price', 'edge_row', 'path_number']

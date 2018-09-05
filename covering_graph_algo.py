@@ -44,15 +44,9 @@ price_settlement_union = 0
 
 listof_longlives  = []
 listof_shortlives = []
+path_counting = 0
  
 for j in range(len(N_file)):
-
-	bool_N_file, single_path_begin = first_single_path(N_file)
-	if bool_N_file:
-		print("Source: ", N_file[0][3], "; Tracked: ", N_file[0][0], "\n")
-		print("Last Single path:\n", np.array(single_path_begin), "\n")
-		print("###################################################################################\n")
-		break
 
 	N_filej = N_file[:][j]
 	path_complex_two_long = []
@@ -70,6 +64,8 @@ for j in range(len(N_file)):
 
 	if bool_track_long and bool_track_short:
 
+		path_counting += 1
+
 		listof_longlives_ele  = []
 		listof_shortlives_ele = []
 
@@ -78,13 +74,13 @@ for j in range(len(N_file)):
 
 		print("\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n")
 		print("Row where were opened the contracts:", j, "!!")
-		N_file, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, obj_long_trk.amount_trd)
+		N_file, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, obj_long_trk.amount_trd, path_counting)
 		
 		print("\n*********************************************************************\n")
 		print("(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n")
-		N_file, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd)
+		N_file, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd, path_counting)
 
-		single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.matched_price, 0, 0, obj_long_trk.amount_trd, j]
+		single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.matched_price, 0, 0, obj_long_trk.amount_trd, j, path_counting]
 		single_path_value_ele = OrderedDict(zip(globales.key_path, single_path_value))
 
 		path_complex_main = append_fromlist_tolist(path_complex_two_long, path_complex_main)
@@ -99,7 +95,12 @@ for j in range(len(N_file)):
 		sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(path_complex_main)	
 
 		listof_longlives_ele, listof_shortlives_ele = obtaining_arraysfor_liveslongshort(path_complex_main, listof_longlives_ele, listof_shortlives_ele)
-		print('Checking on this Path:\nlistof_longlives:\n', np.array(listof_longlives_ele), '\nlistof_shortlives:\n', np.array(listof_shortlives_ele))
+
+		if len(listof_longlives_ele) != 0:
+			print('\nChecking on this Path:\nlistof_longlives:\n', np.array(listof_longlives_ele))
+
+		if len(listof_shortlives_ele) != 0:
+			print('\nChecking on this Path:\nlistof_longlives:\n', np.array(listof_shortlives_ele))
 
 	path_complex_two_matrix.append(path_complex_main)
 
@@ -109,12 +110,21 @@ for j in range(len(N_file)):
 	sum_gamma_p += gamma_p
 	sum_gamma_q += gamma_q
 
-	price_settlement_union = float(sum_gamma_p)/sum_gamma_q
+price_settlement_union = float(sum_gamma_p)/sum_gamma_q
 
 print('\nPrice Settlement Union = ', price_settlement_union)
 print('\nArray with Lives for Longs:\n', np.array(listof_longlives))
 print('\nArray with Lives for Shorts:\n', np.array(listof_shortlives))
 
 sumof_lives_longs, sumof_lives_shorts = counting_livesfor_longshort(listof_longlives, listof_shortlives)
+print('\nsumof_lives_shorts = ', sumof_lives_shorts, '\tsumof_lives_longs', sumof_lives_longs, '\tDifference = ', abs(sumof_lives_shorts-sumof_lives_longs))
 
-print('\nsumof_lives_shorts = ', sumof_lives_shorts, '\t sumof_lives_longs', sumof_lives_longs, 'Difference = ', abs(sumof_lives_shorts-sumof_lives_longs))
+for row_long in listof_longlives:
+	amountj_long = row_long['lives_contracts']
+	sum_amountj_short = 0
+	for row_short in listof_shortlives:
+		amountj_short = row_short['lives_contracts']
+		sum_amountj_short += amountj_short
+		if amountj_long == sum_amountj_short:
+			ghost_node_ele_path_long = [row_long['address'], row_short['address'], row_long['status'], row_short['status'], row_long['entry_price'], price_settlement_union, 0, 0, row_long['lives_contracts'], row_long['edge_row'], row_long['path_number']]
+			ghost_node_path_long = OrderedDict(zip(globales.lives_data, ghost_node_ele_path_long))
