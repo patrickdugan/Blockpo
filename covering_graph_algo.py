@@ -98,14 +98,13 @@ for j in range(len(N_file)):
 
 		if len(listof_longlives_ele) != 0:
 			print('\nChecking on this Path:\nlistof_longlives:\n', np.array(listof_longlives_ele))
+			listof_longlives  = append_fromlist_tolist(listof_longlives_ele, listof_longlives)
 
 		if len(listof_shortlives_ele) != 0:
-			print('\nChecking on this Path:\nlistof_longlives:\n', np.array(listof_shortlives_ele))
+			print('\nChecking on this Path:\nlistof_shortlives:\n', np.array(listof_shortlives_ele))
+			listof_shortlives = append_fromlist_tolist(listof_shortlives_ele, listof_shortlives)
 
-	path_complex_two_matrix.append(path_complex_main)
-
-	listof_shortlives = append_fromlist_tolist(listof_shortlives_ele, listof_shortlives)
-	listof_longlives  = append_fromlist_tolist(listof_longlives_ele, listof_longlives)
+		path_complex_two_matrix.append(path_complex_main)
 
 	sum_gamma_p += gamma_p
 	sum_gamma_q += gamma_q
@@ -113,10 +112,21 @@ for j in range(len(N_file)):
 price_settlement_union = float(sum_gamma_p)/sum_gamma_q
 
 print('\nPrice Settlement Union = ', price_settlement_union)
-print('\nArray with Lives for Longs:\n', np.array(listof_longlives))
-print('\nArray with Lives for Shorts:\n', np.array(listof_shortlives))
 
 sumof_lives_longs, sumof_lives_shorts = counting_livesfor_longshort(listof_longlives, listof_shortlives)
 print('\nsumof_lives_shorts = ', sumof_lives_shorts, '\tsumof_lives_longs', sumof_lives_longs, '\tDifference = ', abs(sumof_lives_shorts-sumof_lives_longs))
 
-calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlement_union)
+print('\n####################################################################\n')
+
+print("\nFrom here start Ghost Paths building:\n")
+path_complex_two_matrix = updating_lives_inthepath(path_complex_two_matrix)
+
+ghost_edges_array = []
+ghost_edges_array = calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlement_union, ghost_edges_array)
+ghost_edges_array = remove_duplicate_rows_json(ghost_edges_array, ghost_edges_array)
+print('\n\nghost_edges_array:\n', np.array(ghost_edges_array))
+
+for row in ghost_edges_array:
+	path_complex_two_matrix.append(row)
+
+print('\nFinal matrix with Ghost Edges added:\n\n', np.array(path_complex_two_matrix))

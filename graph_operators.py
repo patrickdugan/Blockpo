@@ -646,40 +646,47 @@ def obtaining_arraysfor_liveslongshort(path_complex_main, listof_longlives, list
 				if row['status_src'] in globales.open_incr_long:
 					new_edge_forsett = [row['addrs_src'], row['status_src'], row['lives_src'], row['exit_price'], row['edge_row'], row['path_number']]
 					new_edge_forsett_ele = OrderedDict(zip(globales.lives_data, new_edge_forsett))
-					listof_longlives.append(new_edge_forsett_ele)
+					if new_edge_forsett_ele not in listof_longlives: 
+						listof_longlives.append(new_edge_forsett_ele)
 				elif row['status_src'] in globales.netted_status_long:
 					new_edge_forsett = [row['addrs_src'], row['status_src'], row['lives_src'], row['entry_price'], row['edge_row'], row['path_number']]
 					new_edge_forsett_ele = OrderedDict(zip(globales.lives_data, new_edge_forsett))
-					listof_longlives.append(new_edge_forsett_ele) 
-				
+					if new_edge_forsett_ele not in listof_longlives: 
+						listof_longlives.append(new_edge_forsett_ele)				
 				if row['status_src'] in globales.open_incr_short:
 					new_edge_forsett = [row['addrs_src'], row['status_src'], row['lives_src'], row['exit_price'], row['edge_row'], row['path_number']]
 					new_edge_forsett_ele = OrderedDict(zip(globales.lives_data, new_edge_forsett))
-					listof_shortlives.append(new_edge_forsett_ele)
+					if new_edge_forsett_ele not in listof_shortlives: 
+						listof_shortlives.append(new_edge_forsett_ele)
 				elif row['status_src'] in globales.netted_status_short:
 					new_edge_forsett = [row['addrs_src'], row['status_src'], row['lives_src'], row['entry_price'], row['edge_row'], row['path_number']]
 					new_edge_forsett_ele = OrderedDict(zip(globales.lives_data, new_edge_forsett))
-					listof_shortlives.append(new_edge_forsett_ele)
+					if new_edge_forsett_ele not in listof_shortlives: 
+						listof_shortlives.append(new_edge_forsett_ele)
 
 			if row['lives_trk'] != 0:
 
 				if row['status_trk'] in globales.open_incr_long:
 					new_edge_forsett = [row['addrs_trk'], row['status_trk'], row['lives_trk'], row['exit_price'], row['edge_row'], row['path_number']]
 					new_edge_forsett_ele = OrderedDict(zip(globales.lives_data, new_edge_forsett))
-					listof_longlives.append(new_edge_forsett_ele)
+					if new_edge_forsett_ele not in listof_longlives: 
+						listof_longlives.append(new_edge_forsett_ele)
 				elif row['status_trk'] in globales.netted_status_long:
 					new_edge_forsett = [row['addrs_trk'], row['status_trk'], row['lives_trk'], row['entry_price'], row['edge_row'], row['path_number']]
 					new_edge_forsett_ele = OrderedDict(zip(globales.lives_data, new_edge_forsett))
-					listof_longlives.append(new_edge_forsett_ele) 
+					if new_edge_forsett_ele not in listof_longlives: 
+						listof_longlives.append(new_edge_forsett_ele)
 				
 				if row['status_trk'] in globales.open_incr_short:
 					new_edge_forsett = [row['addrs_trk'], row['status_trk'], row['lives_trk'], row['exit_price'], row['edge_row'], row['path_number']]
 					new_edge_forsett_ele = OrderedDict(zip(globales.lives_data, new_edge_forsett))
-					listof_shortlives.append(new_edge_forsett_ele)
+					if new_edge_forsett_ele not in listof_shortlives: 
+						listof_shortlives.append(new_edge_forsett_ele)
 				elif row['status_trk'] in globales.netted_status_short:
 					new_edge_forsett = [row['addrs_trk'], row['status_trk'], row['lives_trk'], row['entry_price'], row['edge_row'], row['path_number']]
 					new_edge_forsett_ele = OrderedDict(zip(globales.lives_data, new_edge_forsett))
-					listof_shortlives.append(new_edge_forsett_ele)
+					if new_edge_forsett_ele not in listof_shortlives: 
+						listof_shortlives.append(new_edge_forsett_ele)
 
 	return listof_longlives, listof_shortlives
 
@@ -695,52 +702,68 @@ def counting_livesfor_longshort(listof_longlives, listof_shortlives):
 	
 	return sumof_lives_longs, sumof_lives_shorts
 
-def calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlement_union):
+def calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlement_union, ghost_edges_array):
 
 	index_start = 0
 
-	for row_long in listof_longlives:
+	for i in range(len(listof_longlives)):
 
-		amountj_long = row_long['lives_contracts']
+		row_longi = listof_longlives[i]
+		amountj_long = row_longi['lives_contracts']
 		sum_amountj_short = 0
 
 		print('index_start = ', index_start)
+
 		for j in range(index_start, len(listof_shortlives)):
 
 			row_shortj = listof_shortlives[j]
+			print('\nrow_shortj:\n', row_shortj, len(listof_shortlives))
 
 			amountj_short = row_shortj['lives_contracts']
 			sum_amountj_short += amountj_short
 
 			if amountj_long >= sum_amountj_short:
 		
-				ghost_node_ele_path_long = [row_shortj['address'], row_long['address'], row_shortj['status'], row_long['status'], row_long['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_long['edge_row'], row_long['path_number']]
-				ghost_node_path_long = OrderedDict(zip(globales.key_path, ghost_node_ele_path_long))
+				ghost_node_ele_path_long_one = [row_shortj['address'], row_longi['address'], row_shortj['status'], row_longi['status'], row_longi['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_longi['edge_row'], row_longi['path_number']]
+				ghost_node_path_long_one = OrderedDict(zip(globales.key_path, ghost_node_ele_path_long_one))
 		
-				ghost_node_ele_path_short = [row_long['address'], row_shortj['address'], row_long['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number']]
-				ghost_node_path_short = OrderedDict(zip(globales.key_path, ghost_node_ele_path_short))
+				ghost_node_ele_path_short_one = [row_longi['address'], row_shortj['address'], row_longi['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number']]
+				ghost_node_path_short_one = OrderedDict(zip(globales.key_path, ghost_node_ele_path_short_one))
 		
-				print('\nghost_node_path_long', ghost_node_path_long)
-				print('\nghost_node_path_short', ghost_node_path_short)
+				print('\nghost_node_path_long_one', ghost_node_path_long_one)
+				print('\nghost_node_path_short_one', ghost_node_path_short_one)
 
-				continue
+				ghost_edges_array.append(ghost_node_path_long_one)
+				ghost_edges_array.append(ghost_node_path_short_one)
 
 			else:
 
 				difference_amounts = sum_amountj_short - amountj_long
 
-				ghost_node_ele_path_long = [row_shortj['address'], row_long['address'], row_shortj['status'], row_long['status'], row_long['entry_price'], price_settlement_union, 0, 0, row_long['lives_contracts'], row_long['edge_row'], row_long['path_number']]
-				ghost_node_path_long = OrderedDict(zip(globales.key_path, ghost_node_ele_path_long))
+				ghost_node_ele_path_long_two = [row_shortj['address'], row_longi['address'], row_shortj['status'], row_longi['status'], row_longi['entry_price'], price_settlement_union, 0, 0, row_longi['lives_contracts'], row_longi['edge_row'], row_longi['path_number']]
+				ghost_node_path_long_two = OrderedDict(zip(globales.key_path, ghost_node_ele_path_long_two))
 		
-				ghost_node_ele_path_short = [row_long['address'], row_shortj['address'], row_long['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_long['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number']]
-				ghost_node_path_short = OrderedDict(zip(globales.key_path, ghost_node_ele_path_short))
+				ghost_node_ele_path_short_two = [row_longi['address'], row_shortj['address'], row_longi['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_longi['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number']]
+				ghost_node_path_short_two = OrderedDict(zip(globales.key_path, ghost_node_ele_path_short_two))
 
-				print('Checkin listof_shortlives[j] before: ', listof_shortlives[j])
-				listof_shortlives[j]['lives_contracts'] = difference_amounts
-				print('Checkin listof_shortlives[j] before: ', listof_shortlives[j])
 				index_start = j
+				listof_shortlives[j]['lives_contracts'] = difference_amounts
 		
-				print('\nghost_node_path_long', ghost_node_path_long)
-				print('\nghost_node_path_short', ghost_node_path_short)
+				print('\nghost_node_path_long_two', ghost_node_path_long_two)
+				print('\nghost_node_path_short_two', ghost_node_path_short_two)
 
-				break			
+				ghost_edges_array.append(ghost_node_path_long_two)
+				ghost_edges_array.append(ghost_node_path_short_two)
+
+				break
+
+	return ghost_edges_array
+
+def updating_lives_inthepath(path_complex_two_matrix):
+
+	for row_bypath in path_complex_two_matrix:
+		for row_inpath in row_bypath:
+			row_inpath['lives_src'] = 0
+			row_inpath['lives_trk'] = 0
+
+	return path_complex_two_matrix
