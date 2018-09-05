@@ -694,3 +694,53 @@ def counting_livesfor_longshort(listof_longlives, listof_shortlives):
 		sumof_lives_shorts += row['lives_contracts']
 	
 	return sumof_lives_longs, sumof_lives_shorts
+
+def calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlement_union):
+
+	index_start = 0
+
+	for row_long in listof_longlives:
+
+		amountj_long = row_long['lives_contracts']
+		sum_amountj_short = 0
+
+		print('index_start = ', index_start)
+		for j in range(index_start, len(listof_shortlives)):
+
+			row_shortj = listof_shortlives[j]
+
+			amountj_short = row_shortj['lives_contracts']
+			sum_amountj_short += amountj_short
+
+			if amountj_long >= sum_amountj_short:
+		
+				ghost_node_ele_path_long = [row_shortj['address'], row_long['address'], row_shortj['status'], row_long['status'], row_long['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_long['edge_row'], row_long['path_number']]
+				ghost_node_path_long = OrderedDict(zip(globales.key_path, ghost_node_ele_path_long))
+		
+				ghost_node_ele_path_short = [row_long['address'], row_shortj['address'], row_long['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number']]
+				ghost_node_path_short = OrderedDict(zip(globales.key_path, ghost_node_ele_path_short))
+		
+				print('\nghost_node_path_long', ghost_node_path_long)
+				print('\nghost_node_path_short', ghost_node_path_short)
+
+				continue
+
+			else:
+
+				difference_amounts = sum_amountj_short - amountj_long
+
+				ghost_node_ele_path_long = [row_shortj['address'], row_long['address'], row_shortj['status'], row_long['status'], row_long['entry_price'], price_settlement_union, 0, 0, row_long['lives_contracts'], row_long['edge_row'], row_long['path_number']]
+				ghost_node_path_long = OrderedDict(zip(globales.key_path, ghost_node_ele_path_long))
+		
+				ghost_node_ele_path_short = [row_long['address'], row_shortj['address'], row_long['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_long['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number']]
+				ghost_node_path_short = OrderedDict(zip(globales.key_path, ghost_node_ele_path_short))
+
+				print('Checkin listof_shortlives[j] before: ', listof_shortlives[j])
+				listof_shortlives[j]['lives_contracts'] = difference_amounts
+				print('Checkin listof_shortlives[j] before: ', listof_shortlives[j])
+				index_start = j
+		
+				print('\nghost_node_path_long', ghost_node_path_long)
+				print('\nghost_node_path_short', ghost_node_path_short)
+
+				break			

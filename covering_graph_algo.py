@@ -119,12 +119,4 @@ print('\nArray with Lives for Shorts:\n', np.array(listof_shortlives))
 sumof_lives_longs, sumof_lives_shorts = counting_livesfor_longshort(listof_longlives, listof_shortlives)
 print('\nsumof_lives_shorts = ', sumof_lives_shorts, '\tsumof_lives_longs', sumof_lives_longs, '\tDifference = ', abs(sumof_lives_shorts-sumof_lives_longs))
 
-for row_long in listof_longlives:
-	amountj_long = row_long['lives_contracts']
-	sum_amountj_short = 0
-	for row_short in listof_shortlives:
-		amountj_short = row_short['lives_contracts']
-		sum_amountj_short += amountj_short
-		if amountj_long == sum_amountj_short:
-			ghost_node_ele_path_long = [row_long['address'], row_short['address'], row_long['status'], row_short['status'], row_long['entry_price'], price_settlement_union, 0, 0, row_long['lives_contracts'], row_long['edge_row'], row_long['path_number']]
-			ghost_node_path_long = OrderedDict(zip(globales.lives_data, ghost_node_ele_path_long))
+calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlement_union)
