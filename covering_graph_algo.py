@@ -65,6 +65,11 @@ for j in range(len(N_file)):
 	if bool_track_long and bool_track_short:
 
 		path_counting += 1
+		sum_oflives = 0
+		exit_price_desired = 0 
+		PNL_total = 0
+		gamma_p =0
+		gamma_q = 0
 
 		listof_longlives_ele  = []
 		listof_shortlives_ele = []
@@ -92,7 +97,7 @@ for j in range(len(N_file)):
 
 		warning_ifthereisno_zeronetted(path_complex_main, contracts_opened, contracts_closed, contracts_lives)
 
-		sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(path_complex_main)	
+		sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(path_complex_main, sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q)	
 
 		listof_longlives_ele, listof_shortlives_ele = obtaining_arraysfor_liveslongshort(path_complex_main, listof_longlives_ele, listof_shortlives_ele)
 
@@ -126,7 +131,15 @@ ghost_edges_array = calculating_ghost_edges(listof_longlives, listof_shortlives,
 ghost_edges_array = remove_duplicate_rows_json(ghost_edges_array, ghost_edges_array)
 print('\n\nghost_edges_array:\n', np.array(ghost_edges_array))
 
-for row in ghost_edges_array:
-	path_complex_two_matrix.append(row)
-
+path_complex_two_matrix = joining_pathclear_ghostpath(path_complex_two_matrix, ghost_edges_array)
 print('\nFinal matrix with Ghost Edges added:\n\n', np.array(path_complex_two_matrix))
+
+sum_oflives = 0
+exit_price_desired = 0 
+PNL_total = 0
+gamma_p =0
+gamma_q = 0
+
+for row in path_complex_two_matrix:
+	contracts_opened, contracts_closed, contracts_lives, path_complex_main = checking_zeronetted_bypath(row)
+	sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(row, sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q)

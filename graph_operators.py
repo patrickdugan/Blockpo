@@ -556,10 +556,7 @@ def warning_ifthereisno_zeronetted(path_complex_main, contracts_opened, contract
 		print("\nPath:\n", np.array(path_complex_main), "\n")
 		print('...........................................................\n')
 
-def checking_pathcontaining_livesnonzero(path_complex_main):
-
-	sum_oflives = 0
-	PNL_total = 0
+def checking_pathcontaining_livesnonzero(path_complex_main, sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q):
 
 	if len(path_complex_main) != 0:
 
@@ -568,11 +565,10 @@ def checking_pathcontaining_livesnonzero(path_complex_main):
 
 		if sum_oflives != 0:
 			print("This path has ", sum_oflives, " lives contracts !!", "Edge source: ", path_complex_main[0]['edge_row'])
-			exit_price_desired, PNL_trk, gamma_p, gamma_q = calculate_pnltrk_bypath(path_complex_main)
+			exit_price_desired, PNL_total, gamma_p, gamma_q = calculate_pnltrk_bypath(path_complex_main, exit_price_desired, PNL_total, gamma_p, gamma_q)
 		else:
-			print("This path does not have lives contracts!!", "Edge source: ", path_complex_main[0]['edge_row'])
-
-	PNL_total = PNL_trk
+			print("\nThis path does not have lives contracts!!", "Edge source: ", path_complex_main[0]['edge_row'])
+			print('\nPath:\n', path_complex_main)
 
 	return sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q
 
@@ -587,7 +583,7 @@ def listof_addresses_bypath(path_complex_main):
 
 	return list_address_inthepath
 
-def calculate_pnltrk_bypath(path_complex_main):
+def calculate_pnltrk_bypath(path_complex_main, exit_price_desired, PNL_trk, gamma_p, gamma_q):
 
 	list_address_inthepath = listof_addresses_bypath(path_complex_main)
 	total_pnl_zerolives = 0
@@ -598,8 +594,6 @@ def calculate_pnltrk_bypath(path_complex_main):
 	exit_price_desired = 0
 	addressj_pnlinthepathv = []
 
-	gamma_p = 0
-	gamma_q = 0
 	for j in range(len(list_address_inthepath)):
 		
 		addressj = list_address_inthepath[j]
@@ -767,3 +761,35 @@ def updating_lives_inthepath(path_complex_two_matrix):
 			row_inpath['lives_trk'] = 0
 
 	return path_complex_two_matrix
+
+def joining_pathclear_ghostpath(path_complex_main, ghost_edges_array):
+
+	for row_path in path_complex_main:
+		index_path = row_path[0]['path_number']
+		for row_ghost in ghost_edges_array:
+			if row_ghost['path_number'] == index_path:
+				row_path.append(row_ghost)
+
+	return path_complex_main
+
+def checking_zeronetted_bypath_withghostedges(path_complex_main):
+
+	contracts_opened = 0
+	contracts_closed = 0
+	contracts_lives = 0
+
+	for row in path_complex_main:
+		if row['status_src'] in globales.open_incr_long_short and row['status_trk'] in globales.open_incr_long_short:
+			contracts_opened += row['amount_trd']
+		if row['status_src'] in globales.all_netted_status and row['status_trk'] in globales.all_netted_status:
+			contracts_closed += row['amount_trd']
+		contracts_lives += row['lives_src']+row['lives_trk']
+
+	if len(path_complex_main) == 1:
+		path_complex_main[0]['lives_trk'] = path_complex_main[0]['amount_trd']
+		path_complex_main[0]['lives_src'] = path_complex_main[0]['amount_trd']
+		contracts_lives = path_complex_main[0]['lives_trk'] + path_complex_main[0]['lives_src'] 
+			
+	print("\nChecking Zero Netted by Path:\n(contracts_opened - contracts_closed)-contracts_lives = ", "(", abs(float("{0:.1f}".format(2*contracts_opened))), "-", abs(float("{0:.1f}".format(contracts_closed))), ") -", abs(float("{0:.1f}".format(contracts_lives))), "=", abs(float("{0:.1f}".format((2*contracts_opened - contracts_closed)))), "-", abs(float("{0:.1f}".format(contracts_lives))),"=", abs(float("{0:.1f}".format((2*contracts_opened - contracts_closed)-contracts_lives))))
+
+	return contracts_opened, contracts_closed, contracts_lives, path_complex_main
