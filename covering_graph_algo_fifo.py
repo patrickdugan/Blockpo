@@ -60,6 +60,9 @@ for j in range(len(N_file)):
 	amount_trd_sum = 0
 	diff_trdamount = 0
 
+	counting_netted_long  = 0
+	counting_netted_short = 0
+
 	path_complex_main = []
 
 	if bool_track_long and bool_track_short:
@@ -79,15 +82,16 @@ for j in range(len(N_file)):
 
 		print("\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n")
 		print("Row where were opened the contracts:", j, "!!")
-		N_file, path_complex_two_long = clearing_operator_fifo(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, obj_long_trk.amount_trd, path_counting)
+		N_file, path_complex_two_long, counting_netted_long = clearing_operator_fifo(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, obj_long_trk.amount_trd, path_counting, counting_netted_long)
 		
 		print("\n*********************************************************************\n")
 		print("(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n")
-		N_file, path_complex_two_short = clearing_operator_fifo(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd, path_counting)
+		N_file, path_complex_two_short, counting_netted_short = clearing_operator_fifo(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd, path_counting, counting_netted_short)
 
 		single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.matched_price, 0, 0, obj_long_trk.amount_trd, j, path_counting]
 		single_path_value_ele = OrderedDict(zip(globales.key_path, single_path_value))
 
+		path_complex_main.append(single_path_value_ele)
 		path_complex_main = append_fromlist_tolist(path_complex_two_long, path_complex_main)
 		path_complex_main = append_fromlist_tolist(path_complex_two_short, path_complex_main)
 
@@ -109,9 +113,10 @@ for j in range(len(N_file)):
 		# 	print('\nChecking on this Path:\nlistof_shortlives:\n', np.array(listof_shortlives_ele))
 		# 	listof_shortlives = append_fromlist_tolist(listof_shortlives_ele, listof_shortlives)
 
+		print('\nPath:\n\n', np.array(path_complex_main))
 		path_complex_two_matrix.append(path_complex_main)
 
-print('path_complex_two_matrix', path_complex_two_matrix)
+# print('path_complex_two_matrix', path_complex_two_matrix)
 	# sum_gamma_p += gamma_p
 	# sum_gamma_q += gamma_q
 
