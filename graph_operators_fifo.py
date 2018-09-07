@@ -11,144 +11,110 @@ import re
 globales.init()
 setglobales.stuff()
 
-def clearing_operator(M_file, obj_trk, amount_trd_sum, path_complex_two, index_init, addrs_trk_arg, amount_trd_begining, index_long_short, diff_newtrdamount, amount_inthepath, path_counting):
-
-	average_incr = []
+def clearing_operator_fifo(M_file, obj_trk, amount_trd_sum, path_complex_two, index_init, addrs_trk_arg, amount_trd_begining, index_long_short, diff_newtrdamount, amount_inthepath, path_counting):
 	
-	howmany_netted = 0
-	numberof_lives_contracts_byaddress = 0
-	scalar_w = 0
-	total_trdsincr = 0
-
-	howmany_netted, average_incr, scalar_w, total_trdsincr = howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file, addrs_trk_arg, index_long_short, average_incr, diff_newtrdamount, obj_trk, amount_trd_begining, amount_inthepath, scalar_w, total_trdsincr)
-	
-	balance_increasing = 0
-	last_balance = 0
-	balance_increasing, last_balance = total_balance_incr(average_incr, balance_increasing, last_balance, addrs_trk_arg)
-
-	numberof_lives_contracts_byaddress = livecontracts_byaddress(addrs_trk_arg, index_init, balance_increasing, numberof_lives_contracts_byaddress)
-
-	balance_incr = 0
-	amount_selected = 0
-
 	path_complex_first = []
+	path_complex_secnd = []
 	path_complex_third = []
 	path_complex_fourh = []
 	path_complex_incrs = []
 
-	many_netted_incr = 0
-	col_amounts = []
-	
+	amount_trd_sum_new = 0
+	diff_newtrdamount = 0
+
 	for i in range(index_init+1, len(M_file)):
 
 		N_filei = M_file[:][i]
 
-		obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
-		amount_trd_sum_new = 0
-		bool_netted_status = boolean_for_netted_status(obj_trk_inloop)
+		if addrs_trk_arg in N_filei:
 
-		traded_position_incr = []
+			obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
 
-		if addrs_trk_arg in N_filei and bool_netted_status:
+			status_netted = globales.netted_status_long if index_long_short == 0 else globales.netted_status_short
 
-			amount_trdw = (float(scalar_w)/total_trdsincr)*obj_trk_inloop.amount_trd
-			print("\nreal trade amount = ", obj_trk_inloop.amount_trd, "\n")
+			if obj_trk_inloop.status_trk in status_netted and obj_trk_inloop.lives_trk_updated != 0:
 
-			amount_trd_sum_b = amount_trd_sum
-			amount_trd_sum = amount_trd_sum + amount_trdw
-			amount_trd_sum_l = amount_trd_sum
+				amount_trd_sum += obj_trk_inloop.lives_trk_updated
 
-			if len(average_incr) > 1:
+				if amount_trd_sum <= amount_trd_begining:
 
-				if amount_inthepath < amount_trd_begining:
-					print("amount_inthepath < amount_trd_begining: ", amount_inthepath,  "<", amount_trd_begining, "total_trdsincr: ", total_trdsincr)
+					bool_src = True if obj_trk_inloop.status_src in globales.open_incr_long_short else False
 
-				balance_incr += amount_trdw
-				if balance_incr <= balance_increasing:
-
-					print("\nChecking balance_incr: ", balance_incr)
-					print("\nNew netted event for ", addrs_trk_arg, " in the row: ", i+1, "!!")
-					amount_selected = amount_trdw
-					print("\namount_selected", amount_selected, ", diff_newtrdamount", diff_newtrdamount)
-					print("\nChecking here average_incr:\n", np.array(average_incr), "\nlen(average_incr): ", len(average_incr), "\n")
-
-					traded_position_incr, col_amounts, M_file = average_posincreased_float(average_incr, amount_selected, traded_position_incr, M_file, addrs_trk_arg, col_amounts, index_init, amount_inthepath, balance_increasing, amount_trd_begining, scalar_w, total_trdsincr)
-					print('\ncol_amounts: ', col_amounts)
-
-					print("\n total netted: ", balance_incr, "<= opened contracts: ", balance_increasing)
-					print("\ntraded_position_incr:\n", np.array(traded_position_incr))
-					print("\nChecking the index_init: ", index_init)
-					path_complex_fourh = long_short_incr_path(traded_position_incr, obj_trk_inloop, path_complex_fourh, index_init, i, path_counting)
-
-					many_netted_incr += path_complex_fourh[-1]['amount_trd']
-					print("many_netted_incr!!: ", many_netted_incr)
-					print("\nChecking path_complex_fourh:\n\n", np.array(path_complex_fourh))
-					print("\nobj_trk.amount_trd: ", obj_trk.amount_trd)
-					print("\n------------------------------------------------------\n")
-
-					# Aplying the clearing algo to the source if this is opening position #
-					if path_complex_fourh[-1]['status_src'] in globales.open_incr_long_short:
-
-						print("Can be %s a new source??" %(path_complex_fourh[-1]['addrs_src']))
-						idx_long_or_short = 0 if obj_trk_inloop.status_src in globales.open_incr_long else 1
-						addrs_trk_incr = path_complex_fourh[-1]['addrs_src']
-						obj_trk_incr = status_amounts_inloop(N_filei, addrs_trk_incr)
-						print("\nTrade amount on this edge path: ", path_complex_fourh[-1]['amount_trd'])
-						print("Trade amount on this edge matrix: ", obj_trk_incr.amount_trd)
-						diff_newtrdamount = obj_trk_incr.amount_trd - path_complex_fourh[-1]['amount_trd']
-						print("diff_newtrdamount: ", diff_newtrdamount)
-						M_file, path_complex_incrs = clearing_operator(M_file, obj_trk_incr, amount_trd_sum_new, path_complex_incrs, i, addrs_trk_incr, obj_trk_incr.amount_trd, idx_long_or_short, diff_newtrdamount, path_complex_fourh[-1]['amount_trd'], path_counting)
-
-					continue
-
-			bool_src = obj_trk_inloop.status_src in globales.open_incr_long or obj_trk_inloop.status_src in globales.open_incr_short
-
-			d_amounts = amount_trd_begining - amount_trd_sum
-			if d_amounts > 0:
+					d_amounts = amount_trd_begining - amount_trd_sum
+			
+					if d_amounts > 0:
 				
-				print('Netted Event d_amounts > 0')
-				print("\nRow update:\n", M_file[:][i])
-				print("\nOpened contrats: ", amount_trd_begining, " > Sum amounts traded: ", amount_trd_sum, "\n")
-				print("'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", amount_trdw, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
-				print("amount_trdw: ", amount_trdw, "obj_trk.amount_trd: ", obj_trk.amount_trd, "amount_inthepath: ", amount_inthepath)
+						print('Netted Event d_amounts > 0')
+						print('Lives at this time: ', d_amounts)
+						print("\nRow to update:\n", M_file[:][i])
+						M_file = updating_lasttwocols_fromdatabase(addrs_trk_arg, N_filei, M_file, i, 0)
+						print("\nOpened contrats: ", amount_trd_begining, " > Sum amounts traded: ", amount_trd_sum, "\n")
+						print("'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", obj_trk_inloop.amount_trd, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
 					
-				path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, amount_trdw, i, path_counting]
-				path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
+						path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.amount_trd, i, path_counting]
+						path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
 
-				print("(d_amounts > 0) path_complex_ele_two: \n\n", path_complex_ele_two)
+						print("(d_amounts > 0) path_complex_ele_two: \n\n", path_complex_ele_two)
 
-				path_complex_two.append(path_complex_ele_two)
+						path_complex_two.append(path_complex_ele_two)
 
-				if bool_src:
-					idx_long_or_short = 0 if obj_trk_inloop.status_trk in globales.open_incr_long else 1
-					print("\nLooking New Path for: ", obj_trk_inloop.addrs_src, "!!")
-					M_file, path_complex_first = clearing_operator(M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_first, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short, diff_newtrdamount, amount_trdw, path_counting)
-				continue
+						if bool_src:
+							idx_long_or_short = 0 if obj_trk_inloop.status_src in globales.open_incr_long else 1
+							print("\nLooking New Path for: ", obj_trk_inloop.addrs_src, "!!")
+							M_file, path_complex_first = clearing_operator_fifo(M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_first, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short, diff_newtrdamount, obj_trk_inloop.amount_trd, path_counting)
+						
+						continue
 
-			elif d_amounts == 0:
+					if d_amounts < 0:
+				
+						print('Netted Event d_amounts < 0')
+						print('Lives at this time: ', 0)
+						print("\nRow to update:\n", M_file[:][i])
+						M_file = updating_lasttwocols_fromdatabase(addrs_trk_arg, N_filei, M_file, i, abs(d_amounts))
+						print("\nOpened contrats: ", amount_trd_begining, " < Sum amounts traded: ", amount_trd_sum, "\n")
+						print("'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", obj_trk_inloop.amount_trd, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
+					
+						path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.amount_trd - abs(d_amounts), i, path_counting]
+						path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
 
-				print('Netted Event d_amounts > 0')
-				print("\nRow update:\n", M_file[:][i])
-				print("\nOpened contrats: ", amount_trd_begining, " = Sum amounts traded: ", amount_trd_sum, "\n")
-				print("'iteration: ", i, " |addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", obj_trk_inloop.amount_trd, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
+						print("(d_amounts < 0) path_complex_ele_two: \n\n", path_complex_ele_two)
 
-				path_complex_ele_value_one = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, amount_trdw, i, path_counting]
-				path_complex_ele_one = OrderedDict(zip(globales.key_path, path_complex_ele_value_one))
+						path_complex_two.append(path_complex_ele_two)
 
-				print("(d_amounts = 0) path_complex_ele_one:\n\n", path_complex_ele_one, "\n")
+						if bool_src:
+							idx_long_or_short = 0 if obj_trk_inloop.status_src in globales.open_incr_long else 1
+							print("\nLooking New Path for: ", obj_trk_inloop.addrs_src, "!!")
+							M_file, path_complex_secnd = clearing_operator_fifo(M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_secnd, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd - abs(d_amounts), idx_long_or_short, diff_newtrdamount, obj_trk_inloop.amount_trd - abs(d_amounts), path_counting)
+						
+						break
 
-				path_complex_two.append(path_complex_ele_one)
+					elif d_amounts == 0:
 
-				if bool_src:
-					idx_long_or_short = 0 if obj_trk_inloop.status_trk in globales.open_incr_long else 1
-					print("\nLooking New Path for: ", obj_trk_inloop.addrs_src, "!!\n")
-					M_file, path_complex_third = clearing_operator(M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_third, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short, diff_newtrdamount, amount_trdw, path_counting)
-				break
+						print('Netted Event d_amounts == 0')
+						print('Lives at this time: ', 0)
+						print("\nRow update:\n", M_file[:][i])
+						M_file = updating_lasttwocols_fromdatabase(addrs_trk_arg, N_filei, M_file, i, abs(d_amounts))						
+						print("\nOpened contrats: ", amount_trd_begining, " = Sum amounts traded: ", amount_trd_sum, "\n")
+						print("'iteration: ", i, " |addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", obj_trk_inloop.amount_trd, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
 
-	path_complex_two = append_fromlist_tolist(path_complex_first, path_complex_two)
-	path_complex_two = append_fromlist_tolist(path_complex_third, path_complex_two)
-	path_complex_two = append_fromlist_tolist(path_complex_fourh, path_complex_two)
-	path_complex_two = append_fromlist_tolist(path_complex_incrs, path_complex_two)
+						path_complex_ele_value_one = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.amount_trd, i, path_counting]
+						path_complex_ele_one = OrderedDict(zip(globales.key_path, path_complex_ele_value_one))
+
+						print("(d_amounts = 0) path_complex_ele_one:\n\n", path_complex_ele_one, "\n")
+
+						path_complex_two.append(path_complex_ele_one)
+
+						if bool_src:
+							idx_long_or_short = 0 if obj_trk_inloop.status_src in globales.open_incr_long else 1
+							print("\nLooking New Path for: ", obj_trk_inloop.addrs_src, "!!\n")
+							M_file, path_complex_third = clearing_operator_fifo(M_file, obj_trk_inloop, amount_trd_sum_new, path_complex_third, i, obj_trk_inloop.addrs_src, obj_trk_inloop.amount_trd, idx_long_or_short, diff_newtrdamount, obj_trk_inloop.amount_trd, path_counting)
+						
+						break
+
+			path_complex_two = append_fromlist_tolist(path_complex_first, path_complex_two)
+			path_complex_two = append_fromlist_tolist(path_complex_third, path_complex_two)
+			path_complex_two = append_fromlist_tolist(path_complex_fourh, path_complex_two)
+			path_complex_two = append_fromlist_tolist(path_complex_incrs, path_complex_two)
 
 	return M_file, path_complex_two
 
@@ -296,21 +262,13 @@ def negative_for_short(m):
 				row[2] = -row[2]
 	return m
 
-def update_lasttwo_columns(obj_trk_inloop, N_filei, M_file, i):
 
-	if obj_trk_inloop.addrs_trk in N_filei and obj_trk_inloop.status_trk in globales.all_netted_status:
-		M_file = updating_withzero(
-			obj_trk_inloop.addrs_trk, N_filei, M_file, i)
-
-	return M_file
-
-
-def updating_withzero(addrs, N_filei, M_file, i):
+def updating_lasttwocols_fromdatabase(addrs, N_filei, M_file, i, live_updated):
 
 	if addrs == N_filei[0]:
-		M_file[:][i][8] = 0
+		M_file[:][i][8] = live_updated
 	else:
-		M_file[:][i][9] = 0
+		M_file[:][i][9] = live_updated
 
 	return M_file
 
@@ -327,51 +285,6 @@ def long_short_incr_path(traded_pos_incr, obj_trk_inloop, path_complex_two, inde
 			continue
 
 	return path_complex_two
-
-def howmany_netted_events_and_vectorwithincrs(howmany_netted, index_init, M_file, addrs_trk_arg, index_long_short, average_incr, diff_newtrdamount, obj_trk, amount_trd_begining, amount_inthepath, scalar_w, total_trdsincr):
-	
-	for i in range(index_init, len(M_file)):
-
-		N_filei = M_file[:][i]
-		obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
-		if addrs_trk_arg in N_filei:
-			if obj_trk_inloop.status_trk in globales.open_incr_long_short:
-				print("\nPosition increase in the row: ", i+1, "\tIteration: ", i)
-				average_incr.append([obj_trk_inloop.addrs_src, obj_trk_inloop.lives_src, obj_trk_inloop.status_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.lives_trk, obj_trk_inloop.status_trk, obj_trk_inloop.amount_trd, obj_trk_inloop.matched_price, i])
-			else:
-				break
-		else:
-			continue
-
-	for i in range(index_init+1, len(M_file)):
-		N_filei = M_file[:][i]
-		obj_trk_inloop = status_amounts_inloop(N_filei, addrs_trk_arg)
-		bool_netted_status = boolean_for_netted_status(obj_trk_inloop)
-		if addrs_trk_arg in N_filei:
-			if bool_netted_status:
-				howmany_netted += 1
-
-	average_incr = reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr, diff_newtrdamount)
-
-	for row in average_incr:
-		total_trdsincr += row[6]
-	print("\ntotal_trdsincr: ", total_trdsincr)
-
-	print("\naverage_incr before checking (amount_inthepath < amount_trd_begining):\n", np.array(average_incr))
-	if amount_inthepath < amount_trd_begining:
-
-		print("\nChecking real amount and amount in the path!! amount_inthepath = ", amount_inthepath, " < amount_trd_begining = ", amount_trd_begining)
-		scalar_w = (float(amount_inthepath)/amount_trd_begining)*total_trdsincr
-		print("\nscalar_w = ", scalar_w)
-		for row in average_incr:
-			row[6] = (float(scalar_w)/total_trdsincr)*row[6]
-		print("\naverage_incr later checking (amount_inthepath < amount_trd_begining):\n", np.array(average_incr))
-	else:
-		scalar_w = total_trdsincr
-		print("Nothing to do: amount_inthepath = amount_trd_begining")
-		pass
-	
-	return howmany_netted, average_incr, scalar_w, total_trdsincr
 
 def reverseiterator_incr_pos(index_init, addrs_trk_arg, average_incr, diff_newtrdamount):
 

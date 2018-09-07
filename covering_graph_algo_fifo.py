@@ -2,7 +2,7 @@
 
 import sys
 import numpy as np
-from graph_operators import*
+from graph_operators_fifo import*
 from collections import*
 from time import sleep
 
@@ -11,7 +11,7 @@ import setglobales
 import logging
 import re
 
-sys.stdout = open('out.txt', 'w')
+sys.stdout = open('out_fifo.txt', 'w')
 
 print("###################################################################################\n")
 print("\n#------------------------'Definitions'---------------------------------#\n")
@@ -79,11 +79,11 @@ for j in range(len(N_file)):
 
 		print("\n(Tracking Long Position)", " Source: ", obj_long_trk.addrs_src, "| Tracked: ", obj_long_trk.addrs_trk, "\n")
 		print("Row where were opened the contracts:", j, "!!")
-		N_file, path_complex_two_long = clearing_operator(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, obj_long_trk.amount_trd, path_counting)
+		N_file, path_complex_two_long = clearing_operator_fifo(N_file, obj_long_trk, amount_trd_sum, path_complex_two_long, j, obj_long_trk.addrs_trk, obj_long_trk.amount_trd, 0, diff_trdamount, obj_long_trk.amount_trd, path_counting)
 		
 		print("\n*********************************************************************\n")
 		print("(Tracking Short Position)", " Source: ", obj_short_trk.addrs_src, "| Tracked: ", obj_short_trk.addrs_trk, "\n")
-		N_file, path_complex_two_short = clearing_operator(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd, path_counting)
+		N_file, path_complex_two_short = clearing_operator_fifo(N_file, obj_short_trk, amount_trd_sum, path_complex_two_short, j, obj_short_trk.addrs_trk, obj_long_trk.amount_trd, 1, diff_trdamount, obj_long_trk.amount_trd, path_counting)
 
 		single_path_value = [obj_long_trk.addrs_src, obj_long_trk.addrs_trk, obj_long_trk.status_src, obj_long_trk.status_trk, obj_long_trk.matched_price, obj_long_trk.matched_price, 0, 0, obj_long_trk.amount_trd, j, path_counting]
 		single_path_value_ele = OrderedDict(zip(globales.key_path, single_path_value))
@@ -91,55 +91,56 @@ for j in range(len(N_file)):
 		path_complex_main = append_fromlist_tolist(path_complex_two_long, path_complex_main)
 		path_complex_main = append_fromlist_tolist(path_complex_two_short, path_complex_main)
 
-		path_complex_main = calculating_livescontracts(path_complex_main, single_path_value_ele, N_file)
+		# path_complex_main = calculating_livescontracts(path_complex_main, single_path_value_ele, N_file)
 
-		contracts_opened, contracts_closed, contracts_lives, path_complex_main = checking_zeronetted_bypath(path_complex_main)
+		# contracts_opened, contracts_closed, contracts_lives, path_complex_main = checking_zeronetted_bypath(path_complex_main)
 
-		warning_ifthereisno_zeronetted(path_complex_main, contracts_opened, contracts_closed, contracts_lives)
+		# warning_ifthereisno_zeronetted(path_complex_main, contracts_opened, contracts_closed, contracts_lives)
 
-		sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(path_complex_main, sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q)	
+		# sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(path_complex_main, sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q)	
 
-		listof_longlives_ele, listof_shortlives_ele = obtaining_arraysfor_liveslongshort(path_complex_main, listof_longlives_ele, listof_shortlives_ele)
+		# listof_longlives_ele, listof_shortlives_ele = obtaining_arraysfor_liveslongshort(path_complex_main, listof_longlives_ele, listof_shortlives_ele)
 
-		if len(listof_longlives_ele) != 0:
-			print('\nChecking on this Path:\nlistof_longlives:\n', np.array(listof_longlives_ele))
-			listof_longlives  = append_fromlist_tolist(listof_longlives_ele, listof_longlives)
+		# if len(listof_longlives_ele) != 0:
+		# 	print('\nChecking on this Path:\nlistof_longlives:\n', np.array(listof_longlives_ele))
+		# 	listof_longlives  = append_fromlist_tolist(listof_longlives_ele, listof_longlives)
 
-		if len(listof_shortlives_ele) != 0:
-			print('\nChecking on this Path:\nlistof_shortlives:\n', np.array(listof_shortlives_ele))
-			listof_shortlives = append_fromlist_tolist(listof_shortlives_ele, listof_shortlives)
+		# if len(listof_shortlives_ele) != 0:
+		# 	print('\nChecking on this Path:\nlistof_shortlives:\n', np.array(listof_shortlives_ele))
+		# 	listof_shortlives = append_fromlist_tolist(listof_shortlives_ele, listof_shortlives)
 
 		path_complex_two_matrix.append(path_complex_main)
 
-	sum_gamma_p += gamma_p
-	sum_gamma_q += gamma_q
+print('path_complex_two_matrix', path_complex_two_matrix)
+	# sum_gamma_p += gamma_p
+	# sum_gamma_q += gamma_q
 
-price_settlement_union = float(sum_gamma_p)/sum_gamma_q
+# price_settlement_union = float(sum_gamma_p)/sum_gamma_q
 
-print('\nPrice Settlement Union = ', price_settlement_union)
+# print('\nPrice Settlement Union = ', price_settlement_union)
 
-sumof_lives_longs, sumof_lives_shorts = counting_livesfor_longshort(listof_longlives, listof_shortlives)
-print('\nsumof_lives_shorts = ', sumof_lives_shorts, '\tsumof_lives_longs', sumof_lives_longs, '\tDifference = ', abs(sumof_lives_shorts-sumof_lives_longs))
+# sumof_lives_longs, sumof_lives_shorts = counting_livesfor_longshort(listof_longlives, listof_shortlives)
+# print('\nsumof_lives_shorts = ', sumof_lives_shorts, '\tsumof_lives_longs', sumof_lives_longs, '\tDifference = ', abs(sumof_lives_shorts-sumof_lives_longs))
 
-print('\n####################################################################\n')
+# print('\n####################################################################\n')
 
-print("\nFrom here start Ghost Paths building:\n")
-path_complex_two_matrix = updating_lives_inthepath(path_complex_two_matrix)
+# print("\nFrom here start Ghost Paths building:\n")
+# path_complex_two_matrix = updating_lives_inthepath(path_complex_two_matrix)
 
-ghost_edges_array = []
-ghost_edges_array = calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlement_union, ghost_edges_array)
-ghost_edges_array = remove_duplicate_rows_json(ghost_edges_array, ghost_edges_array)
-print('\n\nghost_edges_array:\n', np.array(ghost_edges_array))
+# ghost_edges_array = []
+# ghost_edges_array = calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlement_union, ghost_edges_array)
+# ghost_edges_array = remove_duplicate_rows_json(ghost_edges_array, ghost_edges_array)
+# print('\n\nghost_edges_array:\n', np.array(ghost_edges_array))
 
-path_complex_two_matrix = joining_pathclear_ghostpath(path_complex_two_matrix, ghost_edges_array)
-print('\nFinal matrix with Ghost Edges added:\n\n', np.array(path_complex_two_matrix))
+# path_complex_two_matrix = joining_pathclear_ghostpath(path_complex_two_matrix, ghost_edges_array)
+# print('\nFinal matrix with Ghost Edges added:\n\n', np.array(path_complex_two_matrix))
 
-sum_oflives = 0
-exit_price_desired = 0 
-PNL_total = 0
-gamma_p =0
-gamma_q = 0
+# sum_oflives = 0
+# exit_price_desired = 0 
+# PNL_total = 0
+# gamma_p =0
+# gamma_q = 0
 
-for row in path_complex_two_matrix:
-	contracts_opened, contracts_closed, contracts_lives, path_complex_main = checking_zeronetted_bypath(row)
-	sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(row, sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q)
+# for row in path_complex_two_matrix:
+# 	contracts_opened, contracts_closed, contracts_lives, path_complex_main = checking_zeronetted_bypath(row)
+# 	sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(row, sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q)
