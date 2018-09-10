@@ -95,11 +95,11 @@ for j in range(len(N_file)):
 		path_complex_main = append_fromlist_tolist(path_complex_two_long, path_complex_main)
 		path_complex_main = append_fromlist_tolist(path_complex_two_short, path_complex_main)
 
-		# path_complex_main = calculating_livescontracts(path_complex_main, single_path_value_ele, N_file)
+		path_complex_main = calculating_livescontracts(path_complex_main)
 
-		# contracts_opened, contracts_closed, contracts_lives, path_complex_main = checking_zeronetted_bypath(path_complex_main)
+		contracts_opened, contracts_closed, contracts_lives, path_complex_main = checking_zeronetted_bypath(path_complex_main)
 
-		# warning_ifthereisno_zeronetted(path_complex_main, contracts_opened, contracts_closed, contracts_lives)
+		warning_ifthereisno_zeronetted(path_complex_main, contracts_opened, contracts_closed, contracts_lives)
 
 		# sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q = checking_pathcontaining_livesnonzero(path_complex_main, sum_oflives, exit_price_desired, PNL_total, gamma_p, gamma_q)	
 
@@ -113,7 +113,6 @@ for j in range(len(N_file)):
 		# 	print('\nChecking on this Path:\nlistof_shortlives:\n', np.array(listof_shortlives_ele))
 		# 	listof_shortlives = append_fromlist_tolist(listof_shortlives_ele, listof_shortlives)
 
-		print('\nPath:\n\n', np.array(path_complex_main))
 		path_complex_two_matrix.append(path_complex_main)
 
 # print('path_complex_two_matrix', path_complex_two_matrix)
