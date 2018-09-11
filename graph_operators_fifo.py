@@ -47,8 +47,8 @@ def clearing_operator_fifo(M_file, obj_trk, amount_trd_sum, path_complex_two, in
 					print("\nOpened contrats: ", amount_trd_begining, " > Sum amounts traded: ", amount_trd_sum, "\n")
 					print("'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", obj_trk_inloop.amount_trd, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
 					
-					path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.lives_trk_updated, i, path_counting]
-					path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
+					path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.lives_trk_updated, i, path_counting, 0]
+					path_complex_ele_two = OrderedDict(zip(globales.key_path_fifo, path_complex_value_ele_two))
 
 					print("(d_amounts > 0) path_complex_ele_two: \n\n", path_complex_ele_two)
 
@@ -79,8 +79,8 @@ def clearing_operator_fifo(M_file, obj_trk, amount_trd_sum, path_complex_two, in
 					print("\nOpened contrats: ", amount_trd_begining, " < Sum amounts traded: ", amount_trd_sum, "\n")
 					print("'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", obj_trk_inloop.lives_trk_updated, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
 					
-					path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.lives_trk_updated - abs(d_amounts), i, path_counting]
-					path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
+					path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.lives_trk_updated - abs(d_amounts), i, path_counting, 0]
+					path_complex_ele_two = OrderedDict(zip(globales.key_path_fifo, path_complex_value_ele_two))
 
 					print("(d_amounts < 0) path_complex_ele_two: \n\n", path_complex_ele_two)
 					path_complex_two.append(path_complex_ele_two)
@@ -111,8 +111,8 @@ def clearing_operator_fifo(M_file, obj_trk, amount_trd_sum, path_complex_two, in
 					print("\nOpened contrats: ", amount_trd_begining, " = Sum amounts traded: ", amount_trd_sum, "\n")
 					print("'iteration: ", i, "|addrs_trk: ", addrs_trk_arg, "|status_trki: ", obj_trk_inloop.status_trk,  "|amount_trdi: ", obj_trk_inloop.amount_trd, "|addrs_srci: ", obj_trk_inloop.addrs_src, "|status_srci: ", obj_trk_inloop.status_src, "\n")
 					
-					path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.lives_trk_updated, i, path_counting]
-					path_complex_ele_two = OrderedDict(zip(globales.key_path, path_complex_value_ele_two))
+					path_complex_value_ele_two = [obj_trk_inloop.addrs_src, obj_trk_inloop.addrs_trk, obj_trk_inloop.status_src, obj_trk_inloop.status_trk, obj_trk.matched_price, obj_trk_inloop.matched_price, 0, 0, obj_trk_inloop.lives_trk_updated, i, path_counting, 0]
+					path_complex_ele_two = OrderedDict(zip(globales.key_path_fifo, path_complex_value_ele_two))
 
 					print("(d_amounts > 0) path_complex_ele_two: \n\n", path_complex_ele_two)
 
@@ -352,11 +352,15 @@ def calculate_pnltrk_bypath(path_complex_main, exit_price_desired, PNL_trk, gamm
 						sum_alpha_j += row['amount_trd']
 
 	if sum_alpha_i != sum_alpha_j:
+		print("float(total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j)", float(total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j))
 		exit_price_desired = float(total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j)/(sum_alpha_j - sum_alpha_i)
 		gamma_p = total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j
 		gamma_q = sum_alpha_j - sum_alpha_i
 
 	print("\nExit price in this path = ", exit_price_desired)
+	# print("total_pnl_zerolives, sum_alpha_beta_i, sum_alpha_beta_j", total_pnl_zerolives, sum_alpha_beta_i, sum_alpha_beta_j)
+	# print("float(total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j)", float(total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j))
+	# print('len(path_complex_main)', len(path_complex_main))	
 	print('\nThis path has PNL = ', total_pnl_zerolives)
 
 	return exit_price_desired, PNL_trk, gamma_p, gamma_q
@@ -448,11 +452,11 @@ def calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlemen
 
 			if amountj_long >= sum_amountj_short:
 		
-				ghost_node_ele_path_long_one = [row_shortj['address'], row_longi['address'], row_shortj['status'], row_longi['status'], row_longi['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_longi['edge_row'], row_longi['path_number']]
-				ghost_node_path_long_one = OrderedDict(zip(globales.key_path, ghost_node_ele_path_long_one))
+				ghost_node_ele_path_long_one = [row_shortj['address'], row_longi['address'], row_shortj['status'], row_longi['status'], row_longi['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_longi['edge_row'], row_longi['path_number'], 1]
+				ghost_node_path_long_one = OrderedDict(zip(globales.key_path_fifo, ghost_node_ele_path_long_one))
 		
-				ghost_node_ele_path_short_one = [row_longi['address'], row_shortj['address'], row_longi['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number']]
-				ghost_node_path_short_one = OrderedDict(zip(globales.key_path, ghost_node_ele_path_short_one))
+				ghost_node_ele_path_short_one = [row_longi['address'], row_shortj['address'], row_longi['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number'], 1]
+				ghost_node_path_short_one = OrderedDict(zip(globales.key_path_fifo, ghost_node_ele_path_short_one))
 		
 				print('\nghost_node_path_long_one', ghost_node_path_long_one)
 				print('\nghost_node_path_short_one', ghost_node_path_short_one)
@@ -460,15 +464,17 @@ def calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlemen
 				ghost_edges_array.append(ghost_node_path_long_one)
 				ghost_edges_array.append(ghost_node_path_short_one)
 
-			else:
+				continue
+
+			if amountj_long < sum_amountj_short:
 
 				difference_amounts = sum_amountj_short - amountj_long
 
-				ghost_node_ele_path_long_two = [row_shortj['address'], row_longi['address'], row_shortj['status'], row_longi['status'], row_longi['entry_price'], price_settlement_union, 0, 0, row_longi['lives_contracts'], row_longi['edge_row'], row_longi['path_number']]
-				ghost_node_path_long_two = OrderedDict(zip(globales.key_path, ghost_node_ele_path_long_two))
+				ghost_node_ele_path_long_two = [row_shortj['address'], row_longi['address'], row_shortj['status'], row_longi['status'], row_longi['entry_price'], price_settlement_union, 0, 0, amountj_short - difference_amounts, row_longi['edge_row'], row_longi['path_number'], 1]
+				ghost_node_path_long_two = OrderedDict(zip(globales.key_path_fifo, ghost_node_ele_path_long_two))
 		
-				ghost_node_ele_path_short_two = [row_longi['address'], row_shortj['address'], row_longi['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_longi['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number']]
-				ghost_node_path_short_two = OrderedDict(zip(globales.key_path, ghost_node_ele_path_short_two))
+				ghost_node_ele_path_short_two = [row_longi['address'], row_shortj['address'], row_longi['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, amountj_short - difference_amounts, row_shortj['edge_row'], row_shortj['path_number'], 1]
+				ghost_node_path_short_two = OrderedDict(zip(globales.key_path_fifo, ghost_node_ele_path_short_two))
 
 				index_start = j
 				listof_shortlives[j]['lives_contracts'] = difference_amounts
@@ -499,27 +505,34 @@ def joining_pathclear_ghostpath(path_complex_main, ghost_edges_array):
 		for row_ghost in ghost_edges_array:
 			if row_ghost['path_number'] == index_path:
 				row_path.append(row_ghost)
+		print('\nGhost edges added:\n\n', np.array(row_path))
 
 	return path_complex_main
 
 def checking_zeronetted_bypath_withghostedges(path_complex_main):
 
-	contracts_opened = 0
-	contracts_closed = 0
 	contracts_lives = 0
+	netted_byghosts = 0
 
 	for row in path_complex_main:
-		if row['status_src'] in globales.open_incr_long_short and row['status_trk'] in globales.open_incr_long_short:
-			contracts_opened += row['amount_trd']
-		if row['status_src'] in globales.all_netted_status and row['status_trk'] in globales.all_netted_status:
-			contracts_closed += row['amount_trd']
-		contracts_lives += row['lives_src']+row['lives_trk']
+		if row['ghost_edge'] != 1:
+			contracts_lives += row['lives_src']+row['lives_trk']
+		if row['ghost_edge'] == 1:
+			netted_byghosts += row['amount_trd']		
 
-	if len(path_complex_main) == 1:
-		path_complex_main[0]['lives_trk'] = path_complex_main[0]['amount_trd']
-		path_complex_main[0]['lives_src'] = path_complex_main[0]['amount_trd']
-		contracts_lives = path_complex_main[0]['lives_trk'] + path_complex_main[0]['lives_src'] 
-			
-	print("\nChecking Zero Netted by Path:\n(contracts_opened - contracts_closed)-contracts_lives = ", "(", abs(float("{0:.1f}".format(2*contracts_opened))), "-", abs(float("{0:.1f}".format(contracts_closed))), ") -", abs(float("{0:.1f}".format(contracts_lives))), "=", abs(float("{0:.1f}".format((2*contracts_opened - contracts_closed)))), "-", abs(float("{0:.1f}".format(contracts_lives))),"=", abs(float("{0:.1f}".format((2*contracts_opened - contracts_closed)-contracts_lives))))
+	print("\nChecking Zero Netted by Path with ghost edges:\nLives Contracts - Netted by ghost edges ", contracts_lives, "-", netted_byghosts, "=", contracts_lives - netted_byghosts )
 
-	return contracts_opened, contracts_closed, contracts_lives, path_complex_main
+	if contracts_lives - netted_byghosts != 0:
+		print('\nWarning!! Ghost edges are not netting all lives in this path:\n\n', path_complex_main)
+
+	return contracts_lives, netted_byghosts
+
+def plot_data(path_complex_two_matrix):
+	
+	print('\nPlot Gephi Info\n')
+	for path in path_complex_two_matrix:
+		for line in path:
+			print('\t{"source": "',line['addrs_src'],'", "target": "',line['addrs_trk'],'", "value":',line['path_number'],'},')
+
+	for ele in globales.addresses_vector:
+		print('\t{"id": "',ele[0],'"},')
