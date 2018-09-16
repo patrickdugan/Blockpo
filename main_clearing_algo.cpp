@@ -7,98 +7,64 @@
 #include <stdio.h>
 
 #include "operators_algo_clearing.h"
+#include "tradelayer_matrices.h"
 
 using namespace std;
 
 int main()
 {
-    std::string address1, status1, address2, status2;
-    double lives1, lives2, amount_trade;
-    int numItems = 0, n_cols = 7;
+	extern int n_cols;
+	extern int n_rows;
+	extern VectorTL<std::string> *long_open_incr;
 
-    ifstream file;
-    file.open("graphInfoSixth.txt");  
-    if ( file.is_open() ) {
-        while ( !file.eof() ) {
-	  file >> address1 >> status1 >> lives1 >> address2 >> status2 >> lives2 >> amount_trade;
-            ++numItems;
-        }
-    }
-    int n_rows = numItems;
-    file.close();
+#include "init.h"
 
-    std::string **gdata = new std::string*[n_cols+1];
-    for (int i = 0; i < n_cols; ++i) {
-        gdata[i] = new std::string[n_rows];
-    }
+	n_cols = 8;
 
-    std::fstream fileg;
-    fileg.open("graphInfoSixth.txt", std::ios::in);
-    for (int i = 0; i < n_rows; ++i) {
-        for (int j = 0; j < n_cols; ++j) {
-            fileg >> gdata[j][i];
-        }
-    }
-    fileg.close();
+	std::string address1, status1, address2, status2;
+	double lives1, lives2, amount_trade, matched_price;
+	int numItems = 0;
 
-    for (int i = 0; i < n_rows; ++i) {
-        for (int j = 0; j < n_cols; ++j) {
-            std::cout << gdata[j][i] << "\t";
-        }
-        std::cout << "\n";
-    }
-    printf("Number of rows: %d,\t Number of cols: %d\n", n_rows, n_cols);
+	ifstream file;
+	file.open("graphInfoSixth.txt");  
+	if ( file.is_open() ) {
+		while ( !file.eof() ) {
+			file >> address1 >> status1 >> lives1 >> address2 >> status2 >> lives2 >> amount_trade >> matched_price;
+			++numItems;
+		}
+	}
+	file.close();
 
-    ///////////////////////////////////////////////////////////////////////////////////////
+	n_rows = numItems;
+	MatrixTL<std::string> gdata(n_rows, n_cols);
 
-    /* Let us create the graph given in above example */
-    int V = 5;  // Number of vertices in graph
-    int E = 8;  // Number of edges in graph
-    struct Graph *graph = createGraph(V, E);
- 
-    // add edge 0-1 (or A-B in above figure)
-    graph->edge[0].src = 0;
-    graph->edge[0].dest = 1;
-    graph->edge[0].weight = -1;
- 
-    // add edge 0-2 (or A-C in above figure)
-    graph->edge[1].src = 0;
-    graph->edge[1].dest = 2;
-    graph->edge[1].weight = 4;
- 
-    // add edge 1-2 (or B-C in above figure)
-    graph->edge[2].src = 1;
-    graph->edge[2].dest = 2;
-    graph->edge[2].weight = 3;
- 
-    // add edge 1-3 (or B-D in above figure)
-    graph->edge[3].src = 1;
-    graph->edge[3].dest = 3;
-    graph->edge[3].weight = 2;
- 
-    // add edge 1-4 (or A-E in above figure)
-    graph->edge[4].src = 1;
-    graph->edge[4].dest = 4;
-    graph->edge[4].weight = 2;
- 
-    // add edge 3-2 (or D-C in above figure)
-    graph->edge[5].src = 3;
-    graph->edge[5].dest = 2;
-    graph->edge[5].weight = 5;
- 
-    // add edge 3-1 (or D-B in above figure)
-    graph->edge[6].src = 3;
-    graph->edge[6].dest = 1;
-    graph->edge[6].weight = 1;
- 
-    // add edge 4-3 (or E-D in above figure)
-    graph->edge[7].src = 4;
-    graph->edge[7].dest = 3;
-    graph->edge[7].weight = -3;
- 
-    BellmanFord(graph, 0);
-    
-    delete [] gdata;
+	std::fstream fileg;
+	fileg.open("graphInfoSixth.txt", std::ios::in);
+	for (int i = 0; i < n_rows; ++i) 
+	{
+		for (int j = 0; j < n_cols; ++j) 
+		{
+			fileg >> gdata[i][j];
+		}
+	}
+	fileg.close();
 
-    return 0;
+	printing_matrix(gdata);
+
+	///////////////////////////////////////////
+	/** Here start the clearing algorithm */
+	VectorTL<std::string> vdata(n_cols);
+	for (int i = 0; i < n_rows; ++i)
+	{
+		for (int j = 0; j < n_cols; ++j)
+		{
+			vdata[j] = gdata[i][j]; 
+		}
+		struct status_amounts *pt_vdatalong = get_status_amounts_long(vdata);
+		// cout << "Checking: "<< pt_vdatalong->addrs_trk << "\n";
+	}
+	///////////////////////////////////////////
+	printf("\n|rows|: %d,\t |cols|: %d\n", size(gdata, 0), size(gdata, 1));
+
+	return 0;
 }

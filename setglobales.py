@@ -23,4 +23,5 @@ def stuff():
     globales.incr_positions = ["LongPosIncreased", "ShortPosIncreased"]
     globales.addresses_vector = opening_filetxt("graphInfoAddresses.txt")
     globales.database_matrix = opening_filetxt("graphInfoSixth.txt")
+    globales.ghost_edges = opening_filetxt('data_ghost_plot_python.txt')
     globales.lives_data = ['address', 'status', 'lives_contracts', 'entry_price', 'edge_row', 'path_number']

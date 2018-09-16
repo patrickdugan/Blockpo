@@ -13,3 +13,4 @@ def init():
     global addresses_vector
     global database_matrix
     global lives_data
+    global ghost_edges

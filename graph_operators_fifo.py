@@ -527,12 +527,37 @@ def checking_zeronetted_bypath_withghostedges(path_complex_main):
 
 	return contracts_lives, netted_byghosts
 
-def plot_data(path_complex_two_matrix):
+def plot_data(path_complex_two_matrix, ghost_edges_array, path_counting):
+
+	color_array = []
+	while (len(color_array) < path_counting):
+		color = list(np.random.choice(range(256), size=3))
+		if color[0] not in column(color_array, 0) and color[1] not in column(color_array, 1) and color[2] not in column(color_array, 2):  
+			color_array.append(color)
 	
-	print('\nPlot Gephi Info\n')
+	print('\nPlot Gephi Info with different colors\n')
+	k=0
+	q=0
+	for path in path_complex_two_matrix:
+		q+=1
+		colorq = color_array[q-1]
+		for line in path:
+			k+=1
+			print('<edge id="'+str(k-1)+'" source="'+str(line['addrs_src'])+'" target="'+str(line['addrs_trk'])+'" weight="'+str(line['amount_trd'])+'">\n','\t<viz:color r="'+str(colorq[0])+'" g="'+str(colorq[1])+'" b="'+str(colorq[2])+'"/>\n','</edge>')
+	print('Plot Gephi Info Without Colors')
+	p=0
 	for path in path_complex_two_matrix:
 		for line in path:
-			print('\t{"source": "',line['addrs_src'],'", "target": "',line['addrs_trk'],'", "value":',line['path_number'],'},')
+			p+=1
+			print('<edge id="'+str(p-1)+'" source="'+str(line['addrs_src'])+'" target="'+str(line['addrs_trk'])+'" weight="'+str(line['amount_trd'])+'"/>')
+	print('___________________________________________________________________________\n')
+	print('Ghost Edges for Gephi')
+	for line in globales.ghost_edges:
+		k+=1
+		print('<edge id="'+str(k-1)+'" source="'+str(line[0])+'" target="'+str(line[1])+'" weight="'+str(line[2])+'">\n','\t<viz:color r="'+str(0)+'" g="'+str(0)+'" b="'+str(0)+'"/>\n','</edge>')
+	print('___________________________________________________________________________\n')
+	print('Nodes for Gephi')
 
-	for ele in globales.addresses_vector:
-		print('\t{"id": "',ele[0],'"},')
+	for i in range(len(globales.addresses_vector)):
+		ele = globales.addresses_vector[i]
+		print('<node id="'+str(ele[0])+'" label="'+str(ele[0])+'">\n','\t<viz:color r="'+str(128)+'" g="'+str(128)+'" b="'+str(128)+'"/>\n','</node>')

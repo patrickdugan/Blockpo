@@ -6,6 +6,7 @@ from graph_operators_fifo import*
 from collections import*
 from time import sleep
 
+import random
 import globales
 import setglobales
 import logging
@@ -128,13 +129,12 @@ print('\nPrice Settlement Union = ', price_settlement_union)
 sumof_lives_longs, sumof_lives_shorts = counting_livesfor_longshort(listof_longlives, listof_shortlives)
 print('\nsumof_lives_shorts = ', sumof_lives_shorts, '\tsumof_lives_longs', sumof_lives_longs, '\tDifference = ', abs(sumof_lives_shorts-sumof_lives_longs))
 
-plot_data(path_complex_two_matrix)
-
 print("\nFrom here start Ghost Paths building:\n")
 # path_complex_two_matrix = updating_lives_inthepath(path_complex_two_matrix)
 
 ghost_edges_array = []
 ghost_edges_array = calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlement_union, ghost_edges_array)
+plot_data(path_complex_two_matrix, ghost_edges_array, path_counting)
 # ghost_edges_array = remove_duplicate_rows_json(ghost_edges_array, ghost_edges_array)
 # print('\n\nghost_edges_array:\n', np.array(ghost_edges_array))
 

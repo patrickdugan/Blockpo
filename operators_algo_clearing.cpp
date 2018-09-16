@@ -7,6 +7,10 @@
 #include <cmath>
 #include "operators_algo_clearing.h"
 #include <bits/stdc++.h>
+#include "tradelayer_matrices.h"
+
+///////////////////////////////////////////////////////////////////////
+/** Structures for clearing algo */
 
 struct Graph *createGraph(int V, int E)
 {
@@ -14,9 +18,41 @@ struct Graph *createGraph(int V, int E)
     graph->V = V;
     graph->E = E;
     graph->edge = new Edge[E];
+
     return graph;
 }
- 
+
+struct status_amounts *get_status_amounts_long(VectorTL<std::string> &v)
+{
+    struct status_amounts *pt_status = new status_amounts;
+
+    if ( v[1] == "OpenLongPosition" || v[1] == "LongPosIncreased" )
+    {
+        pt_status->addrs_trk  = v[0];
+        pt_status->status_trk = v[1];
+        pt_status->lives_trk  = stol(v[2].c_str()); 
+        pt_status->addrs_src  = v[3];
+        pt_status->status_src = v[4];
+        pt_status->lives_src  = stol(v[5].c_str());
+    } else 
+    {
+        pt_status->addrs_src  = v[0];
+        pt_status->status_src = v[1];
+        pt_status->lives_src  = stol(v[2].c_str()); 
+        pt_status->addrs_trk  = v[3];
+        pt_status->status_trk = v[4];
+        pt_status->lives_trk  = stol(v[5].c_str());
+    }
+    
+    pt_status->amount_trd    = stol(v[6].c_str());      
+    pt_status->matched_price = stol(v[7].c_str());  
+    
+    return pt_status;   
+}
+
+///////////////////////////////////////////////////////////////////////
+/** Functions for clearing algo */
+
 void BellmanFord(struct Graph* graph, int src)
 {
     int V = graph->V;
@@ -24,9 +60,10 @@ void BellmanFord(struct Graph* graph, int src)
     int dist[V];
  
     // Step 1: Initialize distances from src to all other vertices as INFINITE
-    for (int i = 0; i < V; i++)
+    for (int i = 0; i < V; i++) {
         dist[i]   = INT_MAX;
         dist[src] = 0;
+    }
  
     // Step 2: Relax all edges |V| - 1 times. A simple shortest 
     for (int i = 1; i <= V-1; i++)
@@ -86,4 +123,19 @@ float **read_file(std::string filename, int rows, int cols)
     file.close();
 
     return floats;
+}
+
+void printing_matrix(MatrixTL<std::string> &gdata)
+{
+    int n_rows = size(gdata, 0);
+    int n_cols = size(gdata, 1);
+
+    for (int i = 0; i < n_rows; ++i) 
+    {
+        for (int j = 0; j < n_cols; ++j) 
+        {
+            std::cout << gdata[i][j] << "\t";
+        }
+        std::cout << "\n";
+    }
 }
