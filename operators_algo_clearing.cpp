@@ -1,15 +1,9 @@
-#include <iostream>
-#include <cstdlib>
-#include <cstring>
-#include <cmath>
-#include <fstream>
-#include <cstdio>
-#include <cmath>
 #include "operators_algo_clearing.h"
 #include <bits/stdc++.h>
 #include "tradelayer_matrices.h"
+#include "externfns.h"
 
-///////////////////////////////////////////////////////////////////////
+/**************************************************************/
 /** Structures for clearing algo */
 
 struct Graph *createGraph(int V, int E)
@@ -22,35 +16,7 @@ struct Graph *createGraph(int V, int E)
     return graph;
 }
 
-struct status_amounts *get_status_amounts_long(VectorTL<std::string> &v)
-{
-    struct status_amounts *pt_status = new status_amounts;
-
-    if ( v[1] == "OpenLongPosition" || v[1] == "LongPosIncreased" )
-    {
-        pt_status->addrs_trk  = v[0];
-        pt_status->status_trk = v[1];
-        pt_status->lives_trk  = stol(v[2].c_str()); 
-        pt_status->addrs_src  = v[3];
-        pt_status->status_src = v[4];
-        pt_status->lives_src  = stol(v[5].c_str());
-    } else 
-    {
-        pt_status->addrs_src  = v[0];
-        pt_status->status_src = v[1];
-        pt_status->lives_src  = stol(v[2].c_str()); 
-        pt_status->addrs_trk  = v[3];
-        pt_status->status_trk = v[4];
-        pt_status->lives_trk  = stol(v[5].c_str());
-    }
-    
-    pt_status->amount_trd    = stol(v[6].c_str());      
-    pt_status->matched_price = stol(v[7].c_str());  
-    
-    return pt_status;   
-}
-
-///////////////////////////////////////////////////////////////////////
+/**************************************************************/
 /** Functions for clearing algo */
 
 void BellmanFord(struct Graph* graph, int src)
@@ -59,13 +25,13 @@ void BellmanFord(struct Graph* graph, int src)
     int E = graph->E;
     int dist[V];
  
-    // Step 1: Initialize distances from src to all other vertices as INFINITE
+    /** Step 1: Initialize distances from src to all other vertices as INFINITE */
     for (int i = 0; i < V; i++) {
         dist[i]   = INT_MAX;
         dist[src] = 0;
     }
  
-    // Step 2: Relax all edges |V| - 1 times. A simple shortest 
+    /** Step 2: Relax all edges |V| - 1 times. A simple shortest */
     for (int i = 1; i <= V-1; i++)
     {
         for (int j = 0; j < E; j++)
@@ -79,7 +45,7 @@ void BellmanFord(struct Graph* graph, int src)
         }
     }
  
-    // Step 3: Check for negative-weight cycles
+    /** Step 3: Check for negative-weight cycles */
     for (int i = 0; i < E; i++)
     {
         int u = graph->edge[i].src;
@@ -98,44 +64,99 @@ void BellmanFord(struct Graph* graph, int src)
 void printDistances(int dist[], int n)
 {
     printf("Distances from source to vertex\n");
-    for (int i = 0; i < n; ++i)
-        printf("%d      %d\n", i, dist[i]);
+    for (int i = 0; i < n; ++i) printf("%d      %d\n", i, dist[i]);
 }
 
-float **read_file(std::string filename, int rows, int cols)
+struct status_amounts *get_status_amounts_open_incr(VectorTL &v, int q)
 {
-    std::fstream file;
-    file.open(filename.c_str(), std::ios::in);
+    struct status_amounts *pt_status = new status_amounts;   
+    VectorTL status_z(2);
+    VectorTL status_q = status_open_incr(status_z, q);
 
-    if(!file.is_open()){ return 0; }
-
-    float **floats = new float*[cols+1];
-
-    for(int i = 0; i < cols; ++i) { 
-        floats[i] = new float[rows+1]; 
-    }
-
-    for(int i =0; i < rows ;++i) {
-        for(int j =0; j < cols ; ++j) { 
-                file >>floats[j][i]; 
-        }
-    }
-    file.close();
-
-    return floats;
-}
-
-void printing_matrix(MatrixTL<std::string> &gdata)
-{
-    int n_rows = size(gdata, 0);
-    int n_cols = size(gdata, 1);
-
-    for (int i = 0; i < n_rows; ++i) 
+    if ( finding(v[1], status_q) )
     {
-        for (int j = 0; j < n_cols; ++j) 
+        pt_status->addrs_trk  = v[0];
+        pt_status->status_trk = v[1];
+        pt_status->lives_trk  = stol(v[2].c_str()); 
+        pt_status->addrs_src  = v[3];
+        pt_status->status_src = v[4];
+        pt_status->lives_src  = stol(v[5].c_str());
+    } else {
+        pt_status->addrs_src  = v[0];
+        pt_status->status_src = v[1];
+        pt_status->lives_src  = stol(v[2].c_str()); 
+        pt_status->addrs_trk  = v[3];
+        pt_status->status_trk = v[4];
+        pt_status->lives_trk  = stol(v[5].c_str());
+    }
+    pt_status->amount_trd    = stol(v[6].c_str());      
+    pt_status->matched_price = stol(v[7].c_str());  
+    
+    return pt_status;   
+}
+
+struct status_amounts *get_status_amounts_byaddrs(VectorTL &v, std::string addrs)
+{
+    struct status_amounts *pt_status = new status_amounts;   
+
+    if ( addrs == v[0] )
+    {
+        pt_status->addrs_trk  = v[0];
+        pt_status->status_trk = v[1];
+        pt_status->lives_trk  = stol(v[2].c_str()); 
+        pt_status->addrs_src  = v[3];
+        pt_status->status_src = v[4];
+        pt_status->lives_src  = stol(v[5].c_str());
+    } else {
+        pt_status->addrs_src  = v[0];
+        pt_status->status_src = v[1];
+        pt_status->lives_src  = stol(v[2].c_str()); 
+        pt_status->addrs_trk  = v[3];
+        pt_status->status_trk = v[4];
+        pt_status->lives_trk  = stol(v[5].c_str());
+    }
+    pt_status->amount_trd    = stol(v[6].c_str());      
+    pt_status->matched_price = stol(v[7].c_str());  
+    
+    return pt_status;   
+}
+
+VectorTL status_open_incr(VectorTL &status_q, int q)
+{
+    extern VectorTL *pt_open_incr_long; VectorTL &open_incr_long = *pt_open_incr_long;
+    extern VectorTL *pt_open_incr_short; VectorTL &open_incr_short = *pt_open_incr_short;
+
+    if ( q == 0 ) {
+        status_q[0] = open_incr_long[0];
+        status_q[1] = open_incr_long[1];
+    } else {
+        status_q[0] = open_incr_short[0];
+        status_q[1] = open_incr_short[1];
+    }
+    return status_q;
+}
+
+void clearing_operator_fifo(VectorTL &vdata, MatrixTL &databe, int index_init, struct status_amounts *pt_pos)
+{
+    printf("\n\nEdge Source: Row #%d\n", index_init);
+    printing_vector(vdata);
+
+    int rows_databe = size(databe, 0);
+    int cols_databe = size(databe, 1);
+
+    int opened_contracts = pt_pos->amount_trd;
+    std::string addrs_opening = pt_pos->addrs_trk;
+
+    for (int i = index_init+1; i < rows_databe; ++i)
+    {
+        VectorTL jrow_databe(cols_databe);
+        sub_row(jrow_databe, databe, i);
+
+        if ( finding(addrs_opening, jrow_databe) )
         {
-            std::cout << gdata[i][j] << "\t";
+            printf("\n\nRow i: %d\t Address Tracked: %s\n", i, addrs_opening.c_str());
+            printing_vector(jrow_databe);
+            struct status_amounts *pt_status_addrs_trk = get_status_amounts_byaddrs(jrow_databe, addrs_opening);
         }
-        std::cout << "\n";
     }
 }

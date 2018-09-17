@@ -7,73 +7,54 @@
 using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////////
-template<class T> class VectorTL 
+template<class T> class Vector
 {
 	private:
 		int lenth;
 		T* ets;
 
 	public:
-		VectorTL(int);
-		VectorTL(int, T*);
-		VectorTL(const VectorTL<T>&);
-		~VectorTL();
+		Vector(int);
+		Vector(int, T*);
+		Vector(const Vector<T>&);
+		~Vector();
 
 		T& operator[](int i) const;
-		VectorTL<T> &operator=(const VectorTL<T>&);
+		Vector<T> &operator=(const Vector<T>&);
+  		template<class U>
+  		friend inline int length(const Vector<U>&);
 };
 
-template<class T> VectorTL<T>::VectorTL(int n) 
-{
-	ets = new T[lenth = n];
-}
+template<class T> Vector<T>::Vector(int n) : lenth(n), ets(new T[n])
+{ assert(ets!=NULL); }
 
-template<class T> VectorTL<T>::VectorTL(int n, T* abd) 
-{
-	ets = new T[lenth = n];
-	for (int i = 0; i < lenth; ++i)
-	{
-		ets[i] = *(abd + i);
-	}
-}
+template<class T> Vector<T>::Vector(int n, T* abd) : ets(new T[lenth = n])
+{ for (int i = 0; i < lenth; ++i) ets[i] = *(abd + i); }
 
-template<class T> VectorTL<T>::VectorTL(const VectorTL<T> & v)
-{
-	ets = new T[lenth = v.lenth];
-	for (int i = 0; i < lenth; ++i)
-	{
-		ets[i] = v[i];
-	}
-}
+template<class T> Vector<T>::Vector(const Vector<T> & v) : lenth(v.lenth), ets(new T[v.lenth])
+{ for (int i = 0; i < lenth; ++i) ets[i] = v[i]; }
 
-template<class T> VectorTL<T>::~VectorTL()
-{ 
-	delete [] ets; 
-}
+template<class T> Vector<T>::~Vector()
+{ delete [] ets; }
 
-template<class T> T &VectorTL<T>::operator[](int i) const
-{
-	return ets[i];
-}
+template<class T> T &Vector<T>::operator[](int i) const
+{ return ets[i]; }
 
-template<class T> VectorTL<T> &VectorTL<T>::operator=(const VectorTL<T> &v)
+template<class T> Vector<T> &Vector<T>::operator=(const Vector<T> &v)
 {
 	if (*this != &v)
 	{
-		if (lenth != v.lenth)
-		{
-			cout<<"Check vectors: Diferent Sizes!!"<<"\n";
-			exit(1);
-		}
-		for (int i = 0; i < lenth; ++i)
-		{
-			ets[i] = v[i];
-		}
+		assert(lenth != v.lenth);
+		for (int i = 0; i < lenth; ++i) ets[i] = v[i];
 	}
 	return *this;
 }
+
+template<class T> inline int length(const Vector<T> &v)
+{ return v.lenth; }
+
 //////////////////////////////////////////////////////////////////////////////////
-template<class T> class MatrixTL 
+template<class T> class Matrix 
 {
 	private:
 		int nrows;
@@ -81,79 +62,52 @@ template<class T> class MatrixTL
 		T** ets;
 
 	public:
-		MatrixTL(int n, int m);
-		MatrixTL(const MatrixTL<T>&);
-		~MatrixTL();
+		Matrix(int n, int m);
+		Matrix(const Matrix<T>&);
+		~Matrix();
 
 		T* operator[](int i) const;
-		MatrixTL<T>& operator=(const MatrixTL<T>&);
+		Matrix<T>& operator=(const Matrix<T>&);
   		template<class U>
-  		friend inline int size(const MatrixTL<U> &mat, int k);
+  		friend inline int size(const Matrix<U> &mat, int k);
 };
 
-template<class T> MatrixTL<T>::MatrixTL(int n, int m)
+template<class T> Matrix<T>::Matrix(int n, int m) : nrows(n), ncols(m), ets(new T*[n])
+{ for (int i = 0; i < n; ++i) ets[i] = new T[m]; }
+
+template<class T> Matrix<T>::Matrix(const Matrix &mat) : nrows(mat.nrows), ncols(mat.ncols), ets(new T*[mat.nrows])
 {
-	nrows = n;
-	ncols = m;
-	ets = new T*[nrows];
-	for (int i = 0; i < nrows; ++i)
+	assert(ets != NULL);
+	for (int i = 0; i < mat.nrows; ++i)
 	{
-		ets[i] = new T[ncols];
+		ets[i] = new T[mat.ncols];
+		for (int j = 0; j < mat.ncols; ++j) ets[i][j] = mat[i][j];
 	}
 }
 
-template<class T> MatrixTL<T>::MatrixTL(const MatrixTL &mat)
+template<class T> Matrix<T>::~Matrix()
 {
-	ets = new T*[nrows = mat.nrows];
-	ncols = mat.ncols;
-	for (int i = 0; i < nrows; ++i)
-	{
-		ets[i] = new T[ncols];
-		for (int j = 0; j < ncols; ++j)
-		{
-			ets[i][j] = mat[i][j];
-		}
-	}
-}
-
-template<class T> MatrixTL<T>::~MatrixTL()
-{
-	for (int i = 0; i < nrows; ++i)
-	{
-		delete [] ets[i];
-	}
+	for (int i = 0; i < nrows; ++i) delete [] ets[i];
 	delete [] ets;
 }
 
-template<class T> T* MatrixTL<T>::operator[](int i) const 
-{ 
-	return ets[i]; 
-}
+template<class T> T* Matrix<T>::operator[](int i) const 
+{ return ets[i]; }
 
-template<class T> MatrixTL<T> &MatrixTL<T>::operator=(const MatrixTL<T>& mat)
+template<class T> Matrix<T> &Matrix<T>::operator=(const Matrix<T>& mat)
 {
 	if (this != &mat)
 	{
-		if (nrows != mat.nrows || ncols !=mat.ncols)
-		{
-			cout<<"Check matrices: Diferent Sizes!!"<<"\n";
-			exit(1);
-		}
-		for (int i = 0; i < nrows; ++i)
-		{
-			for (int j = 0; j < ncols; ++j)
-			{
-				ets[i][j] = mat[i][j];
-			}
-		}
+		assert(nrows != mat.nrows || ncols !=mat.ncols);
+		for (int i = 0; i < nrows; ++i) for (int j = 0; j < ncols; ++j) ets[i][j] = mat[i][j];
 	}
 	return *this;
 }
 
-template<class T> inline int size(const MatrixTL<T> &mat, int k)
-{
-  int dim = k == 0 ? mat.nrows : mat.ncols;
-  return dim;
-}
+template<class T> inline int size(const Matrix<T> &mat, int k)
+{ return k == 0 ? mat.nrows : mat.ncols; }
+
+typedef Matrix<std::string> MatrixTL;
+typedef Vector<std::string> VectorTL;
 
 #endif

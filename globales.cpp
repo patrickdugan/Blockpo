@@ -3,4 +3,6 @@
 
 int n_cols;
 int n_rows;
-VectorTL<std::string> *long_open_incr;
+VectorTL *pt_open_incr_long;
+VectorTL *pt_open_incr_short;
+MatrixTL *pt_database;

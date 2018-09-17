@@ -3,7 +3,7 @@
 
 #include "tradelayer_matrices.h"
 
-///////////////////////////////////////////////////////////////////////
+/**************************************************************/
 /** Structures for clearing algo */
 
 struct Edge
@@ -23,7 +23,7 @@ struct status_amounts
 	long int lives_src, lives_trk, amount_trd, matched_price; 
 };
 
-///////////////////////////////////////////////////////////////////////
+/**************************************************************/
 /** Functions for clearing algo */
 
 void printDistances(int dist[], int n);
@@ -32,10 +32,12 @@ void BellmanFord(struct Graph *graph, int src);
 
 struct Graph *createGraph(int V, int E);
 
-float** read_file(std::string filename,int rows,int cols);
+struct status_amounts *get_status_amounts_open_incr(VectorTL &v, int q);
 
-struct status_amounts *get_status_amounts_long(VectorTL<std::string> &v);
+struct status_amounts *get_status_amounts_byaddrs(VectorTL &v, std::string addrs);
 
-void printing_matrix(MatrixTL<std::string> &gdata);
+VectorTL status_open_incr(VectorTL &status_q, int q);
+
+void clearing_operator_fifo(VectorTL &vdata, MatrixTL &databe, int index_init, struct status_amounts *pt_pos);
 
 #endif
