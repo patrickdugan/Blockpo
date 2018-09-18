@@ -1,4 +1,4 @@
-CXXFLAGS=-DNDEBUG -O3 -Wall -Wno-unused-variable -lm -std=c++11
+CXXFLAGS=-DNDEBUG -g -Wall -Wno-unused-variable -lm -std=c++11
 LDFLAGS=
 OBJS_CODE=operators_algo_clearing.o globales.o externfns.o
 

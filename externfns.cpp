@@ -40,5 +40,12 @@ bool finding(std::string &s, VectorTL &v)
 
 void sub_row(VectorTL &jrow_databe, MatrixTL &databe, int i)
 {
-    for (int j = 0; j < size(databe, 1); ++j) jrow_databe[j] = databe[i][j];
+  for (int j = 0; j < size(databe, 1); ++j) jrow_databe[j] = databe[i][j];
+}
+
+bool is_number(const std::string& s)
+{
+    std::string::const_iterator it = s.begin();
+    while (it != s.end() && std::isdigit(*it)) ++it;
+    return !s.empty() && it == s.end();
 }
