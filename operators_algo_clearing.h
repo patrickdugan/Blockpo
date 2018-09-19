@@ -53,7 +53,7 @@ void counting_databaserows();
 
 void updating_lasttwocols_fromdatabase(std::string addrs, MatrixTL &M_file, int i, long int live_updated);
 
-void building_edge(std::map<std::string, std::string> &path_first, struct status_amounts *pt_status_addrs_trk, long int entry_price, long int lives, int index_row, int path_number, long int amount_path);
+void building_edge(std::map<std::string, std::string> &path_first, struct status_amounts *pt_status_addrs_trk, long int entry_price, long int lives, int index_row, int path_number, long int amount_path, int ghost_edge);
 
 void printing_edges(std::map<std::string, std::string> &path_first);
 
