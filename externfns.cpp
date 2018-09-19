@@ -24,18 +24,18 @@ void printing_vector(VectorTL &vdata)
 
 bool finding(std::string &s, VectorTL &v)
 {
-    int n = length(v);
-    bool findout = false;
-
-    for (int i = 0; i < n; ++i)
+  int n = length(v);
+  bool findout = false;
+  
+  for (int i = 0; i < n; ++i)
     { 
-        if ( v[i] == s )
-        {
-            findout = true;
-            break;
+      if ( v[i] == s )
+	{
+	  findout = true;
+	  break;
         }
     }   
-    return findout;
+  return findout;
 }
 
 void sub_row(VectorTL &jrow_databe, MatrixTL &databe, int i)

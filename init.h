@@ -1,5 +1,6 @@
 /** Global variables and Status*/
-int N=2;
+int N = 2;
+int M = 4;
 n_cols = 8;
 cols_news = n_cols + 2;
 
@@ -19,6 +20,12 @@ pt_netted_npartly_short  = new VectorTL(N); VectorTL &netted_npartly_short = *pt
 netted_npartly_short[0] = "ShortPosNetted";
 netted_npartly_short[1] = "ShortPosNettedPartly";
 
+pt_open_incr_anypos = new VectorTL(M); VectorTL &open_incr_anypos = *pt_open_incr_anypos;
+open_incr_anypos[0] = "OpenLongPosition";
+open_incr_anypos[1] = "LongPosIncreased";
+open_incr_anypos[2] = "OpenShortPosition";
+open_incr_anypos[3] = "ShortPosIncreased";
+  
 pt_database = new MatrixTL(n_rows, n_cols); MatrixTL &database = *pt_database;
 std::fstream fileg;
 fileg.open("graphInfoSixth.txt", std::ios::in);

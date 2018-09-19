@@ -4363,8 +4363,6 @@ void CMPTradeList::recordMatchedTrade(const uint256 txid1, const uint256 txid2, 
     }
     fileSixth.close();
 
-    ///////////////////////////////////////////////////
-
     std::fstream fileFirst;
     fileFirst.open ("graphInfoFirst.txt", std::fstream::in | std::fstream::out | std::fstream::app);
     

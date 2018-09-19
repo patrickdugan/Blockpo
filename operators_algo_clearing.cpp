@@ -3,6 +3,9 @@
 #include "tradelayer_matrices.h"
 #include "externfns.h"
 
+extern VectorTL *pt_open_incr_anypos;
+extern VectorTL *pt_open_incr_long;
+
 /**************************************************************/
 /** Structures for clearing algo */
 
@@ -205,7 +208,7 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
   extern VectorTL *pt_open_incr_long;  VectorTL &open_incr_long  = *pt_open_incr_long;
   extern VectorTL *pt_open_incr_short; VectorTL &open_incr_short = *pt_open_incr_short;
   
-  int path_counting = 0;
+  int path_number = 0;
   VectorTL vdata(cols_news);
   std::vector<std::map<std::string, std::string>> path_main;
   
@@ -218,10 +221,11 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
       
       if ( finding(pt_vdata_long->status_trk, open_incr_long) && finding(pt_vdata_short->status_trk, open_incr_short) )
         {
-	  path_counting += 1;
+	  path_number += 1;
 	  int counting_netted_long = 0;
 	  long int amount_trd_sum_long = 0;
-	  clearing_operator_fifo(vdata, M_file, i, pt_vdata_long, 0, counting_netted_long, amount_trd_sum_long, path_main, path_counting);
+	  printf("\n*************************************************\n");
+	  clearing_operator_fifo(vdata, M_file, i, pt_vdata_long, 0, counting_netted_long, amount_trd_sum_long, path_main, path_number, pt_vdata_long->nlives_trk);
         }
     }
   printf("\n\nLoop for the final Path:\n\n");
@@ -231,9 +235,8 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
     }
 }
 
-void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, struct status_amounts *pt_pos, int idx_long_short, int counting_netted, long int amount_trd_sum, std::vector<std::map<std::string, std::string>> &path_main, int path_number)
+void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, struct status_amounts *pt_pos, int idx_long_short, int &counting_netted, long int amount_trd_sum, std::vector<std::map<std::string, std::string>> &path_main, int path_number, long int opened_contracts)
 {
-  printf("*************************************************");
   printf("\n\nEdge Source: Row #%d\n", index_init);
   printing_vector(vdata);
   
@@ -241,18 +244,17 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
   extern int cols_news;
   
   VectorTL status_z(2);
-  long int opened_contracts = pt_pos->amount_trd;
   std::string addrs_opening = pt_pos->addrs_trk;
   long int d_amounts = 0;
   
   for (int i = index_init+1; i < n_rows; ++i)
     {
-      VectorTL jrow_databe(cols_news);
-      sub_row(jrow_databe, M_file, i);
+      VectorTL jrow_database(cols_news);
+      sub_row(jrow_database, M_file, i);
       
-      if ( finding(addrs_opening, jrow_databe) )
+      if ( finding(addrs_opening, jrow_database) )
         {
-	  struct status_amounts *pt_status_addrs_trk = get_status_amounts_byaddrs(jrow_databe, addrs_opening);
+	  struct status_amounts *pt_status_addrs_trk = get_status_amounts_byaddrs(jrow_database, addrs_opening);
 	  VectorTL status_netted = status_netted_npartly(status_z, idx_long_short);
 	    
 	  if ( finding(pt_status_addrs_trk->status_trk, status_netted) && pt_status_addrs_trk->nlives_trk != 0 )
@@ -260,8 +262,9 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
 	      counting_netted +=1;
 	      amount_trd_sum += pt_status_addrs_trk->nlives_trk;
 	      printf("\n\nNetted Event in the Row #%d\t Address Tracked: %s\n", i, addrs_opening.c_str());
-	      printing_vector(jrow_databe);
+	      printing_vector(jrow_database);
 	      d_amounts = opened_contracts - amount_trd_sum;
+	      printf("\n\nReview of d_amounts before cases:\t%ld", d_amounts);
 	     
 	      if ( d_amounts > 0 )
 		{
@@ -271,11 +274,75 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
 		  printf("\nOpened contrats: %ld > Sum amounts traded: %ld\n", opened_contracts, amount_trd_sum);
 
 		  std::map<std::string, std::string> path_first;
-		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number);
+		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk);
 		  path_main.push_back(path_first);
 		  printf("Path:\n");
 		  printing_edges(path_first);
+
+		  if ( find_open_incr_anypos(pt_status_addrs_trk->status_src, pt_open_incr_anypos) )
+		    {
+		      printf("\n_________________________________________\n");
+		      int idx_long_shorti = find_open_incr_long(pt_status_addrs_trk->status_src, pt_open_incr_long) ? 0 : 1;
+		      printf("\nLooking New Path for: %s", pt_status_addrs_trk->addrs_src.c_str());
+		      struct status_amounts *pt_status_addrs_src = get_status_amounts_byaddrs(jrow_database, pt_status_addrs_trk->addrs_src);
+		      int counting_nettedi = 0;
+		      long int amount_trd_sumi = 0;
+		      clearing_operator_fifo(jrow_database, M_file, i, pt_status_addrs_src, idx_long_shorti, counting_nettedi, amount_trd_sumi, path_main, path_number, pt_status_addrs_src->nlives_trk);
+		      printf("\n_________________________________________\n");
+		    }
 		}
+	      if ( d_amounts < 0)
+		{
+		  printf("\n\nd_amounts = %ld < 0", d_amounts);
+		  updating_lasttwocols_fromdatabase(addrs_opening, M_file, i, labs(d_amounts));
+		  cout<<"\n\nCheck last two columns Updated: Row #"<<i<<"\n"<<M_file[i][8]<<"\t"<<M_file[i][9]<<"\n";
+		  printf("\nOpened contrats: %ld < Sum amounts traded: %ld\n", opened_contracts, amount_trd_sum);
+
+		  std::map<std::string, std::string> path_first;
+		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk-labs(d_amounts));
+		  path_main.push_back(path_first);
+		  printf("Path:\n");
+		  printing_edges(path_first);
+
+		  if ( find_open_incr_anypos(pt_status_addrs_trk->status_src, pt_open_incr_anypos) )
+		    {
+		      printf("\n_________________________________________\n");
+		      int idx_long_shorti = find_open_incr_long(pt_status_addrs_trk->status_src, pt_open_incr_long) ? 0 : 1;
+		      printf("\nLooking New Path for: %s", pt_status_addrs_trk->addrs_src.c_str());
+		      struct status_amounts *pt_status_addrs_src = get_status_amounts_byaddrs(jrow_database, pt_status_addrs_trk->addrs_src);
+		      int counting_nettedi = 0;
+		      long int amount_trd_sumi = 0;
+		      clearing_operator_fifo(jrow_database, M_file, i, pt_status_addrs_src, idx_long_shorti, counting_nettedi, amount_trd_sumi, path_main, path_number, pt_status_addrs_src->nlives_trk-labs(d_amounts)); 
+		      printf("\n_________________________________________\n");
+		    }
+		  break;
+		}
+	      if ( d_amounts == 0)
+		{
+		  printf("\n\nd_amounts = %ld = 0", d_amounts);
+		  updating_lasttwocols_fromdatabase(addrs_opening, M_file, i, 0);
+		  cout<<"\n\nCheck last two columns Updated: Row #"<<i<<"\n"<<M_file[i][8]<<"\t"<<M_file[i][9]<<"\n";
+		  printf("\nOpened contrats: %ld < Sum amounts traded: %ld\n", opened_contracts, amount_trd_sum);
+		  
+		  std::map<std::string, std::string> path_first;
+		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk);
+		  path_main.push_back(path_first);
+		  printf("Path:\n");
+		  printing_edges(path_first);
+
+		  if ( find_open_incr_anypos(pt_status_addrs_trk->status_src, pt_open_incr_anypos) )
+		    {
+		      printf("\n_________________________________________\n");
+		      int idx_long_shorti = find_open_incr_long(pt_status_addrs_trk->status_src, pt_open_incr_long) ? 0 : 1;
+		      printf("\nLooking New Path for: %s", pt_status_addrs_trk->addrs_src.c_str());
+		      struct status_amounts *pt_status_addrs_src = get_status_amounts_byaddrs(jrow_database, pt_status_addrs_trk->addrs_src);
+		      int counting_nettedi = 0;
+		      long int amount_trd_sumi = 0;
+		      clearing_operator_fifo(jrow_database, M_file, i, pt_status_addrs_src, idx_long_shorti, counting_nettedi, amount_trd_sumi, path_main, path_number, pt_status_addrs_src->nlives_trk); 
+		      printf("\n_________________________________________\n");
+		    }
+		  break;
+		}	    
 	    }
         }
     }
@@ -289,7 +356,7 @@ void updating_lasttwocols_fromdatabase(std::string addrs, MatrixTL &M_file, int 
     M_file[i][9] = std::to_string(live_updated);
 }
 
-void building_edge(std::map<std::string, std::string> &path_first, struct status_amounts *pt_status_addrs_trk, long int entry_price, long int lives, int index_row, int path_number)
+void building_edge(std::map<std::string, std::string> &path_first, struct status_amounts *pt_status_addrs_trk, long int entry_price, long int lives, int index_row, int path_number, long int amount_path)
 {
   path_first["addrs_src"] = pt_status_addrs_trk->addrs_src;
   path_first["addrs_trk"] = pt_status_addrs_trk->addrs_trk;
@@ -299,12 +366,28 @@ void building_edge(std::map<std::string, std::string> &path_first, struct status
   path_first["exit_price"] = std::to_string(pt_status_addrs_trk->matched_price);
   path_first["lives_src"] = std::to_string(lives);
   path_first["lives_trk"] = std::to_string(lives);
-  path_first["amount_trd"] = std::to_string(pt_status_addrs_trk->amount_trd);
+  path_first["amount_trd"] = std::to_string(amount_path);
   path_first["edge_row"] = std::to_string(index_row);
   path_first["path_number"] = std::to_string(path_number);
 }
 
 void printing_edges(std::map<std::string, std::string> &path_first)
 {
-  cout <<"{"<<"addrs_src : "<<path_first["addrs_src"]<<", addrs_trk : "<<path_first["addrs_trk"]<<", status_src : "<<path_first["status_src"]<<", status_trk : "<<path_first["status_trk"]<<", entry_price : "<<path_first["entry_price"]<<", exit_price: "<<path_first["exit_price"]<<", lives_src : "<<path_first["lives_src"]<<", lives_trk : "<<path_first["lives_trk"]<<", amount_trd : "<<path_first["amount_trd"]<<", edge_row : "<<path_first["edge_row"]<<", path_number : "<<path_first["path_number"]<<"}\n";
+  cout <<"{ "<<"addrs_src : "<<path_first["addrs_src"]<<", addrs_trk : "<<path_first["addrs_trk"]<<", status_src : "<<path_first["status_src"]<<", status_trk : "<<path_first["status_trk"]<<", entry_price : "<<path_first["entry_price"]<<", exit_price: "<<path_first["exit_price"]<<", lives_src : "<<path_first["lives_src"]<<", lives_trk : "<<path_first["lives_trk"]<<", amount_trd : "<<path_first["amount_trd"]<<", edge_row : "<<path_first["edge_row"]<<", path_number : "<<path_first["path_number"]<<" }\n";
+}
+
+bool find_open_incr_anypos(std::string &s, VectorTL *v)
+{
+  VectorTL open_incr_anypos(4);
+  VectorTL &u = *v;
+  for (int i = 0; i < length(open_incr_anypos); i++) open_incr_anypos[i] = u[i];
+  return finding(s, open_incr_anypos);
+}
+
+bool find_open_incr_long(std::string &s, VectorTL *v)
+{
+  VectorTL open_incr_long(2);
+  VectorTL &u = *v;
+  for (int i = 0; i < length(open_incr_long); i++) open_incr_long[i] = u[i];
+  return finding(s, open_incr_long);
 }
