@@ -10,3 +10,4 @@ VectorTL *pt_netted_npartly_long;
 VectorTL *pt_netted_npartly_short;
 MatrixTL *pt_database;
 VectorTL *pt_open_incr_anypos;
+VectorTL *pt_netted_npartly_anypos;

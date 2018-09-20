@@ -23,6 +23,7 @@ int main()
   extern VectorTL *pt_netted_npartly_short;
   extern MatrixTL *pt_database;
   extern VectorTL *pt_open_incr_anypos;
+  extern VectorTL *pt_netted_npartly_anypos;
   
   counting_databaserows();
   

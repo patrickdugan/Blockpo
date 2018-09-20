@@ -3,6 +3,7 @@
 #include "tradelayer_matrices.h"
 #include "externfns.h"
 
+extern VectorTL *pt_netted_npartly_anypos;
 extern VectorTL *pt_open_incr_anypos;
 extern VectorTL *pt_open_incr_long;
 
@@ -275,35 +276,10 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
   for (it_path_main = path_main.begin(); it_path_main != path_main.end(); ++it_path_main)
     {
       computing_lives_bypath(*it_path_main);
+      printf("\n\nChecking Lives by Path:\n\n");
+      printing_path_maini(*it_path_main);
+      checking_zeronetted_bypath(*it_path_main);
     }
-}
-
-void computing_lives_bypath(std::vector<std::map<std::string, std::string>> &it_path_main)
-{
-  int q = 0;
-  // printf("\nPrinting Path before:\n");
-  // printing_path_maini(it_path_main);
-  
-  for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_main.begin(); it != it_path_main.end(); ++it)
-    {
-      q += 1;
-      struct status_amounts_edge *pt_status_byedge = get_status_byedge(*it);
-      if ( find_open_incr_anypos(pt_status_byedge->status_src, pt_open_incr_anypos) )
-      	{
-	  printf("\n-----------------------------------------------------------");
-	  cout<< "\nNetted events for: " << pt_status_byedge->addrs_src <<"\n";
-	  looking_netted_events(pt_status_byedge->addrs_src, it_path_main, q, pt_status_byedge->amount_trd);
-	  printf("-----------------------------------------------------------");
-      	}
-      if ( find_open_incr_anypos(pt_status_byedge->status_trk, pt_open_incr_anypos) )
-      	{
-      	  looking_netted_events(pt_status_byedge->status_trk, it_path_main, q, pt_status_byedge->amount_trd);
-      	}
-      // settinglives_bypath(*it);
-      // printing_edges(*it);
-    }
-  // printf("\nPrinting Path later:\n");
-  // printing_path_maini(it_path_main);
 }
 
 void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, struct status_amounts *pt_pos, int idx_long_short, int &counting_netted, long int amount_trd_sum, std::vector<std::map<std::string, std::string>> &path_main, int path_number, long int opened_contracts)
@@ -453,6 +429,14 @@ bool find_open_incr_anypos(std::string &s, VectorTL *v)
   return finding(s, open_incr_anypos);
 }
 
+bool find_netted_npartly_anypos(std::string &s, VectorTL *v)
+{
+  VectorTL netted_npartly_anypos(4);
+  VectorTL &u = *v;
+  for (int i = 0; i < length(netted_npartly_anypos); i++) netted_npartly_anypos[i] = u[i];
+  return finding(s, netted_npartly_anypos);
+}
+
 bool find_open_incr_long(std::string &s, VectorTL *v)
 {
   VectorTL open_incr_long(2);
@@ -461,40 +445,79 @@ bool find_open_incr_long(std::string &s, VectorTL *v)
   return finding(s, open_incr_long);
 }
 
-void settinglives_bypath(std::map<std::string, std::string> &path_maini)
+void computing_lives_bypath(std::vector<std::map<std::string, std::string>> &it_path_main)
 {
-  path_maini["lives_src"] = std::to_string(777);
-  path_maini["lives_trk"] = std::to_string(777);
+  int q = 0;
+  for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_main.begin(); it != it_path_main.end(); ++it)
+    {
+      q += 1;
+      struct status_amounts_edge *pt_status_byedge = get_status_byedge(*it);
+      if ( find_open_incr_anypos(pt_status_byedge->status_src, pt_open_incr_anypos) )
+      	{
+	  looking_netted_events(pt_status_byedge->addrs_src, it_path_main, q, pt_status_byedge->amount_trd, 0);
+      	}
+      if ( find_open_incr_anypos(pt_status_byedge->status_trk, pt_open_incr_anypos) )
+      	{
+      	  looking_netted_events(pt_status_byedge->addrs_trk, it_path_main, q, pt_status_byedge->amount_trd, 1);
+	}
+    }
 }
 
-void looking_netted_events(std::string &addrs_obj, std::vector<std::map<std::string, std::string>> &it_path_main, int q, long int amount_opened)
+void looking_netted_events(std::string &addrs_obj, std::vector<std::map<std::string, std::string>> &it_path_main, int q, long int amount_opened, int index_src_trk)
 {
-  printf("\nOpened contracts: %ld\n", amount_opened);
   long int sum_amount_trd = 0;
   int netted_counter = 0;
-  
-  for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_main.begin()+q; it != it_path_main.end(); ++it)
+  unsigned index_netted = 0;
+
+  for (unsigned i = q; i < it_path_main.size(); ++i)
     {
-      struct status_amounts_edge *pt_status_byedge = get_status_byedge(*it);
+      struct status_amounts_edge *pt_status_byedge = get_status_byedge(it_path_main[i]);
       if ( pt_status_byedge->addrs_trk == addrs_obj )
-	{
+      	{
+	  index_netted = i;
 	  netted_counter += 1;
 	  sum_amount_trd += pt_status_byedge->amount_trd;
-	  printing_edges(*it);
-	}
+      	}
     }
   
   if ( netted_counter != 0 )
-    it_path_main.back()["lives_trk"] = std::to_string(amount_opened - sum_amount_trd);
+    it_path_main[index_netted]["lives_trk"] = std::to_string(amount_opened - sum_amount_trd);
   else
-    it_path_main.front()["lives_src"] = std::to_string(amount_opened);
-
-  printf("\nLast column updated:\n");
-  printing_path_maini(it_path_main);
+    {
+      if ( index_src_trk == 0 )
+	it_path_main[q-1]["lives_src"] = std::to_string(amount_opened);
+      else
+	it_path_main[q-1]["lives_trk"] = std::to_string(amount_opened);
+    }
 }
 
 void printing_path_maini(std::vector<std::map<std::string, std::string>> &it_path_maini)
 {
   for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_maini.begin(); it != it_path_maini.end(); ++it)
     printing_edges(*it);
+}
+
+void checking_zeronetted_bypath(std::vector<std::map<std::string, std::string>> &path_maini)
+{
+  int contracts_opened = 0;
+  int contracts_closed = 0;
+  int contracts_lives  = 0;
+
+  for (std::vector<std::map<std::string, std::string>>::iterator it = path_maini.begin(); it != path_maini.end(); ++it)
+    {
+      struct status_amounts_edge *pt_status_byedge = get_status_byedge(*it);
+      if ( find_open_incr_anypos(pt_status_byedge->status_src, pt_open_incr_anypos) && find_open_incr_anypos(pt_status_byedge->status_trk, pt_open_incr_anypos) )
+      	{
+	  contracts_opened += pt_status_byedge->amount_trd;
+      	}
+      if ( find_netted_npartly_anypos(pt_status_byedge->status_src, pt_netted_npartly_anypos) && find_open_incr_anypos(pt_status_byedge->status_trk, pt_netted_npartly_anypos) )
+      	{
+      	  contracts_closed += pt_status_byedge->amount_trd;
+      	}
+      contracts_lives += pt_status_byedge->lives_src+pt_status_byedge->lives_trk;
+    }
+  if ( (2*contracts_opened - contracts_closed)-contracts_lives == 0 )
+    cout << "\nChecking Zero Netted by Path:\n(contracts_opened - contracts_closed)-contracts_lives = (" << 2*contracts_opened << " - " << contracts_closed << ") - " << contracts_lives << " = " << 2*contracts_opened - contracts_closed << " - " << contracts_lives << " = " << (2*contracts_opened - contracts_closed)-contracts_lives <<"\n";
+  else
+    printf("Warning!! There is no zero netted event in the path");
 }

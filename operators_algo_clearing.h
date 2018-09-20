@@ -70,12 +70,14 @@ bool find_open_incr_long(std::string &s, VectorTL *v);
 
 void computing_lives_bypath(std::vector<std::map<std::string, std::string>> &it_path_main);
 
-void settinglives_bypath(std::map<std::string, std::string> &path_maini);
-
 struct status_amounts_edge *get_status_byedge(std::map<std::string, std::string> &edge);
 
-void looking_netted_events(std::string &addrs_obj, std::vector<std::map<std::string, std::string>> &it_path_main, int q, long int amount_opened);
+void looking_netted_events(std::string &addrs_obj, std::vector<std::map<std::string, std::string>> &it_path_main, int q, long int amount_opened, int index_src_trk);
 
 void printing_path_maini(std::vector<std::map<std::string, std::string>> &it_path_maini);
+
+void checking_zeronetted_bypath(std::vector<std::map<std::string, std::string>> &path_maini);
+
+bool find_netted_npartly_anypos(std::string &s, VectorTL *v);
 
 #endif

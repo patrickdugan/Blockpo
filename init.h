@@ -25,7 +25,13 @@ open_incr_anypos[0] = "OpenLongPosition";
 open_incr_anypos[1] = "LongPosIncreased";
 open_incr_anypos[2] = "OpenShortPosition";
 open_incr_anypos[3] = "ShortPosIncreased";
-  
+
+pt_netted_npartly_anypos = new VectorTL(M); VectorTL &netted_npartly_anypos = *pt_netted_npartly_anypos;
+netted_npartly_anypos[0] = "LongPosNetted";
+netted_npartly_anypos[1] = "LongPosNettedPartly";
+netted_npartly_anypos[2] = "ShortPosNetted";
+netted_npartly_anypos[3] = "ShortPosNettedPartly";
+
 pt_database = new MatrixTL(n_rows, n_cols); MatrixTL &database = *pt_database;
 std::fstream fileg;
 fileg.open("graphInfoSixth.txt", std::ios::in);
