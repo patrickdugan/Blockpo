@@ -155,6 +155,26 @@ struct status_amounts *get_status_amounts_byaddrs(VectorTL &v, std::string addrs
   return pt_status;   
 }
 
+struct status_amounts_edge *get_status_byedge(std::map<std::string, std::string> &edge)
+{
+  struct status_amounts_edge *pt_status = new status_amounts_edge;
+
+  pt_status->addrs_src   = edge["addrs_src"];
+  pt_status->addrs_trk   = edge["addrs_trk"];
+  pt_status->status_src  = edge["status_src"];
+  pt_status->status_trk  = edge["status_trk"];
+  pt_status->entry_price = stol(edge["entry_price"]);
+  pt_status->exit_price  = stol(edge["exit_price"]);
+  pt_status->lives_src   = stol(edge["lives_src"]);
+  pt_status->lives_trk   = stol(edge["lives_trk"]); 
+  pt_status->amount_trd  = stol(edge["amount_trd"]);
+  pt_status->edge_row    = stol(edge["edge_row"]);
+  pt_status->path_number = stol(edge["path_number"]);
+  pt_status->ghost_edge  = stol(edge["ghost_edge"]);
+   
+  return pt_status;   
+}
+
 VectorTL status_open_incr(VectorTL &status_q, int q)
 {
   extern VectorTL *pt_open_incr_long; VectorTL &open_incr_long = *pt_open_incr_long;
@@ -207,44 +227,71 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
   extern int n_rows;
   extern VectorTL *pt_open_incr_long;  VectorTL &open_incr_long  = *pt_open_incr_long;
   extern VectorTL *pt_open_incr_short; VectorTL &open_incr_short = *pt_open_incr_short;
+  std::vector<std::vector<std::map<std::string, std::string>>> path_main;
+  std::vector<std::vector<std::map<std::string, std::string>>>::iterator it_path_main;
+  std::vector<std::map<std::string, std::string>>::iterator it_path_maini;
   
   int path_number = 0;
   VectorTL vdata(cols_news);
-  std::vector<std::map<std::string, std::string>> path_main;
-  
+   
   for (int i = 0; i < n_rows; ++i)
     {
       for (int j = 0; j < cols_news; ++j) vdata[j] = M_file[i][j];
       
       struct status_amounts *pt_vdata_long  = get_status_amounts_open_incr(vdata, 0);
       struct status_amounts *pt_vdata_short = get_status_amounts_open_incr(vdata, 1);
+      std::vector<std::map<std::string, std::string>> path_maini;
       
       if ( finding(pt_vdata_long->status_trk, open_incr_long) && finding(pt_vdata_short->status_trk, open_incr_short) )
         {
 	  path_number += 1;
-	  std::map<std::string, std::string> path_first;
-	  building_edge(path_first, pt_vdata_long, pt_vdata_long->matched_price, 0, i, path_number, pt_vdata_long->amount_trd, 0);
-	  path_main.push_back(path_first);
+
 	  printf("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
-	  printf("New Edge Source: Row #%d\n", i);
-	  printing_edges(path_first);
+	  printf("New Edge Source: Row #%d\n\n", i);
+	  std::map<std::string, std::string> edge_source;
+	  building_edge(edge_source, pt_vdata_long, pt_vdata_long->matched_price, 0, i, path_number, pt_vdata_long->amount_trd, 0);
+	  path_maini.push_back(edge_source);
+	  printing_edges(edge_source);
 	  
 	  int counting_netted_long = 0;
 	  long int amount_trd_sum_long = 0;
 	  printf("\n*************************************************");
 	  printf("\nTracking Long Position:");
-	  clearing_operator_fifo(vdata, M_file, i, pt_vdata_long, 0, counting_netted_long, amount_trd_sum_long, path_main, path_number, pt_vdata_long->nlives_trk);
+	  clearing_operator_fifo(vdata, M_file, i, pt_vdata_long, 0, counting_netted_long, amount_trd_sum_long, path_maini, path_number, pt_vdata_long->nlives_trk);
 
 	  int counting_netted_short = 0;
 	  long int amount_trd_sum_short = 0;
 	  printf("\n*************************************************");
 	  printf("\nTracking Short Position:");
-	  clearing_operator_fifo(vdata, M_file, i, pt_vdata_short, 1, counting_netted_short, amount_trd_sum_short, path_main, path_number, pt_vdata_short->nlives_trk);
+	  clearing_operator_fifo(vdata, M_file, i, pt_vdata_short, 1, counting_netted_short, amount_trd_sum_short, path_maini, path_number, pt_vdata_short->nlives_trk);
+
+	  printf("\n\nPath #%d\n\n", path_number);
+	  for (std::vector<std::map<std::string, std::string>>::iterator it = path_maini.begin(); it != path_maini.end(); ++it)
+	    printing_edges(*it);
         }
+      if ( path_maini.size() != 0 ) path_main.push_back(path_maini);
     }
-  printf("\n\nLoop for the final Path:\n\n");
-  for (std::vector<std::map<std::string, std::string>>::iterator it = path_main.begin(); it != path_main.end(); ++it)
+  printf("\n\nPath Main:\n\n");
+  for (it_path_main = path_main.begin(); it_path_main != path_main.end(); ++it_path_main)
     {
+      computing_lives_bypath(*it_path_main);
+    }
+}
+
+void computing_lives_bypath(std::vector<std::map<std::string, std::string>> &it_path_main)
+{
+  for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_main.begin(); it != it_path_main.end(); ++it)
+    {
+      struct status_amounts_edge *pt_status_byedge = get_status_byedge(*it);
+      if ( find_open_incr_anypos(pt_status_byedge->status_src, pt_open_incr_anypos) )
+      	{
+	  
+      	}
+      if ( find_open_incr_anypos(pt_status_byedge->status_trk, pt_open_incr_anypos) )
+      	{
+	  
+      	}
+      settinglives_bypath(*it);
       printing_edges(*it);
     }
 }
@@ -287,7 +334,7 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
 		  std::map<std::string, std::string> path_first;
 		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk, 0);
 		  path_main.push_back(path_first);
-		  printf("\nPath:\n");
+		  printf("\nEdge:\n");
 		  printing_edges(path_first);
 
 		  if ( find_open_incr_anypos(pt_status_addrs_trk->status_src, pt_open_incr_anypos) )
@@ -312,7 +359,7 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
 		  std::map<std::string, std::string> path_first;
 		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk-labs(d_amounts), 0);
 		  path_main.push_back(path_first);
-		  printf("\nPath:\n");
+		  printf("\nEdge:\n");
 		  printing_edges(path_first);
 
 		  if ( find_open_incr_anypos(pt_status_addrs_trk->status_src, pt_open_incr_anypos) )
@@ -338,7 +385,7 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
 		  std::map<std::string, std::string> path_first;
 		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk, 0);
 		  path_main.push_back(path_first);
-		  printf("\nPath:\n");
+		  printf("\nEdge:\n");
 		  printing_edges(path_first);
 
 		  if ( find_open_incr_anypos(pt_status_addrs_trk->status_src, pt_open_incr_anypos) )
@@ -402,4 +449,10 @@ bool find_open_incr_long(std::string &s, VectorTL *v)
   VectorTL &u = *v;
   for (int i = 0; i < length(open_incr_long); i++) open_incr_long[i] = u[i];
   return finding(s, open_incr_long);
+}
+
+void settinglives_bypath(std::map<std::string, std::string> &path_maini)
+{
+  path_maini["lives_src"] = std::to_string(777);
+  path_maini["lives_trk"] = std::to_string(777);
 }

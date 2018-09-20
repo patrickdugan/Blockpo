@@ -26,6 +26,13 @@ struct status_amounts
   long int lives_src, lives_trk, amount_trd, matched_price, nlives_src, nlives_trk; 
 };
 
+
+struct status_amounts_edge
+{
+  std::string addrs_src, status_src, addrs_trk, status_trk;
+  long int lives_src, lives_trk, amount_trd, entry_price, exit_price, edge_row, path_number, ghost_edge; 
+};
+
 /**************************************************************/
 /** Functions for clearing algo */
 
@@ -60,5 +67,11 @@ void printing_edges(std::map<std::string, std::string> &path_first);
 bool find_open_incr_anypos(std::string &s, VectorTL *v);
 
 bool find_open_incr_long(std::string &s, VectorTL *v);
+
+void computing_lives_bypath(std::vector<std::map<std::string, std::string>> &it_path_main);
+
+void settinglives_bypath(std::map<std::string, std::string> &path_maini);
+
+struct status_amounts_edge *get_status_byedge(std::map<std::string, std::string> &edge);
 
 #endif

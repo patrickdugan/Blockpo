@@ -73,7 +73,6 @@ for j in range(len(N_file)):
 		exit_price_desired = 0 
 		PNL_total = 0
 		gamma_p =0
-		gamma_q = 0
 
 		listof_longlives_ele  = []
 		listof_shortlives_ele = []
