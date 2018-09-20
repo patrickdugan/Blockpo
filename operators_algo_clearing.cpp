@@ -280,20 +280,30 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
 
 void computing_lives_bypath(std::vector<std::map<std::string, std::string>> &it_path_main)
 {
+  int q = 0;
+  // printf("\nPrinting Path before:\n");
+  // printing_path_maini(it_path_main);
+  
   for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_main.begin(); it != it_path_main.end(); ++it)
     {
+      q += 1;
       struct status_amounts_edge *pt_status_byedge = get_status_byedge(*it);
       if ( find_open_incr_anypos(pt_status_byedge->status_src, pt_open_incr_anypos) )
       	{
-	  
+	  printf("\n-----------------------------------------------------------");
+	  cout<< "\nNetted events for: " << pt_status_byedge->addrs_src <<"\n";
+	  looking_netted_events(pt_status_byedge->addrs_src, it_path_main, q, pt_status_byedge->amount_trd);
+	  printf("-----------------------------------------------------------");
       	}
       if ( find_open_incr_anypos(pt_status_byedge->status_trk, pt_open_incr_anypos) )
       	{
-	  
+      	  looking_netted_events(pt_status_byedge->status_trk, it_path_main, q, pt_status_byedge->amount_trd);
       	}
-      settinglives_bypath(*it);
-      printing_edges(*it);
+      // settinglives_bypath(*it);
+      // printing_edges(*it);
     }
+  // printf("\nPrinting Path later:\n");
+  // printing_path_maini(it_path_main);
 }
 
 void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, struct status_amounts *pt_pos, int idx_long_short, int &counting_netted, long int amount_trd_sum, std::vector<std::map<std::string, std::string>> &path_main, int path_number, long int opened_contracts)
@@ -455,4 +465,36 @@ void settinglives_bypath(std::map<std::string, std::string> &path_maini)
 {
   path_maini["lives_src"] = std::to_string(777);
   path_maini["lives_trk"] = std::to_string(777);
+}
+
+void looking_netted_events(std::string &addrs_obj, std::vector<std::map<std::string, std::string>> &it_path_main, int q, long int amount_opened)
+{
+  printf("\nOpened contracts: %ld\n", amount_opened);
+  long int sum_amount_trd = 0;
+  int netted_counter = 0;
+  
+  for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_main.begin()+q; it != it_path_main.end(); ++it)
+    {
+      struct status_amounts_edge *pt_status_byedge = get_status_byedge(*it);
+      if ( pt_status_byedge->addrs_trk == addrs_obj )
+	{
+	  netted_counter += 1;
+	  sum_amount_trd += pt_status_byedge->amount_trd;
+	  printing_edges(*it);
+	}
+    }
+  
+  if ( netted_counter != 0 )
+    it_path_main.back()["lives_trk"] = std::to_string(amount_opened - sum_amount_trd);
+  else
+    it_path_main.front()["lives_src"] = std::to_string(amount_opened);
+
+  printf("\nLast column updated:\n");
+  printing_path_maini(it_path_main);
+}
+
+void printing_path_maini(std::vector<std::map<std::string, std::string>> &it_path_maini)
+{
+  for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_maini.begin(); it != it_path_maini.end(); ++it)
+    printing_edges(*it);
 }
