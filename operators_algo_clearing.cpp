@@ -231,6 +231,7 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
   std::vector<std::vector<std::map<std::string, std::string>>> path_main;
   std::vector<std::vector<std::map<std::string, std::string>>>::iterator it_path_main;
   std::vector<std::map<std::string, std::string>>::iterator it_path_maini;
+  std::map<std::string, std::string> edge_source;
   
   int path_number = 0;
   VectorTL vdata(cols_news);
@@ -249,7 +250,6 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
 
 	  printf("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
 	  printf("New Edge Source: Row #%d\n\n", i);
-	  std::map<std::string, std::string> edge_source;
 	  building_edge(edge_source, pt_vdata_long, pt_vdata_long->matched_price, 0, i, path_number, pt_vdata_long->amount_trd, 0);
 	  path_maini.push_back(edge_source);
 	  printing_edges(edge_source);
@@ -288,16 +288,8 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
       printing_path_maini(*it_path_main);
       checking_zeronetted_bypath(*it_path_main);
       computing_livesvectors_forlongshort(*it_path_main, lives_longs, lives_shorts);
-      printf("////////////////////////////////////////");
-      printf("\nEdge Lives Long:\n");
-      for (std::vector<std::map<std::string, std::string>>::iterator it = lives_longs.begin(); it != lives_longs.end(); ++it)
-	printing_edges_lives(*it);
-      printf("////////////////////////////////////////");
-      printf("\nEdge Lives Short:\n");
-      for (std::vector<std::map<std::string, std::string>>::iterator it = lives_shorts.begin(); it != lives_shorts.end(); ++it)
-	printing_edges_lives(*it);
-      printf("////////////////////////////////////////");
     }
+  counting_lives_longshorts(lives_longs, lives_shorts);
 }
 
 void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, struct status_amounts *pt_pos, int idx_long_short, int &counting_netted, long int amount_trd_sum, std::vector<std::map<std::string, std::string>> &path_main, int path_number, long int opened_contracts)
@@ -493,8 +485,8 @@ void computing_lives_bypath(std::vector<std::map<std::string, std::string>> &it_
       	{
       	  looking_netted_events(pt_status_byedge->addrs_trk, it_path_main, q, pt_status_byedge->amount_trd, 1);
 	}
-    }
-}
+    }}
+
 
 void looking_netted_events(std::string &addrs_obj, std::vector<std::map<std::string, std::string>> &it_path_main, int q, long int amount_opened, int index_src_trk)
 {
@@ -581,4 +573,29 @@ void computing_livesvectors_forlongshort(std::vector<std::map<std::string, std::
 	    lives_shorts.push_back(path_ele);
 	}
     }
+}
+
+void counting_lives_longshorts(std::vector<std::map<std::string, std::string>> &lives_longs, std::vector<std::map<std::string, std::string>> &lives_shorts)
+{
+  printf("\n////////////////////////////////////////\n");
+  printf("\nEdge Lives Longs:\n");
+  long int nlives_longs = 0;
+  long int nlives_shorts = 0;
+  
+  for (std::vector<std::map<std::string, std::string>>::iterator it = lives_longs.begin(); it != lives_longs.end(); ++it)
+    {
+      printing_edges_lives(*it);
+      std::map<std::string, std::string> &ele_long = *it;
+      nlives_longs += stol(ele_long["lives"]);
+    }
+  printf("\n////////////////////////////////////////\n");
+  printf("\nEdge Lives Short:\n");
+  for (std::vector<std::map<std::string, std::string>>::iterator it = lives_shorts.begin(); it != lives_shorts.end(); ++it)
+    {
+      printing_edges_lives(*it);
+      std::map<std::string, std::string> &ele_short = *it;
+      nlives_shorts += stol(ele_short["lives"]);
+    }
+  printf("\n////////////////////////////////////////\n");
+  cout << "\nLives Long : " << nlives_longs << ", Lives Short : " << nlives_shorts << "\n";
 }

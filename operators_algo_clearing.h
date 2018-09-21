@@ -86,4 +86,6 @@ void building_ghostedge(std::map<std::string, std::string> &path_first, std::str
 
 void printing_edges_lives(std::map<std::string, std::string> &path_first);
 
+void counting_lives_longshorts(std::vector<std::map<std::string, std::string>> &lives_longs, std::vector<std::map<std::string, std::string>> &lives_shorts);
+
 #endif
