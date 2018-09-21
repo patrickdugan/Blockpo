@@ -49,3 +49,14 @@ bool is_number(const std::string& s)
     while (it != s.end() && std::isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
 }
+
+bool finding_string(std::string sub_word, std::string word_target)
+{
+  bool word_bool = false;
+
+  std::size_t found = word_target.find(sub_word);
+  if (found != std::string::npos)
+    word_bool = true;
+  
+  return word_bool;
+}

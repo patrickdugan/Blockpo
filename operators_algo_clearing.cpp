@@ -272,13 +272,31 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
         }
       if ( path_maini.size() != 0 ) path_main.push_back(path_maini);
     }
-  printf("\n\nPath Main:\n\n");
+  printf("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+  printf("\nChecking Lives and Adding Ghost Nodes\n");
+  int counting_paths = 0;
+
+  std::vector<std::map<std::string, std::string>> lives_longs;
+  std::vector<std::map<std::string, std::string>> lives_shorts;
+  
   for (it_path_main = path_main.begin(); it_path_main != path_main.end(); ++it_path_main)
     {
+      printf("*******************************************");
+      counting_paths += 1;
       computing_lives_bypath(*it_path_main);
-      printf("\n\nChecking Lives by Path:\n\n");
+      printf("\n\nPath #%d:\n\n", counting_paths);
       printing_path_maini(*it_path_main);
       checking_zeronetted_bypath(*it_path_main);
+      computing_livesvectors_forlongshort(*it_path_main, lives_longs, lives_shorts);
+      printf("////////////////////////////////////////");
+      printf("\nEdge Lives Long:\n");
+      for (std::vector<std::map<std::string, std::string>>::iterator it = lives_longs.begin(); it != lives_longs.end(); ++it)
+	printing_edges_lives(*it);
+      printf("////////////////////////////////////////");
+      printf("\nEdge Lives Short:\n");
+      for (std::vector<std::map<std::string, std::string>>::iterator it = lives_shorts.begin(); it != lives_shorts.end(); ++it)
+	printing_edges_lives(*it);
+      printf("////////////////////////////////////////");
     }
 }
 
@@ -416,9 +434,24 @@ void building_edge(std::map<std::string, std::string> &path_first, struct status
   path_first["ghost_edge"] = std::to_string(ghost_edge);
 }
 
+void building_ghostedge(std::map<std::string, std::string> &path_first, std::string addrs, std::string status, long int lives, long int entry_price, struct status_amounts_edge *pt_status_byedge)
+{
+  path_first["addrs"] = addrs;
+  path_first["status"] = status;
+  path_first["lives"] =  std::to_string(lives);
+  path_first["entry_price"] = std::to_string(entry_price);
+  path_first["edge_row"] = std::to_string(pt_status_byedge->edge_row);
+  path_first["path_number"] = std::to_string(pt_status_byedge->path_number);
+}
+
 void printing_edges(std::map<std::string, std::string> &path_first)
 {
   cout <<"{ "<<"addrs_src : "<<path_first["addrs_src"]<<", status_src : "<<path_first["status_src"]<<", lives_src : "<<path_first["lives_src"]<<", addrs_trk : "<<path_first["addrs_trk"]<<", status_trk : "<<path_first["status_trk"]<<", lives_trk : "<<path_first["lives_trk"]<<", entry_price : "<<path_first["entry_price"]<<", exit_price: "<<path_first["exit_price"]<<", amount_trd : "<<path_first["amount_trd"]<<", edge_row : "<<path_first["edge_row"]<<", path_number : "<<path_first["path_number"]<<", ghost_edge : "<<path_first["ghost_edge"]<<" }\n";
+}
+
+void printing_edges_lives(std::map<std::string, std::string> &path_first)
+{
+  cout <<"{ "<<"addrs : "<<path_first["addrs"]<<", status : "<<path_first["status"]<<", lives : "<<path_first["lives"]<<", entry_price : "<<path_first["entry_price"]<<", edge_row : "<<path_first["edge_row"]<<", path_number : "<<path_first["path_number"]<<" }\n";
 }
 
 bool find_open_incr_anypos(std::string &s, VectorTL *v)
@@ -520,4 +553,32 @@ void checking_zeronetted_bypath(std::vector<std::map<std::string, std::string>> 
     cout << "\nChecking Zero Netted by Path:\n(contracts_opened - contracts_closed)-contracts_lives = (" << 2*contracts_opened << " - " << contracts_closed << ") - " << contracts_lives << " = " << 2*contracts_opened - contracts_closed << " - " << contracts_lives << " = " << (2*contracts_opened - contracts_closed)-contracts_lives <<"\n";
   else
     printf("Warning!! There is no zero netted event in the path");
+}
+
+void computing_livesvectors_forlongshort(std::vector<std::map<std::string, std::string>> &it_path_main, std::vector<std::map<std::string, std::string>> &lives_longs, std::vector<std::map<std::string, std::string>> &lives_shorts)
+{
+  std::map<std::string, std::string> path_ele;
+  
+  for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_main.begin(); it != it_path_main.end(); ++it)
+    {
+      struct status_amounts_edge *pt_status_byedge = get_status_byedge(*it);
+      if ( pt_status_byedge->lives_src != 0 )
+	{
+	  building_ghostedge(path_ele, pt_status_byedge->addrs_src, pt_status_byedge->status_src, pt_status_byedge->lives_src, pt_status_byedge->exit_price, pt_status_byedge);
+	  
+	  if ( finding_string("Long", pt_status_byedge->status_src) )
+	    lives_longs.push_back(path_ele);
+	  else
+	    lives_shorts.push_back(path_ele);
+	}
+      if ( pt_status_byedge->lives_trk != 0 )
+	{
+	  building_ghostedge(path_ele, pt_status_byedge->addrs_trk, pt_status_byedge->status_trk, pt_status_byedge->lives_trk, pt_status_byedge->entry_price, pt_status_byedge);
+	  
+	  if ( finding_string("Long", pt_status_byedge->status_trk) )
+	    lives_longs.push_back(path_ele);
+	  else
+	    lives_shorts.push_back(path_ele);
+	}
+    }
 }

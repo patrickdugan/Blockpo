@@ -1,0 +1,21 @@
+clearing algo se divide en 2 partes, primero la parte donde crea los paths. 
+Por otro lado la segunda parte toma todos los lives y los une a los paths de manera bilateral.
+
+Para primera parte, tiene que funcionar automaticamente en todos los contratos, leyendo la base de datos
+cada vez que se hace un match y armando el graphinfosixth (que ojala cambiara de nombre jaja).
+
+Armando el graphinfosixth tiene que ir formando los paths cada vez que se abre una cantidad de contratos,
+contando el open interest (cantidad de contratos abiertos) en todo momento, para reportarlo en el wallet
+
+Cada vez que revisa que hay un match nuevo, lo agrega a este mapa de mapas donde se van revisando los paths,
+busca y agrega el nuevo nodo, y si esta abriendo posicion se crea un nuevo path.
+
+Todo esto calcula un precio de entrada y un precio de salida cuando netea una cantidad, esto puede ser agregado
+pensando en que cada vez que hay una entrada que agrega un nodo a un path existente debe calcular un PnL
+que si es positivo debe reflejarse en el uPnL, y si hay una perdida debe descontarse del margen.
+
+Idealmente este mapa de mapas podria exportarse en un formato que la wallet pudiera leer, de forma que para cada
+contrato podamos crear una representacion visual de como se va formando el grafo, match por match, 
+representando el total del open interest y los paths a los que pertenecen las posiciones de cada persona.
+
+

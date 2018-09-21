@@ -80,4 +80,10 @@ void checking_zeronetted_bypath(std::vector<std::map<std::string, std::string>> 
 
 bool find_netted_npartly_anypos(std::string &s, VectorTL *v);
 
+void computing_livesvectors_forlongshort(std::vector<std::map<std::string, std::string>> &it_path_main, std::vector<std::map<std::string, std::string>> &lives_longs, std::vector<std::map<std::string, std::string>> &lives_shorts);
+
+void building_ghostedge(std::map<std::string, std::string> &path_first, std::string addrs, std::string status, long int lives, long int entry_price, struct status_amounts_edge *pt_status_byedge);
+
+void printing_edges_lives(std::map<std::string, std::string> &path_first);
+
 #endif
