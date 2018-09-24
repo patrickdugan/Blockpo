@@ -14,8 +14,6 @@ using namespace std;
 
 int main()
 {
-  // std::cout.unsetf(std::ios::floatfield);
-  // cout.setf(ios::scientific);
   std::cout.precision(32);
 
   extern int n_cols;

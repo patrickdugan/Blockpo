@@ -119,7 +119,7 @@ struct status_amounts *get_status_amounts_open_incr(VectorTL &v, int q)
       pt_status->nlives_trk = stol(v[9].c_str());
     }
   pt_status->amount_trd    = stol(v[6].c_str());      
-  pt_status->matched_price = stol(v[7].c_str());  
+  pt_status->matched_price = stod(v[7].c_str());  
   return pt_status;   
 }
 
@@ -150,7 +150,7 @@ struct status_amounts *get_status_amounts_byaddrs(VectorTL &v, std::string addrs
       pt_status->nlives_trk = stol(v[9].c_str());
     }
   pt_status->amount_trd    = stol(v[6].c_str());      
-  pt_status->matched_price = stol(v[7].c_str());
+  pt_status->matched_price = stod(v[7].c_str());
   
   return pt_status;   
 }
@@ -163,8 +163,8 @@ struct status_amounts_edge *get_status_byedge(std::map<std::string, std::string>
   pt_status->addrs_trk   = edge["addrs_trk"];
   pt_status->status_src  = edge["status_src"];
   pt_status->status_trk  = edge["status_trk"];
-  pt_status->entry_price = stol(edge["entry_price"]);
-  pt_status->exit_price  = stol(edge["exit_price"]);
+  pt_status->entry_price = stod(edge["entry_price"]);
+  pt_status->exit_price  = stod(edge["exit_price"]);
   pt_status->lives_src   = stol(edge["lives_src"]);
   pt_status->lives_trk   = stol(edge["lives_trk"]); 
   pt_status->amount_trd  = stol(edge["amount_trd"]);
@@ -249,7 +249,7 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
 
 	  printf("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
 	  printf("New Edge Source: Row #%d\n\n", i);
-	  building_edge(edge_source, pt_vdata_long, pt_vdata_long->matched_price, 0, i, path_number, pt_vdata_long->amount_trd, 0);
+	  building_edge(edge_source, pt_vdata_long->addrs_src, pt_vdata_long->addrs_trk, pt_vdata_long->status_src, pt_vdata_long->status_trk, pt_vdata_long->matched_price, pt_vdata_long->matched_price, 0, i, path_number, pt_vdata_long->amount_trd, 0);
 	  path_maini.push_back(edge_source);
 	  printing_edges(edge_source);
 	  
@@ -277,6 +277,7 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
 
   std::vector<std::map<std::string, std::string>> lives_longs;
   std::vector<std::map<std::string, std::string>> lives_shorts;
+  std::vector<std::map<std::string, std::string>> ghost_edges_array;
 
   long int sum_oflives = 0;
   double exit_price_desired = 0;
@@ -304,7 +305,8 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
   exit_price_desired = sum_gamma_p/sum_gamma_q;
   cout <<"\nexit_price_desired: " << exit_price_desired << "\n";
   counting_lives_longshorts(lives_longs, lives_shorts);
-  printf("\nFrom here start Ghost Paths building:\n"); 
+  printf("\nFrom here start Ghost Paths building:\n");
+  calculating_ghost_edges(lives_longs, lives_shorts, exit_price_desired, ghost_edges_array);
 }
 
 void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, struct status_amounts *pt_pos, int idx_long_short, int &counting_netted, long int amount_trd_sum, std::vector<std::map<std::string, std::string>> &path_main, int path_number, long int opened_contracts)
@@ -315,6 +317,7 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
   VectorTL status_z(2);
   std::string addrs_opening = pt_pos->addrs_trk;
   long int d_amounts = 0;
+  std::map<std::string, std::string> path_first;
   
   for (int i = index_init+1; i < n_rows; ++i)
     {
@@ -342,8 +345,7 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
 		  cout<<"\n\nCheck last two columns Updated: Row #"<<i<<"\n"<<M_file[i][8]<<"\t"<<M_file[i][9]<<"\n";
 		  printf("\nOpened contrats: %ld > Sum amounts traded: %ld\n", opened_contracts, amount_trd_sum);
 
-		  std::map<std::string, std::string> path_first;
-		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk, 0);
+		  building_edge(path_first, pt_status_addrs_trk->addrs_src, pt_status_addrs_trk->addrs_trk, pt_status_addrs_trk->status_src, pt_status_addrs_trk->status_trk, pt_pos->matched_price, pt_status_addrs_trk->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk, 0);
 		  path_main.push_back(path_first);
 		  printf("\nEdge:\n");
 		  printing_edges(path_first);
@@ -367,8 +369,7 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
 		  cout<<"\n\nCheck last two columns Updated: Row #"<<i<<"\n"<<M_file[i][8]<<"\t"<<M_file[i][9]<<"\n";
 		  printf("\nOpened contrats: %ld < Sum amounts traded: %ld\n", opened_contracts, amount_trd_sum);
 
-		  std::map<std::string, std::string> path_first;
-		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk-labs(d_amounts), 0);
+		  building_edge(path_first, pt_status_addrs_trk->addrs_src, pt_status_addrs_trk->addrs_trk, pt_status_addrs_trk->status_src, pt_status_addrs_trk->status_trk, pt_pos->matched_price, pt_status_addrs_trk->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk-labs(d_amounts), 0);
 		  path_main.push_back(path_first);
 		  printf("\nEdge:\n");
 		  printing_edges(path_first);
@@ -393,8 +394,7 @@ void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, s
 		  cout<<"\n\nCheck last two columns Updated: Row #"<<i<<"\n"<<M_file[i][8]<<"\t"<<M_file[i][9]<<"\n";
 		  printf("\nOpened contrats: %ld < Sum amounts traded: %ld\n", opened_contracts, amount_trd_sum);
 		  
-		  std::map<std::string, std::string> path_first;
-		  building_edge(path_first, pt_status_addrs_trk, pt_pos->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk, 0);
+		  building_edge(path_first, pt_status_addrs_trk->addrs_src, pt_status_addrs_trk->addrs_trk, pt_status_addrs_trk->status_src, pt_status_addrs_trk->status_trk, pt_pos->matched_price, pt_status_addrs_trk->matched_price, 0, i, path_number, pt_status_addrs_trk->nlives_trk, 0);
 		  path_main.push_back(path_first);
 		  printf("\nEdge:\n");
 		  printing_edges(path_first);
@@ -425,23 +425,23 @@ void updating_lasttwocols_fromdatabase(std::string addrs, MatrixTL &M_file, int 
     M_file[i][9] = std::to_string(live_updated);
 }
 
-void building_edge(std::map<std::string, std::string> &path_first, struct status_amounts *pt_status_addrs_trk, long int entry_price, long int lives, int index_row, int path_number, long int amount_path, int ghost_edge)
+void building_edge(std::map<std::string, std::string> &path_first, std::string addrs_src, std::string addrs_trk, std::string status_src, std::string status_trk, double entry_price, double exit_price, long int lives, int index_row, int path_number, long int amount_path, int ghost_edge)
 {
-  path_first["addrs_src"] = pt_status_addrs_trk->addrs_src;
-  path_first["addrs_trk"] = pt_status_addrs_trk->addrs_trk;
-  path_first["status_src"] = pt_status_addrs_trk->status_src;
-  path_first["status_trk"] = pt_status_addrs_trk->status_trk;
+  path_first["addrs_src"]   = addrs_src;
+  path_first["addrs_trk"]   = addrs_trk;
+  path_first["status_src"]  = status_src;
+  path_first["status_trk"]  = status_trk;
   path_first["entry_price"] = std::to_string(entry_price);
-  path_first["exit_price"] = std::to_string(pt_status_addrs_trk->matched_price);
-  path_first["lives_src"] = std::to_string(lives);
-  path_first["lives_trk"] = std::to_string(lives);
-  path_first["amount_trd"] = std::to_string(amount_path);
-  path_first["edge_row"] = std::to_string(index_row);
+  path_first["exit_price"]  = std::to_string(exit_price);
+  path_first["lives_src"]   = std::to_string(lives);
+  path_first["lives_trk"]   = std::to_string(lives);
+  path_first["amount_trd"]  = std::to_string(amount_path);
+  path_first["edge_row"]    = std::to_string(index_row);
   path_first["path_number"] = std::to_string(path_number);
-  path_first["ghost_edge"] = std::to_string(ghost_edge);
+  path_first["ghost_edge"]  = std::to_string(ghost_edge);
 }
 
-void building_ghostedge(std::map<std::string, std::string> &path_first, std::string addrs, std::string status, long int lives, long int entry_price, struct status_amounts_edge *pt_status_byedge)
+void building_lives_edges(std::map<std::string, std::string> &path_first, std::string addrs, std::string status, long int lives, double entry_price, struct status_amounts_edge *pt_status_byedge)
 {
   path_first["addrs"] = addrs;
   path_first["status"] = status;
@@ -571,7 +571,7 @@ void computing_livesvectors_forlongshort(std::vector<std::map<std::string, std::
       struct status_amounts_edge *pt_status_byedge = get_status_byedge(*it);
       if ( pt_status_byedge->lives_src != 0 )
 	{
-	  building_ghostedge(path_ele, pt_status_byedge->addrs_src, pt_status_byedge->status_src, pt_status_byedge->lives_src, pt_status_byedge->exit_price, pt_status_byedge);
+	  building_lives_edges(path_ele, pt_status_byedge->addrs_src, pt_status_byedge->status_src, pt_status_byedge->lives_src, pt_status_byedge->exit_price, pt_status_byedge);
 	  
 	  if ( finding_string("Long", pt_status_byedge->status_src) )
 	    lives_longs.push_back(path_ele);
@@ -580,7 +580,7 @@ void computing_livesvectors_forlongshort(std::vector<std::map<std::string, std::
 	}
       if ( pt_status_byedge->lives_trk != 0 )
 	{
-	  building_ghostedge(path_ele, pt_status_byedge->addrs_trk, pt_status_byedge->status_trk, pt_status_byedge->lives_trk, pt_status_byedge->entry_price, pt_status_byedge);
+	  building_lives_edges(path_ele, pt_status_byedge->addrs_trk, pt_status_byedge->status_trk, pt_status_byedge->lives_trk, pt_status_byedge->entry_price, pt_status_byedge);
 	  
 	  if ( finding_string("Long", pt_status_byedge->status_trk) )
 	    lives_longs.push_back(path_ele);
@@ -594,13 +594,15 @@ void counting_lives_longshorts(std::vector<std::map<std::string, std::string>> &
 {
   long int nlives_longs = 0;
   long int nlives_shorts = 0;
-  
+
+  printf("\nList of Long Lives:\n");
   for (std::vector<std::map<std::string, std::string>>::iterator it = lives_longs.begin(); it != lives_longs.end(); ++it)
     {
       printing_edges_lives(*it);
       std::map<std::string, std::string> &ele_long = *it;
       nlives_longs += stol(ele_long["lives"]);
     }
+  printf("\nList of Short Lives:\n");
   for (std::vector<std::map<std::string, std::string>>::iterator it = lives_shorts.begin(); it != lives_shorts.end(); ++it)
     {
       printing_edges_lives(*it);
@@ -653,7 +655,7 @@ void calculate_pnltrk_bypath(std::vector<std::map<std::string, std::string>> &pa
 	      sub_row(jrow_database, ndatabase, stol(edge_path["edge_row"]));
 	      struct status_amounts *pt_jrow_database = get_status_amounts_byaddrs(jrow_database, addrsit);
 	      addrs_set.insert(addrsit);
-	      PNL_trk = PNL_function(stol(edge_path["entry_price"]), stol(edge_path["exit_price"]), stol(edge_path["amount_trd"]), pt_jrow_database);
+	      PNL_trk = PNL_function(stod(edge_path["entry_price"]), stod(edge_path["exit_price"]), stol(edge_path["amount_trd"]), pt_jrow_database);
 	      sumPNL_trk += PNL_trk;
 	    }
 	}
@@ -675,14 +677,14 @@ void listof_addresses_bypath(std::vector<std::map<std::string, std::string>> &it
   addrsv = addrsvh; 
 }
 
-double PNL_function(long int entry_price, long int exit_price, long int amount_trd, struct status_amounts *pt_jrow_database)
+double PNL_function(double entry_price, double exit_price, long int amount_trd, struct status_amounts *pt_jrow_database)
 {
   double PNL;
   
   if ( finding_string("Long", pt_jrow_database->status_trk) )
-    PNL = (double)amount_trd*(1/(double)entry_price-1/(double)exit_price);
+    PNL = (double)amount_trd*(1/entry_price-1/exit_price);
   else if ( finding_string("Short", pt_jrow_database->status_trk) )
-    PNL = (double)amount_trd*(1/(double)exit_price-1/(double)entry_price);
+    PNL = (double)amount_trd*(1/exit_price-1/entry_price);
 
   return PNL;
 }
@@ -707,12 +709,12 @@ void getting_gammapq_bypath(std::vector<std::map<std::string, std::string>> &pat
 	  struct status_amounts *pt_jrow_database = get_status_amounts_byaddrs(jrow_database, edge_ele["addrs_src"]);
 	  if ( finding_string("Long", pt_jrow_database->status_trk) )
 	    {
-	      sum_alpha_beta_i += stol(edge_ele["lives_src"])*stol(edge_ele["exit_price"]);
+	      sum_alpha_beta_i += stol(edge_ele["lives_src"])*stod(edge_ele["exit_price"]);
 	      sum_alpha_i += stol(edge_ele["lives_src"]);
 	    }
 	  else
 	    {
-	      sum_alpha_beta_j += stol(edge_ele["lives_src"])*stol(edge_ele["exit_price"]);
+	      sum_alpha_beta_j += stol(edge_ele["lives_src"])*stod(edge_ele["exit_price"]);
 	      sum_alpha_j += stol(edge_ele["lives_src"]);
 	    }
 	}
@@ -722,16 +724,85 @@ void getting_gammapq_bypath(std::vector<std::map<std::string, std::string>> &pat
 	  struct status_amounts *pt_jrow_database = get_status_amounts_byaddrs(jrow_database, edge_ele["addrs_trk"]);
 	  if ( finding_string("Long", pt_jrow_database->status_trk) )
 	    {
-	      sum_alpha_beta_i += stol(edge_ele["lives_trk"])*stol(edge_ele["entry_price"]);
+	      sum_alpha_beta_i += stol(edge_ele["lives_trk"])*stod(edge_ele["entry_price"]);
 	      sum_alpha_i += stol(edge_ele["lives_trk"]);
 	    }
 	  else
 	    {
-	      sum_alpha_beta_j += stol(edge_ele["lives_trk"])*stol(edge_ele["entry_price"]);
+	      sum_alpha_beta_j += stol(edge_ele["lives_trk"])*stod(edge_ele["entry_price"]);
 	      sum_alpha_j += stol(edge_ele["lives_trk"]);
 	    }
 	}
     }
   gamma_p = PNL_total-sum_alpha_beta_i+sum_alpha_beta_j;
   gamma_q = sum_alpha_j-sum_alpha_i;
+}
+
+void calculating_ghost_edges(std::vector<std::map<std::string, std::string>> lives_longs, std::vector<std::map<std::string, std::string>> lives_shorts, double exit_price_desired, std::vector<std::map<std::string, std::string>> &ghost_edges_array)
+{
+  long int amount_itlongs  = 0;
+  long int amount_itshorts = 0;
+  long int difference_amounts = 0;
+  unsigned index_start = 0;
+  
+  std::vector<std::map<std::string, std::string>>::iterator it_longs;
+  std::vector<std::map<std::string, std::string>>::iterator it_shorts;
+  std::map<std::string, std::string> short_ele;
+  std::map<std::string, std::string> long_ele;
+
+  std::map<std::string, std::string> edge_ele;
+  
+  for (unsigned i = 0; i < lives_longs.size(); i++)
+    {
+      long_ele = lives_longs[i];
+      amount_itlongs = stol(long_ele["lives"]);
+      printf("----------------------LONG-------------------------");
+      printing_edges_lives(long_ele);
+      printf("---------------------------------------------------");
+      
+      for (unsigned j = index_start; j < lives_shorts.size(); j++)
+	{
+	  short_ele = lives_shorts[j];
+	  amount_itshorts = stol(short_ele["lives"]);
+	  
+	  cout << "\n Check : (amount_itlongs, sum_amount_shorts): " << amount_itlongs << "\t" << amount_itshorts <<"\n";
+	  
+	  if ( amount_itlongs >= amount_itshorts )
+	    {
+	      printing_edges_lives(short_ele);
+	      difference_amounts = amount_itlongs - amount_itshorts;
+	      cout << "\namount_itlongs >= amount_itshorts: " << amount_itlongs << "\t" << amount_itshorts <<"\n";
+	      amount_itlongs = difference_amounts;
+	      building_edge(edge_ele, short_ele["addrs"], long_ele["addrs"], short_ele["status"], long_ele["status"], stod(long_ele["entry_price"]), exit_price_desired, 0, stol(long_ele["edge_row"]), stol(long_ele["path_number"]), amount_itshorts, 1);
+	      printf("\nFirst edge:\n");
+	      printing_edges(edge_ele);
+	      ghost_edges_array.push_back(edge_ele);
+	      building_edge(edge_ele, long_ele["addrs"], short_ele["addrs"], long_ele["status"], short_ele["status"], stod(short_ele["entry_price"]), exit_price_desired, 0, stol(short_ele["edge_row"]), stol(short_ele["path_number"]), amount_itshorts, 1);
+	      printf("\nSecnd edge:\n");
+	      printing_edges(edge_ele);
+	      ghost_edges_array.push_back(edge_ele);
+	      printf("-----------------------------------------------");	      
+	      continue;
+	    }
+	  if ( amount_itlongs < amount_itshorts )
+	    {
+	      printing_edges_lives(short_ele);
+	      difference_amounts = amount_itshorts - amount_itlongs;
+	      cout << "\namount_itlongs < amount_itshorts: " << amount_itlongs << "\t" << amount_itshorts <<"\n";
+	      index_start = j;
+	      lives_shorts[j]["lives"] = std::to_string(difference_amounts);
+
+	      building_edge(edge_ele, short_ele["addrs"], long_ele["addrs"], short_ele["status"], long_ele["status"], stod(long_ele["entry_price"]), exit_price_desired, 0, stol(long_ele["edge_row"]), stol(long_ele["path_number"]), amount_itlongs, 1);
+	      printf("\nFirst edge:\n");
+	      printing_edges(edge_ele);
+	      ghost_edges_array.push_back(edge_ele);	      
+	      building_edge(edge_ele, long_ele["addrs"], short_ele["addrs"], long_ele["status"], short_ele["status"], stod(short_ele["entry_price"]), exit_price_desired, 0, stol(short_ele["edge_row"]), stol(short_ele["path_number"]), amount_itlongs, 1);
+	      printf("\nSecnd edge:\n");
+	      printing_edges(edge_ele);
+	      ghost_edges_array.push_back(edge_ele);
+	      printf("-----------------------------------------------");
+	      break; 
+	    }
+	}
+    }
 }

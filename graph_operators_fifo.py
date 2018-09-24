@@ -451,9 +451,6 @@ def calculating_ghost_edges(listof_longlives, listof_shortlives, price_settlemen
 
 			if amountj_long >= sum_amountj_short:
 		
-				ghost_node_ele_path_long_one = [row_shortj['address'], row_longi['address'], row_shortj['status'], row_longi['status'], row_longi['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_longi['edge_row'], row_longi['path_number'], 1]
-				ghost_node_path_long_one = OrderedDict(zip(globales.key_path_fifo, ghost_node_ele_path_long_one))
-		
 				ghost_node_ele_path_short_one = [row_longi['address'], row_shortj['address'], row_longi['status'], row_shortj['status'], row_shortj['entry_price'], price_settlement_union, 0, 0, row_shortj['lives_contracts'], row_shortj['edge_row'], row_shortj['path_number'], 1]
 				ghost_node_path_short_one = OrderedDict(zip(globales.key_path_fifo, ghost_node_ele_path_short_one))
 		
