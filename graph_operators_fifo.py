@@ -255,7 +255,6 @@ def computing_lives_byaddrs(path_complex_main, pathj, addrs_forlives, j):
 	return path_complex_main
 
 def checking_zeronetted_bypath(path_complex_main):
-
 	contracts_opened = 0
 	contracts_closed = 0
 	contracts_lives = 0
@@ -350,7 +349,7 @@ def calculate_pnltrk_bypath(path_complex_main, exit_price_desired, PNL_trk, gamm
 					if "Short" in obj_addressj.status_trk:
 						sum_alpha_beta_j += float(row['amount_trd'])*obj_addressj.matched_price
 						sum_alpha_j += row['amount_trd']
-
+						
 	if sum_alpha_i != sum_alpha_j:
 		print("float(total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j)", float(total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j))
 		exit_price_desired = float(total_pnl_zerolives - sum_alpha_beta_i + sum_alpha_beta_j)/(sum_alpha_j - sum_alpha_i)

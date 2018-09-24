@@ -1,5 +1,6 @@
 #include "externfns.h"
 #include "tradelayer_matrices.h"
+#include <unordered_set>
 
 using namespace std;
 
@@ -59,4 +60,32 @@ bool finding_string(std::string sub_word, std::string word_target)
     word_bool = true;
   
   return word_bool;
+}
+
+bool find_string_strv(std::string s, std::vector<std::string> v)
+{
+  bool find_bool = false;
+  for (std::vector<std::string>::iterator it = v.begin(); it != v.end(); ++it)
+    {
+      if ( finding_string(s, *it) )
+	{
+	  find_bool = true;
+	  break;
+	}
+    }
+  return find_bool;
+}
+
+bool find_string_set(std::string s, std::unordered_set<std::string> addrs_set)
+{
+  bool find_bool = false;
+  for (const std::string &x : addrs_set)
+    {
+      if ( finding_string(s, x) )
+	{
+	  find_bool = true;
+	  break;
+	}
+    }
+  return find_bool;
 }

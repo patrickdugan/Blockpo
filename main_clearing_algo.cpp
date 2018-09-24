@@ -14,6 +14,10 @@ using namespace std;
 
 int main()
 {
+  // std::cout.unsetf(std::ios::floatfield);
+  // cout.setf(ios::scientific);
+  std::cout.precision(32);
+
   extern int n_cols;
   extern int n_rows;
   extern int cols_news;
@@ -22,6 +26,7 @@ int main()
   extern VectorTL *pt_netted_npartly_long;
   extern VectorTL *pt_netted_npartly_short;
   extern MatrixTL *pt_database;
+  extern MatrixTL *pt_ndatabase;
   extern VectorTL *pt_open_incr_anypos;
   extern VectorTL *pt_netted_npartly_anypos;
   
@@ -31,6 +36,8 @@ int main()
   
   MatrixTL M_file(n_rows, cols_news);
   adding_newtwocols_trdamount(M_file, database);
+  pt_ndatabase = new MatrixTL(n_rows, cols_news); MatrixTL &ndatabase = *pt_ndatabase;
+  ndatabase = M_file;
   settlement_algorithm_fifo(M_file);
   
   printf("\n\n|rows|: %d,\t |cols|: %d\n", size(database, 0), size(database, 1));

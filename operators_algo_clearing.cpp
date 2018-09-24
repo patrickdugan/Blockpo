@@ -2,13 +2,15 @@
 #include <bits/stdc++.h>
 #include "tradelayer_matrices.h"
 #include "externfns.h"
+#include <unordered_set>
 
 extern VectorTL *pt_netted_npartly_anypos;
 extern VectorTL *pt_open_incr_anypos;
 extern VectorTL *pt_open_incr_long;
+extern MatrixTL *pt_ndatabase; MatrixTL &ndatabase = *pt_ndatabase;
 
 /**************************************************************/
-/** Structures for clearing algo */
+/** Functions for Shortes Path */
 
 struct Graph *createGraph(int V, int E)
 {
@@ -19,9 +21,6 @@ struct Graph *createGraph(int V, int E)
 
   return graph;
 }
-
-/**************************************************************/
-/** Functions for clearing algo */
 
 void BellmanFord(struct Graph* graph, int src)
 {
@@ -273,12 +272,20 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
       if ( path_maini.size() != 0 ) path_main.push_back(path_maini);
     }
   printf("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
-  printf("\nChecking Lives and Adding Ghost Nodes\n");
+  printf("\nChecking Lives by Path:\n\n");
   int counting_paths = 0;
 
   std::vector<std::map<std::string, std::string>> lives_longs;
   std::vector<std::map<std::string, std::string>> lives_shorts;
-  
+
+  long int sum_oflives = 0;
+  double exit_price_desired = 0;
+  double PNL_total = 0;
+  double gamma_p = 0;
+  double gamma_q = 0;
+  double sum_gamma_p = 0;
+  double sum_gamma_q = 0;
+    
   for (it_path_main = path_main.begin(); it_path_main != path_main.end(); ++it_path_main)
     {
       printf("*******************************************");
@@ -288,8 +295,16 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
       printing_path_maini(*it_path_main);
       checking_zeronetted_bypath(*it_path_main);
       computing_livesvectors_forlongshort(*it_path_main, lives_longs, lives_shorts);
+      computing_settlement_exitprice(*it_path_main, sum_oflives, PNL_total, gamma_p, gamma_q);
+      cout << "\ngamma_p : " << gamma_p <<  ", gamma_q : " << gamma_q << ", PNL_total : " << PNL_total <<"\n";
+      sum_gamma_p += gamma_p;
+      sum_gamma_q += gamma_q;
     }
+
+  exit_price_desired = sum_gamma_p/sum_gamma_q;
+  cout <<"\nexit_price_desired: " << exit_price_desired << "\n";
   counting_lives_longshorts(lives_longs, lives_shorts);
+  printf("\nFrom here start Ghost Paths building:\n"); 
 }
 
 void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, struct status_amounts *pt_pos, int idx_long_short, int &counting_netted, long int amount_trd_sum, std::vector<std::map<std::string, std::string>> &path_main, int path_number, long int opened_contracts)
@@ -577,8 +592,6 @@ void computing_livesvectors_forlongshort(std::vector<std::map<std::string, std::
 
 void counting_lives_longshorts(std::vector<std::map<std::string, std::string>> &lives_longs, std::vector<std::map<std::string, std::string>> &lives_shorts)
 {
-  printf("\n////////////////////////////////////////\n");
-  printf("\nEdge Lives Longs:\n");
   long int nlives_longs = 0;
   long int nlives_shorts = 0;
   
@@ -588,14 +601,137 @@ void counting_lives_longshorts(std::vector<std::map<std::string, std::string>> &
       std::map<std::string, std::string> &ele_long = *it;
       nlives_longs += stol(ele_long["lives"]);
     }
-  printf("\n////////////////////////////////////////\n");
-  printf("\nEdge Lives Short:\n");
   for (std::vector<std::map<std::string, std::string>>::iterator it = lives_shorts.begin(); it != lives_shorts.end(); ++it)
     {
       printing_edges_lives(*it);
       std::map<std::string, std::string> &ele_short = *it;
       nlives_shorts += stol(ele_short["lives"]);
     }
-  printf("\n////////////////////////////////////////\n");
-  cout << "\nLives Long : " << nlives_longs << ", Lives Short : " << nlives_shorts << "\n";
+  cout << "\n|nlives_longs| : " << nlives_longs << ", |nlives_longs| : " << nlives_shorts << "\n";
+}
+
+void computing_settlement_exitprice(std::vector<std::map<std::string, std::string>> &it_path_main, long int &sum_oflives, double &PNL_total, double &gamma_p, double &gamma_q)
+{
+  long int sum_oflivesh = 0;
+  std::unordered_set<std::string> addrs_set;
+  std::vector<std::string> addrsv;
+  
+  for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_main.begin(); it != it_path_main.end(); ++it)
+    {
+      std::map<std::string, std::string> &it_ele = *it;
+      sum_oflivesh += stol(it_ele["lives_src"]) + stol(it_ele["lives_trk"]);
+    }
+  sum_oflives = sum_oflivesh;
+  if ( sum_oflives == 0 )
+    printf("\nThis path does not have lives contracts!!\n");
+  else
+    {
+      listof_addresses_bypath(it_path_main, addrsv);
+      calculate_pnltrk_bypath(it_path_main, PNL_total, addrs_set, addrsv);
+      getting_gammapq_bypath(it_path_main, PNL_total, gamma_p, gamma_q, addrs_set);
+    }
+}
+
+void calculate_pnltrk_bypath(std::vector<std::map<std::string, std::string>> &path_main, double &PNL_total, std::unordered_set<std::string> &addrs_set, std::vector<std::string> addrsv)
+{
+  std::vector<std::map<std::string, std::string>>::iterator it_path;
+  std::string addrsit;
+  double PNL_trk;
+  double sumPNL_trk = 0;
+  extern int cols_news;
+  extern MatrixTL *pt_ndatabase; MatrixTL &ndatabase = *pt_ndatabase;
+  VectorTL jrow_database(cols_news);
+  
+  for (std::vector<std::string>::iterator it_addrs = addrsv.begin(); it_addrs != addrsv.end(); ++it_addrs)
+    {
+      addrsit = *it_addrs;      
+      for (it_path = path_main.begin()+1; it_path != path_main.end(); ++it_path)
+	{
+	  std::map<std::string, std::string> &edge_path = *it_path;
+	  if ( addrsit == edge_path["addrs_trk"] )
+	    {
+	      sub_row(jrow_database, ndatabase, stol(edge_path["edge_row"]));
+	      struct status_amounts *pt_jrow_database = get_status_amounts_byaddrs(jrow_database, addrsit);
+	      addrs_set.insert(addrsit);
+	      PNL_trk = PNL_function(stol(edge_path["entry_price"]), stol(edge_path["exit_price"]), stol(edge_path["amount_trd"]), pt_jrow_database);
+	      sumPNL_trk += PNL_trk;
+	    }
+	}
+    }
+  PNL_total = sumPNL_trk;
+}
+
+void listof_addresses_bypath(std::vector<std::map<std::string, std::string>> &it_path_main, std::vector<std::string> &addrsv)
+{
+  std::vector<std::string> addrsvh;
+  for (std::vector<std::map<std::string, std::string>>::iterator it = it_path_main.begin(); it != it_path_main.end(); ++it)
+    {
+      std::map<std::string, std::string> &it_ele = *it;
+      if ( !find_string_strv(it_ele["addrs_src"], addrsvh) )
+	addrsvh.push_back(it_ele["addrs_src"]);
+      if ( !find_string_strv(it_ele["addrs_trk"], addrsvh) )
+	addrsvh.push_back(it_ele["addrs_trk"]);
+    }
+  addrsv = addrsvh; 
+}
+
+double PNL_function(long int entry_price, long int exit_price, long int amount_trd, struct status_amounts *pt_jrow_database)
+{
+  double PNL;
+  
+  if ( finding_string("Long", pt_jrow_database->status_trk) )
+    PNL = (double)amount_trd*(1/(double)entry_price-1/(double)exit_price);
+  else if ( finding_string("Short", pt_jrow_database->status_trk) )
+    PNL = (double)amount_trd*(1/(double)exit_price-1/(double)entry_price);
+
+  return PNL;
+}
+
+void getting_gammapq_bypath(std::vector<std::map<std::string, std::string>> &path_main, double PNL_total, double &gamma_p, double &gamma_q, std::unordered_set<std::string> addrs_set)
+{
+  extern int cols_news;
+  extern MatrixTL *pt_ndatabase; MatrixTL &ndatabase = *pt_ndatabase;
+  VectorTL jrow_database(cols_news);
+  long int sum_alpha_beta_i = 0;
+  long int sum_alpha_i = 0;
+  long int sum_alpha_beta_j = 0;
+  long int sum_alpha_j = 0;
+  
+  std::vector<std::map<std::string, std::string>>::iterator it_path_main;
+  for (it_path_main = path_main.begin(); it_path_main != path_main.end(); ++it_path_main)
+    {
+      std::map<std::string, std::string> &edge_ele = *it_path_main;
+      if ( stol(edge_ele["lives_src"]) != 0 )
+	{
+	  sub_row(jrow_database, ndatabase, stol(edge_ele["edge_row"]));
+	  struct status_amounts *pt_jrow_database = get_status_amounts_byaddrs(jrow_database, edge_ele["addrs_src"]);
+	  if ( finding_string("Long", pt_jrow_database->status_trk) )
+	    {
+	      sum_alpha_beta_i += stol(edge_ele["lives_src"])*stol(edge_ele["exit_price"]);
+	      sum_alpha_i += stol(edge_ele["lives_src"]);
+	    }
+	  else
+	    {
+	      sum_alpha_beta_j += stol(edge_ele["lives_src"])*stol(edge_ele["exit_price"]);
+	      sum_alpha_j += stol(edge_ele["lives_src"]);
+	    }
+	}
+      if ( stol(edge_ele["lives_trk"]) != 0 )
+	{
+	  sub_row(jrow_database, ndatabase, stol(edge_ele["edge_row"]));
+	  struct status_amounts *pt_jrow_database = get_status_amounts_byaddrs(jrow_database, edge_ele["addrs_trk"]);
+	  if ( finding_string("Long", pt_jrow_database->status_trk) )
+	    {
+	      sum_alpha_beta_i += stol(edge_ele["lives_trk"])*stol(edge_ele["entry_price"]);
+	      sum_alpha_i += stol(edge_ele["lives_trk"]);
+	    }
+	  else
+	    {
+	      sum_alpha_beta_j += stol(edge_ele["lives_trk"])*stol(edge_ele["entry_price"]);
+	      sum_alpha_j += stol(edge_ele["lives_trk"]);
+	    }
+	}
+    }
+  gamma_p = PNL_total-sum_alpha_beta_i+sum_alpha_beta_j;
+  gamma_q = sum_alpha_j-sum_alpha_i;
 }

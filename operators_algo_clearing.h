@@ -2,6 +2,7 @@
 #define OPERATORS_ALGO_CLEARING_H
 
 #include <map>
+#include <unordered_set>
 #include <vector>
 
 #include "tradelayer_matrices.h"
@@ -87,5 +88,15 @@ void building_ghostedge(std::map<std::string, std::string> &path_first, std::str
 void printing_edges_lives(std::map<std::string, std::string> &path_first);
 
 void counting_lives_longshorts(std::vector<std::map<std::string, std::string>> &lives_longs, std::vector<std::map<std::string, std::string>> &lives_shorts);
+
+void computing_settlement_exitprice(std::vector<std::map<std::string, std::string>> &it_path_main, long int &sum_oflives, double &PNL_total, double &gamma_p, double &gamma_q);
+
+void calculate_pnltrk_bypath(std::vector<std::map<std::string, std::string>> &path_main, double &PNL_total, std::unordered_set<std::string> &addrs_set, std::vector<std::string> addrsv);
+
+void listof_addresses_bypath(std::vector<std::map<std::string, std::string>> &it_path_main, std::vector<std::string> &addrsv);
+
+double PNL_function(long int entry_price, long int exit_price, long int amount_trd, struct status_amounts *pt_jrow_database);
+
+void getting_gammapq_bypath(std::vector<std::map<std::string, std::string>> &path_main, double PNL_total, double &gamma_p, double &gamma_q, std::unordered_set<std::string> addrs_set);
 
 #endif

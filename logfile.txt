@@ -6228,7 +6228,8 @@ Path #160
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-Checking Lives and Adding Ghost Nodes
+Checking Lives by Path:
+
 *******************************************
 
 Path #1:
@@ -6248,6 +6249,8 @@ Path #1:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1474836480 - -1394967296) - -79869184 = -79869184 - -79869184 = 0
+
+gamma_p : -4768699999688.359375, gamma_q : -700000000, PNL_total : 311.64147361866389474016614258289
 *******************************************
 
 Path #2:
@@ -6258,6 +6261,8 @@ Path #2:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1200000000 - 600000000) - 600000000 = 600000000 - 600000000 = 0
+
+gamma_p : -4077599999987.0068359375, gamma_q : -600000000, PNL_total : 12.9929695042059520915245229844
 *******************************************
 
 Path #3:
@@ -6268,6 +6273,8 @@ Path #3:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (200000000 - 0) - 200000000 = 200000000 - 200000000 = 0
+
+gamma_p : -199999995.669677734375, gamma_q : 0, PNL_total : 4.3303526433505910020471674215514
 *******************************************
 
 Path #4:
@@ -6279,6 +6286,8 @@ Path #4:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (2105032704 - -1294967296) - -894967296 = -894967296 - -894967296 = 0
+
+gamma_p : -20393899999807.34375, gamma_q : -3000000000, PNL_total : 192.65642919571774882570025511086
 *******************************************
 
 Path #5:
@@ -6290,6 +6299,10 @@ Path #5:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (600000000 - 600000000) - 0 = 0 - 0 = 0
+
+This path does not have lives contracts!!
+
+gamma_p : -20393899999807.34375, gamma_q : -3000000000, PNL_total : 192.65642919571774882570025511086
 *******************************************
 
 Path #6:
@@ -6302,6 +6315,8 @@ Path #6:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1589934592 - -2094967296) - 505032704 = 505032704 - 505032704 = 0
+
+gamma_p : 14959500000028.01953125, gamma_q : 2200000000, PNL_total : 28.019685059443645513965748250484
 *******************************************
 
 Path #7:
@@ -6314,6 +6329,8 @@ Path #7:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1894967296 - 400000000) - 2000000000 = 2000000000 - 2000000000 = 0
+
+gamma_p : 2719199999956.6787109375, gamma_q : 400000000, PNL_total : -43.321371732810995069939963286743
 *******************************************
 
 Path #8:
@@ -6324,6 +6341,8 @@ Path #8:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1400000000 - 700000000) - 700000000 = 700000000 - 700000000 = 0
+
+gamma_p : -4757199999969.6787109375, gamma_q : -700000000, PNL_total : 30.321391152369429278223833534867
 *******************************************
 
 Path #9:
@@ -6336,6 +6355,8 @@ Path #9:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1379869184 - 405032704) - -1784901888 = -1784901888 - -1784901888 = 0
+
+gamma_p : -31939700000251.0234375, gamma_q : -4700000000, PNL_total : -251.02414159056598919050884433091
 *******************************************
 
 Path #10:
@@ -6345,6 +6366,8 @@ Path #10:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1200000000 - 600000000) - 600000000 = 600000000 - 600000000 = 0
+
+gamma_p : -4077599999974.01025390625, gamma_q : -600000000, PNL_total : 25.989763844888081223416520515457
 *******************************************
 
 Path #11:
@@ -6356,6 +6379,8 @@ Path #11:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (305032704 - -1394967296) - 1700000000 = 1700000000 - 1700000000 = 0
+
+gamma_p : 11549800000248.958984375, gamma_q : 1700000000, PNL_total : 248.95867082569790795787412207574
 *******************************************
 
 Path #12:
@@ -6365,6 +6390,8 @@ Path #12:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1800000000 - 0) - 1800000000 = 1800000000 - 1800000000 = 0
+
+gamma_p : -899999980.5048828125, gamma_q : 0, PNL_total : 19.495191511023200803265353897586
 *******************************************
 
 Path #13:
@@ -6374,6 +6401,8 @@ Path #13:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (600000000 - 0) - 600000000 = 600000000 - 600000000 = 0
+
+gamma_p : 1499999967.53662109375, gamma_q : 0, PNL_total : -32.4633164524126058836372976657
 *******************************************
 
 Path #14:
@@ -6388,6 +6417,8 @@ Path #14:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1884901888 - 2100000000) - 310065408 = 310065408 - 310065408 = 0
+
+gamma_p : 2045399999857.14453125, gamma_q : 300000000, PNL_total : -142.85577351575511784176342189312
 *******************************************
 
 Path #15:
@@ -6400,6 +6431,8 @@ Path #15:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1189934592 - 600000000) - -1789934592 = -1789934592 - -1789934592 = 0
+
+gamma_p : 4073400000077.93359375, gamma_q : 600000000, PNL_total : 77.934881509769681429133925121278
 *******************************************
 
 Path #16:
@@ -6408,6 +6441,8 @@ Path #16:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (200000000 - 0) - 200000000 = 200000000 - 200000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #17:
@@ -6417,6 +6452,8 @@ Path #17:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-94967296 - 0) - -94967296 = -94967296 - -94967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #18:
@@ -6427,6 +6464,8 @@ Path #18:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (800000000 - 400000000) - 400000000 = 400000000 - 400000000 = 0
+
+gamma_p : 2718399999991.337890625, gamma_q : 400000000, PNL_total : -8.661979669470632359207229455933
 *******************************************
 
 Path #19:
@@ -6441,6 +6480,8 @@ Path #19:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-589934592 - -1094967296) - 505032704 = 505032704 - 505032704 = 0
+
+gamma_p : 21750399999883.07421875, gamma_q : 3200000000, PNL_total : -116.92461665229589584669156465679
 *******************************************
 
 Path #20:
@@ -6453,6 +6494,8 @@ Path #20:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (10065408 - 1400000000) - -1389934592 = -1389934592 - -1389934592 = 0
+
+gamma_p : 9504400000307.52734375, gamma_q : 1400000000, PNL_total : 307.52901602450947393663227558136
 *******************************************
 
 Path #21:
@@ -6464,6 +6507,8 @@ Path #21:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1800000000 - 400000000) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : -2718999999961.00390625, gamma_q : -400000000, PNL_total : 38.99612281050049489294906379655
 *******************************************
 
 Path #22:
@@ -6475,6 +6520,8 @@ Path #22:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1705032704 - 0) - 1705032704 = 1705032704 - 1705032704 = 0
+
+gamma_p : 2999999935.03515625, gamma_q : 0, PNL_total : -64.964847521029739141340542118996
 *******************************************
 
 Path #23:
@@ -6485,6 +6532,8 @@ Path #23:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-694967296 - 1400000000) - -2094967296 = -2094967296 - -2094967296 = 0
+
+gamma_p : -9522999999995.650390625, gamma_q : -1400000000, PNL_total : 4.3487946742662018095870735123754
 *******************************************
 
 Path #24:
@@ -6495,6 +6544,8 @@ Path #24:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1389934592 - -694967296) - -694967296 = -694967296 - -694967296 = 0
+
+gamma_p : 24465600000467.265625, gamma_q : 3600000000, PNL_total : 467.26553956451425619889050722122
 *******************************************
 
 Path #25:
@@ -6505,6 +6556,10 @@ Path #25:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1600000000 - 1600000000) - 0 = 0 - 0 = 0
+
+This path does not have lives contracts!!
+
+gamma_p : 24465600000467.265625, gamma_q : 3600000000, PNL_total : 467.26553956451425619889050722122
 *******************************************
 
 Path #26:
@@ -6520,6 +6575,8 @@ Path #26:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1515098112 - -1289934592) - -1489934592 = -1489934592 - -1489934592 = 0
+
+gamma_p : 27862500000101.8046875, gamma_q : 4100000000, PNL_total : 101.80308347297984994384023593739
 *******************************************
 
 Path #27:
@@ -6529,6 +6586,8 @@ Path #27:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1400000000 - 0) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : -4899999893.984375, gamma_q : 0, PNL_total : 106.01565267022915861616638721898
 *******************************************
 
 Path #28:
@@ -6539,6 +6598,8 @@ Path #28:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1084901888 - 0) - -1084901888 = -1084901888 - -1084901888 = 0
+
+gamma_p : 6999999848.421875, gamma_q : 0, PNL_total : -151.57884739511703742209647316486
 *******************************************
 
 Path #29:
@@ -6547,6 +6608,8 @@ Path #29:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1789934592 - 0) - -1789934592 = -1789934592 - -1789934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #30:
@@ -6556,6 +6619,8 @@ Path #30:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1505032704 - 0) - 1505032704 = 1505032704 - 1505032704 = 0
+
+gamma_p : -599999987.01171875, gamma_q : 0, PNL_total : 12.98914691829494749697460065363
 *******************************************
 
 Path #31:
@@ -6565,6 +6630,8 @@ Path #31:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1694967296 - 1300000000) - 1300000000 = 1300000000 - 1300000000 = 0
+
+gamma_p : -8834800000084.404296875, gamma_q : -1300000000, PNL_total : -84.404615469441310438014625106007
 *******************************************
 
 Path #32:
@@ -6574,6 +6641,8 @@ Path #32:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (2000000000 - 600000000) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : -4077600000038.9560546875, gamma_q : -600000000, PNL_total : -38.955976370511372408600436756387
 *******************************************
 
 Path #33:
@@ -6582,6 +6651,8 @@ Path #33:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1400000000 - 0) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #34:
@@ -6591,6 +6662,8 @@ Path #34:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (305032704 - 0) - 305032704 = 305032704 - 305032704 = 0
+
+gamma_p : -2299999950.22265625, gamma_q : 0, PNL_total : 49.77707876332830494447989622131
 *******************************************
 
 Path #35:
@@ -6601,6 +6674,8 @@ Path #35:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (305032704 - 1700000000) - -1394967296 = -1394967296 - -1394967296 = 0
+
+gamma_p : 11554300000049.77734375, gamma_q : 1700000000, PNL_total : 49.77707876332830494447989622131
 *******************************************
 
 Path #36:
@@ -6610,6 +6685,8 @@ Path #36:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1600000000 - 0) - 1600000000 = 1600000000 - 1600000000 = 0
+
+gamma_p : 799999982.6806640625, gamma_q : 0, PNL_total : -17.318861807863463297962880460545
 *******************************************
 
 Path #37:
@@ -6621,6 +6698,8 @@ Path #37:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1200000000 - 0) - 1200000000 = 1200000000 - 1200000000 = 0
+
+gamma_p : -599999987.0146484375, gamma_q : 0, PNL_total : 12.985324894781296478640797431581
 *******************************************
 
 Path #38:
@@ -6632,6 +6711,8 @@ Path #38:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (105032704 - 1200000000) - -1094967296 = -1094967296 - -1094967296 = 0
+
+gamma_p : -8156399999974.021484375, gamma_q : -1200000000, PNL_total : 25.978292711795194946944320690818
 *******************************************
 
 Path #39:
@@ -6644,6 +6725,8 @@ Path #39:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1905032704 - 0) - 1905032704 = 1905032704 - 1905032704 = 0
+
+gamma_p : 2799999939.3828125, gamma_q : 0, PNL_total : -60.616016327522117990156402811408
 *******************************************
 
 Path #40:
@@ -6653,6 +6736,8 @@ Path #40:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1400000000 - 0) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : -2099999954.564453125, gamma_q : 0, PNL_total : 45.435269885508610343549662502483
 *******************************************
 
 Path #41:
@@ -6664,6 +6749,8 @@ Path #41:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1905032704 - -1294967296) - -1094967296 = -1094967296 - -1094967296 = 0
+
+gamma_p : -20399800000134.04296875, gamma_q : -3000000000, PNL_total : -134.0436203884655697038397192955
 *******************************************
 
 Path #42:
@@ -6674,6 +6761,8 @@ Path #42:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1684901888 - 0) - -1684901888 = -1684901888 - -1684901888 = 0
+
+gamma_p : 6599999857.234375, gamma_q : 0, PNL_total : -142.76347687841649758411222137511
 *******************************************
 
 Path #43:
@@ -6685,6 +6774,8 @@ Path #43:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-284901888 - 0) - -284901888 = -284901888 - -284901888 = 0
+
+gamma_p : 2899999937.21875, gamma_q : 0, PNL_total : -62.7808740535050446851528249681
 *******************************************
 
 Path #44:
@@ -6694,6 +6785,8 @@ Path #44:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (105032704 - 0) - 105032704 = 105032704 - 105032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #45:
@@ -6704,6 +6797,8 @@ Path #45:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-2094967296 - 300000000) - 1900000000 = 1900000000 - 1900000000 = 0
+
+gamma_p : 2041499999928.5390625, gamma_q : 300000000, PNL_total : -71.461335368107086196687305346131
 *******************************************
 
 Path #46:
@@ -6715,6 +6810,8 @@ Path #46:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1705032704 - 1505032704) - 200000000 = 200000000 - 200000000 = 0
+
+gamma_p : 1359199999809.43505859375, gamma_q : 200000000, PNL_total : -190.5648355519625454235210781917
 *******************************************
 
 Path #47:
@@ -6725,6 +6822,8 @@ Path #47:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1000000000 - 0) - 1000000000 = 1000000000 - 1000000000 = 0
+
+gamma_p : 2499999945.89453125, gamma_q : 0, PNL_total : -54.105527420687671735777257708833
 *******************************************
 
 Path #48:
@@ -6736,6 +6835,8 @@ Path #48:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (810065408 - 0) - 810065408 = 810065408 - 810065408 = 0
+
+gamma_p : 6199999865.75, gamma_q : 0, PNL_total : -134.24984981126769412185240071267
 *******************************************
 
 Path #49:
@@ -6745,6 +6846,8 @@ Path #49:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1610065408 - 0) - 1610065408 = 1610065408 - 1610065408 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #50:
@@ -6754,6 +6857,8 @@ Path #50:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (705032704 - 0) - 705032704 = 705032704 - 705032704 = 0
+
+gamma_p : -4999999891.740234375, gamma_q : 0, PNL_total : 108.25881608376477061028708703816
 *******************************************
 
 Path #51:
@@ -6762,6 +6867,8 @@ Path #51:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (600000000 - 0) - 600000000 = 600000000 - 600000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #52:
@@ -6772,6 +6879,8 @@ Path #52:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (600000000 - 0) - 600000000 = 600000000 - 600000000 = 0
+
+gamma_p : 299999993.50537109375, gamma_q : 0, PNL_total : -6.4945731779487987367360801727045
 *******************************************
 
 Path #53:
@@ -6783,6 +6892,8 @@ Path #53:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-684901888 - -694967296) - 10065408 = 10065408 - 10065408 = 0
+
+gamma_p : 24469000000549.23046875, gamma_q : 3600000000, PNL_total : 549.23051262396847960189916193485
 *******************************************
 
 Path #54:
@@ -6792,6 +6903,8 @@ Path #54:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1494967296 - 1400000000) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : -9515800000211.90625, gamma_q : -1400000000, PNL_total : -211.90660851948501885999576188624
 *******************************************
 
 Path #55:
@@ -6803,6 +6916,8 @@ Path #55:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-389934592 - 600000000) - -989934592 = -989934592 - -989934592 = 0
+
+gamma_p : 4081699999911.2421875, gamma_q : 600000000, PNL_total : -88.759166765300236079383466858417
 *******************************************
 
 Path #56:
@@ -6814,6 +6929,8 @@ Path #56:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-789934592 - -394967296) - -394967296 = -394967296 - -394967296 = 0
+
+gamma_p : -26496600000843.67578125, gamma_q : -3900000000, PNL_total : -843.6741828951007846626453101635
 *******************************************
 
 Path #57:
@@ -6823,6 +6940,8 @@ Path #57:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1294967296 - 0) - -1294967296 = -1294967296 - -1294967296 = 0
+
+gamma_p : 4499999902.552734375, gamma_q : 0, PNL_total : -97.44727550196419940675696125254
 *******************************************
 
 Path #58:
@@ -6832,6 +6951,8 @@ Path #58:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1600000000 - 600000000) - 1000000000 = 1000000000 - 1000000000 = 0
+
+gamma_p : 4077600000000, gamma_q : 600000000, PNL_total : 0
 *******************************************
 
 Path #59:
@@ -6840,6 +6961,8 @@ Path #59:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1884901888 - 0) - -1884901888 = -1884901888 - -1884901888 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #60:
@@ -6850,6 +6973,8 @@ Path #60:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1915098112 - 100000000) - 1815098112 = 1815098112 - 1815098112 = 0
+
+gamma_p : 694299999679.5546875, gamma_q : 100000000, PNL_total : -320.44609560794367553171468898654
 *******************************************
 
 Path #61:
@@ -6861,6 +6986,8 @@ Path #61:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (905032704 - 1700000000) - -794967296 = -794967296 - -794967296 = 0
+
+gamma_p : -11553400000069.26171875, gamma_q : -1700000000, PNL_total : -69.26079914077072885447705630213
 *******************************************
 
 Path #62:
@@ -6870,6 +6997,8 @@ Path #62:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (2000000000 - 0) - 2000000000 = 2000000000 - 2000000000 = 0
+
+gamma_p : 999999978.3515625, gamma_q : 0, PNL_total : -21.648577259829327346096761175431
 *******************************************
 
 Path #63:
@@ -6879,6 +7008,8 @@ Path #63:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1200000000 - 0) - 1200000000 = 1200000000 - 1200000000 = 0
+
+gamma_p : 599999987.0107421875, gamma_q : 0, PNL_total : -12.989146355897595697115320945159
 *******************************************
 
 Path #64:
@@ -6891,6 +7022,8 @@ Path #64:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1915098112 - 0) - 1915098112 = 1915098112 - 1915098112 = 0
+
+gamma_p : 1999999956.703125, gamma_q : 0, PNL_total : -43.297154519658654692193522350863
 *******************************************
 
 Path #65:
@@ -6900,6 +7033,8 @@ Path #65:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1000000000 - 500000000) - 500000000 = 500000000 - 500000000 = 0
+
+gamma_p : 3398000000010.82421875, gamma_q : 500000000, PNL_total : 10.824288629914663673048380587716
 *******************************************
 
 Path #66:
@@ -6909,6 +7044,8 @@ Path #66:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1505032704 - 0) - 1505032704 = 1505032704 - 1505032704 = 0
+
+gamma_p : 5799999874.41796875, gamma_q : 0, PNL_total : -125.58022665716713106576207792386
 *******************************************
 
 Path #67:
@@ -6918,6 +7055,8 @@ Path #67:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1094967296 - 0) - -1094967296 = -1094967296 - -1094967296 = 0
+
+gamma_p : 3199999930.71484375, gamma_q : 0, PNL_total : -69.285642293609456032754678744823
 *******************************************
 
 Path #68:
@@ -6927,6 +7066,8 @@ Path #68:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1400000000 - 700000000) - 700000000 = 700000000 - 700000000 = 0
+
+gamma_p : 4757899999969.6875, gamma_q : 700000000, PNL_total : -30.312468503454134349794912850484
 *******************************************
 
 Path #69:
@@ -6935,6 +7076,8 @@ Path #69:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-389934592 - 0) - -389934592 = -389934592 - -389934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #70:
@@ -6945,6 +7088,8 @@ Path #70:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1884901888 - 2100000000) - 310065408 = 310065408 - 310065408 = 0
+
+gamma_p : 14241600001012.26171875, gamma_q : 2100000000, PNL_total : 1012.2600262408893740939674898982
 *******************************************
 
 Path #71:
@@ -6953,6 +7098,8 @@ Path #71:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (2105032704 - 0) - 2105032704 = 2105032704 - 2105032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #72:
@@ -6962,6 +7109,8 @@ Path #72:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-694967296 - 100000000) - -794967296 = -794967296 - -794967296 = 0
+
+gamma_p : -679400000006.49609375, gamma_q : -100000000, PNL_total : -6.4964850334642800788742533768527
 *******************************************
 
 Path #73:
@@ -6970,6 +7119,8 @@ Path #73:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1000000000 - 0) - 1000000000 = 1000000000 - 1000000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #74:
@@ -6978,6 +7129,8 @@ Path #74:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (810065408 - 0) - 810065408 = 810065408 - 810065408 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #75:
@@ -6988,6 +7141,8 @@ Path #75:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1800000000 - 0) - 1800000000 = 1800000000 - 1800000000 = 0
+
+gamma_p : -2099999954.5185546875, gamma_q : 0, PNL_total : 45.481131644880321118762367404997
 *******************************************
 
 Path #76:
@@ -6997,6 +7152,8 @@ Path #76:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1979869184 - 0) - -1979869184 = -1979869184 - -1979869184 = 0
+
+gamma_p : 10399999774.8203125, gamma_q : 0, PNL_total : -225.17833745423072855373902712017
 *******************************************
 
 Path #77:
@@ -7005,6 +7162,8 @@ Path #77:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (905032704 - 0) - 905032704 = 905032704 - 905032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #78:
@@ -7014,6 +7173,8 @@ Path #78:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1600000000 - 0) - 1600000000 = 1600000000 - 1600000000 = 0
+
+gamma_p : -2399999948.04296875, gamma_q : 0, PNL_total : 51.956587673179789987898402614519
 *******************************************
 
 Path #79:
@@ -7024,6 +7185,8 @@ Path #79:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (105032704 - 0) - 105032704 = 105032704 - 105032704 = 0
+
+gamma_p : -4799999896.076171875, gamma_q : 0, PNL_total : 103.92464141690052770172769669443
 *******************************************
 
 Path #80:
@@ -7033,6 +7196,8 @@ Path #80:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (105032704 - -2094967296) - -2094967296 = -2094967296 - -2094967296 = 0
+
+gamma_p : -14951199999904.705078125, gamma_q : -2200000000, PNL_total : 95.295800764589628784051456023008
 *******************************************
 
 Path #81:
@@ -7046,6 +7211,8 @@ Path #81:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1115098112 - -1294967296) - -1884901888 = -1884901888 - -1884901888 = 0
+
+gamma_p : 5442599999839.73046875, gamma_q : 800000000, PNL_total : -160.27021037680984250073379371315
 *******************************************
 
 Path #82:
@@ -7054,6 +7221,8 @@ Path #82:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (200000000 - 0) - 200000000 = 200000000 - 200000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #83:
@@ -7062,6 +7231,8 @@ Path #83:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1884901888 - 0) - -1884901888 = -1884901888 - -1884901888 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #84:
@@ -7070,6 +7241,8 @@ Path #84:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (600000000 - 0) - 600000000 = 600000000 - 600000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #85:
@@ -7079,6 +7252,8 @@ Path #85:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-694967296 - 800000000) - -1494967296 = -1494967296 - -1494967296 = 0
+
+gamma_p : 5436799999965.3466796875, gamma_q : 800000000, PNL_total : -34.653018459850777333031146554276
 *******************************************
 
 Path #86:
@@ -7088,6 +7263,8 @@ Path #86:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1505032704 - 0) - 1505032704 = 1505032704 - 1505032704 = 0
+
+gamma_p : -2399999948.05078125, gamma_q : 0, PNL_total : 51.948942501357784351512236753479
 *******************************************
 
 Path #87:
@@ -7096,6 +7273,8 @@ Path #87:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1200000000 - 0) - 1200000000 = 1200000000 - 1200000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #88:
@@ -7104,6 +7283,8 @@ Path #88:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1789934592 - 0) - -1789934592 = -1789934592 - -1789934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #89:
@@ -7112,6 +7293,8 @@ Path #89:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1000000000 - 0) - 1000000000 = 1000000000 - 1000000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #90:
@@ -7121,6 +7304,8 @@ Path #90:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (105032704 - 0) - 105032704 = 105032704 - 105032704 = 0
+
+gamma_p : 2199999952.359375, gamma_q : 0, PNL_total : -47.64088818208847442292608320713
 *******************************************
 
 Path #91:
@@ -7130,6 +7315,8 @@ Path #91:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (505032704 - 0) - 505032704 = 505032704 - 505032704 = 0
+
+gamma_p : -2799999939.427734375, gamma_q : 0, PNL_total : 60.571452280817439373095112387091
 *******************************************
 
 Path #92:
@@ -7138,6 +7325,8 @@ Path #92:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-989934592 - 0) - -989934592 = -989934592 - -989934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #93:
@@ -7147,6 +7336,8 @@ Path #93:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-294967296 - 0) - -294967296 = -294967296 - -294967296 = 0
+
+gamma_p : 1999999956.689453125, gamma_q : 0, PNL_total : -43.309898347353161796036147279665
 *******************************************
 
 Path #94:
@@ -7155,6 +7346,8 @@ Path #94:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1505032704 - 0) - 1505032704 = 1505032704 - 1505032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #95:
@@ -7163,6 +7356,8 @@ Path #95:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (600000000 - 0) - 600000000 = 600000000 - 600000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #96:
@@ -7171,6 +7366,8 @@ Path #96:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-189934592 - 0) - -189934592 = -189934592 - -189934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #97:
@@ -7179,6 +7376,8 @@ Path #97:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (105032704 - 0) - 105032704 = 105032704 - 105032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #98:
@@ -7187,6 +7386,8 @@ Path #98:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1200000000 - 0) - 1200000000 = 1200000000 - 1200000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #99:
@@ -7195,6 +7396,8 @@ Path #99:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1094967296 - 0) - -1094967296 = -1094967296 - -1094967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #100:
@@ -7207,6 +7410,8 @@ Path #100:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-589934592 - 1600000000) - 2105032704 = 2105032704 - 2105032704 = 0
+
+gamma_p : -10875399999995.671875, gamma_q : -1600000000, PNL_total : 4.3297154519658658244907201151364
 *******************************************
 
 Path #101:
@@ -7218,6 +7423,8 @@ Path #101:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1105032704 - 400000000) - 705032704 = 705032704 - 705032704 = 0
+
+gamma_p : -2721299999937.21875, gamma_q : -400000000, PNL_total : 62.7808740535050446851528249681
 *******************************************
 
 Path #102:
@@ -7228,6 +7435,8 @@ Path #102:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1210065408 - 1100000000) - 110065408 = 110065408 - 110065408 = 0
+
+gamma_p : 7480499999870.1015625, gamma_q : 1100000000, PNL_total : -129.89847266420792948338203132153
 *******************************************
 
 Path #103:
@@ -7236,6 +7445,8 @@ Path #103:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1600000000 - 0) - 1600000000 = 1600000000 - 1600000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #104:
@@ -7244,6 +7455,8 @@ Path #104:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1389934592 - 0) - -1389934592 = -1389934592 - -1389934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #105:
@@ -7252,6 +7465,8 @@ Path #105:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-494967296 - 0) - -494967296 = -494967296 - -494967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #106:
@@ -7261,6 +7476,8 @@ Path #106:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-2094967296 - 0) - -2094967296 = -2094967296 - -2094967296 = 0
+
+gamma_p : 599999987.0068359375, gamma_q : 0, PNL_total : -12.992969504205948538810844183899
 *******************************************
 
 Path #107:
@@ -7269,6 +7486,8 @@ Path #107:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-694967296 - 0) - -694967296 = -694967296 - -694967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #108:
@@ -7277,6 +7496,8 @@ Path #108:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (705032704 - 0) - 705032704 = 705032704 - 705032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #109:
@@ -7285,6 +7506,8 @@ Path #109:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1200000000 - 0) - 1200000000 = 1200000000 - 1200000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #110:
@@ -7293,6 +7516,8 @@ Path #110:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1600000000 - 0) - 1600000000 = 1600000000 - 1600000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #111:
@@ -7301,6 +7526,8 @@ Path #111:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (2010065408 - 0) - 2010065408 = 2010065408 - 2010065408 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #112:
@@ -7310,6 +7537,8 @@ Path #112:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1800000000 - 0) - 1800000000 = 1800000000 - 1800000000 = 0
+
+gamma_p : -4499999902.6103515625, gamma_q : 0, PNL_total : 97.389949357237810545484535396099
 *******************************************
 
 Path #113:
@@ -7318,6 +7547,8 @@ Path #113:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (2000000000 - 0) - 2000000000 = 2000000000 - 2000000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #114:
@@ -7326,6 +7557,8 @@ Path #114:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1789934592 - 0) - -1789934592 = -1789934592 - -1789934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #115:
@@ -7335,6 +7568,8 @@ Path #115:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1694967296 - 0) - -1694967296 = -1694967296 - -1694967296 = 0
+
+gamma_p : 1299999971.857421875, gamma_q : 0, PNL_total : -28.143150437778125194654421648011
 *******************************************
 
 Path #116:
@@ -7344,6 +7579,8 @@ Path #116:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (705032704 - 0) - 705032704 = 705032704 - 705032704 = 0
+
+gamma_p : 2499999945.87890625, gamma_q : 0, PNL_total : -54.121443149573316588885063538328
 *******************************************
 
 Path #117:
@@ -7353,6 +7590,8 @@ Path #117:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (200000000 - 100000000) - 100000000 = 100000000 - 100000000 = 0
+
+gamma_p : -679599999997.83447265625, gamma_q : -100000000, PNL_total : 2.1654949173676580898018073639832
 *******************************************
 
 Path #118:
@@ -7361,6 +7600,8 @@ Path #118:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (905032704 - 0) - 905032704 = 905032704 - 905032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #119:
@@ -7370,6 +7611,8 @@ Path #119:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1494967296 - 0) - -1494967296 = -1494967296 - -1494967296 = 0
+
+gamma_p : 1399999969.69140625, gamma_q : 0, PNL_total : -30.308008163761058995078201405704
 *******************************************
 
 Path #120:
@@ -7379,6 +7622,8 @@ Path #120:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (915098112 - 0) - 915098112 = 915098112 - 915098112 = 0
+
+gamma_p : 5599999878.765625, gamma_q : 0, PNL_total : -121.23203265504423598031280562282
 *******************************************
 
 Path #121:
@@ -7387,6 +7632,8 @@ Path #121:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1800000000 - 0) - 1800000000 = 1800000000 - 1800000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #122:
@@ -7396,6 +7643,8 @@ Path #122:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1189934592 - 0) - -1189934592 = -1189934592 - -1189934592 = 0
+
+gamma_p : 1799999961.02734375, gamma_q : 0, PNL_total : -38.973173790155314577532408293337
 *******************************************
 
 Path #123:
@@ -7405,6 +7654,8 @@ Path #123:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (600000000 - 300000000) - 300000000 = 300000000 - 300000000 = 0
+
+gamma_p : -2039100000045.408447265625, gamma_q : -300000000, PNL_total : -45.408558968461072424815938575193
 *******************************************
 
 Path #124:
@@ -7413,6 +7664,8 @@ Path #124:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (200000000 - 0) - 200000000 = 200000000 - 200000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #125:
@@ -7422,6 +7675,8 @@ Path #125:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1420130816 - 700000000) - 720130816 = 720130816 - 720130816 = 0
+
+gamma_p : -4757900000105.953125, gamma_q : -700000000, PNL_total : -105.95330425974250942999788094312
 *******************************************
 
 Path #126:
@@ -7430,6 +7685,8 @@ Path #126:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (800000000 - 0) - 800000000 = 800000000 - 800000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #127:
@@ -7439,6 +7696,8 @@ Path #127:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1905032704 - 0) - 1905032704 = 1905032704 - 1905032704 = 0
+
+gamma_p : 1599999965.36328125, gamma_q : 0, PNL_total : -34.637723615726926595925760921091
 *******************************************
 
 Path #128:
@@ -7447,6 +7706,8 @@ Path #128:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1294967296 - 0) - -1294967296 = -1294967296 - -1294967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #129:
@@ -7455,6 +7716,8 @@ Path #129:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1989934592 - 0) - -1989934592 = -1989934592 - -1989934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #130:
@@ -7463,6 +7726,8 @@ Path #130:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (800000000 - 0) - 800000000 = 800000000 - 800000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #131:
@@ -7471,6 +7736,8 @@ Path #131:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-294967296 - 0) - -294967296 = -294967296 - -294967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #132:
@@ -7479,6 +7746,8 @@ Path #132:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-294967296 - 0) - -294967296 = -294967296 - -294967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #133:
@@ -7487,6 +7756,8 @@ Path #133:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1400000000 - 0) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #134:
@@ -7495,6 +7766,8 @@ Path #134:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1915098112 - 0) - 1915098112 = 1915098112 - 1915098112 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #135:
@@ -7503,6 +7776,8 @@ Path #135:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1400000000 - 0) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #136:
@@ -7511,6 +7786,8 @@ Path #136:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1389934592 - 0) - -1389934592 = -1389934592 - -1389934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #137:
@@ -7519,6 +7796,8 @@ Path #137:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1200000000 - 0) - 1200000000 = 1200000000 - 1200000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #138:
@@ -7527,6 +7806,8 @@ Path #138:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1600000000 - 0) - 1600000000 = 1600000000 - 1600000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #139:
@@ -7535,6 +7816,8 @@ Path #139:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (800000000 - 0) - 800000000 = 800000000 - 800000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #140:
@@ -7543,6 +7826,8 @@ Path #140:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1505032704 - 0) - 1505032704 = 1505032704 - 1505032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #141:
@@ -7551,6 +7836,8 @@ Path #141:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (2105032704 - 0) - 2105032704 = 2105032704 - 2105032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #142:
@@ -7559,6 +7846,8 @@ Path #142:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1589934592 - 0) - -1589934592 = -1589934592 - -1589934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #143:
@@ -7567,6 +7856,8 @@ Path #143:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (105032704 - 0) - 105032704 = 105032704 - 105032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #144:
@@ -7575,6 +7866,8 @@ Path #144:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1315098112 - 0) - 1315098112 = 1315098112 - 1315098112 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #145:
@@ -7583,6 +7876,8 @@ Path #145:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (2000000000 - 0) - 2000000000 = 2000000000 - 2000000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #146:
@@ -7591,6 +7886,8 @@ Path #146:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (105032704 - 0) - 105032704 = 105032704 - 105032704 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #147:
@@ -7599,6 +7896,8 @@ Path #147:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1400000000 - 0) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #148:
@@ -7607,6 +7906,8 @@ Path #148:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1800000000 - 0) - 1800000000 = 1800000000 - 1800000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #149:
@@ -7615,6 +7916,8 @@ Path #149:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-94967296 - 0) - -94967296 = -94967296 - -94967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #150:
@@ -7624,6 +7927,8 @@ Path #150:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1094967296 - 400000000) - -1494967296 = -1494967296 - -1494967296 = 0
+
+gamma_p : -2718799999991.33984375, gamma_q : -400000000, PNL_total : 8.6594309039317316489814402302727
 *******************************************
 
 Path #151:
@@ -7632,6 +7937,8 @@ Path #151:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-94967296 - 0) - -94967296 = -94967296 - -94967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #152:
@@ -7640,6 +7947,8 @@ Path #152:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1200000000 - 0) - 1200000000 = 1200000000 - 1200000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #153:
@@ -7648,6 +7957,8 @@ Path #153:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1715098112 - 0) - 1715098112 = 1715098112 - 1715098112 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #154:
@@ -7656,6 +7967,8 @@ Path #154:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-1294967296 - 0) - -1294967296 = -1294967296 - -1294967296 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #155:
@@ -7664,6 +7977,8 @@ Path #155:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1400000000 - 0) - 1400000000 = 1400000000 - 1400000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #156:
@@ -7672,6 +7987,8 @@ Path #156:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (400000000 - 0) - 400000000 = 400000000 - 400000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #157:
@@ -7680,6 +7997,8 @@ Path #157:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-789934592 - 0) - -789934592 = -789934592 - -789934592 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #158:
@@ -7688,6 +8007,8 @@ Path #158:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (1000000000 - 0) - 1000000000 = 1000000000 - 1000000000 = 0
+
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 *******************************************
 
 Path #159:
@@ -7697,6 +8018,8 @@ Path #159:
 
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-894967296 - 0) - -894967296 = -894967296 - -894967296 = 0
+
+gamma_p : 799999982.673828125, gamma_q : 0, PNL_total : -17.326509229925388666515573277138
 *******************************************
 
 Path #160:
@@ -7706,9 +8029,9 @@ Path #160:
 Checking Zero Netted by Path:
 (contracts_opened - contracts_closed)-contracts_lives = (-694967296 - 0) - -694967296 = -694967296 - -694967296 = 0
 
-////////////////////////////////////////
+gamma_p : 0, gamma_q : 0, PNL_total : 0
 
-Edge Lives Longs:
+exit_price_desired: 6811.3333336992118347552604973316
 { addrs : mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9, status : OpenLongPosition, lives : 2300000000, entry_price : 6796, edge_row : 68, path_number : 1 }
 { addrs : n3YizWdTwJRwwugvGdnpapNL3mVfmkWxGb, status : OpenLongPosition, lives : 200000000, entry_price : 6796, edge_row : 69, path_number : 1 }
 { addrs : mxLwg7uCaJfdzqndKVeKkK1j7j7xXArzTP, status : LongPosIncreased, lives : 200000000, entry_price : 6794, edge_row : 180, path_number : 1 }
@@ -7891,10 +8214,6 @@ Edge Lives Longs:
 { addrs : mwm8Yrhw7QNn3gDBZY5eazdYWftAg8B519, status : LongPosIncreased, lives : 500000000, entry_price : 6797, edge_row : 255, path_number : 158 }
 { addrs : mvR1DyHt68BU5SYs1JK2GiYW5ofdQ5X6w9, status : LongPosIncreased, lives : 1700000000, entry_price : 6794, edge_row : 262, path_number : 159 }
 { addrs : mnSoWnRgkFjLvZkU4ewnayS7Z5XuW2uKc9, status : LongPosIncreased, lives : 1800000000, entry_price : 6796, edge_row : 270, path_number : 160 }
-
-////////////////////////////////////////
-
-Edge Lives Short:
 { addrs : mobiVuCuRhwG9haTvbsm6WLFjvuuHQhCYM, status : ShortPosIncreased, lives : 300000000, entry_price : 6798, edge_row : 129, path_number : 1 }
 { addrs : mzXekvVWRAKsDQTqFgueGDdN4xU8qBnGJR, status : OpenShortPosition, lives : 2600000000, entry_price : 6797, edge_row : 71, path_number : 1 }
 { addrs : msJmk6FFfnpD2fwdXLrwUU4QFBXr5HmPFa, status : OpenShortPosition, lives : 2300000000, entry_price : 6795, edge_row : 182, path_number : 1 }
@@ -8064,9 +8383,9 @@ Edge Lives Short:
 { addrs : myha2aAYNVrwnqJKFtmykGvVdQDCWifXhm, status : ShortPosNettedPartly, lives : 1300000000, entry_price : 6794, edge_row : 271, path_number : 159 }
 { addrs : mmWZQuZWUw1SpEFmxVL7zYv4exV1zuNNb8, status : ShortPosIncreased, lives : 1800000000, entry_price : 6796, edge_row : 270, path_number : 160 }
 
-////////////////////////////////////////
+|nlives_longs| : 358800000000, |nlives_longs| : 358800000000
 
-Lives Long : 358800000000, Lives Short : 358800000000
+From here start Ghost Paths building:
 
 
 |rows|: 274,	 |cols|: 8
