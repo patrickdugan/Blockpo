@@ -305,8 +305,17 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
   exit_price_desired = sum_gamma_p/sum_gamma_q;
   cout <<"\nexit_price_desired: " << exit_price_desired << "\n";
   counting_lives_longshorts(lives_longs, lives_shorts);
-  printf("\nFrom here start Ghost Paths building:\n");
+  printf("\nGhost Edges Vector:\n");
   calculating_ghost_edges(lives_longs, lives_shorts, exit_price_desired, ghost_edges_array);
+  
+  std::vector<std::map<std::string, std::string>>::iterator it_ghost;
+  for (it_ghost = ghost_edges_array.begin(); it_ghost != ghost_edges_array.end(); ++it_ghost)
+    {
+      printing_edges(*it_ghost);
+    }
+  
+  updating_lives_tozero(path_main);
+  
 }
 
 void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, struct status_amounts *pt_pos, int idx_long_short, int &counting_netted, long int amount_trd_sum, std::vector<std::map<std::string, std::string>> &path_main, int path_number, long int opened_contracts)
@@ -742,7 +751,6 @@ void calculating_ghost_edges(std::vector<std::map<std::string, std::string>> liv
 {
   long int amount_itlongs  = 0;
   long int amount_itshorts = 0;
-  long int difference_amounts = 0;
   unsigned index_start = 0;
   
   std::vector<std::map<std::string, std::string>>::iterator it_longs;
@@ -756,53 +764,66 @@ void calculating_ghost_edges(std::vector<std::map<std::string, std::string>> liv
     {
       long_ele = lives_longs[i];
       amount_itlongs = stol(long_ele["lives"]);
-      printf("----------------------LONG-------------------------");
-      printing_edges_lives(long_ele);
-      printf("---------------------------------------------------");
       
       for (unsigned j = index_start; j < lives_shorts.size(); j++)
 	{
 	  short_ele = lives_shorts[j];
 	  amount_itshorts = stol(short_ele["lives"]);
-	  
-	  cout << "\n Check : (amount_itlongs, sum_amount_shorts): " << amount_itlongs << "\t" << amount_itshorts <<"\n";
-	  
-	  if ( amount_itlongs >= amount_itshorts )
+	  	  
+	  if ( amount_itlongs > amount_itshorts )
 	    {
-	      printing_edges_lives(short_ele);
-	      difference_amounts = amount_itlongs - amount_itshorts;
-	      cout << "\namount_itlongs >= amount_itshorts: " << amount_itlongs << "\t" << amount_itshorts <<"\n";
-	      amount_itlongs = difference_amounts;
+	      amount_itlongs = amount_itlongs - amount_itshorts;
+
 	      building_edge(edge_ele, short_ele["addrs"], long_ele["addrs"], short_ele["status"], long_ele["status"], stod(long_ele["entry_price"]), exit_price_desired, 0, stol(long_ele["edge_row"]), stol(long_ele["path_number"]), amount_itshorts, 1);
-	      printf("\nFirst edge:\n");
-	      printing_edges(edge_ele);
+	      
 	      ghost_edges_array.push_back(edge_ele);
 	      building_edge(edge_ele, long_ele["addrs"], short_ele["addrs"], long_ele["status"], short_ele["status"], stod(short_ele["entry_price"]), exit_price_desired, 0, stol(short_ele["edge_row"]), stol(short_ele["path_number"]), amount_itshorts, 1);
-	      printf("\nSecnd edge:\n");
-	      printing_edges(edge_ele);
 	      ghost_edges_array.push_back(edge_ele);
-	      printf("-----------------------------------------------");	      
+
 	      continue;
 	    }
 	  if ( amount_itlongs < amount_itshorts )
 	    {
-	      printing_edges_lives(short_ele);
-	      difference_amounts = amount_itshorts - amount_itlongs;
-	      cout << "\namount_itlongs < amount_itshorts: " << amount_itlongs << "\t" << amount_itshorts <<"\n";
 	      index_start = j;
-	      lives_shorts[j]["lives"] = std::to_string(difference_amounts);
+	      lives_shorts[j]["lives"] = std::to_string(amount_itshorts - amount_itlongs);
 
 	      building_edge(edge_ele, short_ele["addrs"], long_ele["addrs"], short_ele["status"], long_ele["status"], stod(long_ele["entry_price"]), exit_price_desired, 0, stol(long_ele["edge_row"]), stol(long_ele["path_number"]), amount_itlongs, 1);
-	      printf("\nFirst edge:\n");
-	      printing_edges(edge_ele);
-	      ghost_edges_array.push_back(edge_ele);	      
-	      building_edge(edge_ele, long_ele["addrs"], short_ele["addrs"], long_ele["status"], short_ele["status"], stod(short_ele["entry_price"]), exit_price_desired, 0, stol(short_ele["edge_row"]), stol(short_ele["path_number"]), amount_itlongs, 1);
-	      printf("\nSecnd edge:\n");
-	      printing_edges(edge_ele);
 	      ghost_edges_array.push_back(edge_ele);
-	      printf("-----------------------------------------------");
+	      
+	      building_edge(edge_ele, long_ele["addrs"], short_ele["addrs"], long_ele["status"], short_ele["status"], stod(short_ele["entry_price"]), exit_price_desired, 0, stol(short_ele["edge_row"]), stol(short_ele["path_number"]), amount_itlongs, 1);
+	      ghost_edges_array.push_back(edge_ele);
+
 	      break; 
 	    }
+	  if ( amount_itlongs == amount_itshorts )
+	    {
+	      index_start = j+1;
+	      
+	      building_edge(edge_ele, short_ele["addrs"], long_ele["addrs"], short_ele["status"], long_ele["status"], stod(long_ele["entry_price"]), exit_price_desired, 0, stol(long_ele["edge_row"]), stol(long_ele["path_number"]), amount_itlongs, 1);
+	      ghost_edges_array.push_back(edge_ele);
+	      
+	      building_edge(edge_ele, long_ele["addrs"], short_ele["addrs"], long_ele["status"], short_ele["status"], stod(short_ele["entry_price"]), exit_price_desired, 0, stol(short_ele["edge_row"]), stol(short_ele["path_number"]), amount_itlongs, 1);
+	      ghost_edges_array.push_back(edge_ele);
+	      
+	      break;
+	    }
+	}
+    }
+}
+
+void updating_lives_tozero(std::vector<std::vector<std::map<std::string, std::string>>> &path_main)
+{
+  std::vector<std::vector<std::map<std::string, std::string>>>::iterator it_path_main;
+  std::vector<std::map<std::string, std::string>>::iterator it_path_maini;
+  
+  for (it_path_main = path_main.begin(); it_path_main != path_main.end(); ++it_path_main)
+    {
+      for (it_path_maini = (*it_path_main).begin(); it_path_maini != (*it_path_main).end(); ++it_path_maini)
+	{
+	  std::map<std::string, std::string> &edge_ele = *it_path_maini;
+	  edge_ele["lives_src"] = std::to_string(0);
+	  edge_ele["lives_trk"] = std::to_string(0);
+	  printing_edges(*it_path_maini);
 	}
     }
 }

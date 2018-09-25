@@ -103,4 +103,6 @@ void getting_gammapq_bypath(std::vector<std::map<std::string, std::string>> &pat
 
 void calculating_ghost_edges(std::vector<std::map<std::string, std::string>> lives_longs, std::vector<std::map<std::string, std::string>> lives_shorts, double exit_price_desired, std::vector<std::map<std::string, std::string>> &ghost_edges_array);
 
+void updating_lives_tozero(std::vector<std::vector<std::map<std::string, std::string>>> &path_main);
+
 #endif
