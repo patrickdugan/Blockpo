@@ -305,17 +305,37 @@ void settlement_algorithm_fifo(MatrixTL &M_file)
   exit_price_desired = sum_gamma_p/sum_gamma_q;
   cout <<"\nexit_price_desired: " << exit_price_desired << "\n";
   counting_lives_longshorts(lives_longs, lives_shorts);
+
+  printf("____________________________________________________");
   printf("\nGhost Edges Vector:\n");
   calculating_ghost_edges(lives_longs, lives_shorts, exit_price_desired, ghost_edges_array);
-  
   std::vector<std::map<std::string, std::string>>::iterator it_ghost;
   for (it_ghost = ghost_edges_array.begin(); it_ghost != ghost_edges_array.end(); ++it_ghost)
     {
       printing_edges(*it_ghost);
     }
+
+  printf("____________________________________________________");
+  joining_pathmain_ghostedges(path_main, ghost_edges_array);
+  int k = 0;
+  long int nonzero_lives;
+  double PNL_totalit;
   
-  updating_lives_tozero(path_main);
-  
+  for (it_path_main = path_main.begin(); it_path_main != path_main.end(); ++it_path_main)
+    {
+      k += 1;
+      printf("\nPath #%d with Ghost Nodes\n", k);
+      printing_path_maini(*it_path_main);
+      nonzero_lives = checkpath_livesnonzero(*it_path_main);
+      checkzeronetted_bypath_ghostedges(*it_path_main, nonzero_lives);
+      calculate_pnltrk_bypath(*it_path_main, PNL_totalit);
+      PNL_total += PNL_totalit;
+      printf("\nPNL_total_main sum: %f\n", PNL_total);
+    }
+  printf("\n____________________________________________________\n");
+  printf("\nChecking PNL global (Total Sum PNL by Path) using exit price by Equation found:\n");
+  printf("\nPNL_total_main = %f", PNL_total);
+  printf("\n____________________________________________________\n");
 }
 
 void clearing_operator_fifo(VectorTL &vdata, MatrixTL &M_file, int index_init, struct status_amounts *pt_pos, int idx_long_short, int &counting_netted, long int amount_trd_sum, std::vector<std::map<std::string, std::string>> &path_main, int path_number, long int opened_contracts)
@@ -672,6 +692,28 @@ void calculate_pnltrk_bypath(std::vector<std::map<std::string, std::string>> &pa
   PNL_total = sumPNL_trk;
 }
 
+void calculate_pnltrk_bypath(std::vector<std::map<std::string, std::string>> path_main, double &PNL_total)
+{
+  std::vector<std::map<std::string, std::string>>::iterator it_path;
+  double sumPNL_trk = 0;
+  double PNL_trk;
+  extern int cols_news;
+  extern MatrixTL *pt_ndatabase; MatrixTL &ndatabase = *pt_ndatabase;
+  VectorTL jrow_database(cols_news);
+
+  printf("\nChecking PNL in this Path:\n");
+  for (it_path = path_main.begin(); it_path != path_main.end(); ++it_path)
+    {
+      sub_row(jrow_database, ndatabase, stol((*it_path)["edge_row"]));
+      struct status_amounts *pt_jrow_database = get_status_amounts_byaddrs(jrow_database, (*it_path)["addrs_trk"]);
+      PNL_trk = PNL_function(stod((*it_path)["entry_price"]), stod((*it_path)["exit_price"]), stol((*it_path)["amount_trd"]), pt_jrow_database);
+      printf("\nPNL_trk = %f\n", PNL_trk);
+      sumPNL_trk += PNL_trk;
+    }
+  PNL_total = sumPNL_trk;
+  printf("\nPNL_total_thispath = %f\n", PNL_total);
+}
+
 void listof_addresses_bypath(std::vector<std::map<std::string, std::string>> &it_path_main, std::vector<std::string> &addrsv)
 {
   std::vector<std::string> addrsvh;
@@ -826,4 +868,54 @@ void updating_lives_tozero(std::vector<std::vector<std::map<std::string, std::st
 	  printing_edges(*it_path_maini);
 	}
     }
+}
+
+void joining_pathmain_ghostedges(std::vector<std::vector<std::map<std::string, std::string>>> &path_main, std::vector<std::map<std::string, std::string>> ghost_edges_array)
+{
+  std::vector<std::vector<std::map<std::string, std::string>>>::iterator it_path_main;
+  std::vector<std::map<std::string, std::string>>::iterator it_ghosts;
+  long int index_path = 0;
+  
+  for (it_path_main = path_main.begin(); it_path_main != path_main.end(); ++it_path_main)
+    {
+      index_path = stol((*it_path_main).front()["path_number"]);
+      for (it_ghosts = ghost_edges_array.begin(); it_ghosts != ghost_edges_array.end(); ++it_ghosts)
+	{
+	  if ( stol((*it_ghosts)["path_number"]) == index_path )
+	    {
+	      (*it_path_main).push_back(*it_ghosts);
+	    }
+	}
+    }
+}
+
+void checkzeronetted_bypath_ghostedges(std::vector<std::map<std::string, std::string>> path_maini, long int nonzero_lives)
+{
+  std::vector<std::map<std::string, std::string>>::iterator it_path_maini;
+  long int lives_settled = 0;
+  
+  if ( nonzero_lives != 0 )
+    {
+      for (it_path_maini = path_maini.begin(); it_path_maini != path_maini.end(); ++it_path_maini)
+	{
+	  if ( stol((*it_path_maini)["ghost_edge"]) == 1 )
+	    {
+	      lives_settled += stol((*it_path_maini)["amount_trd"]);
+	    }
+	}
+    }
+  printf("\nLives in the Path - Lives settled : (%ld - %ld) = %ld\n", nonzero_lives, lives_settled, nonzero_lives - lives_settled);
+}
+
+long int checkpath_livesnonzero(std::vector<std::map<std::string, std::string>> path_maini)
+{
+  std::vector<std::map<std::string, std::string>>::iterator it_path_maini;
+  long int lives = 0;
+  
+  for (it_path_maini = path_maini.begin(); it_path_maini != path_maini.end(); ++it_path_maini)
+    {
+      lives += stol((*it_path_maini)["lives_src"])+stol((*it_path_maini)["lives_trk"]); 
+    }
+
+  return lives;
 }

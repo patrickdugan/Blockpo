@@ -105,4 +105,12 @@ void calculating_ghost_edges(std::vector<std::map<std::string, std::string>> liv
 
 void updating_lives_tozero(std::vector<std::vector<std::map<std::string, std::string>>> &path_main);
 
+void joining_pathmain_ghostedges(std::vector<std::vector<std::map<std::string, std::string>>> &path_main, std::vector<std::map<std::string, std::string>> ghost_edges_array);
+
+void checkzeronetted_bypath_ghostedges(std::vector<std::map<std::string, std::string>> path_maini, long int nonzero_lives);
+
+long int checkpath_livesnonzero(std::vector<std::map<std::string, std::string>> path_maini);
+
+void calculate_pnltrk_bypath(std::vector<std::map<std::string, std::string>> path_main, double &PNL_total);
+
 #endif
